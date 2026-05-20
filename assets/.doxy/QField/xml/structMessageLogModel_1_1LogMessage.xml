@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structMessageLogModel_1_1LogMessage" kind="struct" language="C++" prot="private">
+    <compoundname>MessageLogModel::LogMessage</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMessageLogModel_1_1LogMessage_1a178404e6ea5bf342d03d9d9890f99261" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString MessageLogModel::LogMessage::tag</definition>
+        <argsstring></argsstring>
+        <name>tag</name>
+        <qualifiedname>MessageLogModel::LogMessage::tag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="45" column="17" bodyfile="src/core/messagelogmodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMessageLogModel_1_1LogMessage_1aea85ea1f22bfeb2301c695b4deaaebfe" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString MessageLogModel::LogMessage::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <qualifiedname>MessageLogModel::LogMessage::message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="46" column="17" bodyfile="src/core/messagelogmodel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMessageLogModel_1_1LogMessage_1a8aeacf8702b28a17a619d10efda3732f" prot="public" static="no" mutable="no">
+        <type>Qgis::MessageLevel</type>
+        <definition>Qgis::MessageLevel MessageLogModel::LogMessage::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <qualifiedname>MessageLogModel::LogMessage::level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="47" column="28" bodyfile="src/core/messagelogmodel.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMessageLogModel_1_1LogMessage_1aef63f13ad471de7367ea8ff0c0bddffc" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString MessageLogModel::LogMessage::datetime</definition>
+        <argsstring></argsstring>
+        <name>datetime</name>
+        <qualifiedname>MessageLogModel::LogMessage::datetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="48" column="17" bodyfile="src/core/messagelogmodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structMessageLogModel_1_1LogMessage_1ab6a76cd302ed04924d66db431c590cb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MessageLogModel::LogMessage::LogMessage</definition>
+        <argsstring>()</argsstring>
+        <name>LogMessage</name>
+        <qualifiedname>MessageLogModel::LogMessage::LogMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="34" column="9" bodyfile="src/core/messagelogmodel.h" bodystart="34" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="structMessageLogModel_1_1LogMessage_1ae22003f36cbec469642e2c3a1350fdae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MessageLogModel::LogMessage::LogMessage</definition>
+        <argsstring>(const QString &amp;tag, const QString &amp;message, Qgis::MessageLevel level)</argsstring>
+        <name>LogMessage</name>
+        <qualifiedname>MessageLogModel::LogMessage::LogMessage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>Qgis::MessageLevel</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/messagelogmodel.h" line="37" column="9" bodyfile="src/core/messagelogmodel.h" bodystart="37" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/messagelogmodel.h" line="32" column="5" bodyfile="src/core/messagelogmodel.h" bodystart="33" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structMessageLogModel_1_1LogMessage_1aef63f13ad471de7367ea8ff0c0bddffc" prot="public" virt="non-virtual"><scope>MessageLogModel::LogMessage</scope><name>datetime</name></member>
+      <member refid="structMessageLogModel_1_1LogMessage_1a8aeacf8702b28a17a619d10efda3732f" prot="public" virt="non-virtual"><scope>MessageLogModel::LogMessage</scope><name>level</name></member>
+      <member refid="structMessageLogModel_1_1LogMessage_1ab6a76cd302ed04924d66db431c590cb7" prot="public" virt="non-virtual"><scope>MessageLogModel::LogMessage</scope><name>LogMessage</name></member>
+      <member refid="structMessageLogModel_1_1LogMessage_1ae22003f36cbec469642e2c3a1350fdae" prot="public" virt="non-virtual"><scope>MessageLogModel::LogMessage</scope><name>LogMessage</name></member>
+      <member refid="structMessageLogModel_1_1LogMessage_1aea85ea1f22bfeb2301c695b4deaaebfe" prot="public" virt="non-virtual"><scope>MessageLogModel::LogMessage</scope><name>message</name></member>
+      <member refid="structMessageLogModel_1_1LogMessage_1a178404e6ea5bf342d03d9d9890f99261" prot="public" virt="non-virtual"><scope>MessageLogModel::LogMessage</scope><name>tag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

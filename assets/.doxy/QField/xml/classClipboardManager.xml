@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classClipboardManager" kind="class" language="C++" prot="public">
+    <compoundname>ClipboardManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="clipboardmanager_8h" local="no">clipboardmanager.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classClipboardManager_1abc8712fd6acc9e0639be7c6f4dd6f6cd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool ClipboardManager::holdsFeature</definition>
+        <argsstring></argsstring>
+        <name>holdsFeature</name>
+        <qualifiedname>ClipboardManager::holdsFeature</qualifiedname>
+        <read>holdsFeature</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="36" column="5" bodyfile="src/core/clipboardmanager.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classClipboardManager_1ae63cd2bf92f9b5235d67093339c7ed68" prot="private" static="no" mutable="no">
+        <type>QClipboard *</type>
+        <definition>QClipboard* ClipboardManager::mClipboard</definition>
+        <argsstring></argsstring>
+        <name>mClipboard</name>
+        <qualifiedname>ClipboardManager::mClipboard</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="88" column="16" bodyfile="src/core/clipboardmanager.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1a1c6994ac7f59ffae30c28c10f08ea2be" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ClipboardManager::mSkipDataChanged</definition>
+        <argsstring></argsstring>
+        <name>mSkipDataChanged</name>
+        <qualifiedname>ClipboardManager::mSkipDataChanged</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="89" column="10" bodyfile="src/core/clipboardmanager.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1afb9b736e250a6f30088e8df5b5643005" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ClipboardManager::mHoldsFeature</definition>
+        <argsstring></argsstring>
+        <name>mHoldsFeature</name>
+        <qualifiedname>ClipboardManager::mHoldsFeature</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="90" column="10" bodyfile="src/core/clipboardmanager.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1a92a23f0bd999f586d7f320e743cbea6a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ClipboardManager::mHasNativeFeature</definition>
+        <argsstring></argsstring>
+        <name>mHasNativeFeature</name>
+        <qualifiedname>ClipboardManager::mHasNativeFeature</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="91" column="10" bodyfile="src/core/clipboardmanager.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1afb581d8bac6df50c156421710b017a11" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* ClipboardManager::mSourceLayer</definition>
+        <argsstring></argsstring>
+        <name>mSourceLayer</name>
+        <qualifiedname>ClipboardManager::mSourceLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="92" column="20" bodyfile="src/core/clipboardmanager.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1adbf1c5b2c8549e1379f95938643c79aa" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ClipboardManager::mIsCutOperation</definition>
+        <argsstring></argsstring>
+        <name>mIsCutOperation</name>
+        <qualifiedname>ClipboardManager::mIsCutOperation</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="93" column="10" bodyfile="src/core/clipboardmanager.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1ae31d1bacc8d19e27e74d16ff61f233a9" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature ClipboardManager::mNativeFeature</definition>
+        <argsstring></argsstring>
+        <name>mNativeFeature</name>
+        <qualifiedname>ClipboardManager::mNativeFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="94" column="16" bodyfile="src/core/clipboardmanager.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClipboardManager_1a2f9b99d70e76bc7a548372dfe0310fd1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ClipboardManager::mHtmlFeature</definition>
+        <argsstring></argsstring>
+        <name>mHtmlFeature</name>
+        <qualifiedname>ClipboardManager::mHtmlFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="95" column="13" bodyfile="src/core/clipboardmanager.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classClipboardManager_1addcbfc9a4b057f9adeef3a986fb5fbeb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ClipboardManager::ClipboardManager</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ClipboardManager</name>
+        <qualifiedname>ClipboardManager::ClipboardManager</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="39" column="14" bodyfile="src/core/clipboardmanager.cpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classClipboardManager_1a2e9c240d5fbcc3c645e51524fd828d82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ClipboardManager::~ClipboardManager</definition>
+        <argsstring>()</argsstring>
+        <name>~ClipboardManager</name>
+        <qualifiedname>ClipboardManager::~ClipboardManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="40" column="5" bodyfile="src/core/clipboardmanager.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classClipboardManager_1afb41dc6c4c80c510df6d9c164048c64a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ClipboardManager::holdsFeature</definition>
+        <argsstring>() const</argsstring>
+        <name>holdsFeature</name>
+        <qualifiedname>ClipboardManager::holdsFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="42" column="10" bodyfile="src/core/clipboardmanager.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classClipboardManager_1a6502fc23baee7d2a506d3e5f4eeae939" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ClipboardManager::copyFeatureToClipboard</definition>
+        <argsstring>(const QgsFeature &amp;feature, bool includeGeometry=false)</argsstring>
+        <name>copyFeatureToClipboard</name>
+        <qualifiedname>ClipboardManager::copyFeatureToClipboard</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>includeGeometry</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copies a feature into the system&apos;s clipboard in both plain text as well as HTML. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the feature from which the attributes will be copied into memory </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>includeGeometry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE when a WKT string representation of the geometry should be included </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="50" column="22" bodyfile="src/core/clipboardmanager.cpp" bodystart="91" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classClipboardManager_1add1eb4b3e21982bd597cbded596dfe76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ClipboardManager::copyFeatureToClipboard</definition>
+        <argsstring>(QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry=false, bool isCutOperation=false)</argsstring>
+        <name>copyFeatureToClipboard</name>
+        <qualifiedname>ClipboardManager::copyFeatureToClipboard</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>includeGeometry</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isCutOperation</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copies a feature into the system&apos;s clipboard in both plain text as well as HTML. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer associated to the feature </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the id of the feature </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>includeGeometry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE when a WKT string representation of the geometry should be included </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isCutOperation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE if this is a cut operation. In that case, when pasting into a different layer, the feature will be deleted from the original layer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="61" column="22" bodyfile="src/core/clipboardmanager.cpp" bodystart="80" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classClipboardManager_1a2aa377c2e8f3b6bd0bf83fb9882d4283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>QgsFeature ClipboardManager::pasteFeatureFromClipboard</definition>
+        <argsstring>()</argsstring>
+        <name>pasteFeatureFromClipboard</name>
+        <qualifiedname>ClipboardManager::pasteFeatureFromClipboard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a feature with attributes and geometry matching clipboard values when a feature has been copied into the clipboard. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="67" column="28" bodyfile="src/core/clipboardmanager.cpp" bodystart="138" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classClipboardManager_1a61653922566ce3d16866564afe1b2798" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool ClipboardManager::pasteFeatureFromClipboardIntoLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>pasteFeatureFromClipboardIntoLayer</name>
+        <qualifiedname>ClipboardManager::pasteFeatureFromClipboardIntoLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pastes the copied feature from the clipboard into the given editable layer. The feature is made compatible with the layer before being inserted. If the feature was previously cut and the destination layer differs from the source, the feature will be deleted from the original layer after paste. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>destination vector layer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TRUE if insertion was successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="77" column="22" bodyfile="src/core/clipboardmanager.cpp" bodystart="189" bodyend="284"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classClipboardManager_1a03b78117065ff239e5fcc8b43693df11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ClipboardManager::holdsFeatureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>holdsFeatureChanged</name>
+        <qualifiedname>ClipboardManager::holdsFeatureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="81" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classClipboardManager_1ab5c84b1efd44dbeee8bc79c379920ee9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ClipboardManager::dataChanged</definition>
+        <argsstring>()</argsstring>
+        <name>dataChanged</name>
+        <qualifiedname>ClipboardManager::dataChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/clipboardmanager.h" line="85" column="10" bodyfile="src/core/clipboardmanager.cpp" bodystart="34" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class handles clipboard operations. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ClipboardManager</label>
+        <link refid="classClipboardManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ClipboardManager</label>
+        <link refid="classClipboardManager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/clipboardmanager.h" line="32" column="1" bodyfile="src/core/clipboardmanager.h" bodystart="33" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classClipboardManager_1addcbfc9a4b057f9adeef3a986fb5fbeb" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>ClipboardManager</name></member>
+      <member refid="classClipboardManager_1a6502fc23baee7d2a506d3e5f4eeae939" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>copyFeatureToClipboard</name></member>
+      <member refid="classClipboardManager_1add1eb4b3e21982bd597cbded596dfe76" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>copyFeatureToClipboard</name></member>
+      <member refid="classClipboardManager_1ab5c84b1efd44dbeee8bc79c379920ee9" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>dataChanged</name></member>
+      <member refid="classClipboardManager_1abc8712fd6acc9e0639be7c6f4dd6f6cd" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>holdsFeature</name></member>
+      <member refid="classClipboardManager_1afb41dc6c4c80c510df6d9c164048c64a" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>holdsFeature</name></member>
+      <member refid="classClipboardManager_1a03b78117065ff239e5fcc8b43693df11" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>holdsFeatureChanged</name></member>
+      <member refid="classClipboardManager_1ae63cd2bf92f9b5235d67093339c7ed68" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mClipboard</name></member>
+      <member refid="classClipboardManager_1a92a23f0bd999f586d7f320e743cbea6a" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mHasNativeFeature</name></member>
+      <member refid="classClipboardManager_1afb9b736e250a6f30088e8df5b5643005" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mHoldsFeature</name></member>
+      <member refid="classClipboardManager_1a2f9b99d70e76bc7a548372dfe0310fd1" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mHtmlFeature</name></member>
+      <member refid="classClipboardManager_1adbf1c5b2c8549e1379f95938643c79aa" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mIsCutOperation</name></member>
+      <member refid="classClipboardManager_1ae31d1bacc8d19e27e74d16ff61f233a9" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mNativeFeature</name></member>
+      <member refid="classClipboardManager_1a1c6994ac7f59ffae30c28c10f08ea2be" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mSkipDataChanged</name></member>
+      <member refid="classClipboardManager_1afb581d8bac6df50c156421710b017a11" prot="private" virt="non-virtual"><scope>ClipboardManager</scope><name>mSourceLayer</name></member>
+      <member refid="classClipboardManager_1a2aa377c2e8f3b6bd0bf83fb9882d4283" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>pasteFeatureFromClipboard</name></member>
+      <member refid="classClipboardManager_1a61653922566ce3d16866564afe1b2798" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>pasteFeatureFromClipboardIntoLayer</name></member>
+      <member refid="classClipboardManager_1a2e9c240d5fbcc3c645e51524fd828d82" prot="public" virt="non-virtual"><scope>ClipboardManager</scope><name>~ClipboardManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

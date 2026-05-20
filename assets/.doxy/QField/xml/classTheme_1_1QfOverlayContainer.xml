@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfOverlayContainer" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfOverlayContainer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <derivedcompoundref refid="classCogoOperationSettings" prot="public" virt="non-virtual">CogoOperationSettings</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfOverlayContainer_1a6bb51f5bfe34f9e02a1c0da7274c07f9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfOverlayContainer::contents</definition>
+        <argsstring></argsstring>
+        <name>contents</name>
+        <qualifiedname>Theme::QfOverlayContainer::contents</qualifiedname>
+        <read>dummyGetter_contents_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="13" column="1" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfOverlayContainer_1a0f012a4e54030e9e1bba6e9d1030787f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfOverlayContainer::layout</definition>
+        <argsstring></argsstring>
+        <name>layout</name>
+        <qualifiedname>Theme::QfOverlayContainer::layout</qualifiedname>
+        <read>dummyGetter_layout_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfOverlayContainer_1a2e606ddbfbcaa587a3c88b82d9b47913" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfOverlayContainer::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>Theme::QfOverlayContainer::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1a3b6fd6c600a7ceda03f1f3d46d19ecc4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfOverlayContainer::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Theme::QfOverlayContainer::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="19" column="5" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1a42df9f372e4fd462bcc44d62cf8ad3c2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfOverlayContainer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfOverlayContainer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="20" column="5" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1a0dc9c8d7b6a8dbc0729f9ea612116448" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfOverlayContainer::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfOverlayContainer::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="21" column="5" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1a677ddf5df98e88b08e9ad6a07dfdf3aa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfOverlayContainer::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Theme::QfOverlayContainer::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="22" column="5" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1ab10618cd2a72808df29bb6a2b44bc531" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfOverlayContainer::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>Theme::QfOverlayContainer::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="23" column="5" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1a81fba2338ed11199554c295e0f92694b" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column Theme::QfOverlayContainer::containerLayout</definition>
+        <argsstring></argsstring>
+        <name>containerLayout</name>
+        <qualifiedname>Theme::QfOverlayContainer::containerLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="24" column="8" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfOverlayContainer_1a0e42b633b0e3f3b2590f69f01f0c63b2" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfOverlayContainer::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>Theme::QfOverlayContainer::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="25" column="6" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CogoOperationSettings</label>
+        <link refid="classCogoOperationSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfOverlayContainer</label>
+        <link refid="classTheme_1_1QfOverlayContainer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfOverlayContainer</label>
+        <link refid="classTheme_1_1QfOverlayContainer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfOverlayContainer.qml" line="9" column="1" bodyfile="src/qml/imports/Theme/QfOverlayContainer.qml" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfOverlayContainer_1ab10618cd2a72808df29bb6a2b44bc531" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>clip</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a0dc9c8d7b6a8dbc0729f9ea612116448" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a81fba2338ed11199554c295e0f92694b" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>containerLayout</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a6bb51f5bfe34f9e02a1c0da7274c07f9" prot="public" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>contents</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a42df9f372e4fd462bcc44d62cf8ad3c2" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a0f012a4e54030e9e1bba6e9d1030787f" prot="public" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>layout</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a677ddf5df98e88b08e9ad6a07dfdf3aa" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>radius</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a2e606ddbfbcaa587a3c88b82d9b47913" prot="public" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>title</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a0e42b633b0e3f3b2590f69f01f0c63b2" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>title</name></member>
+      <member refid="classTheme_1_1QfOverlayContainer_1a3b6fd6c600a7ceda03f1f3d46d19ecc4" prot="private" virt="non-virtual"><scope>Theme::QfOverlayContainer</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

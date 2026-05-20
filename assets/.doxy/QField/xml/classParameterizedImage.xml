@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classParameterizedImage" kind="class" language="C++" prot="public">
+    <compoundname>ParameterizedImage</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickPaintedItem</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classParameterizedImage_1ab5f896c49f506ce3fd30ce88e9039733" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ParameterizedImage::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>ParameterizedImage::source</qualifiedname>
+        <read>source</read>
+        <write>setSource</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The source image. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="35" column="5" bodyfile="src/core/parameterizedimage.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classParameterizedImage_1a36ea8a9aa3c655a92c38ee1aa8632c4e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor ParameterizedImage::fillColor</definition>
+        <argsstring></argsstring>
+        <name>fillColor</name>
+        <qualifiedname>ParameterizedImage::fillColor</qualifiedname>
+        <read>fillColor</read>
+        <write>setFillColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The fill color used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="41" column="5" bodyfile="src/core/parameterizedimage.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classParameterizedImage_1aa40332aa805ae228463da4725823ad0a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor ParameterizedImage::strokeColor</definition>
+        <argsstring></argsstring>
+        <name>strokeColor</name>
+        <qualifiedname>ParameterizedImage::strokeColor</qualifiedname>
+        <read>strokeColor</read>
+        <write>setStrokeColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stroke color used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="47" column="5" bodyfile="src/core/parameterizedimage.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classParameterizedImage_1a737440cad957906088af111e07eef4b0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double ParameterizedImage::strokeWidth</definition>
+        <argsstring></argsstring>
+        <name>strokeWidth</name>
+        <qualifiedname>ParameterizedImage::strokeWidth</qualifiedname>
+        <read>strokeWidth</read>
+        <write>setStrokeWidth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stroke width used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="53" column="5" bodyfile="src/core/parameterizedimage.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classParameterizedImage_1ac4b4a68322d3d616bde2f3347f2d4445" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap ParameterizedImage::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <qualifiedname>ParameterizedImage::parameters</qualifiedname>
+        <read>parameters</read>
+        <write>setParameters</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameters used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="59" column="5" bodyfile="src/core/parameterizedimage.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classParameterizedImage_1a6459b0442e17363e366ed7e856189bf0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ParameterizedImage::mIsValid</definition>
+        <argsstring></argsstring>
+        <name>mIsValid</name>
+        <qualifiedname>ParameterizedImage::mIsValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="101" column="10" bodyfile="src/core/parameterizedimage.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1a03cad7265ed758ac9f4d077e62db6a7f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ParameterizedImage::mIsRaster</definition>
+        <argsstring></argsstring>
+        <name>mIsRaster</name>
+        <qualifiedname>ParameterizedImage::mIsRaster</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="102" column="10" bodyfile="src/core/parameterizedimage.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1a8501fad76552afce54ad35f04edc913e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ParameterizedImage::mSource</definition>
+        <argsstring></argsstring>
+        <name>mSource</name>
+        <qualifiedname>ParameterizedImage::mSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="104" column="13" bodyfile="src/core/parameterizedimage.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1aafe7af86d4d3a48931e37eb4c98fe857" prot="private" static="no" mutable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF ParameterizedImage::mSourceSize</definition>
+        <argsstring></argsstring>
+        <name>mSourceSize</name>
+        <qualifiedname>ParameterizedImage::mSourceSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="105" column="12" bodyfile="src/core/parameterizedimage.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1a698ad776a8b4a54ec00435d87d643507" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor ParameterizedImage::mFillColor</definition>
+        <argsstring></argsstring>
+        <name>mFillColor</name>
+        <qualifiedname>ParameterizedImage::mFillColor</qualifiedname>
+        <initializer>= QColor( 0, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="107" column="12" bodyfile="src/core/parameterizedimage.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1ab33d60ec52eabccde087d177b480abd4" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor ParameterizedImage::mStrokeColor</definition>
+        <argsstring></argsstring>
+        <name>mStrokeColor</name>
+        <qualifiedname>ParameterizedImage::mStrokeColor</qualifiedname>
+        <initializer>= QColor( 255, 255, 255 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="108" column="12" bodyfile="src/core/parameterizedimage.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1a1f8d9e4f8ac15a4e8fe176e983b25281" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ParameterizedImage::mStrokeWidth</definition>
+        <argsstring></argsstring>
+        <name>mStrokeWidth</name>
+        <qualifiedname>ParameterizedImage::mStrokeWidth</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="109" column="12" bodyfile="src/core/parameterizedimage.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1a5ca9ee1b624c4b631b046c0593c64fc1" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap ParameterizedImage::mParameters</definition>
+        <argsstring></argsstring>
+        <name>mParameters</name>
+        <qualifiedname>ParameterizedImage::mParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="111" column="17" bodyfile="src/core/parameterizedimage.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classParameterizedImage_1afacbf5f8a39bc1487c767915433d2a45" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt;QString, QString&gt; ParameterizedImage::mPreparedParameters</definition>
+        <argsstring></argsstring>
+        <name>mPreparedParameters</name>
+        <qualifiedname>ParameterizedImage::mPreparedParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="112" column="10" bodyfile="src/core/parameterizedimage.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classParameterizedImage_1a7a8677ddd68249c31efd27d3d4d77afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParameterizedImage::ParameterizedImage</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>ParameterizedImage</name>
+        <qualifiedname>ParameterizedImage::ParameterizedImage</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="62" column="5" bodyfile="src/core/parameterizedimage.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1a182c58894a5f9f9586664bbdda2726e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParameterizedImage::~ParameterizedImage</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ParameterizedImage</name>
+        <qualifiedname>ParameterizedImage::~ParameterizedImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="63" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1ae9dcb657aae62563e2d504cd233fbfb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::paint</definition>
+        <argsstring>(QPainter *painter) override</argsstring>
+        <name>paint</name>
+        <qualifiedname>ParameterizedImage::paint</qualifiedname>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="65" column="10" bodyfile="src/core/parameterizedimage.cpp" bodystart="141" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1abbe4ce65cb065d6f31900cdaa2b799dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ParameterizedImage::source</definition>
+        <argsstring>() const</argsstring>
+        <name>source</name>
+        <qualifiedname>ParameterizedImage::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The source image.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="68" column="13" bodyfile="src/core/parameterizedimage.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1a1b1d5fb2eecc52d5b535949f5ba608b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::setSource</definition>
+        <argsstring>(const QString &amp;source)</argsstring>
+        <name>setSource</name>
+        <qualifiedname>ParameterizedImage::setSource</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The source image.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="70" column="10" bodyfile="src/core/parameterizedimage.cpp" bodystart="36" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1a1c7bd841ea9e81fa27beae2ae8273e63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor ParameterizedImage::fillColor</definition>
+        <argsstring>() const</argsstring>
+        <name>fillColor</name>
+        <qualifiedname>ParameterizedImage::fillColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The fill color used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="73" column="12" bodyfile="src/core/parameterizedimage.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1a41f0ba415246b444ceb9ce98e66cd1b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::setFillColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setFillColor</name>
+        <qualifiedname>ParameterizedImage::setFillColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The fill color used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="75" column="10" bodyfile="src/core/parameterizedimage.cpp" bodystart="69" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1a9a07cc197dc3be99f2f3d174fddb563c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor ParameterizedImage::strokeColor</definition>
+        <argsstring>() const</argsstring>
+        <name>strokeColor</name>
+        <qualifiedname>ParameterizedImage::strokeColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stroke color used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="78" column="12" bodyfile="src/core/parameterizedimage.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1af8e3d9e497d08af33815d6e422ff5a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::setStrokeColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setStrokeColor</name>
+        <qualifiedname>ParameterizedImage::setStrokeColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stroke color used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="80" column="10" bodyfile="src/core/parameterizedimage.cpp" bodystart="86" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1ae0aeea847cb76e40c48e914c6e252ceb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParameterizedImage::strokeWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>strokeWidth</name>
+        <qualifiedname>ParameterizedImage::strokeWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stroke width used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="83" column="12" bodyfile="src/core/parameterizedimage.cpp" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1a707e58102a4ec3a5583dd5edcde1bd3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::setStrokeWidth</definition>
+        <argsstring>(double width)</argsstring>
+        <name>setStrokeWidth</name>
+        <qualifiedname>ParameterizedImage::setStrokeWidth</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stroke width used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="85" column="10" bodyfile="src/core/parameterizedimage.cpp" bodystart="103" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1ac5cf329d023764984192189639f7b28b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap ParameterizedImage::parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>parameters</name>
+        <qualifiedname>ParameterizedImage::parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameters used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="88" column="17" bodyfile="src/core/parameterizedimage.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classParameterizedImage_1ab10d89305c7da7402aba62120c1b3ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::setParameters</definition>
+        <argsstring>(const QVariantMap &amp;parameters)</argsstring>
+        <name>setParameters</name>
+        <qualifiedname>ParameterizedImage::setParameters</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameters used to paint an image. <simplesect kind="note"><para>Compatible with parameterized SVG images only.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="91" column="10" bodyfile="src/core/parameterizedimage.cpp" bodystart="120" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classParameterizedImage_1adc2e3027e0b67944915e697fa3821d73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::sourceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sourceChanged</name>
+        <qualifiedname>ParameterizedImage::sourceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="94" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classParameterizedImage_1a6d1799995e41c1609049fcaf257f3c3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::fillColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>fillColorChanged</name>
+        <qualifiedname>ParameterizedImage::fillColorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classParameterizedImage_1a365d2975c52013a882a2d7fabd789862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::strokeColorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>strokeColorChanged</name>
+        <qualifiedname>ParameterizedImage::strokeColorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="96" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classParameterizedImage_1a865c5384890df65930563fd7d87cef39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::strokeWidthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>strokeWidthChanged</name>
+        <qualifiedname>ParameterizedImage::strokeWidthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="97" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classParameterizedImage_1af9c06500d1052da72fe75b3cc27ef540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParameterizedImage::parametersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>parametersChanged</name>
+        <qualifiedname>ParameterizedImage::parametersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/parameterizedimage.h" line="98" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ParameterizedImage</label>
+        <link refid="classParameterizedImage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickPaintedItem</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ParameterizedImage</label>
+        <link refid="classParameterizedImage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickPaintedItem</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/parameterizedimage.h" line="28" column="1" bodyfile="src/core/parameterizedimage.h" bodystart="29" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classParameterizedImage_1a36ea8a9aa3c655a92c38ee1aa8632c4e" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>fillColor</name></member>
+      <member refid="classParameterizedImage_1a1c7bd841ea9e81fa27beae2ae8273e63" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>fillColor</name></member>
+      <member refid="classParameterizedImage_1a6d1799995e41c1609049fcaf257f3c3f" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>fillColorChanged</name></member>
+      <member refid="classParameterizedImage_1a698ad776a8b4a54ec00435d87d643507" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mFillColor</name></member>
+      <member refid="classParameterizedImage_1a03cad7265ed758ac9f4d077e62db6a7f" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mIsRaster</name></member>
+      <member refid="classParameterizedImage_1a6459b0442e17363e366ed7e856189bf0" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mIsValid</name></member>
+      <member refid="classParameterizedImage_1a5ca9ee1b624c4b631b046c0593c64fc1" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mParameters</name></member>
+      <member refid="classParameterizedImage_1afacbf5f8a39bc1487c767915433d2a45" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mPreparedParameters</name></member>
+      <member refid="classParameterizedImage_1a8501fad76552afce54ad35f04edc913e" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mSource</name></member>
+      <member refid="classParameterizedImage_1aafe7af86d4d3a48931e37eb4c98fe857" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mSourceSize</name></member>
+      <member refid="classParameterizedImage_1ab33d60ec52eabccde087d177b480abd4" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mStrokeColor</name></member>
+      <member refid="classParameterizedImage_1a1f8d9e4f8ac15a4e8fe176e983b25281" prot="private" virt="non-virtual"><scope>ParameterizedImage</scope><name>mStrokeWidth</name></member>
+      <member refid="classParameterizedImage_1ae9dcb657aae62563e2d504cd233fbfb5" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>paint</name></member>
+      <member refid="classParameterizedImage_1a7a8677ddd68249c31efd27d3d4d77afa" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>ParameterizedImage</name></member>
+      <member refid="classParameterizedImage_1ac4b4a68322d3d616bde2f3347f2d4445" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>parameters</name></member>
+      <member refid="classParameterizedImage_1ac5cf329d023764984192189639f7b28b" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>parameters</name></member>
+      <member refid="classParameterizedImage_1af9c06500d1052da72fe75b3cc27ef540" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>parametersChanged</name></member>
+      <member refid="classParameterizedImage_1a41f0ba415246b444ceb9ce98e66cd1b4" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>setFillColor</name></member>
+      <member refid="classParameterizedImage_1ab10d89305c7da7402aba62120c1b3ec3" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>setParameters</name></member>
+      <member refid="classParameterizedImage_1a1b1d5fb2eecc52d5b535949f5ba608b3" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>setSource</name></member>
+      <member refid="classParameterizedImage_1af8e3d9e497d08af33815d6e422ff5a1a" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>setStrokeColor</name></member>
+      <member refid="classParameterizedImage_1a707e58102a4ec3a5583dd5edcde1bd3d" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>setStrokeWidth</name></member>
+      <member refid="classParameterizedImage_1ab5f896c49f506ce3fd30ce88e9039733" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>source</name></member>
+      <member refid="classParameterizedImage_1abbe4ce65cb065d6f31900cdaa2b799dc" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>source</name></member>
+      <member refid="classParameterizedImage_1adc2e3027e0b67944915e697fa3821d73" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>sourceChanged</name></member>
+      <member refid="classParameterizedImage_1aa40332aa805ae228463da4725823ad0a" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>strokeColor</name></member>
+      <member refid="classParameterizedImage_1a9a07cc197dc3be99f2f3d174fddb563c" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>strokeColor</name></member>
+      <member refid="classParameterizedImage_1a365d2975c52013a882a2d7fabd789862" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>strokeColorChanged</name></member>
+      <member refid="classParameterizedImage_1a737440cad957906088af111e07eef4b0" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>strokeWidth</name></member>
+      <member refid="classParameterizedImage_1ae0aeea847cb76e40c48e914c6e252ceb" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>strokeWidth</name></member>
+      <member refid="classParameterizedImage_1a865c5384890df65930563fd7d87cef39" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>strokeWidthChanged</name></member>
+      <member refid="classParameterizedImage_1a182c58894a5f9f9586664bbdda2726e7" prot="public" virt="non-virtual"><scope>ParameterizedImage</scope><name>~ParameterizedImage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

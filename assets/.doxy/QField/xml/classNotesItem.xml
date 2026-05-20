@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNotesItem" kind="class" language="C++" prot="public">
+    <compoundname>NotesItem</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNotesItem_1a2bb214fc52a1dffe45aa415c789a722a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias NotesItem::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>NotesItem::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="13" column="1" bodyfile="src/qml/NotesItem.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNotesItem_1a06cf87c473880c8c945cd1c09cf6753b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias NotesItem::notes</definition>
+        <argsstring></argsstring>
+        <name>notes</name>
+        <qualifiedname>NotesItem::notes</qualifiedname>
+        <read>dummyGetter_notes_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="15" column="1" bodyfile="src/qml/NotesItem.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNotesItem_1ac4ad4c8af701dad66f5072d3fe98e640" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>NotesItem::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="17" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1a7cefc303e23c2699bb952ceb3bd7aaf1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>NotesItem::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="18" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1a26626b3c99e5577ca13f4278f014f869" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>NotesItem::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="19" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1aba6e59c6b8c9e0c19835a88de88d49ca" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>NotesItem::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="20" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1a0688723951f01c7ae640c454edabab96" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>NotesItem::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="21" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1aec21d61d9ab6fdad0dfe95e24a4f462b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>NotesItem::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="22" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1a9826ba3909220077826d7ef10cd82d32" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var NotesItem::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>NotesItem::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="23" column="5" bodyfile="src/qml/NotesItem.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1a4302443a5584f87eac1ec9e8642890f3" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page NotesItem::popupContent</definition>
+        <argsstring></argsstring>
+        <name>popupContent</name>
+        <qualifiedname>NotesItem::popupContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="24" column="6" bodyfile="src/qml/NotesItem.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1ab6a59c14b2b21793276896aa8a0bb462" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout NotesItem::popupLayout</definition>
+        <argsstring></argsstring>
+        <name>popupLayout</name>
+        <qualifiedname>NotesItem::popupLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="25" column="14" bodyfile="src/qml/NotesItem.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNotesItem_1abbba5a353813061b66260fe7a5306a45" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text NotesItem::notesText</definition>
+        <argsstring></argsstring>
+        <name>notesText</name>
+        <qualifiedname>NotesItem::notesText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NotesItem.qml" line="26" column="6" bodyfile="src/qml/NotesItem.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NotesItem</label>
+        <link refid="classNotesItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NotesItem</label>
+        <link refid="classNotesItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/NotesItem.qml" line="10" column="1" bodyfile="src/qml/NotesItem.qml" bodystart="10" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classNotesItem_1aec21d61d9ab6fdad0dfe95e24a4f462b" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>closePolicy</name></member>
+      <member refid="classNotesItem_1a9826ba3909220077826d7ef10cd82d32" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>focus</name></member>
+      <member refid="classNotesItem_1a26626b3c99e5577ca13f4278f014f869" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>height</name></member>
+      <member refid="classNotesItem_1a06cf87c473880c8c945cd1c09cf6753b" prot="public" virt="non-virtual"><scope>NotesItem</scope><name>notes</name></member>
+      <member refid="classNotesItem_1abbba5a353813061b66260fe7a5306a45" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>notesText</name></member>
+      <member refid="classNotesItem_1ac4ad4c8af701dad66f5072d3fe98e640" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>parent</name></member>
+      <member refid="classNotesItem_1a4302443a5584f87eac1ec9e8642890f3" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>popupContent</name></member>
+      <member refid="classNotesItem_1ab6a59c14b2b21793276896aa8a0bb462" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>popupLayout</name></member>
+      <member refid="classNotesItem_1a2bb214fc52a1dffe45aa415c789a722a" prot="public" virt="non-virtual"><scope>NotesItem</scope><name>title</name></member>
+      <member refid="classNotesItem_1a7cefc303e23c2699bb952ceb3bd7aaf1" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>width</name></member>
+      <member refid="classNotesItem_1aba6e59c6b8c9e0c19835a88de88d49ca" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>x</name></member>
+      <member refid="classNotesItem_1a0688723951f01c7ae640c454edabab96" prot="private" virt="non-virtual"><scope>NotesItem</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

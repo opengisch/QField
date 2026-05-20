@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a8053b3d69cfefb2b2e6ec7bf9dd5c1a" kind="dir">
+    <compoundname>src/core/utils</compoundname>
+    <innerfile refid="coordinatereferencesystemutils_8cpp">coordinatereferencesystemutils.cpp</innerfile>
+    <innerfile refid="coordinatereferencesystemutils_8h">coordinatereferencesystemutils.h</innerfile>
+    <innerfile refid="expressioncontextutils_8cpp">expressioncontextutils.cpp</innerfile>
+    <innerfile refid="expressioncontextutils_8h">expressioncontextutils.h</innerfile>
+    <innerfile refid="featureutils_8cpp">featureutils.cpp</innerfile>
+    <innerfile refid="featureutils_8h">featureutils.h</innerfile>
+    <innerfile refid="fileutils_8cpp">fileutils.cpp</innerfile>
+    <innerfile refid="fileutils_8h">fileutils.h</innerfile>
+    <innerfile refid="geometryutils_8cpp">geometryutils.cpp</innerfile>
+    <innerfile refid="geometryutils_8h">geometryutils.h</innerfile>
+    <innerfile refid="layerutils_8cpp">layerutils.cpp</innerfile>
+    <innerfile refid="layerutils_8h">layerutils.h</innerfile>
+    <innerfile refid="positioningutils_8cpp">positioningutils.cpp</innerfile>
+    <innerfile refid="positioningutils_8h">positioningutils.h</innerfile>
+    <innerfile refid="processingutils_8cpp">processingutils.cpp</innerfile>
+    <innerfile refid="processingutils_8h">processingutils.h</innerfile>
+    <innerfile refid="projectutils_8cpp">projectutils.cpp</innerfile>
+    <innerfile refid="projectutils_8h">projectutils.h</innerfile>
+    <innerfile refid="qfieldcloudutils_8cpp">qfieldcloudutils.cpp</innerfile>
+    <innerfile refid="qfieldcloudutils_8h">qfieldcloudutils.h</innerfile>
+    <innerfile refid="relationutils_8cpp">relationutils.cpp</innerfile>
+    <innerfile refid="relationutils_8h">relationutils.h</innerfile>
+    <innerfile refid="snappingutils_8cpp">snappingutils.cpp</innerfile>
+    <innerfile refid="snappingutils_8h">snappingutils.h</innerfile>
+    <innerfile refid="stringutils_8cpp">stringutils.cpp</innerfile>
+    <innerfile refid="stringutils_8h">stringutils.h</innerfile>
+    <innerfile refid="urlutils_8cpp">urlutils.cpp</innerfile>
+    <innerfile refid="urlutils_8h">urlutils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLegend" kind="class" language="C++" prot="public">
+    <compoundname>Legend</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ListView</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLegend_1a95b42fc77883e2cecc40dfe2dd7ef56b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Legend::isVisible</definition>
+        <argsstring></argsstring>
+        <name>isVisible</name>
+        <qualifiedname>Legend::isVisible</qualifiedname>
+        <read>dummyGetter_isVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="15" column="1" bodyfile="src/qml/Legend.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLegend_1a7691e0a39a01c0bfc255c8afd5f606bc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>VectorLayer</type>
+        <definition>VectorLayer Legend::activeLayer</definition>
+        <argsstring></argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>Legend::activeLayer</qualifiedname>
+        <read>dummyGetter_activeLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="17" column="1" bodyfile="src/qml/Legend.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLegend_1ae39782f3f45403a1b4fe627f76f3689c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Legend::allowActiveLayerChange</definition>
+        <argsstring></argsstring>
+        <name>allowActiveLayerChange</name>
+        <qualifiedname>Legend::allowActiveLayerChange</qualifiedname>
+        <read>dummyGetter_allowActiveLayerChange_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="19" column="1" bodyfile="src/qml/Legend.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLegend_1a22ad13345588aaab62d9d984019a0f81" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Legend::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>Legend::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="21" column="5" bodyfile="src/qml/Legend.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1a1142736c534ae3fcc803122779d05432" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Legend::flickableDirection</definition>
+        <argsstring></argsstring>
+        <name>flickableDirection</name>
+        <qualifiedname>Legend::flickableDirection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="22" column="5" bodyfile="src/qml/Legend.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1ab5bee4a50d84de354cb73ec781637a59" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Legend::boundsBehavior</definition>
+        <argsstring></argsstring>
+        <name>boundsBehavior</name>
+        <qualifiedname>Legend::boundsBehavior</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="23" column="5" bodyfile="src/qml/Legend.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1a1df3c0460defbc9956f6e6baa435dba9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Legend::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>Legend::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="24" column="5" bodyfile="src/qml/Legend.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1a49722b05dd305265811e001716db90c5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Legend::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>Legend::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="25" column="5" bodyfile="src/qml/Legend.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1a3f4fa481f6c5db7430b6918fb89338f6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Legend::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>Legend::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="30" column="5" bodyfile="src/qml/Legend.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1aa7161fab6ea427736edce4fd3cc66653" prot="private" static="no" mutable="no">
+        <type><ref refid="classLayerTreeItemProperties" kindref="compound">LayerTreeItemProperties</ref></type>
+        <definition>LayerTreeItemProperties Legend::itemProperties</definition>
+        <argsstring></argsstring>
+        <name>itemProperties</name>
+        <qualifiedname>Legend::itemProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="31" column="25" bodyfile="src/qml/Legend.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLegend_1ac307a0055c8fa43c798c4234f878057f" prot="private" static="no" mutable="no">
+        <type><ref refid="classNotesItem" kindref="compound">NotesItem</ref></type>
+        <definition>NotesItem Legend::notesItem</definition>
+        <argsstring></argsstring>
+        <name>notesItem</name>
+        <qualifiedname>Legend::notesItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="32" column="11" bodyfile="src/qml/Legend.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLegend_1ac3bf80b6febb52456f874bd44d868cf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Legend::openProperties</definition>
+        <argsstring>(index)</argsstring>
+        <name>openProperties</name>
+        <qualifiedname>Legend::openProperties</qualifiedname>
+        <param>
+          <type>index</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Legend.qml" line="28" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Legend</label>
+        <link refid="classLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Legend</label>
+        <link refid="classLegend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ListView</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/Legend.qml" line="12" column="1" bodyfile="src/qml/Legend.qml" bodystart="12" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classLegend_1a7691e0a39a01c0bfc255c8afd5f606bc" prot="public" virt="non-virtual"><scope>Legend</scope><name>activeLayer</name></member>
+      <member refid="classLegend_1ae39782f3f45403a1b4fe627f76f3689c" prot="public" virt="non-virtual"><scope>Legend</scope><name>allowActiveLayerChange</name></member>
+      <member refid="classLegend_1ab5bee4a50d84de354cb73ec781637a59" prot="private" virt="non-virtual"><scope>Legend</scope><name>boundsBehavior</name></member>
+      <member refid="classLegend_1a1df3c0460defbc9956f6e6baa435dba9" prot="private" virt="non-virtual"><scope>Legend</scope><name>clip</name></member>
+      <member refid="classLegend_1a3f4fa481f6c5db7430b6918fb89338f6" prot="private" virt="non-virtual"><scope>Legend</scope><name>delegate</name></member>
+      <member refid="classLegend_1a1142736c534ae3fcc803122779d05432" prot="private" virt="non-virtual"><scope>Legend</scope><name>flickableDirection</name></member>
+      <member refid="classLegend_1a95b42fc77883e2cecc40dfe2dd7ef56b" prot="public" virt="non-virtual"><scope>Legend</scope><name>isVisible</name></member>
+      <member refid="classLegend_1aa7161fab6ea427736edce4fd3cc66653" prot="private" virt="non-virtual"><scope>Legend</scope><name>itemProperties</name></member>
+      <member refid="classLegend_1a22ad13345588aaab62d9d984019a0f81" prot="private" virt="non-virtual"><scope>Legend</scope><name>model</name></member>
+      <member refid="classLegend_1ac307a0055c8fa43c798c4234f878057f" prot="private" virt="non-virtual"><scope>Legend</scope><name>notesItem</name></member>
+      <member refid="classLegend_1ac3bf80b6febb52456f874bd44d868cf4" prot="public" virt="non-virtual"><scope>Legend</scope><name>openProperties</name></member>
+      <member refid="classLegend_1a49722b05dd305265811e001716db90c5" prot="private" virt="non-virtual"><scope>Legend</scope><name>spacing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

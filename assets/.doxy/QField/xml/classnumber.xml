@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classnumber" kind="class" language="C++" prot="public">
+    <compoundname>number</compoundname>
+    <basecompoundref refid="classProcessingParameterWidgetBase" prot="public" virt="non-virtual">ProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classnumber_1af98cc07c2dd821b2da7964c05e991848" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real number::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>number::step</qualifiedname>
+        <read>dummyGetter_step_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="9" column="1" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classnumber_1ab25c61024e01d4e6be1dd0b2f9faf162" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real number::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>number::min</qualifiedname>
+        <read>dummyGetter_min_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="11" column="1" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classnumber_1a45ebb5deeea14512f22354c355a33857" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real number::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>number::max</qualifiedname>
+        <read>dummyGetter_max_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="13" column="1" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classnumber_1a1ff327abc7b4f061d449a403f267db01" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool number::isDouble</definition>
+        <argsstring></argsstring>
+        <name>isDouble</name>
+        <qualifiedname>number::isDouble</qualifiedname>
+        <read>dummyGetter_isDouble_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="15" column="1" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnumber_1a85e9df59846abc27b8e4391e989ae357" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var number::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>number::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="17" column="5" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1a5109ac1a514040a24f584a04d991438c" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField number::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>number::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="18" column="13" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1a5a09acb13e977dc55fa13340e09cc0fb" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton number::decreaseButton</definition>
+        <argsstring></argsstring>
+        <name>decreaseButton</name>
+        <qualifiedname>number::decreaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="19" column="14" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1a3ad0a6c9eb0c6f859a87db3386f2f8f9" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton number::increaseButton</definition>
+        <argsstring></argsstring>
+        <name>increaseButton</name>
+        <qualifiedname>number::increaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="20" column="14" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1abc9e21cdf0797a901dc3e1094ce2edf7" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer number::changeValueTimer</definition>
+        <argsstring></argsstring>
+        <name>changeValueTimer</name>
+        <qualifiedname>number::changeValueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="21" column="7" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1a96ee886bea814bf59b766cb093179012" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics number::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>number::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="26" column="13" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1a08a8e89ce7fc20eaf3facd89084c91c6" prot="private" static="no" mutable="no">
+        <type>IntValidator</type>
+        <definition>IntValidator number::intValidator</definition>
+        <argsstring></argsstring>
+        <name>intValidator</name>
+        <qualifiedname>number::intValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="27" column="14" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnumber_1aea3703ed3d55d45cc85cba2383f0ddac" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator number::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>number::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="28" column="17" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnumber_1a84403b9fbd45c9662bf1ad46bb83f371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void number::adjustValue</definition>
+        <argsstring>(direction)</argsstring>
+        <name>adjustValue</name>
+        <qualifiedname>number::adjustValue</qualifiedname>
+        <param>
+          <type>direction</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/number.qml" line="24" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>number</label>
+        <link refid="classnumber"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>number</label>
+        <link refid="classnumber"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/processingparameterwidgets/number.qml" line="6" column="1" bodyfile="src/qml/processingparameterwidgets/number.qml" bodystart="6" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classnumber_1a84403b9fbd45c9662bf1ad46bb83f371" prot="public" virt="non-virtual"><scope>number</scope><name>adjustValue</name></member>
+      <member refid="classnumber_1abc9e21cdf0797a901dc3e1094ce2edf7" prot="private" virt="non-virtual"><scope>number</scope><name>changeValueTimer</name></member>
+      <member refid="classnumber_1a5a09acb13e977dc55fa13340e09cc0fb" prot="private" virt="non-virtual"><scope>number</scope><name>decreaseButton</name></member>
+      <member refid="classnumber_1aea3703ed3d55d45cc85cba2383f0ddac" prot="private" virt="non-virtual"><scope>number</scope><name>doubleValidator</name></member>
+      <member refid="classnumber_1a96ee886bea814bf59b766cb093179012" prot="private" virt="non-virtual"><scope>number</scope><name>fontMetrics</name></member>
+      <member refid="classnumber_1a85e9df59846abc27b8e4391e989ae357" prot="private" virt="non-virtual"><scope>number</scope><name>height</name></member>
+      <member refid="classnumber_1a3ad0a6c9eb0c6f859a87db3386f2f8f9" prot="private" virt="non-virtual"><scope>number</scope><name>increaseButton</name></member>
+      <member refid="classnumber_1a08a8e89ce7fc20eaf3facd89084c91c6" prot="private" virt="non-virtual"><scope>number</scope><name>intValidator</name></member>
+      <member refid="classnumber_1a1ff327abc7b4f061d449a403f267db01" prot="public" virt="non-virtual"><scope>number</scope><name>isDouble</name></member>
+      <member refid="classnumber_1a45ebb5deeea14512f22354c355a33857" prot="public" virt="non-virtual"><scope>number</scope><name>max</name></member>
+      <member refid="classnumber_1ab25c61024e01d4e6be1dd0b2f9faf162" prot="public" virt="non-virtual"><scope>number</scope><name>min</name></member>
+      <member refid="classnumber_1af98cc07c2dd821b2da7964c05e991848" prot="public" virt="non-virtual"><scope>number</scope><name>step</name></member>
+      <member refid="classnumber_1a5109ac1a514040a24f584a04d991438c" prot="private" virt="non-virtual"><scope>number</scope><name>textField</name></member>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual"><scope>number</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

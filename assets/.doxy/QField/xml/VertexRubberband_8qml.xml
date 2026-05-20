@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="VertexRubberband_8qml" kind="file" language="C++">
+    <compoundname>VertexRubberband.qml</compoundname>
+    <innerclass refid="classVertexRubberband" prot="public">VertexRubberband</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQml</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qgis</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>Theme</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">Repeater<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>id:<sp/>vertexRubberband</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>MapSettings<sp/>mapSettings</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>isVisible:<sp/>false</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>isCycling:<sp/>model.currentVertexIndex<sp/>!==<sp/>-1</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>isAddingVertex:<sp/>model.editingMode<sp/>===<sp/>VertexModel.AddVertex</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>delegate:<sp/>Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>MapToScreen<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>mapToScreen</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mapSettings:<sp/>vertexRubberband.mapSettings</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mapPoint:<sp/>Point</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>visible:<sp/>vertexRubberband.isVisible</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>x:<sp/>mapToScreen.screenPoint.x<sp/>-<sp/>width<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>y:<sp/>mapToScreen.screenPoint.y<sp/>-<sp/>width<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>opacity:<sp/>!isCycling<sp/>||<sp/>(isAddingVertex<sp/>&amp;&amp;<sp/>!ExistingVertex)<sp/>||<sp/>(!isAddingVertex<sp/>&amp;&amp;<sp/>ExistingVertex)<sp/>?<sp/>1.0<sp/>:<sp/>0.25</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>width:<sp/>((isAddingVertex<sp/>&amp;&amp;<sp/>!ExistingVertex)<sp/>||<sp/>(!isAddingVertex<sp/>&amp;&amp;<sp/>ExistingVertex)<sp/>?<sp/>16<sp/>:<sp/>8)<sp/>*<sp/>(CurrentVertex<sp/>?<sp/>1.33<sp/>:<sp/>1)<sp/>/<sp/>(rotation<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>1.25)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>height:<sp/>width</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>radius:<sp/>ExistingVertex<sp/>?<sp/>width<sp/>/<sp/>2<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>rotation:<sp/>ExistingVertex<sp/>?<sp/>0<sp/>:<sp/>45</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>&quot;transparent&quot;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.fill:<sp/>parent</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>radius:<sp/>ExistingVertex<sp/>?<sp/>width<sp/>/<sp/>2<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/></highlight><highlight class="stringliteral">&quot;transparent&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>border.color:<sp/></highlight><highlight class="stringliteral">&quot;#90FFFFFF&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>border.width:<sp/>(<ref refid="classVertexModel" kindref="compound">VertexModel</ref>.ExistingVertex<sp/>?<sp/>4<sp/>:<sp/>2)<sp/>*<sp/>(CurrentVertex<sp/>?<sp/>1.5<sp/>:<sp/>1)<sp/>+<sp/>2</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.fill:<sp/>parent</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchors.margins:<sp/>1</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>radius:<sp/>ExistingVertex<sp/>?<sp/>width<sp/>/<sp/>2<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/>CurrentVertex<sp/>?<sp/>isAddingVertex<sp/>?<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.vertexNewColorSemiOpaque<sp/>:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.vertexSelectedColorSemiOpaque<sp/>:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.vertexColorSemiOpaque</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>border.color:<sp/>CurrentVertex<sp/>?<sp/>isAddingVertex<sp/>?<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.vertexNewColor<sp/>:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.vertexSelectedColor<sp/>:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.vertexColor</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>border.width:<sp/>(<ref refid="classVertexModel" kindref="compound">VertexModel</ref>.ExistingVertex<sp/>?<sp/>4<sp/>:<sp/>2)<sp/>*<sp/>(CurrentVertex<sp/>?<sp/>1.5<sp/>:<sp/>1)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/VertexRubberband.qml"/>
+  </compounddef>
+</doxygen>

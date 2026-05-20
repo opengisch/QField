@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfMenu" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfMenu</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Menu</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfMenu_1ab1a1817d2a0e7461ec45d882aa5b3465" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfMenu::paddingMultiplier</definition>
+        <argsstring></argsstring>
+        <name>paddingMultiplier</name>
+        <qualifiedname>Theme::QfMenu::paddingMultiplier</qualifiedname>
+        <read>dummyGetter_paddingMultiplier_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfMenu.qml" line="12" column="1" bodyfile="src/qml/imports/Theme/QfMenu.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfMenu_1a6a7b445df286a6167f5d474e598a0a4d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfMenu::skipFirstRow</definition>
+        <argsstring></argsstring>
+        <name>skipFirstRow</name>
+        <qualifiedname>Theme::QfMenu::skipFirstRow</qualifiedname>
+        <read>dummyGetter_skipFirstRow_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfMenu.qml" line="14" column="1" bodyfile="src/qml/imports/Theme/QfMenu.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfMenu_1ab63dad5d4554c541c49836379933315b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfMenu::minimumRowWidth</definition>
+        <argsstring></argsstring>
+        <name>minimumRowWidth</name>
+        <qualifiedname>Theme::QfMenu::minimumRowWidth</qualifiedname>
+        <read>dummyGetter_minimumRowWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfMenu.qml" line="16" column="1" bodyfile="src/qml/imports/Theme/QfMenu.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfMenu_1adf4263b2304225e6ab3c64abc1b17148" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfMenu::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Theme::QfMenu::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfMenu.qml" line="18" column="5" bodyfile="src/qml/imports/Theme/QfMenu.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Menu</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfMenu</label>
+        <link refid="classTheme_1_1QfMenu"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Menu</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfMenu</label>
+        <link refid="classTheme_1_1QfMenu"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfMenu.qml" line="9" column="1" bodyfile="src/qml/imports/Theme/QfMenu.qml" bodystart="9" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfMenu_1ab63dad5d4554c541c49836379933315b" prot="public" virt="non-virtual"><scope>Theme::QfMenu</scope><name>minimumRowWidth</name></member>
+      <member refid="classTheme_1_1QfMenu_1ab1a1817d2a0e7461ec45d882aa5b3465" prot="public" virt="non-virtual"><scope>Theme::QfMenu</scope><name>paddingMultiplier</name></member>
+      <member refid="classTheme_1_1QfMenu_1a6a7b445df286a6167f5d474e598a0a4d" prot="public" virt="non-virtual"><scope>Theme::QfMenu</scope><name>skipFirstRow</name></member>
+      <member refid="classTheme_1_1QfMenu_1adf4263b2304225e6ab3c64abc1b17148" prot="private" virt="non-virtual"><scope>Theme::QfMenu</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfOpacityMask" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfOpacityMask</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MultiEffect</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfOpacityMask_1ae783b12684cac632347e4d3775e10890" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfOpacityMask::maskEnabled</definition>
+        <argsstring></argsstring>
+        <name>maskEnabled</name>
+        <qualifiedname>Theme::QfOpacityMask::maskEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfOpacityMask.qml" line="7" column="5" bodyfile="src/qml/imports/Theme/QfOpacityMask.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MultiEffect</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfOpacityMask</label>
+        <link refid="classTheme_1_1QfOpacityMask"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MultiEffect</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfOpacityMask</label>
+        <link refid="classTheme_1_1QfOpacityMask"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfOpacityMask.qml" line="6" column="1" bodyfile="src/qml/imports/Theme/QfOpacityMask.qml" bodystart="6" bodyend="8"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfOpacityMask_1ae783b12684cac632347e4d3775e10890" prot="private" virt="non-virtual"><scope>Theme::QfOpacityMask</scope><name>maskEnabled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

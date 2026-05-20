@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a044c600d9d985eeadf51620d76e3ed0" kind="dir">
+    <compoundname>src/qml/geometryeditors</compoundname>
+    <innerfile refid="Erase_8qml">Erase.qml</innerfile>
+    <innerfile refid="FillRing_8qml">FillRing.qml</innerfile>
+    <innerfile refid="GeometryEditorBase_8qml">GeometryEditorBase.qml</innerfile>
+    <innerfile refid="Reshape_8qml">Reshape.qml</innerfile>
+    <innerfile refid="SplitFeature_8qml">SplitFeature.qml</innerfile>
+    <innerfile refid="VertexEditor_8qml">VertexEditor.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/geometryeditors/"/>
+  </compounddef>
+</doxygen>

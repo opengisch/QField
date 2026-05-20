@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfComboBox" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfComboBox</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ComboBox</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfComboBox_1abf03c460b94e057c40dccc9109ca40e6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfComboBox::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>Theme::QfComboBox::text</qualifiedname>
+        <read>dummyGetter_text_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfComboBox.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfComboBox.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfComboBox_1a8c213d7108cf3c82dde7fac5407df6d3" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material Theme::QfComboBox::accent</definition>
+        <argsstring></argsstring>
+        <name>accent</name>
+        <qualifiedname>Theme::QfComboBox::accent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfComboBox.qml" line="19" column="13" bodyfile="src/qml/imports/Theme/QfComboBox.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfComboBox_1af7a67de5b0ee7701f07f65f23ea95bdb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfComboBox::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>Theme::QfComboBox::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfComboBox.qml" line="20" column="5" bodyfile="src/qml/imports/Theme/QfComboBox.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ComboBox</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfComboBox</label>
+        <link refid="classTheme_1_1QfComboBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ComboBox</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfComboBox</label>
+        <link refid="classTheme_1_1QfComboBox"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfComboBox.qml" line="14" column="1" bodyfile="src/qml/imports/Theme/QfComboBox.qml" bodystart="14" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfComboBox_1a8c213d7108cf3c82dde7fac5407df6d3" prot="private" virt="non-virtual"><scope>Theme::QfComboBox</scope><name>accent</name></member>
+      <member refid="classTheme_1_1QfComboBox_1af7a67de5b0ee7701f07f65f23ea95bdb" prot="private" virt="non-virtual"><scope>Theme::QfComboBox</scope><name>contentItem</name></member>
+      <member refid="classTheme_1_1QfComboBox_1abf03c460b94e057c40dccc9109ca40e6" prot="public" virt="non-virtual"><scope>Theme::QfComboBox</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

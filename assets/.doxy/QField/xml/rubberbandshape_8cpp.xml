@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="rubberbandshape_8cpp" kind="file" language="C++">
+    <compoundname>rubberbandshape.cpp</compoundname>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes refid="rubberbandmodel_8h" local="yes">rubberbandmodel.h</includes>
+    <includes refid="rubberbandshape_8h" local="yes">rubberbandshape.h</includes>
+    <includes refid="vertexmodel_8h" local="yes">vertexmodel.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>rubberbandmodel.h</label>
+        <link refid="rubberbandmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/rubberbandshape.cpp</label>
+        <link refid="rubberbandshape_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>rubberbandshape.h</label>
+        <link refid="rubberbandshape_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>vertexmodel.h</label>
+        <link refid="vertexmodel_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="12">
+        <label>QDateTime</label>
+      </node>
+      <node id="21">
+        <label>QList</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="13">
+        <label>QPointF</label>
+      </node>
+      <node id="14">
+        <label>QPointer</label>
+      </node>
+      <node id="22">
+        <label>QQuickItem</label>
+      </node>
+      <node id="15">
+        <label>QVector</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="16">
+        <label>qgis.h</label>
+      </node>
+      <node id="17">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="18">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="26">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="5">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="19">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="9">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="10">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="23">
+        <label>qgswkbtypes.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>rubberbandshape.cpp<sp/>-<sp/>RubberbandShape</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>11.6.2016</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2016<sp/>by<sp/>Matthias<sp/>Kuhn<sp/>(OPENGIS.ch)</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rubberbandmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rubberbandshape.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;vertexmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">RubberbandShape::RubberbandShape(<sp/>QQuickItem<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>:<sp/>QQuickItem(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>setFlags(<sp/>QQuickItem::ItemHasContents<sp/>);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>setTransformOrigin(<sp/>QQuickItem::TopLeft<sp/>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>setAntialiasing(<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*RubberbandShape::model()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="32"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mRubberbandModel;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::setModel(<sp/><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref><sp/>*model<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>model<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>setVertexModel(<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRubberbandModel<sp/>==<sp/>model<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRubberbandModel<sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::vertexChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesInserted,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>mRubberbandModel<sp/>=<sp/>model;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRubberbandModel<sp/>&amp;&amp;<sp/>!mFreeze<sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::vertexChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesInserted,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>markDirty();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>emit<sp/>modelChanged();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><ref refid="classVertexModel" kindref="compound">VertexModel</ref><sp/>*RubberbandShape::vertexModel()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="67"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mVertexModel;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::setVertexModel(<sp/><ref refid="classVertexModel" kindref="compound">VertexModel</ref><sp/>*vertexModel<sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>vertexModel<sp/>)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>setModel(<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVertexModel<sp/>==<sp/>vertexModel<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVertexModel<sp/>)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mVertexModel,<sp/>&amp;VertexModel::dataChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1a0f98df574f1d9b418260847d2967f8c9" kindref="member">VertexModel::vertexCountChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1ac87f3ff78e550935d7b2d40d42e99eb0" kindref="member">VertexModel::geometryChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>mVertexModel<sp/>=<sp/>vertexModel;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVertexModel<sp/>&amp;&amp;<sp/>!mFreeze<sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mVertexModel,<sp/>&amp;VertexModel::dataChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1a0f98df574f1d9b418260847d2967f8c9" kindref="member">VertexModel::vertexCountChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1ac87f3ff78e550935d7b2d40d42e99eb0" kindref="member">VertexModel::geometryChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>markDirty();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>emit<sp/>vertexModelChanged();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">RubberbandShape::freeze</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="101"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mFreeze;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1ab4a1d73a48d0471a6218830651ccb10a" kindref="member">RubberbandShape::setFreeze</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>freeze<sp/>)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFreeze<sp/>==<sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">freeze</ref><sp/>)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>mFreeze<sp/>=<sp/><ref refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" kindref="member">freeze</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1a68309d11d2db52617d9b0e55d9918234" kindref="member">freezeChanged</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFreeze<sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVertexModel<sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mVertexModel,<sp/>&amp;VertexModel::dataChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1a0f98df574f1d9b418260847d2967f8c9" kindref="member">VertexModel::vertexCountChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1ac87f3ff78e550935d7b2d40d42e99eb0" kindref="member">VertexModel::geometryChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRubberbandModel<sp/>)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::vertexChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesInserted,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" kindref="member">QgsQuickMapSettings::visibleExtentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::visibleExtentChanged<sp/>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" kindref="member">QgsQuickMapSettings::rotationChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::rotationChanged<sp/>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVertexModel<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mVertexModel,<sp/>&amp;VertexModel::dataChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1a0f98df574f1d9b418260847d2967f8c9" kindref="member">VertexModel::vertexCountChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mVertexModel,<sp/>&amp;<ref refid="classVertexModel_1ac87f3ff78e550935d7b2d40d42e99eb0" kindref="member">VertexModel::geometryChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRubberbandModel<sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::vertexChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesRemoved,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mRubberbandModel,<sp/>&amp;RubberbandModel::verticesInserted,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::markDirty<sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>&amp;&amp;<sp/>!mFreeze<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" kindref="member">QgsQuickMapSettings::visibleExtentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::visibleExtentChanged<sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" kindref="member">QgsQuickMapSettings::rotationChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::rotationChanged<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>markDirty();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*RubberbandShape::mapSettings()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="158"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mMapSettings;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::setMapSettings(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mapSettings<sp/>)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>==<sp/>mapSettings<sp/>)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" kindref="member">QgsQuickMapSettings::visibleExtentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::visibleExtentChanged<sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" kindref="member">QgsQuickMapSettings::rotationChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::rotationChanged<sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>mMapSettings<sp/>=<sp/>mapSettings;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mMapSettings<sp/>&amp;&amp;<sp/>!mFreeze<sp/>)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1a629128b24007f86bc9a978a6a58f63c0" kindref="member">QgsQuickMapSettings::visibleExtentChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::visibleExtentChanged<sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mMapSettings,<sp/>&amp;<ref refid="classQgsQuickMapSettings_1adbaa9fe6328d1267c71dc5887808ec65" kindref="member">QgsQuickMapSettings::rotationChanged</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;RubberbandShape::rotationChanged<sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>markDirty();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>emit<sp/>mapSettingsChanged();</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::updateTransform()</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mMapSettings<sp/>)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mDirty<sp/>)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsRectangle<sp/>extent<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" kindref="member">visibleExtent</ref>();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>mGeometryCorner<sp/>=<sp/>QgsPoint(<sp/>extent.xMinimum(),<sp/>extent.yMaximum()<sp/>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>mGeometryMUPP<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" kindref="member">mapUnitsPerPoint</ref>();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>createPolylines();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>mDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPointXY<sp/>pixelCorner<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1ae19d826e77f38d040bfa9410fb0c7d2e" kindref="member">coordinateToScreen</ref>(<sp/>mGeometryCorner<sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>setX(<sp/>pixelCorner.x()<sp/>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>setY(<sp/>pixelCorner.y()<sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>setScale(<sp/>mGeometryMUPP<sp/>/<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" kindref="member">mapUnitsPerPoint</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>setRotation(<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a1f111f2e3247c552c77519c698ea3719" kindref="member">rotation</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::rotationChanged()</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>updateTransform();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::visibleExtentChanged()</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scaleChange<sp/>=<sp/>mGeometryMUPP<sp/>/<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" kindref="member">mapUnitsPerPoint</ref>();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>mDirty<sp/>=<sp/>mDirty<sp/>||<sp/>mGeometryMUPP<sp/>==<sp/>0.0<sp/>||<sp/>scaleChange<sp/>&gt;<sp/>1.75<sp/>||<sp/>scaleChange<sp/>&lt;<sp/>0.25;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>updateTransform();</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::markDirty()</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>mDirty<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>updateTransform();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RubberbandShape::createPolylines()</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsRectangle<sp/>visibleExtent<sp/>=<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1a4c918426a29c03035ba8aa670549dbcb" kindref="member">visibleExtent</ref>();</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scaleFactor<sp/>=<sp/>1.0<sp/>/<sp/>mMapSettings-&gt;<ref refid="classQgsQuickMapSettings_1aa04c21ca7d0aab10e65d1bc6b0f4313d" kindref="member">mapUnitsPerPoint</ref>();</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>mPolylines.clear();</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>QList&lt;QPointF&gt;<sp/>polyline;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>QVector&lt;QgsPoint&gt;<sp/>allVertices<sp/>=<sp/>QVector&lt;QgsPoint&gt;();</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>Qgis::GeometryType<sp/>geomType<sp/>=<sp/>mGeometryType;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mRubberbandModel<sp/>&amp;&amp;<sp/>!mRubberbandModel-&gt;<ref refid="classRubberbandModel_1af2731712ae3943bead8ee4568419cd23" kindref="member">isEmpty</ref>()<sp/>)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>allVertices<sp/>=<sp/>mRubberbandModel-&gt;<ref refid="classRubberbandModel_1adc42e1c6eae64cadcc8953949278e7ca" kindref="member">vertices</ref>();</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>geomType<sp/>==<sp/>Qgis::GeometryType::Null<sp/>)</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>geomType<sp/>=<sp/>mRubberbandModel-&gt;<ref refid="classRubberbandModel_1ac7915b514b9a752e3ac033f5d4a1894a" kindref="member">geometryType</ref>();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVertexModel<sp/>&amp;&amp;<sp/>mVertexModel-&gt;<ref refid="classVertexModel_1a26dc249dceb69af470c97d822342c2d5" kindref="member">vertexCount</ref>()<sp/>&gt;<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>allVertices<sp/>=<sp/>mVertexModel-&gt;<ref refid="classVertexModel_1a5b8ec6c5bffbaf2afceee4db915a24f8" kindref="member">flatVertices</ref>();</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>geomType<sp/>==<sp/>Qgis::GeometryType::Null<sp/>)</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>geomType<sp/>=<sp/>mVertexModel-&gt;<ref refid="classVertexModel_1a4a833e1f57725df51dbd2518e23617d9" kindref="member">geometryType</ref>();</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;<ref refid="classpoint" kindref="compound">point</ref><sp/>:<sp/>std::as_const(<sp/>allVertices<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>polyline<sp/>&lt;&lt;<sp/>QPointF(<sp/>(<sp/><ref refid="classpoint" kindref="compound">point</ref>.x()<sp/>-<sp/>visibleExtent.xMinimum()<sp/>)<sp/>*<sp/>scaleFactor,<sp/>(<sp/><ref refid="classpoint" kindref="compound">point</ref>.y()<sp/>-<sp/>visibleExtent.yMaximum()<sp/>)<sp/>*<sp/>-scaleFactor<sp/>);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>mPolylines<sp/>&lt;&lt;<sp/>polyline;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>geomType<sp/>!=<sp/>mPolylinesType<sp/>)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>mPolylinesType<sp/>=<sp/>geomType;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1a1993a3ed8bd445326bef6ec086a8bb64" kindref="member">polylinesTypeChanged</ref>();</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1a38f34f18a5be37aac1f914a940f85af9" kindref="member">polylinesChanged</ref>();</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a06ae3eda037cd921322b1784369aa163" kindref="member">RubberbandShape::setGeometryType</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Qgis::GeometryType<sp/>geometryType<sp/>)</highlight></codeline>
+<codeline lineno="268"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mGeometryType<sp/>==<sp/><ref refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" kindref="member">geometryType</ref><sp/>)</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/>mGeometryType<sp/>=<sp/><ref refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" kindref="member">geometryType</ref>;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1ac886c4c9e39dc279bc05aa2bc8e673b6" kindref="member">geometryTypeChanged</ref>();</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1ae5cb4b9f8c9b66d29d967778f4bf6de2" kindref="member">RubberbandShape::lineWidth</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="278"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mWidth;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a7a17254a186e222c962e2e7878e643f1" kindref="member">RubberbandShape::setLineWidth</ref>(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>width<sp/>)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mWidth<sp/>==<sp/>width<sp/>)</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>mWidth<sp/>=<sp/>width;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1ab964611dd37d91290338fda2ef0e6644" kindref="member">lineWidthChanged</ref>();</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal">QColor<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">RubberbandShape::color</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="293"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mColor;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1a092cede3127b434ee79a06863db33402" kindref="member">RubberbandShape::setColor</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QColor<sp/>&amp;color<sp/>)</highlight></codeline>
+<codeline lineno="298"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mColor<sp/>==<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref><sp/>)</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>mColor<sp/>=<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref>;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1a03e78eb3e461ceacfeb8c9f91c81c630" kindref="member">colorChanged</ref>();</highlight></codeline>
+<codeline lineno="305"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal">QColor<sp/><ref refid="classRubberbandShape_1a2b98a9896f7e51144c25221e94eac191" kindref="member">RubberbandShape::outlineColor</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="308"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOutlineColor;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRubberbandShape_1acd188ef4a99e60e8a4ad16f1bc2049be" kindref="member">RubberbandShape::setOutlineColor</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QColor<sp/>&amp;color<sp/>)</highlight></codeline>
+<codeline lineno="313"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mOutlineColor<sp/>==<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref><sp/>)</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>mOutlineColor<sp/>=<sp/><ref refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" kindref="member">color</ref>;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classRubberbandShape_1a6b3fbd5600ce6c8a7ddcd22b99d7d05e" kindref="member">outlineColorChanged</ref>();</highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/rubberbandshape.cpp"/>
+  </compounddef>
+</doxygen>

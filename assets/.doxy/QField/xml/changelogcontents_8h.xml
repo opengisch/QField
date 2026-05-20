@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="changelogcontents_8h" kind="file" language="C++">
+    <compoundname>changelogcontents.h</compoundname>
+    <includes local="no">QObject</includes>
+    <includedby refid="changelogcontents_8cpp" local="yes">src/core/changelogcontents.cpp</includedby>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/core/qgismobileapp.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/changelogcontents.h</label>
+        <link refid="changelogcontents_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classChangelogContents" prot="public">ChangelogContents</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>changelogcontents.h<sp/>-<sp/>Changelog</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Nov<sp/>2020</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Ivan<sp/>Ivanov</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ivan@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CHANGELOGCONTENTS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHANGELOGCONTENTS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classChangelogContents" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classChangelogContents" kindref="compound">ChangelogContents</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classChangelogContents_1a4de0688f3caa67d14c2a8991075ad5f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classChangelogContents_1a4de0688f3caa67d14c2a8991075ad5f8" kindref="member">markdown</ref><sp/>READ<sp/><ref refid="classChangelogContents_1a4de0688f3caa67d14c2a8991075ad5f8" kindref="member">markdown</ref><sp/>NOTIFY<sp/><ref refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" kindref="member">markdownChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classChangelogContents_1ab4a225c387d4f38ea64dfb429e329a1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref><sp/><ref refid="classChangelogContents_1ab4a225c387d4f38ea64dfb429e329a1f" kindref="member">status</ref><sp/>READ<sp/><ref refid="classChangelogContents_1ab4a225c387d4f38ea64dfb429e329a1f" kindref="member">status</ref><sp/>NOTIFY<sp/><ref refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" kindref="member">statusChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classChangelogContents" kindref="compound">ChangelogContents</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classenum" kindref="compound">enum</ref><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43" refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a40c412c37f152201ff199f22c2d6c092" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a40c412c37f152201ff199f22c2d6c092" kindref="member">IdleStatus</ref>,</highlight></codeline>
+<codeline lineno="45" refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a9e5d7a05deae1e09d94d51a45aaa2161" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a9e5d7a05deae1e09d94d51a45aaa2161" kindref="member">LoadingStatus</ref>,</highlight></codeline>
+<codeline lineno="47" refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a2c440112120b3e6347966d2e968cf3c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a2c440112120b3e6347966d2e968cf3c5" kindref="member">SuccessStatus</ref>,</highlight></codeline>
+<codeline lineno="49" refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a318d58999b7b342a0a9e400cc9a9d123" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a318d58999b7b342a0a9e400cc9a9d123" kindref="member">ErrorStatus</ref>,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref><sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classChangelogContents_1a63eb25a2cb35597f58eea286f0babc67" kindref="member">request</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classChangelogContents_1adfd29446c5cd1de0a1c27f44e5e7d529" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classChangelogContents_1adfd29446c5cd1de0a1c27f44e5e7d529" kindref="member">markdown</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classChangelogContents_1a8a2b519bbdba360b85f9bccca62d5a4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref><sp/><ref refid="classChangelogContents_1a8a2b519bbdba360b85f9bccca62d5a4f" kindref="member">status</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" kindref="member">markdownChanged</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" kindref="member">statusChanged</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>parseVersion(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;version<sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mMarkdown;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref><sp/>mStatus<sp/>=<sp/><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a40c412c37f152201ff199f22c2d6c092" kindref="member">Status::IdleStatus</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>CHANGELOGCONTENTS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/changelogcontents.h"/>
+  </compounddef>
+</doxygen>

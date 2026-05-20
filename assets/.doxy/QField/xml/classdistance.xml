@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classdistance" kind="class" language="C++" prot="public">
+    <compoundname>distance</compoundname>
+    <basecompoundref refid="classCogoParameterWidgetBase" prot="public" virt="non-virtual">CogoParameterWidgetBase</basecompoundref>
+    <basecompoundref refid="classProcessingParameterWidgetBase" prot="public" virt="non-virtual">ProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdistance_1ac5ce1d01f7b3aa31de7dcb5ab50411e5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var distance::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>distance::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/distance.qml" line="8" column="5" bodyfile="src/qml/cogoparameterwidgets/distance.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a96db77d43d126264bfec2a655d34b754" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var distance::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>distance::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/distance.qml" line="9" column="5" bodyfile="src/qml/cogoparameterwidgets/distance.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a20e93ccbc75ea21283007058a1846819" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField distance::distanceField</definition>
+        <argsstring></argsstring>
+        <name>distanceField</name>
+        <qualifiedname>distance::distanceField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/distance.qml" line="10" column="13" bodyfile="src/qml/cogoparameterwidgets/distance.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a1e3a50ca74ece5c7a75409cc7f4deaa7" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField distance::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>distance::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="24" column="13" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a9ddfa390e83d8119cdddd50d09e178bc" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label distance::unitTypeLabel</definition>
+        <argsstring></argsstring>
+        <name>unitTypeLabel</name>
+        <qualifiedname>distance::unitTypeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="25" column="7" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a81db0cdad90234cf4768a6ca299df927" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox distance::unitTypesComboBox</definition>
+        <argsstring></argsstring>
+        <name>unitTypesComboBox</name>
+        <qualifiedname>distance::unitTypesComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="26" column="12" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a7f36a16a746ead13e8a170d359d14d32" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton distance::decreaseButton</definition>
+        <argsstring></argsstring>
+        <name>decreaseButton</name>
+        <qualifiedname>distance::decreaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="27" column="14" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a9bd3bd73e6de1d279dcc0c1a7e6e9301" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton distance::increaseButton</definition>
+        <argsstring></argsstring>
+        <name>increaseButton</name>
+        <qualifiedname>distance::increaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="28" column="14" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1ad661e2d251eda81a1ec61fd79cd0392c" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer distance::changeValueTimer</definition>
+        <argsstring></argsstring>
+        <name>changeValueTimer</name>
+        <qualifiedname>distance::changeValueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="29" column="7" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a03ef61ee8c86ff9d21d4931ef89f7196" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics distance::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>distance::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="34" column="13" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdistance_1a383e37c951fee1ef279b80d716488b82" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator distance::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>distance::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="35" column="17" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classdistance_1a67bd20fa75dbea412b6fdf87ba60c6f5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real distance::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>distance::step</qualifiedname>
+        <read>dummyGetter_step_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="9" column="1" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classdistance_1a44ebf37863d1783fd3903b177eb99463" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real distance::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>distance::min</qualifiedname>
+        <read>dummyGetter_min_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="11" column="1" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classdistance_1a3178968b320b4586450df6d129dbcd7b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real distance::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>distance::max</qualifiedname>
+        <read>dummyGetter_max_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="13" column="1" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classdistance_1a1381a5c229e4d71d5660c57b5dbbb4cd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int distance::distanceUnit</definition>
+        <argsstring></argsstring>
+        <name>distanceUnit</name>
+        <qualifiedname>distance::distanceUnit</qualifiedname>
+        <read>dummyGetter_distanceUnit_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="15" column="1" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classdistance_1ad48c23249bc1d9cb885ce41dfdf8b1f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool distance::distanceConvertible</definition>
+        <argsstring></argsstring>
+        <name>distanceConvertible</name>
+        <qualifiedname>distance::distanceConvertible</qualifiedname>
+        <read>dummyGetter_distanceConvertible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="17" column="1" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classdistance_1ad69aa0c8d9be784eee20fdd11c3db2c9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double distance::currentValue</definition>
+        <argsstring></argsstring>
+        <name>currentValue</name>
+        <qualifiedname>distance::currentValue</qualifiedname>
+        <read>dummyGetter_currentValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="22" column="1" bodyfile="src/qml/processingparameterwidgets/distance.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdistance_1a4c6cba348fa462fd87874a43759b7e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void distance::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>distance::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/distance.qml" line="13" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classdistance_1a9a4275f085bd5168da35971a31780641" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void distance::adjustValue</definition>
+        <argsstring>(direction)</argsstring>
+        <name>adjustValue</name>
+        <qualifiedname>distance::adjustValue</qualifiedname>
+        <param>
+          <type>direction</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classdistance_1a677d13394761e6d76479fca18b3ded59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void distance::prepareValueChangeRequest</definition>
+        <argsstring>(newValue)</argsstring>
+        <name>prepareValueChangeRequest</name>
+        <qualifiedname>distance::prepareValueChangeRequest</qualifiedname>
+        <param>
+          <type>newValue</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/distance.qml" line="38" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>distance</label>
+        <link refid="classdistance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>distance</label>
+        <link refid="classdistance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/cogoparameterwidgets/distance.qml" line="7" column="1" bodyfile="src/qml/cogoparameterwidgets/distance.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classdistance_1a9a4275f085bd5168da35971a31780641" prot="public" virt="non-virtual"><scope>distance</scope><name>adjustValue</name></member>
+      <member refid="classdistance_1ad661e2d251eda81a1ec61fd79cd0392c" prot="private" virt="non-virtual"><scope>distance</scope><name>changeValueTimer</name></member>
+      <member refid="classdistance_1ad69aa0c8d9be784eee20fdd11c3db2c9" prot="public" virt="non-virtual"><scope>distance</scope><name>currentValue</name></member>
+      <member refid="classdistance_1a7f36a16a746ead13e8a170d359d14d32" prot="private" virt="non-virtual"><scope>distance</scope><name>decreaseButton</name></member>
+      <member refid="classdistance_1ad48c23249bc1d9cb885ce41dfdf8b1f6" prot="public" virt="non-virtual"><scope>distance</scope><name>distanceConvertible</name></member>
+      <member refid="classdistance_1a20e93ccbc75ea21283007058a1846819" prot="private" virt="non-virtual"><scope>distance</scope><name>distanceField</name></member>
+      <member refid="classdistance_1a1381a5c229e4d71d5660c57b5dbbb4cd" prot="public" virt="non-virtual"><scope>distance</scope><name>distanceUnit</name></member>
+      <member refid="classdistance_1a383e37c951fee1ef279b80d716488b82" prot="private" virt="non-virtual"><scope>distance</scope><name>doubleValidator</name></member>
+      <member refid="classdistance_1a03ef61ee8c86ff9d21d4931ef89f7196" prot="private" virt="non-virtual"><scope>distance</scope><name>fontMetrics</name></member>
+      <member refid="classdistance_1a96db77d43d126264bfec2a655d34b754" prot="private" virt="non-virtual"><scope>distance</scope><name>height</name></member>
+      <member refid="classdistance_1a9bd3bd73e6de1d279dcc0c1a7e6e9301" prot="private" virt="non-virtual"><scope>distance</scope><name>increaseButton</name></member>
+      <member refid="classdistance_1a3178968b320b4586450df6d129dbcd7b" prot="public" virt="non-virtual"><scope>distance</scope><name>max</name></member>
+      <member refid="classdistance_1a44ebf37863d1783fd3903b177eb99463" prot="public" virt="non-virtual"><scope>distance</scope><name>min</name></member>
+      <member refid="classdistance_1a677d13394761e6d76479fca18b3ded59" prot="public" virt="non-virtual"><scope>distance</scope><name>prepareValueChangeRequest</name></member>
+      <member refid="classdistance_1a4c6cba348fa462fd87874a43759b7e5e" prot="public" virt="non-virtual"><scope>distance</scope><name>processValue</name></member>
+      <member refid="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" virt="non-virtual"><scope>distance</scope><name>requestPosition</name></member>
+      <member refid="classdistance_1a67bd20fa75dbea412b6fdf87ba60c6f5" prot="public" virt="non-virtual"><scope>distance</scope><name>step</name></member>
+      <member refid="classdistance_1a1e3a50ca74ece5c7a75409cc7f4deaa7" prot="private" virt="non-virtual"><scope>distance</scope><name>textField</name></member>
+      <member refid="classdistance_1a9ddfa390e83d8119cdddd50d09e178bc" prot="private" virt="non-virtual"><scope>distance</scope><name>unitTypeLabel</name></member>
+      <member refid="classdistance_1a81db0cdad90234cf4768a6ca299df927" prot="private" virt="non-virtual"><scope>distance</scope><name>unitTypesComboBox</name></member>
+      <member refid="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" virt="non-virtual" ambiguityscope="CogoParameterWidgetBase::"><scope>distance</scope><name>valueChangeRequested</name></member>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual" ambiguityscope="ProcessingParameterWidgetBase::"><scope>distance</scope><name>valueChangeRequested</name></member>
+      <member refid="classdistance_1ac5ce1d01f7b3aa31de7dcb5ab50411e5" prot="private" virt="non-virtual"><scope>distance</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

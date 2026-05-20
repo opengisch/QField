@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRubberband" kind="class" language="C++" prot="public">
+    <compoundname>Rubberband</compoundname>
+    <basecompoundref refid="classRubberbandShape" prot="public" virt="non-virtual">RubberbandShape</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classRubberband_1afb446b18cb6185c17d3c631253658bc5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Rubberband::showVertices</definition>
+        <argsstring></argsstring>
+        <name>showVertices</name>
+        <qualifiedname>Rubberband::showVertices</qualifiedname>
+        <read>dummyGetter_showVertices_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Rubberband.qml" line="11" column="1" bodyfile="src/qml/Rubberband.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRubberband_1a809be47df5bf6bc16c359fbaac511a41" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater Rubberband::rubberbandVertices</definition>
+        <argsstring></argsstring>
+        <name>rubberbandVertices</name>
+        <qualifiedname>Rubberband::rubberbandVertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/Rubberband.qml" line="13" column="10" bodyfile="src/qml/Rubberband.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>Rubberband</label>
+        <link refid="classRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RubberbandShape</label>
+        <link refid="classRubberbandShape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>Rubberband</label>
+        <link refid="classRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RubberbandShape</label>
+        <link refid="classRubberbandShape"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/Rubberband.qml" line="8" column="1" bodyfile="src/qml/Rubberband.qml" bodystart="8" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classRubberbandShape_1a4860b45c0f75c3f3e60007329a711774" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>color</name></member>
+      <member refid="classRubberbandShape_1a7d4919e5cc28c121ef4aa0a0e26a5b7b" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>color</name></member>
+      <member refid="classRubberbandShape_1a03e78eb3e461ceacfeb8c9f91c81c630" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>colorChanged</name></member>
+      <member refid="classRubberbandShape_1a7d11328768347a7ea8d654f3c9723203" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>freeze</name></member>
+      <member refid="classRubberbandShape_1a18a04a00f27a0cd3050c7abccfd592e1" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>freeze</name></member>
+      <member refid="classRubberbandShape_1a68309d11d2db52617d9b0e55d9918234" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>freezeChanged</name></member>
+      <member refid="classRubberbandShape_1a06fb80eac97826353a1ae61bb0b26398" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>geometryType</name></member>
+      <member refid="classRubberbandShape_1a08939bfa96aae87c8a0018540d900309" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>geometryType</name></member>
+      <member refid="classRubberbandShape_1ac886c4c9e39dc279bc05aa2bc8e673b6" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>geometryTypeChanged</name></member>
+      <member refid="classRubberbandShape_1ae5cb4b9f8c9b66d29d967778f4bf6de2" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>lineWidth</name></member>
+      <member refid="classRubberbandShape_1a3074a1b47f457b5e8ab6a48f0fe19d91" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>lineWidth</name></member>
+      <member refid="classRubberbandShape_1ab964611dd37d91290338fda2ef0e6644" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>lineWidthChanged</name></member>
+      <member refid="classRubberbandShape_1a5a1eb4abf33faff1ee17335af3490e31" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>mapSettings</name></member>
+      <member refid="classRubberbandShape_1af8d911424fdc420d47a52a91ac6cb1e3" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>mapSettings</name></member>
+      <member refid="classRubberbandShape_1ac81bb1fe51ad678e18a9f43708b81b13" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>mapSettingsChanged</name></member>
+      <member refid="classRubberbandShape_1a020d0a316666e5c2563896a96fd07017" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>model</name></member>
+      <member refid="classRubberbandShape_1a1a2d1d74bbcc82fda93a84ecee1f5c1d" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>model</name></member>
+      <member refid="classRubberbandShape_1ab633d9183a545426ef40651fca1a17fd" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>modelChanged</name></member>
+      <member refid="classRubberbandShape_1a2b98a9896f7e51144c25221e94eac191" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>outlineColor</name></member>
+      <member refid="classRubberbandShape_1ac81c657ba73066e0ec130d4c6316bf54" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>outlineColor</name></member>
+      <member refid="classRubberbandShape_1a6b3fbd5600ce6c8a7ddcd22b99d7d05e" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>outlineColorChanged</name></member>
+      <member refid="classRubberbandShape_1ab9316579dcbe35c74866f477e99d9fb4" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>polylines</name></member>
+      <member refid="classRubberbandShape_1a7c65b68b2f4f6a3b45b860e4d721d879" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>polylines</name></member>
+      <member refid="classRubberbandShape_1a38f34f18a5be37aac1f914a940f85af9" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>polylinesChanged</name></member>
+      <member refid="classRubberbandShape_1a9bf65387d82e6a3bd00be7285f12c353" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>polylinesType</name></member>
+      <member refid="classRubberbandShape_1a676dace9acfc5b240d0515e6c5ed9e97" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>polylinesType</name></member>
+      <member refid="classRubberbandShape_1a1993a3ed8bd445326bef6ec086a8bb64" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>polylinesTypeChanged</name></member>
+      <member refid="classRubberbandShape_1ae07cc7a7e1f1a4ef51c50a7e15c57b66" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>RubberbandShape</name></member>
+      <member refid="classRubberband_1a809be47df5bf6bc16c359fbaac511a41" prot="private" virt="non-virtual"><scope>Rubberband</scope><name>rubberbandVertices</name></member>
+      <member refid="classRubberbandShape_1a092cede3127b434ee79a06863db33402" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setColor</name></member>
+      <member refid="classRubberbandShape_1ab4a1d73a48d0471a6218830651ccb10a" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setFreeze</name></member>
+      <member refid="classRubberbandShape_1a06ae3eda037cd921322b1784369aa163" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setGeometryType</name></member>
+      <member refid="classRubberbandShape_1a7a17254a186e222c962e2e7878e643f1" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setLineWidth</name></member>
+      <member refid="classRubberbandShape_1ada3b3bc26ecc638712f393420da7cad3" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setMapSettings</name></member>
+      <member refid="classRubberbandShape_1aff7d19b2ab94476607f91b2dfbf4d255" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setModel</name></member>
+      <member refid="classRubberbandShape_1acd188ef4a99e60e8a4ad16f1bc2049be" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setOutlineColor</name></member>
+      <member refid="classRubberbandShape_1ad808f458f272dfa3c374446351787044" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>setVertexModel</name></member>
+      <member refid="classRubberband_1afb446b18cb6185c17d3c631253658bc5" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>showVertices</name></member>
+      <member refid="classRubberbandShape_1a4ed26667baf8f3a60799463dd3c150cd" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>vertexModel</name></member>
+      <member refid="classRubberbandShape_1ad3cc8ed44cc67a5f1f08d10d6d7eaa40" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>vertexModel</name></member>
+      <member refid="classRubberbandShape_1ae249806b2f5f738a452ea6ebfbc6fb71" prot="public" virt="non-virtual"><scope>Rubberband</scope><name>vertexModelChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

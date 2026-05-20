@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CheckBox_8qml" kind="file" language="C++">
+    <compoundname>CheckBox.qml</compoundname>
+    <innerclass refid="classCheckBox" prot="public">CheckBox</innerclass>
+    <innernamespace refid="namespaceQtQuick_1_1Controls_1_1Material_1_1impl">QtQuick::Controls::Material::impl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>QtQuick.Controls.Material.impl</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>Theme</highlight></codeline>
+<codeline lineno="6" refid="classCheckBox" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">EditorWidgetBase<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>id:<sp/>checkBoxEditorWidgetBase</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>height:<sp/>childrenRect.height</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>the<sp/>field<sp/>type<sp/>is<sp/>boolean,<sp/>ignore<sp/>the<sp/>configured<sp/>&apos;CheckedState&apos;<sp/>and<sp/>&apos;UncheckedState&apos;<sp/>values<sp/>and<sp/>work<sp/>with<sp/>true/false<sp/>always</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>readonly<sp/>property<sp/>bool<sp/>isBool:<sp/>field.type<sp/>==<sp/>1<sp/><sp/></highlight><highlight class="comment">//<sp/>needs<sp/>type<sp/>coercion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>checkedLabel:<sp/>config[&apos;TextDisplayMethod&apos;]<sp/>===<sp/>1<sp/>&amp;&amp;<sp/>config[&apos;CheckedState&apos;]<sp/>!==<sp/>null<sp/>&amp;&amp;<sp/>config[&apos;CheckedState&apos;]<sp/>!==<sp/>&apos;&apos;<sp/>?<sp/>config[&apos;CheckedState&apos;]<sp/>:<sp/>qsTr(&apos;True&apos;)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>uncheckedLabel:<sp/>config[&apos;TextDisplayMethod&apos;]<sp/>===<sp/>1<sp/>&amp;&amp;<sp/>config[&apos;UncheckedState&apos;]<sp/>!==<sp/>null<sp/>&amp;&amp;<sp/>config[&apos;UncheckedState&apos;]<sp/>!==<sp/>&apos;&apos;<sp/>?<sp/>config[&apos;UncheckedState&apos;]<sp/>:<sp/>qsTr(&apos;False&apos;)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>anchors<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>right:<sp/>parent.right</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>left:<sp/>parent.left</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>Label<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>checkValue</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>height:<sp/>Math.max(48,<sp/>fontMetrics.height<sp/>+<sp/>20)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>left:<sp/>parent.left</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>right:<sp/>checkBox.left</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>font.pointSize:<sp/>Theme.defaultFont.pointSize</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>font.bold:<sp/>Theme.defaultFont.bold</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>verticalAlignment:<sp/>Text.AlignVCenter</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>(!isEditable<sp/>&amp;&amp;<sp/>isEditing)<sp/>||<sp/>isNull<sp/>||<sp/>isEmpty<sp/>?<sp/>Theme.mainTextDisabledColor<sp/>:<sp/>Theme.mainTextColor</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>text:<sp/>isEmpty<sp/>?<sp/>qsTr(&quot;Empty&quot;)<sp/>:<sp/>isNull<sp/>?<sp/>qsTr(</highlight><highlight class="stringliteral">&apos;NULL&apos;</highlight><highlight class="normal">)<sp/>:<sp/>checkBox.checked<sp/>?<sp/>checkedLabel<sp/>:<sp/>uncheckedLabel</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>checkBox</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>enabled:<sp/>isEnabled</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>width:<sp/>implicitContentWidth</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>right:<sp/>parent.right</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>verticalCenter:<sp/>checkValue.verticalCenter</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>checked:<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isBool)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>let<sp/>actualValue<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Some<sp/>datasets<sp/>-<sp/>such<sp/>as<sp/>Geopackage<sp/>-<sp/>can<sp/>send<sp/>the<sp/>value<sp/>as<sp/>a<sp/>&apos;True&apos;<sp/>or<sp/>&apos;False&apos;<sp/>string,<sp/>we<sp/>have<sp/>to<sp/>work<sp/>around<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isNull)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeof<sp/>value<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;string&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>actualValue<sp/>=<sp/>value.toLowerCase()<sp/>===<sp/></highlight><highlight class="stringliteral">&apos;true&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!isNull<sp/>?<sp/>actualValue<sp/>:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!isNull<sp/>?<sp/>String(value)<sp/>===<sp/>config[</highlight><highlight class="stringliteral">&apos;CheckedState&apos;</highlight><highlight class="normal">]<sp/>:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>MouseArea<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>checkArea</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>enabled:<sp/>isEnabled</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors.fill:<sp/>parent</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>onClicked:<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>let<sp/>editedValue<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isBool)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>let<sp/>actualValue<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Some<sp/>datasets<sp/>-<sp/>such<sp/>as<sp/>Geopackage<sp/>-<sp/>can<sp/>send<sp/>the<sp/>value<sp/>as<sp/>a<sp/>&apos;True&apos;<sp/>or<sp/>&apos;False&apos;<sp/>string,<sp/>we<sp/>have<sp/>to<sp/>work<sp/>around<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isNull<sp/>&amp;&amp;<sp/>typeof<sp/>value<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;string&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>actualValue<sp/>=<sp/>value.toLowerCase()<sp/>===<sp/></highlight><highlight class="stringliteral">&apos;true&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>editedValue<sp/>=<sp/>!isNull<sp/>?<sp/>!actualValue<sp/>:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isNull)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Type<sp/>coercion<sp/>is<sp/>desired<sp/>here<sp/>as<sp/>custom<sp/>unchecked/checked<sp/>states<sp/>are<sp/>stored<sp/>as<sp/>strings<sp/>yet<sp/>value<sp/>could<sp/>be<sp/>integers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>editedValue<sp/>=<sp/>value<sp/>==<sp/>config[</highlight><highlight class="stringliteral">&apos;CheckedState&apos;</highlight><highlight class="normal">]<sp/>?<sp/>config[</highlight><highlight class="stringliteral">&apos;UncheckedState&apos;</highlight><highlight class="normal">]<sp/>:<sp/>config[</highlight><highlight class="stringliteral">&apos;CheckedState&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>editedValue<sp/>=<sp/>config[</highlight><highlight class="stringliteral">&apos;CheckedState&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>valueChangeRequested(editedValue,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>FontMetrics<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>fontMetrics</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>font:<sp/>checkValue.font</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/editorwidgets/CheckBox.qml"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfComboBox_8qml" kind="file" language="C++">
+    <compoundname>QfComboBox.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfComboBox" prot="public">Theme::QfComboBox</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <innernamespace refid="namespaceQtQuick_1_1Templates">QtQuick::Templates</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>QtQuick.Templates<sp/>as<sp/>T</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>QtQuick.Controls.impl</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>QtQuick.Controls.Material</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">import<sp/>QtQuick.Controls.Material.impl</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">ComboBox<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>id:<sp/>comboBox</highlight></codeline>
+<codeline lineno="14" refid="classTheme_1_1QfComboBox" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>text:<sp/>contentText</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>Material.accent:<sp/>Material.primaryTextColor</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>contentItem:<sp/>T.TextField<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>contentText</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>leftPadding:<sp/>comboBox.background.visible<sp/>?<sp/>Material.textFieldHorizontalPadding<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>topPadding:<sp/>Material.textFieldVerticalPadding</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>bottomPadding:<sp/>Material.textFieldVerticalPadding</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>text:<sp/>comboBox.editable<sp/>?<sp/>comboBox.editText<sp/>:<sp/>comboBox.displayText</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>enabled:<sp/>comboBox.editable</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>autoScroll:<sp/>comboBox.editable</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>readOnly:<sp/>comboBox.down</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>inputMethodHints:<sp/>comboBox.inputMethodHints</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>validator:<sp/>comboBox.validator</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>selectByMouse:<sp/>comboBox.selectTextByMouse</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>comboBox.enabled<sp/>?<sp/>comboBox.Material.foreground<sp/>:<sp/>comboBox.Material.hintTextColor</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>selectionColor:<sp/>comboBox.Material.accentColor</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>selectedTextColor:<sp/>comboBox.Material.primaryHighlightedTextColor</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>verticalAlignment:<sp/>Text.AlignVCenter</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>cursorDelegate:<sp/>CursorDelegate<sp/>{}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfComboBox.qml"/>
+  </compounddef>
+</doxygen>

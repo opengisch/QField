@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNtripSourceTableFetcher" kind="class" language="C++" prot="public">
+    <compoundname>NtripSourceTableFetcher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="ntripsourcetablefetcher_8h" local="no">ntripsourcetablefetcher.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNtripSourceTableFetcher_1a63c5a663a75a8884f9e11243e58e2e9a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool NtripSourceTableFetcher::isFetching</definition>
+        <argsstring></argsstring>
+        <name>isFetching</name>
+        <qualifiedname>NtripSourceTableFetcher::isFetching</qualifiedname>
+        <read>isFetching</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="72" column="5" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSourceTableFetcher_1ae830374733441c58f65d7130fff0126c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classNtripMountPoint" kindref="compound">NtripMountPoint</ref> &gt;</type>
+        <definition>QList&lt;NtripMountPoint&gt; NtripSourceTableFetcher::mountPoints</definition>
+        <argsstring></argsstring>
+        <name>mountPoints</name>
+        <qualifiedname>NtripSourceTableFetcher::mountPoints</qualifiedname>
+        <read>mountPoints</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="73" column="5" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a341bfc7f766b867700bd160f153a9edc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NtripSourceTableFetcher::mIsFetching</definition>
+        <argsstring></argsstring>
+        <name>mIsFetching</name>
+        <qualifiedname>NtripSourceTableFetcher::mIsFetching</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="117" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a5f87b6a5157a99a09dbbe59b76090d1a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSourceTableFetcher::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>NtripSourceTableFetcher::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="119" column="13" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a03cb64bd5a6a0a0e21758f716e582b11" prot="private" static="no" mutable="no">
+        <type>quint16</type>
+        <definition>quint16 NtripSourceTableFetcher::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>NtripSourceTableFetcher::mPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="120" column="13" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1ab9685900b3c93cf415e381c92dbba9c1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSourceTableFetcher::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>NtripSourceTableFetcher::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="121" column="13" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1adb0043dd37dfce39e19c674627ed0281" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSourceTableFetcher::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>NtripSourceTableFetcher::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="122" column="13" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a1ae8e1385e92ef546bbb3f292f4e8280" prot="private" static="no" mutable="no">
+        <type><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">NtripSettings::Protocol</ref></type>
+        <definition>NtripSettings::Protocol NtripSourceTableFetcher::mProtocol</definition>
+        <argsstring></argsstring>
+        <name>mProtocol</name>
+        <qualifiedname>NtripSourceTableFetcher::mProtocol</qualifiedname>
+        <initializer>= NtripSettings::NtripVersion1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="123" column="29" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a710e7923504e62f09752e10649296a43" prot="private" static="no" mutable="no">
+        <type>QTcpSocket *</type>
+        <definition>QTcpSocket* NtripSourceTableFetcher::mSocket</definition>
+        <argsstring></argsstring>
+        <name>mSocket</name>
+        <qualifiedname>NtripSourceTableFetcher::mSocket</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="125" column="16" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a379c9e4be78e229e3dd577414f925950" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray NtripSourceTableFetcher::mBuffer</definition>
+        <argsstring></argsstring>
+        <name>mBuffer</name>
+        <qualifiedname>NtripSourceTableFetcher::mBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="126" column="16" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1a0fe24a3a91e61115a7a60d67a0f2a8e8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NtripSourceTableFetcher::mHeadersParsed</definition>
+        <argsstring></argsstring>
+        <name>mHeadersParsed</name>
+        <qualifiedname>NtripSourceTableFetcher::mHeadersParsed</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="127" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSourceTableFetcher_1ab0e80a84b93850ee4471805db3aac756" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classNtripMountPoint" kindref="compound">NtripMountPoint</ref> &gt;</type>
+        <definition>QList&lt;NtripMountPoint&gt; NtripSourceTableFetcher::mMountPoints</definition>
+        <argsstring></argsstring>
+        <name>mMountPoints</name>
+        <qualifiedname>NtripSourceTableFetcher::mMountPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="128" column="11" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a8fb728efffac3b6779d7b3c6bd3d9f8d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NtripSourceTableFetcher::NtripSourceTableFetcher</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>NtripSourceTableFetcher</name>
+        <qualifiedname>NtripSourceTableFetcher::NtripSourceTableFetcher</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>The NTRIP source table fetcher constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="77" column="14" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a83ff38044c5e08de785051910b8a510c" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>NtripSourceTableFetcher::~NtripSourceTableFetcher</definition>
+        <argsstring>() noexcept override=default</argsstring>
+        <name>~NtripSourceTableFetcher</name>
+        <qualifiedname>NtripSourceTableFetcher::~NtripSourceTableFetcher</qualifiedname>
+        <briefdescription>
+<para>The NTRIP source table fetcher destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="80" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a0e4d9f61026d29f8746002c11a1447f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripSourceTableFetcher::isFetching</definition>
+        <argsstring>() const</argsstring>
+        <name>isFetching</name>
+        <qualifiedname>NtripSourceTableFetcher::isFetching</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if on ongoing source table fetching operation is ongoing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="83" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a2807aaf06fd3207e75014acc3701b225" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classNtripMountPoint" kindref="compound">NtripMountPoint</ref> &gt;</type>
+        <definition>QList&lt; NtripMountPoint &gt; NtripSourceTableFetcher::mountPoints</definition>
+        <argsstring>() const</argsstring>
+        <name>mountPoints</name>
+        <qualifiedname>NtripSourceTableFetcher::mountPoints</qualifiedname>
+        <briefdescription>
+<para>Returns the mount points collected during the last source table fetching operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="86" column="11" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a367ce5aa4de190aa0537ac4e51eed487" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NtripSourceTableFetcher::fetch</definition>
+        <argsstring>(const NtripSettings &amp;ntripSettings)</argsstring>
+        <name>fetch</name>
+        <qualifiedname>NtripSourceTableFetcher::fetch</qualifiedname>
+        <param>
+          <type>const <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>ntripSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches details from an NTRIP server source table <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ntripSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The NTRIP settings of the server </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="92" column="22" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="26" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a884f60d068a976d145688d50411d5d8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NtripSourceTableFetcher::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>NtripSourceTableFetcher::cancel</qualifiedname>
+        <briefdescription>
+<para>Cancels any ongoing fetching operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="95" column="22" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="51" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNtripSourceTableFetcher_1a2d8a4e6893787b6b19e558c943fd539d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::isFetchingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFetchingChanged</name>
+        <qualifiedname>NtripSourceTableFetcher::isFetchingChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when a fetching operation has begun or ended. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="99" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNtripSourceTableFetcher_1a14c8ec46e3ff692dc6ea8039d600be6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::mountPointsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mountPointsChanged</name>
+        <qualifiedname>NtripSourceTableFetcher::mountPointsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the list of collected mount points has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNtripSourceTableFetcher_1a03163da2ba94cdd22a2f253ef6c1aaef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::fetchError</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>fetchError</name>
+        <qualifiedname>NtripSourceTableFetcher::fetchError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when an error has occured during a fetching operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="105" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classNtripSourceTableFetcher_1ae01b8f934ffdf2b711418be7d126faa3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::onSocketConnected</definition>
+        <argsstring>()</argsstring>
+        <name>onSocketConnected</name>
+        <qualifiedname>NtripSourceTableFetcher::onSocketConnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="108" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="74" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNtripSourceTableFetcher_1affa66188a56ddf5d4f17b5955f873364" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::onSocketReadyRead</definition>
+        <argsstring>()</argsstring>
+        <name>onSocketReadyRead</name>
+        <qualifiedname>NtripSourceTableFetcher::onSocketReadyRead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="109" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="111" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNtripSourceTableFetcher_1aa290f3476510126868024827ca5a0d05" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::onSocketDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>onSocketDisconnected</name>
+        <qualifiedname>NtripSourceTableFetcher::onSocketDisconnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="110" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="144" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNtripSourceTableFetcher_1aa57b7613493fc1f7cbce567794cde3cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::onSocketError</definition>
+        <argsstring>(QAbstractSocket::SocketError error)</argsstring>
+        <name>onSocketError</name>
+        <qualifiedname>NtripSourceTableFetcher::onSocketError</qualifiedname>
+        <param>
+          <type>QAbstractSocket::SocketError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="111" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="176" bodyend="192"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1a58b1ac5935a877c5503f2ba3b509ab2f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSourceTableFetcher::cleanup</definition>
+        <argsstring>()</argsstring>
+        <name>cleanup</name>
+        <qualifiedname>NtripSourceTableFetcher::cleanup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="114" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="60" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSourceTableFetcher_1af232598ac57d6e226c4e29f4e17262db" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classNtripMountPoint" kindref="compound">NtripMountPoint</ref> &gt;</type>
+        <definition>QList&lt; NtripMountPoint &gt; NtripSourceTableFetcher::parseSourceTable</definition>
+        <argsstring>(const QByteArray &amp;data) const</argsstring>
+        <name>parseSourceTable</name>
+        <qualifiedname>NtripSourceTableFetcher::parseSourceTable</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="115" column="11" bodyfile="src/core/positioning/ntripsourcetablefetcher.cpp" bodystart="194" bodyend="227"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class to fetch information such as mount points from an NTRIP server&apos;s source table. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NtripSourceTableFetcher</label>
+        <link refid="classNtripSourceTableFetcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NtripSourceTableFetcher</label>
+        <link refid="classNtripSourceTableFetcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/ntripsourcetablefetcher.h" line="68" column="1" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="69" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classNtripSourceTableFetcher_1a884f60d068a976d145688d50411d5d8b" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>cancel</name></member>
+      <member refid="classNtripSourceTableFetcher_1a58b1ac5935a877c5503f2ba3b509ab2f" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>cleanup</name></member>
+      <member refid="classNtripSourceTableFetcher_1a367ce5aa4de190aa0537ac4e51eed487" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>fetch</name></member>
+      <member refid="classNtripSourceTableFetcher_1a03163da2ba94cdd22a2f253ef6c1aaef" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>fetchError</name></member>
+      <member refid="classNtripSourceTableFetcher_1a63c5a663a75a8884f9e11243e58e2e9a" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>isFetching</name></member>
+      <member refid="classNtripSourceTableFetcher_1a0e4d9f61026d29f8746002c11a1447f4" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>isFetching</name></member>
+      <member refid="classNtripSourceTableFetcher_1a2d8a4e6893787b6b19e558c943fd539d" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>isFetchingChanged</name></member>
+      <member refid="classNtripSourceTableFetcher_1a379c9e4be78e229e3dd577414f925950" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mBuffer</name></member>
+      <member refid="classNtripSourceTableFetcher_1a0fe24a3a91e61115a7a60d67a0f2a8e8" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mHeadersParsed</name></member>
+      <member refid="classNtripSourceTableFetcher_1a5f87b6a5157a99a09dbbe59b76090d1a" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mHost</name></member>
+      <member refid="classNtripSourceTableFetcher_1a341bfc7f766b867700bd160f153a9edc" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mIsFetching</name></member>
+      <member refid="classNtripSourceTableFetcher_1ab0e80a84b93850ee4471805db3aac756" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mMountPoints</name></member>
+      <member refid="classNtripSourceTableFetcher_1ae830374733441c58f65d7130fff0126c" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mountPoints</name></member>
+      <member refid="classNtripSourceTableFetcher_1a2807aaf06fd3207e75014acc3701b225" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mountPoints</name></member>
+      <member refid="classNtripSourceTableFetcher_1a14c8ec46e3ff692dc6ea8039d600be6b" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mountPointsChanged</name></member>
+      <member refid="classNtripSourceTableFetcher_1adb0043dd37dfce39e19c674627ed0281" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mPassword</name></member>
+      <member refid="classNtripSourceTableFetcher_1a03cb64bd5a6a0a0e21758f716e582b11" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mPort</name></member>
+      <member refid="classNtripSourceTableFetcher_1a1ae8e1385e92ef546bbb3f292f4e8280" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mProtocol</name></member>
+      <member refid="classNtripSourceTableFetcher_1a710e7923504e62f09752e10649296a43" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mSocket</name></member>
+      <member refid="classNtripSourceTableFetcher_1ab9685900b3c93cf415e381c92dbba9c1" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>mUsername</name></member>
+      <member refid="classNtripSourceTableFetcher_1a8fb728efffac3b6779d7b3c6bd3d9f8d" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>NtripSourceTableFetcher</name></member>
+      <member refid="classNtripSourceTableFetcher_1ae01b8f934ffdf2b711418be7d126faa3" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>onSocketConnected</name></member>
+      <member refid="classNtripSourceTableFetcher_1aa290f3476510126868024827ca5a0d05" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>onSocketDisconnected</name></member>
+      <member refid="classNtripSourceTableFetcher_1aa57b7613493fc1f7cbce567794cde3cd" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>onSocketError</name></member>
+      <member refid="classNtripSourceTableFetcher_1affa66188a56ddf5d4f17b5955f873364" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>onSocketReadyRead</name></member>
+      <member refid="classNtripSourceTableFetcher_1af232598ac57d6e226c4e29f4e17262db" prot="private" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>parseSourceTable</name></member>
+      <member refid="classNtripSourceTableFetcher_1a83ff38044c5e08de785051910b8a510c" prot="public" virt="non-virtual"><scope>NtripSourceTableFetcher</scope><name>~NtripSourceTableFetcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

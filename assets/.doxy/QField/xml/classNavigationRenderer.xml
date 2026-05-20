@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNavigationRenderer" kind="class" language="C++" prot="public">
+    <compoundname>NavigationRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNavigationRenderer_1ac11d1ed24808b1e9c13da5cbe3534e52" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var NavigationRenderer::pointIndex</definition>
+        <argsstring></argsstring>
+        <name>pointIndex</name>
+        <qualifiedname>NavigationRenderer::pointIndex</qualifiedname>
+        <read>dummyGetter_pointIndex_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="12" column="1" bodyfile="src/qml/NavigationRenderer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigationRenderer_1a82da379ea1763d4843ca70a7091f762d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int NavigationRenderer::pointType</definition>
+        <argsstring></argsstring>
+        <name>pointType</name>
+        <qualifiedname>NavigationRenderer::pointType</qualifiedname>
+        <read>dummyGetter_pointType_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="14" column="1" bodyfile="src/qml/NavigationRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigationRenderer_1afa7edc96ace406dd5a407dcc0a6c6891" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings NavigationRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>NavigationRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="16" column="1" bodyfile="src/qml/NavigationRenderer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNavigationRenderer_1a0b4fae6de435bc81297aad11929f104b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref></type>
+        <definition>QgsGeometryWrapper NavigationRenderer::geometryWrapper</definition>
+        <argsstring></argsstring>
+        <name>geometryWrapper</name>
+        <qualifiedname>NavigationRenderer::geometryWrapper</qualifiedname>
+        <read>dummyGetter_geometryWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="18" column="1" bodyfile="src/qml/NavigationRenderer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNavigationRenderer_1aec21073cf7268f090aecbaeff9959f68" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component NavigationRenderer::pointHighlight</definition>
+        <argsstring></argsstring>
+        <name>pointHighlight</name>
+        <qualifiedname>NavigationRenderer::pointHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="21" column="11" bodyfile="src/qml/NavigationRenderer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigationRenderer_1a2c219ffbceff1c1cc9eeeec12ccf8e88" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapToScreen" kindref="compound">MapToScreen</ref></type>
+        <definition>MapToScreen NavigationRenderer::mapToScreenPosition</definition>
+        <argsstring></argsstring>
+        <name>mapToScreenPosition</name>
+        <qualifiedname>NavigationRenderer::mapToScreenPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="22" column="13" bodyfile="src/qml/NavigationRenderer.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigationRenderer_1a061a6ccf84a946159c617b3c395dd4a3" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle NavigationRenderer::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>NavigationRenderer::point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="23" column="11" bodyfile="src/qml/NavigationRenderer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigationRenderer_1a95d136171b0663c33c006c830cd30983" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape NavigationRenderer::edgePoint</definition>
+        <argsstring></argsstring>
+        <name>edgePoint</name>
+        <qualifiedname>NavigationRenderer::edgePoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="24" column="7" bodyfile="src/qml/NavigationRenderer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNavigationRenderer_1a202b6345ad32b592d8a942cadbe9c762" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader NavigationRenderer::geometryComponent</definition>
+        <argsstring></argsstring>
+        <name>geometryComponent</name>
+        <qualifiedname>NavigationRenderer::geometryComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/NavigationRenderer.qml" line="25" column="8" bodyfile="src/qml/NavigationRenderer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NavigationRenderer</label>
+        <link refid="classNavigationRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NavigationRenderer</label>
+        <link refid="classNavigationRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/NavigationRenderer.qml" line="9" column="1" bodyfile="src/qml/NavigationRenderer.qml" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classNavigationRenderer_1a95d136171b0663c33c006c830cd30983" prot="private" virt="non-virtual"><scope>NavigationRenderer</scope><name>edgePoint</name></member>
+      <member refid="classNavigationRenderer_1a202b6345ad32b592d8a942cadbe9c762" prot="private" virt="non-virtual"><scope>NavigationRenderer</scope><name>geometryComponent</name></member>
+      <member refid="classNavigationRenderer_1a0b4fae6de435bc81297aad11929f104b" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>geometryWrapper</name></member>
+      <member refid="classNavigationRenderer_1afa7edc96ace406dd5a407dcc0a6c6891" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>mapSettings</name></member>
+      <member refid="classNavigationRenderer_1a2c219ffbceff1c1cc9eeeec12ccf8e88" prot="private" virt="non-virtual"><scope>NavigationRenderer</scope><name>mapToScreenPosition</name></member>
+      <member refid="classNavigationRenderer_1a061a6ccf84a946159c617b3c395dd4a3" prot="private" virt="non-virtual"><scope>NavigationRenderer</scope><name>point</name></member>
+      <member refid="classNavigationRenderer_1aec21073cf7268f090aecbaeff9959f68" prot="private" virt="non-virtual"><scope>NavigationRenderer</scope><name>pointHighlight</name></member>
+      <member refid="classNavigationRenderer_1ac11d1ed24808b1e9c13da5cbe3534e52" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>pointIndex</name></member>
+      <member refid="classNavigationRenderer_1a82da379ea1763d4843ca70a7091f762d" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>pointType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

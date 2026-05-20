@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfieldxmlhttprequest_8h" kind="file" language="C++">
+    <compoundname>qfieldxmlhttprequest.h</compoundname>
+    <includes local="no">QJSValue</includes>
+    <includes local="no">QList</includes>
+    <includes local="no">QMap</includes>
+    <includes local="no">QMetaObject</includes>
+    <includes local="no">QMetaType</includes>
+    <includes local="no">QNetworkReply</includes>
+    <includes local="no">QNetworkRequest</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QPointer</includes>
+    <includes local="no">QUrl</includes>
+    <includes local="no">QVariant</includes>
+    <includedby refid="appinterface_8cpp" local="yes">src/core/appinterface.cpp</includedby>
+    <includedby refid="qfieldxmlhttprequest_8cpp" local="yes">src/core/qfieldxmlhttprequest.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qfieldxmlhttprequest.h</label>
+        <link refid="qfieldxmlhttprequest_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QJSValue</label>
+      </node>
+      <node id="3">
+        <label>QList</label>
+      </node>
+      <node id="4">
+        <label>QMap</label>
+      </node>
+      <node id="5">
+        <label>QMetaObject</label>
+      </node>
+      <node id="6">
+        <label>QMetaType</label>
+      </node>
+      <node id="7">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="8">
+        <label>QNetworkRequest</label>
+      </node>
+      <node id="9">
+        <label>QObject</label>
+      </node>
+      <node id="10">
+        <label>QPointer</label>
+      </node>
+      <node id="11">
+        <label>QUrl</label>
+      </node>
+      <node id="12">
+        <label>QVariant</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQFieldXmlHttpRequest" prot="public">QFieldXmlHttpRequest</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">qfieldxmlhttprequest.h<sp/>-<sp/>QFieldXmlHttpRequest</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>15.12.2025</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2025<sp/>by<sp/>Kaustuv<sp/>Pokharel</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>kaustuv<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFIELDXMLHTTPREQUEST_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFIELDXMLHTTPREQUEST_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJSValue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QList&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMetaObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMetaType&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkReply&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkRequest&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPointer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QUrl&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVariant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QHttpMultiPart;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classQFieldXmlHttpRequest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQFieldXmlHttpRequest" kindref="compound">QFieldXmlHttpRequest</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classQFieldXmlHttpRequest_1aaed6252b903959e2869a86092df8c2da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" kindref="member">ReadyState</ref><sp/><ref refid="classQFieldXmlHttpRequest_1aaed6252b903959e2869a86092df8c2da" kindref="member">readyState</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1aaed6252b903959e2869a86092df8c2da" kindref="member">readyState</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a5a4ccdde0df7e55892472c2bf72f75df" kindref="member">readyStateChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67" refid="classQFieldXmlHttpRequest_1adda1f114a257f2c528288e9e3107cb7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1adda1f114a257f2c528288e9e3107cb7a" kindref="member">status</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1adda1f114a257f2c528288e9e3107cb7a" kindref="member">status</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classQFieldXmlHttpRequest_1af276ed51eb67d07e67cd03f1fc8d188a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1af276ed51eb67d07e67cd03f1fc8d188a" kindref="member">statusText</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1af276ed51eb67d07e67cd03f1fc8d188a" kindref="member">statusText</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classQFieldXmlHttpRequest_1a1555d4fb28da1680ee70f1de141ffa40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1a1555d4fb28da1680ee70f1de141ffa40" kindref="member">responseText</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1a1555d4fb28da1680ee70f1de141ffa40" kindref="member">responseText</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classQFieldXmlHttpRequest_1a6d8429de56f96078495030956d7fbf61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariant<sp/><ref refid="classQFieldXmlHttpRequest_1a6d8429de56f96078495030956d7fbf61" kindref="member">response</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1a6d8429de56f96078495030956d7fbf61" kindref="member">response</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classQFieldXmlHttpRequest_1a611dd5a4272813244df0dc8c207e01f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1a611dd5a4272813244df0dc8c207e01f8" kindref="member">responseType</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1a611dd5a4272813244df0dc8c207e01f8" kindref="member">responseType</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classQFieldXmlHttpRequest_1aec4f1959a2ece7c135bb60fefa3fa1c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QUrl<sp/><ref refid="classQFieldXmlHttpRequest_1aec4f1959a2ece7c135bb60fefa3fa1c9" kindref="member">responseUrl</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1aec4f1959a2ece7c135bb60fefa3fa1c9" kindref="member">responseUrl</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="classQFieldXmlHttpRequest_1afc8a801a4a46e7016f62f775aa145ed8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1afc8a801a4a46e7016f62f775aa145ed8" kindref="member">timeout</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1afc8a801a4a46e7016f62f775aa145ed8" kindref="member">timeout</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1a9ed705de30770e726e8d8348c6a7e3d7" kindref="member">setTimeout</ref><sp/>NOTIFY<sp/><ref refid="classQFieldXmlHttpRequest_1a2b562417a0a3f0a91bd62607c6e010f0" kindref="member">timeoutChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="classQFieldXmlHttpRequest_1ac93e81cda580331777a78a3967b42217" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1ac93e81cda580331777a78a3967b42217" kindref="member">onreadystatechange</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1ac93e81cda580331777a78a3967b42217" kindref="member">onreadystatechange</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1ad7901cdd72b03b38d8ac3a0114967ee3" kindref="member">setOnreadystatechange</ref><sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classQFieldXmlHttpRequest_1a982bd128b3c215fe73a4b274cae2911d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1a982bd128b3c215fe73a4b274cae2911d" kindref="member">ondownloadprogress</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1a982bd128b3c215fe73a4b274cae2911d" kindref="member">ondownloadprogress</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1af1dbd58104f02168d0214286d8dcb672" kindref="member">setOndownloadprogress</ref><sp/>)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classQFieldXmlHttpRequest_1acee3b5a96a901b76821dc3ccd56c15eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1acee3b5a96a901b76821dc3ccd56c15eb" kindref="member">onuploadprogress</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1acee3b5a96a901b76821dc3ccd56c15eb" kindref="member">onuploadprogress</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1a2e6d944abdb98406d7c1fb0a6814fafc" kindref="member">setOnuploadprogress</ref><sp/>)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="classQFieldXmlHttpRequest_1aaf7e9b54b12f41673c777ef7210a8dbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1aaf7e9b54b12f41673c777ef7210a8dbc" kindref="member">onredirected</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1aaf7e9b54b12f41673c777ef7210a8dbc" kindref="member">onredirected</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1a04d465215f48b5e1a8d8f8ba49c008c8" kindref="member">setOnredirected</ref><sp/>)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="classQFieldXmlHttpRequest_1a472eac358ef1f72c9d243c914c89471c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1a472eac358ef1f72c9d243c914c89471c" kindref="member">ontimeout</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1a472eac358ef1f72c9d243c914c89471c" kindref="member">ontimeout</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1aadfb123e8ce67d1c8196c681e416d059" kindref="member">setOntimeout</ref><sp/>)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="classQFieldXmlHttpRequest_1ad623f5dca8c21681389a53d727780e89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1ad623f5dca8c21681389a53d727780e89" kindref="member">onaborted</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1ad623f5dca8c21681389a53d727780e89" kindref="member">onaborted</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1ae2bb4f68d7539e31f47245778775f716" kindref="member">setOnaborted</ref><sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="classQFieldXmlHttpRequest_1a5f9072b76854018113b30c3c8401e984" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1a5f9072b76854018113b30c3c8401e984" kindref="member">onerror</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1a5f9072b76854018113b30c3c8401e984" kindref="member">onerror</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1af8ffac99eb97c13ec09c152458c5545a" kindref="member">setOnerror</ref><sp/>)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="classQFieldXmlHttpRequest_1ab18d246f9d724a8194151fe11fb2122a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1ab18d246f9d724a8194151fe11fb2122a" kindref="member">onload</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1ab18d246f9d724a8194151fe11fb2122a" kindref="member">onload</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1ae0bd6d9cbff9c9c26632ac798a412e08" kindref="member">setOnload</ref><sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="classQFieldXmlHttpRequest_1aba50c65081217ee5d45e9ae12af0b3f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1aba50c65081217ee5d45e9ae12af0b3f1" kindref="member">onloadend</ref><sp/>READ<sp/><ref refid="classQFieldXmlHttpRequest_1aba50c65081217ee5d45e9ae12af0b3f1" kindref="member">onloadend</ref><sp/>WRITE<sp/><ref refid="classQFieldXmlHttpRequest_1ac916420e4d178cd816914b82c48a9cd9" kindref="member">setOnloadend</ref><sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="152" refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classenum" kindref="compound">enum</ref><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" kindref="member">ReadyState</ref><sp/>:<sp/>uchar</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="154" refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831a9b5a28dc91ec94594aaab8ab03e13beb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831a9b5a28dc91ec94594aaab8ab03e13beb" kindref="member">Unsent</ref><sp/>=<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="155" refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831af43c3d98653cbfefc3da6e82964d9f81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831af43c3d98653cbfefc3da6e82964d9f81" kindref="member">Opened</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="156" refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831aaefa87d8e636f9b6918f8eaf07de8f16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831aaefa87d8e636f9b6918f8eaf07de8f16" kindref="member">HeadersReceived</ref>,<sp/></highlight></codeline>
+<codeline lineno="157" refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831af602ed19be3d598b1f814a52734fcaca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831af602ed19be3d598b1f814a52734fcaca" kindref="member">Loading</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831a68aed6cd653466b7fd58077001350010" kindref="member">Done</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="159" refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831a68aed6cd653466b7fd58077001350010" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_ENUM(<sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" kindref="member">ReadyState</ref><sp/>)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest" kindref="compound">QFieldXmlHttpRequest</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest" kindref="compound">~QFieldXmlHttpRequest</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest" kindref="compound">QFieldXmlHttpRequest</ref><sp/>*<ref refid="classQFieldXmlHttpRequest_1a5ac82c310f6f0a6a101d559666e17769" kindref="member">newRequest</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a0e5da72657e8bce24ff8ba0d9be41243" kindref="member">open</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;method,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QUrl<sp/>&amp;url<sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1af0ef58a778449cb03be771c55feadf61" kindref="member">setRequestHeader</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;headerName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;headerValue<sp/>);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a28f8a67395db7f32ea37701b2f0f4aed" kindref="member">send</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;body<sp/>=<sp/>QVariant()<sp/>);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a0a7a1c11f74f67857625e0df0a66caae" kindref="member">abort</ref>();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1aed2c8893d63bfede532de0617daaa961" kindref="member">getResponseHeader</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;name<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1a4cf3e0da219ccebab8921a9519638765" kindref="member">getAllResponseHeaders</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215" refid="classQFieldXmlHttpRequest_1a5856ca10cbbcc1c706b01e0275ce0d16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" kindref="member">ReadyState</ref><sp/><ref refid="classQFieldXmlHttpRequest_1a5856ca10cbbcc1c706b01e0275ce0d16" kindref="member">readyState</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mReadyState;<sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="classQFieldXmlHttpRequest_1ac56a6fc192ed7299109322aca9bc3c7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1ac56a6fc192ed7299109322aca9bc3c7c" kindref="member">status</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mStatus;<sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="classQFieldXmlHttpRequest_1a1928ef07119b9231aefc2173cc1fc78f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1a1928ef07119b9231aefc2173cc1fc78f" kindref="member">statusText</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mStatusText;<sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224" refid="classQFieldXmlHttpRequest_1a4f7cdde6574812dacf9050ead624acd7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1a4f7cdde6574812dacf9050ead624acd7" kindref="member">responseText</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mResponseText;<sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="classQFieldXmlHttpRequest_1ad07a367989b938a05e24799e8555cb33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/><ref refid="classQFieldXmlHttpRequest_1ad07a367989b938a05e24799e8555cb33" kindref="member">response</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mResponse;<sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230" refid="classQFieldXmlHttpRequest_1a0562d5852de7fa2e67dd8667223176ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQFieldXmlHttpRequest_1a0562d5852de7fa2e67dd8667223176ec" kindref="member">responseType</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mResponseType;<sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="classQFieldXmlHttpRequest_1ad4012d0323910c9fbade17c054a5c627" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QUrl<sp/><ref refid="classQFieldXmlHttpRequest_1ad4012d0323910c9fbade17c054a5c627" kindref="member">responseUrl</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mResponseUrl;<sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a9ed705de30770e726e8d8348c6a7e3d7" kindref="member">setTimeout</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>milliseconds<sp/>);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="classQFieldXmlHttpRequest_1a57ad087beaad1cefbab14a77a71b42d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a57ad087beaad1cefbab14a77a71b42d9" kindref="member">timeout</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mTimeoutMs;<sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242" refid="classQFieldXmlHttpRequest_1ae0b26c244a0854f5bd28df966a4f192f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1ae0b26c244a0854f5bd28df966a4f192f" kindref="member">onreadystatechange</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnReadyStateChanged;<sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245" refid="classQFieldXmlHttpRequest_1ad7901cdd72b03b38d8ac3a0114967ee3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1ad7901cdd72b03b38d8ac3a0114967ee3" kindref="member">setOnreadystatechange</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnReadyStateChanged<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="classQFieldXmlHttpRequest_1ab9aee3cf7eebde1c345efaffed359ffd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1ab9aee3cf7eebde1c345efaffed359ffd" kindref="member">ondownloadprogress</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnDownloadProgress;<sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251" refid="classQFieldXmlHttpRequest_1af1dbd58104f02168d0214286d8dcb672" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1af1dbd58104f02168d0214286d8dcb672" kindref="member">setOndownloadprogress</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnDownloadProgress<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="classQFieldXmlHttpRequest_1af3466cda7be8903a18d866213458c75f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1af3466cda7be8903a18d866213458c75f" kindref="member">onuploadprogress</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnUploadProgress;<sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257" refid="classQFieldXmlHttpRequest_1a2e6d944abdb98406d7c1fb0a6814fafc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a2e6d944abdb98406d7c1fb0a6814fafc" kindref="member">setOnuploadprogress</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnUploadProgress<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="classQFieldXmlHttpRequest_1a317ca2162e3d6e67a5974ac56907a35f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1a317ca2162e3d6e67a5974ac56907a35f" kindref="member">onredirected</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnRedirected;<sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="classQFieldXmlHttpRequest_1a04d465215f48b5e1a8d8f8ba49c008c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a04d465215f48b5e1a8d8f8ba49c008c8" kindref="member">setOnredirected</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnRedirected<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="classQFieldXmlHttpRequest_1aa48a921b2f73550a685ccf29d0a39324" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1aa48a921b2f73550a685ccf29d0a39324" kindref="member">ontimeout</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnTimeout;<sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="classQFieldXmlHttpRequest_1aadfb123e8ce67d1c8196c681e416d059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1aadfb123e8ce67d1c8196c681e416d059" kindref="member">setOntimeout</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnTimeout<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="classQFieldXmlHttpRequest_1a5e566f6588aba5e0fd0e55c4217e7540" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1a5e566f6588aba5e0fd0e55c4217e7540" kindref="member">onaborted</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnAborted;<sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275" refid="classQFieldXmlHttpRequest_1ae2bb4f68d7539e31f47245778775f716" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1ae2bb4f68d7539e31f47245778775f716" kindref="member">setOnaborted</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnAborted<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278" refid="classQFieldXmlHttpRequest_1a1dd36957fa68a6529044d30de5b82cb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1a1dd36957fa68a6529044d30de5b82cb2" kindref="member">onerror</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnError;<sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="classQFieldXmlHttpRequest_1af8ffac99eb97c13ec09c152458c5545a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1af8ffac99eb97c13ec09c152458c5545a" kindref="member">setOnerror</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnError<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284" refid="classQFieldXmlHttpRequest_1af3e7c66cd122bade24d07687fa16efc5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1af3e7c66cd122bade24d07687fa16efc5" kindref="member">onload</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnLoad;<sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287" refid="classQFieldXmlHttpRequest_1ae0bd6d9cbff9c9c26632ac798a412e08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1ae0bd6d9cbff9c9c26632ac798a412e08" kindref="member">setOnload</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnLoad<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290" refid="classQFieldXmlHttpRequest_1ac5685ac6c39b9e2ba09fbc819a5c1d2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/><ref refid="classQFieldXmlHttpRequest_1ac5685ac6c39b9e2ba09fbc819a5c1d2b" kindref="member">onloadend</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOnLoadEnd;<sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="classQFieldXmlHttpRequest_1ac916420e4d178cd816914b82c48a9cd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1ac916420e4d178cd816914b82c48a9cd9" kindref="member">setOnloadend</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback<sp/>)<sp/>{<sp/>mOnLoadEnd<sp/>=<sp/>callback;<sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="297" refid="classQFieldXmlHttpRequest_1a5a4ccdde0df7e55892472c2bf72f75df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a5a4ccdde0df7e55892472c2bf72f75df" kindref="member">readyStateChanged</ref>();</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300" refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a4431fd702b2ec41a02cbac00e8eb3cb6" kindref="member">responseChanged</ref>();</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="classQFieldXmlHttpRequest_1a2b562417a0a3f0a91bd62607c6e010f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQFieldXmlHttpRequest_1a2b562417a0a3f0a91bd62607c6e010f0" kindref="member">timeoutChanged</ref>();</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isOpen()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setReadyState(<sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" kindref="member">ReadyState</ref><sp/>state<sp/>);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearResponse();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetForNewRequest();</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cleanupReply(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>abortNetwork<sp/>);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startRequest(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;body<sp/>);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>hookReply(<sp/>QNetworkReply<sp/>*networkReply<sp/>);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>finalizeReply(<sp/>QNetworkReply<sp/>*finishedReply<sp/>);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>finalizeAsError(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;detail,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shouldEmitResponseChanged<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>bodyToBytes(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;body,<sp/>QString<sp/>*outContentType<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bodyContainsFileUrls(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;body<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>QHttpMultiPart<sp/>*buildMultipart(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;body<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isAllowedLocalUploadPath(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;localPath<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>call(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValue<sp/>&amp;callback,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QJSValueList<sp/>&amp;arguments<sp/>=<sp/>{}<sp/>);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>containsNewlines(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;stringValue<sp/>);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>collectResponseHeaders(<sp/>QNetworkReply<sp/>*networkReply<sp/>);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>normalizeHeaderName(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;stringValue<sp/>);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>scheduleAutoDelete();</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointer&lt;QNetworkReply&gt;<sp/>mReply;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QMetaObject::Connection&gt;<sp/>mConnections;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/>QNetworkRequest<sp/>mRequest;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>mMethod;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>QUrl<sp/>mUrl;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831" kindref="member">ReadyState</ref><sp/>mReadyState<sp/>=<sp/><ref refid="classQFieldXmlHttpRequest_1a41442e779fcee1ca1cd9b0695937f831a9b5a28dc91ec94594aaab8ab03e13beb" kindref="member">Unsent</ref>;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mTimeoutMs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mFinalized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mTimedOut<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mAborted<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>quint64<sp/>mRequestSerial<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mStatus<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mStatusText;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariant<sp/>mResponse;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mResponseText;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mResponseType;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>QUrl<sp/>mResponseUrl;</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QString&gt;<sp/>mResponseHeaders;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/>QNetworkReply::NetworkError<sp/>mLastError<sp/>=<sp/>QNetworkReply::NoError;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mLastErrorString;</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnReadyStateChanged;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnDownloadProgress;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnUploadProgress;</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnRedirected;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnTimeout;</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnAborted;</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnError;</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnLoad;</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>QJSValue<sp/>mOnLoadEnd;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFIELDXMLHTTPREQUEST_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfieldxmlhttprequest.h"/>
+  </compounddef>
+</doxygen>

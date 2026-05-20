@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Dummy_8qml" kind="file" language="C++">
+    <compoundname>Dummy.qml</compoundname>
+    <innerclass refid="classDummy" prot="public">Dummy</innerclass>
+    <innernamespace refid="namespaceQtQuick3D_1_1AssetUtils">QtQuick3D::AssetUtils</innernamespace>
+    <innernamespace refid="namespaceQtQuick3D_1_1Particles3D">QtQuick3D::Particles3D</innernamespace>
+    <innernamespace refid="namespaceQtWebSockets">QtWebSockets</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>This<sp/>file<sp/>is<sp/>used<sp/>to<sp/>add<sp/>extra<sp/>imports<sp/>for<sp/>the<sp/>qml<sp/>import<sp/>scanner<sp/>to<sp/>add<sp/>additional<sp/>modules</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>QtQuick3D</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>QtQuick3D.AssetUtils</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>QtQuick3D.Helpers</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">import<sp/>QtQuick3D.Particles3D</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">import<sp/>QtWebSockets</highlight></codeline>
+<codeline lineno="8" refid="classDummy" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">Item<sp/>{}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/Dummy.qml"/>
+  </compounddef>
+</doxygen>

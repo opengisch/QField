@@ -1,0 +1,685 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLinePolygonShape" kind="class" language="C++" prot="public">
+    <compoundname>LinePolygonShape</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <derivedcompoundref refid="classLinePolygon" prot="public" virt="non-virtual">LinePolygon</derivedcompoundref>
+    <includes refid="linepolygonshape_8h" local="no">linepolygonshape.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLinePolygonShape_1a96c2707d973dc37ebebf66ee9b8f5e0f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor LinePolygonShape::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>LinePolygonShape::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="35" column="5" bodyfile="src/core/linepolygonshape.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLinePolygonShape_1a500621ceaa977c96509dfbab0ff0914b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float LinePolygonShape::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>LinePolygonShape::lineWidth</qualifiedname>
+        <read>lineWidth</read>
+        <write>setLineWidth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="36" column="5" bodyfile="src/core/linepolygonshape.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLinePolygonShape_1aa0302d40557077dd44eda46470314eec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * LinePolygonShape::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>LinePolygonShape::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="37" column="5" bodyfile="src/core/linepolygonshape.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLinePolygonShape_1a4ccd3a24b48a10cae8d6e41f65964327" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref> *</type>
+        <definition>QgsGeometryWrapper * LinePolygonShape::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>LinePolygonShape::geometry</qualifiedname>
+        <read>geometry</read>
+        <write>setGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="38" column="5" bodyfile="src/core/linepolygonshape.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLinePolygonShape_1a8959c5b170bc2e13616d532cde95b913" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt;QPolygonF&gt; LinePolygonShape::polylines</definition>
+        <argsstring></argsstring>
+        <name>polylines</name>
+        <qualifiedname>LinePolygonShape::polylines</qualifiedname>
+        <read>polylines</read>
+        <briefdescription>
+<para>List of polylines representing the geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="41" column="5" bodyfile="src/core/linepolygonshape.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLinePolygonShape_1ad87706b6a34cd9e371e49dbcc65373aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType LinePolygonShape::polylinesType</definition>
+        <argsstring></argsstring>
+        <name>polylinesType</name>
+        <qualifiedname>LinePolygonShape::polylinesType</qualifiedname>
+        <read>polylinesType</read>
+        <briefdescription>
+<para>The geometry type associated to the polylines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="43" column="5" bodyfile="src/core/linepolygonshape.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLinePolygonShape_1abe373dd2d5e25b38ba4bf6033910eda1" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor LinePolygonShape::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>LinePolygonShape::mColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="87" column="12" bodyfile="src/core/linepolygonshape.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1acac9c040417dff480dfae17db86d3d35" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LinePolygonShape::mWidth</definition>
+        <argsstring></argsstring>
+        <name>mWidth</name>
+        <qualifiedname>LinePolygonShape::mWidth</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="88" column="11" bodyfile="src/core/linepolygonshape.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1a628e593591988b4aafc5bc99d1310a57" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LinePolygonShape::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>LinePolygonShape::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="89" column="10" bodyfile="src/core/linepolygonshape.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1a9e89483251f715d0d22e3b9e5df3b086" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* LinePolygonShape::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>LinePolygonShape::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="90" column="25" bodyfile="src/core/linepolygonshape.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1af99c6b84028ad5b93c2c81021755fdad" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref> *</type>
+        <definition>QgsGeometryWrapper* LinePolygonShape::mGeometry</definition>
+        <argsstring></argsstring>
+        <name>mGeometry</name>
+        <qualifiedname>LinePolygonShape::mGeometry</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="91" column="24" bodyfile="src/core/linepolygonshape.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1a969aaafdcc51937bd8f7e47e6013bd8e" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint LinePolygonShape::mGeometryCorner</definition>
+        <argsstring></argsstring>
+        <name>mGeometryCorner</name>
+        <qualifiedname>LinePolygonShape::mGeometryCorner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="92" column="14" bodyfile="src/core/linepolygonshape.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1a8e7796d1ced76dc5782c485092949fb3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double LinePolygonShape::mGeometryMUPP</definition>
+        <argsstring></argsstring>
+        <name>mGeometryMUPP</name>
+        <qualifiedname>LinePolygonShape::mGeometryMUPP</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="93" column="12" bodyfile="src/core/linepolygonshape.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1aafcd189f49aa8f8b8850e727528b2b24" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt;QPolygonF&gt; LinePolygonShape::mPolylines</definition>
+        <argsstring></argsstring>
+        <name>mPolylines</name>
+        <qualifiedname>LinePolygonShape::mPolylines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="94" column="11" bodyfile="src/core/linepolygonshape.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLinePolygonShape_1a7e81033d27fc358cb21b50aa983fcb84" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType LinePolygonShape::mPolylinesType</definition>
+        <argsstring></argsstring>
+        <name>mPolylinesType</name>
+        <qualifiedname>LinePolygonShape::mPolylinesType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="95" column="24" bodyfile="src/core/linepolygonshape.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLinePolygonShape_1a7b49e944c44ebb288ff01318f398c0ad" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LinePolygonShape::LinePolygonShape</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>LinePolygonShape</name>
+        <qualifiedname>LinePolygonShape::LinePolygonShape</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="46" column="14" bodyfile="src/core/linepolygonshape.cpp" bodystart="26" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a5702f9abcd94329b610fe284a5e4c917" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref> *</type>
+        <definition>QgsGeometryWrapper * LinePolygonShape::geometry</definition>
+        <argsstring>() const</argsstring>
+        <name>geometry</name>
+        <qualifiedname>LinePolygonShape::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="48" column="24" bodyfile="src/core/linepolygonshape.cpp" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1afaa0ff19bf103f21a9ceab7022589c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::setGeometry</definition>
+        <argsstring>(QgsGeometryWrapper *geometry)</argsstring>
+        <name>setGeometry</name>
+        <qualifiedname>LinePolygonShape::setGeometry</qualifiedname>
+        <param>
+          <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref> *</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="49" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="213" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a03a421a997dd8449e389eaa8b4f64426" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * LinePolygonShape::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>LinePolygonShape::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="51" column="25" bodyfile="src/core/linepolygonshape.cpp" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a33dbcc7ad1855cfaa138960951f6ac25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>LinePolygonShape::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="52" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="137" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a8f41e4f9ac6bd0631b9601818e059db5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor LinePolygonShape::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>LinePolygonShape::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="54" column="12" bodyfile="src/core/linepolygonshape.cpp" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a7cb2dd156b53792fdd8eaadfbab93bf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>LinePolygonShape::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="55" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="121" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a6fb021496696e57a84f86cedfaebd710" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float LinePolygonShape::lineWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>LinePolygonShape::lineWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="57" column="11" bodyfile="src/core/linepolygonshape.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a5c558d2c3d06bf6b66523798c8956553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::setLineWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>setLineWidth</name>
+        <qualifiedname>LinePolygonShape::setLineWidth</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="58" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="105" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a8c61e54e53567b698b97265821dbfabf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QPolygonF &gt;</type>
+        <definition>QList&lt; QPolygonF &gt; LinePolygonShape::polylines</definition>
+        <argsstring>() const</argsstring>
+        <name>polylines</name>
+        <qualifiedname>LinePolygonShape::polylines</qualifiedname>
+        <briefdescription>
+<para>List of polylines representing the geometry.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="61" column="11" bodyfile="src/core/linepolygonshape.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a4f32b0c54685f75c3e138903ee3e33db" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType LinePolygonShape::polylinesType</definition>
+        <argsstring>() const</argsstring>
+        <name>polylinesType</name>
+        <qualifiedname>LinePolygonShape::polylinesType</qualifiedname>
+        <briefdescription>
+<para>The geometry type associated to the polylines.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="64" column="24" bodyfile="src/core/linepolygonshape.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classLinePolygonShape_1a84461799fb19119a9cd3908114eaff26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>LinePolygonShape::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLinePolygonShape_1a9077abc6f473c683243d86fbb86a8858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::lineWidthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineWidthChanged</name>
+        <qualifiedname>LinePolygonShape::lineWidthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLinePolygonShape_1a3ac0f0414261b4f7f839e23ba78b044b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>LinePolygonShape::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLinePolygonShape_1a1591dc4935f8187d391cfe21c21d6170" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::qgsGeometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>qgsGeometryChanged</name>
+        <qualifiedname>LinePolygonShape::qgsGeometryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLinePolygonShape_1a4682231d7b3600d9d5f20f52144820f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::updated</definition>
+        <argsstring>()</argsstring>
+        <name>updated</name>
+        <qualifiedname>LinePolygonShape::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLinePolygonShape_1a9a32178fca0d6f03ed51491b6e9f9199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::polylinesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polylinesChanged</name>
+        <qualifiedname>LinePolygonShape::polylinesChanged</qualifiedname>
+        <briefdescription>
+<para>List of polylines representing the geometry.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLinePolygonShape_1aa5bf4ef8d4eee021c519d354fa500b3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::polylinesTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polylinesTypeChanged</name>
+        <qualifiedname>LinePolygonShape::polylinesTypeChanged</qualifiedname>
+        <briefdescription>
+<para>The geometry type associated to the polylines.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="75" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classLinePolygonShape_1addfe72c88b2648853111361788d08754" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::rotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rotationChanged</name>
+        <qualifiedname>LinePolygonShape::rotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="78" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="184" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLinePolygonShape_1a2e3d9ddb3c28bc99baeddbcc1d9be935" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::mapCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapCrsChanged</name>
+        <qualifiedname>LinePolygonShape::mapCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="79" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="196" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLinePolygonShape_1aea457ce3fc0b2357b92f1c8a1074ee20" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::visibleExtentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleExtentChanged</name>
+        <qualifiedname>LinePolygonShape::visibleExtentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="80" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="189" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLinePolygonShape_1a35e62e7ee760db0f2b7eb54fcba6a760" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::makeDirty</definition>
+        <argsstring>()</argsstring>
+        <name>makeDirty</name>
+        <qualifiedname>LinePolygonShape::makeDirty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="81" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="202" bodyend="206"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classLinePolygonShape_1a01b95d5097ee021399e90e56a3a11516" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::updateTransform</definition>
+        <argsstring>()</argsstring>
+        <name>updateTransform</name>
+        <qualifiedname>LinePolygonShape::updateTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="84" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="161" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classLinePolygonShape_1a974c4c888c7f3803a890c7175fcc8cf2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePolygonShape::createPolylines</definition>
+        <argsstring>()</argsstring>
+        <name>createPolylines</name>
+        <qualifiedname>LinePolygonShape::createPolylines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/linepolygonshape.h" line="85" column="10" bodyfile="src/core/linepolygonshape.cpp" bodystart="34" bodyend="98"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classLinePolygonShape" kindref="compound">LinePolygonShape</ref> class is used to provide the shape data to draw geometries on the map canvas using the QML Shape item. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>LinePolygon</label>
+        <link refid="classLinePolygon"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LinePolygonShape</label>
+        <link refid="classLinePolygonShape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LinePolygonShape</label>
+        <link refid="classLinePolygonShape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/linepolygonshape.h" line="31" column="1" bodyfile="src/core/linepolygonshape.h" bodystart="32" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classLinePolygonShape_1a96c2707d973dc37ebebf66ee9b8f5e0f" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>color</name></member>
+      <member refid="classLinePolygonShape_1a8f41e4f9ac6bd0631b9601818e059db5" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>color</name></member>
+      <member refid="classLinePolygonShape_1a84461799fb19119a9cd3908114eaff26" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>colorChanged</name></member>
+      <member refid="classLinePolygonShape_1a974c4c888c7f3803a890c7175fcc8cf2" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>createPolylines</name></member>
+      <member refid="classLinePolygonShape_1a4ccd3a24b48a10cae8d6e41f65964327" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>geometry</name></member>
+      <member refid="classLinePolygonShape_1a5702f9abcd94329b610fe284a5e4c917" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>geometry</name></member>
+      <member refid="classLinePolygonShape_1a7b49e944c44ebb288ff01318f398c0ad" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>LinePolygonShape</name></member>
+      <member refid="classLinePolygonShape_1a500621ceaa977c96509dfbab0ff0914b" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>lineWidth</name></member>
+      <member refid="classLinePolygonShape_1a6fb021496696e57a84f86cedfaebd710" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>lineWidth</name></member>
+      <member refid="classLinePolygonShape_1a9077abc6f473c683243d86fbb86a8858" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>lineWidthChanged</name></member>
+      <member refid="classLinePolygonShape_1a35e62e7ee760db0f2b7eb54fcba6a760" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>makeDirty</name></member>
+      <member refid="classLinePolygonShape_1a2e3d9ddb3c28bc99baeddbcc1d9be935" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mapCrsChanged</name></member>
+      <member refid="classLinePolygonShape_1aa0302d40557077dd44eda46470314eec" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>mapSettings</name></member>
+      <member refid="classLinePolygonShape_1a03a421a997dd8449e389eaa8b4f64426" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>mapSettings</name></member>
+      <member refid="classLinePolygonShape_1a3ac0f0414261b4f7f839e23ba78b044b" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>mapSettingsChanged</name></member>
+      <member refid="classLinePolygonShape_1abe373dd2d5e25b38ba4bf6033910eda1" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mColor</name></member>
+      <member refid="classLinePolygonShape_1a628e593591988b4aafc5bc99d1310a57" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mDirty</name></member>
+      <member refid="classLinePolygonShape_1af99c6b84028ad5b93c2c81021755fdad" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mGeometry</name></member>
+      <member refid="classLinePolygonShape_1a969aaafdcc51937bd8f7e47e6013bd8e" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mGeometryCorner</name></member>
+      <member refid="classLinePolygonShape_1a8e7796d1ced76dc5782c485092949fb3" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mGeometryMUPP</name></member>
+      <member refid="classLinePolygonShape_1a9e89483251f715d0d22e3b9e5df3b086" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mMapSettings</name></member>
+      <member refid="classLinePolygonShape_1aafcd189f49aa8f8b8850e727528b2b24" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mPolylines</name></member>
+      <member refid="classLinePolygonShape_1a7e81033d27fc358cb21b50aa983fcb84" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mPolylinesType</name></member>
+      <member refid="classLinePolygonShape_1acac9c040417dff480dfae17db86d3d35" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>mWidth</name></member>
+      <member refid="classLinePolygonShape_1a8959c5b170bc2e13616d532cde95b913" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>polylines</name></member>
+      <member refid="classLinePolygonShape_1a8c61e54e53567b698b97265821dbfabf" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>polylines</name></member>
+      <member refid="classLinePolygonShape_1a9a32178fca0d6f03ed51491b6e9f9199" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>polylinesChanged</name></member>
+      <member refid="classLinePolygonShape_1ad87706b6a34cd9e371e49dbcc65373aa" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>polylinesType</name></member>
+      <member refid="classLinePolygonShape_1a4f32b0c54685f75c3e138903ee3e33db" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>polylinesType</name></member>
+      <member refid="classLinePolygonShape_1aa5bf4ef8d4eee021c519d354fa500b3c" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>polylinesTypeChanged</name></member>
+      <member refid="classLinePolygonShape_1a1591dc4935f8187d391cfe21c21d6170" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>qgsGeometryChanged</name></member>
+      <member refid="classLinePolygonShape_1addfe72c88b2648853111361788d08754" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>rotationChanged</name></member>
+      <member refid="classLinePolygonShape_1a7cb2dd156b53792fdd8eaadfbab93bf0" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>setColor</name></member>
+      <member refid="classLinePolygonShape_1afaa0ff19bf103f21a9ceab7022589c23" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>setGeometry</name></member>
+      <member refid="classLinePolygonShape_1a5c558d2c3d06bf6b66523798c8956553" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>setLineWidth</name></member>
+      <member refid="classLinePolygonShape_1a33dbcc7ad1855cfaa138960951f6ac25" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>setMapSettings</name></member>
+      <member refid="classLinePolygonShape_1a4682231d7b3600d9d5f20f52144820f4" prot="public" virt="non-virtual"><scope>LinePolygonShape</scope><name>updated</name></member>
+      <member refid="classLinePolygonShape_1a01b95d5097ee021399e90e56a3a11516" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>updateTransform</name></member>
+      <member refid="classLinePolygonShape_1aea457ce3fc0b2357b92f1c8a1074ee20" prot="private" virt="non-virtual"><scope>LinePolygonShape</scope><name>visibleExtentChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classVertexRubberband" kind="class" language="C++" prot="public">
+    <compoundname>VertexRubberband</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classVertexRubberband_1a9e0aadce9ba176259de36fb9ec52d9f1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings VertexRubberband::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>VertexRubberband::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/VertexRubberband.qml" line="12" column="1" bodyfile="src/qml/VertexRubberband.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexRubberband_1a19c9bee7ccfbbf4eab4b00a080e4a1e1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexRubberband::isVisible</definition>
+        <argsstring></argsstring>
+        <name>isVisible</name>
+        <qualifiedname>VertexRubberband::isVisible</qualifiedname>
+        <read>dummyGetter_isVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/VertexRubberband.qml" line="14" column="1" bodyfile="src/qml/VertexRubberband.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexRubberband_1a8de5e821c7c342301dc78f9c7c63b6e8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexRubberband::isCycling</definition>
+        <argsstring></argsstring>
+        <name>isCycling</name>
+        <qualifiedname>VertexRubberband::isCycling</qualifiedname>
+        <read>dummyGetter_isCycling_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/VertexRubberband.qml" line="16" column="1" bodyfile="src/qml/VertexRubberband.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classVertexRubberband_1a8f72870da3bcf460e2aaf96c0347cb13" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool VertexRubberband::isAddingVertex</definition>
+        <argsstring></argsstring>
+        <name>isAddingVertex</name>
+        <qualifiedname>VertexRubberband::isAddingVertex</qualifiedname>
+        <read>dummyGetter_isAddingVertex_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/VertexRubberband.qml" line="18" column="1" bodyfile="src/qml/VertexRubberband.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVertexRubberband_1acaead0ac4b2c189f7d73dc66759c36fa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var VertexRubberband::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>VertexRubberband::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/VertexRubberband.qml" line="20" column="5" bodyfile="src/qml/VertexRubberband.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+      <node id="1">
+        <label>VertexRubberband</label>
+        <link refid="classVertexRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+      <node id="1">
+        <label>VertexRubberband</label>
+        <link refid="classVertexRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/VertexRubberband.qml" line="9" column="1" bodyfile="src/qml/VertexRubberband.qml" bodystart="9" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classVertexRubberband_1acaead0ac4b2c189f7d73dc66759c36fa" prot="private" virt="non-virtual"><scope>VertexRubberband</scope><name>delegate</name></member>
+      <member refid="classVertexRubberband_1a8f72870da3bcf460e2aaf96c0347cb13" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>isAddingVertex</name></member>
+      <member refid="classVertexRubberband_1a8de5e821c7c342301dc78f9c7c63b6e8" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>isCycling</name></member>
+      <member refid="classVertexRubberband_1a19c9bee7ccfbbf4eab4b00a080e4a1e1" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>isVisible</name></member>
+      <member refid="classVertexRubberband_1a9e0aadce9ba176259de36fb9ec52d9f1" prot="public" virt="non-virtual"><scope>VertexRubberband</scope><name>mapSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

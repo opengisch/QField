@@ -1,0 +1,697 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNtripSettings" kind="class" language="C++" prot="public">
+    <compoundname>NtripSettings</compoundname>
+    <includes refid="ntripsettings_8h" local="no">ntripsettings.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Protocol</name>
+        <qualifiedname>NtripSettings::Protocol</qualifiedname>
+        <enumvalue id="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25a52f59b74c896ea9a9ac6966e4fc37633" prot="public">
+          <name>NtripVersion1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25aec29af8fb1172a592f2068ed7d350719" prot="public">
+          <name>NtripVersion2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NTRIP server protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="43" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="44" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNtripSettings_1a802f0d2b3a841050dbb2d65562732c21" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool NtripSettings::isValid</definition>
+        <argsstring></argsstring>
+        <name>isValid</name>
+        <qualifiedname>NtripSettings::isValid</qualifiedname>
+        <read>isValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="31" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1a5a57f7d39df7c447f7688a1b1fb69ec2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::host</definition>
+        <argsstring></argsstring>
+        <name>host</name>
+        <qualifiedname>NtripSettings::host</qualifiedname>
+        <read>host</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="33" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1a13f861e17670b1b5650242ea805528bb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int NtripSettings::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <qualifiedname>NtripSettings::port</qualifiedname>
+        <read>port</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="34" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1a1aee0e535a772e79062b96fd003e899d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">Protocol</ref></type>
+        <definition>Protocol NtripSettings::protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <qualifiedname>NtripSettings::protocol</qualifiedname>
+        <read>protocol</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="35" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1a84faeb3ece60487d10e6b1e0f968376c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::mountPoint</definition>
+        <argsstring></argsstring>
+        <name>mountPoint</name>
+        <qualifiedname>NtripSettings::mountPoint</qualifiedname>
+        <read>mountPoint</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="36" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1af572ae22a15eda3d4d9f0d28e1fe2280" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>NtripSettings::username</qualifiedname>
+        <read>username</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="37" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1a7723c11958a8dbf3a5c0da1454ffe666" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>NtripSettings::password</qualifiedname>
+        <read>password</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="38" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripSettings_1ac09a11841c9c37b8f057acb02fb6405c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool NtripSettings::forwardNmeaSentences</definition>
+        <argsstring></argsstring>
+        <name>forwardNmeaSentences</name>
+        <qualifiedname>NtripSettings::forwardNmeaSentences</qualifiedname>
+        <read>forwardNmeaSentences</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="39" column="5" bodyfile="src/core/positioning/ntripsettings.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNtripSettings_1abe7b6fc1505cb6412836fbb2315dc5a8" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>NtripSettings::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="109" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSettings_1afd3869a1155d7f41189e7e6856626a10" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NtripSettings::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>NtripSettings::mPort</qualifiedname>
+        <initializer>= 2101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="110" column="9" bodyfile="src/core/positioning/ntripsettings.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSettings_1a4587d79004fc9ba20b3bb2dfc6622b3b" prot="private" static="no" mutable="no">
+        <type><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">Protocol</ref></type>
+        <definition>Protocol NtripSettings::mProtocol</definition>
+        <argsstring></argsstring>
+        <name>mProtocol</name>
+        <qualifiedname>NtripSettings::mProtocol</qualifiedname>
+        <initializer>= NtripVersion1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="111" column="14" bodyfile="src/core/positioning/ntripsettings.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSettings_1a2675cfd762b92d49cc2a0f79e55bfbfc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::mMountPoint</definition>
+        <argsstring></argsstring>
+        <name>mMountPoint</name>
+        <qualifiedname>NtripSettings::mMountPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="113" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSettings_1a196d8b7b7f5c92791438b30de74cb07b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>NtripSettings::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="114" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSettings_1ae0e387d31b1d043d0ea31bc78e83bdb5" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSettings::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>NtripSettings::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="115" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSettings_1a268ad58097d764cbc6ad5e1f7592d4f8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NtripSettings::mForwardNmeaSentences</definition>
+        <argsstring></argsstring>
+        <name>mForwardNmeaSentences</name>
+        <qualifiedname>NtripSettings::mForwardNmeaSentences</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="117" column="10" bodyfile="src/core/positioning/ntripsettings.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNtripSettings_1a557181decd25ad2a2f36955af304cba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NtripSettings::NtripSettings</definition>
+        <argsstring>()</argsstring>
+        <name>NtripSettings</name>
+        <qualifiedname>NtripSettings::NtripSettings</qualifiedname>
+        <briefdescription>
+<para>The NTRIP settings constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="52" column="5" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1aab9eca623fca156312bc97b925170437" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripSettings::operator==</definition>
+        <argsstring>(const NtripSettings &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>NtripSettings::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="54" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="24" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1afa86f3045a4208a1b46ed7630f55bbc4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripSettings::operator!=</definition>
+        <argsstring>(const NtripSettings &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>NtripSettings::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="55" column="10" bodyfile="src/core/positioning/ntripsettings.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a1929267d5c8da4d59329f9bb3e86c23b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripSettings::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>NtripSettings::isValid</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the settings are complete enough to connect to an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="58" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a72ca860ab32afcd2f64b3e4d931988a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NtripSettings::host</definition>
+        <argsstring>() const</argsstring>
+        <name>host</name>
+        <qualifiedname>NtripSettings::host</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="61" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a07d48bebcaf8a80f286e475b3ba294a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setHost</definition>
+        <argsstring>(const QString &amp;host)</argsstring>
+        <name>setHost</name>
+        <qualifiedname>NtripSettings::setHost</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>host</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="64" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a34fd644d9ab133238fa19d4571e79e3d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int NtripSettings::port</definition>
+        <argsstring>() const</argsstring>
+        <name>port</name>
+        <qualifiedname>NtripSettings::port</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="67" column="9" bodyfile="src/core/positioning/ntripsettings.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a82b64a0bd3bb8a91f9c5a886b2309dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setPort</definition>
+        <argsstring>(int port)</argsstring>
+        <name>setPort</name>
+        <qualifiedname>NtripSettings::setPort</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="70" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1ac6e251f8bb10af10a4e17bcda5f16fce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">Protocol</ref></type>
+        <definition>Protocol NtripSettings::protocol</definition>
+        <argsstring>() const</argsstring>
+        <name>protocol</name>
+        <qualifiedname>NtripSettings::protocol</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="73" column="14" bodyfile="src/core/positioning/ntripsettings.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1adb5cdd546559bd74ed51fd1503f8b269" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setProtocol</definition>
+        <argsstring>(Protocol protocol)</argsstring>
+        <name>setProtocol</name>
+        <qualifiedname>NtripSettings::setProtocol</qualifiedname>
+        <param>
+          <type><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">Protocol</ref></type>
+          <declname>protocol</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="76" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1adbf6b9d64aa32edd199d3f0571b2117d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NtripSettings::mountPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>mountPoint</name>
+        <qualifiedname>NtripSettings::mountPoint</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server mount point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="79" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a4285a3e73ef1da25495931e640563e71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setMountPoint</definition>
+        <argsstring>(const QString &amp;mountPoint)</argsstring>
+        <name>setMountPoint</name>
+        <qualifiedname>NtripSettings::setMountPoint</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mountPoint</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server mount point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="82" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a85af5cbce757aded788bad63bbb6198b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NtripSettings::username</definition>
+        <argsstring>() const</argsstring>
+        <name>username</name>
+        <qualifiedname>NtripSettings::username</qualifiedname>
+        <briefdescription>
+<para>Returns the username to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="85" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a2438afd1272dc4815b8d961f620dc1a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setUsername</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>NtripSettings::setUsername</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Sets the username to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="88" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1abe72ef938b8d1db82edd5381d90d1db3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NtripSettings::password</definition>
+        <argsstring>() const</argsstring>
+        <name>password</name>
+        <qualifiedname>NtripSettings::password</qualifiedname>
+        <briefdescription>
+<para>Returns the password to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="91" column="13" bodyfile="src/core/positioning/ntripsettings.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1aa97081db42a7e0dbd412476bfcc2a01d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setPassword</definition>
+        <argsstring>(const QString &amp;password)</argsstring>
+        <name>setPassword</name>
+        <qualifiedname>NtripSettings::setPassword</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>Sets the password to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="94" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1aeee33c650c22a6a294a01ff6a0e036b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripSettings::forwardNmeaSentences</definition>
+        <argsstring>() const</argsstring>
+        <name>forwardNmeaSentences</name>
+        <qualifiedname>NtripSettings::forwardNmeaSentences</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if NMEA sentences will be forwarded to the NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="97" column="10" bodyfile="src/core/positioning/ntripsettings.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1a84781caeff02f3d8dffe78796401edac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSettings::setForwardNmeaSentences</definition>
+        <argsstring>(bool forwardNmeaSentences)</argsstring>
+        <name>setForwardNmeaSentences</name>
+        <qualifiedname>NtripSettings::setForwardNmeaSentences</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>forwardNmeaSentences</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether NMEA sentences will be forwarded to the NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="100" column="10" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSettings_1ab22450395cac9674a83585b37deaee8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap NtripSettings::toMap</definition>
+        <argsstring>() const</argsstring>
+        <name>toMap</name>
+        <qualifiedname>NtripSettings::toMap</qualifiedname>
+        <briefdescription>
+<para>Return a map of settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="103" column="29" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="78" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classNtripSettings_1a34157bfe90a1af736b2e5c75b2a306eb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref></type>
+        <definition>NtripSettings NtripSettings::fromMap</definition>
+        <argsstring>(const QVariantMap &amp;settings)</argsstring>
+        <name>fromMap</name>
+        <qualifiedname>NtripSettings::fromMap</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+<para>Creates an <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> object from a map of settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="106" column="26" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="91" bodyend="102"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classNtripSettings_1a8e5b3a5ddd0e72806c9ed6ce23a7edd0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const NtripSettings &amp;settings)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>NtripSettings::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="119" column="12" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="104" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="friend" id="classNtripSettings_1a567dba00651c4f45f4cd4c5fc099c9a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, NtripSettings &amp;settings)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>NtripSettings::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.h" line="120" column="24" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="111" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class containing NTRIP server settings. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/ntripsettings.h" line="27" column="1" bodyfile="src/core/positioning/ntripsettings.h" bodystart="28" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classNtripSettings_1ac09a11841c9c37b8f057acb02fb6405c" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>forwardNmeaSentences</name></member>
+      <member refid="classNtripSettings_1aeee33c650c22a6a294a01ff6a0e036b1" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>forwardNmeaSentences</name></member>
+      <member refid="classNtripSettings_1a34157bfe90a1af736b2e5c75b2a306eb" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>fromMap</name></member>
+      <member refid="classNtripSettings_1a5a57f7d39df7c447f7688a1b1fb69ec2" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>host</name></member>
+      <member refid="classNtripSettings_1a72ca860ab32afcd2f64b3e4d931988a6" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>host</name></member>
+      <member refid="classNtripSettings_1a802f0d2b3a841050dbb2d65562732c21" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>isValid</name></member>
+      <member refid="classNtripSettings_1a1929267d5c8da4d59329f9bb3e86c23b" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>isValid</name></member>
+      <member refid="classNtripSettings_1a268ad58097d764cbc6ad5e1f7592d4f8" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mForwardNmeaSentences</name></member>
+      <member refid="classNtripSettings_1abe7b6fc1505cb6412836fbb2315dc5a8" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mHost</name></member>
+      <member refid="classNtripSettings_1a2675cfd762b92d49cc2a0f79e55bfbfc" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mMountPoint</name></member>
+      <member refid="classNtripSettings_1a84faeb3ece60487d10e6b1e0f968376c" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>mountPoint</name></member>
+      <member refid="classNtripSettings_1adbf6b9d64aa32edd199d3f0571b2117d" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>mountPoint</name></member>
+      <member refid="classNtripSettings_1ae0e387d31b1d043d0ea31bc78e83bdb5" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mPassword</name></member>
+      <member refid="classNtripSettings_1afd3869a1155d7f41189e7e6856626a10" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mPort</name></member>
+      <member refid="classNtripSettings_1a4587d79004fc9ba20b3bb2dfc6622b3b" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mProtocol</name></member>
+      <member refid="classNtripSettings_1a196d8b7b7f5c92791438b30de74cb07b" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>mUsername</name></member>
+      <member refid="classNtripSettings_1a557181decd25ad2a2f36955af304cba0" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>NtripSettings</name></member>
+      <member refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25a52f59b74c896ea9a9ac6966e4fc37633" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>NtripVersion1</name></member>
+      <member refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25aec29af8fb1172a592f2068ed7d350719" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>NtripVersion2</name></member>
+      <member refid="classNtripSettings_1afa86f3045a4208a1b46ed7630f55bbc4" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>operator!=</name></member>
+      <member refid="classNtripSettings_1a8e5b3a5ddd0e72806c9ed6ce23a7edd0" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classNtripSettings_1aab9eca623fca156312bc97b925170437" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>operator==</name></member>
+      <member refid="classNtripSettings_1a567dba00651c4f45f4cd4c5fc099c9a9" prot="private" virt="non-virtual"><scope>NtripSettings</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classNtripSettings_1a7723c11958a8dbf3a5c0da1454ffe666" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>password</name></member>
+      <member refid="classNtripSettings_1abe72ef938b8d1db82edd5381d90d1db3" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>password</name></member>
+      <member refid="classNtripSettings_1a13f861e17670b1b5650242ea805528bb" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>port</name></member>
+      <member refid="classNtripSettings_1a34fd644d9ab133238fa19d4571e79e3d" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>port</name></member>
+      <member refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>Protocol</name></member>
+      <member refid="classNtripSettings_1a1aee0e535a772e79062b96fd003e899d" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>protocol</name></member>
+      <member refid="classNtripSettings_1ac6e251f8bb10af10a4e17bcda5f16fce" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>protocol</name></member>
+      <member refid="classNtripSettings_1a84781caeff02f3d8dffe78796401edac" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setForwardNmeaSentences</name></member>
+      <member refid="classNtripSettings_1a07d48bebcaf8a80f286e475b3ba294a2" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setHost</name></member>
+      <member refid="classNtripSettings_1a4285a3e73ef1da25495931e640563e71" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setMountPoint</name></member>
+      <member refid="classNtripSettings_1aa97081db42a7e0dbd412476bfcc2a01d" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setPassword</name></member>
+      <member refid="classNtripSettings_1a82b64a0bd3bb8a91f9c5a886b2309dd7" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setPort</name></member>
+      <member refid="classNtripSettings_1adb5cdd546559bd74ed51fd1503f8b269" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setProtocol</name></member>
+      <member refid="classNtripSettings_1a2438afd1272dc4815b8d961f620dc1a2" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>setUsername</name></member>
+      <member refid="classNtripSettings_1ab22450395cac9674a83585b37deaee8f" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>toMap</name></member>
+      <member refid="classNtripSettings_1af572ae22a15eda3d4d9f0d28e1fe2280" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>username</name></member>
+      <member refid="classNtripSettings_1a85af5cbce757aded788bad63bbb6198b" prot="public" virt="non-virtual"><scope>NtripSettings</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

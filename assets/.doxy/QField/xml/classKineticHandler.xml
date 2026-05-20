@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classKineticHandler" kind="class" language="C++" prot="public">
+    <compoundname>KineticHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classKineticHandler_1a7c7313dca624dfde43cadaa82e5ce8a3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Item</type>
+        <definition>Item KineticHandler::mapCanvas</definition>
+        <argsstring></argsstring>
+        <name>mapCanvas</name>
+        <qualifiedname>KineticHandler::mapCanvas</qualifiedname>
+        <read>dummyGetter_mapCanvas_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="14" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1ab75b1a263a5509f2da2999a952b4be39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Item</type>
+        <definition>Item KineticHandler::mapCanvasWrapper</definition>
+        <argsstring></argsstring>
+        <name>mapCanvasWrapper</name>
+        <qualifiedname>KineticHandler::mapCanvasWrapper</qualifiedname>
+        <read>dummyGetter_mapCanvasWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="16" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1a2ac2ceb4473c243bd5ad9487fab703d3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var KineticHandler::panSamples</definition>
+        <argsstring></argsstring>
+        <name>panSamples</name>
+        <qualifiedname>KineticHandler::panSamples</qualifiedname>
+        <read>dummyGetter_panSamples_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="18" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1a203b28e10db9bff49a270d25046ef5fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var KineticHandler::zoomSamples</definition>
+        <argsstring></argsstring>
+        <name>zoomSamples</name>
+        <qualifiedname>KineticHandler::zoomSamples</qualifiedname>
+        <read>dummyGetter_zoomSamples_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="20" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1a90c0cdc52ad726ed8d5e710b8acb34d5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real KineticHandler::panVx</definition>
+        <argsstring></argsstring>
+        <name>panVx</name>
+        <qualifiedname>KineticHandler::panVx</qualifiedname>
+        <read>dummyGetter_panVx_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="30" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1a85d70e246d04586446014c2d6fcc2832" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real KineticHandler::panVy</definition>
+        <argsstring></argsstring>
+        <name>panVy</name>
+        <qualifiedname>KineticHandler::panVy</qualifiedname>
+        <read>dummyGetter_panVy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="32" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1a3ce99128ba201f8c7e27f4c9422688dc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real KineticHandler::panAccumX</definition>
+        <argsstring></argsstring>
+        <name>panAccumX</name>
+        <qualifiedname>KineticHandler::panAccumX</qualifiedname>
+        <read>dummyGetter_panAccumX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="34" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1aebe07538d33c677601a563b5d8c9335c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real KineticHandler::panAccumY</definition>
+        <argsstring></argsstring>
+        <name>panAccumY</name>
+        <qualifiedname>KineticHandler::panAccumY</qualifiedname>
+        <read>dummyGetter_panAccumY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="36" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1a4af9b4672ff0c3960f046ec2f2baf7cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool KineticHandler::panRunning</definition>
+        <argsstring></argsstring>
+        <name>panRunning</name>
+        <qualifiedname>KineticHandler::panRunning</qualifiedname>
+        <read>dummyGetter_panRunning_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="38" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1ae6bb2708fcc4feef4518809e7e28662d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real KineticHandler::zoomVelocity</definition>
+        <argsstring></argsstring>
+        <name>zoomVelocity</name>
+        <qualifiedname>KineticHandler::zoomVelocity</qualifiedname>
+        <read>dummyGetter_zoomVelocity_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="40" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1abcceaed5ec0acba5d9a2e5b9f35d7547" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        <definition>point KineticHandler::zoomCenter</definition>
+        <argsstring></argsstring>
+        <name>zoomCenter</name>
+        <qualifiedname>KineticHandler::zoomCenter</qualifiedname>
+        <read>dummyGetter_zoomCenter_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="42" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classKineticHandler_1afcb7b27993f27732f902a94a9d6f9e9a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool KineticHandler::zoomRunning</definition>
+        <argsstring></argsstring>
+        <name>zoomRunning</name>
+        <qualifiedname>KineticHandler::zoomRunning</qualifiedname>
+        <read>dummyGetter_zoomRunning_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="44" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classKineticHandler_1a4dab9289d178bab65563e4af0f1d2118" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer KineticHandler::inertiaTimer</definition>
+        <argsstring></argsstring>
+        <name>inertiaTimer</name>
+        <qualifiedname>KineticHandler::inertiaTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="54" column="7" bodyfile="src/qml/KineticHandler.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classKineticHandler_1a4eae226b58c81aab1cc76d3bf3d2d5ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::addPanSample</definition>
+        <argsstring>(x, y)</argsstring>
+        <name>addPanSample</name>
+        <qualifiedname>KineticHandler::addPanSample</qualifiedname>
+        <param>
+          <type>x</type>
+        </param>
+        <param>
+          <type>y</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1a2c06d33d5cbd1cade44afa2f7bd80722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::resetPanSamples</definition>
+        <argsstring>()</argsstring>
+        <name>resetPanSamples</name>
+        <qualifiedname>KineticHandler::resetPanSamples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="24" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1a76876f2b612f0bba0f57e02509e8f8d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::addZoomSample</definition>
+        <argsstring>(scale)</argsstring>
+        <name>addZoomSample</name>
+        <qualifiedname>KineticHandler::addZoomSample</qualifiedname>
+        <param>
+          <type>scale</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1a01e1a79015cc7d381be682f6de660004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::resetZoomSamples</definition>
+        <argsstring>()</argsstring>
+        <name>resetZoomSamples</name>
+        <qualifiedname>KineticHandler::resetZoomSamples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1a5f90b1ec804fe19df2f736556f145ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::startPanInertia</definition>
+        <argsstring>()</argsstring>
+        <name>startPanInertia</name>
+        <qualifiedname>KineticHandler::startPanInertia</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="46" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1a334b7dfcc2b770c9e8a773c3e567e8cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::startZoomInertia</definition>
+        <argsstring>(center)</argsstring>
+        <name>startZoomInertia</name>
+        <qualifiedname>KineticHandler::startZoomInertia</qualifiedname>
+        <param>
+          <type>center</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="48" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1a54a6e0898fe4572fa1832e6d92899817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::activate</definition>
+        <argsstring>()</argsstring>
+        <name>activate</name>
+        <qualifiedname>KineticHandler::activate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="50" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classKineticHandler_1ab2c63abfb125ad2f8248ef55986aef24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void KineticHandler::stopAll</definition>
+        <argsstring>()</argsstring>
+        <name>stopAll</name>
+        <qualifiedname>KineticHandler::stopAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/KineticHandler.qml" line="52" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides kinetic (inertia) scrolling for map pan and pinch-zoom gestures.</para>
+<para>Qt&apos;s pointer handlers only report instantaneous position, not velocity. We sample finger positions over a short time window to compute release velocity. After the gesture ends motion continues with exponential friction decay (~60fps timer). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>KineticHandler</label>
+        <link refid="classKineticHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>KineticHandler</label>
+        <link refid="classKineticHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/KineticHandler.qml" line="11" column="1" bodyfile="src/qml/KineticHandler.qml" bodystart="11" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classKineticHandler_1a54a6e0898fe4572fa1832e6d92899817" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>activate</name></member>
+      <member refid="classKineticHandler_1a4eae226b58c81aab1cc76d3bf3d2d5ca" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>addPanSample</name></member>
+      <member refid="classKineticHandler_1a76876f2b612f0bba0f57e02509e8f8d4" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>addZoomSample</name></member>
+      <member refid="classKineticHandler_1a4dab9289d178bab65563e4af0f1d2118" prot="private" virt="non-virtual"><scope>KineticHandler</scope><name>inertiaTimer</name></member>
+      <member refid="classKineticHandler_1a7c7313dca624dfde43cadaa82e5ce8a3" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>mapCanvas</name></member>
+      <member refid="classKineticHandler_1ab75b1a263a5509f2da2999a952b4be39" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>mapCanvasWrapper</name></member>
+      <member refid="classKineticHandler_1a3ce99128ba201f8c7e27f4c9422688dc" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panAccumX</name></member>
+      <member refid="classKineticHandler_1aebe07538d33c677601a563b5d8c9335c" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panAccumY</name></member>
+      <member refid="classKineticHandler_1a4af9b4672ff0c3960f046ec2f2baf7cf" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panRunning</name></member>
+      <member refid="classKineticHandler_1a2ac2ceb4473c243bd5ad9487fab703d3" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panSamples</name></member>
+      <member refid="classKineticHandler_1a90c0cdc52ad726ed8d5e710b8acb34d5" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panVx</name></member>
+      <member refid="classKineticHandler_1a85d70e246d04586446014c2d6fcc2832" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>panVy</name></member>
+      <member refid="classKineticHandler_1a2c06d33d5cbd1cade44afa2f7bd80722" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>resetPanSamples</name></member>
+      <member refid="classKineticHandler_1a01e1a79015cc7d381be682f6de660004" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>resetZoomSamples</name></member>
+      <member refid="classKineticHandler_1a5f90b1ec804fe19df2f736556f145ebd" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>startPanInertia</name></member>
+      <member refid="classKineticHandler_1a334b7dfcc2b770c9e8a773c3e567e8cc" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>startZoomInertia</name></member>
+      <member refid="classKineticHandler_1ab2c63abfb125ad2f8248ef55986aef24" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>stopAll</name></member>
+      <member refid="classKineticHandler_1abcceaed5ec0acba5d9a2e5b9f35d7547" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomCenter</name></member>
+      <member refid="classKineticHandler_1afcb7b27993f27732f902a94a9d6f9e9a" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomRunning</name></member>
+      <member refid="classKineticHandler_1a203b28e10db9bff49a270d25046ef5fa" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomSamples</name></member>
+      <member refid="classKineticHandler_1ae6bb2708fcc4feef4518809e7e28662d" prot="public" virt="non-virtual"><scope>KineticHandler</scope><name>zoomVelocity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

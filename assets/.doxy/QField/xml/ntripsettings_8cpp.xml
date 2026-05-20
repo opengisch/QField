@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ntripsettings_8cpp" kind="file" language="C++">
+    <compoundname>ntripsettings.cpp</compoundname>
+    <includes refid="ntripsettings_8h" local="yes">ntripsettings.h</includes>
+    <includes local="no">QVariantMap</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/positioning/ntripsettings.cpp</label>
+        <link refid="ntripsettings_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ntripsettings.h</label>
+        <link refid="ntripsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="4">
+        <label>QString</label>
+      </node>
+      <node id="5">
+        <label>QVariantMap</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="ntripsettings_8cpp_1a8e5b3a5ddd0e72806c9ed6ce23a7edd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const NtripSettings &amp;settings)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.cpp" line="104" column="1" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="104" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="ntripsettings_8cpp_1a567dba00651c4f45f4cd4c5fc099c9a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, NtripSettings &amp;settings)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsettings.cpp" line="111" column="13" bodyfile="src/core/positioning/ntripsettings.cpp" bodystart="111" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>ntripsettings.h<sp/>-<sp/>NtripSettings</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>2026/05/14</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ntripsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVariantMap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><ref refid="classNtripSettings_1a557181decd25ad2a2f36955af304cba0" kindref="member">NtripSettings::NtripSettings</ref>()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>NtripSettings::operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="25"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>clang-format<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mForwardNmeaSentences<sp/>==<sp/>other.mForwardNmeaSentences<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mProtocol<sp/>==<sp/>other.mProtocol<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mPort<sp/>==<sp/>other.mPort<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mHost<sp/>==<sp/>other.mHost<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mMountPoint<sp/>==<sp/>other.mMountPoint<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mUsername<sp/>==<sp/>other.mUsername<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mPassword<sp/>==<sp/>other.mPassword;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>clang-format<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>NtripSettings::isValid()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="38"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mPort<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>!mHost.isEmpty()<sp/>&amp;&amp;<sp/>!mMountPoint.isEmpty()<sp/>&amp;&amp;<sp/>!mUsername.isEmpty()<sp/>&amp;&amp;<sp/>!mPassword.isEmpty();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1a07d48bebcaf8a80f286e475b3ba294a2" kindref="member">NtripSettings::setHost</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;host<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>mHost<sp/>=<sp/>host;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1a82b64a0bd3bb8a91f9c5a886b2309dd7" kindref="member">NtripSettings::setPort</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>port<sp/>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>mPort<sp/>=<sp/>port;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1adb5cdd546559bd74ed51fd1503f8b269" kindref="member">NtripSettings::setProtocol</ref>(<sp/>Protocol<sp/>protocol<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>mProtocol<sp/>=<sp/>protocol;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1a4285a3e73ef1da25495931e640563e71" kindref="member">NtripSettings::setMountPoint</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;mountPoint<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>mMountPoint<sp/>=<sp/>mountPoint;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1a2438afd1272dc4815b8d961f620dc1a2" kindref="member">NtripSettings::setUsername</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;username<sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>mUsername<sp/>=<sp/>username;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1aa97081db42a7e0dbd412476bfcc2a01d" kindref="member">NtripSettings::setPassword</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;password<sp/>)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>mPassword<sp/>=<sp/>password;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings_1a84781caeff02f3d8dffe78796401edac" kindref="member">NtripSettings::setForwardNmeaSentences</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>forwardNmeaSentences<sp/>)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>mForwardNmeaSentences<sp/>=<sp/>forwardNmeaSentences;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">QVariantMap<sp/><ref refid="classNtripSettings_1ab22450395cac9674a83585b37deaee8f" kindref="member">NtripSettings::toMap</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="79"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>settings;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;host&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mHost;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;port&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mPort;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;protocol&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mProtocol;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;mountPoint&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mMountPoint;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;username&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mUsername;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mPassword;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>settings[QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;forwardNmeaSentences&quot;</highlight><highlight class="normal"><sp/>)]<sp/>=<sp/>mForwardNmeaSentences;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>settings;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref><sp/><ref refid="classNtripSettings_1a34157bfe90a1af736b2e5c75b2a306eb" kindref="member">NtripSettings::fromMap</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;settings<sp/>)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref><sp/>ntripSettings;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1a07d48bebcaf8a80f286e475b3ba294a2" kindref="member">setHost</ref>(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;host&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1a82b64a0bd3bb8a91f9c5a886b2309dd7" kindref="member">setPort</ref>(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;port&quot;</highlight><highlight class="normal"><sp/>),<sp/>2101<sp/>).toInt()<sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1adb5cdd546559bd74ed51fd1503f8b269" kindref="member">setProtocol</ref>(<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">Protocol</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;protocol&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>NtripVersion1<sp/>)<sp/>).toInt()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1a4285a3e73ef1da25495931e640563e71" kindref="member">setMountPoint</ref>(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;mountPoint&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1a2438afd1272dc4815b8d961f620dc1a2" kindref="member">setUsername</ref>(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;username&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1aa97081db42a7e0dbd412476bfcc2a01d" kindref="member">setPassword</ref>(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;password&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>ntripSettings.<ref refid="classNtripSettings_1a84781caeff02f3d8dffe78796401edac" kindref="member">setForwardNmeaSentences</ref>(<sp/>settings.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;forwardNmeaSentences&quot;</highlight><highlight class="normal"><sp/>),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"><sp/>).toBool()<sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ntripSettings;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">QDataStream<sp/>&amp;operator&lt;&lt;(<sp/>QDataStream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref><sp/>&amp;settings<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&lt;&lt;<sp/>settings.mHost<sp/>&lt;&lt;<sp/>settings.mPort<sp/>&lt;&lt;<sp/>settings.mProtocol<sp/>&lt;&lt;<sp/>settings.mMountPoint</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>settings.mUsername<sp/>&lt;&lt;<sp/>settings.mPassword<sp/>&lt;&lt;<sp/>settings.mForwardNmeaSentences;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">//cppcheck-suppress<sp/>constParameter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">QDataStream<sp/>&amp;operator&gt;&gt;(<sp/>QDataStream<sp/>&amp;stream,<sp/><ref refid="classNtripSettings" kindref="compound">NtripSettings</ref><sp/>&amp;settings<sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&gt;&gt;<sp/>settings.mHost<sp/>&gt;&gt;<sp/>settings.mPort<sp/>&gt;&gt;<sp/>settings.mProtocol<sp/>&gt;&gt;<sp/>settings.mMountPoint</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>settings.mUsername<sp/>&gt;&gt;<sp/>settings.mPassword<sp/>&gt;&gt;<sp/>settings.mForwardNmeaSentences;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/positioning/ntripsettings.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,458 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningPreciseView" kind="class" language="C++" prot="public">
+    <compoundname>PositioningPreciseView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classPositioningPreciseView_1ac9ff929e8cadea8c451b388ad04ad6ca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningPreciseView::precision</definition>
+        <argsstring></argsstring>
+        <name>precision</name>
+        <qualifiedname>PositioningPreciseView::precision</qualifiedname>
+        <read>dummyGetter_precision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="13" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a27ac1f3a2148fcf12ef30d3aad65df8e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningPreciseView::projectDistance</definition>
+        <argsstring></argsstring>
+        <name>projectDistance</name>
+        <qualifiedname>PositioningPreciseView::projectDistance</qualifiedname>
+        <read>dummyGetter_projectDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="15" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a89e0d78512a623bd6d89ea4a2a907acb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningPreciseView::projectVerticalDistance</definition>
+        <argsstring></argsstring>
+        <name>projectVerticalDistance</name>
+        <qualifiedname>PositioningPreciseView::projectVerticalDistance</qualifiedname>
+        <read>dummyGetter_projectVerticalDistance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="17" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a470ac1723ee1fd2967c445f0b5ea7759" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningPreciseView::hasZ</definition>
+        <argsstring></argsstring>
+        <name>hasZ</name>
+        <qualifiedname>PositioningPreciseView::hasZ</qualifiedname>
+        <read>dummyGetter_hasZ_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="19" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a10539041088e1334e360557d67ee7ee5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningPreciseView::hasAcceptableAccuracy</definition>
+        <argsstring></argsstring>
+        <name>hasAcceptableAccuracy</name>
+        <qualifiedname>PositioningPreciseView::hasAcceptableAccuracy</qualifiedname>
+        <read>dummyGetter_hasAcceptableAccuracy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="21" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a58c39cc8d6d7606135ff00ed0c8966e5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningPreciseView::hasReachedTarget</definition>
+        <argsstring></argsstring>
+        <name>hasReachedTarget</name>
+        <qualifiedname>PositioningPreciseView::hasReachedTarget</qualifiedname>
+        <read>dummyGetter_hasReachedTarget_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="23" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a87071b3ab2fb6f7c41e1503bda4515cd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool PositioningPreciseView::hasAlarmSnoozed</definition>
+        <argsstring></argsstring>
+        <name>hasAlarmSnoozed</name>
+        <qualifiedname>PositioningPreciseView::hasAlarmSnoozed</qualifiedname>
+        <read>dummyGetter_hasAlarmSnoozed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="25" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1aa657a3749537d072cb476e79ffa5a24d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningPreciseView::positionX</definition>
+        <argsstring></argsstring>
+        <name>positionX</name>
+        <qualifiedname>PositioningPreciseView::positionX</qualifiedname>
+        <read>dummyGetter_positionX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="27" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a64d185d689586f0ca1870cebeeee2949" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningPreciseView::positionY</definition>
+        <argsstring></argsstring>
+        <name>positionY</name>
+        <qualifiedname>PositioningPreciseView::positionY</qualifiedname>
+        <read>dummyGetter_positionY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="29" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a8aac2b94646cb1d820afe5385562ac7f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double PositioningPreciseView::positionZ</definition>
+        <argsstring></argsstring>
+        <name>positionZ</name>
+        <qualifiedname>PositioningPreciseView::positionZ</qualifiedname>
+        <read>dummyGetter_positionZ_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="31" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1ae3014e318d64318ebb8adf7b5e3640af" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classpoint" kindref="compound">point</ref></type>
+        <definition>point PositioningPreciseView::positionCenter</definition>
+        <argsstring></argsstring>
+        <name>positionCenter</name>
+        <qualifiedname>PositioningPreciseView::positionCenter</qualifiedname>
+        <read>dummyGetter_positionCenter_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="33" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a8c5da9e9d21edaec1d5d7483b3a50cf1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PositioningPreciseView::negativeLabel</definition>
+        <argsstring></argsstring>
+        <name>negativeLabel</name>
+        <qualifiedname>PositioningPreciseView::negativeLabel</qualifiedname>
+        <read>dummyGetter_negativeLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="35" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classPositioningPreciseView_1a6b337d7037134a9783eaf343b082cc33" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string PositioningPreciseView::positiveLabel</definition>
+        <argsstring></argsstring>
+        <name>positiveLabel</name>
+        <qualifiedname>PositioningPreciseView::positiveLabel</qualifiedname>
+        <read>dummyGetter_positiveLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="37" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningPreciseView_1abaae82d1946259029ba9852c907a75f6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text PositioningPreciseView::labelTarget</definition>
+        <argsstring></argsstring>
+        <name>labelTarget</name>
+        <qualifiedname>PositioningPreciseView::labelTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="39" column="6" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1ad093c473086264c999dd3968da9bd19b" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape PositioningPreciseView::preciseTarget</definition>
+        <argsstring></argsstring>
+        <name>preciseTarget</name>
+        <qualifiedname>PositioningPreciseView::preciseTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="40" column="7" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1ab45a225009e63ef2c0c4bbef6756c662" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle PositioningPreciseView::labelElevation</definition>
+        <argsstring></argsstring>
+        <name>labelElevation</name>
+        <qualifiedname>PositioningPreciseView::labelElevation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="41" column="11" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1a45958a5f23ad6d5d832997c05eec6470" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text PositioningPreciseView::labelElevationTop</definition>
+        <argsstring></argsstring>
+        <name>labelElevationTop</name>
+        <qualifiedname>PositioningPreciseView::labelElevationTop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="42" column="6" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1a76b041651fa3aa137a0c91b0d13e6c77" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text PositioningPreciseView::labelElevationBottom</definition>
+        <argsstring></argsstring>
+        <name>labelElevationBottom</name>
+        <qualifiedname>PositioningPreciseView::labelElevationBottom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="43" column="6" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1a40f9af18392672861cf4d6d87a010f94" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle PositioningPreciseView::preciseElevation</definition>
+        <argsstring></argsstring>
+        <name>preciseElevation</name>
+        <qualifiedname>PositioningPreciseView::preciseElevation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="44" column="11" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1abae6ddff200b0f0a0eea8f06a3c82c44" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape PositioningPreciseView::preciseVerticalPosition</definition>
+        <argsstring></argsstring>
+        <name>preciseVerticalPosition</name>
+        <qualifiedname>PositioningPreciseView::preciseVerticalPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="45" column="7" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1a45690e0905bca40c5d5c15671a3adac6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text PositioningPreciseView::preciseVerticalPositionInfo</definition>
+        <argsstring></argsstring>
+        <name>preciseVerticalPositionInfo</name>
+        <qualifiedname>PositioningPreciseView::preciseVerticalPositionInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="46" column="6" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1a6401dd9e37d30277fc55ad803754fe02" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape PositioningPreciseView::preciseHorizontalPosition</definition>
+        <argsstring></argsstring>
+        <name>preciseHorizontalPosition</name>
+        <qualifiedname>PositioningPreciseView::preciseHorizontalPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="47" column="7" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1aa9c38ca641396cfb0e9fcb49d8befd62" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape PositioningPreciseView::preciseHorizontalPositionCross</definition>
+        <argsstring></argsstring>
+        <name>preciseHorizontalPositionCross</name>
+        <qualifiedname>PositioningPreciseView::preciseHorizontalPositionCross</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="48" column="7" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1ae741e4ef004adef66ab25ad5c13e7123" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text PositioningPreciseView::preciseHorizontalPositionInfo</definition>
+        <argsstring></argsstring>
+        <name>preciseHorizontalPositionInfo</name>
+        <qualifiedname>PositioningPreciseView::preciseHorizontalPositionInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="49" column="6" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1afea9f02d1106d1e3a1d817d722f583d6" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle PositioningPreciseView::accuracyWarning</definition>
+        <argsstring></argsstring>
+        <name>accuracyWarning</name>
+        <qualifiedname>PositioningPreciseView::accuracyWarning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="50" column="11" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1aa9d3d193ede365aecd74d41f02522b1c" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text PositioningPreciseView::accuracyWarningLabel</definition>
+        <argsstring></argsstring>
+        <name>accuracyWarningLabel</name>
+        <qualifiedname>PositioningPreciseView::accuracyWarningLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="51" column="6" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningPreciseView_1a771df915e5c8f565c6dd24a059e42448" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton PositioningPreciseView::alarmSnoozeButton</definition>
+        <argsstring></argsstring>
+        <name>alarmSnoozeButton</name>
+        <qualifiedname>PositioningPreciseView::alarmSnoozeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningPreciseView.qml" line="52" column="14" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningPreciseView</label>
+        <link refid="classPositioningPreciseView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningPreciseView</label>
+        <link refid="classPositioningPreciseView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/PositioningPreciseView.qml" line="10" column="1" bodyfile="src/qml/PositioningPreciseView.qml" bodystart="10" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classPositioningPreciseView_1afea9f02d1106d1e3a1d817d722f583d6" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>accuracyWarning</name></member>
+      <member refid="classPositioningPreciseView_1aa9d3d193ede365aecd74d41f02522b1c" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>accuracyWarningLabel</name></member>
+      <member refid="classPositioningPreciseView_1a771df915e5c8f565c6dd24a059e42448" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>alarmSnoozeButton</name></member>
+      <member refid="classPositioningPreciseView_1a10539041088e1334e360557d67ee7ee5" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasAcceptableAccuracy</name></member>
+      <member refid="classPositioningPreciseView_1a87071b3ab2fb6f7c41e1503bda4515cd" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasAlarmSnoozed</name></member>
+      <member refid="classPositioningPreciseView_1a58c39cc8d6d7606135ff00ed0c8966e5" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasReachedTarget</name></member>
+      <member refid="classPositioningPreciseView_1a470ac1723ee1fd2967c445f0b5ea7759" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasZ</name></member>
+      <member refid="classPositioningPreciseView_1ab45a225009e63ef2c0c4bbef6756c662" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>labelElevation</name></member>
+      <member refid="classPositioningPreciseView_1a76b041651fa3aa137a0c91b0d13e6c77" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>labelElevationBottom</name></member>
+      <member refid="classPositioningPreciseView_1a45958a5f23ad6d5d832997c05eec6470" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>labelElevationTop</name></member>
+      <member refid="classPositioningPreciseView_1abaae82d1946259029ba9852c907a75f6" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>labelTarget</name></member>
+      <member refid="classPositioningPreciseView_1a8c5da9e9d21edaec1d5d7483b3a50cf1" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>negativeLabel</name></member>
+      <member refid="classPositioningPreciseView_1ae3014e318d64318ebb8adf7b5e3640af" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionCenter</name></member>
+      <member refid="classPositioningPreciseView_1aa657a3749537d072cb476e79ffa5a24d" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionX</name></member>
+      <member refid="classPositioningPreciseView_1a64d185d689586f0ca1870cebeeee2949" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionY</name></member>
+      <member refid="classPositioningPreciseView_1a8aac2b94646cb1d820afe5385562ac7f" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionZ</name></member>
+      <member refid="classPositioningPreciseView_1a6b337d7037134a9783eaf343b082cc33" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positiveLabel</name></member>
+      <member refid="classPositioningPreciseView_1a40f9af18392672861cf4d6d87a010f94" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseElevation</name></member>
+      <member refid="classPositioningPreciseView_1a6401dd9e37d30277fc55ad803754fe02" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseHorizontalPosition</name></member>
+      <member refid="classPositioningPreciseView_1aa9c38ca641396cfb0e9fcb49d8befd62" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseHorizontalPositionCross</name></member>
+      <member refid="classPositioningPreciseView_1ae741e4ef004adef66ab25ad5c13e7123" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseHorizontalPositionInfo</name></member>
+      <member refid="classPositioningPreciseView_1ad093c473086264c999dd3968da9bd19b" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseTarget</name></member>
+      <member refid="classPositioningPreciseView_1abae6ddff200b0f0a0eea8f06a3c82c44" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseVerticalPosition</name></member>
+      <member refid="classPositioningPreciseView_1a45690e0905bca40c5d5c15671a3adac6" prot="private" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseVerticalPositionInfo</name></member>
+      <member refid="classPositioningPreciseView_1ac9ff929e8cadea8c451b388ad04ad6ca" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>precision</name></member>
+      <member refid="classPositioningPreciseView_1a27ac1f3a2148fcf12ef30d3aad65df8e" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>projectDistance</name></member>
+      <member refid="classPositioningPreciseView_1a89e0d78512a623bd6d89ea4a2a907acb" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>projectVerticalDistance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

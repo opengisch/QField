@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNtripSocket" kind="class" language="C++" prot="public">
+    <compoundname>NtripSocket</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="ntripclient_8h" local="no">ntripclient.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNtripSocket_1a7931cb4d5649aa4852ed7da0d11eaaf2" prot="private" static="no" mutable="no">
+        <type>QTcpSocket *</type>
+        <definition>QTcpSocket* NtripSocket::mSocket</definition>
+        <argsstring></argsstring>
+        <name>mSocket</name>
+        <qualifiedname>NtripSocket::mSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="171" column="16" bodyfile="src/core/positioning/ntripclient.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a090d12555313c79c592d76c24826bdb6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NtripSocket::mHeadersSent</definition>
+        <argsstring></argsstring>
+        <name>mHeadersSent</name>
+        <qualifiedname>NtripSocket::mHeadersSent</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="172" column="10" bodyfile="src/core/positioning/ntripclient.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a2a508468cf7707bca6af15f769ca604c" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray NtripSocket::mHeaderBuffer</definition>
+        <argsstring></argsstring>
+        <name>mHeaderBuffer</name>
+        <qualifiedname>NtripSocket::mHeaderBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="173" column="16" bodyfile="src/core/positioning/ntripclient.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a636f447393079bfbeef929b36e49ca99" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSocket::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>NtripSocket::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="174" column="13" bodyfile="src/core/positioning/ntripclient.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a2a69fff28a396a566366aa0fe596e81b" prot="private" static="no" mutable="no">
+        <type>quint16</type>
+        <definition>quint16 NtripSocket::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>NtripSocket::mPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="175" column="13" bodyfile="src/core/positioning/ntripclient.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1abf5526304399afdb3b1f0880b2be27d1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSocket::mMountPoint</definition>
+        <argsstring></argsstring>
+        <name>mMountPoint</name>
+        <qualifiedname>NtripSocket::mMountPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="176" column="13" bodyfile="src/core/positioning/ntripclient.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a248ee50a9df62386500c87ef696e332c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSocket::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>NtripSocket::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="177" column="13" bodyfile="src/core/positioning/ntripclient.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a142cea19b97fa369748d7497abf05775" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NtripSocket::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>NtripSocket::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="178" column="13" bodyfile="src/core/positioning/ntripclient.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a225a0a15184b2671cb596636662e2c18" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NtripSocket::mPendingError</definition>
+        <argsstring></argsstring>
+        <name>mPendingError</name>
+        <qualifiedname>NtripSocket::mPendingError</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="179" column="10" bodyfile="src/core/positioning/ntripclient.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1aa0736d3981c0eb6cff8e56e13cd0a55b" prot="private" static="no" mutable="no">
+        <type><ref refid="classNtripSettings_1a19f89a6f8d4e00a3274545e211ffcf25" kindref="member">NtripSettings::Protocol</ref></type>
+        <definition>NtripSettings::Protocol NtripSocket::mProtocol</definition>
+        <argsstring></argsstring>
+        <name>mProtocol</name>
+        <qualifiedname>NtripSocket::mProtocol</qualifiedname>
+        <initializer>= NtripSettings::NtripVersion1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="180" column="29" bodyfile="src/core/positioning/ntripclient.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1ad0b11bf7b3733b0551fff87ec96ffbee" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NtripSocket::mChunkedEncoding</definition>
+        <argsstring></argsstring>
+        <name>mChunkedEncoding</name>
+        <qualifiedname>NtripSocket::mChunkedEncoding</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="181" column="10" bodyfile="src/core/positioning/ntripclient.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1a12c38698d82bee7f0fff220df640dbd7" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray NtripSocket::mChunkBuffer</definition>
+        <argsstring></argsstring>
+        <name>mChunkBuffer</name>
+        <qualifiedname>NtripSocket::mChunkBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="182" column="16" bodyfile="src/core/positioning/ntripclient.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNtripSocket_1adb9601a6eac9629ccbb995f9eca93abe" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NtripSocket::mChunkRemaining</definition>
+        <argsstring></argsstring>
+        <name>mChunkRemaining</name>
+        <qualifiedname>NtripSocket::mChunkRemaining</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="183" column="9" bodyfile="src/core/positioning/ntripclient.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNtripSocket_1ac90b92a7bc16491547514036660ec50a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NtripSocket::NtripSocket</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>NtripSocket</name>
+        <qualifiedname>NtripSocket::NtripSocket</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>The NTRIP socket constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="129" column="14" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="209" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1a82beb8386a0ae1d992098ab8bab9ee1e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>NtripSocket::~NtripSocket</definition>
+        <argsstring>() noexcept override</argsstring>
+        <name>~NtripSocket</name>
+        <qualifiedname>NtripSocket::~NtripSocket</qualifiedname>
+        <briefdescription>
+<para>The NTRIP socket destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="132" column="5" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="221" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1adc90649597a83966192fbe4aa6b8787a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 NtripSocket::connectToHost</definition>
+        <argsstring>(const NtripSettings &amp;ntripSettings)</argsstring>
+        <name>connectToHost</name>
+        <qualifiedname>NtripSocket::connectToHost</qualifiedname>
+        <param>
+          <type>const <ref refid="classNtripSettings" kindref="compound">NtripSettings</ref> &amp;</type>
+          <declname>ntripSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Connects the socket to an NTRIP server <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ntripSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the NTRIP settings object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="138" column="12" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="226" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1a12dd8f2cd6401c9e11eebdcf1af97d36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 NtripSocket::writeNmeaSentence</definition>
+        <argsstring>(const QByteArray &amp;sentence)</argsstring>
+        <name>writeNmeaSentence</name>
+        <qualifiedname>NtripSocket::writeNmeaSentence</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>sentence</declname>
+        </param>
+        <briefdescription>
+<para>Write an NMEA <emphasis>sentence</emphasis> to the NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="141" column="12" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="259" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1a4ec39f52cdd39bdbf58f59f303e004ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::abort</definition>
+        <argsstring>()</argsstring>
+        <name>abort</name>
+        <qualifiedname>NtripSocket::abort</qualifiedname>
+        <briefdescription>
+<para>Abort any socket connection to an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="144" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="275" bodyend="282"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNtripSocket_1a3e80a2c08a803ce505c99b9619dd9bc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::correctionDataReceived</definition>
+        <argsstring>(const QByteArray &amp;data)</argsstring>
+        <name>correctionDataReceived</name>
+        <qualifiedname>NtripSocket::correctionDataReceived</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Emmitted when the socket has received <emphasis>data</emphasis> from an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="148" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNtripSocket_1a004928c378b03f4b3aa7185a58783678" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::errorOccurred</definition>
+        <argsstring>(const QString &amp;message, bool isPermanent)</argsstring>
+        <name>errorOccurred</name>
+        <qualifiedname>NtripSocket::errorOccurred</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPermanent</declname>
+        </param>
+        <briefdescription>
+<para>Emmitted when an error occured while the socket communicates with an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="151" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNtripSocket_1a7bfbd1ceb0be219238e87670172aac1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::streamConnected</definition>
+        <argsstring>()</argsstring>
+        <name>streamConnected</name>
+        <qualifiedname>NtripSocket::streamConnected</qualifiedname>
+        <briefdescription>
+<para>Emitted when the socket has successfully connected to an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="154" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNtripSocket_1a4b3eb2866fb6eb225da21fd5bdd5da59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::streamDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>streamDisconnected</name>
+        <qualifiedname>NtripSocket::streamDisconnected</qualifiedname>
+        <briefdescription>
+<para>Emitted when the socket has disconnected from an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="157" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classNtripSocket_1a38143209159a67b393e1247cf1f90815" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::onConnected</definition>
+        <argsstring>()</argsstring>
+        <name>onConnected</name>
+        <qualifiedname>NtripSocket::onConnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="160" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="284" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNtripSocket_1aa13eb048a4fc66771c29e2b663fb0f08" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::onReadyRead</definition>
+        <argsstring>()</argsstring>
+        <name>onReadyRead</name>
+        <qualifiedname>NtripSocket::onReadyRead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="161" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="330" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNtripSocket_1a96df67f25ba03f24153d4fcd398565bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::onDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>onDisconnected</name>
+        <qualifiedname>NtripSocket::onDisconnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="162" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="493" bodyend="508"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNtripSocket_1a8c0d1b2af1929ac12a250dba240f5950" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::onSocketError</definition>
+        <argsstring>(QAbstractSocket::SocketError error)</argsstring>
+        <name>onSocketError</name>
+        <qualifiedname>NtripSocket::onSocketError</qualifiedname>
+        <param>
+          <type>QAbstractSocket::SocketError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="163" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="510" bodyend="518"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classNtripSocket_1a16be4f03b9a0b906f849048b91590427" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 NtripSocket::estimateRequestSize</definition>
+        <argsstring>() const</argsstring>
+        <name>estimateRequestSize</name>
+        <qualifiedname>NtripSocket::estimateRequestSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="166" column="12" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="251" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1a7c16dc734856c953943638ed52599bef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NtripSocket::processChunkedData</definition>
+        <argsstring>(const QByteArray &amp;data)</argsstring>
+        <name>processChunkedData</name>
+        <qualifiedname>NtripSocket::processChunkedData</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="167" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="432" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1a396abc7740fa752aa0dad91fbd145832" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int NtripSocket::parseHttpStatusCode</definition>
+        <argsstring>(const QByteArray &amp;headerBlock)</argsstring>
+        <name>parseHttpStatusCode</name>
+        <qualifiedname>NtripSocket::parseHttpStatusCode</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>headerBlock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="168" column="9" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="520" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripSocket_1ad066cd22747cab30b6712eaea94004aa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripSocket::isPermanentHttpError</definition>
+        <argsstring>(int statusCode)</argsstring>
+        <name>isPermanentHttpError</name>
+        <qualifiedname>NtripSocket::isPermanentHttpError</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>statusCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripclient.h" line="169" column="10" bodyfile="src/core/positioning/ntripclient.cpp" bodystart="529" bodyend="532"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple NTRIP socket. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NtripSocket</label>
+        <link refid="classNtripSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NtripSocket</label>
+        <link refid="classNtripSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/ntripclient.h" line="123" column="1" bodyfile="src/core/positioning/ntripclient.h" bodystart="124" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classNtripSocket_1a4ec39f52cdd39bdbf58f59f303e004ab" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>abort</name></member>
+      <member refid="classNtripSocket_1adc90649597a83966192fbe4aa6b8787a" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>connectToHost</name></member>
+      <member refid="classNtripSocket_1a3e80a2c08a803ce505c99b9619dd9bc3" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>correctionDataReceived</name></member>
+      <member refid="classNtripSocket_1a004928c378b03f4b3aa7185a58783678" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>errorOccurred</name></member>
+      <member refid="classNtripSocket_1a16be4f03b9a0b906f849048b91590427" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>estimateRequestSize</name></member>
+      <member refid="classNtripSocket_1ad066cd22747cab30b6712eaea94004aa" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>isPermanentHttpError</name></member>
+      <member refid="classNtripSocket_1a12c38698d82bee7f0fff220df640dbd7" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mChunkBuffer</name></member>
+      <member refid="classNtripSocket_1ad0b11bf7b3733b0551fff87ec96ffbee" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mChunkedEncoding</name></member>
+      <member refid="classNtripSocket_1adb9601a6eac9629ccbb995f9eca93abe" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mChunkRemaining</name></member>
+      <member refid="classNtripSocket_1a2a508468cf7707bca6af15f769ca604c" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mHeaderBuffer</name></member>
+      <member refid="classNtripSocket_1a090d12555313c79c592d76c24826bdb6" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mHeadersSent</name></member>
+      <member refid="classNtripSocket_1a636f447393079bfbeef929b36e49ca99" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mHost</name></member>
+      <member refid="classNtripSocket_1abf5526304399afdb3b1f0880b2be27d1" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mMountPoint</name></member>
+      <member refid="classNtripSocket_1a142cea19b97fa369748d7497abf05775" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mPassword</name></member>
+      <member refid="classNtripSocket_1a225a0a15184b2671cb596636662e2c18" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mPendingError</name></member>
+      <member refid="classNtripSocket_1a2a69fff28a396a566366aa0fe596e81b" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mPort</name></member>
+      <member refid="classNtripSocket_1aa0736d3981c0eb6cff8e56e13cd0a55b" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mProtocol</name></member>
+      <member refid="classNtripSocket_1a7931cb4d5649aa4852ed7da0d11eaaf2" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mSocket</name></member>
+      <member refid="classNtripSocket_1a248ee50a9df62386500c87ef696e332c" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>mUsername</name></member>
+      <member refid="classNtripSocket_1ac90b92a7bc16491547514036660ec50a" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>NtripSocket</name></member>
+      <member refid="classNtripSocket_1a38143209159a67b393e1247cf1f90815" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>onConnected</name></member>
+      <member refid="classNtripSocket_1a96df67f25ba03f24153d4fcd398565bf" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>onDisconnected</name></member>
+      <member refid="classNtripSocket_1aa13eb048a4fc66771c29e2b663fb0f08" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>onReadyRead</name></member>
+      <member refid="classNtripSocket_1a8c0d1b2af1929ac12a250dba240f5950" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>onSocketError</name></member>
+      <member refid="classNtripSocket_1a396abc7740fa752aa0dad91fbd145832" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>parseHttpStatusCode</name></member>
+      <member refid="classNtripSocket_1a7c16dc734856c953943638ed52599bef" prot="private" virt="non-virtual"><scope>NtripSocket</scope><name>processChunkedData</name></member>
+      <member refid="classNtripSocket_1a7bfbd1ceb0be219238e87670172aac1c" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>streamConnected</name></member>
+      <member refid="classNtripSocket_1a4b3eb2866fb6eb225da21fd5bdd5da59" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>streamDisconnected</name></member>
+      <member refid="classNtripSocket_1a12dd8f2cd6401c9e11eebdcf1af97d36" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>writeNmeaSentence</name></member>
+      <member refid="classNtripSocket_1a82beb8386a0ae1d992098ab8bab9ee1e" prot="public" virt="non-virtual"><scope>NtripSocket</scope><name>~NtripSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

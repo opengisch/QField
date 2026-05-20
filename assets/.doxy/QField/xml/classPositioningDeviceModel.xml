@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningDeviceModel" kind="class" language="C++" prot="public">
+    <compoundname>PositioningDeviceModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structPositioningDeviceModel_1_1Device" prot="public">PositioningDeviceModel::Device</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>PositioningDeviceModel::Type</qualifiedname>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa90df75fefe0f132a99236f606cb3cf4c" prot="public">
+          <name>InternalDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa2b60eadbead155f7440b878f206a4cda" prot="public">
+          <name>BluetoothDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aafadfc6939ef16570c41fc1290d55834b" prot="public">
+          <name>TcpDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa1e035ed5b0fe114dac2d2c741fa4f884" prot="public">
+          <name>UdpDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aadf21f89ce423087c42391a9286a8356c" prot="public">
+          <name>EgenioussDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa12fb99f419a44babffaace887e9ad96a" prot="public">
+          <name>SerialPortDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa9ea49612a5fa0d717970f755c0775ff6" prot="public">
+          <name>FileDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="29" column="5" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="enum" id="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>PositioningDeviceModel::Role</qualifiedname>
+        <enumvalue id="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa1b77469bbdb3b71d0aa9fb25ab319ea7" prot="public">
+          <name>DeviceType</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa26e78b30ecf592911ae77ed4aed3c782" prot="public">
+          <name>DeviceId</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa07667f18a65ed81a4e2822315d194d7d" prot="public">
+          <name>DeviceName</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa3a2086c62136dd71b4d4616fb0206565" prot="public">
+          <name>DeviceSettings</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="56" column="5" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="57" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningDeviceModel_1aa5485049c50c51869b363eb968a8ec3d" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structPositioningDeviceModel_1_1Device" kindref="compound">Device</ref> &gt;</type>
+        <definition>QList&lt;Device&gt; PositioningDeviceModel::mDevices</definition>
+        <argsstring></argsstring>
+        <name>mDevices</name>
+        <qualifiedname>PositioningDeviceModel::mDevices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="104" column="11" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPositioningDeviceModel_1af720c67420383ef141127b17c89619ce" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PositioningDeviceModel::PositioningDeviceModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>PositioningDeviceModel</name>
+        <qualifiedname>PositioningDeviceModel::PositioningDeviceModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="66" column="14" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="28" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1abb6e29ab9f5776e571452d7e4442b547" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; PositioningDeviceModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>PositioningDeviceModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="68" column="11" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="34" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1a1c0e49247a9b8f0a92af91c80e38feb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int PositioningDeviceModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>PositioningDeviceModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="70" column="9" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1a6c0f5410ddeaab102431ce4fc0e68b45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant PositioningDeviceModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>PositioningDeviceModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="71" column="14" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="74" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1a5e3574c9cb100cd7f85d23d33714fb5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PositioningDeviceModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>PositioningDeviceModel::reloadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads the model from the user settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="76" column="22" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="45" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1a9b74452b62a28c6ffa73b055a02bfaeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int PositioningDeviceModel::addDevice</definition>
+        <argsstring>(const Type &amp;type, const QString &amp;name, const QVariantMap &amp;deviceSettings)</argsstring>
+        <name>addDevice</name>
+        <qualifiedname>PositioningDeviceModel::addDevice</qualifiedname>
+        <param>
+          <type>const Type &amp;</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>deviceSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a positioning device to the user settings <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>device type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>friendly device name used as identifier in the user interface </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deviceSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>settings map (used to generate the positioning device ID, editing, etc.) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns index of the added device </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="85" column="21" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="100" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1ac1bbbfdb8a4a471e7197d311fdf66dfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void PositioningDeviceModel::removeDevice</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>removeDevice</name>
+        <qualifiedname>PositioningDeviceModel::removeDevice</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the positioning device <emphasis>name</emphasis> from the user settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="90" column="22" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="132" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1a743421b7874322a1456339520b6ee93e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString PositioningDeviceModel::deviceId</definition>
+        <argsstring>(const Device &amp;device) const</argsstring>
+        <name>deviceId</name>
+        <qualifiedname>PositioningDeviceModel::deviceId</qualifiedname>
+        <param>
+          <type>const <ref refid="structPositioningDeviceModel_1_1Device" kindref="compound">Device</ref> &amp;</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the device ID string for a specific <emphasis>device</emphasis> <simplesect kind="note"><para>this is the string to be used with the <ref refid="classPositioning" kindref="compound">Positioning</ref> deviceId property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="96" column="31" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="160" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classPositioningDeviceModel_1a8198a3e65c2147d0f3e6626825132044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int PositioningDeviceModel::findIndexFromDeviceId</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>findIndexFromDeviceId</name>
+        <qualifiedname>PositioningDeviceModel::findIndexFromDeviceId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row index for a given device ID </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/positioningdevicemodel.h" line="101" column="21" bodyfile="src/core/positioning/positioningdevicemodel.cpp" bodystart="191" bodyend="208"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningDeviceModel</label>
+        <link refid="classPositioningDeviceModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningDeviceModel</label>
+        <link refid="classPositioningDeviceModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/positioningdevicemodel.h" line="24" column="1" bodyfile="src/core/positioning/positioningdevicemodel.h" bodystart="25" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classPositioningDeviceModel_1a9b74452b62a28c6ffa73b055a02bfaeb" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>addDevice</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa2b60eadbead155f7440b878f206a4cda" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>BluetoothDevice</name></member>
+      <member refid="classPositioningDeviceModel_1a6c0f5410ddeaab102431ce4fc0e68b45" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>data</name></member>
+      <member refid="classPositioningDeviceModel_1a743421b7874322a1456339520b6ee93e" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>deviceId</name></member>
+      <member refid="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa26e78b30ecf592911ae77ed4aed3c782" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>DeviceId</name></member>
+      <member refid="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa07667f18a65ed81a4e2822315d194d7d" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>DeviceName</name></member>
+      <member refid="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa3a2086c62136dd71b4d4616fb0206565" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>DeviceSettings</name></member>
+      <member refid="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8fa1b77469bbdb3b71d0aa9fb25ab319ea7" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>DeviceType</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aadf21f89ce423087c42391a9286a8356c" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>EgenioussDevice</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa9ea49612a5fa0d717970f755c0775ff6" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>FileDevice</name></member>
+      <member refid="classPositioningDeviceModel_1a8198a3e65c2147d0f3e6626825132044" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>findIndexFromDeviceId</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa90df75fefe0f132a99236f606cb3cf4c" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>InternalDevice</name></member>
+      <member refid="classPositioningDeviceModel_1aa5485049c50c51869b363eb968a8ec3d" prot="private" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>mDevices</name></member>
+      <member refid="classPositioningDeviceModel_1af720c67420383ef141127b17c89619ce" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>PositioningDeviceModel</name></member>
+      <member refid="classPositioningDeviceModel_1a5e3574c9cb100cd7f85d23d33714fb5b" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>reloadModel</name></member>
+      <member refid="classPositioningDeviceModel_1ac1bbbfdb8a4a471e7197d311fdf66dfb" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>removeDevice</name></member>
+      <member refid="classPositioningDeviceModel_1a7f8b06d83ae8317313358f410a22fb8f" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>Role</name></member>
+      <member refid="classPositioningDeviceModel_1abb6e29ab9f5776e571452d7e4442b547" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>roleNames</name></member>
+      <member refid="classPositioningDeviceModel_1a1c0e49247a9b8f0a92af91c80e38feb3" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>rowCount</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa12fb99f419a44babffaace887e9ad96a" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>SerialPortDevice</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aafadfc6939ef16570c41fc1290d55834b" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>TcpDevice</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828a" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>Type</name></member>
+      <member refid="classPositioningDeviceModel_1ae58f2cc6864e04096f1973694383828aa1e035ed5b0fe114dac2d2c741fa4f884" prot="public" virt="non-virtual"><scope>PositioningDeviceModel</scope><name>UdpDevice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
