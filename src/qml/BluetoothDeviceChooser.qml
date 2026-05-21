@@ -37,7 +37,7 @@ Item {
 
   function close() {
     if (isScanning) {
-      bluetoothDeviceModel.stopServiceDiscovery();
+      bluetoothDeviceModel.stopDeviceDiscovery();
     }
   }
 
@@ -60,7 +60,7 @@ Item {
         progressValue: 0
 
         onClicked: {
-          bluetoothDeviceModel.startServiceDiscovery();
+          bluetoothDeviceModel.startDeviceDiscovery();
         }
       }
     }
