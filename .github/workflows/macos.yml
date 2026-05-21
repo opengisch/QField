@@ -27,7 +27,7 @@ jobs:
             target-arch: x86_64
             run-tests: false
           - os: macos-15
-            triplet: blacksmith-4vcpu-ubuntu-2404-arm
+            triplet: arm64-osx
             deployment-target: "11.0"
             target-arch: arm64
             run-tests: true
