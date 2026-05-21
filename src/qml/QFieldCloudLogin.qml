@@ -36,7 +36,7 @@ Item {
       Layout.maximumHeight: 210
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: cloudConnection.whitelabel.logoMain !== '' ? cloudConnection.whitelabel.logoMain : "qrc:/images/qfieldcloud_logo.svg"
+      source: cloudConnection.url != cloudConnection.defaultUrl && cloudConnection.whitelabel.logoMain !== '' ? cloudConnection.whitelabel.logoMain : "qrc:/images/qfieldcloud_logo.svg"
 
       onStatusChanged: {
         // In case the whitelabel logo fails to load, revert to the default QFieldCloud logo
