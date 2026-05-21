@@ -120,5 +120,8 @@ void TcpReceiver::handleError( QAbstractSocket::SocketError error )
     mReconnectOnDisconnect = false;
   }
 
-  emit lastErrorChanged( mLastError );
+  if ( !mReconnectOnDisconnect || mSocket->state() != QAbstractSocket::SocketState::UnconnectedState )
+  {
+    emit lastErrorChanged( mLastError );
+  }
 }
