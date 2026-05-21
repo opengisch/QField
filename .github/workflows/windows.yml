@@ -27,7 +27,7 @@ jobs:
             arch: amd64
             platform_arch: x64
           - os: windows-11-arm
-            triplet: arm64-windows-static
+            triplet: blacksmith-4vcpu-windows-2025
             arch: arm64
             platform_arch: arm64
     name: build (windows)
@@ -240,7 +240,7 @@ jobs:
 
   comment_pr:
     name: comment (pr)
-    runs-on: ubuntu-24.04
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build
     if: github.event_name == 'pull_request'
     steps:
@@ -265,7 +265,7 @@ jobs:
 
   deploy:
     name: deploy (ms store)
-    runs-on: windows-2022
+    runs-on: blacksmith-4vcpu-windows-2025
 
     if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v')
 

@@ -9,7 +9,7 @@ on:
 jobs:
   sync_certs:
     name: sync certs
-    runs-on: macos-15
+    runs-on: blacksmith-6vcpu-macos-15
     if: ${{ github.repository == 'opengisch/QField' }}
 
     steps:

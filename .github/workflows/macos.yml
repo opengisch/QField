@@ -27,7 +27,7 @@ jobs:
             target-arch: x86_64
             run-tests: false
           - os: macos-15
-            triplet: arm64-osx
+            triplet: blacksmith-4vcpu-ubuntu-2404-arm
             deployment-target: "11.0"
             target-arch: arm64
             run-tests: true
@@ -175,7 +175,7 @@ jobs:
 
   create-dmg:
     name: Create dmg
-    runs-on: macos-15
+    runs-on: blacksmith-6vcpu-macos-15
     needs: build
     steps:
       - name: 🐣 Checkout

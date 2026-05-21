@@ -19,7 +19,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     strategy:
       fail-fast: true
       matrix:
@@ -239,7 +239,7 @@ jobs:
 
   deploy_to_playstore:
     name: deploy to play store
-    runs-on: ubuntu-24.04
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build
     if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
@@ -284,7 +284,7 @@ jobs:
 
   comment_pr:
     name: comment (pr)
-    runs-on: ubuntu-24.04
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build
     if: github.event_name == 'pull_request'
     steps:
@@ -319,7 +319,7 @@ jobs:
 
   comment_commit:
     name: comment (commit)
-    runs-on: ubuntu-24.04
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build
     if: ${{ github.event_name == 'push' }}
     steps:
