@@ -234,7 +234,6 @@ Pane {
 
         RowLayout {
           Layout.fillWidth: true
-          Layout.topMargin: 8
 
           Label {
             Layout.fillWidth: true

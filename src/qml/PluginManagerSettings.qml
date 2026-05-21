@@ -69,7 +69,7 @@ QfPopup {
         id: searchBar
         visible: filterBar.currentIndex === 1
         Layout.fillWidth: true
-        Layout.preferredHeight: 41
+        Layout.preferredHeight: searchHeight
         placeHolderText: qsTr("Search for plugin")
       }
 

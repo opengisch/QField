@@ -171,7 +171,7 @@ EditorWidgetBase {
       id: searchBar
       objectName: "ValueRelationSearchBar"
       width: parent.width
-      height: 40
+      height: searchHeight
       visible: enabled
       enabled: isEnabled
 

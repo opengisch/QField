@@ -11,6 +11,7 @@ Item {
   default property alias contents: filterContainer.children
 
   readonly property alias searchTerm: searchField.text
+  readonly property real searchHeight: searchField.height
   property string placeHolderText: qsTr("Search")
 
   property bool enableFilterButton: false
@@ -23,6 +24,7 @@ Item {
   signal cleared
 
   height: searchBarContainer.height
+  clip: true
 
   function highlightedText(raw) {
     if (!raw) {
@@ -59,11 +61,18 @@ Item {
     border.color: filterActive || searchField.activeFocus ? Theme.mainColor : "transparent"
     border.width: 2
 
+    Behavior on height {
+      PropertyAnimation {
+        duration: 150
+        easing.type: Easing.InOutQuad
+      }
+    }
+
     QfToolButton {
       id: clearButton
       anchors.right: filterButton.visible ? filterButton.left : parent.right
       width: 40
-      height: 40
+      height: searchField.height
       iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
       iconColor: Theme.mainTextColor
       bgcolor: "transparent"
@@ -77,7 +86,7 @@ Item {
       id: filterButton
       anchors.right: parent.right
       width: 40
-      height: 40
+      height: searchField.height
       iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
       iconColor: searchBar.filterActive ? Theme.mainColor : Theme.mainTextColor
       bgcolor: "transparent"
@@ -87,9 +96,9 @@ Item {
 
     QfToolButton {
       id: searchButton
-      width: 40
-      height: 40
       anchors.left: parent.left
+      width: 40
+      height: searchField.height
       bgcolor: "transparent"
       iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
       iconColor: Theme.mainTextColor
@@ -109,7 +118,7 @@ Item {
       anchors.right: clearButton.visible ? clearButton.left : (filterButton.visible ? filterButton.left : parent.right)
       anchors.leftMargin: -16
       anchors.rightMargin: 4
-      height: 40
+      height: Material.textFieldHeight
       selectByMouse: true
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
       placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
@@ -154,6 +163,7 @@ Item {
 
     Rectangle {
       anchors.top: searchField.bottom
+      anchors.topMargin: -1
       anchors.horizontalCenter: parent.horizontalCenter
       width: parent.width - 70
       height: 1
