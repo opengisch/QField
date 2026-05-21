@@ -70,90 +70,65 @@ Item {
       }
     }
 
-    // Must respect characteristics of a QfOverlayContainer
-    Rectangle {
+    QfOverlayContainer {
       visible: positioningInformationViewEnabled
 
-      width: parent.width
-      height: childrenRect.height
-      color: Theme.mainBackgroundColorSemiOpaque
-      radius: 8
-      clip: true
+      title: qsTr("Positioning")
 
-      Column {
-        width: parent.width - 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        topPadding: 5
-        bottomPadding: 5
-        spacing: 4
+      header: RowLayout {
+        Text {
+          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+          text: qsTr("NTRIP")
+          font: Theme.tipFont
+          color: positionSource.ntripState === Positioning.NtripState.Connected ? Theme.mainTextColor : Theme.secondaryTextColor
+        }
 
-        RowLayout {
-          width: parent.width
-
-          Text {
-            Layout.fillWidth: true
-            Layout.leftMargin: 6
-            Layout.rightMargin: 6
-            text: qsTr("Positioning")
-            font: Theme.strongTipFont
-            color: Theme.mainTextColor
+        Rectangle {
+          id: ntripIndicator
+          Layout.alignment: Qt.AlignVCenter
+          Layout.preferredWidth: 12
+          Layout.preferredHeight: 12
+          Layout.bottomMargin: 1
+          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+          radius: height / 2
+          opacity: 1
+          color: {
+            if (positionSource.ntripState === Positioning.NtripState.Connected) {
+              return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
+            }
+            return Theme.secondaryTextColor;
           }
 
-          Text {
-            visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
-            text: qsTr("NTRIP")
-            font: Theme.tipFont
-            color: positionSource.ntripState === Positioning.NtripState.Connected ? Theme.mainTextColor : Theme.secondaryTextColor
-          }
+          SequentialAnimation {
+            running: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
+            loops: Animation.Infinite
 
-          Rectangle {
-            id: ntripIndicator
-            Layout.alignment: Qt.AlignVCenter
-            Layout.preferredWidth: 12
-            Layout.preferredHeight: 12
-            Layout.rightMargin: 6
-            Layout.bottomMargin: 1
-            visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
-            radius: height / 2
-            opacity: 1
-            color: {
-              if (positionSource.ntripState === Positioning.NtripState.Connected) {
-                return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
-              }
-              return Theme.secondaryTextColor;
+            NumberAnimation {
+              target: ntripIndicator
+              property: "opacity"
+              to: 0.0
+              duration: 1000
+              easing.type: Easing.InOutQuad
             }
 
-            SequentialAnimation {
-              running: positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
-              loops: Animation.Infinite
-
-              NumberAnimation {
-                target: ntripIndicator
-                property: "opacity"
-                to: 0.0
-                duration: 1000
-                easing.type: Easing.InOutQuad
-              }
-
-              NumberAnimation {
-                target: ntripIndicator
-                property: "opacity"
-                to: 1.0
-                duration: 1000
-                easing.type: Easing.InOutQuad
-              }
+            NumberAnimation {
+              target: ntripIndicator
+              property: "opacity"
+              to: 1.0
+              duration: 1000
+              easing.type: Easing.InOutQuad
             }
           }
         }
+      }
 
-        PositioningInformationView {
-          id: positioningInformationView
-          width: parent.width
-          height: Math.min(contentHeight, mainWindow.height / 3)
-          visible: positioningInformationViewEnabled
-          positionSource: controller.positionSource
-          antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
-        }
+      PositioningInformationView {
+        id: positioningInformationView
+        width: parent.width
+        height: Math.min(contentHeight, mainWindow.height / 3)
+        visible: positioningInformationViewEnabled
+        positionSource: controller.positionSource
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
       }
     }
 
