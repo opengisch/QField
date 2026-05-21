@@ -27,7 +27,7 @@ jobs:
             arch: amd64
             platform_arch: x64
           - os: windows-11-arm
-            triplet: blacksmith-4vcpu-windows-2025
+            triplet: arm64-windows-static
             arch: arm64
             platform_arch: arm64
     name: build (windows)
