@@ -329,8 +329,9 @@ Page {
             }
 
             onVerticalOvershootChanged: {
-              if (verticalOvershoot < -100 || verticalOvershoot > 100)
+              if (verticalOvershoot < -100) {
                 overshootRefresh = true;
+              }
             }
 
             delegate: Rectangle {
