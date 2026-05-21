@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 import org.qfield
 
 /**
@@ -10,6 +11,7 @@ Rectangle {
   default property alias contents: containerLayout.children
   property alias layout: containerLayout
   property alias title: title.text
+  property alias header: headerLayout.children
 
   width: parent.width
   height: childrenRect.height
@@ -25,12 +27,23 @@ Rectangle {
     bottomPadding: 5
     spacing: 4
 
-    Text {
-      id: title
-      text: ""
-      font: Theme.strongTipFont
-      color: Theme.mainTextColor
-      leftPadding: 6
+    RowLayout {
+      width: parent.width
+
+      Text {
+        id: title
+        Layout.fillWidth: true
+        Layout.leftMargin: 6
+        Layout.rightMargin: 6
+        text: qsTr("Positioning")
+        font: Theme.strongTipFont
+        color: Theme.mainTextColor
+      }
+
+      RowLayout {
+        id: headerLayout
+        Layout.rightMargin: 6
+      }
     }
   }
 }
