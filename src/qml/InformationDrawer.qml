@@ -103,6 +103,8 @@ Item {
             running: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
             loops: Animation.Infinite
 
+            onStopped: ntripIndicator.opacity = 1.0
+
             NumberAnimation {
               target: ntripIndicator
               property: "opacity"

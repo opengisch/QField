@@ -1429,16 +1429,41 @@ Page {
                   }
 
                   Rectangle {
+                    id: ntripIndicator
                     Layout.alignment: Qt.AlignVCenter
                     Layout.bottomMargin: 1
                     Layout.preferredWidth: 12
                     Layout.preferredHeight: 12
                     radius: height / 2
+                    opacity: 1
                     color: {
                       if (positionSource.ntripState === Positioning.NtripState.Connected) {
                         return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
                       }
                       return Theme.secondaryTextColor;
+                    }
+
+                    SequentialAnimation {
+                      running: page.visible && positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
+                      loops: Animation.Infinite
+
+                      onStopped: ntripIndicator.opacity = 1.0
+
+                      NumberAnimation {
+                        target: ntripIndicator
+                        property: "opacity"
+                        to: 0.0
+                        duration: 1000
+                        easing.type: Easing.InOutQuad
+                      }
+
+                      NumberAnimation {
+                        target: ntripIndicator
+                        property: "opacity"
+                        to: 1.0
+                        duration: 1000
+                        easing.type: Easing.InOutQuad
+                      }
                     }
                   }
                 }
