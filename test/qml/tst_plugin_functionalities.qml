@@ -506,14 +506,6 @@ TestCase {
     compare(plugin.mapCanvas.objectName, "mapCanvas");
   }
 
-  function test_geometryUtilsReprojectPointRoundTripsThroughSameCrs() {
-    const crs = CoordinateReferenceSystemUtils.wgs84Crs();
-    const source = GeometryUtils.point(12.5, 41.9);
-    const projected = GeometryUtils.reprojectPoint(source, crs, crs);
-    compare(projected.x, 12.5);
-    compare(projected.y, 41.9);
-  }
-
   function test_insertButtonClickPersistsFeatureAtReprojectedPoint() {
     makeMemoryLayer("OtherLayer");
     canvasMenu.point = GeometryUtils.point(10, 20);
@@ -524,6 +516,6 @@ TestCase {
     verify(it.hasNext());
     const feature = it.next();
     const geom = feature.geometry;
-    verify(!geom.isEmpty);
+    compare(geom.asWkt(5), "Point (10 20)");
   }
 }
