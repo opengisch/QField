@@ -18,9 +18,9 @@
 #define BLUETOOTHDEVICEMODEL_H
 
 #include <QAbstractListModel>
+#include <QtBluetooth/QBluetoothDeviceDiscoveryAgent>
+#include <QtBluetooth/QBluetoothDeviceInfo>
 #include <QtBluetooth/QBluetoothLocalDevice>
-#include <QtBluetooth/QBluetoothServiceDiscoveryAgent>
-#include <QtBluetooth/QBluetoothServiceInfo>
 
 /**
  * A model that provides all paired bluetooth devices name/address that are accessible over the serial port.
@@ -76,12 +76,12 @@ class BluetoothDeviceModel : public QAbstractListModel
      * Starts a scan to discover nearby Bluetooth devices, sequentially
      * going through a fast scan then a full, deeper scan for devices.
      */
-    Q_INVOKABLE void startServiceDiscovery();
+    Q_INVOKABLE void startDeviceDiscovery();
 
     /**
      * Stops any ongoing scan to discover nearby Bluetooth devices.
      */
-    Q_INVOKABLE void stopServiceDiscovery();
+    Q_INVOKABLE void stopDeviceDiscovery();
 
     /**
      * Returns the row index for a given Bluetooth device address
@@ -99,7 +99,7 @@ class BluetoothDeviceModel : public QAbstractListModel
   private slots:
     void setScanningStatus( const ScanningStatus scanningStatus );
     void setLastError( const QString &lastError );
-    void serviceDiscovered( const QBluetoothServiceInfo &service );
+    void deviceDiscovered( const QBluetoothDeviceInfo &info );
 
   private:
     void initiateDiscoveryAgent();
@@ -108,7 +108,7 @@ class BluetoothDeviceModel : public QAbstractListModel
     bool mLocationPermissionChecked = false;
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
-    std::unique_ptr<QBluetoothServiceDiscoveryAgent> mServiceDiscoveryAgent;
+    std::unique_ptr<QBluetoothDeviceDiscoveryAgent> mDeviceDiscoveryAgent;
     QList<QPair<QString, QString>> mDiscoveredDevices;
     ScanningStatus mScanningStatus = NoStatus;
     QString mLastError;
