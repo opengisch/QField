@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release-**
+      - blacksmith
   pull_request:
   release:
     types: ['published']
@@ -26,7 +27,7 @@ jobs:
             deployment-target: "10.15"
             target-arch: x86_64
             run-tests: false
-          - os: macos-15
+          - os: blacksmith-6vcpu-macos-15
             triplet: arm64-osx
             deployment-target: "11.0"
             target-arch: arm64
