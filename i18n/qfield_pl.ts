@@ -1385,6 +1385,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Elevation profile</source>
         <translation>Profil wysokościowy</translation>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation>NTRIP</translation>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1952,6 +1956,25 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2434,6 +2457,61 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Quality</source>
         <translation type="vanished">Jakość</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation>Ustawienia NTRIP</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Serwer</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protokół</translation>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nazwa użytkownika</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Hasło</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3149,7 +3227,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Nie można spakować projektu %1, ponieważ dostępna pamięć jest pełna.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
@@ -3351,14 +3429,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Kryteria</translation>
     </message>
     <message>
-        <source>Search term</source>
-        <translation>Wyszukaj wyrażenia</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Właściciel</translation>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation>Uwzględnij projekty publiczne</translation>
     </message>
@@ -3372,6 +3442,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3641,10 +3719,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Łączenie się z QFieldCloud w celu pobrania projektu</translation>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation>Wyszukaj projekt</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Wyloguj się</translation>
     </message>
@@ -3706,6 +3780,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4638,6 +4716,34 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation>Jeśli ta opcja jest włączona, anonimowe dane będą gromadzone i wysyłane, aby poprawić komfort użytkowania dla wszystkich.</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7090,7 +7196,7 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Nie można spakować projektu %1, ponieważ dostępna pamięć jest pełna.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
@@ -7102,10 +7208,14 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizuj plan</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
         <translation type="unfinished"/>
     </message>
 </context>

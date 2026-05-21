@@ -1381,6 +1381,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Elevation profile</source>
         <translation>Korkeusprofiili</translation>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1948,6 +1952,25 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2430,6 +2453,61 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Quality</source>
         <translation type="vanished">Laatu</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>Isäntä</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Portti</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Käyttäjänimi</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3347,14 +3425,6 @@ epäonnistui, syy: %2</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search term</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Omistaja</translation>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation type="unfinished"/>
     </message>
@@ -3368,6 +3438,14 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3638,10 +3716,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>Sisäänkirjaudu QFieldCloudiin projektin lataamiseksi</translation>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation>Etsi projekti</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Kirjaudu ulos</translation>
     </message>
@@ -3703,6 +3777,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4635,6 +4713,34 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation>Jos tämä asetus on käytössä, anonyymejä käyttötietoja kerätään ja lähetetään käyttäjäkokemuksen parantamiseksi kaikille.</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7099,6 +7205,10 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
         <translation type="unfinished"/>
     </message>
 </context>

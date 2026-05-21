@@ -1377,6 +1377,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Elevation profile</source>
         <translation>Perfil de elevação</translation>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1944,6 +1948,25 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2426,6 +2449,61 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Quality</source>
         <translation type="vanished">Qualidade</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Porta:</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nome de usuário</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Senha</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3342,14 +3420,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search term</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Proprietário</translation>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation type="unfinished"/>
     </message>
@@ -3363,6 +3433,14 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3632,10 +3710,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation>Pesquisar projeto</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Sair da sessão</translation>
     </message>
@@ -3697,6 +3771,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4628,6 +4706,34 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7097,6 +7203,10 @@ para mostrar as ações</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
         <translation type="unfinished"/>
     </message>
 </context>

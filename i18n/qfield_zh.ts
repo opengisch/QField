@@ -1379,6 +1379,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Elevation profile</source>
         <translation>纵剖面</translation>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation>NTRIP</translation>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1946,6 +1950,25 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation>NTRIP中转站的异常响应</translation>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation>接收源表之前断开连接</translation>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation>在NTRIP源表中未找到挂载点</translation>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation>NTRIP源表获取错误: </translation>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2428,6 +2451,61 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Quality</source>
         <translation type="vanished">高标准</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation>NTRIP设置</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>主机</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation>协议</translation>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation>NTRIP 修订版 1</translation>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation>NTRIP 修订版 2</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation>挂载点</translation>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation>标识符:</translation>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation>数据格式:</translation>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation>距离:</translation>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation>将位置转发至NTRIP中转站</translation>
     </message>
 </context>
 <context>
@@ -3345,14 +3423,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>准则</translation>
     </message>
     <message>
-        <source>Search term</source>
-        <translation>检索词</translation>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>所有者</translation>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation>包含公开工程</translation>
     </message>
@@ -3367,6 +3437,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>My own projects</source>
         <translation>我的专属工程</translation>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation>标题或描述包含</translation>
+    </message>
+    <message>
+        <source>Owner is</source>
+        <translation>所有者是</translation>
     </message>
 </context>
 <context>
@@ -3635,10 +3713,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>联系QFieldCloud下载工程</translation>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation>搜索工程</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>注销</translation>
     </message>
@@ -3701,6 +3775,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Try to %1include public projects%2.</source>
         <translation>尝试%1包含公开工程%2。</translation>
+    </message>
+    <message>
+        <source>Search for projects</source>
+        <translation>搜索工程</translation>
     </message>
 </context>
 <context>
@@ -4632,6 +4710,34 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation>如果启用，将收集并发送匿名测评数据，帮助改善用户的使用体验。</translation>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation>定位仪器</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation>启用NTRIP校正</translation>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation>NTRIP客户端断开连接</translation>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation>NTRIP客户端连接</translation>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation>NTRIP客户端已连接</translation>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation>请提供有效的NTRIP设置</translation>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
+        <translation>高程调整</translation>
     </message>
 </context>
 <context>
@@ -7101,6 +7207,10 @@ to show actions</source>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
         <translation>由于工程所有者的订阅计划不足，无法下载工程%1。</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
+        <translation>启用NTRIP校正</translation>
     </message>
 </context>
 <context>

@@ -1381,6 +1381,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Elevation profile</source>
         <translation>Hoogteprofiel</translation>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1948,6 +1952,25 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2430,6 +2453,61 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Quality</source>
         <translation type="vanished">Kwaliteit</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Poort</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Gebruikersnaam</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Wachtwoord</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3346,14 +3424,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search term</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation type="unfinished"/>
     </message>
@@ -3367,6 +3437,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3636,10 +3714,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation>QFieldCloud benaderen om project te downloaden</translation>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation>Zoeken in projecten</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Uitloggen</translation>
     </message>
@@ -3701,6 +3775,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4632,6 +4710,34 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7100,6 +7206,10 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
         <translation type="unfinished"/>
     </message>
 </context>

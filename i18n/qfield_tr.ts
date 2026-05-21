@@ -1377,6 +1377,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Elevation profile</source>
         <translation>Yükseklik profili</translation>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1943,6 +1947,25 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2425,6 +2448,61 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Quality</source>
         <translation type="vanished">Kalite</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Kullanıcı adı</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3341,14 +3419,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search term</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation>Sahibi</translation>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation type="unfinished"/>
     </message>
@@ -3362,6 +3432,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3631,10 +3709,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation>Proje ara</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Çıkış yap</translation>
     </message>
@@ -3696,6 +3770,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4627,6 +4705,34 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7092,6 +7198,10 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
         <translation type="unfinished"/>
     </message>
 </context>

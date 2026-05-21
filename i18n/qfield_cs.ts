@@ -1385,6 +1385,10 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>Elevation profile</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
@@ -1952,6 +1956,25 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
 </context>
 <context>
+    <name>NtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
@@ -2434,6 +2457,61 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Quality</source>
         <translation type="vanished">Kvalita</translation>
+    </message>
+</context>
+<context>
+    <name>PositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Uživatelské jméno</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Heslo</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3349,14 +3427,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search term</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Owner</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Include public projects</source>
         <translation type="unfinished"/>
     </message>
@@ -3370,6 +3440,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>My own projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title or description contains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Owner is</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3639,10 +3717,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search for project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Odhlásit</translation>
     </message>
@@ -3704,6 +3778,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4635,6 +4713,34 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP client connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide valid NTRIP settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation Adjustment</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7100,6 +7206,10 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
         <translation type="unfinished"/>
     </message>
 </context>
