@@ -106,7 +106,7 @@ Item {
         if (searchField.text !== "") {
           searchBar.searchTriggered();
         } else {
-          searchField.focus = true;
+          searchField.forceActiveFocus();
         }
       }
     }
