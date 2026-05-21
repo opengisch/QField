@@ -161,6 +161,7 @@ CogoParameterWidgetBase {
           QfSearchBar {
             id: searchBar
             Layout.fillWidth: true
+            Layout.preferredHeight: searchHeight
           }
 
           ListView {

@@ -205,10 +205,9 @@ EditorWidgetBase {
 
         QfSearchBar {
           id: searchBar
-          z: 1
           anchors.left: parent.left
           anchors.right: parent.right
-          height: childrenRect.height
+          height: searchHeight
 
           onSearchTermChanged: {
             listModel.setFilterFixedString(searchTerm);

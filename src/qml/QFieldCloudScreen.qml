@@ -205,7 +205,7 @@ Page {
         QfSearchBar {
           id: searchBar
           Layout.fillWidth: true
-          Layout.preferredHeight: 41
+          Layout.preferredHeight: searchHeight
           enableFilterButton: true
           filterActive: projectFilter.visible
           placeHolderText: qsTr("Search for projects")
@@ -271,9 +271,12 @@ Page {
           }
         }
 
-        Item {
+        Rectangle {
           Layout.fillWidth: true
           Layout.fillHeight: true
+          color: Theme.controlBackgroundColor
+          border.color: Theme.controlBorderColor
+          border.width: 1
 
           ListView {
             id: table
@@ -315,6 +318,7 @@ Page {
               }
             }
             enabled: !projectFilter.visible
+            opacity: enabled ? 1 : 0.5
             clip: true
 
             onMovingChanged: {
@@ -343,7 +347,7 @@ Page {
 
               width: parent ? parent.width : undefined
               height: line.height
-              color: Theme.controlBackgroundColor
+              color: "transparent"
               border.color: Theme.controlBorderColor
               border.width: 1
               radius: 2
