@@ -53,7 +53,7 @@ jobs:
       - name: 🐵 Install Mono
         run: |
           sudo apt install ca-certificates gnupg
-          curl -fsSL "https://keys.openpgp.org/vks/v1/by-fingerprint/3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" | sudo gpg --dearmor -o /usr/share/keyrings/mono-official-archive-keyring.gpg
+          curl -fsSL "https://download.mono-project.com/repo/xamarin.gpg" | sudo gpg --dearmor -o /usr/share/keyrings/mono-official-archive-keyring.gpg
           sudo chmod +r /usr/share/keyrings/mono-official-archive-keyring.gpg
           echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
           sudo apt update
