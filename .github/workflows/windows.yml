@@ -53,23 +53,47 @@ jobs:
           echo "CMAKE_BUILD_DIR=C:/builddir" >> $GITHUB_ENV
 
       - name: 🪳 Install Visual Studio ATL component
-        if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
+        if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
         shell: powershell
         run: |
-          $vsInstaller = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vs_installer.exe"
-          if (!(Test-Path $vsInstaller)) {
-            throw "Visual Studio Installer not found"
-          }
           $vswhere = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-          $installPath = & $vswhere -latest -products * -property installationPath
-          & $vsInstaller modify `
-            --installPath "$installPath" `
-             --add Microsoft.VisualStudio.Component.VC.ATL `
-             --quiet --norestart --wait
-      
-          if ($LASTEXITCODE -ne 0) {
-            throw "Failed to install ATL component"
+          if (!(Test-Path $vswhere)) {
+            throw "vswhere.exe not found"
           }
+          $installPath = & $vswhere -latest -products * -property installationPath
+          if (-not $installPath) {
+            throw "Visual Studio install not found via vswhere"
+          }
+
+          # vs_installer.exe does not honor --wait reliably (it returns immediately while the
+          # real install runs asynchronously). Use the fresh bootstrapper with Start-Process -Wait
+          # so PowerShell actually blocks on completion and we get a real exit code.
+          $bootstrapper = Join-Path $env:RUNNER_TEMP 'vs_BuildTools.exe'
+          Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_BuildTools.exe" -OutFile $bootstrapper
+
+          $args = @(
+            'modify',
+            '--installPath', $installPath,
+            '--add', 'Microsoft.VisualStudio.Component.VC.ATL',
+            '--quiet', '--norestart', '--wait', '--nocache'
+          )
+          $p = Start-Process -FilePath $bootstrapper -ArgumentList $args -Wait -PassThru -NoNewWindow
+          if ($p.ExitCode -ne 0 -and $p.ExitCode -ne 3010) {
+            throw "Failed to install ATL component (exit $($p.ExitCode))"
+          }
+
+          # Poll for atlbase.h: even with -Wait, the on-disk layout can lag by a few seconds.
+          $atlRoot = Join-Path $installPath 'VC\Tools\MSVC'
+          $deadline = (Get-Date).AddMinutes(2)
+          while ((Get-Date) -lt $deadline) {
+            $hit = Get-ChildItem $atlRoot -Recurse -Filter atlbase.h -ErrorAction SilentlyContinue | Select-Object -First 1
+            if ($hit) {
+              Write-Host "ATL ready at $($hit.FullName)"
+              return
+            }
+            Start-Sleep -Seconds 5
+          }
+          throw "ATL header atlbase.h still missing under $atlRoot after install"
 
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
@@ -77,16 +101,6 @@ jobs:
           arch: ${{ matrix.arch }}
           # See https://github.com/actions/runner-images/issues/9398
           # toolset: 14.39
-
-      - name: Verify ATL availability
-        if: matrix.platform_arch == 'x64'
-        shell: powershell
-        run: |
-          $atl = Get-ChildItem "${Env:VCToolsInstallDir}" -Recurse -Filter atlbase.h -ErrorAction SilentlyContinue | Select-Object -First 1
-          if (-not $atl) {
-            throw "ATL header atlbase.h not found under VCToolsInstallDir=${Env:VCToolsInstallDir}"
-          }
-          Write-Host "Found ATL header at $($atl.FullName)"
 
       - name: 🔨 Prepare build env
         shell: bash
