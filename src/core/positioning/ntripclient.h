@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QObject>
 #include <QPointer>
-#include <QTcpSocket>
+#include <QSslSocket>
 #include <QTimer>
 
 class NtripSocket;
@@ -171,7 +171,7 @@ class NtripSocket : public QObject
     int parseHttpStatusCode( const QByteArray &headerBlock );
     bool isPermanentHttpError( int statusCode );
 
-    QTcpSocket *mSocket;
+    QSslSocket *mSocket;
     bool mHeadersSent = false;
     QByteArray mHeaderBuffer;
     QString mHost;

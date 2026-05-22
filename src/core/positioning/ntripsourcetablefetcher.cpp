@@ -36,16 +36,30 @@ void NtripSourceTableFetcher::fetch( const NtripSettings &ntripSettings )
   mBuffer.clear();
   mHeadersParsed = false;
 
-  mSocket = new QTcpSocket( this );
-  connect( mSocket, &QTcpSocket::connected, this, &NtripSourceTableFetcher::onSocketConnected );
-  connect( mSocket, &QTcpSocket::readyRead, this, &NtripSourceTableFetcher::onSocketReadyRead );
-  connect( mSocket, &QTcpSocket::disconnected, this, &NtripSourceTableFetcher::onSocketDisconnected );
+  mSocket = new QSslSocket( this );
+  connect( mSocket, &QAbstractSocket::connected, this, &NtripSourceTableFetcher::onSocketConnected );
+  connect( mSocket, &QAbstractSocket::readyRead, this, &NtripSourceTableFetcher::onSocketReadyRead );
+  connect( mSocket, &QAbstractSocket::disconnected, this, &NtripSourceTableFetcher::onSocketDisconnected );
   connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSourceTableFetcher::onSocketError );
 
   mIsFetching = true;
   emit isFetchingChanged();
 
-  mSocket->connectToHost( mHost, mPort );
+  switch ( mProtocol )
+  {
+    case NtripSettings::NtripSsl:
+    {
+      mSocket->connectToHostEncrypted( mHost, mPort );
+      break;
+    }
+
+    case NtripSettings::NtripVersion2:
+    case NtripSettings::NtripVersion1:
+    {
+      mSocket->connectToHost( mHost, mPort );
+      break;
+    }
+  }
 }
 
 void NtripSourceTableFetcher::cancel()
@@ -79,6 +93,7 @@ void NtripSourceTableFetcher::onSocketConnected()
   QByteArray request;
   switch ( mProtocol )
   {
+    case NtripSettings::NtripSsl:
     case NtripSettings::NtripVersion2:
     {
       request.append( "GET / HTTP/1.1\r\n" );

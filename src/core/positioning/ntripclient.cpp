@@ -208,13 +208,13 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
 
 NtripSocket::NtripSocket( QObject *parent )
   : QObject( parent )
-  , mSocket( new QTcpSocket( this ) )
+  , mSocket( new QSslSocket( this ) )
 {
   mSocket->setSocketOption( QAbstractSocket::LowDelayOption, true );
 
-  connect( mSocket, &QTcpSocket::connected, this, &NtripSocket::onConnected );
-  connect( mSocket, &QTcpSocket::readyRead, this, &NtripSocket::onReadyRead );
-  connect( mSocket, &QTcpSocket::disconnected, this, &NtripSocket::onDisconnected );
+  connect( mSocket, &QAbstractSocket::connected, this, &NtripSocket::onConnected );
+  connect( mSocket, &QAbstractSocket::readyRead, this, &NtripSocket::onReadyRead );
+  connect( mSocket, &QAbstractSocket::disconnected, this, &NtripSocket::onDisconnected );
   connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSocket::onSocketError );
 }
 
@@ -225,6 +225,11 @@ NtripSocket::~NtripSocket() noexcept
 
 qint64 NtripSocket::connectToHost( const NtripSettings &ntripSettings )
 {
+  if ( mSocket->isOpen() )
+  {
+    abort();
+  }
+
   mHost = ntripSettings.host();
   mPort = ntripSettings.port();
   mMountPoint = ntripSettings.mountPoint();
@@ -238,12 +243,21 @@ qint64 NtripSocket::connectToHost( const NtripSettings &ntripSettings )
   mChunkBuffer.clear();
   mChunkRemaining = -1;
 
-  if ( mSocket->isOpen() )
+  switch ( mProtocol )
   {
-    abort();
-  }
+    case NtripSettings::NtripSsl:
+    {
+      mSocket->connectToHostEncrypted( mHost, mPort );
+      break;
+    }
 
-  mSocket->connectToHost( mHost, mPort );
+    case NtripSettings::NtripVersion2:
+    case NtripSettings::NtripVersion1:
+    {
+      mSocket->connectToHost( mHost, mPort );
+      break;
+    }
+  }
 
   return estimateRequestSize();
 }
@@ -258,7 +272,7 @@ qint64 NtripSocket::estimateRequestSize() const
 
 qint64 NtripSocket::writeNmeaSentence( const QByteArray &sentence )
 {
-  if ( !mSocket->isOpen() || mSocket->state() != QAbstractSocket::ConnectedState )
+  if ( !mSocket || !mSocket->isOpen() || mSocket->state() != QAbstractSocket::ConnectedState )
   {
     return -1;
   }
@@ -278,6 +292,7 @@ void NtripSocket::abort()
   {
     mSocket->abort();
   }
+
   mHeadersSent = false;
 }
 
@@ -297,6 +312,7 @@ void NtripSocket::onConnected()
   QByteArray request;
   switch ( mProtocol )
   {
+    case NtripSettings::NtripSsl:
     case NtripSettings::NtripVersion2:
     {
       request.append( "GET " + mp + " HTTP/1.1\r\n" );

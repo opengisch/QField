@@ -20,8 +20,8 @@
 #include "ntripsettings.h"
 
 #include <QObject>
+#include <QSslSocket>
 #include <QStringList>
-#include <QTcpSocket>
 #include <qgspoint.h>
 
 
@@ -122,7 +122,7 @@ class NtripSourceTableFetcher : public QObject
     QString mPassword;
     NtripSettings::Protocol mProtocol = NtripSettings::NtripVersion1;
 
-    QTcpSocket *mSocket = nullptr;
+    QSslSocket *mSocket = nullptr;
     QByteArray mBuffer;
     bool mHeadersParsed = false;
     QList<NtripMountPoint> mMountPoints;
