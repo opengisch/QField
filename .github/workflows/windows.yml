@@ -52,7 +52,7 @@ jobs:
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=C:/builddir" >> $GITHUB_ENV
 
-      - name: 🪳 Install Visual Studio ATL component
+      - name: 🪳 Install Visual Studio ATL and Clang components
         if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
         shell: powershell
         run: |
@@ -71,7 +71,7 @@ jobs:
           # bootstrapper from aka.ms can. The caveat is that it returns to the caller almost
           # immediately and runs the real install asynchronously in setup.exe, so we cannot rely
           # on its exit code or on Start-Process -Wait. Instead, launch it, wait for the
-          # background installer processes to drain, then poll for atlbase.h on disk.
+          # background installer processes to drain, then poll for the installed files on disk.
           $installer = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vs_installer.exe"
           if (!(Test-Path $installer)) {
             throw "vs_installer.exe not found at $installer"
@@ -80,10 +80,14 @@ jobs:
           # PowerShell's Start-Process -ArgumentList does not quote individual args that contain
           # spaces, so vs_installer.exe parses "C:\Program Files (x86)\..." as just "C:\Program"
           # and silently no-ops. Quote the path ourselves to make the actual command line correct.
+          # The Blacksmith Windows 2025 image ships VS Build Tools without ATL or the LLVM/clang
+          # toolset; both are required for this build (ATL headers + clang-cl as compiler).
           $args = @(
             'modify',
             '--installPath', "`"$installPath`"",
             '--add', 'Microsoft.VisualStudio.Component.VC.ATL',
+            '--add', 'Microsoft.VisualStudio.Component.VC.Llvm.Clang',
+            '--add', 'Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset',
             '--quiet', '--norestart', '--nocache'
           )
           Start-Process -FilePath $installer -ArgumentList $args -NoNewWindow | Out-Null
@@ -99,13 +103,18 @@ jobs:
             Start-Sleep -Seconds 5
           }
 
-          # Poll for atlbase.h: even after the processes exit the on-disk layout can lag.
+          # Poll for atlbase.h and clang-cl.exe: even after the processes exit the on-disk layout can lag.
           $atlRoot = Join-Path $installPath 'VC\Tools\MSVC'
+          $llvmRoot = Join-Path $installPath 'VC\Tools\Llvm\x64\bin'
           $deadline = (Get-Date).AddMinutes(5)
           while ((Get-Date) -lt $deadline) {
-            $hit = Get-ChildItem $atlRoot -Recurse -Filter atlbase.h -ErrorAction SilentlyContinue | Select-Object -First 1
-            if ($hit) {
-              Write-Host "ATL ready at $($hit.FullName)"
+            $atl = Get-ChildItem $atlRoot -Recurse -Filter atlbase.h -ErrorAction SilentlyContinue | Select-Object -First 1
+            $clang = if (Test-Path (Join-Path $llvmRoot 'clang-cl.exe')) { Join-Path $llvmRoot 'clang-cl.exe' } else { $null }
+            if ($atl -and $clang) {
+              Write-Host "ATL ready at $($atl.FullName)"
+              Write-Host "clang-cl ready at $clang"
+              # Expose the LLVM bin directory on PATH for subsequent steps so cmake can resolve `clang-cl`.
+              Add-Content -Path $env:GITHUB_PATH -Value $llvmRoot
               return
             }
             Start-Sleep -Seconds 5
@@ -116,7 +125,7 @@ jobs:
             Write-Host "===== $($_.Name) ====="
             Get-Content $_.FullName -Tail 100 -ErrorAction SilentlyContinue
           }
-          throw "ATL header atlbase.h still missing under $atlRoot after install"
+          throw "ATL header or clang-cl still missing under $installPath after install (atl=$atl, clang=$clang)"
 
       - name: 🧽 Developer Command Prompt for Microsoft Visual C++
         uses: ilammy/msvc-dev-cmd@v1
