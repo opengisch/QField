@@ -843,6 +843,26 @@ void QFieldCloudProject::download()
       const QString cloudEtag = fileObject.value( QStringLiteral( "md5sum" ) ).toString();
       const QString localEtag = FileUtils::fileEtag( projectFileName );
 
+      QFileInfo fileInfo( projectFileName );
+      if ( fileInfo.suffix().toLower() == QStringLiteral( "qgs" ) || fileInfo.suffix().toLower() == QStringLiteral( "qgz" ) )
+      {
+        // Clear up all pre-exsting project files to insure the presence of a single, up-to-date project file
+        QDirIterator projectDirIterator( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ), { "*.qgs", "*.qgz" }, QDir::Files, QDirIterator::Subdirectories );
+        while ( projectDirIterator.hasNext() )
+        {
+          projectDirIterator.next();
+          QFileInfo projectFileInfo = projectDirIterator.fileInfo();
+          if ( projectFileInfo.absoluteFilePath() != fileInfo.absoluteFilePath() )
+          {
+#ifdef Q_OS_WIN
+            QFile::setPermissions( projectFileInfo.absoluteFilePath(), QFileDevice::ReadUser | QFileDevice::WriteUser | QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup );
+#endif
+            QFile::remove( projectFileInfo.absoluteFilePath() );
+          }
+        }
+        setLocalPath( QFieldCloudUtils::localProjectFilePath( mUsername, mId ) );
+      }
+
       if ( !fileObject.value( QStringLiteral( "size" ) ).isDouble() || fileName.isEmpty() || cloudEtag.isEmpty() )
       {
         QgsLogger::debug( QStringLiteral( "Project %1: package in \"files\" list does not contain the expected fields: size(int), name(string), md5sum(string)" ).arg( mId ) );
@@ -1374,7 +1394,7 @@ void QFieldCloudProject::downloadFilesCompleted( bool emptyDownload )
         }
       }
 
-      AppInterface::instance()->reloadProject();
+      AppInterface::instance()->loadFile( QFieldCloudUtils::localProjectFilePath( mUsername, mId ), mName );
     }
   }
 
@@ -1457,7 +1477,6 @@ bool QFieldCloudProject::moveDownloadedFilesToPermanentStorage()
 {
   bool hasError = false;
   const QStringList fileKeys = mDownloadFileTransfers.keys();
-
   for ( const QString &fileKey : fileKeys )
   {
     const FileTransfer &fileTransfer = mDownloadFileTransfers[fileKey];
