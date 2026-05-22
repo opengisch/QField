@@ -64,27 +64,41 @@ jobs:
           if (-not $installPath) {
             throw "Visual Studio install not found via vswhere"
           }
+          Write-Host "Modifying VS install at $installPath"
 
-          # vs_installer.exe does not honor --wait reliably (it returns immediately while the
-          # real install runs asynchronously). Use the fresh bootstrapper with Start-Process -Wait
-          # so PowerShell actually blocks on completion and we get a real exit code.
-          $bootstrapper = Join-Path $env:RUNNER_TEMP 'vs_BuildTools.exe'
-          Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_BuildTools.exe" -OutFile $bootstrapper
+          # vs_installer.exe is the bootstrapper for the already-installed VS, so it knows the
+          # right channel and won't reject the modify request the way a freshly-downloaded
+          # bootstrapper from aka.ms can. The caveat is that it returns to the caller almost
+          # immediately and runs the real install asynchronously in setup.exe, so we cannot rely
+          # on its exit code or on Start-Process -Wait. Instead, launch it, wait for the
+          # background installer processes to drain, then poll for atlbase.h on disk.
+          $installer = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vs_installer.exe"
+          if (!(Test-Path $installer)) {
+            throw "vs_installer.exe not found at $installer"
+          }
 
           $args = @(
             'modify',
             '--installPath', $installPath,
             '--add', 'Microsoft.VisualStudio.Component.VC.ATL',
-            '--quiet', '--norestart', '--wait', '--nocache'
+            '--quiet', '--norestart', '--nocache'
           )
-          $p = Start-Process -FilePath $bootstrapper -ArgumentList $args -Wait -PassThru -NoNewWindow
-          if ($p.ExitCode -ne 0 -and $p.ExitCode -ne 3010) {
-            throw "Failed to install ATL component (exit $($p.ExitCode))"
+          Start-Process -FilePath $installer -ArgumentList $args -NoNewWindow | Out-Null
+
+          # Give the launcher a moment to spawn the background setup processes, then wait for
+          # them to exit before we declare the install complete.
+          Start-Sleep -Seconds 10
+          $installerProcs = @('vs_installer', 'vs_installershell', 'vs_setup_bootstrapper', 'setup')
+          $procDeadline = (Get-Date).AddMinutes(20)
+          while ((Get-Date) -lt $procDeadline) {
+            $running = Get-Process -Name $installerProcs -ErrorAction SilentlyContinue
+            if (-not $running) { break }
+            Start-Sleep -Seconds 5
           }
 
-          # Poll for atlbase.h: even with -Wait, the on-disk layout can lag by a few seconds.
+          # Poll for atlbase.h: even after the processes exit the on-disk layout can lag.
           $atlRoot = Join-Path $installPath 'VC\Tools\MSVC'
-          $deadline = (Get-Date).AddMinutes(2)
+          $deadline = (Get-Date).AddMinutes(5)
           while ((Get-Date) -lt $deadline) {
             $hit = Get-ChildItem $atlRoot -Recurse -Filter atlbase.h -ErrorAction SilentlyContinue | Select-Object -First 1
             if ($hit) {
@@ -92,6 +106,12 @@ jobs:
               return
             }
             Start-Sleep -Seconds 5
+          }
+
+          # Surface installer logs to make follow-up failures debuggable.
+          Get-ChildItem "$env:TEMP" -Filter 'dd_*.log' -ErrorAction SilentlyContinue | ForEach-Object {
+            Write-Host "===== $($_.Name) ====="
+            Get-Content $_.FullName -Tail 100 -ErrorAction SilentlyContinue
           }
           throw "ATL header atlbase.h still missing under $atlRoot after install"
 
