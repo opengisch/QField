@@ -140,6 +140,12 @@ jobs:
           wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.22.6/sentry-android-ndk-7.22.6.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
 
+      - name: 💾 Mount vcpkg archives sticky disk
+        uses: useblacksmith/stickydisk@v1
+        with:
+          key: vcpkg-archives-${{ matrix.triplet }}
+          path: /home/runner/.cache/vcpkg/archives
+
       - name: 🌱 Install dependencies and generate project files
         env:
           WORKSPACE: ${{ github.workspace }}
