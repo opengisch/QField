@@ -52,6 +52,26 @@ jobs:
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=C:/builddir" >> $GITHUB_ENV
 
+      - name: 🎞️ Install Windows Media Foundation feature
+        if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
+        shell: powershell
+        run: |
+          # qfield_spix.exe imports MFPlat.DLL / MF.dll / MFReadWrite.dll / EVR.dll (via Qt
+          # Multimedia). Windows Server 2025 ships these behind the Server-Media-Foundation
+          # role feature, which is not enabled by default on the Blacksmith image. Without it,
+          # the exe fails to load with STATUS_DLL_NOT_FOUND (0xC0000135) on launch.
+          $feature = Get-WindowsFeature -Name Server-Media-Foundation -ErrorAction SilentlyContinue
+          if ($feature -and -not $feature.Installed) {
+            Write-Host "Installing Server-Media-Foundation"
+            Install-WindowsFeature -Name Server-Media-Foundation | Out-Host
+          } elseif ($feature) {
+            Write-Host "Server-Media-Foundation already installed"
+          } else {
+            # Fallback for SKUs where the role name differs: try the DISM optional feature path.
+            Write-Host "Get-WindowsFeature did not list Server-Media-Foundation; trying DISM"
+            dism /online /enable-feature /featurename:Server-Media-Foundation /all /norestart | Out-Host
+          }
+
       - name: 🪳 Install Visual Studio ATL and Clang components
         if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
         shell: powershell
