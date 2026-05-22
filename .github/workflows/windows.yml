@@ -67,11 +67,12 @@ jobs:
           if (!(Test-Path $vsInstaller)) {
             throw "Visual Studio Installer not found"
           }
-      
+          $vswhere = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $installPath = & $vswhere -latest -products * -property installationPath
           & $vsInstaller modify `
-            --installPath "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" `
-            --add Microsoft.VisualStudio.Component.VC.ATL `
-            --quiet --norestart --wait
+            --installPath "$installPath" `
+             --add Microsoft.VisualStudio.Component.VC.ATL `
+             --quiet --norestart --wait
       
           if ($LASTEXITCODE -ne 0) {
             throw "Failed to install ATL component"
