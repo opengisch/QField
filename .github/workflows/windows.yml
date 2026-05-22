@@ -71,6 +71,13 @@ jobs:
             throw "Failed to install ATL component"
           }
 
+      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
+          # See https://github.com/actions/runner-images/issues/9398
+          # toolset: 14.39
+
       - name: Verify ATL availability
         if: matrix.platform_arch == 'x64'
         shell: powershell
@@ -80,13 +87,6 @@ jobs:
             throw "ATL header atlbase.h not found under VCToolsInstallDir=${Env:VCToolsInstallDir}"
           }
           Write-Host "Found ATL header at $($atl.FullName)"
-
-      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
-        uses: ilammy/msvc-dev-cmd@v1
-        with:
-          arch: ${{ matrix.arch }}
-          # See https://github.com/actions/runner-images/issues/9398
-          # toolset: 14.39
 
       - name: 🔨 Prepare build env
         shell: bash
