@@ -44,6 +44,7 @@ class NtripSettings
     {
       NtripVersion1,
       NtripVersion2,
+      NtripSsl,
     };
 
     Q_ENUM( Protocol )

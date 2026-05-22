@@ -126,6 +126,10 @@ QfPopup {
               name: qsTr('NTRIP Revision 2')
               value: NtripSettings.NtripVersion2
             }
+            ListElement {
+              name: qsTr('NTRIP SSL/TLS')
+              value: NtripSettings.NtripSsl
+            }
           }
 
           textRole: "name"
