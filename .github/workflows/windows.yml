@@ -77,9 +77,12 @@ jobs:
             throw "vs_installer.exe not found at $installer"
           }
 
+          # PowerShell's Start-Process -ArgumentList does not quote individual args that contain
+          # spaces, so vs_installer.exe parses "C:\Program Files (x86)\..." as just "C:\Program"
+          # and silently no-ops. Quote the path ourselves to make the actual command line correct.
           $args = @(
             'modify',
-            '--installPath', $installPath,
+            '--installPath', "`"$installPath`"",
             '--add', 'Microsoft.VisualStudio.Component.VC.ATL',
             '--quiet', '--norestart', '--nocache'
           )
