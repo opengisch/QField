@@ -273,14 +273,7 @@ jobs:
 
           if ($p.ExitCode -ne 0) {
             Write-Host "===== LoadLibraryEx via P/Invoke to capture the real loader error ====="
-            $sig = @'
-[DllImport("kernel32.dll", SetLastError=true, CharSet=CharSet.Unicode)]
-public static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hFile, uint dwFlags);
-[DllImport("kernel32.dll")]
-public static extern uint GetLastError();
-[DllImport("kernel32.dll", SetLastError=true, CharSet=CharSet.Unicode)]
-public static extern uint FormatMessage(uint dwFlags, IntPtr lpSource, uint dwMessageId, uint dwLanguageId, System.Text.StringBuilder lpBuffer, uint nSize, IntPtr Arguments);
-'@
+            $sig = '[DllImport("kernel32.dll", SetLastError=true, CharSet=CharSet.Unicode)] public static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hFile, uint dwFlags); [DllImport("kernel32.dll")] public static extern uint GetLastError(); [DllImport("kernel32.dll", SetLastError=true, CharSet=CharSet.Unicode)] public static extern uint FormatMessage(uint dwFlags, IntPtr lpSource, uint dwMessageId, uint dwLanguageId, System.Text.StringBuilder lpBuffer, uint nSize, IntPtr Arguments);'
             Add-Type -MemberDefinition $sig -Name Win32Loader -Namespace QF -PassThru | Out-Null
             $h = [QF.Win32Loader]::LoadLibraryEx($exe, [IntPtr]::Zero, 0)
             if ($h -eq [IntPtr]::Zero) {
