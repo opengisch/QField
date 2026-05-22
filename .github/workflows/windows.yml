@@ -240,6 +240,20 @@ jobs:
 #          cd "${{ env.CMAKE_BUILD_DIR }}"
 #          ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
+      - name: 📦 Install NSIS
+        if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
+        shell: powershell
+        run: |
+          # CPack's NSIS generator needs makensis on PATH. The Blacksmith Windows 2025 image
+          # does not preinstall NSIS the way GitHub-hosted windows-2022 does, so install it
+          # via Chocolatey and surface its install dir on $GITHUB_PATH for the Package step.
+          choco install nsis -y --no-progress
+          $nsisDir = 'C:\Program Files (x86)\NSIS'
+          if (!(Test-Path (Join-Path $nsisDir 'makensis.exe'))) {
+            throw "makensis.exe not found under $nsisDir after choco install nsis"
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $nsisDir
+
       - name: Package
         id: package
         shell: bash
