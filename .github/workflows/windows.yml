@@ -290,6 +290,36 @@ jobs:
             Get-WinEvent -FilterHashtable @{ LogName='Application','System'; Level=1,2,3; StartTime=(Get-Date).AddMinutes(-10) } -ErrorAction SilentlyContinue |
               ForEach-Object { Write-Host "$($_.TimeCreated) [$($_.LogName)/$($_.ProviderName)/$($_.LevelDisplayName)] $($_.Message)" }
 
+            Write-Host "===== Trace DLL loads via Sysinternals procmon ====="
+            $procmonZip = Join-Path $env:RUNNER_TEMP 'ProcessMonitor.zip'
+            $procmonDir = Join-Path $env:RUNNER_TEMP 'procmon'
+            try {
+              Invoke-WebRequest -Uri 'https://download.sysinternals.com/files/ProcessMonitor.zip' -OutFile $procmonZip -UseBasicParsing
+              Expand-Archive -Path $procmonZip -DestinationPath $procmonDir -Force
+              $procmon = Join-Path $procmonDir 'Procmon64.exe'
+              if (!(Test-Path $procmon)) { $procmon = Join-Path $procmonDir 'Procmon.exe' }
+              $pml = Join-Path $env:RUNNER_TEMP 'qfs_trace.pml'
+              $csv = Join-Path $env:RUNNER_TEMP 'qfs_trace.csv'
+              & $procmon /AcceptEula /Quiet /Minimized /BackingFile $pml
+              Start-Sleep -Seconds 3
+              Start-Process -FilePath $exe -ArgumentList '-version' -Wait -PassThru -NoNewWindow | Out-Null
+              Start-Sleep -Seconds 2
+              & $procmon /Terminate
+              Start-Sleep -Seconds 2
+              & $procmon /OpenLog $pml /SaveAs $csv /SaveApplyFilter
+              if (Test-Path $csv) {
+                Write-Host "----- procmon hits for qfield_spix.exe with NAME NOT FOUND / PATH NOT FOUND on .dll files -----"
+                Import-Csv $csv |
+                  Where-Object { $_.'Process Name' -eq 'qfield_spix.exe' -and $_.Result -match 'NOT FOUND' -and $_.Path -match '\.dll$' } |
+                  Select-Object -First 50 -Property Time, Operation, Path, Result |
+                  Format-Table -AutoSize | Out-String | Write-Host
+              } else {
+                Write-Host "(procmon CSV not produced)"
+              }
+            } catch {
+              Write-Host "procmon trace failed: $_"
+            }
+
             throw "qfield_spix.exe failed to launch (exit code $($p.ExitCode))"
           }
 
