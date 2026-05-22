@@ -52,13 +52,6 @@ jobs:
           echo "BUILD_TYPE=Release" >> $GITHUB_ENV
           echo "CMAKE_BUILD_DIR=C:/builddir" >> $GITHUB_ENV
 
-      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
-        uses: ilammy/msvc-dev-cmd@v1
-        with:
-          arch: ${{ matrix.arch }}
-          # See https://github.com/actions/runner-images/issues/9398
-          # toolset: 14.39
-
       - name: 🪳 Install Visual Studio ATL component
         if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
         shell: powershell
@@ -77,6 +70,23 @@ jobs:
           if ($LASTEXITCODE -ne 0) {
             throw "Failed to install ATL component"
           }
+
+      - name: Verify ATL availability
+        if: matrix.platform_arch == 'x64'
+        shell: powershell
+        run: |
+          $atl = Get-ChildItem "${Env:VCToolsInstallDir}" -Recurse -Filter atlbase.h -ErrorAction SilentlyContinue | Select-Object -First 1
+          if (-not $atl) {
+            throw "ATL header atlbase.h not found under VCToolsInstallDir=${Env:VCToolsInstallDir}"
+          }
+          Write-Host "Found ATL header at $($atl.FullName)"
+
+      - name: 🧽 Developer Command Prompt for Microsoft Visual C++
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
+          # See https://github.com/actions/runner-images/issues/9398
+          # toolset: 14.39
 
       - name: 🔨 Prepare build env
         shell: bash
@@ -111,8 +121,8 @@ jobs:
           cmake -S "${SOURCE_DIR}" \
                 -G Ninja \
                 -B "${CMAKE_BUILD_DIR}" \
-                -D CMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
-                -D CMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/${{ matrix.platform_arch }}/bin/clang-cl.exe" \
+                -D CMAKE_C_COMPILER=clang-cl \
+                -D CMAKE_CXX_COMPILER=clang-cl \
                 -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
                 -D VCPKG_HOST_TRIPLET="${{ matrix.triplet }}" \
