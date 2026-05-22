@@ -88,6 +88,7 @@ jobs:
             '--add', 'Microsoft.VisualStudio.Component.VC.ATL',
             '--add', 'Microsoft.VisualStudio.Component.VC.Llvm.Clang',
             '--add', 'Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset',
+            '--add', 'Microsoft.VisualStudio.Component.VC.Redist.14.Latest',
             '--quiet', '--norestart', '--nocache'
           )
           Start-Process -FilePath $installer -ArgumentList $args -NoNewWindow | Out-Null
@@ -207,6 +208,41 @@ jobs:
       - name: 🌋 Build
         run: |
           cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+
+      - name: 🔍 Verify qfield_spix can launch
+        if: matrix.platform_arch == 'x64'
+        shell: powershell
+        run: |
+          # Launching qfield_spix without args inside ctest fails with returncode 0xC0000135
+          # (STATUS_DLL_NOT_FOUND) on the Blacksmith Windows image, but ctest only surfaces a
+          # pytest "setup error". Run the binary directly here so we get a clean Windows error
+          # and a dependency walk before the smoke_test step.
+          $exe = Join-Path "${{ env.CMAKE_BUILD_DIR }}" 'output\bin\qfield_spix.exe'
+          if (!(Test-Path $exe)) { throw "qfield_spix.exe not found at $exe" }
+
+          Write-Host "===== qfield_spix.exe DLL imports ====="
+          $dumpbin = Get-ChildItem "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC" -Recurse -Filter 'dumpbin.exe' -ErrorAction SilentlyContinue | Select-Object -First 1
+          if ($dumpbin) {
+            & $dumpbin.FullName /dependents $exe
+          } else {
+            Write-Host "(dumpbin.exe not available)"
+          }
+
+          Write-Host "===== Attempt qfield_spix.exe -version ====="
+          $p = Start-Process -FilePath $exe -ArgumentList '-version' -Wait -PassThru -NoNewWindow -RedirectStandardOutput "$env:RUNNER_TEMP\qfs_out.txt" -RedirectStandardError "$env:RUNNER_TEMP\qfs_err.txt"
+          Write-Host "exit code: $($p.ExitCode) (0x$('{0:X8}' -f $p.ExitCode))"
+          Write-Host '--- stdout ---'
+          if (Test-Path "$env:RUNNER_TEMP\qfs_out.txt") { Get-Content "$env:RUNNER_TEMP\qfs_out.txt" }
+          Write-Host '--- stderr ---'
+          if (Test-Path "$env:RUNNER_TEMP\qfs_err.txt") { Get-Content "$env:RUNNER_TEMP\qfs_err.txt" }
+
+          if ($p.ExitCode -ne 0) {
+            Write-Host "===== Recent SideBySide / Application event log ====="
+            Get-WinEvent -LogName Application -MaxEvents 30 -ErrorAction SilentlyContinue |
+              Where-Object { $_.ProviderName -match 'SideBySide|Application Error|.NET Runtime' } |
+              ForEach-Object { Write-Host "$($_.TimeCreated) [$($_.ProviderName)] $($_.Message)" }
+            throw "qfield_spix.exe failed to launch (exit code $($p.ExitCode))"
+          }
 
       - name: 🧫 Test
         shell: bash
