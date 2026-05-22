@@ -23,7 +23,7 @@ jobs:
     permissions:
       pull-requests: write
 
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - name: 'Download artifact'
         id: download_artifact

@@ -6,7 +6,7 @@ on:
 
 jobs:
   sync_translations:
-    runs-on: blacksmith-4vcpu-ubuntu-2204
+    runs-on: ubuntu-24.04
     if: ${{ github.repository == 'opengisch/QField' }}
     steps:
       - uses: actions/checkout@v6
