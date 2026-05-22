@@ -5093,6 +5093,13 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
 </context>
 <context>
+    <name>QfOverlayContainer</name>
+    <message>
+        <source>Positioning</source>
+        <translation>Posizionamento</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>

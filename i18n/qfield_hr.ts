@@ -5085,6 +5085,13 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
 </context>
 <context>
+    <name>QfOverlayContainer</name>
+    <message>
+        <source>Positioning</source>
+        <translation>Pozicioniranje</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>

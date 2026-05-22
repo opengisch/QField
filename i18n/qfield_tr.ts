@@ -5082,6 +5082,13 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfOverlayContainer</name>
+    <message>
+        <source>Positioning</source>
+        <translation>Konumlandırma</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>

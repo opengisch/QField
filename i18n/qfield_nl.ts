@@ -5087,6 +5087,13 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfOverlayContainer</name>
+    <message>
+        <source>Positioning</source>
+        <translation>Positie</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
