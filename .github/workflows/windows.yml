@@ -59,6 +59,24 @@ jobs:
           # See https://github.com/actions/runner-images/issues/9398
           # toolset: 14.39
 
+      - name: 🪳 Install Visual Studio ATL component
+        if: matrix.platform_arch == 'x64' # blacksmith windows-2025 image
+        shell: powershell
+        run: |
+          $vsInstaller = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vs_installer.exe"
+          if (!(Test-Path $vsInstaller)) {
+            throw "Visual Studio Installer not found"
+          }
+      
+          & $vsInstaller modify `
+            --installPath "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" `
+            --add Microsoft.VisualStudio.Component.VC.ATL `
+            --quiet --norestart --wait
+      
+          if ($LASTEXITCODE -ne 0) {
+            throw "Failed to install ATL component"
+          }
+
       - name: 🔨 Prepare build env
         shell: bash
         if: matrix.platform_arch == 'x64'
