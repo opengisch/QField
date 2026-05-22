@@ -3579,7 +3579,8 @@ ApplicationWindow {
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_sensor_on_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
+      visible: sensorListInstantiator.count > 0
       leftPadding: Theme.menuItemLeftPadding
       rightPadding: 40
 
@@ -3627,6 +3628,8 @@ ApplicationWindow {
 
     MenuSeparator {
       width: parent.width
+      visible: sensorListInstantiator.count > 0
+      height: visible ? undefined : 0
     }
 
     MenuItem {
