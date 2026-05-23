@@ -39,6 +39,12 @@ BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver( const QString &address, 
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
   connect( mBuffer, &QIODevice::readyRead, this, [this] {
+    if ( mBufferSkipRead )
+    {
+      mBufferSkipRead = false;
+      return;
+    }
+
     if ( mService && mTxCharacteristic.isValid() )
     {
       mService->writeCharacteristic( mTxCharacteristic, mBuffer->readAll(), QLowEnergyService::WriteWithoutResponse );
@@ -256,6 +262,7 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
       // NMEA sentence is complete, forward to buffer
       qDebug() << "+++" << mBufferData.mid( 0, endSentenceIndex + 2 );
 
+      mBufferSkipRead = true;
       mBuffer->buffer().clear();
       mBuffer->seek( 0 );
       mBuffer->write( mBufferData.mid( 0, endSentenceIndex + 2 ) );
