@@ -64,12 +64,12 @@ QfPopup {
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
-        "name": qsTr('Bluetooth Classic (NMEA)'),
-        "value": PositioningDeviceModel.BluetoothDevice
-      });
-      positioningDeviceTypeModel.insert(0, {
         "name": qsTr('Bluetooth Low Energy (NMEA)'),
         "value": PositioningDeviceModel.BluetoothLowEnergyDevice
+      });
+      positioningDeviceTypeModel.insert(0, {
+        "name": qsTr('Bluetooth Classic (NMEA)'),
+        "value": PositioningDeviceModel.BluetoothDevice
       });
     }
     if (withSerialPort) {
@@ -176,8 +176,9 @@ QfPopup {
               case PositioningDeviceModel.FileDevice:
                 return Theme.getThemeVectorIcon("ic_file_black_24dp");
               case PositioningDeviceModel.BluetoothDevice:
-              case PositioningDeviceModel.BluetoothLowEnergyDevice:
                 return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+              case PositioningDeviceModel.BluetoothLowEnergyDevice:
+                return Theme.getThemeVectorIcon('ic_bluetooth_low_energy_receiver_black_24dp');
               case PositioningDeviceModel.TcpDevice:
                 return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
               case PositioningDeviceModel.UdpDevice:
@@ -205,8 +206,9 @@ QfPopup {
               case PositioningDeviceModel.FileDevice:
                 return Theme.getThemeVectorIcon("ic_file_black_24dp");
               case PositioningDeviceModel.BluetoothDevice:
-              case PositioningDeviceModel.BluetoothLowEnergyDevice:
                 return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
+              case PositioningDeviceModel.BluetoothLowEnergyDevice:
+                return Theme.getThemeVectorIcon('ic_bluetooth_low_energy_receiver_black_24dp');
               case PositioningDeviceModel.TcpDevice:
                 return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
               case PositioningDeviceModel.UdpDevice:
