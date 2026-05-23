@@ -74,7 +74,7 @@ void BluetoothLowEnergyReceiver::handleConnectDevice()
   {
     return;
   }
-  qInfo() << "BluetoothLowEnergyReceiver: Initiating connection to device: " << mAddress;
+  qInfo() << "BluetoothLowEnergyReceiver: Initiating connection to device:" << mAddress;
 
   mConnectionFailureCount = 0;
   mConnectOnDisconnect = true;
@@ -93,7 +93,7 @@ void BluetoothLowEnergyReceiver::handleDisconnectDevice()
 {
   if ( mController && mController->state() != QLowEnergyController::UnconnectedState )
   {
-    qInfo() << "BluetoothLowEnergyReceiver: Disconnecting from device: " << mAddress;
+    qInfo() << "BluetoothLowEnergyReceiver: Disconnecting from device:" << mAddress;
 
     clearService();
 
@@ -119,6 +119,7 @@ void BluetoothLowEnergyReceiver::doConnectDevice()
   }
 
   setSocketState( QAbstractSocket::ConnectingState );
+
   mController->connectToDevice();
 }
 
@@ -182,6 +183,7 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
 
   const QList<QBluetoothUuid> validServices = serviceChars.keys();
   const QList<QBluetoothUuid> controllerServices = mController->services();
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Finding target within %1 services" ).arg( controllerServices.size() );
   for ( const QBluetoothUuid &service : controllerServices )
   {
     if ( validServices.contains( service ) )
@@ -248,6 +250,7 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
   qDebug() << value;
   if ( c.uuid() == mRxCharacteristic.uuid() )
   {
+    qDebug() << "+++";
     // Feed data to the proxy device, which will emit readyRead() for NmeaGnssReceiver
     mBuffer->write( value );
   }
