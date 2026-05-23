@@ -21,10 +21,13 @@
 #include <QMetaEnum>
 #include <QTimer>
 
-// Standard Nordic UART Service (NUS) UUIDs
-QBluetoothUuid BluetoothLowEnergyReceiver::UART_SERVICE_UUID = QBluetoothUuid( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" );
-QBluetoothUuid BluetoothLowEnergyReceiver::UART_RX_CHAR_UUID = QBluetoothUuid( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" );
-QBluetoothUuid BluetoothLowEnergyReceiver::UART_TX_CHAR_UUID = QBluetoothUuid( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" );
+QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> BluetoothLowEnergyReceiver::serviceChars = {
+  // Standard Nordic UART Service (NUS) UUIDs
+  { QBluetoothUuid( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" ), std::make_pair( QBluetoothUuid( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" ), QBluetoothUuid( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" ) ) },
+  // Beken Corp. UUIDs
+  { QBluetoothUuid( "0000ffe0-0000-1000-8000-00805f9b34fb" ), std::make_pair( QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ), QBluetoothUuid( "0000ffe2-0000-1000-8000-00805f9b34fb" ) ) },
+};
+
 
 QLatin1String BluetoothLowEnergyReceiver::identifier = QLatin1String( "ble" );
 
@@ -91,11 +94,13 @@ void BluetoothLowEnergyReceiver::handleDisconnectDevice()
   if ( mController && mController->state() != QLowEnergyController::UnconnectedState )
   {
     qInfo() << "BluetoothLowEnergyReceiver: Disconnecting from device: " << mAddress;
+
+    clearService();
+
     mConnectOnDisconnect = false;
     mDisconnecting = true;
     mLastGnssPositionValid = false;
     mController->disconnectFromDevice();
-    clearService();
   }
 }
 
@@ -119,8 +124,7 @@ void BluetoothLowEnergyReceiver::doConnectDevice()
 
 void BluetoothLowEnergyReceiver::deviceConnected()
 {
-  qInfo() << "BluetoothLowEnergyReceiver: Connected, discovering services...";
-  mBuffer->open( QIODevice::ReadWrite );
+  qInfo() << "BluetoothLowEnergyReceiver: Connected, discovering services";
   mController->discoverServices();
 }
 
@@ -129,7 +133,6 @@ void BluetoothLowEnergyReceiver::deviceDisconnected()
   qInfo() << "BluetoothLowEnergyReceiver: Disconnected.";
   setSocketState( QAbstractSocket::UnconnectedState );
 
-  mBuffer->close();
   clearService();
 }
 
@@ -137,7 +140,6 @@ void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::
 {
   mLastError = QStringLiteral( "Controller Error: %1, %2" ).arg( QMetaEnum::fromType<QLowEnergyController::Error>().valueToKey( static_cast<int>( error ) ), mController->errorString() );
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: %1" ).arg( mLastError );
-  qInfo() << mController->state();
 
   if ( mController->state() == QLowEnergyController::UnconnectedState || mController->state() == QLowEnergyController::ConnectingState || mController->state() == QLowEnergyController::ClosingState )
   {
@@ -158,9 +160,13 @@ void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::
 
 void BluetoothLowEnergyReceiver::serviceDiscovered( const QBluetoothUuid &newService )
 {
-  if ( newService == UART_SERVICE_UUID )
+  if ( serviceChars.contains( newService ) )
   {
-    qInfo() << "BluetoothLowEnergyReceiver: Target UART service found.";
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Target service found (%1)" ).arg( newService.toString() );
+  }
+  else
+  {
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Other service found (%1)" ).arg( newService.toString() );
   }
 }
 
@@ -172,11 +178,22 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
   }
 
   clearService();
+  mService = nullptr;
 
-  mService = mController->createServiceObject( UART_SERVICE_UUID, this );
+  const QList<QBluetoothUuid> validServices = serviceChars.keys();
+  const QList<QBluetoothUuid> controllerServices = mController->services();
+  for ( const QBluetoothUuid &service : controllerServices )
+  {
+    if ( validServices.contains( service ) )
+    {
+      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connecting to target service (%1)" ).arg( service.toString() );
+      mService = mController->createServiceObject( service, this );
+    }
+  }
+
   if ( !mService )
   {
-    mLastError = "BluetoothLowEnergyReceiver: Required UART service not found on device.";
+    mLastError = "BluetoothLowEnergyReceiver: Required target service not found on device.";
     qWarning() << mLastError;
     emit lastErrorChanged( mLastError );
     handleDisconnectDevice();
@@ -194,8 +211,8 @@ void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Service
 {
   if ( s == QLowEnergyService::RemoteServiceDiscovered )
   {
-    mRxCharacteristic = mService->characteristic( UART_RX_CHAR_UUID );
-    mTxCharacteristic = mService->characteristic( UART_TX_CHAR_UUID );
+    mRxCharacteristic = mService->characteristic( serviceChars[mService->serviceUuid()].first );
+    mTxCharacteristic = mService->characteristic( serviceChars[mService->serviceUuid()].second );
 
     if ( mRxCharacteristic.isValid() )
     {
@@ -205,6 +222,8 @@ void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Service
         mService->writeDescriptor( notificationDesc, QByteArray::fromHex( "0100" ) );
         qInfo() << "BluetoothLowEnergyReceiver: Subscribed to RX characteristic notifications.";
       }
+
+      mBuffer->open( QIODevice::ReadWrite );
 
       setSocketState( QAbstractSocket::ConnectedState );
     }
@@ -225,10 +244,10 @@ void BluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::Servic
 
 void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacteristic &c, const QByteArray &value )
 {
-  qDebug() << c.uuid() << value;
-  if ( c.uuid() == UART_RX_CHAR_UUID )
+  qDebug() << c.uuid();
+  qDebug() << value;
+  if ( c.uuid() == mRxCharacteristic.uuid() )
   {
-    qDebug() << "RX CHAR!";
     // Feed data to the proxy device, which will emit readyRead() for NmeaGnssReceiver
     mBuffer->write( value );
   }
@@ -236,6 +255,11 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
 
 void BluetoothLowEnergyReceiver::clearService()
 {
+  if ( mBuffer->isOpen() )
+  {
+    mBuffer->close();
+  }
+
   if ( mService )
   {
     mService->deleteLater();

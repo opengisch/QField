@@ -33,10 +33,10 @@ AbstractGnssReceiver::Capabilities NmeaGnssReceiver::capabilities() const
 
 void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 {
-  mIoDevice = ioDevice;
+  mIODevice = ioDevice;
   mNmeaConnection = std::make_unique<QgsNmeaConnection>( ioDevice );
 
-  //QgsGpsConnection state changed (received location string)
+  ////QgsGpsConnection state changed (received location string)
   connect( mNmeaConnection.get(), &QgsGpsConnection::stateChanged, this, &NmeaGnssReceiver::stateChanged );
   connect( mNmeaConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, &NmeaGnssReceiver::onNmeaSentenceReceived );
 }
@@ -94,6 +94,7 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
 void NmeaGnssReceiver::onNmeaSentenceReceived( const QString &substring )
 {
+  qDebug() << substring;
   emit nmeaSentenceReceived( substring );
 
   if ( mLogFile.isOpen() )
@@ -217,13 +218,13 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
 
 void NmeaGnssReceiver::onCorrectionDataReceived( const QByteArray &data )
 {
-  if ( !mIoDevice || !mIoDevice->isOpen() )
+  if ( !mIODevice || !mIODevice->isOpen() )
   {
     return;
   }
-  qint64 bytesWritten = mIoDevice->write( data );
+  qint64 bytesWritten = mIODevice->write( data );
   if ( bytesWritten == -1 )
   {
-    qInfo() << "Failed to write corrections to NMEA receiver socket:" << mIoDevice->errorString();
+    qInfo() << "Failed to write corrections to NMEA receiver socket:" << mIODevice->errorString();
   }
 }
