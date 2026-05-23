@@ -64,8 +64,12 @@ QfPopup {
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
-        "name": qsTr('Bluetooth (NMEA)'),
+        "name": qsTr('Bluetooth Classic (NMEA)'),
         "value": PositioningDeviceModel.BluetoothDevice
+      });
+      positioningDeviceTypeModel.insert(0, {
+        "name": qsTr('Bluetooth Low Energy (NMEA)'),
+        "value": PositioningDeviceModel.BluetoothLowEnergyDevice
       });
     }
     if (withSerialPort) {
@@ -172,6 +176,7 @@ QfPopup {
               case PositioningDeviceModel.FileDevice:
                 return Theme.getThemeVectorIcon("ic_file_black_24dp");
               case PositioningDeviceModel.BluetoothDevice:
+              case PositioningDeviceModel.BluetoothLowEnergyDevice:
                 return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
               case PositioningDeviceModel.TcpDevice:
                 return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
@@ -200,6 +205,7 @@ QfPopup {
               case PositioningDeviceModel.FileDevice:
                 return Theme.getThemeVectorIcon("ic_file_black_24dp");
               case PositioningDeviceModel.BluetoothDevice:
+              case PositioningDeviceModel.BluetoothLowEnergyDevice:
                 return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
               case PositioningDeviceModel.TcpDevice:
                 return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
@@ -260,6 +266,8 @@ QfPopup {
             switch (positioningDeviceType.currentValue) {
             case PositioningDeviceModel.FileDevice:
               return "qrc:/qml/FileDeviceChooser.qml";
+            case PositioningDeviceModel.BluetoothLowEnergyDevice:
+              return "qrc:/qml/BluetoothLowEnergyDeviceChooser.qml";
             case PositioningDeviceModel.BluetoothDevice:
               return "qrc:/qml/BluetoothDeviceChooser.qml";
             case PositioningDeviceModel.TcpDevice:

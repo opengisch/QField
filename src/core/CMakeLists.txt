@@ -309,9 +309,10 @@ list(APPEND QFIELD_CORE_HDRS permissions.h)
 
 if(WITH_BLUETOOTH)
   list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
-       positioning/bluetoothreceiver.cpp)
+       positioning/bluetoothreceiver.cpp
+       positioning/bluetoothlowenergyreceiver.cpp)
   list(APPEND QFIELD_CORE_HDRS positioning/bluetoothdevicemodel.h
-       positioning/bluetoothreceiver.h)
+       positioning/bluetoothreceiver.h positioning/bluetoothlowenergyreceiver.h)
 endif()
 
 if(WITH_SERIALPORT)

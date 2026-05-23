@@ -35,6 +35,7 @@ class PositioningDeviceModel : public QAbstractListModel
       EgenioussDevice,
       SerialPortDevice,
       FileDevice,
+      BluetoothLowEnergyDevice,
     };
     Q_ENUM( Type )
 

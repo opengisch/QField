@@ -22,6 +22,9 @@
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
 #endif
+#ifdef WITH_BLUETOOTH
+#include "bluetoothlowenergyreceiver.h"
+#endif
 
 #include <QSettings>
 
@@ -166,6 +169,9 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
 
     case BluetoothDevice:
       return device.settings.value( QStringLiteral( "address" ) ).toString();
+
+    case BluetoothLowEnergyDevice:
+      return QStringLiteral( "%1:%2" ).arg( BluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
 
     case TcpDevice:
       return QStringLiteral( "%1:%2:%3" ).arg( TcpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );

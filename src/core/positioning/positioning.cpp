@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "filereceiver.h"
 #include "platformutilities.h"
 #include "positioning.h"
 #include "positioningutils.h"
@@ -229,6 +230,7 @@ void Positioning::setActive( bool active )
     if (
       !devId.startsWith( TcpReceiver::identifier + ":" )
       && !devId.startsWith( UdpReceiver::identifier + ":" )
+      && !devId.startsWith( FileReceiver::identifier + ":" )
 #ifdef WITH_SERIALPORT
       && !devId.startsWith( SerialPortReceiver::identifier + ":" )
 #endif

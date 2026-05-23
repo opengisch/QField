@@ -76,7 +76,7 @@ class BluetoothDeviceModel : public QAbstractListModel
      * Starts a scan to discover nearby Bluetooth devices, sequentially
      * going through a fast scan then a full, deeper scan for devices.
      */
-    Q_INVOKABLE void startDeviceDiscovery();
+    Q_INVOKABLE void startDeviceDiscovery( bool lowEnergyMethod = false );
 
     /**
      * Stops any ongoing scan to discover nearby Bluetooth devices.

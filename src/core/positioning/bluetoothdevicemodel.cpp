@@ -62,7 +62,7 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
   } );
 }
 
-void BluetoothDeviceModel::startDeviceDiscovery()
+void BluetoothDeviceModel::startDeviceDiscovery( bool lowEnergyMethod )
 {
   // Handle Bluetooth permission
   if ( !mBluetoothPermissionChecked )
@@ -138,7 +138,7 @@ void BluetoothDeviceModel::startDeviceDiscovery()
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( FastScanning );
-  mDeviceDiscoveryAgent->start( QBluetoothDeviceDiscoveryAgent::ClassicMethod );
+  mDeviceDiscoveryAgent->start( lowEnergyMethod ? QBluetoothDeviceDiscoveryAgent::LowEnergyMethod : QBluetoothDeviceDiscoveryAgent::ClassicMethod );
 }
 
 void BluetoothDeviceModel::stopDeviceDiscovery()
