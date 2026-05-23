@@ -66,16 +66,6 @@ jobs:
       - name: ♻️ Check disk space
         run: df . -h
 
-      - name: 🧹 Reclaim disk space
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf "/usr/local/share/boost"
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-
-      - name: ♻️ Check disk space
-        run: df . -h
-
       - name: 🌾 Prepare variables
         id: vars
         shell: bash
@@ -144,7 +134,7 @@ jobs:
         uses: useblacksmith/stickydisk@v1
         with:
           key: vcpkg-archives-${{ matrix.triplet }}
-          path: /home/runner/.cache/vcpkg/archives
+          path: /home/runner/.cache/vcpkg
 
       - name: 🌱 Install dependencies and generate project files
         env:
