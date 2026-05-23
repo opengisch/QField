@@ -22,9 +22,9 @@
 #include <QTimer>
 
 // Standard Nordic UART Service (NUS) UUIDs
-const QBluetoothUuid UART_SERVICE_UUID( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" );
-const QBluetoothUuid UART_RX_CHAR_UUID( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" );
-const QBluetoothUuid UART_TX_CHAR_UUID( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" );
+QBluetoothUuid BluetoothLowEnergyReceiver::UART_SERVICE_UUID = QBluetoothUuid( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" );
+QBluetoothUuid BluetoothLowEnergyReceiver::UART_RX_CHAR_UUID = QBluetoothUuid( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" );
+QBluetoothUuid BluetoothLowEnergyReceiver::UART_TX_CHAR_UUID = QBluetoothUuid( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" );
 
 QLatin1String BluetoothLowEnergyReceiver::identifier = QLatin1String( "ble" );
 
@@ -192,7 +192,7 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
 
 void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::ServiceState s )
 {
-  if ( s == QLowEnergyService::ServiceDiscovered )
+  if ( s == QLowEnergyService::RemoteServiceDiscovered )
   {
     mRxCharacteristic = mService->characteristic( UART_RX_CHAR_UUID );
     mTxCharacteristic = mService->characteristic( UART_TX_CHAR_UUID );
