@@ -225,6 +225,7 @@ void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Service
         qInfo() << "BluetoothLowEnergyReceiver: Subscribed to RX characteristic notifications.";
       }
 
+      mBufferData.clear();
       mBuffer->open( QIODevice::ReadWrite );
 
       setSocketState( QAbstractSocket::ConnectedState );
@@ -246,17 +247,22 @@ void BluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::Servic
 
 void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacteristic &c, const QByteArray &value )
 {
-  qDebug() << c.uuid();
-  qDebug() << value;
   if ( c.uuid() == mRxCharacteristic.uuid() )
   {
-    qDebug() << "+++";
-    // Feed data to the proxy device, which will emit readyRead() for NmeaGnssReceiver
+    mBufferData.append( value );
+    int endSentenceIndex = mBufferData.lastIndexOf( QLatin1String( "\r\n" ) );
+    if ( endSentenceIndex > -1 )
+    {
+      // NMEA sentence is complete, forward to buffer
+      qDebug() << "+++" << mBufferData.mid( 0, endSentenceIndex + 2 );
 
-    mBuffer->buffer().clear();
-    mBuffer->seek( 0 );
-    mBuffer->write( value );
-    mBuffer->seek( 0 );
+      mBuffer->buffer().clear();
+      mBuffer->seek( 0 );
+      mBuffer->write( mBufferData.mid( 0, endSentenceIndex + 2 ) );
+      mBuffer->seek( 0 );
+
+      mBufferData = mBufferData.mid( endSentenceIndex + 2 );
+    }
   }
 }
 
@@ -265,6 +271,7 @@ void BluetoothLowEnergyReceiver::clearService()
   if ( mBuffer->isOpen() )
   {
     mBuffer->close();
+    mBufferData.clear();
   }
 
   if ( mService )

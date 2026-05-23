@@ -78,6 +78,7 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
     QLowEnergyCharacteristic mTxCharacteristic;
 
     QBuffer *mBuffer = nullptr;
+    QByteArray mBufferData;
 
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
