@@ -252,7 +252,11 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
   {
     qDebug() << "+++";
     // Feed data to the proxy device, which will emit readyRead() for NmeaGnssReceiver
+
+    mBuffer->buffer().clear();
+    mBuffer->seek( 0 );
     mBuffer->write( value );
+    mBuffer->seek( 0 );
   }
 }
 
