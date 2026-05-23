@@ -163,6 +163,14 @@ Item {
 
       title: qsTr("Precise view")
 
+      header: QfToolButton {
+        width: 24
+        height: 24
+        padding: 2
+        iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
+        iconColor: Theme.mainTextColor
+      }
+
       PositioningPreciseView {
         id: positioningPreciseView
         width: parent.width
