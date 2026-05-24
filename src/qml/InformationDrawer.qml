@@ -164,11 +164,27 @@ Item {
       title: qsTr("Precise view")
 
       header: QfToolButton {
+        id: preciseViewSettings
         width: 24
         height: 24
         padding: 2
         iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
         iconColor: Theme.mainTextColor
+
+        onClicked: stakeoutSettingsPopup.open()
+
+        QfPopup {
+          id: stakeoutSettingsPopup
+          y: preciseViewSettings.height + 4
+          x: preciseViewSettings.width - width
+          width: 220
+
+          contentItem: QfSwitch {
+            width: parent.width
+            text: qsTr("Auto-rotate")
+            checked: true
+          }
+        }
       }
 
       PositioningPreciseView {
