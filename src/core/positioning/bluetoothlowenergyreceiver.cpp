@@ -47,7 +47,15 @@ BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver( const QString &address, 
 
     if ( mService && mTxCharacteristic.isValid() )
     {
-      mService->writeCharacteristic( mTxCharacteristic, mBuffer->readAll(), QLowEnergyService::WriteWithoutResponse );
+      // Payloag must not be longer than 20 bytes
+      // https://doc.qt.io/qt-6/qlowenergyservice.html#WriteMode-enum
+      const int chunkSize = 20;
+      const QByteArray data = mBuffer->readAll();
+      for ( int i = 0; i < data.length(); i += chunkSize )
+      {
+        QByteArray chunk = data.mid( i, chunkSize );
+        mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
+      }
     }
   } );
 
