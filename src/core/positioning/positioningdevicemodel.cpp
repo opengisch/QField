@@ -168,10 +168,11 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
       return QString();
 
     case BluetoothDevice:
-      return device.settings.value( QStringLiteral( "address" ) ).toString();
-
-    case BluetoothLowEnergyDevice:
-      return QStringLiteral( "%1:%2" ).arg( BluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
+      if ( device.settings.value( QStringLiteral( "ble" ) ).toBool() )
+      {
+        return QStringLiteral( "%1:%2" ).arg( BluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
+      }
+      return QStringLiteral( "%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
 
     case TcpDevice:
       return QStringLiteral( "%1:%2:%3" ).arg( TcpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );

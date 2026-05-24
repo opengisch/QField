@@ -1167,8 +1167,6 @@ Page {
                         return Theme.getThemeVectorIcon("ic_file_black_24dp");
                       case PositioningDeviceModel.BluetoothDevice:
                         return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
-                      case PositioningDeviceModel.BluetoothLowEnergyDevice:
-                        return Theme.getThemeVectorIcon('ic_bluetooth_low_energy_receiver_black_24dp');
                       case PositioningDeviceModel.TcpDevice:
                         return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
                       case PositioningDeviceModel.UdpDevice:
@@ -1199,8 +1197,6 @@ Page {
                         return Theme.getThemeVectorIcon("ic_file_black_24dp");
                       case PositioningDeviceModel.BluetoothDevice:
                         return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
-                      case PositioningDeviceModel.BluetoothLowEnergyDevice:
-                        return Theme.getThemeVectorIcon('ic_bluetooth_low_energy_receiver_black_24dp');
                       case PositioningDeviceModel.TcpDevice:
                         return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
                       case PositioningDeviceModel.UdpDevice:

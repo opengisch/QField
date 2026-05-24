@@ -64,11 +64,7 @@ QfPopup {
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
-        "name": qsTr('Bluetooth Low Energy (NMEA)'),
-        "value": PositioningDeviceModel.BluetoothLowEnergyDevice
-      });
-      positioningDeviceTypeModel.insert(0, {
-        "name": qsTr('Bluetooth Classic (NMEA)'),
+        "name": qsTr('Bluetooth (Classic + BLE)'),
         "value": PositioningDeviceModel.BluetoothDevice
       });
     }
@@ -177,8 +173,6 @@ QfPopup {
                 return Theme.getThemeVectorIcon("ic_file_black_24dp");
               case PositioningDeviceModel.BluetoothDevice:
                 return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
-              case PositioningDeviceModel.BluetoothLowEnergyDevice:
-                return Theme.getThemeVectorIcon('ic_bluetooth_low_energy_receiver_black_24dp');
               case PositioningDeviceModel.TcpDevice:
                 return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
               case PositioningDeviceModel.UdpDevice:
@@ -207,8 +201,6 @@ QfPopup {
                 return Theme.getThemeVectorIcon("ic_file_black_24dp");
               case PositioningDeviceModel.BluetoothDevice:
                 return Theme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
-              case PositioningDeviceModel.BluetoothLowEnergyDevice:
-                return Theme.getThemeVectorIcon('ic_bluetooth_low_energy_receiver_black_24dp');
               case PositioningDeviceModel.TcpDevice:
                 return Theme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
               case PositioningDeviceModel.UdpDevice:
@@ -268,8 +260,6 @@ QfPopup {
             switch (positioningDeviceType.currentValue) {
             case PositioningDeviceModel.FileDevice:
               return "qrc:/qml/FileDeviceChooser.qml";
-            case PositioningDeviceModel.BluetoothLowEnergyDevice:
-              return "qrc:/qml/BluetoothLowEnergyDeviceChooser.qml";
             case PositioningDeviceModel.BluetoothDevice:
               return "qrc:/qml/BluetoothDeviceChooser.qml";
             case PositioningDeviceModel.TcpDevice:

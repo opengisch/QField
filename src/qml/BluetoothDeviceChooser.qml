@@ -10,7 +10,7 @@ import Theme
 Item {
   id: bluetoothDeviceChooser
 
-  property bool isScanning: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.FastScanning || bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.FullScanning
+  property bool isScanning: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Discovering
   property bool scannedOnce: false
 
   width: parent.width
@@ -18,26 +18,40 @@ Item {
 
   property string deviceName: ''
   property string deviceAddress: ''
+  property bool deviceBLE: false
+
+  property bool deviceClassicSupport: false
+  property bool deviceLowEnergySupport: false
 
   function generateName() {
-    return deviceName;
+    return deviceName + (deviceBLE ? ' (BLE)' : ' (Classic)');
   }
 
   function setSettings(settings) {
     deviceName = settings['name'];
     deviceAddress = settings['address'];
+    deviceBLE = settings['ble'];
   }
 
   function getSettings() {
     return {
       "name": deviceName,
-      "address": deviceAddress
+      "address": deviceAddress,
+      "ble": deviceBLE
     };
   }
 
   function close() {
     if (isScanning) {
       bluetoothDeviceModel.stopDeviceDiscovery();
+    }
+  }
+
+  function pickConfiguration() {
+    if (preferBLESwitch.checked && deviceLowEnergySupport) {
+      deviceBLE = true;
+    } else {
+      deviceBLE = !deviceClassicSupport;
     }
   }
 
@@ -95,13 +109,10 @@ Item {
           console.log(lastError);
         }
 
-        onScanningStatusChanged: canningStatus => {
+        onScanningStatusChanged: scanningStatus => {
           switch (scanningStatus) {
-          case BluetoothDeviceModel.FastScanning:
+          case BluetoothDeviceModel.Discovering:
             displayToast(qsTr('Scanning for paired devices'));
-            break;
-          case BluetoothDeviceModel.FullScanning:
-            displayToast(qsTr('Deeper scanning for paired devices'));
             break;
           case BluetoothDeviceModel.Failed:
             displayToast(qsTr('Scanning failed: %1').arg(bluetoothDeviceModel.lastError), 'error');
@@ -123,10 +134,38 @@ Item {
       property string selectedBluetoothDevice
 
       onCurrentIndexChanged: {
-        var modelIndex = bluetoothDeviceModel.index(currentIndex, 0);
-        deviceName = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceNameRole);
-        deviceAddress = bluetoothDeviceModel.data(modelIndex, BluetoothDeviceModel.DeviceAddressRole);
+        let idx = bluetoothDeviceModel.index(currentIndex, 0);
+        deviceName = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceNameRole);
+        deviceAddress = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceAddressRole);
+        deviceClassicSupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceSupportClassicRole);
+        deviceLowEnergySupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceSupportLowEnergyRole);
         selectedBluetoothDevice = bluetoothDeviceAddress.text;
+
+        pickConfiguration();
+      }
+    }
+
+    RowLayout {
+      Layout.fillWidth: true
+      visible: deviceClassicSupport == true && deviceLowEnergySupport == true
+
+      Label {
+        id: preferBLELabel
+        Layout.fillWidth: true
+        text: qsTr('Use Bluetooth Low Energy (BLE)')
+        font: Theme.defaultFont
+        wrapMode: Text.WordWrap
+      }
+
+      QfSwitch {
+        id: preferBLESwitch
+        Layout.preferredWidth: 48
+        Layout.alignment: Qt.AlignVCenter
+        checked: true
+
+        onToggled: {
+          pickConfiguration();
+        }
       }
     }
 
@@ -149,6 +188,17 @@ Item {
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
       text: qsTr('Bluetooth device address:') + '\n ' + deviceAddress
+      wrapMode: Text.WordWrap
+    }
+
+    Label {
+      id: bluetoothDeviceCoreConfiguration
+      Layout.fillWidth: true
+      Layout.leftMargin: 10
+      visible: deviceAddress != ''
+      font: Theme.defaultFont
+      color: Theme.secondaryTextColor
+      text: qsTr('Bluetooth device configuration:') + '\n ' + (deviceBLE ? qsTr("Low Energy (BLE)") : qsTr("Classic"))
       wrapMode: Text.WordWrap
     }
   }
