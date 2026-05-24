@@ -109,7 +109,7 @@ jobs:
                 -D VCPKG_HOST_TRIPLET="arm64-osx" \
                 -D WITH_VCPKG=ON \
                 -D WITH_SPIX=OFF \
-                -D WITH_BLUETOOTH=OFF \
+                -D WITH_BLUETOOTH=ON \
                 -D WITH_SERIALPORT=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
                 -D APK_VERSION_CODE="${APK_VERSION_CODE}" \
