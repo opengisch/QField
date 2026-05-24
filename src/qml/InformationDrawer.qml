@@ -177,6 +177,11 @@ Item {
           padding: 12
           width: 220
 
+          background: Rectangle {
+            color: Theme.mainBackgroundColorSemiOpaque
+            radius: 8
+          }
+
           x: {
             const buttonPos = preciseViewSettings.mapToItem(parent, 0, 0);
             return buttonPos.x + preciseViewSettings.width - width;
