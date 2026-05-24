@@ -182,15 +182,8 @@ Item {
             radius: 8
           }
 
-          x: {
-            const buttonPos = preciseViewSettings.mapToItem(mainWindow, 0, 0);
-            return buttonPos.x + preciseViewSettings.width - width;
-          }
-          y: {
-            const buttonPos = preciseViewSettings.mapToItem(mainWindow, 0, 0);
-            const below = buttonPos.y + preciseViewSettings.height + 4;
-            return below + height > mainWindow.height ? buttonPos.y - height - 4 : below;
-          }
+          x: preciseViewSettings.width - width
+          y: preciseViewSettings.height + 4
 
           ButtonGroup {
             id: sourceGroup
