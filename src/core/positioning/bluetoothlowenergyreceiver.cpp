@@ -356,7 +356,6 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
   const int chunkSize = 20;
   for ( int i = 0; i < finalizedData.length(); i += chunkSize )
   {
-    qDebug() << "+++ chunk" << finalizedData.mid( i, chunkSize );
     QByteArray chunk = finalizedData.mid( i, chunkSize );
     mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
   }
