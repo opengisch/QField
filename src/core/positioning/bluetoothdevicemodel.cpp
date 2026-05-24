@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "bluetoothdevicemodel.h"
+#include "bluetoothlowenergyreceiver.h"
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -234,6 +235,23 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
 
     case DeviceLowEnergySupportRole:
       return ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration ? true : false );
+
+    case DeviceLowEnergyByDefaultRole:
+#if defined( Q_OS_IOS )
+      return true;
+#endif
+      if ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration )
+      {
+        const QList<QBluetoothUuid> supportedServices = BluetoothLowEnergyReceiver::serviceChars.keys();
+        for ( const QBluetoothUuid &supportedService : supportedServices )
+        {
+          if ( info.serviceUuids().contains( supportedService ) )
+          {
+            return true;
+          }
+        }
+      }
+      return false;
   }
   return QVariant();
 }
@@ -246,6 +264,7 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
   roles[DeviceNameRole] = "DeviceName";
   roles[DeviceClassicSupportRole] = "DeviceClassicSupport";
   roles[DeviceLowEnergySupportRole] = "DeviceLowEnergySupport";
+  roles[DeviceLowEnergyByDefaultRole] = "DeviceLowEnergyByDefault";
 
   return roles;
 }

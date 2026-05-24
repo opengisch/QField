@@ -22,6 +22,7 @@ Item {
 
   property bool deviceClassicSupport: false
   property bool deviceLowEnergySupport: false
+  property bool deviceLowEnergyByDefault: false
 
   function generateName() {
     return deviceName + (deviceBLE ? ' (BLE)' : ' (Classic)');
@@ -139,7 +140,10 @@ Item {
         deviceAddress = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceAddressRole);
         deviceClassicSupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceSupportClassicRole);
         deviceLowEnergySupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceSupportLowEnergyRole);
+        deviceLowEnergyByDefault = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceLowEnergyByDefaultRole);
         selectedBluetoothDevice = bluetoothDeviceAddress.text;
+
+        preferBLESwitch.checked = deviceLowEnergyByDefault;
 
         pickConfiguration();
       }
@@ -147,7 +151,7 @@ Item {
 
     RowLayout {
       Layout.fillWidth: true
-      visible: Qt.platform.os === "ios" || (deviceClassicSupport == true && deviceLowEnergySupport == true)
+      visible: deviceLowEnergySupport
 
       Label {
         id: preferBLELabel
@@ -161,7 +165,7 @@ Item {
         id: preferBLESwitch
         Layout.preferredWidth: 48
         Layout.alignment: Qt.AlignVCenter
-        visible: Qt.platform.os !== "ios"
+        visible: Qt.platform.os !== "ios" && deviceClassicSupport
         checked: true
 
         onToggled: {

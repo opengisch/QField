@@ -41,6 +41,7 @@ class BluetoothDeviceModel : public QAbstractListModel
       DeviceNameRole,
       DeviceClassicSupportRole,
       DeviceLowEnergySupportRole,
+      DeviceLowEnergyByDefaultRole,
     };
     Q_ENUM( BluetoothDeviceRoles )
 

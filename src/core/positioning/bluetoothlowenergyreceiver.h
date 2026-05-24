@@ -42,6 +42,8 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
 
     static QLatin1String identifier;
 
+    static QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> serviceChars;
+
   public slots:
     QString socketStateString() override;
     void onCorrectionDataReceived( const QByteArray &data ) override;
@@ -67,8 +69,6 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
 
   private:
     void clearService();
-
-    static QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> serviceChars;
 
     QString mAddress;
 
