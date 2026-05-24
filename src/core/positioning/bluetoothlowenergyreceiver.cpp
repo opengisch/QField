@@ -41,27 +41,6 @@ BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver( const QString &address, 
 {
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
-  connect( mBuffer, &QIODevice::readyRead, this, [this] {
-    if ( mBufferSkipRead )
-    {
-      mBufferSkipRead = false;
-      return;
-    }
-
-    if ( mService && mTxCharacteristic.isValid() )
-    {
-      // Payloag must not be longer than 20 bytes
-      // https://doc.qt.io/qt-6/qlowenergyservice.html#WriteMode-enum
-      const int chunkSize = 20;
-      const QByteArray data = mBuffer->readAll();
-      for ( int i = 0; i < data.length(); i += chunkSize )
-      {
-        QByteArray chunk = data.mid( i, chunkSize );
-        mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
-      }
-    }
-  } );
-
   initNmeaConnection( mBuffer );
   setValid( !mAddress.isEmpty() );
 }
@@ -270,10 +249,6 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
     int endSentenceIndex = mBufferData.lastIndexOf( QLatin1String( "\r\n" ) );
     if ( endSentenceIndex > -1 )
     {
-      // NMEA sentence is complete, forward to buffer
-      qDebug() << "+++" << mBufferData.mid( 0, endSentenceIndex + 2 );
-
-      mBufferSkipRead = true;
       mBuffer->buffer().clear();
       mBuffer->seek( 0 );
       mBuffer->write( mBufferData.mid( 0, endSentenceIndex + 2 ) );
@@ -323,6 +298,7 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
     return;
   }
 
+  QByteArray finalizedData;
   if ( mAddress.startsWith( "C8:47:8C" ) ) // Beken Corp. handling
   {
     auto shortToByteArray = []( qint16 s ) -> QByteArray {
@@ -368,10 +344,20 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
     packet.append( checkChar );
     packet.append( "\r\n" );
 
-    NmeaGnssReceiver::onCorrectionDataReceived( packet );
+    finalizedData = packet;
   }
   else // Generic handling
   {
-    NmeaGnssReceiver::onCorrectionDataReceived( data );
+    finalizedData = data;
+  }
+
+  // Payloag must not be longer than 20 bytes
+  // https://doc.qt.io/qt-6/qlowenergyservice.html#WriteMode-enum
+  const int chunkSize = 20;
+  for ( int i = 0; i < finalizedData.length(); i += chunkSize )
+  {
+    qDebug() << "+++ chunk" << finalizedData.mid( i, chunkSize );
+    QByteArray chunk = finalizedData.mid( i, chunkSize );
+    mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
   }
 }
