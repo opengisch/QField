@@ -205,6 +205,10 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
     move_x = bounds[0] + bounds[2] / 2
     move_y = bounds[1] + bounds[3] / 3
 
+    if platform.system() == "Darwin":
+        # pyautogui broken on macos
+        return
+
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
 
@@ -238,10 +242,13 @@ def test_qml_text_editor_widgets(
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
+    if platform.system() == "Darwin":
+        # pyautogui broken on macos
+        return
+
     bounds = app.getBoundingBox("mainWindow/mapCanvas")
     move_x = bounds[0] + bounds[2] / 2
     move_y = bounds[1] + bounds[3] / 3
-
     pyautogui.moveTo(move_x, move_y, duration=0.5)
     pyautogui.click(interval=0.5)
 
@@ -444,6 +451,10 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
         messagesCount = messagesCount + 1
     extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
+
+    if platform.system() == "Darwin":
+        # pyautogui broken on macos
+        return
 
     # Click the polygon on the canvas to identify it
     bounds = app.getBoundingBox("mainWindow/mapCanvas")
