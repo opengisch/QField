@@ -170,19 +170,80 @@ Item {
         padding: 2
         iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
         iconColor: Theme.mainTextColor
-
         onClicked: stakeoutSettingsPopup.open()
 
         QfPopup {
           id: stakeoutSettingsPopup
-          y: preciseViewSettings.height + 4
-          x: preciseViewSettings.width - width
+          padding: 12
           width: 220
 
-          contentItem: QfSwitch {
+          x: {
+            const buttonPos = preciseViewSettings.mapToItem(parent, 0, 0);
+            return buttonPos.x + preciseViewSettings.width - width;
+          }
+          y: {
+            const buttonPos = preciseViewSettings.mapToItem(parent, 0, 0);
+            const below = buttonPos.y + preciseViewSettings.height + 4;
+            return below + height > parent.height ? buttonPos.y - height - 4 : below;
+          }
+
+          ButtonGroup {
+            id: sourceGroup
+          }
+
+          contentItem: Column {
             width: parent.width
-            text: qsTr("Auto-rotate")
-            checked: true
+            spacing: 8
+
+            QfSwitch {
+              width: parent.width
+              height: 28
+              topPadding: 0
+              bottomPadding: 0
+              text: qsTr("Auto-rotate")
+              checked: true
+            }
+
+            MenuSeparator {
+              width: parent.width
+              padding: 0
+            }
+
+            Text {
+              text: qsTr("Source")
+              font: Theme.tipFont
+              color: Theme.secondaryTextColor
+            }
+
+            Row {
+              width: parent.width
+              spacing: 4
+
+              QfButton {
+                width: (parent.width - parent.spacing) / 2
+                height: 32
+                text: qsTr("Compass")
+                checkable: true
+                checked: true
+                ButtonGroup.group: sourceGroup
+                font.pointSize: Theme.tipFont.pointSize
+                radius: 8
+                bgcolor: checked ? Theme.mainColor : "transparent"
+                color: checked ? Theme.mainBackgroundColor : Theme.mainColor
+              }
+
+              QfButton {
+                width: (parent.width - parent.spacing) / 2
+                height: 32
+                text: qsTr("Movement")
+                checkable: true
+                ButtonGroup.group: sourceGroup
+                font.pointSize: Theme.tipFont.pointSize
+                radius: 8
+                bgcolor: checked ? Theme.mainColor : "transparent"
+                color: checked ? Theme.mainBackgroundColor : Theme.mainColor
+              }
+            }
           }
         }
       }
