@@ -243,13 +243,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
       if ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration )
       {
         const QList<QBluetoothUuid> supportedServices = BluetoothLowEnergyReceiver::serviceChars.keys();
-        for ( const QBluetoothUuid &supportedService : supportedServices )
-        {
-          if ( info.serviceUuids().contains( supportedService ) )
-          {
-            return true;
-          }
-        }
+        return std::any_of( supportedServices.begin(), supportedServices.end(), [&info]( const QBluetoothUuid &service ) { return info.serviceUuids().contains( service ); } );
       }
       return false;
   }
