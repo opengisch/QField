@@ -156,14 +156,25 @@ void BluetoothDeviceModel::stopDeviceDiscovery()
 
 void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
 {
-  qInfo() << QStringLiteral( "Bluetooth device discovered: name %1, address %2, pairing status %3" )
+  for ( qsizetype i = 0; i < mDiscoveredDevices.size(); i++ )
+  {
+    if ( mDiscoveredDevices[i].address() == info.address() )
+    {
+      qInfo() << QStringLiteral( "Bluetooth device information updated: name %1, address %2, pairing status %3" )
+                   .arg( info.name(), info.address().toString() )
+                   .arg( mLocalDevice->pairingStatus( info.address() ) );
+
+      mDiscoveredDevices.replace( i, info );
+
+      QModelIndex idx = index( i, 0 );
+      emit dataChanged( idx, idx );
+      return;
+    }
+  }
+
+  qInfo() << QStringLiteral( "Bluetooth device information discovered: name %1, address %2, pairing status %3" )
                .arg( info.name(), info.address().toString() )
                .arg( mLocalDevice->pairingStatus( info.address() ) );
-
-  if ( mDiscoveredDevices.contains( info ) )
-  {
-    return;
-  }
 
   const int index = static_cast<int>( mDiscoveredDevices.size() );
   const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
@@ -222,7 +233,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-      return QStringLiteral( "%1 (%2)" ).arg( info.name(), info.address().toString() );
+      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name() : info.address().toString() );
 
     case DeviceAddressRole:
       return info.address().toString();

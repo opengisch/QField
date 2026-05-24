@@ -166,7 +166,7 @@ Item {
         Layout.preferredWidth: 48
         Layout.alignment: Qt.AlignVCenter
         visible: Qt.platform.os !== "ios" && deviceClassicSupport
-        checked: true
+        checked: false
 
         onToggled: {
           pickConfiguration();
