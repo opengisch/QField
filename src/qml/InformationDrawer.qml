@@ -183,13 +183,13 @@ Item {
           }
 
           x: {
-            const buttonPos = preciseViewSettings.mapToItem(parent, 0, 0);
+            const buttonPos = preciseViewSettings.mapToItem(mainWindow, 0, 0);
             return buttonPos.x + preciseViewSettings.width - width;
           }
           y: {
-            const buttonPos = preciseViewSettings.mapToItem(parent, 0, 0);
+            const buttonPos = preciseViewSettings.mapToItem(mainWindow, 0, 0);
             const below = buttonPos.y + preciseViewSettings.height + 4;
-            return below + height > parent.height ? buttonPos.y - height - 4 : below;
+            return below + height > mainWindow.height ? buttonPos.y - height - 4 : below;
           }
 
           ButtonGroup {
