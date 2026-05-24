@@ -28,6 +28,13 @@ Settings {
   property real preciseViewPrecision: 2.5
   property bool preciseViewProximityAlarm: true
 
+  enum RotationSource {
+    Compass,
+    Movement
+  }
+  property bool preciseViewAutoRotate: true
+  property int preciseViewRotationSource: PositioningSettings.RotationSource.Compass
+
   property bool accuracyIndicator: false
   property real accuracyBad: 5.0
   property real accuracyExcellent: 1.0
