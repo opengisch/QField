@@ -21,11 +21,14 @@
 #include <QMetaEnum>
 #include <QTimer>
 
+// Map of BLE service UUID (key) and a pair of RX (first, incoming) and TX (second, outgoing) characteristics
 QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> BluetoothLowEnergyReceiver::serviceChars = {
-  // Standard Nordic UART Service (NUS) UUIDs
-  { QBluetoothUuid( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" ), std::make_pair( QBluetoothUuid( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" ), QBluetoothUuid( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" ) ) },
-  // Beken Corp. UUIDs
-  { QBluetoothUuid( "0000ffe0-0000-1000-8000-00805f9b34fb" ), std::make_pair( QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ), QBluetoothUuid( "0000ffe2-0000-1000-8000-00805f9b34fb" ) ) },
+  { // Standard Nordic UART Service (NUS)
+    QBluetoothUuid( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" ),
+    std::make_pair( QBluetoothUuid( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" ), QBluetoothUuid( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" ) ) },
+  { // Beken Corp.
+    QBluetoothUuid( "0000ffe0-0000-1000-8000-00805f9b34fb" ),
+    std::make_pair( QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ), QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ) ) },
 };
 
 
