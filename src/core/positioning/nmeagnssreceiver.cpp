@@ -94,7 +94,6 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
 void NmeaGnssReceiver::onNmeaSentenceReceived( const QString &substring )
 {
-  qDebug() << substring;
   emit nmeaSentenceReceived( substring );
 
   if ( mLogFile.isOpen() )

@@ -165,16 +165,27 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
   }
 
   const int index = static_cast<int>( mDiscoveredDevices.size() );
-#ifdef Q_OS_ANDROID
-  //only list the paired devices so the user has control over it.
-  //but in linux (not android) we list unpaired as well, since it needs to repair them later (or pair them at all).
-  if ( mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired )
+  const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
+  const bool lowEnergySupport = ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration );
+#if defined( Q_OS_ANDROID )
+  // Only list paired devices users have control over it.
+  if ( paired )
+  {
+    beginInsertRows( QModelIndex(), index, index );
+    mDiscoveredDevices.append( info );
+    endInsertRows();
+  }
+#elif defined( Q_OS_IOS )
+  // Only list paired, BLE devices users have control over it.
+  if ( paired && lowEnergySupport )
   {
     beginInsertRows( QModelIndex(), index, index );
     mDiscoveredDevices.append( info );
     endInsertRows();
   }
 #else
+  Q_UNUSED( paired )
+  Q_UNUSED( lowEnergySupport )
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices.append( info );
   endInsertRows();

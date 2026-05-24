@@ -30,7 +30,7 @@ Item {
   function setSettings(settings) {
     deviceName = settings['name'];
     deviceAddress = settings['address'];
-    deviceBLE = settings['ble'];
+    deviceBLE = !!settings['ble'];
   }
 
   function getSettings() {
@@ -48,7 +48,7 @@ Item {
   }
 
   function pickConfiguration() {
-    if (preferBLESwitch.checked && deviceLowEnergySupport) {
+    if (Qt.platform.os === "ios" || (preferBLESwitch.checked && deviceLowEnergySupport)) {
       deviceBLE = true;
     } else {
       deviceBLE = !deviceClassicSupport;
@@ -147,7 +147,7 @@ Item {
 
     RowLayout {
       Layout.fillWidth: true
-      visible: deviceClassicSupport == true && deviceLowEnergySupport == true
+      visible: Qt.platform.os === "ios" || (deviceClassicSupport == true && deviceLowEnergySupport == true)
 
       Label {
         id: preferBLELabel
@@ -161,6 +161,7 @@ Item {
         id: preferBLESwitch
         Layout.preferredWidth: 48
         Layout.alignment: Qt.AlignVCenter
+        visible: Qt.platform.os !== "ios"
         checked: true
 
         onToggled: {
