@@ -140,10 +140,11 @@ void PositioningDeviceModel::removeDevice( const QString &name )
   QSettings settings;
   settings.beginGroup( "/qfield/positioningDevices" );
   const QStringList deviceKeys = settings.childGroups();
-  if ( deviceKeys.contains( name ) )
+  const QString encodedName = QUrl::toPercentEncoding( name );
+  if ( deviceKeys.contains( encodedName ) )
   {
     // Remove pre-existing positioning device details
-    settings.beginGroup( name );
+    settings.beginGroup( encodedName );
     settings.remove( QString() );
     settings.endGroup();
   }
