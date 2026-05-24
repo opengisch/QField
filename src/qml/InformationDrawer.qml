@@ -237,8 +237,8 @@ Item {
                 ButtonGroup.group: sourceGroup
                 font.pointSize: Theme.tipFont.pointSize
                 radius: 8
-                bgcolor: checked ? Theme.mainColor : "transparent"
-                color: checked ? Theme.mainBackgroundColor : Theme.mainColor
+                bgcolor: (checked && enabled) ? Theme.mainColor : "transparent"
+                color: (checked && enabled) ? Theme.mainBackgroundColor : Theme.mainColor
               }
 
               QfButton {
@@ -251,8 +251,8 @@ Item {
                 ButtonGroup.group: sourceGroup
                 font.pointSize: Theme.tipFont.pointSize
                 radius: 8
-                bgcolor: checked ? Theme.mainColor : "transparent"
-                color: checked ? Theme.mainBackgroundColor : Theme.mainColor
+                bgcolor: (checked && enabled) ? Theme.mainColor : "transparent"
+                color: (checked && enabled) ? Theme.mainBackgroundColor : Theme.mainColor
               }
             }
           }
