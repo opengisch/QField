@@ -201,6 +201,10 @@ def test_image_attachment(app, screenshot_path, screenshot_check, extra, process
     extra.append(extras.html("Message logs count: {}".format(messagesCount)))
     assert messagesCount == 0
 
+    if platform.system() == "Darwin":
+        # pyautogui broken on macos
+        return
+
     bounds = app.getBoundingBox("mainWindow/mapCanvas")
     move_x = bounds[0] + bounds[2] / 2
     move_y = bounds[1] + bounds[3] / 3
