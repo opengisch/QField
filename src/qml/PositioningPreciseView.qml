@@ -19,9 +19,33 @@ Item {
   property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
   property bool hasReachedTarget: hasAcceptableAccuracy && projectDistance - positionSource.positionInformation.hacc - (precision / 10) <= 0
   property bool hasAlarmSnoozed: false
+  property real lastValidDirection: NaN
+  property PositioningSettings positioningSettings
 
-  property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  readonly property real rotationSource: {
+    if (!positioningSettings.preciseViewAutoRotate) {
+      return NaN;
+    }
+    if (positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement) {
+      if (positionSource.positionInformation && positionSource.positionInformation.directionValid) {
+        return positionSource.positionInformation.direction;
+      }
+      return lastValidDirection;
+    }
+    return positionSource.orientation;
+  }
+
+  Connections {
+    target: positionSource.positionInformation
+    function onDirectionChanged() {
+      if (positionSource.positionInformation.directionValid) {
+        positioningPreciseView.lastValidDirection = positionSource.positionInformation.direction;
+      }
+    }
+  }
+
+  property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(rotationSource) ? rotationSource : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(rotationSource) ? rotationSource : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -projectVerticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
   property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x, preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
 
@@ -55,7 +79,7 @@ Item {
       id: preciseTarget
       width: Math.min(positioningPreciseView.height - 10, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
-      rotation: !isNaN(positionSource.orientation) ? -positionSource.orientation + positionSource.bearingTrueNorth : 0
+      rotation: !isNaN(rotationSource) ? -rotationSource + positionSource.bearingTrueNorth : 0
 
       ShapePath {
         strokeWidth: 1
@@ -332,7 +356,7 @@ Item {
     y: positionCenter.y + positionY - width / 2
     width: 28
     height: width
-    rotation: navigation.bearing - (!isNaN(positionSource.orientation) ? positionSource.orientation : 0)
+    rotation: navigation.bearing - (!isNaN(rotationSource) ? rotationSource : 0)
 
     ShapePath {
       strokeWidth: 1
@@ -413,7 +437,7 @@ Item {
   Text {
     id: preciseHorizontalPositionInfo
 
-    property bool leftOfPoint: !isNaN(positionSource.orientation) && positionX >= 0
+    property bool leftOfPoint: !isNaN(rotationSource) && positionX >= 0
     x: positionCenter.x + positionX + (positionX >= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
     y: positionCenter.y + positionY + (positionY >= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
 

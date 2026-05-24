@@ -201,7 +201,8 @@ Item {
               topPadding: 0
               bottomPadding: 0
               text: qsTr("Auto-rotate")
-              checked: true
+              checked: positioningSettings.preciseViewAutoRotate
+              onToggled: positioningSettings.preciseViewAutoRotate = checked
             }
 
             MenuSeparator {
@@ -218,13 +219,16 @@ Item {
             Row {
               width: parent.width
               spacing: 4
+              enabled: positioningSettings.preciseViewAutoRotate
+              opacity: enabled ? 1.0 : 0.4
 
               QfButton {
                 width: (parent.width - parent.spacing) / 2
                 height: 32
                 text: qsTr("Compass")
                 checkable: true
-                checked: true
+                checked: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Compass
+                onClicked: positioningSettings.preciseViewRotationSource = PositioningSettings.RotationSource.Compass
                 ButtonGroup.group: sourceGroup
                 font.pointSize: Theme.tipFont.pointSize
                 radius: 8
@@ -237,6 +241,8 @@ Item {
                 height: 32
                 text: qsTr("Movement")
                 checkable: true
+                checked: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement
+                onClicked: positioningSettings.preciseViewRotationSource = PositioningSettings.RotationSource.Movement
                 ButtonGroup.group: sourceGroup
                 font.pointSize: Theme.tipFont.pointSize
                 radius: 8
@@ -253,6 +259,7 @@ Item {
         width: parent.width
         height: Math.min(mainWindow.height / 2.5, 400)
         precision: positioningSettings.preciseViewPrecision
+        positioningSettings: controller.positioningSettings
       }
     }
 
