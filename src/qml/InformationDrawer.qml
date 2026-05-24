@@ -170,84 +170,110 @@ Item {
         padding: 2
         iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
         iconColor: Theme.mainTextColor
-        onClicked: stakeoutSettingsPopup.open()
+        onClicked: stakeoutMenu.popup(preciseViewSettings.width - stakeoutMenu.width, preciseViewSettings.height)
 
-        QfPopup {
-          id: stakeoutSettingsPopup
-          padding: 12
-          width: 220
+        Menu {
+          id: stakeoutMenu
+          width: 280
 
-          background: Rectangle {
-            color: Theme.mainBackgroundColorSemiOpaque
-            radius: 8
-          }
-
-          x: preciseViewSettings.width - width
-          y: preciseViewSettings.height + 4
-
-          ButtonGroup {
-            id: sourceGroup
-          }
-
-          contentItem: Column {
+          Item {
             width: parent.width
-            spacing: 8
+            height: 48
 
-            QfSwitch {
-              width: parent.width
-              height: 28
-              topPadding: 0
-              bottomPadding: 0
-              text: qsTr("Auto-rotate")
+            CheckBox {
+              id: rotateCheck
+              anchors.left: parent.left
+              anchors.leftMargin: 12
+              anchors.verticalCenter: parent.verticalCenter
               checked: positioningSettings.preciseViewAutoRotate
-              onToggled: positioningSettings.preciseViewAutoRotate = checked
-            }
-
-            MenuSeparator {
-              width: parent.width
-              padding: 0
             }
 
             Text {
-              text: qsTr("Source")
-              font: Theme.tipFont
-              color: Theme.secondaryTextColor
+              anchors.left: rotateCheck.right
+              anchors.leftMargin: 8
+              anchors.verticalCenter: parent.verticalCenter
+              text: qsTr("Rotate view")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+            }
+
+            MouseArea {
+              anchors.fill: parent
+              onClicked: positioningSettings.preciseViewAutoRotate = !positioningSettings.preciseViewAutoRotate
+            }
+          }
+
+          MenuSeparator {
+            width: parent.width
+          }
+
+          Item {
+            width: parent.width
+            height: 32
+            opacity: positioningSettings.preciseViewAutoRotate ? 1.0 : 0.4
+
+            Text {
+              anchors.left: parent.left
+              anchors.leftMargin: 12
+              anchors.verticalCenter: parent.verticalCenter
+              text: qsTr("Rotation source")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+            }
+          }
+
+          Item {
+            width: parent.width
+            height: 40
+            opacity: positioningSettings.preciseViewAutoRotate ? 1.0 : 0.6
+
+            ButtonGroup {
+              id: sourceGroup
             }
 
             Row {
-              width: parent.width
-              spacing: 4
-              enabled: positioningSettings.preciseViewAutoRotate
-              opacity: enabled ? 1.0 : 0.4
+              anchors.left: parent.left
+              anchors.right: parent.right
+              anchors.leftMargin: 12
+              anchors.rightMargin: 12
+              anchors.verticalCenter: parent.verticalCenter
+              spacing: 8
 
               QfButton {
                 width: (parent.width - parent.spacing) / 2
                 height: 32
                 text: qsTr("Compass")
                 checkable: true
+                enabled: positioningSettings.preciseViewAutoRotate
                 checked: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Compass
                 onClicked: positioningSettings.preciseViewRotationSource = PositioningSettings.RotationSource.Compass
                 ButtonGroup.group: sourceGroup
                 font.pointSize: Theme.tipFont.pointSize
                 radius: 8
-                bgcolor: (checked && enabled) ? Theme.mainColor : "transparent"
-                color: (checked && enabled) ? Theme.mainBackgroundColor : Theme.mainColor
+                bgcolor: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainColor : "transparent"
+                color: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainBackgroundColor : Theme.mainColor
               }
 
               QfButton {
                 width: (parent.width - parent.spacing) / 2
                 height: 32
-                text: qsTr("Movement")
+                text: qsTr("GPS direction")
                 checkable: true
+                enabled: positioningSettings.preciseViewAutoRotate
                 checked: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement
                 onClicked: positioningSettings.preciseViewRotationSource = PositioningSettings.RotationSource.Movement
                 ButtonGroup.group: sourceGroup
                 font.pointSize: Theme.tipFont.pointSize
                 radius: 8
-                bgcolor: (checked && enabled) ? Theme.mainColor : "transparent"
-                color: (checked && enabled) ? Theme.mainBackgroundColor : Theme.mainColor
+                bgcolor: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainColor : "transparent"
+                color: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainBackgroundColor : Theme.mainColor
               }
             }
+          }
+
+          Item {
+            width: parent.width
+            height: 8
           }
         }
       }

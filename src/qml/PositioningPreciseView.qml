@@ -22,12 +22,14 @@ Item {
   property real lastValidDirection: NaN
   property PositioningSettings positioningSettings
 
+  readonly property real movementSpeedThreshold: 0.8
+
   readonly property real rotationSource: {
     if (!positioningSettings.preciseViewAutoRotate) {
       return NaN;
     }
     if (positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement) {
-      if (positionSource.positionInformation && positionSource.positionInformation.directionValid) {
+      if (positionSource.positionInformation && positionSource.positionInformation.directionValid && (!positionSource.positionInformation.speedValid || positionSource.positionInformation.speed >= movementSpeedThreshold)) {
         return positionSource.positionInformation.direction;
       }
       return lastValidDirection;
@@ -36,10 +38,11 @@ Item {
   }
 
   Connections {
-    target: positionSource.positionInformation
-    function onDirectionChanged() {
-      if (positionSource.positionInformation.directionValid) {
-        positioningPreciseView.lastValidDirection = positionSource.positionInformation.direction;
+    target: positionSource
+    function onPositionInformationChanged() {
+      const info = positionSource.positionInformation;
+      if (info && info.directionValid && (!info.speedValid || info.speed >= positioningPreciseView.movementSpeedThreshold)) {
+        positioningPreciseView.lastValidDirection = info.direction;
       }
     }
   }

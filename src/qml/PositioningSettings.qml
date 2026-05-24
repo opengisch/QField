@@ -32,7 +32,7 @@ Settings {
     Compass,
     Movement
   }
-  property bool preciseViewAutoRotate: true
+  property bool preciseViewAutoRotate: false
   property int preciseViewRotationSource: PositioningSettings.RotationSource.Compass
 
   property bool accuracyIndicator: false
