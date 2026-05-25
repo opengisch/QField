@@ -206,16 +206,25 @@ QModelIndex QFieldCloudProjectsModel::findProjectIndex( const QString &projectId
     return QModelIndex();
   }
 
+  QString projectOwner;
+  QString projectName;
+  const int separator = projectId.indexOf( '/' );
+  if ( separator > 0 )
+  {
+    projectOwner = projectId.mid( 0, separator ).trimmed();
+    projectName = projectId.mid( separator + 1 ).trimmed();
+  }
+  bool matchOwnerAndName = !projectOwner.isEmpty() && !projectName.isEmpty();
+
   for ( int i = 0; i < mProjects.count(); i++ )
   {
-    if ( mProjects.at( i )->id() == projectId )
+    if ( ( !matchOwnerAndName && mProjects.at( i )->id() == projectId ) || ( matchOwnerAndName && mProjects.at( i )->owner() == projectOwner && mProjects.at( i )->name() == projectName ) )
     {
       return createIndex( i, 0 );
     }
   }
 
   QgsLogger::debug( QStringLiteral( "No project found with the provided id: `%1`" ).arg( projectId ) );
-
   return QModelIndex();
 }
 
@@ -245,14 +254,36 @@ void QFieldCloudProjectsModel::appendProject( const QString &projectId )
     return;
   }
 
-  const QString url = QStringLiteral( "/api/v1/projects/%1/" ).arg( projectId );
+  QString projectOwner;
+  QString projectName;
+  const int separator = projectId.indexOf( '/' );
+  if ( separator > 0 )
+  {
+    projectOwner = projectId.mid( 0, separator ).trimmed();
+    projectName = projectId.mid( separator + 1 ).trimmed();
+  }
+
+  QString url;
+  QVariantMap params;
+  if ( !projectOwner.isEmpty() && !projectName.isEmpty() )
+  {
+    params["owner"] = projectOwner;
+    params["name"] = projectName;
+    params["include_public"] = 1;
+    url = QStringLiteral( "/api/v1/projects/" );
+  }
+  else
+  {
+    url = QStringLiteral( "/api/v1/projects/%1/" ).arg( projectId );
+  }
+
   QNetworkRequest request( url );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
   request.setAttribute( static_cast<QNetworkRequest::Attribute>( QFieldCloudProjectsModel::ProjectsRequestAttribute::ProjectId ), projectId );
   mCloudConnection->setAuthenticationDetails( request );
 
-  const NetworkReply *reply = mCloudConnection->get( request, url );
+  const NetworkReply *reply = mCloudConnection->get( request, url, params );
   connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectReceived );
 }
 
@@ -509,7 +540,7 @@ void QFieldCloudProjectsModel::projectReceived()
   if ( cloudProject )
   {
     insertProjects( QList<QFieldCloudProject *>() << cloudProject );
-    emit projectAppended( cloudProject->id() );
+    emit projectAppended( projectId );
   }
 }
 
