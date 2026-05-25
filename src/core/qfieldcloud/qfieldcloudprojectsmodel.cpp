@@ -534,13 +534,32 @@ void QFieldCloudProjectsModel::projectReceived()
 
   QByteArray response = rawReply->readAll();
   QJsonDocument doc = QJsonDocument::fromJson( response );
-  QVariantHash projectDetails = doc.object().toVariantHash();
-
-  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher ); // cppcheck-suppress constVariablePointer
-  if ( cloudProject )
+  QVariantHash projectDetails;
+  if ( doc.isArray() )
   {
-    insertProjects( QList<QFieldCloudProject *>() << cloudProject );
-    emit projectAppended( projectId );
+    QJsonArray projects = doc.array();
+    if ( !projects.isEmpty() )
+    {
+      projectDetails = projects.first().toObject().toVariantHash();
+    }
+  }
+  else
+  {
+    QJsonObject project = doc.object();
+    if ( !project.isEmpty() )
+    {
+      projectDetails = doc.object().toVariantHash();
+    }
+  }
+
+  if ( !projectDetails.isEmpty() )
+  {
+    QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher ); // cppcheck-suppress constVariablePointer
+    if ( cloudProject )
+    {
+      insertProjects( QList<QFieldCloudProject *>() << cloudProject );
+      emit projectAppended( projectId );
+    }
   }
 }
 
