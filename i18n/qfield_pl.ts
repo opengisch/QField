@@ -1963,7 +1963,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>Rozłączono przed otrzymaniem tabeli źródłowej</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
@@ -1971,7 +1971,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>Błąd pobieraniz tabeli źródłowej NTRIP: </translation>
     </message>
 </context>
 <context>
@@ -2479,11 +2479,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Wersja 1</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Wersja 2</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2499,19 +2499,23 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Identyfikator:</translation>
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Format danych:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Odległość:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
 </context>
 <context>
@@ -3415,7 +3419,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Rozmiar pamięci</translation>
     </message>
 </context>
 <context>
@@ -3442,15 +3446,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Moje własne projekty</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>Tytuł lub opis zawiera</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Właścicielem jest</translation>
     </message>
 </context>
 <context>
@@ -3776,15 +3780,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Postaraj się %1uwzględnić projekty publiczne%2 i zobaczyć, co społeczność ma do zaoferowania.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Postaraj się %1uwzględnić projekty publiczne%2.</translation>
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Wyszukaj projekty</translation>
     </message>
 </context>
 <context>
@@ -4723,23 +4727,23 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Włącz korekty NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Klient NTRIP rozłączony</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>Łączenie z klientem NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>Klient NTRIP połączony</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Podaj prawidłowe ustawienia NTRIP</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
@@ -7223,7 +7227,7 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Włącz korekty NTRIP</translation>
     </message>
 </context>
 <context>

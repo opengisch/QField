@@ -2509,6 +2509,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>

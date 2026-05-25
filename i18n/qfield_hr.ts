@@ -2511,6 +2511,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>

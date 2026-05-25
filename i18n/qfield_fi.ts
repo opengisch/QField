@@ -2509,6 +2509,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>

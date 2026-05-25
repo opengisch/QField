@@ -2509,6 +2509,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>

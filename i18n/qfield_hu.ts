@@ -2508,6 +2508,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>

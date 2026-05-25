@@ -2510,6 +2510,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>

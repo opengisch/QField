@@ -2507,6 +2507,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Forward position to NTRIP caster</source>
         <translation>将位置转发至NTRIP中转站</translation>
     </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation>NTRIP SSL/TLS</translation>
+    </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>
