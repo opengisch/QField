@@ -219,7 +219,7 @@ Item {
             text: qsTr("Rotation source")
             color: Theme.mainTextColor
             font: Theme.defaultFont
-            leftPadding: Theme.menuItemCheckLeftPadding
+            leftPadding: Theme.menuItemIconlessLeftPadding
           }
 
           Item {
@@ -233,7 +233,7 @@ Item {
             anchors {
               left: parent.left
               right: parent.right
-              leftMargin: Theme.menuItemCheckLeftPadding
+              leftMargin: Theme.menuItemIconlessLeftPadding
               rightMargin: 4
             }
             spacing: 3
@@ -296,7 +296,7 @@ Item {
             text: qsTr("Precision")
             color: Theme.mainTextColor
             font: Theme.defaultFont
-            leftPadding: Theme.menuItemCheckLeftPadding
+            leftPadding: Theme.menuItemIconlessLeftPadding
           }
 
           Item {
@@ -309,7 +309,7 @@ Item {
             anchors {
               left: parent.left
               right: parent.right
-              leftMargin: Theme.menuItemCheckLeftPadding
+              leftMargin: Theme.menuItemIconlessLeftPadding
               rightMargin: 4
             }
             columns: 4
