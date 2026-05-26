@@ -195,7 +195,6 @@ Item {
             text: qsTr("Rotate view")
             font: Theme.defaultFont
             height: 48
-            color: Theme.mainTextColor
             leftPadding: Theme.menuItemCheckLeftPadding
             checkable: true
             checked: positioningSettings.preciseViewAutoRotate
@@ -208,6 +207,11 @@ Item {
 
           MenuSeparator {
             width: parent.width
+          }
+
+          Item {
+            width: 1
+            height: 8
           }
 
           Text {
