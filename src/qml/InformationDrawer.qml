@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import org.qfield
 import Theme
@@ -174,105 +175,193 @@ Item {
 
         Menu {
           id: stakeoutMenu
-          width: 280
+          width: 320
 
-          Item {
-            width: parent.width
+          MenuItem {
+            text: qsTr("Audio proximity feedback")
+            font: Theme.defaultFont
             height: 48
+            leftPadding: Theme.menuItemCheckLeftPadding
+            checkable: true
+            checked: positioningSettings.preciseViewProximityAlarm
+            indicator.height: 20
+            indicator.width: 20
+            indicator.implicitHeight: 24
+            indicator.implicitWidth: 24
+            onCheckedChanged: positioningSettings.preciseViewProximityAlarm = checked
+          }
 
-            CheckBox {
-              id: rotateCheck
-              anchors.left: parent.left
-              anchors.leftMargin: 12
-              anchors.verticalCenter: parent.verticalCenter
-              checked: positioningSettings.preciseViewAutoRotate
-            }
-
-            Text {
-              anchors.left: rotateCheck.right
-              anchors.leftMargin: 8
-              anchors.verticalCenter: parent.verticalCenter
-              text: qsTr("Rotate view")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
-            }
-
-            MouseArea {
-              anchors.fill: parent
-              onClicked: positioningSettings.preciseViewAutoRotate = !positioningSettings.preciseViewAutoRotate
-            }
+          MenuItem {
+            text: qsTr("Rotate view")
+            font: Theme.defaultFont
+            height: 48
+            color: Theme.mainTextColor
+            leftPadding: Theme.menuItemCheckLeftPadding
+            checkable: true
+            checked: positioningSettings.preciseViewAutoRotate
+            indicator.height: 20
+            indicator.width: 20
+            indicator.implicitHeight: 24
+            indicator.implicitWidth: 24
+            onCheckedChanged: positioningSettings.preciseViewAutoRotate = checked
           }
 
           MenuSeparator {
             width: parent.width
           }
 
-          Item {
-            width: parent.width
-            height: 32
-            opacity: positioningSettings.preciseViewAutoRotate ? 1.0 : 0.4
+          Text {
+            text: qsTr("Rotation source")
+            color: Theme.mainTextColor
+            font: Theme.defaultFont
+            leftPadding: Theme.menuItemCheckLeftPadding
+          }
 
-            Text {
-              anchors.left: parent.left
-              anchors.leftMargin: 12
-              anchors.verticalCenter: parent.verticalCenter
-              text: qsTr("Rotation source")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+          Item {
+            width: 1
+            height: 8
+          }
+
+          ListView {
+            id: rotationSources
+            height: 35
+            anchors {
+              left: parent.left
+              right: parent.right
+              leftMargin: Theme.menuItemCheckLeftPadding
+              rightMargin: 4
+            }
+            spacing: 3
+            orientation: ListView.Horizontal
+            model: [qsTr("Compass"), qsTr("Movement direction")]
+            color: Theme.mainTextColor
+
+            delegate: Item {
+              id: sourceDelegate
+              width: (rotationSources.width - rotationSources.spacing) / 2
+              height: 35
+              enabled: !selected
+
+              property bool selected: index === (positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Compass ? 0 : 1)
+
+              Rectangle {
+                anchors.fill: parent
+                radius: 4
+                color: sourceDelegate.selected ? Theme.mainColor : "transparent"
+              }
+
+              Text {
+                text: modelData
+                font: sourceDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+                anchors.centerIn: parent
+                color: sourceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+                elide: Text.ElideRight
+                width: parent.width - 8
+                horizontalAlignment: Text.AlignHCenter
+              }
+
+              Ripple {
+                clip: true
+                anchors.fill: parent
+                clipRadius: 4
+                pressed: sourceMouseArea.pressed
+                anchor: parent
+                active: sourceMouseArea.pressed
+                color: "#22aaaaaa"
+              }
+
+              MouseArea {
+                id: sourceMouseArea
+                anchors.fill: parent
+                onClicked: {
+                  if (sourceDelegate.selected) {
+                    return;
+                  }
+                  positioningSettings.preciseViewRotationSource = index === 0 ? PositioningSettings.RotationSource.Compass : PositioningSettings.RotationSource.Movement;
+                }
+              }
             }
           }
 
           Item {
-            width: parent.width
-            height: 40
-            opacity: positioningSettings.preciseViewAutoRotate ? 1.0 : 0.6
+            width: 1
+            height: 8
+          }
 
-            ButtonGroup {
-              id: sourceGroup
+          Text {
+            text: qsTr("Precision")
+            color: Theme.mainTextColor
+            font: Theme.defaultFont
+            leftPadding: Theme.menuItemCheckLeftPadding
+          }
+
+          Item {
+            width: 1
+            height: 8
+          }
+
+          ListView {
+            id: precisions
+            height: 35
+            anchors {
+              left: parent.left
+              right: parent.right
+              leftMargin: Theme.menuItemCheckLeftPadding
+              rightMargin: 4
             }
+            spacing: 3
+            orientation: ListView.Horizontal
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10]
 
-            Row {
-              anchors.left: parent.left
-              anchors.right: parent.right
-              anchors.leftMargin: 12
-              anchors.rightMargin: 12
-              anchors.verticalCenter: parent.verticalCenter
-              spacing: 8
+            delegate: Item {
+              id: precisionDelegate
+              width: precisionText.contentWidth + 16
+              height: 35
+              enabled: !selected
 
-              QfButton {
-                width: (parent.width - parent.spacing) / 2
-                height: 32
-                text: qsTr("Compass")
-                checkable: true
-                enabled: positioningSettings.preciseViewAutoRotate
-                checked: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Compass
-                onClicked: positioningSettings.preciseViewRotationSource = PositioningSettings.RotationSource.Compass
-                ButtonGroup.group: sourceGroup
-                font.pointSize: Theme.tipFont.pointSize
-                radius: 8
-                bgcolor: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainColor : "transparent"
-                color: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainBackgroundColor : Theme.mainColor
+              property bool selected: modelData === positioningSettings.preciseViewPrecision
+
+              Rectangle {
+                anchors.fill: parent
+                radius: 4
+                color: precisionDelegate.selected ? Theme.mainColor : "transparent"
               }
 
-              QfButton {
-                width: (parent.width - parent.spacing) / 2
-                height: 32
-                text: qsTr("GPS direction")
-                checkable: true
-                enabled: positioningSettings.preciseViewAutoRotate
-                checked: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement
-                onClicked: positioningSettings.preciseViewRotationSource = PositioningSettings.RotationSource.Movement
-                ButtonGroup.group: sourceGroup
-                font.pointSize: Theme.tipFont.pointSize
-                radius: 8
-                bgcolor: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainColor : "transparent"
-                color: (checked && positioningSettings.preciseViewAutoRotate) ? Theme.mainBackgroundColor : Theme.mainColor
+              Text {
+                id: precisionText
+                text: UnitTypes.formatDistance(modelData, 2, projectInfo.distanceUnits)
+                font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+                anchors.centerIn: parent
+                color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+              }
+
+              Ripple {
+                clip: true
+                anchors.fill: parent
+                clipRadius: 4
+                pressed: precisionMouseArea.pressed
+                anchor: parent
+                active: precisionMouseArea.pressed
+                color: "#22aaaaaa"
+              }
+
+              MouseArea {
+                id: precisionMouseArea
+                anchors.fill: parent
+                onClicked: {
+                  if (precisionDelegate.selected) {
+                    return;
+                  }
+                  positioningSettings.preciseViewPrecision = modelData;
+                }
               }
             }
           }
 
           Item {
-            width: parent.width
+            width: 1
             height: 8
           }
         }
