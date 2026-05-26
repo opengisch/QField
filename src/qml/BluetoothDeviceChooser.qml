@@ -25,7 +25,7 @@ Item {
   property bool deviceLowEnergyByDefault: false
 
   function generateName() {
-    return deviceName + (deviceBLE ? ' (BLE)' : ' (Classic)');
+    return deviceName + (deviceBLE ? ' (BLE)' : ' (BT)');
   }
 
   function setSettings(settings) {
@@ -203,7 +203,7 @@ Item {
       visible: deviceAddress != ''
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
-      text: qsTr('Bluetooth device configuration:') + '\n ' + (deviceBLE ? qsTr("Low Energy (BLE)") : qsTr("Classic"))
+      text: qsTr('Bluetooth device configuration:') + '\n ' + (deviceBLE ? qsTr("Low Energy (BLE)") : qsTr("Classic (BT)"))
       wrapMode: Text.WordWrap
     }
   }
