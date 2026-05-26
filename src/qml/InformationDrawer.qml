@@ -233,8 +233,7 @@ Item {
             }
             spacing: 3
             orientation: ListView.Horizontal
-            model: [qsTr("Compass"), qsTr("Movement direction")]
-            color: Theme.mainTextColor
+            model: [qsTr("Compass"), qsTr("Movement")]
 
             delegate: Item {
               id: sourceDelegate
@@ -300,61 +299,64 @@ Item {
             height: 8
           }
 
-          ListView {
+          Grid {
             id: precisions
-            height: 35
             anchors {
               left: parent.left
               right: parent.right
               leftMargin: Theme.menuItemCheckLeftPadding
               rightMargin: 4
             }
-            spacing: 3
-            orientation: ListView.Horizontal
-            clip: true
-            boundsBehavior: Flickable.StopAtBounds
-            model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10]
+            columns: 4
+            rowSpacing: 4
+            columnSpacing: 3
 
-            delegate: Item {
-              id: precisionDelegate
-              width: precisionText.contentWidth + 16
-              height: 35
-              enabled: !selected
+            property var model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10]
 
-              property bool selected: modelData === positioningSettings.preciseViewPrecision
+            Repeater {
+              model: precisions.model
 
-              Rectangle {
-                anchors.fill: parent
-                radius: 4
-                color: precisionDelegate.selected ? Theme.mainColor : "transparent"
-              }
+              delegate: Item {
+                id: precisionDelegate
+                width: (precisions.width - precisions.columnSpacing * (precisions.columns - 1)) / precisions.columns
+                height: 35
+                enabled: !selected
 
-              Text {
-                id: precisionText
-                text: UnitTypes.formatDistance(modelData, 2, projectInfo.distanceUnits)
-                font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
-                anchors.centerIn: parent
-                color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
-              }
+                property bool selected: modelData === positioningSettings.preciseViewPrecision
 
-              Ripple {
-                clip: true
-                anchors.fill: parent
-                clipRadius: 4
-                pressed: precisionMouseArea.pressed
-                anchor: parent
-                active: precisionMouseArea.pressed
-                color: "#22aaaaaa"
-              }
+                Rectangle {
+                  anchors.fill: parent
+                  radius: 4
+                  color: precisionDelegate.selected ? Theme.mainColor : "transparent"
+                }
 
-              MouseArea {
-                id: precisionMouseArea
-                anchors.fill: parent
-                onClicked: {
-                  if (precisionDelegate.selected) {
-                    return;
+                Text {
+                  id: precisionText
+                  text: UnitTypes.formatDistance(modelData, 2, projectInfo.distanceUnits)
+                  font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+                  anchors.centerIn: parent
+                  color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+                }
+
+                Ripple {
+                  clip: true
+                  anchors.fill: parent
+                  clipRadius: 4
+                  pressed: precisionMouseArea.pressed
+                  anchor: parent
+                  active: precisionMouseArea.pressed
+                  color: "#22aaaaaa"
+                }
+
+                MouseArea {
+                  id: precisionMouseArea
+                  anchors.fill: parent
+                  onClicked: {
+                    if (precisionDelegate.selected) {
+                      return;
+                    }
+                    positioningSettings.preciseViewPrecision = modelData;
                   }
-                  positioningSettings.preciseViewPrecision = modelData;
                 }
               }
             }
