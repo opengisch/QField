@@ -1595,6 +1595,132 @@ ApplicationWindow {
       }
     }
 
+    QfToolButtonPie {
+      id: destinationActionsPieMenu
+
+      readonly property point destinationScreenLocation: navigation.isActive ? mapCanvas.mapSettings.coordinateToScreen(navigation.destination) : Qt.point(-1, -1)
+
+      readonly property int minimumDistanceToScreenEdge: 80
+      readonly property real menuHalfSize: destinationActionsPieMenu.width / 2
+
+      readonly property bool tooCloseToLeft: destinationScreenLocation.x - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToRight: destinationScreenLocation.x + menuHalfSize + minimumDistanceToScreenEdge > mainWindow.width
+      readonly property bool tooCloseToTop: destinationScreenLocation.y - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToBottom: destinationScreenLocation.y + menuHalfSize + minimumDistanceToScreenEdge + informationDrawer.height > mainWindow.height
+      readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
+
+      readonly property bool destinationOutsidePieMenu: {
+        if (!visible)
+          return true;
+        const dx = destinationActionsPieMenu.x + (destinationActionsPieMenu.width / 2) - destinationScreenLocation.x;
+        const dy = destinationActionsPieMenu.y + (destinationActionsPieMenu.height / 2) - destinationScreenLocation.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        return distance > 20;
+      }
+
+      readonly property int segmentAngle: 360 / destinationActionsPieMenu.numberOfButtons
+
+      width: Math.min(150, mapCanvasMap.width / 3)
+      height: width
+
+      targetPoint: destinationScreenLocation
+      showConnectionLine: visible && (nearToEdge || destinationOutsidePieMenu)
+      linkColor: Theme.navigationColor
+
+      function openPieMenu(point) {
+        if (tooCloseToLeft) {
+          destinationActionsPieMenu.x = minimumDistanceToScreenEdge;
+        } else if (tooCloseToRight) {
+          destinationActionsPieMenu.x = mainWindow.width - destinationActionsPieMenu.width - minimumDistanceToScreenEdge;
+        } else {
+          destinationActionsPieMenu.x = destinationScreenLocation.x - menuHalfSize;
+        }
+        if (tooCloseToTop) {
+          destinationActionsPieMenu.y = minimumDistanceToScreenEdge;
+        } else if (tooCloseToBottom) {
+          destinationActionsPieMenu.y = mainWindow.height - destinationActionsPieMenu.height - informationDrawer.height - minimumDistanceToScreenEdge;
+        } else {
+          destinationActionsPieMenu.y = destinationScreenLocation.y - menuHalfSize;
+        }
+        destinationActionsPieMenu.open();
+      }
+
+      Component.onCompleted: {
+        pointHandler.registerHandler("DestinationMarker", (point, type, interactionType) => {
+          if (!navigation.isActive || (interactionType !== "clicked" && interactionType !== "pressedAndHold")) {
+            return false;
+          }
+          const dx = point.x - destinationScreenLocation.x;
+          const dy = point.y - destinationScreenLocation.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const markerHit = distance <= 25;
+          if (markerHit) {
+            if (type === "stylus" && interactionType === "clicked") {
+              mainWindow.displayToast(qsTr("Long press on the destination marker to show actions"));
+            } else if ((type !== "stylus" && interactionType === "clicked") || (type === "stylus" && interactionType === "pressedAndHold")) {
+              openPieMenu(point);
+              return true;
+            }
+          }
+          return false;
+        }, MapCanvasPointHandler.Priority.High);
+      }
+
+      QfToolButton {
+        id: clearDestinationButton
+        width: destinationActionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        round: true
+        iconSource: Theme.getThemeVectorIcon("ic_close_white_24dp")
+        iconColor: Theme.light
+        bgcolor: Theme.toolButtonBackgroundColor
+        visible: destinationActionsPieMenu.openingAngle >= destinationActionsPieMenu.segmentAngle
+
+        onClicked: {
+          navigation.clear();
+          destinationActionsPieMenu.close();
+        }
+      }
+
+      QfToolButton {
+        id: alwaysShowPreciseViewButton
+        width: destinationActionsPieMenu.bandWidth - 8
+        height: width
+        padding: 2
+        round: true
+        checkable: true
+        checked: positioningSettings.alwaysShowPreciseView
+        state: checked ? "On" : "Off"
+        visible: destinationActionsPieMenu.openingAngle >= destinationActionsPieMenu.segmentAngle * 2
+        iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+
+        states: [
+          State {
+            name: "Off"
+            PropertyChanges {
+              target: alwaysShowPreciseViewButton
+              iconColor: Theme.light
+              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            }
+          },
+          State {
+            name: "On"
+            PropertyChanges {
+              target: alwaysShowPreciseViewButton
+              iconColor: Theme.navigationColor
+              bgcolor: Theme.toolButtonBackgroundColor
+            }
+          }
+        ]
+
+        onClicked: {
+          positioningSettings.alwaysShowPreciseView = !positioningSettings.alwaysShowPreciseView;
+          destinationActionsPieMenu.close();
+        }
+      }
+    }
+
     /* Rubberband for vertices  */
     Item {
       // highlighting geometry (point, line, surface)
