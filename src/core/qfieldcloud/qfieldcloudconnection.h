@@ -87,6 +87,7 @@ class QFieldCloudConnection : public QObject
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
 
     Q_PROPERTY( CloudWhitelabelInformation whitelabel READ whitelabel NOTIFY whitelabelChanged )
+    Q_PROPERTY( QString signupUrl READ signupUrl NOTIFY signupUrlChanged )
 
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
 
@@ -179,6 +180,7 @@ class QFieldCloudConnection : public QObject
     bool isFetchingAvailableProviders() const;
 
     CloudWhitelabelInformation whitelabel() const { return mWhitelabel; }
+    QString signupUrl() const { return mSignupUrl; }
 
     ConnectionStatus status() const;
     ConnectionState state() const;
@@ -268,6 +270,7 @@ class QFieldCloudConnection : public QObject
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
     void whitelabelChanged();
+    void signupUrlChanged();
 
     void isReachableChanged();
     void queuedProjectPushRequested( const QString &projectId );
@@ -299,6 +302,7 @@ class QFieldCloudConnection : public QObject
     QString mProviderConfigId;
 
     CloudWhitelabelInformation mWhitelabel;
+    QString mSignupUrl;
 
     QString mAvatarUrl;
     CloudUserInformation mUserInformation;

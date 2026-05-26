@@ -43,6 +43,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mProvider( QSettings().value( QStringLiteral( "/QFieldCloud/provider" ) ).toString() )
   , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
   , mWhitelabel( QSettings().value( QStringLiteral( "/QFieldCloud/whitelabel" ) ).toMap() )
+  , mSignupUrl( QSettings().value( QStringLiteral( "/QFieldCloud/signupUrl" ) ).toString() )
 {
   if ( !QgsApplication::authManager()->availableAuthMethodConfigs().contains( mProviderConfigId ) )
   {
@@ -192,6 +193,13 @@ void QFieldCloudConnection::setUrl( const QString &url )
     mWhitelabel = CloudWhitelabelInformation();
     QSettings().remove( QStringLiteral( "/QFieldCloud/whitelabel" ) );
     emit whitelabelChanged();
+  }
+
+  if ( !mSignupUrl.isEmpty() )
+  {
+    mSignupUrl.clear();
+    QSettings().remove( QStringLiteral( "/QFieldCloud/signupUrl" ) );
+    emit signupUrlChanged();
   }
 
   if ( mStatus != ConnectionStatus::Disconnected )
@@ -353,6 +361,14 @@ void QFieldCloudConnection::getServerInformation()
       mWhitelabel = whitelabel;
       QSettings().setValue( QStringLiteral( "/QFieldCloud/whitelabel" ), mWhitelabel.toVariantMap() );
       emit whitelabelChanged();
+    }
+
+    const QString signupUrl = payload.value( QStringLiteral( "signup_url" ) ).toString();
+    if ( signupUrl != mSignupUrl )
+    {
+      mSignupUrl = signupUrl;
+      QSettings().setValue( QStringLiteral( "/QFieldCloud/signupUrl" ), mSignupUrl );
+      emit signupUrlChanged();
     }
 
     const QVariantList providers = payload.value( QStringLiteral( "auth_providers" ) ).toList();

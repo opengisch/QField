@@ -128,8 +128,9 @@ Item {
         enabled: visible
         font: Theme.defaultFont
         horizontalAlignment: Text.AlignLeft
-
         text: parent.displayText
+        selectionColor: Theme.mainColor
+        selectedTextColor: Theme.light
         onTextChanged: {
           const cleanedText = text.replace(/\s+/g, '');
           if (cleanedText !== cloudConnection.url) {
@@ -263,13 +264,13 @@ Item {
       id: cloudRegisterLabel
       Layout.fillWidth: true
       Layout.topMargin: 16
-      text: qsTr('New user?') + ' <a href="https://app.qfield.cloud/accounts/signup/">' + qsTr('Register an account') + '</a>.'
+      text: cloudConnection.signupUrl !== '' ? qsTr('New user?') + ' <a href="' + cloudConnection.signupUrl + '">' + qsTr('Register an account') + '</a>.' : ''
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.signupUrl !== ''
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
