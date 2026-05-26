@@ -1598,7 +1598,34 @@ ApplicationWindow {
     QfToolButtonPie {
       id: destinationActionsPieMenu
 
-      readonly property point destinationScreenLocation: navigation.isActive ? mapCanvas.mapSettings.coordinateToScreen(navigation.destination) : Qt.point(-1, -1)
+      property point destinationScreenLocation: Qt.point(-1, -1)
+
+      function updateDestinationScreenLocation() {
+        destinationScreenLocation = navigation.isActive ? mapCanvas.mapSettings.coordinateToScreen(navigation.destination) : Qt.point(-1, -1);
+      }
+
+      Connections {
+        target: mapCanvas.mapSettings
+        function onExtentChanged() {
+          destinationActionsPieMenu.updateDestinationScreenLocation();
+        }
+        function onRotationChanged() {
+          destinationActionsPieMenu.updateDestinationScreenLocation();
+        }
+        function onOutputSizeChanged() {
+          destinationActionsPieMenu.updateDestinationScreenLocation();
+        }
+      }
+
+      Connections {
+        target: navigation
+        function onDestinationChanged() {
+          destinationActionsPieMenu.updateDestinationScreenLocation();
+        }
+        function onIsActiveChanged() {
+          destinationActionsPieMenu.updateDestinationScreenLocation();
+        }
+      }
 
       readonly property int minimumDistanceToScreenEdge: 80
       readonly property real menuHalfSize: destinationActionsPieMenu.width / 2
@@ -1646,6 +1673,7 @@ ApplicationWindow {
       }
 
       Component.onCompleted: {
+        updateDestinationScreenLocation();
         pointHandler.registerHandler("DestinationMarker", (point, type, interactionType) => {
           if (!navigation.isActive || (interactionType !== "clicked" && interactionType !== "pressedAndHold")) {
             return false;
@@ -1672,7 +1700,7 @@ ApplicationWindow {
         height: width
         padding: 2
         round: true
-        iconSource: Theme.getThemeVectorIcon("ic_close_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
         iconColor: Theme.light
         bgcolor: Theme.toolButtonBackgroundColor
         visible: destinationActionsPieMenu.openingAngle >= destinationActionsPieMenu.segmentAngle
@@ -1693,7 +1721,7 @@ ApplicationWindow {
         checked: positioningSettings.alwaysShowPreciseView
         state: checked ? "On" : "Off"
         visible: destinationActionsPieMenu.openingAngle >= destinationActionsPieMenu.segmentAngle * 2
-        iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_radar_grey_24dp")
 
         states: [
           State {

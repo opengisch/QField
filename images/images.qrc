@@ -219,5 +219,6 @@
         <file>themes/qfield/nodpi/ic_expand_all_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_3d_white_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_3d_settings_white_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_radar_grey_24dp.svg</file>
     </qresource>
 </RCC>

@@ -166,6 +166,7 @@ Item {
 
       header: QfToolButton {
         id: preciseViewSettings
+        visible: positioningPreciseEnabled
         width: 24
         height: 24
         padding: 2
@@ -373,12 +374,99 @@ Item {
         }
       }
 
+      NavigationInformationView {
+        id: navigationInformationView
+        width: parent.width
+        height: contentHeight
+        navigation: controller.navigation
+      }
+
       PositioningPreciseView {
         id: positioningPreciseView
+        visible: opacity > 0
         width: parent.width
-        height: Math.min(mainWindow.height / 2.5, 400)
+        height: positioningPreciseEnabled ? Math.min(mainWindow.height / 2.5, 400) : 0
+        opacity: positioningPreciseEnabled ? 1 : 0
+        clip: true
         precision: positioningSettings.preciseViewPrecision
         positioningSettings: controller.positioningSettings
+
+        Behavior on height {
+          NumberAnimation {
+            duration: 200
+            easing.type: Easing.OutQuart
+          }
+        }
+        Behavior on opacity {
+          NumberAnimation {
+            duration: 200
+            easing.type: Easing.OutQuart
+          }
+        }
+      }
+    }
+
+    QfOverlayContainer {
+      visible: positioningInformationViewEnabled
+
+      title: qsTr("Positioning")
+
+      header: RowLayout {
+        Text {
+          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+          text: qsTr("NTRIP")
+          font: Theme.tipFont
+          color: positionSource.ntripState === Positioning.NtripState.Connected ? Theme.mainTextColor : Theme.secondaryTextColor
+        }
+
+        Rectangle {
+          id: ntripIndicator
+          Layout.alignment: Qt.AlignVCenter
+          Layout.preferredWidth: 12
+          Layout.preferredHeight: 12
+          Layout.bottomMargin: 1
+          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+          radius: height / 2
+          opacity: 1
+          color: {
+            if (positionSource.ntripState === Positioning.NtripState.Connected) {
+              return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
+            }
+            return Theme.secondaryTextColor;
+          }
+
+          SequentialAnimation {
+            running: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
+            loops: Animation.Infinite
+
+            onStopped: ntripIndicator.opacity = 1.0
+
+            NumberAnimation {
+              target: ntripIndicator
+              property: "opacity"
+              to: 0.0
+              duration: 1000
+              easing.type: Easing.InOutQuad
+            }
+
+            NumberAnimation {
+              target: ntripIndicator
+              property: "opacity"
+              to: 1.0
+              duration: 1000
+              easing.type: Easing.InOutQuad
+            }
+          }
+        }
+      }
+
+      PositioningInformationView {
+        id: positioningInformationView
+        width: parent.width
+        height: Math.min(contentHeight, mainWindow.height / 3)
+        visible: positioningInformationViewEnabled
+        positionSource: controller.positionSource
+        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
       }
     }
 
