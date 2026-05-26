@@ -245,7 +245,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name() : info.address().toString() );
+      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name().trimmed() : info.address().toString() );
 
     case DeviceAddressRole:
       return info.address().toString();
