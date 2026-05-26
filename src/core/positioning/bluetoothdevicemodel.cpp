@@ -44,21 +44,25 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
     if ( error != QBluetoothDeviceDiscoveryAgent::NoError )
     {
       setLastError( mDeviceDiscoveryAgent->errorString() );
+      emit lastDiscoveredCountChanged();
       setScanningStatus( Failed );
     }
   } );
   connect( mDeviceDiscoveryAgent.get(), &QBluetoothDeviceDiscoveryAgent::finished, this, [this]() {
     if ( mDeviceDiscoveryAgent->error() == QBluetoothDeviceDiscoveryAgent::NoError )
     {
+      emit lastDiscoveredCountChanged();
       setScanningStatus( Succeeded );
     }
     else
     {
       setLastError( mDeviceDiscoveryAgent->errorString() );
+      emit lastDiscoveredCountChanged();
       setScanningStatus( Failed );
     }
   } );
   connect( mDeviceDiscoveryAgent.get(), &QBluetoothDeviceDiscoveryAgent::canceled, this, [this]() {
+    emit lastDiscoveredCountChanged();
     setScanningStatus( Canceled );
   } );
 }
@@ -137,6 +141,8 @@ void BluetoothDeviceModel::startDeviceDiscovery()
     stopDeviceDiscovery();
   }
 
+  mLastDiscoveredCount = 0;
+
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Discovering );
   mDeviceDiscoveryAgent->start();
@@ -186,6 +192,8 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
     beginInsertRows( QModelIndex(), index, index );
     mDiscoveredDevices.append( info );
     endInsertRows();
+
+    mLastDiscoveredCount++;
   }
 #elif defined( Q_OS_IOS )
   // Only list paired, BLE devices users have control over it.
@@ -194,6 +202,8 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
     beginInsertRows( QModelIndex(), index, index );
     mDiscoveredDevices.append( info );
     endInsertRows();
+
+    mLastDiscoveredCount++;
   }
 #else
   Q_UNUSED( paired )
@@ -201,6 +211,8 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices.append( info );
   endInsertRows();
+
+  mLastDiscoveredCount++;
 #endif
 }
 
