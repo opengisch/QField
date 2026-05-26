@@ -4209,46 +4209,18 @@ ApplicationWindow {
     bottomMargin: sceneBottomMargin
 
     MenuItem {
-      id: preciseViewItem
-      text: qsTr("Precise View Settings")
-
-      font: Theme.defaultFont
+      text: qsTr("Always Show Precise View")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      rightPadding: 40
+      leftPadding: Theme.menuItemCheckLeftPadding
+      font: Theme.defaultFont
 
-      arrow: Shape {
-        id: preciseViewArrowShape
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.rightMargin: width / 2
-        width: 20
-        height: 20
-        visible: true
-
-        ShapePath {
-          strokeWidth: 2
-          strokeColor: Theme.mainColor
-          fillColor: "transparent"
-
-          startX: preciseViewArrowShape.width * 0.35
-          startY: preciseViewArrowShape.height * 0.25
-
-          PathLine {
-            x: preciseViewArrowShape.width * 0.65
-            y: preciseViewArrowShape.height * 0.5
-          }
-          PathLine {
-            x: preciseViewArrowShape.width * 0.35
-            y: preciseViewArrowShape.height * 0.75
-          }
-        }
-      }
-
-      onTriggered: {
-        preciseViewMenu.popup(navigationMenu.x, navigationMenu.y - preciseViewItem.y);
-        highlighted = false;
-      }
+      checkable: true
+      checked: positioningSettings.alwaysShowPreciseView
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.alwaysShowPreciseView = checked
     }
 
     MenuSeparator {
@@ -4400,20 +4372,20 @@ ApplicationWindow {
       width: parent.width
     }
 
-    MenuItem {
-      text: qsTr("Always Show Precise View")
-      height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+    // MenuItem {
+    //   text: qsTr("Always Show Precise View")
+    //   height: 48
+    //   leftPadding: Theme.menuItemCheckLeftPadding
+    //   font: Theme.defaultFont
 
-      checkable: true
-      checked: positioningSettings.alwaysShowPreciseView
-      indicator.height: 20
-      indicator.width: 20
-      indicator.implicitHeight: 24
-      indicator.implicitWidth: 24
-      onCheckedChanged: positioningSettings.alwaysShowPreciseView = checked
-    }
+    //   checkable: true
+    //   checked: positioningSettings.alwaysShowPreciseView
+    //   indicator.height: 20
+    //   indicator.width: 20
+    //   indicator.implicitHeight: 24
+    //   indicator.implicitWidth: 24
+    //   onCheckedChanged: positioningSettings.alwaysShowPreciseView = checked
+    // }
 
     MenuItem {
       text: qsTr("Enable Audio Proximity Feedback")

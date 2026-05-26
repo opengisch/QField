@@ -24,7 +24,7 @@ Item {
 
   readonly property real movementSpeedThreshold: 0.8
 
-  readonly property real rotationSource: {
+  readonly property real rotationAngle: {
     if (!positioningSettings.preciseViewAutoRotate) {
       return NaN;
     }
@@ -47,8 +47,8 @@ Item {
     }
   }
 
-  property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(rotationSource) ? rotationSource : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
-  property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(rotationSource) ? rotationSource : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(rotationAngle) ? rotationAngle : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
+  property double positionY: Math.min(precision, projectDistance) * Math.sin((navigation.bearing - (!isNaN(rotationAngle) ? rotationAngle : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
   property double positionZ: hasZ ? Math.min(precision, Math.max(-precision, -projectVerticalDistance)) * ((preciseElevation.height - 15) / 2) / precision : 0.0
   property point positionCenter: Qt.point(preciseTarget.width / 2 + preciseTarget.x + preciseTarget.parent.x, preciseTarget.height / 2 + preciseTarget.y + preciseTarget.parent.y)
 
@@ -82,7 +82,7 @@ Item {
       id: preciseTarget
       width: Math.min(positioningPreciseView.height - 10, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
       height: width
-      rotation: !isNaN(rotationSource) ? -rotationSource + positionSource.bearingTrueNorth : 0
+      rotation: !isNaN(rotationAngle) ? -rotationAngle + positionSource.bearingTrueNorth : 0
 
       ShapePath {
         strokeWidth: 1
@@ -359,7 +359,7 @@ Item {
     y: positionCenter.y + positionY - width / 2
     width: 28
     height: width
-    rotation: navigation.bearing - (!isNaN(rotationSource) ? rotationSource : 0)
+    rotation: navigation.bearing - (!isNaN(rotationAngle) ? rotationAngle : 0)
 
     ShapePath {
       strokeWidth: 1
@@ -440,7 +440,6 @@ Item {
   Text {
     id: preciseHorizontalPositionInfo
 
-    property bool leftOfPoint: !isNaN(rotationSource) && positionX >= 0
     x: positionCenter.x + positionX + (positionX >= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
     y: positionCenter.y + positionY + (positionY >= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
 
