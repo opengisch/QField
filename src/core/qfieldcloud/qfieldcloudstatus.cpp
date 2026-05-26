@@ -163,7 +163,7 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
     const QDateTime endTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_end_timestamp_utc" ) ).toString(), Qt::ISODate );
     if ( startTimestamp.isValid() && endTimestamp.isValid() && ( currentTimestamp < startTimestamp || currentTimestamp >= endTimestamp ) )
     {
-      // Skip as we are falling outside of the maintainance window
+      // Skip as we are falling outside of the maintenance window
       mMaintenanceMessage.clear();
     }
   }
