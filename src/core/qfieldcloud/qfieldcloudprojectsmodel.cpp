@@ -537,7 +537,7 @@ void QFieldCloudProjectsModel::projectReceived()
   QVariantHash projectDetails;
   if ( doc.isArray() )
   {
-    QJsonArray projects = doc.array();
+    const QJsonArray projects = doc.array();
     if ( !projects.isEmpty() )
     {
       projectDetails = projects.first().toObject().toVariantHash();
@@ -545,10 +545,10 @@ void QFieldCloudProjectsModel::projectReceived()
   }
   else
   {
-    QJsonObject project = doc.object();
+    const QJsonObject project = doc.object();
     if ( !project.isEmpty() )
     {
-      projectDetails = doc.object().toVariantHash();
+      projectDetails = project.toVariantHash();
     }
   }
 
