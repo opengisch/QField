@@ -186,6 +186,7 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
     {
       qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connecting to target service (%1)" ).arg( service.toString() );
       mService = mController->createServiceObject( service, this );
+      break;
     }
   }
 

@@ -138,8 +138,8 @@ Item {
         let idx = bluetoothDeviceModel.index(currentIndex, 0);
         deviceName = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceNameRole);
         deviceAddress = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceAddressRole);
-        deviceClassicSupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceSupportClassicRole);
-        deviceLowEnergySupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceSupportLowEnergyRole);
+        deviceClassicSupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceClassicSupportRole);
+        deviceLowEnergySupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceLowEnergySupportRole);
         deviceLowEnergyByDefault = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceLowEnergyByDefaultRole);
         selectedBluetoothDevice = bluetoothDeviceAddress.text;
 
