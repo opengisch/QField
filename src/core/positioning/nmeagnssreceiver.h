@@ -69,7 +69,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
 
     GnssPositionInformation mCurrentNmeaGnssPositionInformation;
 
-    QIODevice *mIoDevice = nullptr;
+    QIODevice *mIODevice = nullptr;
 
     struct ImuPosition
     {

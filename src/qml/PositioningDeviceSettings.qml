@@ -64,7 +64,7 @@ QfPopup {
   Component.onCompleted: {
     if (withBluetooth) {
       positioningDeviceTypeModel.insert(0, {
-        "name": qsTr('Bluetooth (NMEA)'),
+        "name": qsTr('Bluetooth BT + BLE (NMEA)'),
         "value": PositioningDeviceModel.BluetoothDevice
       });
     }

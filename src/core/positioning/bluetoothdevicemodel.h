@@ -39,14 +39,16 @@ class BluetoothDeviceModel : public QAbstractListModel
     {
       DeviceAddressRole = Qt::UserRole + 1,
       DeviceNameRole,
+      DeviceClassicSupportRole,
+      DeviceLowEnergySupportRole,
+      DeviceLowEnergyByDefaultRole,
     };
     Q_ENUM( BluetoothDeviceRoles )
 
     //! The status telling the result of the scanning
     enum ScanningStatus
     {
-      FastScanning,
-      FullScanning,
+      Discovering,
       Succeeded,
       Failed,
       Canceled,
@@ -93,11 +95,11 @@ class BluetoothDeviceModel : public QAbstractListModel
 
   signals:
 
-    void scanningStatusChanged( ScanningStatus scanningStatus );
+    void scanningStatusChanged( BluetoothDeviceModel::ScanningStatus scanningStatus );
     void lastErrorChanged( QString lastError );
 
   private slots:
-    void setScanningStatus( const ScanningStatus scanningStatus );
+    void setScanningStatus( const BluetoothDeviceModel::ScanningStatus scanningStatus );
     void setLastError( const QString &lastError );
     void deviceDiscovered( const QBluetoothDeviceInfo &info );
 
@@ -109,7 +111,7 @@ class BluetoothDeviceModel : public QAbstractListModel
 
     std::unique_ptr<QBluetoothLocalDevice> mLocalDevice;
     std::unique_ptr<QBluetoothDeviceDiscoveryAgent> mDeviceDiscoveryAgent;
-    QList<QPair<QString, QString>> mDiscoveredDevices;
+    QList<QBluetoothDeviceInfo> mDiscoveredDevices;
     ScanningStatus mScanningStatus = NoStatus;
     QString mLastError;
 };

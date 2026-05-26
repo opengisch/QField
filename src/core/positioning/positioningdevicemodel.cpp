@@ -22,6 +22,9 @@
 #ifdef WITH_SERIALPORT
 #include "serialportreceiver.h"
 #endif
+#ifdef WITH_BLUETOOTH
+#include "bluetoothlowenergyreceiver.h"
+#endif
 
 #include <QSettings>
 
@@ -137,10 +140,11 @@ void PositioningDeviceModel::removeDevice( const QString &name )
   QSettings settings;
   settings.beginGroup( "/qfield/positioningDevices" );
   const QStringList deviceKeys = settings.childGroups();
-  if ( deviceKeys.contains( name ) )
+  const QString encodedName = QUrl::toPercentEncoding( name );
+  if ( deviceKeys.contains( encodedName ) )
   {
     // Remove pre-existing positioning device details
-    settings.beginGroup( name );
+    settings.beginGroup( encodedName );
     settings.remove( QString() );
     settings.endGroup();
   }
@@ -165,7 +169,11 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
       return QString();
 
     case BluetoothDevice:
-      return device.settings.value( QStringLiteral( "address" ) ).toString();
+      if ( device.settings.value( QStringLiteral( "ble" ) ).toBool() )
+      {
+        return QStringLiteral( "%1:%2" ).arg( BluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
+      }
+      return QStringLiteral( "%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
 
     case TcpDevice:
       return QStringLiteral( "%1:%2:%3" ).arg( TcpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );

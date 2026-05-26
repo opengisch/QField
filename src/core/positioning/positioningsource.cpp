@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #ifdef WITH_BLUETOOTH
+#include "bluetoothlowenergyreceiver.h"
 #include "bluetoothreceiver.h"
 #endif
 #ifdef WITH_SERIALPORT
@@ -318,18 +319,18 @@ void PositioningSource::setupDevice()
       mReceiver = std::make_unique<SerialPortReceiver>( address, this );
     }
 #endif
+#ifdef WITH_BLUETOOTH
+    else if ( mDeviceId.startsWith( BluetoothLowEnergyReceiver::identifier + ":" ) )
+    {
+      const qsizetype prefixLength = BluetoothLowEnergyReceiver::identifier.length() + 1;
+      const QString address = mDeviceId.mid( prefixLength );
+      mReceiver = std::make_unique<BluetoothLowEnergyReceiver>( address, this );
+    }
     else
     {
-#ifdef WITH_BLUETOOTH
       mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
-
-      // Start NTRIP client if enabled for Bluetooth receivers
-      if ( mEnableNtrip )
-      {
-        startNtripClient();
-      }
-#endif
     }
+#endif
   }
 
   // Reset the position information to insure no cross contamination between receiver types
