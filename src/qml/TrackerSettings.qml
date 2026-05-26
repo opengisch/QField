@@ -522,7 +522,7 @@ QfPopup {
           property bool loaded: false
           Component.onCompleted: {
             // This list matches the Tracker::MeasureType enum
-            var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (milliseconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
+            var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (seconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
             model = measurements;
             loaded = true;
           }
