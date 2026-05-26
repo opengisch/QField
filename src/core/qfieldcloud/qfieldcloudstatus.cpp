@@ -156,6 +156,17 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
   mIncidentMessage = obj.value( QStringLiteral( "incident_message" ) ).toString();
   const QString incidentTimestamp = obj.value( QStringLiteral( "incident_timestamp_utc" ) ).toString();
   mMaintenanceMessage = obj.value( QStringLiteral( "maintenance_message" ) ).toString();
+  if ( !mMaintenanceMessage.isEmpty() )
+  {
+    const QDateTime currentTimestamp = QDateTime::currentDateTime();
+    const QDateTime startTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_start_timestamp_utc" ) ).toString(), Qt::ISODate );
+    const QDateTime endTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_end_timestamp_utc" ) ).toString(), Qt::ISODate );
+    if ( startTimestamp.isValid() && endTimestamp.isValid() && ( currentTimestamp < startTimestamp || currentTimestamp >= endTimestamp ) )
+    {
+      // Skip as we are falling outside of the maintenance window
+      mMaintenanceMessage.clear();
+    }
+  }
 
   // Determine if there is a problem
   const bool databaseDegraded = !databaseStatus.isEmpty() && databaseStatus != QStringLiteral( "ok" );
@@ -174,15 +185,9 @@ void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
 
     if ( hasMaintenance )
     {
-      const QDateTime currentTimestamp = QDateTime::currentDateTime();
-      const QDateTime startTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_start_timestamp_utc" ) ).toString(), Qt::ISODate );
-      const QDateTime endTimestamp = QDateTime::fromString( obj.value( QStringLiteral( "maintenance_end_timestamp_utc" ) ).toString(), Qt::ISODate );
-      if ( !startTimestamp.isValid() || !endTimestamp.isValid() || ( currentTimestamp >= startTimestamp && currentTimestamp <= endTimestamp ) )
-      {
-        messages << tr( "QFieldCloud is under maintenance" );
-        details << mMaintenanceMessage;
-        mStatusType = StatusType::Maintenance;
-      }
+      messages << tr( "QFieldCloud is under maintenance" );
+      details << mMaintenanceMessage;
+      mStatusType = StatusType::Maintenance;
     }
 
     if ( databaseDegraded || storageDegraded )
