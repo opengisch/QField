@@ -31,6 +31,7 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY( ScanningStatus scanningStatus READ scanningStatus NOTIFY scanningStatusChanged )
+    Q_PROPERTY( qsizetype lastDiscoveredCount READ lastDiscoveredCount NOTIFY lastDiscoveredCountChanged )
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
@@ -91,11 +92,15 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_INVOKABLE int findIndexFromAddress( const QString &address ) const;
 
     ScanningStatus scanningStatus() const { return mScanningStatus; };
+
+    qsizetype lastDiscoveredCount() const { return mLastDiscoveredCount; }
+
     QString lastError() const { return mLastError; };
 
   signals:
 
     void scanningStatusChanged( BluetoothDeviceModel::ScanningStatus scanningStatus );
+    void lastDiscoveredCountChanged();
     void lastErrorChanged( QString lastError );
 
   private slots:
@@ -113,6 +118,8 @@ class BluetoothDeviceModel : public QAbstractListModel
     std::unique_ptr<QBluetoothDeviceDiscoveryAgent> mDeviceDiscoveryAgent;
     QList<QBluetoothDeviceInfo> mDiscoveredDevices;
     ScanningStatus mScanningStatus = NoStatus;
+
+    qsizetype mLastDiscoveredCount;
     QString mLastError;
 };
 

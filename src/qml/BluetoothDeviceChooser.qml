@@ -120,8 +120,8 @@ Item {
             break;
           case BluetoothDeviceModel.Succeeded:
             let message = qsTr('Scanning done');
-            if (bluetoothDeviceModel.rowCount() > 1) {
-              message += ': ' + qsTr('%n device(s) found', '', bluetoothDeviceModel.rowCount() - 1);
+            if (bluetoothDeviceModel.lastDiscoveredCount > 0) {
+              message += ': ' + qsTr('%n device(s) found', '', bluetoothDeviceModel.lastDiscoveredCount);
             }
             displayToast(message);
             break;
