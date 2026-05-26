@@ -177,16 +177,16 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
   clearService();
   mService = nullptr;
 
-  const QList<QBluetoothUuid> validServices = serviceChars.keys();
   const QList<QBluetoothUuid> controllerServices = mController->services();
-  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Finding target within %1 services" ).arg( controllerServices.size() );
-  for ( const QBluetoothUuid &service : controllerServices )
+  if ( !controllerServices.isEmpty() )
   {
-    if ( validServices.contains( service ) )
+    const QList<QBluetoothUuid> validServices = serviceChars.keys();
+    qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Finding target within %1 services" ).arg( controllerServices.size() );
+    auto match = std::find_if( controllerServices.begin(), controllerServices.end(), [&validServices]( const QBluetoothUuid &service ) { return validServices.contains( service ); } );
+    if ( match != controllerServices.end() )
     {
-      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connecting to target service (%1)" ).arg( service.toString() );
-      mService = mController->createServiceObject( service, this );
-      break;
+      qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Connecting to target service (%1)" ).arg( match->toString() );
+      mService = mController->createServiceObject( *match, this );
     }
   }
 
