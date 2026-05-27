@@ -282,8 +282,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Aucun appareil Bluetooth détecté</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Scan approfondi pour les appareils couplés</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2299,7 +2311,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2336,6 +2348,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Logs file (NMEA)</source>
         <translation>Fichier journal (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4400,7 +4416,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Horodatage (millisecondes depuis le début)</translation>
+        <translation type="vanished">Horodatage (millisecondes depuis le début)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4740,6 +4756,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5638,7 +5658,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Horodatage (millisecondes depuis le début)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5691,6 +5711,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>Suivi sur la couche %1 repris</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

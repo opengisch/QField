@@ -283,8 +283,20 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <translation>No se detectaron dispositivos Bluetooth.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Escaneo más profundo de dispositivos emparejados</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2300,7 +2312,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2337,6 +2349,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Logs file (NMEA)</source>
         <translation>Archivo de registros (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4402,7 +4418,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Marca de tiempo (milisegundos desde la época)</translation>
+        <translation type="vanished">Marca de tiempo (milisegundos desde la época)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4743,6 +4759,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5641,7 +5661,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Marca de tiempo (milisegundos desde la época)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5694,6 +5714,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>Se reanudó el recorrido en la capa %1</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

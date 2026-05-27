@@ -283,8 +283,20 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <translation>Keine Bluetooth-Geräte erkannt.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Tiefere Suche nach gekoppelten Geräten</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2297,7 +2309,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2334,6 +2346,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Logs file (NMEA)</source>
         <translation>Log Dateien (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4399,7 +4415,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Zeitstempel (Milisekunden seit letzter Messung)</translation>
+        <translation type="vanished">Zeitstempel (Milisekunden seit letzter Messung)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4739,6 +4755,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5637,7 +5657,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Zeitstempel (Millisekunden seit letzter Messung)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5690,6 +5710,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>Track auf Layer %1 wiederaufgenommen</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

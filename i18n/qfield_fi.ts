@@ -283,8 +283,20 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
         <translation>Ei havaittuja Bluetooth-laitteita.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Paritettujen laitteiden tarkempi skannaus</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2298,7 +2310,7 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2335,6 +2347,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Logs file (NMEA)</source>
         <translation>Lokitiedosto (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4404,7 +4420,7 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Aikaleima (millisekuntia aikakauden alusta)</translation>
+        <translation type="vanished">Aikaleima (millisekuntia aikakauden alusta)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4744,6 +4760,10 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5642,7 +5662,7 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Aikaleima (millisekuntia aikakauden alusta)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5694,6 +5714,10 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>

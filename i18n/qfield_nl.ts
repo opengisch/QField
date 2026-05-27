@@ -283,8 +283,20 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Geen Bluetooth-apparaten gedetecteerd.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Dieper scannen voor gekoppelde apparaten</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2298,7 +2310,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2334,6 +2346,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4402,7 +4418,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Tijdstempel (milliseconden sinds epoch)</translation>
+        <translation type="vanished">Tijdstempel (milliseconden sinds epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4742,6 +4758,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5640,7 +5660,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Tijdstempel (milliseconden sinds epoch)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5692,6 +5712,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>

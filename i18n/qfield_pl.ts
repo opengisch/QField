@@ -283,8 +283,20 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Nie wykryto żadnych urządzeń Bluetooth.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Głębsze skanowanie sparowanych urządzeń</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation>Używaj technologii Bluetooth Low Energy (BLE)</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation>Konfiguracja urządzenia Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation>Niski poziom energii (BLE)</translation>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation>Klasyczny (BT)</translation>
     </message>
 </context>
 <context>
@@ -1959,7 +1971,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>NtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Nieoczekiwana odpowiedź od nadajnika NTRIP</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
@@ -2302,7 +2314,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2339,6 +2351,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Logs file (NMEA)</source>
         <translation>Plik dziennika (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2511,7 +2527,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Przekazuj pozycję do nadajnika NTRIP</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
@@ -4407,7 +4423,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Znacznik czasowy (ms czasu systemowego)</translation>
+        <translation type="vanished">Znacznik czasowy (ms czasu systemowego)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4723,7 +4739,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenie pozycjonujące</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -4747,7 +4763,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Regulacja wysokości</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Znacznik czasu (sekundy od epoki)</translation>
     </message>
 </context>
 <context>
@@ -5645,7 +5665,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Znacznik czasowy (ms czasu systemowego)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5698,6 +5718,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>Śledzenie na warstwie %1 zostało wznowione</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>Znacznik czasu (sekundy od epoki)</translation>
     </message>
 </context>
 <context>

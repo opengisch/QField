@@ -283,8 +283,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Nem érzékelhető bluetooth eszköz.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>Párosított eszközök mélyebb keresése</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2297,7 +2309,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2334,6 +2346,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Logs file (NMEA)</source>
         <translation>Naplófájl (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4397,7 +4413,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Időbélyeg (ezredmásodperc a kezdet óta)</translation>
+        <translation type="vanished">Időbélyeg (ezredmásodperc a kezdet óta)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4738,6 +4754,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5636,7 +5656,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Időbélyeg (ezredmásodperc a kezdet óta)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5688,6 +5708,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>

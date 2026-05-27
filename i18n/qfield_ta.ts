@@ -283,8 +283,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ஊடலை சாதனங்கள் எதுவும் கண்டறியப்படவில்லை.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>இணைக்கப்பட்ட சாதனங்களுக்கான ஆழமான ச்கேனிங்</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2294,7 +2306,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>ஊடலை (NMEA)</translation>
+        <translation type="vanished">ஊடலை (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2331,6 +2343,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Logs file (NMEA)</source>
         <translation>பதிவுகள் கோப்பு (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4398,7 +4414,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>நேர முத்திரை (சகாப்தத்திலிருந்து மில்லி விநாடிகள்)</translation>
+        <translation type="vanished">நேர முத்திரை (சகாப்தத்திலிருந்து மில்லி விநாடிகள்)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4738,6 +4754,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5636,7 +5656,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>நேர முத்திரை (சகாப்தத்திலிருந்து மில்லி விநாடிகள்)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5689,6 +5709,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>அடுக்கு% 1 இல் தடம் மீண்டும் தொடங்கப்பட்டது</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

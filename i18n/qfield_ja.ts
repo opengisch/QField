@@ -283,8 +283,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Bluetooth機器が見つかりません</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>ペアリングされた機器を詳細にスキャンしています</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2296,7 +2308,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2333,6 +2345,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Logs file (NMEA)</source>
         <translation>ログファイル (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4400,7 +4416,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>タイムスタンプ（エポックミリ秒）</translation>
+        <translation type="vanished">タイムスタンプ（エポックミリ秒）</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4740,6 +4756,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5638,7 +5658,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>タイムスタンプ（エポックミリ秒）</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5690,6 +5710,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>

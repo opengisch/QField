@@ -283,7 +283,19 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Nessun dispositivo bluetooth trovato.</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2300,7 +2312,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2336,6 +2348,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4408,7 +4424,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Timestamp (millisecondi dall&apos;epoca)</translation>
+        <translation type="vanished">Timestamp (millisecondi dall&apos;epoca)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4748,6 +4764,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5646,7 +5666,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>Timestamp (millisecondi dall&apos;epoca)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5698,6 +5718,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>

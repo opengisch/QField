@@ -283,8 +283,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>未检测到蓝牙设备。</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>对配对设备进行深度扫描</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation>使用低功耗蓝牙 (BLE)</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation>蓝牙设备配置:</translation>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation>低功耗 (BLE)</translation>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation>经典 (BT)</translation>
     </message>
 </context>
 <context>
@@ -2296,7 +2308,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>蓝牙 (NMEA)</translation>
+        <translation type="vanished">蓝牙 (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2333,6 +2345,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Logs file (NMEA)</source>
         <translation>日志文件 (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation>蓝牙 BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -4401,7 +4417,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>时间戳 (Unix时间戳之后的毫秒数)</translation>
+        <translation type="vanished">时间戳 (Unix时间戳之后的毫秒数)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4742,6 +4758,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Elevation Adjustment</source>
         <translation>高程调整</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>时间戳 (纪元秒数)</translation>
     </message>
 </context>
 <context>
@@ -5639,7 +5659,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>时间戳 (Unix时间戳之后的毫秒数)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5692,6 +5712,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>图层%1的跟踪已恢复</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation>时间戳 (纪元秒数)</translation>
     </message>
 </context>
 <context>

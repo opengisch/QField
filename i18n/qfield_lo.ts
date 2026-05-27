@@ -282,8 +282,20 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ບໍ່ພົບອຸປະກອນ Bluetooth</translation>
     </message>
     <message>
-        <source>Deeper scanning for paired devices</source>
-        <translation>ການສະແກນເພີ່ມເຕີມສຳລັບຈັບຄູ່ອຸປະກອນ</translation>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2289,7 +2301,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation>Bluetooth (NMEA)</translation>
+        <translation type="vanished">Bluetooth (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
@@ -2326,6 +2338,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Logs file (NMEA)</source>
         <translation>ໄຟລ໌ບັນທຶກ (NMEA)</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4383,7 +4399,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>ການປະທັບຕາເວລາ (ມິນລິວິນາທີນັບຕັ້ງແຕ່ຍຸກ)</translation>
+        <translation type="vanished">ການປະທັບຕາເວລາ (ມິນລິວິນາທີນັບຕັ້ງແຕ່ຍຸກ)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4724,6 +4740,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5623,7 +5643,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation>ການປະທັບຕາເວລາ (ມິນລິວິນາທີນັບຕັ້ງແຕ່ຍຸກ)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
@@ -5676,6 +5696,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Track on layer %1 resumed</source>
         <translation>ເລີ່ມການຕິດຕາມໃນຊັ້ນ %1 ຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
