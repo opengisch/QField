@@ -1049,7 +1049,8 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
     {
       pair.second.setAttribute( idx, value );
 
-      QList<int> rolesChanged = QVector<int>() << MultiFeatureListModel::FeatureRole
+      QList<int> rolesChanged = QVector<int>() << Qt::DisplayRole
+                                               << MultiFeatureListModel::FeatureRole
                                                << MultiFeatureListModel::FeatureNameRole
                                                << MultiFeatureListModel::DeleteFeatureRole
                                                << MultiFeatureListModel::EditGeometryRole;
@@ -1096,7 +1097,8 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
     if ( pair.first == l && pair.second.id() == fid )
     {
       pair.second.setGeometry( geometry );
-      QList<int> rolesChanged = QVector<int>() << MultiFeatureListModel::FeatureRole
+      QList<int> rolesChanged = QVector<int>() << Qt::DisplayRole
+                                               << MultiFeatureListModel::FeatureRole
                                                << MultiFeatureListModel::FeatureNameRole
                                                << MultiFeatureListModel::GeometryRole
                                                << MultiFeatureListModel::DeleteFeatureRole
