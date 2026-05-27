@@ -927,6 +927,9 @@ Page {
       // indirect action, no need to check for success and display a toast, the log is enough
       model.deleteFeature();
     }
+
+    form.state = 'ReadOnly';
+
     cancelled();
     featureCreated = false;
   }
