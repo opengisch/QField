@@ -354,6 +354,11 @@ QString Positioning::deviceSocketStateString() const
   return isSourceAvailable() ? mPositioningSourceReplica->property( "deviceSocketStateString" ).toString() : QString();
 }
 
+double Positioning::deviceBatteryLevel() const
+{
+  return isSourceAvailable() ? mPositioningSourceReplica->property( "deviceBatteryLevel" ).toDouble() : std::numeric_limits<double>::quiet_NaN();
+}
+
 GnssPositionDetails Positioning::deviceDetails() const
 {
   GnssPositionDetails list;

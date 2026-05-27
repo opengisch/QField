@@ -57,6 +57,8 @@ class AbstractGnssReceiver : public QObject
 
     QString lastError() const { return mLastError; }
 
+    double barreryLevel() const { return mBatteryLevel; }
+
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
      */
@@ -73,6 +75,7 @@ class AbstractGnssReceiver : public QObject
     void socketStateChanged( const QAbstractSocket::SocketState socketState );
     void socketStateStringChanged( const QString &socketStateString );
     void lastErrorChanged( const QString &lastError );
+    void batteryLevelChanged( const double batteryLevel );
 
   public slots:
     virtual void onCorrectionDataReceived( const QByteArray &data ) {}
@@ -97,6 +100,7 @@ class AbstractGnssReceiver : public QObject
     GnssPositionInformation mLastGnssPositionInformation;
     QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
     QString mLastError;
+    double mBatteryLevel = std::numeric_limits<double>::quiet_NaN();
 };
 
 Q_DECLARE_METATYPE( AbstractGnssReceiver )

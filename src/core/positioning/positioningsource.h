@@ -44,6 +44,7 @@ class PositioningSource : public QObject
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
+    Q_PROPERTY( double deviceBatteryLevel READ deviceBatteryLevel NOTIFY deviceBatteryLevelChanged )
 
     Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation NOTIFY positionInformationChanged )
 
@@ -159,6 +160,11 @@ class PositioningSource : public QObject
      * \see deviceSocketState
      */
     QString deviceSocketStateString() const { return mReceiver ? mReceiver->socketStateString() : QString(); }
+
+    /**
+     * Returns the device current battery level as a 0.0 to 1.0 double range.
+     */
+    double deviceBatteryLevel() const { return mReceiver ? mReceiver->barreryLevel() : std::numeric_limits<double>::quiet_NaN(); }
 
     /**
      * Returns a GnssPositionInformation position information object.
@@ -294,6 +300,7 @@ class PositioningSource : public QObject
     void deviceLastErrorChanged();
     void deviceSocketStateChanged();
     void deviceSocketStateStringChanged();
+    void deviceBatteryLevelChanged();
     void positionInformationChanged();
     void elevationCorrectionModeChanged();
     void antennaHeightChanged();

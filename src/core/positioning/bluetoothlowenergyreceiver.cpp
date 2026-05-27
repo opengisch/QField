@@ -175,7 +175,6 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
   }
 
   clearService();
-  mService = nullptr;
 
   const QList<QBluetoothUuid> controllerServices = mController->services();
   if ( !controllerServices.isEmpty() )
@@ -190,7 +189,15 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
     }
   }
 
-  if ( !mService )
+  if ( mService )
+  {
+    connect( mService, &QLowEnergyService::stateChanged, this, &BluetoothLowEnergyReceiver::serviceStateChanged );
+    connect( mService, qOverload<QLowEnergyService::ServiceError>( &QLowEnergyService::errorOccurred ), this, &BluetoothLowEnergyReceiver::serviceErrorOccurred );
+    connect( mService, &QLowEnergyService::characteristicChanged, this, &BluetoothLowEnergyReceiver::characteristicChanged );
+
+    mService->discoverDetails();
+  }
+  else
   {
     mLastError = "BluetoothLowEnergyReceiver: Required target service not found on device.";
     qWarning() << mLastError;
@@ -198,53 +205,81 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
     handleDisconnectDevice();
     return;
   }
-
-  connect( mService, &QLowEnergyService::stateChanged, this, &BluetoothLowEnergyReceiver::serviceStateChanged );
-  connect( mService, qOverload<QLowEnergyService::ServiceError>( &QLowEnergyService::errorOccurred ), this, &BluetoothLowEnergyReceiver::serviceErrorOccurred );
-  connect( mService, &QLowEnergyService::characteristicChanged, this, &BluetoothLowEnergyReceiver::characteristicChanged );
-
-  mService->discoverDetails();
 }
 
-void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::ServiceState s )
+void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::ServiceState state )
 {
-  if ( s == QLowEnergyService::RemoteServiceDiscovered )
+  if ( sender() == mService )
   {
-    mRxCharacteristic = mService->characteristic( serviceChars[mService->serviceUuid()].first );
-    mTxCharacteristic = mService->characteristic( serviceChars[mService->serviceUuid()].second );
-
-    if ( mRxCharacteristic.isValid() )
+    if ( state == QLowEnergyService::RemoteServiceDiscovered )
     {
-      QLowEnergyDescriptor notificationDesc = mRxCharacteristic.descriptor( QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration );
-      if ( notificationDesc.isValid() )
+      mRxCharacteristic = mService->characteristic( serviceChars[mService->serviceUuid()].first );
+      mTxCharacteristic = mService->characteristic( serviceChars[mService->serviceUuid()].second );
+
+      if ( mRxCharacteristic.isValid() )
       {
-        mService->writeDescriptor( notificationDesc, QByteArray::fromHex( "0100" ) );
-        qInfo() << "BluetoothLowEnergyReceiver: Subscribed to RX characteristic notifications.";
+        QLowEnergyDescriptor notificationDesc = mRxCharacteristic.descriptor( QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration );
+        if ( notificationDesc.isValid() )
+        {
+          mService->writeDescriptor( notificationDesc, QByteArray::fromHex( "0100" ) );
+          qInfo() << "BluetoothLowEnergyReceiver: Subscribed to RX characteristic notifications.";
+        }
+
+        mBufferData.clear();
+        mBuffer->open( QIODevice::ReadWrite );
+
+        setSocketState( QAbstractSocket::ConnectedState );
+      }
+      else
+      {
+        qWarning() << "BluetoothLowEnergyReceiver: RX Characteristic not found!";
+        handleDisconnectDevice();
       }
 
-      mBufferData.clear();
-      mBuffer->open( QIODevice::ReadWrite );
+      mBatteryService = mController->createServiceObject( QBluetoothUuid::ServiceClassUuid::BatteryService, this );
 
-      setSocketState( QAbstractSocket::ConnectedState );
+      if ( mBatteryService )
+      {
+        qInfo() << "BluetoothLowEnergyReceiver: Battery service initiating";
+        connect( mBatteryService, &QLowEnergyService::stateChanged, this, &BluetoothLowEnergyReceiver::serviceStateChanged );
+        connect( mBatteryService, &QLowEnergyService::characteristicChanged, this, &BluetoothLowEnergyReceiver::characteristicChanged );
+
+        mBatteryService->discoverDetails();
+      }
     }
-    else
+  }
+  else if ( sender() == mBatteryService )
+  {
+    if ( state == QLowEnergyService::RemoteServiceDiscovered )
     {
-      qWarning() << "BluetoothLowEnergyReceiver: RX Characteristic not found!";
-      handleDisconnectDevice();
+      mBatteryCharacteristic = mBatteryService->characteristic( QBluetoothUuid::CharacteristicType::BatteryLevel );
+
+      if ( mBatteryCharacteristic.isValid() )
+      {
+        qInfo() << "BluetoothLowEnergyReceiver: Subscribing to battery level characteristic notification";
+        QLowEnergyDescriptor notificationDesc = mBatteryCharacteristic.descriptor( QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration );
+        if ( notificationDesc.isValid() )
+        {
+          mBatteryService->writeDescriptor( notificationDesc, QByteArray::fromHex( "0100" ) );
+          qInfo() << "BluetoothLowEnergyReceiver: Subscribed to battery level characteristic notifications.";
+        }
+
+        mBatteryService->readCharacteristic( mBatteryCharacteristic );
+      }
     }
   }
 }
 
-void BluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::ServiceError e )
+void BluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::ServiceError error )
 {
-  mLastError = QStringLiteral( "Service Error: %1" ).arg( QMetaEnum::fromType<QLowEnergyService::ServiceError>().valueToKey( static_cast<int>( e ) ) );
+  mLastError = QStringLiteral( "Service Error: %1" ).arg( QMetaEnum::fromType<QLowEnergyService::ServiceError>().valueToKey( static_cast<int>( error ) ) );
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: %1" ).arg( mLastError );
   emit lastErrorChanged( mLastError );
 }
 
-void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacteristic &c, const QByteArray &value )
+void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacteristic &characteristic, const QByteArray &value )
 {
-  if ( c.uuid() == mRxCharacteristic.uuid() )
+  if ( characteristic.uuid() == mRxCharacteristic.uuid() )
   {
     mBufferData.append( value );
     int endSentenceIndex = mBufferData.lastIndexOf( QLatin1String( "\r\n" ) );
@@ -256,6 +291,15 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
       mBuffer->seek( 0 );
 
       mBufferData = mBufferData.mid( endSentenceIndex + 2 );
+    }
+  }
+  else if ( characteristic.uuid() == mBatteryCharacteristic.uuid() )
+  {
+    if ( !value.isEmpty() )
+    {
+      const int batteryPercentage = static_cast<quint8>( value[0] );
+      mBatteryLevel = batteryPercentage / 100.0;
+      emit batteryLevelChanged( mBatteryLevel );
     }
   }
 }
@@ -276,6 +320,14 @@ void BluetoothLowEnergyReceiver::clearService()
 
   mRxCharacteristic = QLowEnergyCharacteristic();
   mTxCharacteristic = QLowEnergyCharacteristic();
+
+  if ( mBatteryService )
+  {
+    mBatteryService->deleteLater();
+    mBatteryService = nullptr;
+  }
+
+  mBatteryCharacteristic = QLowEnergyCharacteristic();
 }
 
 QString BluetoothLowEnergyReceiver::socketStateString()
