@@ -187,38 +187,21 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
                .arg( info.name(), info.address().toString() )
                .arg( mLocalDevice->pairingStatus( info.address() ) );
 
-  const int index = static_cast<int>( mDiscoveredDevices.size() );
-  const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
-  const bool lowEnergySupport = ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration );
 #if defined( Q_OS_ANDROID )
   // Only list paired devices users have control over it.
-  if ( paired )
+  const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
+  if ( !paired )
   {
-    beginInsertRows( QModelIndex(), index, index );
-    mDiscoveredDevices.append( info );
-    endInsertRows();
-
-    mLastDiscoveredCount++;
+    return;
   }
-#elif defined( Q_OS_IOS )
-  // Only list paired, BLE devices users have control over it.
-  if ( paired && lowEnergySupport )
-  {
-    beginInsertRows( QModelIndex(), index, index );
-    mDiscoveredDevices.append( info );
-    endInsertRows();
+#endif
 
-    mLastDiscoveredCount++;
-  }
-#else
-  Q_UNUSED( paired )
-  Q_UNUSED( lowEnergySupport )
+  const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices.append( info );
   endInsertRows();
 
   mLastDiscoveredCount++;
-#endif
 }
 
 int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
