@@ -104,7 +104,11 @@ void BluetoothLowEnergyReceiver::doConnectDevice()
 {
   if ( !mController )
   {
+#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
+    QBluetoothDeviceInfo deviceInfo( QBluetoothUuid( mAddress ), QString(), 0 );
+#else
     QBluetoothDeviceInfo deviceInfo( QBluetoothAddress( mAddress ), QString(), 0 );
+#endif
     mController = QLowEnergyController::createCentral( deviceInfo, this );
 
     connect( mController, &QLowEnergyController::connected, this, &BluetoothLowEnergyReceiver::deviceConnected );

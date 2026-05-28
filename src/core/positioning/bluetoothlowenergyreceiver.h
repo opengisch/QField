@@ -21,6 +21,7 @@
 
 #include <QBuffer>
 #include <QObject>
+#include <QtBluetooth/QBluetoothUuid>
 #include <QtBluetooth/QLowEnergyController>
 #include <QtBluetooth/QLowEnergyService>
 
