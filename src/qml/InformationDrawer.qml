@@ -176,7 +176,7 @@ Item {
 
         Menu {
           id: stakeoutMenu
-          width: 340
+          width: 330
 
           MenuItem {
             text: qsTr("Audio proximity feedback")
@@ -339,7 +339,7 @@ Item {
 
                 Text {
                   id: precisionText
-                  text: UnitTypes.formatDistance(modelData, 2, projectInfo.distanceUnits)
+                  text: UnitTypes.formatDistance(modelData, modelData < 1 ? 2 : 1, projectInfo.distanceUnits)
                   font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
                   anchors.centerIn: parent
                   color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
