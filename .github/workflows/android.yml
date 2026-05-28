@@ -134,7 +134,7 @@ jobs:
         uses: useblacksmith/stickydisk@v1
         with:
           key: vcpkg-archives-${{ matrix.triplet }}
-          path: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed
+          path: ${{ env.CMAKE_BUILD_DIR }}/_deps/vcpkg-src/packages
 
       - name: 🌱 Install dependencies and generate project files
         env:
