@@ -113,6 +113,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   QgsProject *createdProject = new QgsProject();
 
   // Basic project settings
+  createdProject->setTitle( projectTitle );
   createdProject->setCrs( QgsCoordinateReferenceSystem( "EPSG:3857" ) );
   createdProject->displaySettings()->setCoordinateType( Qgis::CoordinateDisplayType::CustomCrs );
   createdProject->displaySettings()->setCoordinateCustomCrs( QgsCoordinateReferenceSystem( "EPSG:4326" ) );
