@@ -281,77 +281,52 @@ Drawer {
       }
     }
 
-    GroupBox {
-      id: projectInformationContainer
+    RowLayout {
+      id: projectInformationLayout
       Layout.fillWidth: true
-      title: qsTr("Title")
-      leftPadding: 5
-      rightPadding: 5
-      topPadding: label.height + 5
-      bottomPadding: 5
+      Layout.leftMargin: mainWindow.sceneLeftMargin + 10
+      Layout.rightMargin: 10
+      Layout.bottomMargin: 5
 
-      background: Rectangle {
-        color: "transparent"
-      }
+      QfSwipeAnimator {
+        Layout.fillWidth: true
+        Layout.preferredHeight: projectTitleText.contentHeight
+        Layout.alignment: Qt.AlignVCenter
+        contentImplicitWidth: projectTitleText.contentWidth
+        shouldAutoFlick: dashBoard.opened && projectTitleText.contentWidth > width
+        duration: shouldAutoFlick ? Math.abs(projectTitleText.contentWidth - width) * 100 + 10 : 10000
+        interactive: false
 
-      label: Label {
-        x: mapThemeContainer.leftPadding
-        height: 25
-        width: parent.availableWidth
-        leftPadding: mainWindow.sceneLeftMargin
-        text: parent.title
-        color: Theme.mainTextColor
-        font: Theme.strongTipFont
-        elide: Text.ElideRight
-        verticalAlignment: Text.AlignVCenter
-        clip: true
-      }
-
-      RowLayout {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.leftMargin: mainWindow.sceneLeftMargin + 5
-        anchors.rightMargin: 5
-
-        QfSwipeAnimator {
-          Layout.fillWidth: true
-          Layout.preferredHeight: projectTitleText.contentHeight
-          Layout.alignment: Qt.AlignVCenter
-          contentImplicitWidth: projectTitleText.contentWidth
-          shouldAutoFlick: dashBoard.opened && projectTitleText.contentWidth > width
-          duration: shouldAutoFlick ? Math.abs(projectTitleText.contentWidth - width) * 100 + 10 : 10000
-
-          Text {
-            id: projectTitleText
-            text: {
-              if (qgisProject) {
-                if (qgisProject.title !== "") {
-                  return qgisProject.title;
-                } else if (cloudProjectsModel.currentProject) {
-                  return cloudProjectsModel.currentProject.name;
-                } else {
-                  return FileUtils.fileName(qgisProject.fileName, false);
-                }
+        Text {
+          id: projectTitleText
+          text: {
+            if (qgisProject) {
+              if (qgisProject.title !== "") {
+                return qgisProject.title;
+              } else if (cloudProjectsModel.currentProject) {
+                return cloudProjectsModel.currentProject.name;
+              } else {
+                return FileUtils.fileName(qgisProject.fileName, false);
               }
-              return "";
             }
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            return "";
           }
+          font: Theme.strongFont
+          color: Theme.mainTextColor
         }
+      }
 
-        QfToolButton {
-          id: temporalButton
-          Layout.alignment: Qt.AlignVCenter
-          width: 36
-          height: 36
-          padding: 0
-          visible: flatLayerTree.isTemporal
-          iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
-          iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
-          bgcolor: "transparent"
-          onClicked: temporalProperties.open()
-        }
+      QfToolButton {
+        id: temporalButton
+        Layout.alignment: Qt.AlignVCenter
+        width: 36
+        height: 36
+        padding: 0
+        visible: flatLayerTree.isTemporal
+        iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
+        iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
+        bgcolor: "transparent"
+        onClicked: temporalProperties.open()
       }
     }
 
