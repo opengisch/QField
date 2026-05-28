@@ -145,7 +145,12 @@ void BluetoothDeviceModel::startDeviceDiscovery()
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Discovering );
+
+#if defined( Q_OS_IOS )
+  mDeviceDiscoveryAgent->start( QBluetoothDeviceDiscoveryAgent::LowEnergyMethod );
+#else
   mDeviceDiscoveryAgent->start();
+#endif
 }
 
 void BluetoothDeviceModel::stopDeviceDiscovery()
