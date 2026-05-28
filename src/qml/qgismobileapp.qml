@@ -1598,49 +1598,20 @@ ApplicationWindow {
     QfToolButtonPie {
       id: destinationActionsPieMenu
 
-      property point destinationScreenLocation: Qt.point(-1, -1)
-
-      function updateDestinationScreenLocation() {
-        destinationScreenLocation = navigation.isActive ? mapCanvas.mapSettings.coordinateToScreen(navigation.destination) : Qt.point(-1, -1);
-      }
-
-      Connections {
-        target: mapCanvas.mapSettings
-        function onExtentChanged() {
-          destinationActionsPieMenu.updateDestinationScreenLocation();
-        }
-        function onRotationChanged() {
-          destinationActionsPieMenu.updateDestinationScreenLocation();
-        }
-        function onOutputSizeChanged() {
-          destinationActionsPieMenu.updateDestinationScreenLocation();
-        }
-      }
-
-      Connections {
-        target: navigation
-        function onDestinationChanged() {
-          destinationActionsPieMenu.updateDestinationScreenLocation();
-        }
-        function onIsActiveChanged() {
-          destinationActionsPieMenu.updateDestinationScreenLocation();
-        }
-      }
-
       readonly property int minimumDistanceToScreenEdge: 80
       readonly property real menuHalfSize: destinationActionsPieMenu.width / 2
 
-      readonly property bool tooCloseToLeft: destinationScreenLocation.x - menuHalfSize - minimumDistanceToScreenEdge < 0
-      readonly property bool tooCloseToRight: destinationScreenLocation.x + menuHalfSize + minimumDistanceToScreenEdge > mainWindow.width
-      readonly property bool tooCloseToTop: destinationScreenLocation.y - menuHalfSize - minimumDistanceToScreenEdge < 0
-      readonly property bool tooCloseToBottom: destinationScreenLocation.y + menuHalfSize + minimumDistanceToScreenEdge + informationDrawer.height > mainWindow.height
+      readonly property bool tooCloseToLeft: targetPoint && targetPoint.x - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToRight: targetPoint && targetPoint.x + menuHalfSize + minimumDistanceToScreenEdge > mainWindow.width
+      readonly property bool tooCloseToTop: targetPoint && targetPoint.y - menuHalfSize - minimumDistanceToScreenEdge < 0
+      readonly property bool tooCloseToBottom: targetPoint && targetPoint.y + menuHalfSize + minimumDistanceToScreenEdge + informationDrawer.height > mainWindow.height
       readonly property bool nearToEdge: tooCloseToLeft || tooCloseToRight || tooCloseToTop || tooCloseToBottom
 
       readonly property bool destinationOutsidePieMenu: {
-        if (!visible)
+        if (!visible || !targetPoint)
           return true;
-        const dx = destinationActionsPieMenu.x + (destinationActionsPieMenu.width / 2) - destinationScreenLocation.x;
-        const dy = destinationActionsPieMenu.y + (destinationActionsPieMenu.height / 2) - destinationScreenLocation.y;
+        const dx = destinationActionsPieMenu.x + (destinationActionsPieMenu.width / 2) - targetPoint.x;
+        const dy = destinationActionsPieMenu.y + (destinationActionsPieMenu.height / 2) - targetPoint.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         return distance > 20;
       }
@@ -1650,34 +1621,34 @@ ApplicationWindow {
       width: Math.min(150, mapCanvasMap.width / 3)
       height: width
 
-      targetPoint: destinationScreenLocation
       showConnectionLine: visible && (nearToEdge || destinationOutsidePieMenu)
       linkColor: Theme.navigationColor
 
-      function openPieMenu(point) {
+      function openPieMenu(screenLocation) {
+        targetPoint = screenLocation;
         if (tooCloseToLeft) {
           destinationActionsPieMenu.x = minimumDistanceToScreenEdge;
         } else if (tooCloseToRight) {
           destinationActionsPieMenu.x = mainWindow.width - destinationActionsPieMenu.width - minimumDistanceToScreenEdge;
         } else {
-          destinationActionsPieMenu.x = destinationScreenLocation.x - menuHalfSize;
+          destinationActionsPieMenu.x = screenLocation.x - menuHalfSize;
         }
         if (tooCloseToTop) {
           destinationActionsPieMenu.y = minimumDistanceToScreenEdge;
         } else if (tooCloseToBottom) {
           destinationActionsPieMenu.y = mainWindow.height - destinationActionsPieMenu.height - informationDrawer.height - minimumDistanceToScreenEdge;
         } else {
-          destinationActionsPieMenu.y = destinationScreenLocation.y - menuHalfSize;
+          destinationActionsPieMenu.y = screenLocation.y - menuHalfSize;
         }
         destinationActionsPieMenu.open();
       }
 
       Component.onCompleted: {
-        updateDestinationScreenLocation();
         pointHandler.registerHandler("DestinationMarker", (point, type, interactionType) => {
           if (!navigation.isActive || (interactionType !== "clicked" && interactionType !== "pressedAndHold")) {
             return false;
           }
+          const destinationScreenLocation = mapCanvas.mapSettings.coordinateToScreen(navigation.destination);
           const dx = point.x - destinationScreenLocation.x;
           const dy = point.y - destinationScreenLocation.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -1686,7 +1657,7 @@ ApplicationWindow {
             if (type === "stylus" && interactionType === "clicked") {
               mainWindow.displayToast(qsTr("Long press on the destination marker to show actions"));
             } else if ((type !== "stylus" && interactionType === "clicked") || (type === "stylus" && interactionType === "pressedAndHold")) {
-              openPieMenu(point);
+              openPieMenu(destinationScreenLocation);
               return true;
             }
           }

@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import QtQuick.Shapes
 import org.qfield
@@ -21,6 +22,7 @@ Item {
   property bool hasAlarmSnoozed: false
   property real lastValidDirection: NaN
   property PositioningSettings positioningSettings
+  property alias stakeoutMenu: stakeoutMenu
 
   readonly property real movementSpeedThreshold: 0.8
 
@@ -35,6 +37,11 @@ Item {
       return lastValidDirection;
     }
     return positionSource.orientation;
+  }
+
+  function popupStakeoutMenu(globalPoint) {
+    const localPoint = stakeoutMenu.parent.mapFromGlobal(globalPoint.x, globalPoint.y);
+    stakeoutMenu.popup(localPoint.x, localPoint.y);
   }
 
   Connections {
@@ -495,6 +502,207 @@ Item {
 
     onClicked: {
       positioningPreciseView.hasAlarmSnoozed = !positioningPreciseView.hasAlarmSnoozed;
+    }
+  }
+
+  Menu {
+    id: stakeoutMenu
+    width: 330
+
+    MenuItem {
+      text: qsTr("Audio proximity feedback")
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      rightPadding: Theme.menuItemCheckLeftPadding
+      checkable: true
+      checked: positioningSettings.preciseViewProximityAlarm
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.preciseViewProximityAlarm = checked
+    }
+
+    MenuItem {
+      text: qsTr("Rotate view")
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemCheckLeftPadding
+      rightPadding: Theme.menuItemCheckLeftPadding
+      checkable: true
+      checked: positioningSettings.preciseViewAutoRotate
+      indicator.height: 20
+      indicator.width: 20
+      indicator.implicitHeight: 24
+      indicator.implicitWidth: 24
+      onCheckedChanged: positioningSettings.preciseViewAutoRotate = checked
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    Item {
+      width: 1
+      height: 8
+    }
+
+    Text {
+      text: qsTr("Rotation source")
+      color: Theme.mainTextColor
+      font: Theme.defaultFont
+      leftPadding: Theme.menuItemIconlessLeftPadding
+    }
+
+    Item {
+      width: 1
+      height: 8
+    }
+
+    ListView {
+      id: rotationSources
+      height: 35
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: Theme.menuItemIconlessLeftPadding
+        rightMargin: Theme.menuItemCheckLeftPadding
+      }
+      spacing: 3
+      orientation: ListView.Horizontal
+      model: [qsTr("Compass"), qsTr("Movement")]
+
+      delegate: Item {
+        id: sourceDelegate
+        width: (rotationSources.width - rotationSources.spacing) / 2
+        height: 35
+        enabled: !selected
+
+        property bool selected: index === (positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Compass ? 0 : 1)
+
+        Rectangle {
+          anchors.fill: parent
+          radius: 4
+          color: sourceDelegate.selected ? Theme.mainColor : "transparent"
+        }
+
+        Text {
+          text: modelData
+          font: sourceDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+          anchors.centerIn: parent
+          color: sourceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+          elide: Text.ElideRight
+          width: parent.width - 8
+          horizontalAlignment: Text.AlignHCenter
+        }
+
+        Ripple {
+          clip: true
+          anchors.fill: parent
+          clipRadius: 4
+          pressed: sourceMouseArea.pressed
+          anchor: parent
+          active: sourceMouseArea.pressed
+          color: "#22aaaaaa"
+        }
+
+        MouseArea {
+          id: sourceMouseArea
+          anchors.fill: parent
+          onClicked: {
+            if (sourceDelegate.selected) {
+              return;
+            }
+            positioningSettings.preciseViewRotationSource = index === 0 ? PositioningSettings.RotationSource.Compass : PositioningSettings.RotationSource.Movement;
+          }
+        }
+      }
+    }
+
+    Item {
+      width: 1
+      height: 8
+    }
+
+    Text {
+      text: qsTr("Precision")
+      color: Theme.mainTextColor
+      font: Theme.defaultFont
+      leftPadding: Theme.menuItemIconlessLeftPadding
+    }
+
+    Item {
+      width: 1
+      height: 8
+    }
+
+    Grid {
+      id: precisions
+      anchors {
+        left: parent.left
+        right: parent.right
+        leftMargin: Theme.menuItemIconlessLeftPadding
+        rightMargin: Theme.menuItemCheckLeftPadding
+      }
+      columns: 4
+      rowSpacing: 4
+      columnSpacing: 3
+
+      property var model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10, 25]
+
+      Repeater {
+        model: precisions.model
+
+        delegate: Item {
+          id: precisionDelegate
+          width: (precisions.width - precisions.columnSpacing * (precisions.columns - 1)) / precisions.columns
+          height: 35
+          enabled: !selected
+
+          property bool selected: modelData === positioningSettings.preciseViewPrecision
+
+          Rectangle {
+            anchors.fill: parent
+            radius: 4
+            color: precisionDelegate.selected ? Theme.mainColor : "transparent"
+          }
+
+          Text {
+            id: precisionText
+            text: UnitTypes.formatDistance(modelData, modelData < 1 ? 2 : 1, projectInfo.distanceUnits)
+            font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+            anchors.centerIn: parent
+            color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+          }
+
+          Ripple {
+            clip: true
+            anchors.fill: parent
+            clipRadius: 4
+            pressed: precisionMouseArea.pressed
+            anchor: parent
+            active: precisionMouseArea.pressed
+            color: "#22aaaaaa"
+          }
+
+          MouseArea {
+            id: precisionMouseArea
+            anchors.fill: parent
+            onClicked: {
+              if (precisionDelegate.selected) {
+                return;
+              }
+              positioningSettings.preciseViewPrecision = modelData;
+            }
+          }
+        }
+      }
+    }
+
+    Item {
+      width: 1
+      height: 8
     }
   }
 
