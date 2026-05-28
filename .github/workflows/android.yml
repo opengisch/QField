@@ -136,9 +136,6 @@ jobs:
           key: vcpkg-archives-${{ matrix.triplet }}
           path: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed
 
-      - run: |
-          tree /home/runner/.cache/vcpkg
-
       - name: 🌱 Install dependencies and generate project files
         env:
           WORKSPACE: ${{ github.workspace }}
