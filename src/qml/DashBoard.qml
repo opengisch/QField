@@ -315,15 +315,26 @@ Drawer {
 
         QfSwipeAnimator {
           Layout.fillWidth: true
-          Layout.preferredHeight: projectTitle.contentHeight
+          Layout.preferredHeight: projectTitleText.contentHeight
           Layout.alignment: Qt.AlignVCenter
-          contentImplicitWidth: projectTitle.contentWidth
-          shouldAutoFlick: dashBoard.opened && projectTitle.contentWidth > width
-          duration: shouldAutoFlick ? Math.abs(projectTitle.contentWidth - width) * 100 + 10 : 10000
+          contentImplicitWidth: projectTitleText.contentWidth
+          shouldAutoFlick: dashBoard.opened && projectTitleText.contentWidth > width
+          duration: shouldAutoFlick ? Math.abs(projectTitleText.contentWidth - width) * 100 + 10 : 10000
 
           Text {
-            id: projectTitle
-            text: qgisProject ? qgisProject.title !== "" ? qgisProject.title : FileUtils.fileName(qgisProject.fileName, false) : ""
+            id: projectTitleText
+            text: {
+              if (qgisProject) {
+                if (qgisProject.title !== "") {
+                  return qgisProject.title;
+                } else if (cloudProjectsModel.currentProject) {
+                  return cloudProjectsModel.currentProject.name;
+                } else {
+                  return FileUtils.fileName(qgisProject.fileName, false);
+                }
+              }
+              return "";
+            }
             font: Theme.defaultFont
             color: Theme.mainTextColor
           }
