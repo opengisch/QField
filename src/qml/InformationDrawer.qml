@@ -63,107 +63,6 @@ Item {
 
       title: qsTr("Navigation")
 
-      NavigationInformationView {
-        id: navigationInformationView
-        width: parent.width
-        height: contentHeight
-        navigation: controller.navigation
-      }
-    }
-
-    QfOverlayContainer {
-      visible: positioningInformationViewEnabled
-
-      title: qsTr("Positioning")
-
-      header: RowLayout {
-        Text {
-          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
-          text: qsTr("NTRIP")
-          font: Theme.tipFont
-          color: positionSource.ntripState === Positioning.NtripState.Connected ? Theme.mainTextColor : Theme.secondaryTextColor
-        }
-
-        Rectangle {
-          id: ntripIndicator
-          Layout.alignment: Qt.AlignVCenter
-          Layout.preferredWidth: 12
-          Layout.preferredHeight: 12
-          Layout.bottomMargin: 1
-          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
-          radius: height / 2
-          opacity: 1
-          color: {
-            if (positionSource.ntripState === Positioning.NtripState.Connected) {
-              return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
-            }
-            return Theme.secondaryTextColor;
-          }
-
-          SequentialAnimation {
-            running: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
-            loops: Animation.Infinite
-
-            onStopped: ntripIndicator.opacity = 1.0
-
-            NumberAnimation {
-              target: ntripIndicator
-              property: "opacity"
-              to: 0.0
-              duration: 1000
-              easing.type: Easing.InOutQuad
-            }
-
-            NumberAnimation {
-              target: ntripIndicator
-              property: "opacity"
-              to: 1.0
-              duration: 1000
-              easing.type: Easing.InOutQuad
-            }
-          }
-        }
-
-        Rectangle {
-          id: batteryIndicator
-          Layout.alignment: Qt.AlignVCenter
-          Layout.preferredWidth: 18
-          Layout.preferredHeight: 12
-          Layout.bottomMargin: 1
-          visible: !isNaN(positionSource.deviceBatteryLevel)
-
-          color: "transparent"
-          border.width: 2
-          border.color: Theme.mainTextColor
-          radius: 2
-
-          Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 3
-            anchors.leftMargin: 3
-            height: parent.height - 6
-            width: (parent.width - 6) * positionSource.deviceBatteryLevel
-            color: positionSource.deviceBatteryLevel > 0.20 ? Theme.goodColor : positionSource.deviceBatteryLevel > 0.05 ? Theme.warningColor : Theme.errorColor
-          }
-        }
-      }
-
-      PositioningInformationView {
-        id: positioningInformationView
-        width: parent.width
-        height: Math.min(contentHeight, mainWindow.height / 3)
-        visible: positioningInformationViewEnabled
-        positionSource: controller.positionSource
-        antennaHeight: positioningSettings.antennaHeightActivated ? positioningSettings.antennaHeight : 0
-      }
-    }
-
-    QfOverlayContainer {
-      visible: positioningPreciseEnabled
-
-      title: qsTr("Precise view")
-
       header: QfToolButton {
         id: preciseViewSettings
         visible: positioningPreciseEnabled
@@ -172,207 +71,9 @@ Item {
         padding: 2
         iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
         iconColor: Theme.mainTextColor
-        onClicked: stakeoutMenu.popup(preciseViewSettings.width - stakeoutMenu.width, preciseViewSettings.height)
-
-        Menu {
-          id: stakeoutMenu
-          width: 330
-
-          MenuItem {
-            text: qsTr("Audio proximity feedback")
-            font: Theme.defaultFont
-            height: 48
-            leftPadding: Theme.menuItemCheckLeftPadding
-            rightPadding: Theme.menuItemCheckLeftPadding
-            checkable: true
-            checked: positioningSettings.preciseViewProximityAlarm
-            indicator.height: 20
-            indicator.width: 20
-            indicator.implicitHeight: 24
-            indicator.implicitWidth: 24
-            onCheckedChanged: positioningSettings.preciseViewProximityAlarm = checked
-          }
-
-          MenuItem {
-            text: qsTr("Rotate view")
-            font: Theme.defaultFont
-            height: 48
-            leftPadding: Theme.menuItemCheckLeftPadding
-            rightPadding: Theme.menuItemCheckLeftPadding
-            checkable: true
-            checked: positioningSettings.preciseViewAutoRotate
-            indicator.height: 20
-            indicator.width: 20
-            indicator.implicitHeight: 24
-            indicator.implicitWidth: 24
-            onCheckedChanged: positioningSettings.preciseViewAutoRotate = checked
-          }
-
-          MenuSeparator {
-            width: parent.width
-          }
-
-          Item {
-            width: 1
-            height: 8
-          }
-
-          Text {
-            text: qsTr("Rotation source")
-            color: Theme.mainTextColor
-            font: Theme.defaultFont
-            leftPadding: Theme.menuItemIconlessLeftPadding
-          }
-
-          Item {
-            width: 1
-            height: 8
-          }
-
-          ListView {
-            id: rotationSources
-            height: 35
-            anchors {
-              left: parent.left
-              right: parent.right
-              leftMargin: Theme.menuItemIconlessLeftPadding
-              rightMargin: Theme.menuItemCheckLeftPadding
-            }
-            spacing: 3
-            orientation: ListView.Horizontal
-            model: [qsTr("Compass"), qsTr("Movement")]
-
-            delegate: Item {
-              id: sourceDelegate
-              width: (rotationSources.width - rotationSources.spacing) / 2
-              height: 35
-              enabled: !selected
-
-              property bool selected: index === (positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Compass ? 0 : 1)
-
-              Rectangle {
-                anchors.fill: parent
-                radius: 4
-                color: sourceDelegate.selected ? Theme.mainColor : "transparent"
-              }
-
-              Text {
-                text: modelData
-                font: sourceDelegate.selected ? Theme.strongTipFont : Theme.tipFont
-                anchors.centerIn: parent
-                color: sourceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
-                elide: Text.ElideRight
-                width: parent.width - 8
-                horizontalAlignment: Text.AlignHCenter
-              }
-
-              Ripple {
-                clip: true
-                anchors.fill: parent
-                clipRadius: 4
-                pressed: sourceMouseArea.pressed
-                anchor: parent
-                active: sourceMouseArea.pressed
-                color: "#22aaaaaa"
-              }
-
-              MouseArea {
-                id: sourceMouseArea
-                anchors.fill: parent
-                onClicked: {
-                  if (sourceDelegate.selected) {
-                    return;
-                  }
-                  positioningSettings.preciseViewRotationSource = index === 0 ? PositioningSettings.RotationSource.Compass : PositioningSettings.RotationSource.Movement;
-                }
-              }
-            }
-          }
-
-          Item {
-            width: 1
-            height: 8
-          }
-
-          Text {
-            text: qsTr("Precision")
-            color: Theme.mainTextColor
-            font: Theme.defaultFont
-            leftPadding: Theme.menuItemIconlessLeftPadding
-          }
-
-          Item {
-            width: 1
-            height: 8
-          }
-
-          Grid {
-            id: precisions
-            anchors {
-              left: parent.left
-              right: parent.right
-              leftMargin: Theme.menuItemIconlessLeftPadding
-              rightMargin: Theme.menuItemCheckLeftPadding
-            }
-            columns: 4
-            rowSpacing: 4
-            columnSpacing: 3
-
-            property var model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10, 25]
-
-            Repeater {
-              model: precisions.model
-
-              delegate: Item {
-                id: precisionDelegate
-                width: (precisions.width - precisions.columnSpacing * (precisions.columns - 1)) / precisions.columns
-                height: 35
-                enabled: !selected
-
-                property bool selected: modelData === positioningSettings.preciseViewPrecision
-
-                Rectangle {
-                  anchors.fill: parent
-                  radius: 4
-                  color: precisionDelegate.selected ? Theme.mainColor : "transparent"
-                }
-
-                Text {
-                  id: precisionText
-                  text: UnitTypes.formatDistance(modelData, modelData < 1 ? 2 : 1, projectInfo.distanceUnits)
-                  font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
-                  anchors.centerIn: parent
-                  color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
-                }
-
-                Ripple {
-                  clip: true
-                  anchors.fill: parent
-                  clipRadius: 4
-                  pressed: precisionMouseArea.pressed
-                  anchor: parent
-                  active: precisionMouseArea.pressed
-                  color: "#22aaaaaa"
-                }
-
-                MouseArea {
-                  id: precisionMouseArea
-                  anchors.fill: parent
-                  onClicked: {
-                    if (precisionDelegate.selected) {
-                      return;
-                    }
-                    positioningSettings.preciseViewPrecision = modelData;
-                  }
-                }
-              }
-            }
-          }
-
-          Item {
-            width: 1
-            height: 8
-          }
+        onClicked: {
+          const globalPoint = preciseViewSettings.mapToGlobal(preciseViewSettings.width - positioningPreciseView.stakeoutMenu.width, preciseViewSettings.height);
+          positioningPreciseView.popupStakeoutMenu(globalPoint);
         }
       }
 
@@ -463,6 +164,30 @@ Item {
               duration: 1000
               easing.type: Easing.InOutQuad
             }
+          }
+        }
+
+        Rectangle {
+          id: batteryIndicator
+          Layout.alignment: Qt.AlignVCenter
+          Layout.preferredWidth: 18
+          Layout.preferredHeight: 12
+          Layout.bottomMargin: 1
+          visible: !isNaN(positionSource.deviceBatteryLevel)
+
+          color: "transparent"
+          border.width: 2
+          border.color: Theme.mainTextColor
+          radius: 2
+
+          Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.topMargin: 3
+            anchors.leftMargin: 3
+            height: parent.height - 6
+            width: (parent.width - 6) * positionSource.deviceBatteryLevel
+            color: positionSource.deviceBatteryLevel > 0.20 ? Theme.goodColor : positionSource.deviceBatteryLevel > 0.05 ? Theme.warningColor : Theme.errorColor
           }
         }
       }
