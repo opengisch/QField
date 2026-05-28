@@ -95,7 +95,7 @@ QString ProjectUtils::title( QgsProject *project )
 QString ProjectUtils::createProject( const QVariantMap &options, const GnssPositionInformation &positionInformation )
 {
   QString projectTitle = options.value( QStringLiteral( "title" ), tr( "Created Project" ) ).toString();
-  QString projectFilename = projectTitle;
+  QString projectFilename = projectTitle.normalized( QString::NormalizationForm_KD );
   projectFilename.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
   QDir createdProjectsDir( QStringLiteral( "%1/Created Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ) );
@@ -113,6 +113,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   QgsProject *createdProject = new QgsProject();
 
   // Basic project settings
+  createdProject->setTitle( projectTitle );
   createdProject->setCrs( QgsCoordinateReferenceSystem( "EPSG:3857" ) );
   createdProject->displaySettings()->setCoordinateType( Qgis::CoordinateDisplayType::CustomCrs );
   createdProject->displaySettings()->setCoordinateCustomCrs( QgsCoordinateReferenceSystem( "EPSG:4326" ) );

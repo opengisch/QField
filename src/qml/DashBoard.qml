@@ -281,6 +281,55 @@ Drawer {
       }
     }
 
+    RowLayout {
+      id: projectInformationLayout
+      Layout.fillWidth: true
+      Layout.leftMargin: mainWindow.sceneLeftMargin + 10
+      Layout.rightMargin: 10
+      Layout.bottomMargin: 5
+
+      QfSwipeAnimator {
+        Layout.fillWidth: true
+        Layout.preferredHeight: projectTitleText.contentHeight
+        Layout.alignment: Qt.AlignVCenter
+        contentImplicitWidth: projectTitleText.contentWidth
+        shouldAutoFlick: dashBoard.opened && projectTitleText.contentWidth > width
+        duration: shouldAutoFlick ? Math.abs(projectTitleText.contentWidth - width) * 100 + 10 : 10000
+        interactive: false
+
+        Text {
+          id: projectTitleText
+          text: {
+            if (qgisProject) {
+              if (qgisProject.title !== "") {
+                return qgisProject.title;
+              } else if (cloudProjectsModel.currentProject) {
+                return cloudProjectsModel.currentProject.name;
+              } else {
+                return FileUtils.fileName(qgisProject.fileName, false);
+              }
+            }
+            return "";
+          }
+          font: Theme.strongFont
+          color: Theme.mainTextColor
+        }
+      }
+
+      QfToolButton {
+        id: temporalButton
+        Layout.alignment: Qt.AlignVCenter
+        width: 36
+        height: 36
+        padding: 0
+        visible: flatLayerTree.isTemporal
+        iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
+        iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
+        bgcolor: "transparent"
+        onClicked: temporalProperties.open()
+      }
+    }
+
     GroupBox {
       id: mapThemeContainer
       Layout.fillWidth: true
@@ -366,16 +415,6 @@ Drawer {
             font.pointSize: Theme.tipFont.pointSize
             highlighted: mapThemeComboBox.highlightedIndex == index
           }
-        }
-
-        QfToolButton {
-          id: temporalButton
-          Layout.alignment: Qt.AlignVCenter
-          visible: flatLayerTree.isTemporal
-          iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
-          iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
-          bgcolor: "transparent"
-          onClicked: temporalProperties.open()
         }
       }
     }

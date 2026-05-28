@@ -45,7 +45,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     //! Returns TRUE if the provided mimetype is a supported image
     Q_INVOKABLE static bool isImageMimeTypeSupported( const QString &mimeType );
     //! Returns the filename of a \a filePath - if no file name exists it's empty
-    Q_INVOKABLE static QString fileName( const QString &filePath );
+    Q_INVOKABLE static QString fileName( const QString &filePath, bool includeSuffix = true );
     //! Returns true if the \a filePath exists (false if it's a directory)
     Q_INVOKABLE static bool fileExists( const QString &filePath );
     //! Returns the suffix (extension)

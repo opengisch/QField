@@ -17,6 +17,14 @@ Flickable {
     loops: 10
     running: flick.shouldAutoFlick
 
+    onStopped: {
+      flick.contentX = 0;
+    }
+
+    PauseAnimation {
+      duration: 2000
+    }
+
     NumberAnimation {
       target: flick
       property: "contentX"
@@ -25,7 +33,7 @@ Flickable {
     }
 
     PauseAnimation {
-      duration: 1000
+      duration: 2000
     }
 
     NumberAnimation {
@@ -33,10 +41,6 @@ Flickable {
       property: "contentX"
       to: 0
       duration: flick.duration
-    }
-
-    PauseAnimation {
-      duration: 1000
     }
   }
 
