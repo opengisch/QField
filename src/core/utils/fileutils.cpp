@@ -75,10 +75,10 @@ QString FileUtils::nativeSeparatorsPath( const QString &filePath )
   return QDir::toNativeSeparators( filePath );
 }
 
-QString FileUtils::fileName( const QString &filePath )
+QString FileUtils::fileName( const QString &filePath, bool includeSuffix )
 {
   QFileInfo fileInfo( filePath );
-  return fileInfo.fileName();
+  return includeSuffix ? fileInfo.fileName() : fileInfo.completeBaseName();
 }
 
 QString FileUtils::fileSuffix( const QString &filePath )

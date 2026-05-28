@@ -282,6 +282,69 @@ Drawer {
     }
 
     GroupBox {
+      id: projectInformationContainer
+      Layout.fillWidth: true
+      title: qsTr("Title")
+      leftPadding: 5
+      rightPadding: 5
+      topPadding: label.height + 5
+      bottomPadding: 5
+
+      background: Rectangle {
+        color: "transparent"
+      }
+
+      label: Label {
+        x: mapThemeContainer.leftPadding
+        height: 25
+        width: parent.availableWidth
+        leftPadding: mainWindow.sceneLeftMargin
+        text: parent.title
+        color: Theme.mainTextColor
+        font: Theme.strongTipFont
+        elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
+        clip: true
+      }
+
+      RowLayout {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: mainWindow.sceneLeftMargin + 5
+        anchors.rightMargin: 5
+
+        QfSwipeAnimator {
+          Layout.fillWidth: true
+          Layout.preferredHeight: projectTitle.contentHeight
+          Layout.alignment: Qt.AlignVCenter
+          contentImplicitWidth: projectTitle.contentWidth
+          shouldAutoFlick: dashBoard.opened && projectTitle.contentWidth > width
+          duration: shouldAutoFlick ? Math.abs(projectTitle.contentWidth - width) * 100 + 10 : 10000
+
+          Text {
+            id: projectTitle
+            text: qgisProject ? qgisProject.title !== "" ? qgisProject.title : FileUtils.fileName(qgisProject.fileName, false) : ""
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
+          }
+        }
+
+        QfToolButton {
+          id: temporalButton
+          Layout.alignment: Qt.AlignVCenter
+          width: 36
+          height: 36
+          padding: 0
+          visible: flatLayerTree.isTemporal
+          iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
+          iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
+          bgcolor: "transparent"
+          onClicked: temporalProperties.open()
+        }
+      }
+    }
+
+    GroupBox {
       id: mapThemeContainer
       Layout.fillWidth: true
       title: qsTr("Map Theme")
@@ -366,16 +429,6 @@ Drawer {
             font.pointSize: Theme.tipFont.pointSize
             highlighted: mapThemeComboBox.highlightedIndex == index
           }
-        }
-
-        QfToolButton {
-          id: temporalButton
-          Layout.alignment: Qt.AlignVCenter
-          visible: flatLayerTree.isTemporal
-          iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
-          iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
-          bgcolor: "transparent"
-          onClicked: temporalProperties.open()
         }
       }
     }
