@@ -137,7 +137,7 @@ jobs:
           path: /home/runner/.cache/vcpkg
 
       - run: |
-          tree /homr/runner/.cache/vcpkg
+          tree /home/runner/.cache/vcpkg
 
       - name: 🌱 Install dependencies and generate project files
         env:
