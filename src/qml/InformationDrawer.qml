@@ -176,13 +176,14 @@ Item {
 
         Menu {
           id: stakeoutMenu
-          width: 320
+          width: 340
 
           MenuItem {
             text: qsTr("Audio proximity feedback")
             font: Theme.defaultFont
             height: 48
             leftPadding: Theme.menuItemCheckLeftPadding
+            rightPadding: Theme.menuItemCheckLeftPadding
             checkable: true
             checked: positioningSettings.preciseViewProximityAlarm
             indicator.height: 20
@@ -197,6 +198,7 @@ Item {
             font: Theme.defaultFont
             height: 48
             leftPadding: Theme.menuItemCheckLeftPadding
+            rightPadding: Theme.menuItemCheckLeftPadding
             checkable: true
             checked: positioningSettings.preciseViewAutoRotate
             indicator.height: 20
@@ -234,7 +236,7 @@ Item {
               left: parent.left
               right: parent.right
               leftMargin: Theme.menuItemIconlessLeftPadding
-              rightMargin: 4
+              rightMargin: Theme.menuItemCheckLeftPadding
             }
             spacing: 3
             orientation: ListView.Horizontal
@@ -310,13 +312,13 @@ Item {
               left: parent.left
               right: parent.right
               leftMargin: Theme.menuItemIconlessLeftPadding
-              rightMargin: 4
+              rightMargin: Theme.menuItemCheckLeftPadding
             }
             columns: 4
             rowSpacing: 4
             columnSpacing: 3
 
-            property var model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10]
+            property var model: [0.10, 0.25, 0.50, 1, 2.5, 5, 10, 25]
 
             Repeater {
               model: precisions.model
@@ -374,33 +376,38 @@ Item {
         }
       }
 
-      NavigationInformationView {
-        id: navigationInformationView
+      Column {
         width: parent.width
-        height: contentHeight
-        navigation: controller.navigation
-      }
+        spacing: 0
 
-      PositioningPreciseView {
-        id: positioningPreciseView
-        visible: opacity > 0
-        width: parent.width
-        height: positioningPreciseEnabled ? Math.min(mainWindow.height / 2.5, 400) : 0
-        opacity: positioningPreciseEnabled ? 1 : 0
-        clip: true
-        precision: positioningSettings.preciseViewPrecision
-        positioningSettings: controller.positioningSettings
-
-        Behavior on height {
-          NumberAnimation {
-            duration: 200
-            easing.type: Easing.OutQuart
-          }
+        NavigationInformationView {
+          id: navigationInformationView
+          width: parent.width
+          height: contentHeight
+          navigation: controller.navigation
         }
-        Behavior on opacity {
-          NumberAnimation {
-            duration: 200
-            easing.type: Easing.OutQuart
+
+        PositioningPreciseView {
+          id: positioningPreciseView
+          visible: opacity > 0
+          width: parent.width
+          height: positioningPreciseEnabled ? Math.min(mainWindow.height / 3, 250) : 0
+          opacity: positioningPreciseEnabled ? 1 : 0
+          clip: true
+          precision: positioningSettings.preciseViewPrecision
+          positioningSettings: controller.positioningSettings
+
+          Behavior on height {
+            NumberAnimation {
+              duration: 200
+              easing.type: Easing.OutQuart
+            }
+          }
+          Behavior on opacity {
+            NumberAnimation {
+              duration: 200
+              easing.type: Easing.OutQuart
+            }
           }
         }
       }

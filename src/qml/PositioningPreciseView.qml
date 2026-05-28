@@ -80,7 +80,7 @@ Item {
 
     Shape {
       id: preciseTarget
-      width: Math.min(positioningPreciseView.height - 10, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 20)
+      width: Math.min(180, positioningPreciseView.height - 40, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 40)
       height: width
       rotation: !isNaN(rotationAngle) ? -rotationAngle + positionSource.bearingTrueNorth : 0
 
