@@ -134,7 +134,7 @@ jobs:
         uses: useblacksmith/stickydisk@v1
         with:
           key: vcpkg-archives-${{ matrix.triplet }}
-          path: /home/runner/.cache/vcpkg
+          path: ${{ env.CMAKE_BUILD_DIR }}
 
       - run: |
           tree /home/runner/.cache/vcpkg
