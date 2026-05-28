@@ -288,32 +288,25 @@ Drawer {
       Layout.rightMargin: 10
       Layout.bottomMargin: 5
 
-      QfSwipeAnimator {
+      Text {
+        id: projectTitleText
         Layout.fillWidth: true
-        Layout.preferredHeight: projectTitleText.contentHeight
         Layout.alignment: Qt.AlignVCenter
-        contentImplicitWidth: projectTitleText.contentWidth
-        shouldAutoFlick: dashBoard.opened && projectTitleText.contentWidth > width
-        duration: shouldAutoFlick ? Math.abs(projectTitleText.contentWidth - width) * 100 + 10 : 10000
-        interactive: false
-
-        Text {
-          id: projectTitleText
-          text: {
-            if (qgisProject) {
-              if (qgisProject.title !== "") {
-                return qgisProject.title;
-              } else if (cloudProjectsModel.currentProject) {
-                return cloudProjectsModel.currentProject.name;
-              } else {
-                return FileUtils.fileName(qgisProject.fileName, false);
-              }
+        text: {
+          if (qgisProject) {
+            if (qgisProject.title !== "") {
+              return qgisProject.title;
+            } else if (cloudProjectsModel.currentProject) {
+              return cloudProjectsModel.currentProject.name;
+            } else {
+              return FileUtils.fileName(qgisProject.fileName, false);
             }
-            return "";
           }
-          font: Theme.strongFont
-          color: Theme.mainTextColor
+          return "";
         }
+        font: Theme.strongFont
+        color: Theme.mainTextColor
+        elide: Text.ElideRight
       }
 
       QfToolButton {
