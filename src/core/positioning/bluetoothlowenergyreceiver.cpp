@@ -356,7 +356,7 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
   }
 
   QByteArray finalizedData;
-  if ( mAddress.startsWith( "C8:47:8C" ) ) // Beken Corp. handling
+  if ( mService->serviceUuid() == QBluetoothUuid( "0000ffe0-0000-1000-8000-00805f9b34fb" ) ) // Beken Corp.
   {
     auto shortToByteArray = []( qint16 s ) -> QByteArray {
       QByteArray targets;
