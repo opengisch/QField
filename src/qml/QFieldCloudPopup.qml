@@ -749,7 +749,7 @@ Popup {
     function onSubscriptionInformationReceived(subscriptionInformation) {
       storageMeterBar.loading = false;
       if (subscriptionInformation.storageTotal > 0) {
-        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan);
+        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan, subscriptionInformation.storageThresholdWarning, subscriptionInformation.storageThresholdCritical);
       }
     }
   }
@@ -959,12 +959,17 @@ Popup {
     }
   }
 
-  function showStorageBar(usedBytes, totalBytes, plan) {
+  function showStorageBar(usedBytes, totalBytes, plan, thresholdWarningBytes, thresholdCriticalBytes) {
     const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
     lastSubscriptionUser = owner;
-    storageMeterBar.value = usedBytes / totalBytes;
+    const usageRatio = usedBytes / totalBytes;
+    const warnRatio = thresholdWarningBytes > 0 ? 1.0 - (thresholdWarningBytes / totalBytes) : 0.8;
+    const critRatio = thresholdCriticalBytes > 0 ? 1.0 - (thresholdCriticalBytes / totalBytes) : 0.95;
+    storageMeterBar.value = usageRatio;
     storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
     storageMeterBar.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username);
+    storageMeterBar.warningThreshold = warnRatio;
+    storageMeterBar.criticalThreshold = critRatio;
     storageMeterBar.visible = true;
   }
 }
