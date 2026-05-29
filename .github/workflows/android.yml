@@ -134,7 +134,7 @@ jobs:
         uses: useblacksmith/stickydisk@v1
         with:
           key: vcpkg-archives-${{ matrix.triplet }}
-          path: ${{ env.BUILD_ROOT }}/vcpkg_packages
+          path: /home/runner/.cache/vcpkg
 
       - name: 🌱 Install dependencies and generate project files
         env:
@@ -151,7 +151,6 @@ jobs:
                 -D ANDROID_NDK_VERSION="${ANDROID_NDK_VERSION}" \
                 -D ANDROID_BUILD_TOOLS_VERSION="${ANDROID_BUILD_TOOLS_VERSION}" \
                 -D VCPKG_TARGET_TRIPLET="${{ matrix.triplet }}" \
-                -D VCPKG_INSTALL_OPTIONS="--allow-unsupported" \
                 -D WITH_ALL_FILES_ACCESS="${{ matrix.all_files_access }}" \
                 -D WITH_SPIX=OFF \
                 -D APP_VERSION="${APP_VERSION}" \
@@ -161,11 +160,11 @@ jobs:
                 -D APP_ICON="${APP_ICON}" \
                 -D APP_NAME="${APP_NAME}" \
                 -D NUGET_USERNAME=opengisch \
-                -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+                -D NUGET_TOKEN="" \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni \
-                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions;--x-packages-root=${BUILD_ROOT}/vcpkg_packages"
+                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload Dep Build Logs
         uses: actions/upload-artifact@v7
