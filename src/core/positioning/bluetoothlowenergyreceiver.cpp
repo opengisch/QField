@@ -355,65 +355,12 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
     return;
   }
 
-  QByteArray finalizedData;
-  if ( mService->serviceUuid() == QBluetoothUuid( "0000ffe0-0000-1000-8000-00805f9b34fb" ) ) // Beken Corp.
-  {
-    auto shortToByteArray = []( qint16 s ) -> QByteArray {
-      QByteArray targets;
-      targets.resize( 2 );
-      for ( int i = 0; i < targets.length(); i++ )
-      {
-        int offset = ( targets.length() - 1 - i ) * 8;
-        targets[i] = static_cast<char>( ( static_cast<quint16>( s ) >> offset ) & 0xFF );
-      }
-      return targets;
-    };
-
-    const QByteArray headByte = QStringLiteral( "$$GI" ).toUtf8();
-    qint16 length = static_cast<qint16>( data.length() + 1 );
-    QByteArray lengthByte = shortToByteArray( length );
-    std::reverse( lengthByte.begin(), lengthByte.end() );
-
-    char startOfData = 0x02;
-    int checkCode = 0;
-    for ( int i = 0; i < headByte.length(); i++ )
-    {
-      checkCode ^= static_cast<quint8>( 0xFF & headByte[i] );
-    }
-
-    checkCode ^= static_cast<quint8>( 0xFF & lengthByte[0] );
-    checkCode ^= static_cast<quint8>( 0xFF & lengthByte[1] );
-    checkCode ^= static_cast<quint8>( 0xFF & startOfData );
-
-    for ( int i = 0; i < data.length(); i++ )
-    {
-      checkCode ^= static_cast<quint8>( 0xFF & data[i] );
-    }
-    char checkChar = static_cast<char>( checkCode );
-
-    QByteArray packet;
-    packet.reserve( headByte.length() + lengthByte.length() + 1 + data.length() + 1 + 2 );
-
-    packet.append( headByte );
-    packet.append( lengthByte );
-    packet.append( startOfData );
-    packet.append( data );
-    packet.append( checkChar );
-    packet.append( "\r\n" );
-
-    finalizedData = packet;
-  }
-  else // Generic handling
-  {
-    finalizedData = data;
-  }
-
   // Payloag must not be longer than 20 bytes
   // https://doc.qt.io/qt-6/qlowenergyservice.html#WriteMode-enum
   const int chunkSize = 20;
-  for ( int i = 0; i < finalizedData.length(); i += chunkSize )
+  for ( int i = 0; i < data.length(); i += chunkSize )
   {
-    QByteArray chunk = finalizedData.mid( i, chunkSize );
+    QByteArray chunk = data.mid( i, chunkSize );
     mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
   }
 }
