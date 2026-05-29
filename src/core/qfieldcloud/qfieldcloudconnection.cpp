@@ -44,6 +44,11 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
   , mServerInformation( QSettings().value( QStringLiteral( "/QFieldCloud/serverInformation" ) ).toMap() )
 {
+  if ( mUrl == defaultUrl() && mServerInformation.signupUrl.isEmpty() )
+  {
+    mServerInformation.signupUrl = QStringLiteral( "https://app.qfield.cloud/accounts/signup/" );
+  }
+
   if ( !QgsApplication::authManager()->availableAuthMethodConfigs().contains( mProviderConfigId ) )
   {
     mProviderConfigId.clear();
