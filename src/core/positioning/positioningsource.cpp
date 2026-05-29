@@ -263,11 +263,14 @@ void PositioningSource::setupDevice()
   {
     triggerDisconnectDevice();
     mReceiver->stopLogging();
+
     disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
     disconnect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
     disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
     disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
     disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
+    disconnect( mReceiver.get(), &AbstractGnssReceiver::batteryLevelChanged, this, &PositioningSource::deviceBatteryLevelChanged );
+
     mReceiver->deleteLater();
     mReceiver.reset();
     stopNtripClient();
@@ -340,9 +343,12 @@ void PositioningSource::setupDevice()
   connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
   connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
   connect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
+  connect( mReceiver.get(), &AbstractGnssReceiver::batteryLevelChanged, this, &PositioningSource::deviceBatteryLevelChanged );
+
   setValid( mReceiver->valid() );
 
   emit deviceChanged();
+  emit deviceBatteryLevelChanged();
 
   if ( mLogging && !mLoggingPath.isEmpty() )
   {

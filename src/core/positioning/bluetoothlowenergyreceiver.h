@@ -21,6 +21,7 @@
 
 #include <QBuffer>
 #include <QObject>
+#include <QtBluetooth/QBluetoothUuid>
 #include <QtBluetooth/QLowEnergyController>
 #include <QtBluetooth/QLowEnergyService>
 
@@ -60,9 +61,9 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
     void serviceDiscoveryFinished();
 
     // BLE Service slots
-    void serviceStateChanged( QLowEnergyService::ServiceState s );
-    void serviceErrorOccurred( QLowEnergyService::ServiceError e );
-    void characteristicChanged( const QLowEnergyCharacteristic &c, const QByteArray &value );
+    void serviceStateChanged( QLowEnergyService::ServiceState state );
+    void serviceErrorOccurred( QLowEnergyService::ServiceError error );
+    void characteristicChanged( const QLowEnergyCharacteristic &characteristic, const QByteArray &value );
 
     //! Used to wait for previous connection to finish disconnecting
     void doConnectDevice();
@@ -73,9 +74,13 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
     QString mAddress;
 
     QLowEnergyController *mController = nullptr;
+
     QLowEnergyService *mService = nullptr;
     QLowEnergyCharacteristic mRxCharacteristic;
     QLowEnergyCharacteristic mTxCharacteristic;
+
+    QLowEnergyService *mBatteryService = nullptr;
+    QLowEnergyCharacteristic mBatteryCharacteristic;
 
     QBuffer *mBuffer = nullptr;
     QByteArray mBufferData;

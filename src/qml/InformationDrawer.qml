@@ -122,6 +122,30 @@ Item {
             }
           }
         }
+
+        Rectangle {
+          id: batteryIndicator
+          Layout.alignment: Qt.AlignVCenter
+          Layout.preferredWidth: 18
+          Layout.preferredHeight: 12
+          Layout.bottomMargin: 1
+          visible: !isNaN(positionSource.deviceBatteryLevel)
+
+          color: "transparent"
+          border.width: 2
+          border.color: Theme.mainTextColor
+          radius: 2
+
+          Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.topMargin: 3
+            anchors.leftMargin: 3
+            height: parent.height - 6
+            width: (parent.width - 6) * positionSource.deviceBatteryLevel
+            color: positionSource.deviceBatteryLevel > 0.20 ? Theme.goodColor : positionSource.deviceBatteryLevel > 0.05 ? Theme.warningColor : Theme.errorColor
+          }
+        }
       }
 
       PositioningInformationView {

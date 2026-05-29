@@ -21,6 +21,8 @@
 #include <QtBluetooth/QBluetoothDeviceDiscoveryAgent>
 #include <QtBluetooth/QBluetoothDeviceInfo>
 #include <QtBluetooth/QBluetoothLocalDevice>
+#include <QtBluetooth/QBluetoothUuid>
+
 
 /**
  * A model that provides all paired bluetooth devices name/address that are accessible over the serial port.
@@ -96,6 +98,8 @@ class BluetoothDeviceModel : public QAbstractListModel
     qsizetype lastDiscoveredCount() const { return mLastDiscoveredCount; }
 
     QString lastError() const { return mLastError; };
+
+    QString deviceAddress( const QBluetoothDeviceInfo &info ) const;
 
   signals:
 

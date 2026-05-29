@@ -136,7 +136,7 @@ Item {
 
       onCurrentIndexChanged: {
         let idx = bluetoothDeviceModel.index(currentIndex, 0);
-        deviceName = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceNameRole);
+        deviceName = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceNameRole).trim();
         deviceAddress = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceAddressRole);
         deviceClassicSupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceClassicSupportRole);
         deviceLowEnergySupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceLowEnergySupportRole);

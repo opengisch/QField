@@ -46,6 +46,7 @@ class Positioning : public QObject
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
+    Q_PROPERTY( double deviceBatteryLevel READ deviceBatteryLevel NOTIFY deviceBatteryLevelChanged )
 
     Q_PROPERTY( QgsQuickCoordinateTransformer *coordinateTransformer READ coordinateTransformer WRITE setCoordinateTransformer NOTIFY coordinateTransformerChanged )
 
@@ -133,6 +134,11 @@ class Positioning : public QObject
      * \see deviceSocketState
      */
     QString deviceSocketStateString() const;
+
+    /**
+     * Returns the device current battery level as a 0.0 to 1.0 double range.
+     */
+    double deviceBatteryLevel() const;
 
     /**
      * Sets the positioning device \a id used to fetch position information.
@@ -367,6 +373,7 @@ class Positioning : public QObject
     void deviceLastErrorChanged();
     void deviceSocketStateChanged();
     void deviceSocketStateStringChanged();
+    void deviceBatteryLevelChanged();
     void orientationChanged();
 
     //Ntrip client signals

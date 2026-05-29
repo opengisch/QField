@@ -1303,11 +1303,11 @@ Page {
                   switch (positionSource.deviceSocketState) {
                   case QAbstractSocket.ConnectedState:
                   case QAbstractSocket.BoundState:
-                    return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName);
+                    return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName.trim());
                   case QAbstractSocket.UnconnectedState:
-                    return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName);
+                    return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName.trim());
                   default:
-                    return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName);
+                    return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName.trim());
                   }
                 }
                 enabled: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState

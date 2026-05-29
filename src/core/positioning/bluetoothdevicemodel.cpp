@@ -145,7 +145,12 @@ void BluetoothDeviceModel::startDeviceDiscovery()
 
   // set scanning status _prior to_ start as start itself can error and then we get a broken status sequence
   setScanningStatus( Discovering );
+
+#if defined( Q_OS_IOS )
+  mDeviceDiscoveryAgent->start( QBluetoothDeviceDiscoveryAgent::LowEnergyMethod );
+#else
   mDeviceDiscoveryAgent->start();
+#endif
 }
 
 void BluetoothDeviceModel::stopDeviceDiscovery()
@@ -164,10 +169,10 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
 {
   for ( qsizetype i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-    if ( mDiscoveredDevices[i].address() == info.address() )
+    if ( deviceAddress( mDiscoveredDevices[i] ) == deviceAddress( info ) )
     {
       qInfo() << QStringLiteral( "Bluetooth device information updated: name %1, address %2, pairing status %3" )
-                   .arg( info.name(), info.address().toString() )
+                   .arg( info.name(), info.address().toString(), deviceAddress( info ) )
                    .arg( mLocalDevice->pairingStatus( info.address() ) );
 
       mDiscoveredDevices.replace( i, info );
@@ -179,48 +184,31 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
   }
 
   qInfo() << QStringLiteral( "Bluetooth device information discovered: name %1, address %2, pairing status %3" )
-               .arg( info.name(), info.address().toString() )
+               .arg( info.name(), info.address().toString(), deviceAddress( info ) )
                .arg( mLocalDevice->pairingStatus( info.address() ) );
 
-  const int index = static_cast<int>( mDiscoveredDevices.size() );
-  const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
-  const bool lowEnergySupport = ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration );
 #if defined( Q_OS_ANDROID )
   // Only list paired devices users have control over it.
-  if ( paired )
+  const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
+  if ( !paired )
   {
-    beginInsertRows( QModelIndex(), index, index );
-    mDiscoveredDevices.append( info );
-    endInsertRows();
-
-    mLastDiscoveredCount++;
+    return;
   }
-#elif defined( Q_OS_IOS )
-  // Only list paired, BLE devices users have control over it.
-  if ( paired && lowEnergySupport )
-  {
-    beginInsertRows( QModelIndex(), index, index );
-    mDiscoveredDevices.append( info );
-    endInsertRows();
+#endif
 
-    mLastDiscoveredCount++;
-  }
-#else
-  Q_UNUSED( paired )
-  Q_UNUSED( lowEnergySupport )
+  const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices.append( info );
   endInsertRows();
 
   mLastDiscoveredCount++;
-#endif
 }
 
 int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
 {
   for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-    if ( mDiscoveredDevices.at( i ).address().toString() == address )
+    if ( deviceAddress( mDiscoveredDevices.at( i ) ) == address )
     {
       return i;
     }
@@ -245,10 +233,10 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name().trimmed() : info.address().toString() );
+      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name().trimmed() : deviceAddress( info ) );
 
     case DeviceAddressRole:
-      return info.address().toString();
+      return deviceAddress( info );
 
     case DeviceNameRole:
       return info.name();
@@ -317,7 +305,7 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
 
   for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-    if ( mDiscoveredDevices.at( i ).name() == name && mDiscoveredDevices.at( i ).address().toString() == address )
+    if ( mDiscoveredDevices.at( i ).name() == name && deviceAddress( mDiscoveredDevices.at( i ) ) == address )
     {
       return i;
     }
@@ -325,8 +313,21 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
 
   const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
+#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
+  mDiscoveredDevices << QBluetoothDeviceInfo( QBluetoothUuid( address ), name, 0 );
+#else
   mDiscoveredDevices << QBluetoothDeviceInfo( QBluetoothAddress( address ), name, 0 );
+#endif
   endInsertRows();
 
   return index;
+}
+
+QString BluetoothDeviceModel::deviceAddress( const QBluetoothDeviceInfo &info ) const
+{
+#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
+  return info.deviceUuid().toString();
+#else
+  return info.address().toString();
+#endif
 }
