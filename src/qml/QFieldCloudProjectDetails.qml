@@ -227,6 +227,7 @@ ColumnLayout {
           Text {
             id: projectDetailsUpdateDateLabel
             Layout.fillWidth: true
+            visible: cloudProject != undefined && !isNaN(cloudProject.dataLastUpdatedAt.getTime())
             font: Theme.strongFont
             color: Theme.mainTextColor
 
@@ -240,7 +241,7 @@ ColumnLayout {
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
 
-            text: cloudProject != undefined ? Qt.formatDateTime(new Date(cloudProject.updatedAt), "dddd, MMMM dd, yyyy - hh:mm") : ""
+            text: cloudProject != undefined ? Qt.formatDateTime(new Date(cloudProject.dataLastUpdatedAt), "dddd, MMMM dd, yyyy - hh:mm") : ""
           }
         }
 

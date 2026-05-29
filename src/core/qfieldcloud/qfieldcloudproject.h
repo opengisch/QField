@@ -48,6 +48,7 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( QDateTime createdAt READ createdAt NOTIFY createdAtChanged )
     Q_PROPERTY( QDateTime updatedAt READ updatedAt NOTIFY updatedAtChanged )
     Q_PROPERTY( qint64 remoteSizeBytes READ remoteSizeBytes NOTIFY remoteSizeBytesChanged )
+    Q_PROPERTY( QDateTime dataLastUpdatedAt READ dataLastUpdatedAt NOTIFY dataLastUpdatedAtChanged )
 
     Q_PROPERTY( ProjectStatus status READ status NOTIFY statusChanged )
     Q_PROPERTY( PackagingStatus packagingStatus READ packagingStatus NOTIFY packagingStatusChanged )

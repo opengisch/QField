@@ -1347,11 +1347,17 @@ bool QFieldCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QMo
   }
 
   const bool isPublic = project->localPath().isEmpty() && project->userRoleOrigin() == QStringLiteral( "public" );
-  if ( mIncludePublic )
+  if ( mIncludePublic && isPublic )
   {
-    if ( project->remoteSizeBytes() == 0 && isPublic && project->updatedAt().toSecsSinceEpoch() - project->createdAt().toSecsSinceEpoch() < 300 )
+    if ( project->remoteSizeBytes() == 0 )
     {
-      // This is most likely an empty project, skip
+      // Empty project, skip
+      return false;
+    }
+
+    if ( project->remoteSizeBytes() < 30000 && project->dataLastUpdatedAt().isNull() )
+    {
+      // Most likely a created project with a single OSM layer that never was customized, skip
       return false;
     }
   }
