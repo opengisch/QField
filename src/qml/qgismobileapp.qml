@@ -750,6 +750,7 @@ ApplicationWindow {
       }
 
       onLoaded: {
+        item.objectName = 'mapCanvas3D';
         item.mapSettings = mapCanvas.mapSettings;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
