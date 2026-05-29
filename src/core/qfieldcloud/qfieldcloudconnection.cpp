@@ -42,8 +42,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mTokenConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/tokenConfigId" ) ).toString() )
   , mProvider( QSettings().value( QStringLiteral( "/QFieldCloud/provider" ) ).toString() )
   , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
-  , mWhitelabel( QSettings().value( QStringLiteral( "/QFieldCloud/whitelabel" ) ).toMap() )
-  , mSignupUrl( QSettings().value( QStringLiteral( "/QFieldCloud/signupUrl" ) ).toString() )
+  , mServerInformation( QSettings().value( QStringLiteral( "/QFieldCloud/serverInformation" ) ).toMap() )
 {
   if ( !QgsApplication::authManager()->availableAuthMethodConfigs().contains( mProviderConfigId ) )
   {
@@ -188,18 +187,11 @@ void QFieldCloudConnection::setUrl( const QString &url )
   mUrl = url;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
 
-  if ( mWhitelabel != CloudWhitelabelInformation() )
+  if ( mServerInformation != CloudServerInformation() )
   {
-    mWhitelabel = CloudWhitelabelInformation();
-    QSettings().remove( QStringLiteral( "/QFieldCloud/whitelabel" ) );
-    emit whitelabelChanged();
-  }
-
-  if ( !mSignupUrl.isEmpty() )
-  {
-    mSignupUrl.clear();
-    QSettings().remove( QStringLiteral( "/QFieldCloud/signupUrl" ) );
-    emit signupUrlChanged();
+    mServerInformation = CloudServerInformation();
+    QSettings().remove( QStringLiteral( "/QFieldCloud/serverInformation" ) );
+    emit serverInformationChanged();
   }
 
   if ( mStatus != ConnectionStatus::Disconnected )
@@ -355,20 +347,12 @@ void QFieldCloudConnection::getServerInformation()
 
     const QVariantMap payload = QJsonDocument::fromJson( rawReply->readAll() ).toVariant().toMap();
 
-    const CloudWhitelabelInformation whitelabel( payload.value( QStringLiteral( "whitelabel" ) ).toMap() );
-    if ( whitelabel != mWhitelabel )
+    const CloudServerInformation serverInformation( payload );
+    if ( serverInformation != mServerInformation )
     {
-      mWhitelabel = whitelabel;
-      QSettings().setValue( QStringLiteral( "/QFieldCloud/whitelabel" ), mWhitelabel.toVariantMap() );
-      emit whitelabelChanged();
-    }
-
-    const QString signupUrl = payload.value( QStringLiteral( "signup_url" ) ).toString();
-    if ( signupUrl != mSignupUrl )
-    {
-      mSignupUrl = signupUrl;
-      QSettings().setValue( QStringLiteral( "/QFieldCloud/signupUrl" ), mSignupUrl );
-      emit signupUrlChanged();
+      mServerInformation = serverInformation;
+      QSettings().setValue( QStringLiteral( "/QFieldCloud/serverInformation" ), mServerInformation.toVariantMap() );
+      emit serverInformationChanged();
     }
 
     const QVariantList providers = payload.value( QStringLiteral( "auth_providers" ) ).toList();

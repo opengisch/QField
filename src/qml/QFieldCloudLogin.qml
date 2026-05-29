@@ -36,7 +36,7 @@ Item {
       Layout.maximumHeight: 210
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: cloudConnection.url != cloudConnection.defaultUrl && cloudConnection.whitelabel.logoMain !== '' ? cloudConnection.whitelabel.logoMain : "qrc:/images/qfieldcloud_logo.svg"
+      source: cloudConnection.url != cloudConnection.defaultUrl && cloudConnection.serverInformation.whitelabel.logoMain !== '' ? cloudConnection.serverInformation.whitelabel.logoMain : "qrc:/images/qfieldcloud_logo.svg"
 
       onStatusChanged: {
         // In case the whitelabel logo fails to load, revert to the default QFieldCloud logo
@@ -87,7 +87,7 @@ Item {
       id: serverUrlLabel
       Layout.fillWidth: true
       visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
-      text: qsTr("%1Server URL\n(Leave empty to use the default server)").arg(cloudConnection.whitelabel.siteTitle !== '' ? cloudConnection.whitelabel.siteTitle + ' ' : '')
+      text: qsTr("%1Server URL\n(Leave empty to use the default server)").arg(cloudConnection.serverInformation.whitelabel.siteTitle !== '' ? cloudConnection.serverInformation.whitelabel.siteTitle + ' ' : '')
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.secondaryTextColor
@@ -264,13 +264,13 @@ Item {
       id: cloudRegisterLabel
       Layout.fillWidth: true
       Layout.topMargin: 16
-      text: cloudConnection.signupUrl !== '' ? qsTr('New user?') + ' <a href="' + cloudConnection.signupUrl + '">' + qsTr('Register an account') + '</a>.' : ''
+      text: cloudConnection.serverInformation.signupUrl !== '' ? qsTr('New user?') + ' <a href="' + cloudConnection.serverInformation.signupUrl + '">' + qsTr('Register an account') + '</a>.' : ''
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.signupUrl !== ''
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
