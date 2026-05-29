@@ -57,7 +57,7 @@ class AbstractGnssReceiver : public QObject
 
     QString lastError() const { return mLastError; }
 
-    double barreryLevel() const { return mBatteryLevel; }
+    double batteryLevel() const { return mBatteryLevel; }
 
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.

@@ -164,7 +164,7 @@ class PositioningSource : public QObject
     /**
      * Returns the device current battery level as a 0.0 to 1.0 double range.
      */
-    double deviceBatteryLevel() const { return mReceiver ? mReceiver->barreryLevel() : std::numeric_limits<double>::quiet_NaN(); }
+    double deviceBatteryLevel() const { return mReceiver ? mReceiver->batteryLevel() : std::numeric_limits<double>::quiet_NaN(); }
 
     /**
      * Returns a GnssPositionInformation position information object.

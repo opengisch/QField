@@ -169,14 +169,10 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
 {
   for ( qsizetype i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
-    if ( mDiscoveredDevices[i].deviceUuid() == info.deviceUuid() )
-#else
-    if ( mDiscoveredDevices[i].address() == info.address() )
-#endif
+    if ( deviceAddress( mDiscoveredDevices[i] ) == deviceAddress( info ) )
     {
-      qInfo() << QStringLiteral( "Bluetooth device information updated: name %1, address %2 deviceUuid %3, pairing status %4" )
-                   .arg( info.name(), info.address().toString(), info.deviceUuid().toString() )
+      qInfo() << QStringLiteral( "Bluetooth device information updated: name %1, address %2, pairing status %3" )
+                   .arg( info.name(), info.address().toString(), deviceAddress( info ) )
                    .arg( mLocalDevice->pairingStatus( info.address() ) );
 
       mDiscoveredDevices.replace( i, info );
@@ -187,8 +183,8 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
     }
   }
 
-  qInfo() << QStringLiteral( "Bluetooth device information discovered: name %1, address %2 deviceUuid %3, pairing status %4" )
-               .arg( info.name(), info.address().toString(), info.deviceUuid().toString() )
+  qInfo() << QStringLiteral( "Bluetooth device information discovered: name %1, address %2, pairing status %3" )
+               .arg( info.name(), info.address().toString(), deviceAddress( info ) )
                .arg( mLocalDevice->pairingStatus( info.address() ) );
 
 #if defined( Q_OS_ANDROID )
@@ -212,11 +208,7 @@ int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
 {
   for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
-    if ( mDiscoveredDevices.at( i ).deviceUuid().toString() == address )
-#else
-    if ( mDiscoveredDevices.at( i ).address().toString() == address )
-#endif
+    if ( deviceAddress( mDiscoveredDevices.at( i ) ) == address )
     {
       return i;
     }
@@ -241,18 +233,10 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
-      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name().trimmed() : info.deviceUuid().toString() );
-#else
-      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name().trimmed() : info.address().toString() );
-#endif
+      return QStringLiteral( "%1" ).arg( !info.name().isEmpty() ? info.name().trimmed() : deviceAddress( info ) );
 
     case DeviceAddressRole:
-#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
-      return info.deviceUuid().toString();
-#else
-      return info.address().toString();
-#endif
+      return deviceAddress( info );
 
     case DeviceNameRole:
       return info.name();
@@ -321,11 +305,7 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
 
   for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
   {
-#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
-    if ( mDiscoveredDevices.at( i ).name() == name && mDiscoveredDevices.at( i ).deviceUuid().toString() == address )
-#else
-    if ( mDiscoveredDevices.at( i ).name() == name && mDiscoveredDevices.at( i ).address().toString() == address )
-#endif
+    if ( mDiscoveredDevices.at( i ).name() == name && deviceAddress( mDiscoveredDevices.at( i ) ) == address )
     {
       return i;
     }
@@ -341,4 +321,13 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
   endInsertRows();
 
   return index;
+}
+
+QString BluetoothDeviceModel::deviceAddress( const QBluetoothDeviceInfo &info ) const
+{
+#if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
+  return info.deviceUuid().toString();
+#else
+  return info.address().toString();
+#endif
 }
