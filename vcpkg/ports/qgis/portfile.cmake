@@ -1,5 +1,5 @@
-set(QGIS_REF final-4_0_2)
-set(QGIS_SHA512 39d8fb7ab95e18ba0e8436d4f87c8698c52bdd93762301b22057764324779aba867b5784825bd78621aa711a205945e1aa38ae3d511520027f4ccdf78b70bbdc)
+set(QGIS_REF final-4_0_3)
+set(QGIS_SHA512 661387b8efa42344d6827753eec9e7af2505662789b90954f47dc9b5b70f6d13c518c677519343ea15996a03f89280af0564628c5c11b568973716c24f077186)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -15,7 +15,7 @@ vcpkg_from_github(
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
         mesh.patch
         compatibility.patch
-        rtk.patch
+        metadata.patch
 )
 
 
