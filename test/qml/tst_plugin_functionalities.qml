@@ -39,6 +39,11 @@ TestCase {
     objectName: "pluginsToolbar"
   }
 
+  Item {
+    id: canvasActionsToolbar
+    objectName: "canvasMenuActionsToolbar"
+  }
+
   QFieldControls.DashBoard {
     id: dashBoardItem
     objectName: "dashBoard"
@@ -51,9 +56,24 @@ TestCase {
     model: MultiFeatureListModel {}
   }
 
+  QFieldControls.MapCanvas {
+    id: mapCanvas
+    objectName: "mapCanvas"
+  }
+
+  QfMenu {
+    id: canvasMenu
+    objectName: "canvasMenu"
+
+    property var point: GeometryUtils.point(0, 0)
+  }
+
   function init() {
     for (let i = pluginsToolbar.children.length - 1; i >= 0; --i) {
       pluginsToolbar.children[i].parent = null;
+    }
+    for (let i = canvasActionsToolbar.children.length - 1; i >= 0; --i) {
+      canvasActionsToolbar.children[i].parent = null;
     }
     dashBoardItem.activeLayer = null;
 
@@ -100,6 +120,16 @@ TestCase {
   function findToolbarButtonByText(text) {
     for (let i = 0; i < pluginsToolbar.children.length; ++i) {
       const child = pluginsToolbar.children[i];
+      if (child.text === text) {
+        return child;
+      }
+    }
+    return null;
+  }
+
+  function findCanvasActionButtonByText(text) {
+    for (let i = 0; i < canvasActionsToolbar.children.length; ++i) {
+      const child = canvasActionsToolbar.children[i];
       if (child.text === text) {
         return child;
       }
@@ -420,5 +450,72 @@ TestCase {
     findToolbarButtonByText("...").clicked();
 
     compare(featureListForm.model.count, 2);
+  }
+
+  // Feature insertion at canvas-menu point via canvas action buttons
+
+  Component {
+    id: featureInsertionPlugin
+
+    Item {
+      id: plugin
+
+      property var mainWindow: iface.mainWindow()
+      property var mapCanvas: iface.mapCanvas()
+      property var canvasMenu: iface.findItemByObjectName("canvasMenu")
+      property var dashBoard: iface.findItemByObjectName("dashBoard")
+
+      Component.onCompleted: {
+        iface.addItemToCanvasActionsToolbar(insertOtherButton);
+      }
+
+      QfToolButton {
+        id: insertOtherButton
+        text: "O"
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+        onClicked: {
+          dashBoard.activeLayer = qgisProject.mapLayersByName("OtherLayer")[0];
+          const point = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, dashBoard.activeLayer.crs);
+          const wkt = "POINT(" + point.x + " " + point.y + ")";
+          const geom = GeometryUtils.createGeometryFromWkt(wkt);
+          featureModel.currentLayer = dashBoard.activeLayer;
+          featureModel.resetFeature();
+          featureModel.resetAttributes();
+          featureModel.changeGeometry(geom);
+          featureModel.create();
+        }
+      }
+
+      FeatureModel {
+        id: featureModel
+      }
+    }
+  }
+
+  function test_insertionPluginRegistersCanvasActionButton() {
+    createTemporaryObject(featureInsertionPlugin, testCase);
+    compare(canvasActionsToolbar.children.length, 1);
+    compare(canvasActionsToolbar.children[0].text, "O");
+  }
+
+  function test_ifaceMapCanvasResolvesFromContext() {
+    const plugin = createTemporaryObject(featureInsertionPlugin, testCase);
+    verify(plugin.mapCanvas !== null);
+    compare(plugin.mapCanvas.objectName, "mapCanvas");
+  }
+
+  function test_insertButtonClickPersistsFeatureAtReprojectedPoint() {
+    makeMemoryLayer("OtherLayer");
+    canvasMenu.point = GeometryUtils.point(10, 20);
+    createTemporaryObject(featureInsertionPlugin, testCase);
+    findCanvasActionButtonByText("O").clicked();
+    const layer = qgisProject.mapLayersByName("OtherLayer")[0];
+    const it = LayerUtils.createFeatureIterator(layer);
+    verify(it.hasNext());
+    const feature = it.next();
+    const geom = feature.geometry;
+    compare(geom.asWkt(5), "Point (10 20)");
   }
 }
