@@ -285,7 +285,7 @@ Drawer {
       id: projectInformationLayout
       Layout.fillWidth: true
       Layout.leftMargin: mainWindow.sceneLeftMargin + 10
-      Layout.rightMargin: 10
+      Layout.rightMargin: 6
       Layout.bottomMargin: 5
 
       Text {
@@ -320,6 +320,38 @@ Drawer {
         iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
         bgcolor: "transparent"
         onClicked: temporalProperties.open()
+      }
+
+      QfToolButton {
+        id: projectInformationButton
+        Layout.alignment: Qt.AlignVCenter
+        width: 36
+        height: 36
+        padding: 0
+        iconSource: Theme.getThemeVectorIcon('ic_info_white_24dp')
+        iconColor: Theme.mainTextColor
+        bgcolor: "transparent"
+        onClicked: {
+          informationPopup.header = qsTr("Project Information");
+          informationPopup.title = projectTitleText.text;
+
+          informationPopup.descriptionFormat = Text.MarkdownText;
+          if (qgisProject.metadata.abstract !== "") {
+            informationPopup.description = qgisProject.metadata.abstract;
+          } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.description !== "") {
+            informationPopup.description = cloudProjectsModel.currentProject.description;
+          } else {
+            informationPopup.description = "<span style='font-style:italic;'>" + qsTr("Empty project abstract and description") + "</span>";
+          }
+
+          if (qgisProject.metadata.author !== "") {
+            informationPopup.author = qgisProject.metadata.author;
+          } else if (cloudProjectsModel.currentProject) {
+            informationPopup.author = cloudProjectsModel.currentProject.owner;
+          }
+
+          informationPopup.open();
+        }
       }
     }
 
@@ -471,6 +503,7 @@ Drawer {
         anchors.leftMargin: mainWindow.sceneLeftMargin + 5
         anchors.rightMargin: 5
         bottomMargin: bottomRow.height + 4
+        informationPopup: informationPopup
       }
     }
   }
@@ -577,5 +610,9 @@ Drawer {
   TemporalProperties {
     id: temporalProperties
     mapSettings: dashBoard.mapSettings
+  }
+
+  InformationPopup {
+    id: informationPopup
   }
 }

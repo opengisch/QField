@@ -13,6 +13,7 @@ import Theme
 ListView {
   id: legend
 
+  property InformationPopup informationPopup
   property bool isVisible: false
   property VectorLayer activeLayer
   property bool allowActiveLayerChange
@@ -362,9 +363,12 @@ ListView {
             icon.color: Theme.mainTextColor
 
             onClicked: {
-              notesItem.title = Name;
-              notesItem.notes = Notes;
-              notesItem.open();
+              informationPopup.header = MapLayerPointer.name;
+              informationPopup.title = "";
+              informationPopup.descriptionFormat = Text.RichText;
+              informationPopup.description = Notes;
+              informationPopup.author = "";
+              informationPopup.open();
             }
           }
 
@@ -395,9 +399,5 @@ ListView {
   LayerTreeItemProperties {
     id: itemProperties
     layerTree: legend.model
-  }
-
-  NotesItem {
-    id: notesItem
   }
 }
