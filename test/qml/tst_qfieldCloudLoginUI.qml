@@ -118,8 +118,11 @@ TestCase {
     compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
     verify(usernameField.visible);
     verify(passwordField.visible);
-    verify(cloudRegisterLabel.visible);
+    // Register label requires a signup URL from server info, verify after fetch
     cloudConnection.url = data.url;
+    cloudConnection.getServerInformation();
+    tryCompare(cloudConnection, "isFetchingAvailableProviders", false, 10000);
+    verify(cloudRegisterLabel.visible);
     cloudConnection.username = data.username;
     cloudConnection.login(data.password);
     wait(5000);

@@ -163,6 +163,51 @@ Q_DECLARE_METATYPE( CloudWhitelabelInformation )
 
 /**
  * \ingroup core
+ *
+ * Public information about a QFieldCloud server, including whitelabel
+ * branding and the new-user signup URL.
+ */
+struct CloudServerInformation
+{
+    Q_GADGET
+
+    Q_PROPERTY( CloudWhitelabelInformation whitelabel MEMBER whitelabel )
+    Q_PROPERTY( QString signupUrl MEMBER signupUrl )
+
+  public:
+    CloudServerInformation() = default;
+
+    explicit CloudServerInformation( const QVariantMap &serverInformation )
+      : whitelabel( serverInformation.value( QStringLiteral( "whitelabel" ) ).toMap() )
+      , signupUrl( serverInformation.value( QStringLiteral( "signup_url" ) ).toString() )
+    {}
+
+    bool operator==( const CloudServerInformation &other ) const
+    {
+      return whitelabel == other.whitelabel && signupUrl == other.signupUrl;
+    }
+
+    bool operator!=( const CloudServerInformation &other ) const
+    {
+      return !( *this == other );
+    }
+
+    QVariantMap toVariantMap() const
+    {
+      return {
+        { QStringLiteral( "whitelabel" ), whitelabel.toVariantMap() },
+        { QStringLiteral( "signup_url" ), signupUrl },
+      };
+    }
+
+    CloudWhitelabelInformation whitelabel;
+    QString signupUrl;
+};
+
+Q_DECLARE_METATYPE( CloudServerInformation )
+
+/**
+ * \ingroup core
  */
 class QFieldCloudUtils : public QObject
 {
