@@ -22,7 +22,7 @@ QfPopup {
   height: Math.min(popupLayout.childrenRect.height + pageHader.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
-  closePolicy: Popup.CloseOnEscape
+  closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
   Page {
