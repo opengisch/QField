@@ -957,9 +957,9 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
           continue;
         }
 
-        QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
-        if ( property.isActive() )
+        if ( mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).isActive( QgsEditFormConfig::DataDefinedProperty::Editable ) )
         {
+          QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
           QgsExpression expression( property.asExpression() );
           QgsExpressionContext expressionContext = createExpressionContext();
           expressionContext.setFeature( mFeature );

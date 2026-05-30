@@ -627,14 +627,15 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
           item->setData( QString(), AttributeFormModel::ConstraintDescription );
         }
 
-        QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias );
-        if ( property.isActive() )
+        if ( mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).isActive( QgsEditFormConfig::DataDefinedProperty::Alias ) )
         {
+          QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias );
           mAliasExpressions.insert( item, property.asExpression() );
         }
-        property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
-        if ( property.isActive() )
+
+        if ( mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).isActive( QgsEditFormConfig::DataDefinedProperty::Editable ) )
         {
+          QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Editable );
           mReadOnlyExpressions.insert( item, property.asExpression() );
         }
 
