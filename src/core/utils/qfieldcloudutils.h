@@ -83,6 +83,8 @@ struct CloudSubscriptionInformation
     Q_PROPERTY( QString plan MEMBER plan )
     Q_PROPERTY( double storageTotal MEMBER storageTotal )
     Q_PROPERTY( double storageUsed MEMBER storageUsed )
+    Q_PROPERTY( double storageThresholdWarning MEMBER storageThresholdWarning )
+    Q_PROPERTY( double storageThresholdCritical MEMBER storageThresholdCritical )
     Q_PROPERTY( QString status MEMBER status )
 
   public:
@@ -92,17 +94,21 @@ struct CloudSubscriptionInformation
       : plan( subscriptionInformation.value( QStringLiteral( "plan_display_name" ) ).toString() )
       , storageTotal( subscriptionInformation.value( QStringLiteral( "active_storage_total_bytes" ) ).toDouble() )
       , storageUsed( subscriptionInformation.value( QStringLiteral( "storage_used_bytes" ) ).toDouble() )
+      , storageThresholdWarning( subscriptionInformation.value( QStringLiteral( "plan_storage_threshold_warning_bytes" ) ).toDouble() )
+      , storageThresholdCritical( subscriptionInformation.value( QStringLiteral( "plan_storage_threshold_critical_bytes" ) ).toDouble() )
       , status( subscriptionInformation.value( QStringLiteral( "status" ) ).toString() )
     {}
 
     bool operator==( const CloudSubscriptionInformation &other ) const
     {
-      return plan == other.plan && storageTotal == other.storageTotal && storageUsed == other.storageUsed && status == other.status;
+      return plan == other.plan && storageTotal == other.storageTotal && storageUsed == other.storageUsed && storageThresholdWarning == other.storageThresholdWarning && storageThresholdCritical == other.storageThresholdCritical && status == other.status;
     }
 
     QString plan;
     double storageTotal = 0;
     double storageUsed = 0;
+    double storageThresholdWarning = 0;
+    double storageThresholdCritical = 0;
     QString status;
 };
 
