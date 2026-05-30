@@ -1,0 +1,8 @@
+[general]
+name=VoicePolygon
+description=Dibuja polígonos catastrales por comandos de voz en español. Soporta construcciones, unidades y linderos de predio.
+author=Tu Nombre
+version=2.0.0
+icon=icons/voice_polygon.svg
+qfieldMinimumVersion=3.0
+tags=voz,polygon,construccion,catastro,topografia,COGO,linderos,predio
