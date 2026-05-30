@@ -352,4 +352,14 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   install(FILES ${CMAKE_SOURCE_DIR}/platform/linux/qfield.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 endif()
 
+# VoicePolygon plugin install
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/plugins/voice-polygon
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/qfield/plugins
+  FILES_MATCHING
+    PATTERN "*.qml"
+    PATTERN "*.js"
+    PATTERN "*.txt"
+    PATTERN "*.svg"
+)
+
 include(Package)
