@@ -1,0 +1,11 @@
+{
+  "name": "voice-polygon-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
