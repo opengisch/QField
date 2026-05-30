@@ -407,7 +407,7 @@ Drawer {
               mapThemeComboBox.model = themes;
               mapThemeComboBox.enabled = themes.length > 1;
               mapThemeComboBox.opacity = themes.length > 1 ? 1 : 0.25;
-              mapThemeContainer.visible = themes.length > 1 || flatLayerTree.isTemporal;
+              mapThemeContainer.visible = themes.length > 1;
               flatLayerTree.updateCurrentMapTheme();
               mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find(flatLayerTree.mapTheme) : -1;
               mapThemeContainer.isLoading = false;
