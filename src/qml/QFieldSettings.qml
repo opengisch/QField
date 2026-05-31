@@ -1656,26 +1656,26 @@ Page {
                 }
               }
 
-              Label {
-                text: qsTr("Bad accuracy threshold [m]")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                enabled: accuracyIndicator.checked
-                visible: accuracyIndicator.checked
-                Layout.leftMargin: 8
-              }
-
               QfTextField {
                 id: accuracyBadInput
-                width: antennaHeightActivated.width
                 font: Theme.defaultFont
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
-                horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: width
+                horizontalAlignment: TextInput.AlignLeft
+                Layout.columnSpan: 2
+                Layout.fillWidth: true
+                rightPadding: accuracyBadSuffix.width + 8
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+                Label {
+                  id: accuracyBadSuffix
+                  text: qsTr("Bad accuracy threshold [m]")
+                  anchors.right: parent.right
+                  anchors.rightMargin: 4
+                  anchors.verticalCenter: parent.verticalCenter
+                  font: parent.font
+                  color: Theme.mainTextDisabledColor
+                }
                 validator: DoubleValidator {
                   locale: 'C'
                 }
@@ -1693,26 +1693,26 @@ Page {
                 }
               }
 
-              Label {
-                text: qsTr("Excellent accuracy threshold [m]")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                enabled: accuracyIndicator.checked
-                visible: accuracyIndicator.checked
-                Layout.leftMargin: 8
-              }
-
               QfTextField {
                 id: accuracyExcellentInput
-                width: antennaHeightActivated.width
                 font: Theme.defaultFont
                 enabled: accuracyIndicator.checked
                 visible: accuracyIndicator.checked
-                horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: width
+                horizontalAlignment: TextInput.AlignLeft
+                Layout.columnSpan: 2
+                Layout.fillWidth: true
+                rightPadding: accuracyExcellentSuffix.width + 8
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+                Label {
+                  id: accuracyExcellentSuffix
+                  text: qsTr("Excellent accuracy threshold [m]")
+                  anchors.right: parent.right
+                  anchors.rightMargin: 4
+                  anchors.verticalCenter: parent.verticalCenter
+                  font: parent.font
+                  color: Theme.mainTextDisabledColor
+                }
                 validator: DoubleValidator {
                   locale: 'C'
                 }
@@ -1801,26 +1801,26 @@ Page {
                 }
               }
 
-              Label {
-                text: qsTr("Minimum number of positions collected")
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                enabled: averagedPositioning.checked
-                visible: averagedPositioning.checked
-                Layout.leftMargin: 8
-              }
-
               QfTextField {
                 id: averagedPositioningMinimumCount
-                width: averagedPositioning.width
                 font: Theme.defaultFont
                 enabled: averagedPositioning.checked
                 visible: averagedPositioning.checked
-                horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: width
+                horizontalAlignment: TextInput.AlignLeft
+                Layout.columnSpan: 2
+                Layout.fillWidth: true
+                rightPadding: averagedPositioningMinimumCountSuffix.width + 8
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+                Label {
+                  id: averagedPositioningMinimumCountSuffix
+                  text: qsTr("Minimum positions count")
+                  anchors.right: parent.right
+                  anchors.rightMargin: 4
+                  anchors.verticalCenter: parent.verticalCenter
+                  font: parent.font
+                  color: Theme.mainTextDisabledColor
+                }
                 validator: IntValidator {
                   locale: 'C'
                 }
@@ -1914,27 +1914,27 @@ Page {
                 }
               }
 
-              Label {
-                text: qsTr("Antenna height [m]")
-                enabled: antennaHeightActivated.checked
-                visible: antennaHeightActivated.checked
-                font: Theme.defaultFont
-                color: Theme.mainTextColor
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                textFormat: Text.RichText
-                Layout.leftMargin: 8
-              }
-
               QfTextField {
                 id: antennaHeightInput
                 enabled: antennaHeightActivated.checked
                 visible: antennaHeightActivated.checked
-                width: antennaHeightActivated.width
                 font: Theme.defaultFont
-                horizontalAlignment: TextInput.AlignHCenter
-                Layout.preferredWidth: width
+                horizontalAlignment: TextInput.AlignLeft
+                Layout.columnSpan: 2
+                Layout.fillWidth: true
+                rightPadding: antennaHeightSuffix.width + 8
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+                Label {
+                  id: antennaHeightSuffix
+                  text: qsTr("Antenna height [m]")
+                  anchors.right: parent.right
+                  anchors.rightMargin: 10
+                  anchors.verticalCenter: parent.verticalCenter
+                  font: parent.font
+                  color: Theme.mainTextDisabledColor
+                }
+
                 validator: DoubleValidator {
                   locale: 'C'
                 }
