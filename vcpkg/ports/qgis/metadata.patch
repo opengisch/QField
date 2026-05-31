@@ -1,0 +1,168 @@
+From 5aa256ab4c2c54fd1b89b96b1b19341d75547a85 Mon Sep 17 00:00:00 2001
+From: Mathieu Pellerin <nirvn.asia@gmail.com>
+Date: Thu, 28 May 2026 11:54:23 +0700
+Subject: [PATCH] [qml] Expose abstract, project and layer metadata details as
+ properties
+
+---
+ .../metadata/qgsabstractmetadatabase.sip.in              | 4 +++-
+ .../core/auto_generated/metadata/qgslayermetadata.sip.in | 3 +++
+ .../auto_generated/metadata/qgsprojectmetadata.sip.in    | 3 +++
+ src/core/metadata/qgsabstractmetadatabase.cpp            | 2 ++
+ src/core/metadata/qgsabstractmetadatabase.h              | 9 +++++++--
+ src/core/metadata/qgslayermetadata.cpp                   | 2 ++
+ src/core/metadata/qgslayermetadata.h                     | 5 +++++
+ src/core/metadata/qgsprojectmetadata.cpp                 | 2 ++
+ src/core/metadata/qgsprojectmetadata.h                   | 4 ++++
+ 9 files changed, 31 insertions(+), 3 deletions(-)
+
+diff --git a/python/PyQt6/core/auto_generated/metadata/qgsabstractmetadatabase.sip.in b/python/PyQt6/core/auto_generated/metadata/qgsabstractmetadatabase.sip.in
+index fea8bdf4280f..c7f8e5111e8b 100644
+--- a/python/PyQt6/core/auto_generated/metadata/qgsabstractmetadatabase.sip.in
++++ b/python/PyQt6/core/auto_generated/metadata/qgsabstractmetadatabase.sip.in
+@@ -44,6 +44,9 @@ against the native QGIS metadata schema can be performed using
+ %TypeHeaderCode
+ #include "qgsabstractmetadatabase.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+ %ConvertToSubClassCode
+     if ( dynamic_cast< QgsLayerMetadata * >( sipCpp ) != NULL )
+       sipType = sipType_QgsLayerMetadata;
+@@ -54,7 +57,6 @@ against the native QGIS metadata schema can be performed using
+ %End
+   public:
+ 
+-
+     typedef QMap< QString, QStringList > KeywordMap;
+ 
+     struct Address
+diff --git a/python/PyQt6/core/auto_generated/metadata/qgslayermetadata.sip.in b/python/PyQt6/core/auto_generated/metadata/qgslayermetadata.sip.in
+index 41f42fca6344..ed0190fd77a4 100644
+--- a/python/PyQt6/core/auto_generated/metadata/qgslayermetadata.sip.in
++++ b/python/PyQt6/core/auto_generated/metadata/qgslayermetadata.sip.in
+@@ -40,6 +40,9 @@ against the native QGIS metadata schema can be performed using
+ %TypeHeaderCode
+ #include "qgslayermetadata.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+     struct SpatialExtent
+     {
+diff --git a/python/PyQt6/core/auto_generated/metadata/qgsprojectmetadata.sip.in b/python/PyQt6/core/auto_generated/metadata/qgsprojectmetadata.sip.in
+index 7d3ed46e0d7a..545e331ee0c4 100644
+--- a/python/PyQt6/core/auto_generated/metadata/qgsprojectmetadata.sip.in
++++ b/python/PyQt6/core/auto_generated/metadata/qgsprojectmetadata.sip.in
+@@ -42,6 +42,9 @@ against the native QGIS metadata schema can be performed using
+ %TypeHeaderCode
+ #include "qgsprojectmetadata.h"
+ %End
++  public:
++    static const QMetaObject staticMetaObject;
++
+   public:
+     QgsProjectMetadata();
+ 
+diff --git a/src/core/metadata/qgsabstractmetadatabase.cpp b/src/core/metadata/qgsabstractmetadatabase.cpp
+index 2252324948ef..cd995c08cd1f 100644
+--- a/src/core/metadata/qgsabstractmetadatabase.cpp
++++ b/src/core/metadata/qgsabstractmetadatabase.cpp
+@@ -22,6 +22,8 @@
+ 
+ #include <QString>
+ 
++#include "moc_qgsabstractmetadatabase.cpp"
++
+ using namespace Qt::StringLiterals;
+ 
+ QString QgsAbstractMetadataBase::identifier() const
+diff --git a/src/core/metadata/qgsabstractmetadatabase.h b/src/core/metadata/qgsabstractmetadatabase.h
+index 7feabc0c01e4..2ba24416e69e 100644
+--- a/src/core/metadata/qgsabstractmetadatabase.h
++++ b/src/core/metadata/qgsabstractmetadatabase.h
+@@ -59,6 +59,8 @@ class QgsTranslationContext;
+  */
+ class CORE_EXPORT QgsAbstractMetadataBase
+ {
++    Q_GADGET
++
+ #ifdef SIP_RUN
+     SIP_CONVERT_TO_SUBCLASS_CODE
+     if ( dynamic_cast< QgsLayerMetadata * >( sipCpp ) != NULL )
+@@ -67,11 +69,14 @@ class CORE_EXPORT QgsAbstractMetadataBase
+       sipType = sipType_QgsProjectMetadata;
+     else
+       sipType = NULL;
+-  SIP_END
++    SIP_END
+ #endif
+ 
+-  public:
++    Q_PROPERTY( QString type READ type )
++    Q_PROPERTY( QString title READ title )
++    Q_PROPERTY( QString abstract READ abstract )
+ 
++  public:
+     // NOTE - these really belong in a separate namespace, but SIP says no, I want to make you waste more time
+     // TODO: dump sip
+ 
+diff --git a/src/core/metadata/qgslayermetadata.cpp b/src/core/metadata/qgslayermetadata.cpp
+index 28fe3c715675..0c696a963aff 100644
+--- a/src/core/metadata/qgslayermetadata.cpp
++++ b/src/core/metadata/qgslayermetadata.cpp
+@@ -23,6 +23,8 @@
+ #include <QRegularExpression>
+ #include <QString>
+ 
++#include "moc_qgslayermetadata.cpp"
++
+ using namespace Qt::StringLiterals;
+ 
+ QgsLayerMetadata *QgsLayerMetadata::clone() const
+diff --git a/src/core/metadata/qgslayermetadata.h b/src/core/metadata/qgslayermetadata.h
+index d75069bc6dec..57ac8edd0b18 100644
+--- a/src/core/metadata/qgslayermetadata.h
++++ b/src/core/metadata/qgslayermetadata.h
+@@ -54,6 +54,11 @@ class QgsMapLayer;
+  */
+ class CORE_EXPORT QgsLayerMetadata : public QgsAbstractMetadataBase
+ {
++    Q_GADGET
++
++    Q_PROPERTY( QStringList rights READ rights )
++    Q_PROPERTY( QStringList licenses READ licenses )
++
+   public:
+     /**
+      * Metadata spatial extent structure.
+diff --git a/src/core/metadata/qgsprojectmetadata.cpp b/src/core/metadata/qgsprojectmetadata.cpp
+index a4f1873ad987..3193b3d92e6b 100644
+--- a/src/core/metadata/qgsprojectmetadata.cpp
++++ b/src/core/metadata/qgsprojectmetadata.cpp
+@@ -23,6 +23,8 @@
+ #include <QDomNode>
+ #include <QString>
+ 
++#include "moc_qgsprojectmetadata.cpp"
++
+ using namespace Qt::StringLiterals;
+ 
+ bool QgsProjectMetadata::readMetadataXml( const QDomElement &metadataElement, const QgsReadWriteContext &context )
+diff --git a/src/core/metadata/qgsprojectmetadata.h b/src/core/metadata/qgsprojectmetadata.h
+index ee60a6946d4b..2c08d14d9815 100644
+--- a/src/core/metadata/qgsprojectmetadata.h
++++ b/src/core/metadata/qgsprojectmetadata.h
+@@ -52,6 +52,10 @@
+  */
+ class CORE_EXPORT QgsProjectMetadata : public QgsAbstractMetadataBase
+ {
++    Q_GADGET
++
++    Q_PROPERTY( QString author READ author )
++
+   public:
+     QgsProjectMetadata() = default;
+ 
