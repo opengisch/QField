@@ -72,8 +72,9 @@ Item {
         iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
         iconColor: Theme.mainTextColor
         onClicked: {
-          const globalPoint = preciseViewSettings.mapToGlobal(preciseViewSettings.width - positioningPreciseView.stakeoutMenu.width, preciseViewSettings.height);
-          positioningPreciseView.popupStakeoutMenu(globalPoint);
+          const globalPoint = preciseViewSettings.mapToGlobal(preciseViewSettings.width - positioningPreciseView.menu.width, preciseViewSettings.height);
+          const localPoint = positioningPreciseView.menu.parent.mapFromGlobal(globalPoint.x, globalPoint.y);
+          positioningPreciseView.menu.popup(localPoint.x, localPoint.y);
         }
       }
 

@@ -22,7 +22,7 @@ Item {
   property bool hasAlarmSnoozed: false
   property real lastValidDirection: NaN
   property PositioningSettings positioningSettings
-  property alias stakeoutMenu: stakeoutMenu
+  property alias menu: settingsMenu
 
   readonly property real movementSpeedThreshold: 0.8
 
@@ -37,11 +37,6 @@ Item {
       return lastValidDirection;
     }
     return positionSource.orientation;
-  }
-
-  function popupStakeoutMenu(globalPoint) {
-    const localPoint = stakeoutMenu.parent.mapFromGlobal(globalPoint.x, globalPoint.y);
-    stakeoutMenu.popup(localPoint.x, localPoint.y);
   }
 
   Connections {
@@ -506,7 +501,7 @@ Item {
   }
 
   Menu {
-    id: stakeoutMenu
+    id: settingsMenu
     width: 330
 
     MenuItem {
