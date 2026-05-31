@@ -22,35 +22,21 @@ Item {
   property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
   property bool hasReachedTarget: hasAcceptableAccuracy && projectDistance - positionSource.positionInformation.hacc - (precision / 10) <= 0
   property bool hasAlarmSnoozed: false
-  property real lastValidDirection: NaN
   property PositioningSettings positioningSettings
 
   property alias menu: settingsMenu
 
   readonly property alias preciseTargetDiameter: preciseTarget.width
 
-  readonly property real movementSpeedThreshold: 0.8
+  property real lastValidDirection: NaN
   readonly property real rotationAngle: {
     if (!positioningSettings.preciseViewAutoRotate) {
       return NaN;
     }
     if (positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement) {
-      if (positionSource.positionInformation && positionSource.positionInformation.directionValid && (!positionSource.positionInformation.speedValid || positionSource.positionInformation.speed >= movementSpeedThreshold)) {
-        return positionSource.positionInformation.direction;
-      }
       return lastValidDirection;
     }
     return positionSource.orientation;
-  }
-
-  Connections {
-    target: positionSource
-    function onPositionInformationChanged() {
-      const info = positionSource.positionInformation;
-      if (info && info.directionValid && (!info.speedValid || info.speed >= positioningPreciseView.movementSpeedThreshold)) {
-        positioningPreciseView.lastValidDirection = info.direction;
-      }
-    }
   }
 
   property double positionX: Math.min(precision, projectDistance) * Math.cos((navigation.bearing - (!isNaN(rotationAngle) ? rotationAngle : 0) - 90) * Math.PI / 180) * (preciseTarget.width / 2) / precision
@@ -702,6 +688,19 @@ Item {
     Item {
       width: 1
       height: 8
+    }
+  }
+
+  Connections {
+    target: positionSource
+    enabled: positioningSettings.preciseViewRotationSource === PositioningSettings.RotationSource.Movement
+
+    function onPositionInformationChanged() {
+      const info = positionSource.positionInformation;
+      const movementSpeedThreshold = 0.8;
+      if (info && info.directionValid && (!info.speedValid || info.speed >= movementSpeedThreshold)) {
+        positioningPreciseView.lastValidDirection = info.direction;
+      }
     }
   }
 
