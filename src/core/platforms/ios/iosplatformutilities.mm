@@ -331,11 +331,7 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 
 @end
 
-- (void)documentPickerWasCancelled:
-    (UIDocumentPickerViewController *)controller {
-}
-
-@end void IosPlatformUtilities::importProjectFolder() const {
+void IosPlatformUtilities::importProjectFolder() const {
   QString appDir = applicationDirectory();
   NSString *importBasePath =
       (appDir + QStringLiteral("/Imported Projects/")).toNSString();
@@ -367,8 +363,9 @@ void IosPlatformUtilities::importProjectArchive() const {
       firstObject] rootViewController];
 
   UIDocumentPickerViewController *picker =
-      [[UIDocumentPickerViewController alloc]
-          initForOpeningContentTypes:@[ UTTypeZipArchive ]];
+      [[UIDocumentPickerViewController alloc] initForOpeningContentTypes:@[
+        [UTType typeWithIdentifier:@"public.zip-archive"]
+      ]];
   picker.allowsMultipleSelection = NO;
 
   IosImportDelegate *delegate = [[IosImportDelegate alloc] init];
