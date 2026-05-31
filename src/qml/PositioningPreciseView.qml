@@ -12,6 +12,8 @@ import Theme
 Item {
   id: positioningPreciseView
 
+  property real maximumHeight: Math.min(Math.min(mainWindow.height / 3, 250))
+
   property double precision: 1
   property double projectDistance: navigation.distance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits)
   property double projectVerticalDistance: navigation.verticalDistance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits)
@@ -22,10 +24,12 @@ Item {
   property bool hasAlarmSnoozed: false
   property real lastValidDirection: NaN
   property PositioningSettings positioningSettings
+
   property alias menu: settingsMenu
 
-  readonly property real movementSpeedThreshold: 0.8
+  readonly property alias preciseTargetDiameter: preciseTarget.width
 
+  readonly property real movementSpeedThreshold: 0.8
   readonly property real rotationAngle: {
     if (!positioningSettings.preciseViewAutoRotate) {
       return NaN;
@@ -82,7 +86,7 @@ Item {
 
     Shape {
       id: preciseTarget
-      width: Math.min(180, positioningPreciseView.height - 40, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 40)
+      width: Math.min(180, positioningPreciseView.maximumHeight - 40, positioningPreciseView.width - preciseElevation.width - labelTarget.contentWidth - labelElevation.width - 40)
       height: width
       rotation: !isNaN(rotationAngle) ? -rotationAngle + positionSource.bearingTrueNorth : 0
 
