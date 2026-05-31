@@ -37,6 +37,7 @@ class IosPlatformUtilities : public PlatformUtilities
     QStringList rootDirectories() const override { return QStringList(); }
 
     void importProjectFolder() const override;
+    void importProjectArchive() const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
     virtual ResourceSource *getCameraPicture( const QString &prefix,
