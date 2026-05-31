@@ -350,6 +350,22 @@ Item {
             }
           }
 
+          delegate: ItemDelegate {
+            width: ListView.view.width
+            height: Math.max(delegateLabel.implicitHeight + 16, 48)
+            highlighted: comboBox.highlightedIndex === index
+
+            contentItem: Text {
+              id: delegateLabel
+              text: model.display
+              font: Theme.defaultFont
+              color: highlighted ? Theme.mainColor : Theme.mainTextColor
+              wrapMode: Text.WordWrap
+              verticalAlignment: Text.AlignVCenter
+              leftPadding: 8
+            }
+          }
+
           ScrollIndicator.vertical: ScrollIndicator {}
         }
       }
