@@ -91,10 +91,9 @@ Item {
 
         PositioningPreciseView {
           id: positioningPreciseView
-          visible: opacity > 0
+          visible: positioningPreciseEnabled
           width: parent.width
-          height: positioningPreciseEnabled ? Math.min(mainWindow.height / 3, 250) : 0
-          opacity: positioningPreciseEnabled ? 1 : 0
+          height: positioningPreciseEnabled ? preciseTargetDiameter + 20 : 0
           clip: true
           precision: positioningSettings.preciseViewPrecision
           positioningSettings: controller.positioningSettings
