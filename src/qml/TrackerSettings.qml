@@ -248,25 +248,26 @@ QfPopup {
           }
         }
 
-        Label {
-          text: qsTr("Minimum time [sec]")
-          font: Theme.defaultFont
-          wrapMode: Text.WordWrap
-          enabled: timeInterval.checked
-          visible: timeInterval.checked
-          Layout.leftMargin: 8
-          Layout.fillWidth: true
-        }
-
         QfTextField {
           id: timeIntervalValue
-          width: timeInterval.width
           font: Theme.defaultFont
           enabled: timeInterval.checked
           visible: timeInterval.checked
-          horizontalAlignment: TextInput.AlignHCenter
-          Layout.preferredWidth: width
+          horizontalAlignment: TextInput.AlignLeft
+          Layout.columnSpan: 2
+          Layout.fillWidth: true
+          rightPadding: timeIntervalSuffix.width + 8
           inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+          Label {
+            id: timeIntervalSuffix
+            text: qsTr("Minimum time [sec]")
+            anchors.right: parent.right
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            font: parent.font
+            color: Theme.mainTextDisabledColor
+          }
           validator: DoubleValidator {
             locale: 'C'
           }
@@ -316,25 +317,26 @@ QfPopup {
           crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
         }
 
-        Label {
-          text: qsTr("Minimum distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
-          font: Theme.defaultFont
-          wrapMode: Text.WordWrap
-          enabled: minimumDistance.checked
-          visible: minimumDistance.checked
-          Layout.leftMargin: 8
-          Layout.fillWidth: true
-        }
-
         QfTextField {
           id: minimumDistanceValue
-          width: minimumDistance.width
           font: Theme.defaultFont
           enabled: minimumDistance.checked
           visible: minimumDistance.checked
-          horizontalAlignment: TextInput.AlignHCenter
-          Layout.preferredWidth: width
+          horizontalAlignment: TextInput.AlignLeft
+          Layout.columnSpan: 2
+          Layout.fillWidth: true
+          rightPadding: minimumDistanceSuffix.width + 8
           inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+          Label {
+            id: minimumDistanceSuffix
+            text: qsTr("Minimum distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
+            anchors.right: parent.right
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            font: parent.font
+            color: Theme.mainTextDisabledColor
+          }
           validator: DoubleValidator {
             locale: 'C'
           }
@@ -458,25 +460,26 @@ QfPopup {
           }
         }
 
-        Label {
-          text: qsTr("Maximum tolerated distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
-          font: Theme.defaultFont
-          wrapMode: Text.WordWrap
-          enabled: erroneousDistanceSafeguard.checked
-          visible: erroneousDistanceSafeguard.checked
-          Layout.leftMargin: 8
-          Layout.fillWidth: true
-        }
-
         QfTextField {
           id: erroneousDistanceValue
-          width: erroneousDistanceSafeguard.width
           font: Theme.defaultFont
           enabled: erroneousDistanceSafeguard.checked
           visible: erroneousDistanceSafeguard.checked
-          horizontalAlignment: TextInput.AlignHCenter
-          Layout.preferredWidth: width
+          horizontalAlignment: TextInput.AlignLeft
+          Layout.columnSpan: 2
+          Layout.fillWidth: true
+          rightPadding: erroneousDistanceSuffix.width + 8
           inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+          Label {
+            id: erroneousDistanceSuffix
+            text: qsTr("Maximum tolerated distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
+            anchors.right: parent.right
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            font: parent.font
+            color: Theme.mainTextDisabledColor
+          }
           validator: DoubleValidator {
             locale: 'C'
           }
