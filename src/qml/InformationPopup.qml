@@ -11,7 +11,7 @@ import Theme
 QfPopup {
   id: popup
 
-  property alias header: pageHader.title
+  property alias header: pageHeader.title
   property alias title: titleText.text
   property alias description: descriptionText.text
   property alias descriptionFormat: descriptionText.textFormat
@@ -19,7 +19,7 @@ QfPopup {
 
   parent: mainWindow.contentItem
   width: Math.min(450, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
-  height: Math.min(popupLayout.childrenRect.height + pageHader.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  height: Math.min(popupLayout.childrenRect.height + pageHeader.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -32,7 +32,7 @@ QfPopup {
     padding: 5
 
     header: QfPageHeader {
-      id: pageHader
+      id: pageHeader
       showBackButton: true
       showCancelButton: false
       showMenuButton: false

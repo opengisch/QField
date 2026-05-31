@@ -341,13 +341,15 @@ Drawer {
           } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.description !== "") {
             informationPopup.description = cloudProjectsModel.currentProject.description;
           } else {
-            informationPopup.description = "<span style='font-style:italic;'>" + qsTr("Empty project abstract and description") + "</span>";
+            informationPopup.description = qsTr("Empty project abstract and description");
           }
 
           if (qgisProject.metadata.author !== "") {
             informationPopup.author = qgisProject.metadata.author;
           } else if (cloudProjectsModel.currentProject) {
             informationPopup.author = cloudProjectsModel.currentProject.owner;
+          } else {
+            informationPopup.author = "";
           }
 
           informationPopup.open();
