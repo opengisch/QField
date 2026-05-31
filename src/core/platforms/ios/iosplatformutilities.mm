@@ -18,6 +18,7 @@
 
 #include "iosplatformutilities.h"
 #include "appinterface.h"
+#include "fileutils.h"
 #include "iosprojectsource.h"
 #include "iosresourcesource.h"
 #include "qfield.h"
@@ -274,6 +275,7 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 
 @interface IosImportDelegate : NSObject <UIDocumentPickerDelegate>
 @property(nonatomic, strong) NSString *importPath;
+@property(nonatomic, strong) NSString *mode;
 @end
 
 @implementation IosImportDelegate
@@ -286,22 +288,40 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 
   NSURL *url = urls.firstObject;
   [url startAccessingSecurityScopedResource];
-
-  NSString *folderName = url.lastPathComponent;
-  NSString *destPath = [_importPath stringByAppendingPathComponent:folderName];
-
   NSFileManager *fileManager = [NSFileManager defaultManager];
-  [fileManager createDirectoryAtPath:_importPath
-         withIntermediateDirectories:YES
-                          attributes:nil
-                               error:nil];
 
-  copyDirectoryContents(url, destPath);
-  [url stopAccessingSecurityScopedResource];
+  if ([_mode isEqualToString:@"projectFolder"]) {
+    NSString *folderName = url.lastPathComponent;
+    NSString *destPath =
+        [_importPath stringByAppendingPathComponent:folderName];
+    [fileManager createDirectoryAtPath:_importPath
+           withIntermediateDirectories:YES
+                            attributes:nil
+                                 error:nil];
+    copyDirectoryContents(url, destPath);
+    [url stopAccessingSecurityScopedResource];
 
-  QString importedPath = QString::fromNSString(destPath);
-  if (AppInterface::instance()) {
-    emit AppInterface::instance()->openPath(importedPath);
+    QString importedPath = QString::fromNSString(destPath);
+    if (AppInterface::instance()) {
+      emit AppInterface::instance()->openPath(importedPath);
+    }
+  } else if ([_mode isEqualToString:@"projectArchive"]) {
+    NSString *baseName = [url.lastPathComponent stringByDeletingPathExtension];
+    NSString *destPath = [_importPath stringByAppendingPathComponent:baseName];
+    [fileManager createDirectoryAtPath:destPath
+           withIntermediateDirectories:YES
+                            attributes:nil
+                                 error:nil];
+
+    QString zipPath = QString::fromNSString(url.path);
+    QString destDir = QString::fromNSString(destPath);
+    QStringList extractedFiles;
+    FileUtils::unzip(zipPath, destDir, extractedFiles, false);
+    [url stopAccessingSecurityScopedResource];
+
+    if (AppInterface::instance()) {
+      emit AppInterface::instance()->openPath(destDir);
+    }
   }
 }
 
@@ -310,7 +330,12 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 }
 
 @end
-void IosPlatformUtilities::importProjectFolder() const {
+
+- (void)documentPickerWasCancelled:
+    (UIDocumentPickerViewController *)controller {
+}
+
+@end void IosPlatformUtilities::importProjectFolder() const {
   QString appDir = applicationDirectory();
   NSString *importBasePath =
       (appDir + QStringLiteral("/Imported Projects/")).toNSString();
@@ -325,6 +350,30 @@ void IosPlatformUtilities::importProjectFolder() const {
 
   IosImportDelegate *delegate = [[IosImportDelegate alloc] init];
   delegate.importPath = importBasePath;
+  delegate.mode = @"projectFolder";
+  picker.delegate = delegate;
+  objc_setAssociatedObject(picker, &kIosImportDelegateKey, delegate,
+                           OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+  [root presentViewController:picker animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::importProjectArchive() const {
+  QString appDir = applicationDirectory();
+  NSString *importBasePath =
+      (appDir + QStringLiteral("/Imported Projects/")).toNSString();
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc]
+          initForOpeningContentTypes:@[ UTTypeZipArchive ]];
+  picker.allowsMultipleSelection = NO;
+
+  IosImportDelegate *delegate = [[IosImportDelegate alloc] init];
+  delegate.importPath = importBasePath;
+  delegate.mode = @"projectArchive";
   picker.delegate = delegate;
   objc_setAssociatedObject(picker, &kIosImportDelegateKey, delegate,
                            OBJC_ASSOCIATION_RETAIN_NONATOMIC);
