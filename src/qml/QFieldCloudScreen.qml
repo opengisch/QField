@@ -945,12 +945,14 @@ Page {
     target: cloudProjectsModel
 
     function onProjectAppended(projectId, hasError, errorString) {
-      requestedProjectDetails = "";
-      if (hasError) {
-        displayToast(qsTr("QFieldCloud project details fetching failed"));
-      } else {
-        projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
-        projectsSwipeView.currentIndex = 1;
+      if (requestedProjectDetails != "") {
+        requestedProjectDetails = "";
+        if (hasError) {
+          displayToast(qsTr("QFieldCloud project details fetching failed"));
+        } else {
+          projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
+          projectsSwipeView.currentIndex = 1;
+        }
       }
     }
   }

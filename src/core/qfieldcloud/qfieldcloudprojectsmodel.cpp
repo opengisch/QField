@@ -240,18 +240,21 @@ QFieldCloudProject *QFieldCloudProjectsModel::findProject( const QString &projec
   return nullptr;
 }
 
-void QFieldCloudProjectsModel::appendProject( const QString &projectId )
+void QFieldCloudProjectsModel::appendProject( const QString &projectId, bool forceRefresh )
 {
   if ( !mCloudConnection )
   {
     return;
   }
 
-  const QModelIndex index = findProjectIndex( projectId );
-  if ( index.isValid() )
+  if ( !forceRefresh )
   {
-    emit projectAppended( projectId );
-    return;
+    const QModelIndex index = findProjectIndex( projectId );
+    if ( index.isValid() )
+    {
+      emit projectAppended( projectId );
+      return;
+    }
   }
 
   QString projectOwner;

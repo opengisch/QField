@@ -187,7 +187,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE QFieldCloudProject *findProject( const QString &projectId ) const;
 
     //! Fetches a cloud project for a given \a projectId and appends it to the model.
-    Q_INVOKABLE void appendProject( const QString &projectId );
+    Q_INVOKABLE void appendProject( const QString &projectId, bool forceRefresh = false );
 
     //! Fetches all cloud projects tied to a given \a search term and/or \a owner name.
     Q_INVOKABLE void appendProjects( const QString &owner, const QString &search, int projectFetchOffset = 0 );
