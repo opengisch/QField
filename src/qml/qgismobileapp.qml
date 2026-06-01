@@ -4837,6 +4837,8 @@ ApplicationWindow {
         }
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
           projectInfo.cloudUserInformation = cloudConnection.userInformation;
+          // Refresh cloud project details
+          cloudProjectsModel.appendProject(cloudProjectId, true);
         } else {
           projectInfo.restoreCloudUserInformation();
         }
@@ -5111,6 +5113,8 @@ ApplicationWindow {
         var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
         if (cloudProjectId) {
           projectInfo.cloudUserInformation = userInformation;
+          // Refresh cloud project details
+          cloudProjectsModel.appendProject(cloudProjectId, true);
         }
         // Reload recent projects to insure only current user projects are visible
         recentProjectListModel.reloadModel();
