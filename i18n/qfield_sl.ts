@@ -623,6 +623,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Collapse All</source>
         <translation>Strni vse</translation>
     </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Empty project abstract and description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -1376,10 +1384,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Določanje položaja</translation>
     </message>
     <message>
-        <source>Precise view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Sensors</source>
         <translation>Senzorji</translation>
     </message>
@@ -1389,6 +1393,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>InformationPopup</name>
+    <message>
+        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2530,6 +2541,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Positioning accuracy too low for this precision level</source>
         <translation>Natančnost določanja položaja je prenizka za to raven natančnosti</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6596,7 +6631,7 @@ project</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Natančne nastavitve pogleda</translation>
+        <translation type="vanished">Natančne nastavitve pogleda</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -6660,11 +6695,11 @@ project</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation> Natančnost %1</translation>
+        <translation type="vanished"> Natančnost %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Omogoči povratno informacijo učinka bližine zvoka</translation>
+        <translation type="vanished">Omogoči povratno informacijo učinka bližine zvoka</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -7229,6 +7264,10 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

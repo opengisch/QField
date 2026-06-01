@@ -625,6 +625,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Collapse All</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Empty project abstract and description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -1386,10 +1394,6 @@ Motiv:
         <translation>Poziționare</translation>
     </message>
     <message>
-        <source>Precise view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Sensors</source>
         <translation type="unfinished"/>
     </message>
@@ -1399,6 +1403,13 @@ Motiv:
     </message>
     <message>
         <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>InformationPopup</name>
+    <message>
+        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2543,6 +2554,30 @@ Motiv:
     <message>
         <source>Positioning accuracy too low for this precision level</source>
         <translation>Precizia de poziționare este prea scăzută pentru acest nivel de precizie</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6613,7 +6648,7 @@ project</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Setări Vizualizare cu Precizie</translation>
+        <translation type="vanished">Setări Vizualizare cu Precizie</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -6677,11 +6712,11 @@ project</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>%1 Precizie</translation>
+        <translation type="vanished">%1 Precizie</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Activați Feedback-ul Audio de Proximitate </translation>
+        <translation type="vanished">Activați Feedback-ul Audio de Proximitate </translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -7246,6 +7281,10 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

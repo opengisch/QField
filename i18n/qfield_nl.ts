@@ -624,6 +624,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Collapse All</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Empty project abstract and description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -1382,10 +1390,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Positie</translation>
     </message>
     <message>
-        <source>Precise view</source>
-        <translation>Nauwkeurige weergave</translation>
-    </message>
-    <message>
         <source>Sensors</source>
         <translation>Sensoren</translation>
     </message>
@@ -1395,6 +1399,13 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>InformationPopup</name>
+    <message>
+        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2539,6 +2550,30 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Positioning accuracy too low for this precision level</source>
         <translation>De nauwkeurigheid van de plaatsbepaling is te laag voor dit precisie niveau</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6612,7 +6647,7 @@ project</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Nauwkeurige weergave-instellingen</translation>
+        <translation type="vanished">Nauwkeurige weergave-instellingen</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -6676,7 +6711,7 @@ project</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>%1 Precisie</translation>
+        <translation type="vanished">%1 Precisie</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
@@ -7245,6 +7280,10 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

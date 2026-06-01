@@ -623,6 +623,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Collapse All</source>
         <translation>Tout rétracter</translation>
     </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Empty project abstract and description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -1383,10 +1391,6 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>Positionnement</translation>
     </message>
     <message>
-        <source>Precise view</source>
-        <translation>Vue précise</translation>
-    </message>
-    <message>
         <source>Sensors</source>
         <translation>Capteurs</translation>
     </message>
@@ -1396,6 +1400,13 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>InformationPopup</name>
+    <message>
+        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2540,6 +2551,30 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Positioning accuracy too low for this precision level</source>
         <translation>Précision de positionnement trop faible pour ce niveau de précision</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6611,7 +6646,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Paramètres d&apos;affichage précis</translation>
+        <translation type="vanished">Paramètres d&apos;affichage précis</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -6675,11 +6710,11 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>Précision %1</translation>
+        <translation type="vanished">Précision %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Active le son de l&apos;indicateur de proximité</translation>
+        <translation type="vanished">Active le son de l&apos;indicateur de proximité</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -7246,6 +7281,10 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -624,6 +624,14 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Collapse All</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Project Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Empty project abstract and description</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -1382,10 +1390,6 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <translation>Posicionamento</translation>
     </message>
     <message>
-        <source>Precise view</source>
-        <translation>Vista precisa</translation>
-    </message>
-    <message>
         <source>Sensors</source>
         <translation>Sensores</translation>
     </message>
@@ -1395,6 +1399,13 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>InformationPopup</name>
+    <message>
+        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2539,6 +2550,30 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Positioning accuracy too low for this precision level</source>
         <translation>A precisión do posicionamento é demasiado baixa para este nivel de precisión</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6609,7 +6644,7 @@ project</source>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation>Configuración da Vista Precisa</translation>
+        <translation type="vanished">Configuración da Vista Precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -6673,11 +6708,11 @@ project</source>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation>Precisión de %1</translation>
+        <translation type="vanished">Precisión de %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation>Activar a Retroalimentación de Proximidade do Audio</translation>
+        <translation type="vanished">Activar a Retroalimentación de Proximidade do Audio</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -7242,6 +7277,10 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
     </message>
 </context>
