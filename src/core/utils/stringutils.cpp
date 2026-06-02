@@ -88,6 +88,12 @@ double StringUtils::calcFuzzyScore( const QString &string, const QString &search
 
 QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
 {
+  if ( crs.authid() == QStringLiteral( "EPSG:4326" ) )
+  {
+    // For WGS84 coordinates, use the most universally accepted form (i.e. lat, lon)
+    return QStringLiteral( "%1, %2" ).arg( QString::number( point.y(), 'f', 5 ), QString::number( point.x(), 'f', 5 ) );
+  }
+
   QString firstSuffix;
   QString secondSuffix;
   const bool currentCrsIsXY = QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
