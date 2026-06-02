@@ -4838,7 +4838,7 @@ ApplicationWindow {
         if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
           projectInfo.cloudUserInformation = cloudConnection.userInformation;
           // Refresh cloud project details
-          cloudProjectsModel.appendProject(cloudProjectId, true);
+          cloudProjectsModel.appendProject(cloudProjectId);
         } else {
           projectInfo.restoreCloudUserInformation();
         }
@@ -5114,7 +5114,7 @@ ApplicationWindow {
         if (cloudProjectId) {
           projectInfo.cloudUserInformation = userInformation;
           // Refresh cloud project details
-          cloudProjectsModel.appendProject(cloudProjectId, true);
+          cloudProjectsModel.appendProject(cloudProjectId);
         }
         // Reload recent projects to insure only current user projects are visible
         recentProjectListModel.reloadModel();
