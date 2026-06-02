@@ -296,7 +296,6 @@ Item {
       }
 
       font: Theme.defaultFont
-      text.color: displayedTextColor
       displayText: {
         if (!isEditing && value === "") {
           return qsTr("Empty");
@@ -304,6 +303,18 @@ Item {
           return qsTr("NULL");
         }
         return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
+      }
+
+      contentItem: Text {
+        leftPadding: comboBox.background.visible ? 8 : 0
+        rightPadding: comboBox.indicator.width + comboBox.spacing
+        topPadding: 8
+        bottomPadding: 8
+        text: comboBox.displayText
+        font: Theme.defaultFont
+        color: displayedTextColor
+        verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.WordWrap
       }
 
       popup: Popup {
