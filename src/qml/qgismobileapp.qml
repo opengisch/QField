@@ -1484,9 +1484,23 @@ ApplicationWindow {
         bgcolor: Theme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
         onClicked: {
-          var point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
-          var coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
-          coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation && positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " m" : qsTr("N/A")) + ')';
+          if (!positionSource.positionInformation) {
+            return;
+          }
+
+          const point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
+          let coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
+
+          let appendAccuracy = projectInfo.coordinateDisplayCrs.authid !== "EPSG:4326";
+          if (projectInfo.coordinateDisplayCrs.authid === "EPSG:4326") {
+            if (!positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > 10) {
+              appendAccuracy = true;
+            }
+          }
+          if (appendAccuracy) {
+            coordinates += ' (' + qsTr('Accuracy') + ' ' + (positionSource.positionInformation.haccValid ? positionSource.positionInformation.hacc.toLocaleString(Qt.locale(), 'f', 3) + " " + qsTr("meters") : qsTr("N/A")) + ')';
+          }
+
           platformUtilities.copyTextToClipboard(coordinates);
           displayToast(qsTr('Current location copied to clipboard'));
           actionsPieMenu.close();
