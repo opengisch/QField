@@ -1656,77 +1656,89 @@ Page {
                 }
               }
 
-              QfTextField {
-                id: accuracyBadInput
-                font: Theme.defaultFont
-                enabled: accuracyIndicator.checked
-                visible: accuracyIndicator.checked
-                horizontalAlignment: TextInput.AlignLeft
+              RowLayout {
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                rightPadding: accuracyBadSuffix.width + 8
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                visible: accuracyIndicator.checked
+                enabled: accuracyIndicator.checked
+                spacing: 4
 
                 Label {
-                  id: accuracyBadSuffix
-                  text: qsTr("Bad accuracy threshold [m]")
-                  anchors.right: parent.right
-                  anchors.rightMargin: 4
-                  anchors.verticalCenter: parent.verticalCenter
-                  font: parent.font
-                  color: Theme.mainTextDisabledColor
-                }
-                validator: DoubleValidator {
-                  locale: 'C'
+                  text: qsTr("Bad accuracy threshold")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
                 }
 
-                Component.onCompleted: {
-                  text = isNaN(positioningSettings.accuracyBad) ? '' : positioningSettings.accuracyBad;
-                }
-
-                onTextChanged: {
-                  if (text.length === 0 || isNaN(text)) {
-                    positioningSettings.accuracyBad = NaN;
-                  } else {
-                    positioningSettings.accuracyBad = parseFloat(text);
+                QfTextField {
+                  id: accuracyBadInput
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  horizontalAlignment: TextInput.AlignHCenter
+                  inputMethodHints: Qt.ImhFormattedNumbersOnly
+                  validator: DoubleValidator {
+                    locale: 'C'
                   }
+
+                  Component.onCompleted: {
+                    text = isNaN(positioningSettings.accuracyBad) ? '' : positioningSettings.accuracyBad;
+                  }
+
+                  onTextChanged: {
+                    if (text.length === 0 || isNaN(text)) {
+                      positioningSettings.accuracyBad = NaN;
+                    } else {
+                      positioningSettings.accuracyBad = parseFloat(text);
+                    }
+                  }
+                }
+
+                Label {
+                  text: qsTr("m")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextDisabledColor
                 }
               }
 
-              QfTextField {
-                id: accuracyExcellentInput
-                font: Theme.defaultFont
-                enabled: accuracyIndicator.checked
-                visible: accuracyIndicator.checked
-                horizontalAlignment: TextInput.AlignLeft
+              RowLayout {
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                rightPadding: accuracyExcellentSuffix.width + 8
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                visible: accuracyIndicator.checked
+                enabled: accuracyIndicator.checked
+                spacing: 4
 
                 Label {
-                  id: accuracyExcellentSuffix
-                  text: qsTr("Excellent accuracy threshold [m]")
-                  anchors.right: parent.right
-                  anchors.rightMargin: 4
-                  anchors.verticalCenter: parent.verticalCenter
-                  font: parent.font
-                  color: Theme.mainTextDisabledColor
-                }
-                validator: DoubleValidator {
-                  locale: 'C'
+                  text: qsTr("Excellent accuracy threshold")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
                 }
 
-                Component.onCompleted: {
-                  text = isNaN(positioningSettings.accuracyExcellent) ? '' : positioningSettings.accuracyExcellent;
-                }
-
-                onTextChanged: {
-                  if (text.length === 0 || isNaN(text)) {
-                    positioningSettings.accuracyExcellent = NaN;
-                  } else {
-                    positioningSettings.accuracyExcellent = parseFloat(text);
+                QfTextField {
+                  id: accuracyExcellentInput
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  horizontalAlignment: TextInput.AlignHCenter
+                  inputMethodHints: Qt.ImhFormattedNumbersOnly
+                  validator: DoubleValidator {
+                    locale: 'C'
                   }
+
+                  Component.onCompleted: {
+                    text = isNaN(positioningSettings.accuracyExcellent) ? '' : positioningSettings.accuracyExcellent;
+                  }
+
+                  onTextChanged: {
+                    if (text.length === 0 || isNaN(text)) {
+                      positioningSettings.accuracyExcellent = NaN;
+                    } else {
+                      positioningSettings.accuracyExcellent = parseFloat(text);
+                    }
+                  }
+                }
+
+                Label {
+                  text: qsTr("m")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextDisabledColor
                 }
               }
 
@@ -1801,39 +1813,39 @@ Page {
                 }
               }
 
-              QfTextField {
-                id: averagedPositioningMinimumCount
-                font: Theme.defaultFont
-                enabled: averagedPositioning.checked
-                visible: averagedPositioning.checked
-                horizontalAlignment: TextInput.AlignLeft
+              RowLayout {
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                rightPadding: averagedPositioningMinimumCountSuffix.width + 8
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                visible: averagedPositioning.checked
+                enabled: averagedPositioning.checked
+                spacing: 4
 
                 Label {
-                  id: averagedPositioningMinimumCountSuffix
                   text: qsTr("Minimum positions count")
-                  anchors.right: parent.right
-                  anchors.rightMargin: 4
-                  anchors.verticalCenter: parent.verticalCenter
-                  font: parent.font
-                  color: Theme.mainTextDisabledColor
-                }
-                validator: IntValidator {
-                  locale: 'C'
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
                 }
 
-                Component.onCompleted: {
-                  text = isNaN(positioningSettings.averagedPositioningMinimumCount) ? '' : positioningSettings.averagedPositioningMinimumCount;
-                }
+                QfTextField {
+                  id: averagedPositioningMinimumCount
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  horizontalAlignment: TextInput.AlignHCenter
+                  inputMethodHints: Qt.ImhFormattedNumbersOnly
+                  validator: IntValidator {
+                    locale: 'C'
+                  }
 
-                onTextChanged: {
-                  if (text.length === 0 || isNaN(text)) {
-                    positioningSettings.averagedPositioningMinimumCount = NaN;
-                  } else {
-                    positioningSettings.averagedPositioningMinimumCount = parseInt(text);
+                  Component.onCompleted: {
+                    text = isNaN(positioningSettings.averagedPositioningMinimumCount) ? '' : positioningSettings.averagedPositioningMinimumCount;
+                  }
+
+                  onTextChanged: {
+                    if (text.length === 0 || isNaN(text)) {
+                      positioningSettings.averagedPositioningMinimumCount = NaN;
+                    } else {
+                      positioningSettings.averagedPositioningMinimumCount = parseInt(text);
+                    }
                   }
                 }
               }
@@ -1914,41 +1926,46 @@ Page {
                 }
               }
 
-              QfTextField {
-                id: antennaHeightInput
-                enabled: antennaHeightActivated.checked
-                visible: antennaHeightActivated.checked
-                font: Theme.defaultFont
-                horizontalAlignment: TextInput.AlignLeft
+              RowLayout {
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                rightPadding: antennaHeightSuffix.width + 8
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                visible: antennaHeightActivated.checked
+                enabled: antennaHeightActivated.checked
+                spacing: 4
 
                 Label {
-                  id: antennaHeightSuffix
-                  text: qsTr("Antenna height [m]")
-                  anchors.right: parent.right
-                  anchors.rightMargin: 10
-                  anchors.verticalCenter: parent.verticalCenter
-                  font: parent.font
-                  color: Theme.mainTextDisabledColor
+                  text: qsTr("Antenna height")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextColor
                 }
 
-                validator: DoubleValidator {
-                  locale: 'C'
-                }
-
-                Component.onCompleted: {
-                  text = isNaN(positioningSettings.antennaHeight) ? '' : positioningSettings.antennaHeight;
-                }
-
-                onTextChanged: {
-                  if (text.length === 0 || isNaN(text)) {
-                    positioningSettings.antennaHeight = NaN;
-                  } else {
-                    positioningSettings.antennaHeight = parseFloat(text);
+                QfTextField {
+                  id: antennaHeightInput
+                  Layout.fillWidth: true
+                  font: Theme.defaultFont
+                  horizontalAlignment: TextInput.AlignHCenter
+                  inputMethodHints: Qt.ImhFormattedNumbersOnly
+                  validator: DoubleValidator {
+                    locale: 'C'
                   }
+
+                  Component.onCompleted: {
+                    text = isNaN(positioningSettings.antennaHeight) ? '' : positioningSettings.antennaHeight;
+                  }
+
+                  onTextChanged: {
+                    if (text.length === 0 || isNaN(text)) {
+                      positioningSettings.antennaHeight = NaN;
+                    } else {
+                      positioningSettings.antennaHeight = parseFloat(text);
+                    }
+                  }
+                }
+
+                Label {
+                  text: qsTr("m")
+                  font: Theme.defaultFont
+                  color: Theme.mainTextDisabledColor
                 }
               }
 

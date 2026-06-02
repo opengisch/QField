@@ -248,32 +248,38 @@ QfPopup {
           }
         }
 
-        QfTextField {
-          id: timeIntervalValue
-          font: Theme.defaultFont
-          enabled: timeInterval.checked
-          visible: timeInterval.checked
-          horizontalAlignment: TextInput.AlignLeft
+        RowLayout {
           Layout.columnSpan: 2
           Layout.fillWidth: true
-          rightPadding: timeIntervalSuffix.width + 8
-          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          visible: timeInterval.checked
+          enabled: timeInterval.checked
+          spacing: 4
 
           Label {
-            id: timeIntervalSuffix
-            text: qsTr("Minimum time [sec]")
-            anchors.right: parent.right
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            font: parent.font
-            color: Theme.mainTextDisabledColor
-          }
-          validator: DoubleValidator {
-            locale: 'C'
+            text: qsTr("Minimum time")
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
           }
 
-          onTextChanged: {
-            positioningSettings.trackerTimeInterval = parseFloat(text);
+          QfTextField {
+            id: timeIntervalValue
+            Layout.fillWidth: true
+            font: Theme.defaultFont
+            horizontalAlignment: TextInput.AlignHCenter
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+            validator: DoubleValidator {
+              locale: 'C'
+            }
+
+            onTextChanged: {
+              positioningSettings.trackerTimeInterval = parseFloat(text);
+            }
+          }
+
+          Label {
+            text: qsTr("sec")
+            font: Theme.defaultFont
+            color: Theme.mainTextDisabledColor
           }
         }
 
@@ -317,32 +323,38 @@ QfPopup {
           crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
         }
 
-        QfTextField {
-          id: minimumDistanceValue
-          font: Theme.defaultFont
-          enabled: minimumDistance.checked
-          visible: minimumDistance.checked
-          horizontalAlignment: TextInput.AlignLeft
+        RowLayout {
           Layout.columnSpan: 2
           Layout.fillWidth: true
-          rightPadding: minimumDistanceSuffix.width + 8
-          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          visible: minimumDistance.checked
+          enabled: minimumDistance.checked
+          spacing: 4
 
           Label {
-            id: minimumDistanceSuffix
-            text: qsTr("Minimum distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
-            anchors.right: parent.right
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            font: parent.font
-            color: Theme.mainTextDisabledColor
-          }
-          validator: DoubleValidator {
-            locale: 'C'
+            text: qsTr("Minimum distance")
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
           }
 
-          onTextChanged: {
-            positioningSettings.trackerMinimumDistance = parseFloat(text);
+          QfTextField {
+            id: minimumDistanceValue
+            Layout.fillWidth: true
+            font: Theme.defaultFont
+            horizontalAlignment: TextInput.AlignHCenter
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+            validator: DoubleValidator {
+              locale: 'C'
+            }
+
+            onTextChanged: {
+              positioningSettings.trackerMinimumDistance = parseFloat(text);
+            }
+          }
+
+          Label {
+            text: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
+            font: Theme.defaultFont
+            color: Theme.mainTextDisabledColor
           }
         }
 
@@ -460,32 +472,38 @@ QfPopup {
           }
         }
 
-        QfTextField {
-          id: erroneousDistanceValue
-          font: Theme.defaultFont
-          enabled: erroneousDistanceSafeguard.checked
-          visible: erroneousDistanceSafeguard.checked
-          horizontalAlignment: TextInput.AlignLeft
+        RowLayout {
           Layout.columnSpan: 2
           Layout.fillWidth: true
-          rightPadding: erroneousDistanceSuffix.width + 8
-          inputMethodHints: Qt.ImhFormattedNumbersOnly
+          visible: erroneousDistanceSafeguard.checked
+          enabled: erroneousDistanceSafeguard.checked
+          spacing: 4
 
           Label {
-            id: erroneousDistanceSuffix
-            text: qsTr("Maximum tolerated distance [%1]").arg(UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits))
-            anchors.right: parent.right
-            anchors.rightMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            font: parent.font
-            color: Theme.mainTextDisabledColor
-          }
-          validator: DoubleValidator {
-            locale: 'C'
+            text: qsTr("Maximum tolerated distance")
+            font: Theme.defaultFont
+            color: Theme.mainTextColor
           }
 
-          onTextChanged: {
-            positioningSettings.trackerErroneousDistance = parseFloat(text);
+          QfTextField {
+            id: erroneousDistanceValue
+            Layout.fillWidth: true
+            font: Theme.defaultFont
+            horizontalAlignment: TextInput.AlignHCenter
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+            validator: DoubleValidator {
+              locale: 'C'
+            }
+
+            onTextChanged: {
+              positioningSettings.trackerErroneousDistance = parseFloat(text);
+            }
+          }
+
+          Label {
+            text: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
+            font: Theme.defaultFont
+            color: Theme.mainTextDisabledColor
           }
         }
 
