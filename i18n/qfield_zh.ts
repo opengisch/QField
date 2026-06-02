@@ -626,11 +626,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>工程信息</translation>
     </message>
     <message>
         <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
+        <translation>空工程摘要和描述</translation>
     </message>
 </context>
 <context>
@@ -1404,7 +1404,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>作者</translation>
     </message>
 </context>
 <context>
@@ -2551,27 +2551,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>音频接近感应反馈</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>旋转视图</translation>
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>旋转源</translation>
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>指南针</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>运动</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>精度</translation>
     </message>
 </context>
 <context>
@@ -6714,7 +6714,7 @@ project</source>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">启用声音引发回馈</translation>
+        <translation type="vanished">启用音频接近感应反馈</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -7284,7 +7284,7 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>长按目标标记显示动作</translation>
     </message>
 </context>
 <context>
