@@ -68,6 +68,11 @@ TestCase {
     property var point: GeometryUtils.point(0, 0)
   }
 
+  QFieldControls.MapCanvasPointHandler {
+    id: pointHandlerItem
+    objectName: "pointHandler"
+  }
+
   function init() {
     for (let i = pluginsToolbar.children.length - 1; i >= 0; --i) {
       pluginsToolbar.children[i].parent = null;
@@ -77,10 +82,20 @@ TestCase {
     }
     dashBoardItem.activeLayer = null;
 
+    // Drop any registered handlers between tests
+    pointHandlerItem.handlers = [];
+
     // Remove the "data" layer between tests so feature-iteration tests
     // don't see leftovers from prior runs.
     const staleData = qgisProject.mapLayersByName("data");
     for (const layer of staleData) {
+      ProjectUtils.removeMapLayer(qgisProject, layer);
+    }
+
+    // Remove the "PluginLoadedLayer" between tests so add/remove tests
+    // don't see leftovers from prior runs.
+    const stalePluginLayers = qgisProject.mapLayersByName("PluginLoadedLayer");
+    for (const layer of stalePluginLayers) {
       ProjectUtils.removeMapLayer(qgisProject, layer);
     }
   }
@@ -517,5 +532,146 @@ TestCase {
     const feature = it.next();
     const geom = feature.geometry;
     compare(geom.asWkt(5), "Point (10 20)");
+  }
+
+  // Add and remove a project layer via plugin toolbar buttons
+
+  Component {
+    id: layerAddRemovePlugin
+
+    Item {
+      id: plugin
+
+      property var mainWindow: iface.mainWindow()
+      property var myLayer: undefined
+
+      Component.onCompleted: {
+        iface.addItemToPluginsToolbar(addButton);
+        iface.addItemToPluginsToolbar(removeButton);
+      }
+
+      QfToolButton {
+        id: addButton
+        text: "+"
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+        onClicked: {
+          if (plugin.myLayer === undefined) {
+            const fields = FeatureUtils.createFields([FeatureUtils.createField("id", FeatureUtils.Int)]);
+            plugin.myLayer = LayerUtils.createMemoryLayer("PluginLoadedLayer", fields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+            ProjectUtils.addMapLayer(qgisProject, plugin.myLayer);
+          }
+        }
+      }
+
+      QfToolButton {
+        id: removeButton
+        text: "-"
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+        onClicked: {
+          if (plugin.myLayer !== undefined) {
+            ProjectUtils.removeMapLayer(qgisProject, plugin.myLayer.id);
+            plugin.myLayer = undefined;
+          }
+        }
+      }
+    }
+  }
+
+  function test_addRemovePluginRegistersBothToolbarButtons() {
+    createTemporaryObject(layerAddRemovePlugin, testCase);
+    compare(pluginsToolbar.children.length, 2);
+    compare(pluginsToolbar.children[0].text, "+");
+    compare(pluginsToolbar.children[1].text, "-");
+  }
+
+  function test_addButtonClickRegistersLayerInProject() {
+    createTemporaryObject(layerAddRemovePlugin, testCase);
+    findToolbarButtonByText("+").clicked();
+    compare(qgisProject.mapLayersByName("PluginLoadedLayer").length, 1);
+  }
+
+  function test_removeButtonClickRemovesLayerByIdFromProject() {
+    createTemporaryObject(layerAddRemovePlugin, testCase);
+    findToolbarButtonByText("+").clicked();
+    compare(qgisProject.mapLayersByName("PluginLoadedLayer").length, 1);
+    findToolbarButtonByText("-").clicked();
+    compare(qgisProject.mapLayersByName("PluginLoadedLayer").length, 0);
+  }
+
+  // Feature lookup at canvas click via MapCanvasPointHandler
+
+  Component {
+    id: canvasClickFeatureLookupPlugin
+
+    Item {
+      id: plugin
+
+      property var mainWindow: iface.mainWindow()
+      property var pointHandler: iface.findItemByObjectName("pointHandler")
+      property string handlerName: "canvas_click_feature_lookup_plugin"
+
+      Component.onCompleted: {
+        pointHandler.registerHandler(plugin.handlerName, (point, type, interactionType) => {
+          if (interactionType === "clicked") {
+            return true;
+          }
+          return false;
+        });
+      }
+
+      Component.onDestruction: {
+        if (pointHandler) {
+          pointHandler.deregisterHandler(plugin.handlerName);
+        }
+      }
+    }
+  }
+
+  function test_pointHandlerPluginRegistersAndDeregistersHandler() {
+    compare(pointHandlerItem.handlers.length, 0);
+    const plugin = createTemporaryObject(canvasClickFeatureLookupPlugin, testCase);
+    compare(pointHandlerItem.handlers.length, 1);
+    compare(pointHandlerItem.handlers[0].name, "canvas_click_feature_lookup_plugin");
+    plugin.destroy();
+    wait(50);
+    compare(pointHandlerItem.handlers.length, 0);
+  }
+
+  function test_pointHandlerClickedDispatchesToRegisteredHandler() {
+    let receivedInteractionType = null;
+    pointHandlerItem.registerHandler("dispatch_probe", (point, type, interactionType) => {
+      receivedInteractionType = interactionType;
+      return true;
+    });
+    const consumed = pointHandlerItem.clicked(Qt.point(10, 20), "stylus");
+    compare(consumed, true);
+    compare(receivedInteractionType, "clicked");
+  }
+
+  function test_layerUtilsFeatureIteratorFiltersByRectangle() {
+    const layer = makeCheckableMemoryLayer("data");
+
+    layer.startEditing();
+    for (let i = 1; i <= 2; ++i) {
+      const feature = FeatureUtils.createBlankFeature(layer.fields, GeometryUtils.createGeometryFromWkt("POINT(" + i + " " + i + ")"));
+      feature.setAttribute(layer.fields.indexOf("id"), i);
+      feature.setAttribute(layer.fields.indexOf("name"), "Feature" + String.fromCharCode(64 + i));
+      feature.setAttribute(layer.fields.indexOf("check"), true);
+      verify(LayerUtils.addFeature(layer, feature));
+    }
+    layer.commitChanges();
+
+    const rectangle = GeometryUtils.createRectangleFromPoints(GeometryUtils.point(0.5, 0.5), GeometryUtils.point(1.5, 1.5));
+    const matches = LayerUtils.createFeatureIteratorFromRectangle(layer, rectangle);
+    const collected = [];
+    while (matches.hasNext()) {
+      collected.push(matches.next().attribute("name"));
+    }
+    compare(collected.length, 1);
+    compare(collected[0], "FeatureA");
   }
 }
