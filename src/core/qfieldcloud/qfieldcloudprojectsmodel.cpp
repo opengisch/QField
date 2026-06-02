@@ -249,8 +249,8 @@ void QFieldCloudProjectsModel::appendProject( const QString &projectId, bool for
 
   if ( !forceRefresh )
   {
-    const QModelIndex index = findProjectIndex( projectId );
-    if ( index.isValid() )
+    const QFieldCloudProject *project = findProject( projectId );
+    if ( project && ( project->checkout() & QFieldCloudProject::RemoteCheckout ) )
     {
       emit projectAppended( projectId );
       return;
