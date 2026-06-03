@@ -52,6 +52,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! Returns TRUE whether the model is creating a project
     Q_PROPERTY( bool isCreating READ isCreating NOTIFY isCreatingChanged )
 
+    //! Returns TRUE whether the model is cloning a project
+    Q_PROPERTY( bool isCloning READ isCloning NOTIFY isCloningChanged )
+
     //! Currently busy project ids.
     Q_PROPERTY( QSet<QString> busyProjectIds READ busyProjectIds NOTIFY busyProjectIdsChanged )
 
@@ -124,6 +127,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Returns TRUE whether the model is being refreshed
     bool isCreating() const { return mIsCreating; }
+
+    //! Returns TRUE whether the model is cloning a project
+    bool isCloning() const { return mIsCloning; }
 
     //! Returns the cloud project id of the currently opened project.
     QString currentProjectId() const;
@@ -204,6 +210,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
      */
     Q_INVOKABLE void createProject( const QString name );
 
+    //! Clones a cloud project with given \a projectId using \a name as the cloned project name.
+    Q_INVOKABLE void cloneProject( const QString &projectId, const QString &name );
+
   signals:
     void cloudConnectionChanged();
     void layerObserverChanged();
@@ -216,6 +225,8 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void warning( const QString &message );
 
     void projectCreated( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
+    void projectCloned( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
+    void isCloningChanged();
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );
@@ -233,6 +244,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectListReceived();
     void projectReceived();
     void projectCreationReceived();
+    void projectCloneReceived();
 
   private:
     void setupProjectConnections( QFieldCloudProject *project );
@@ -250,6 +262,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     bool mIsRefreshing = false;
     bool mIsCreating = false;
+    bool mIsCloning = false;
 
     QString mCurrentProjectId;
     QPointer<QFieldCloudProject> mCurrentProject;

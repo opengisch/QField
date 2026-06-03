@@ -838,6 +838,22 @@ Page {
         border.color: "transparent"
       }
     }
+
+    MenuItem {
+      id: cloneProject
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+
+      text: qsTr("Clone Project")
+      onTriggered: {
+        cloneProjectName.text = projectActions.projectName;
+        cloneProjectDialog.open();
+      }
+    }
+
     MenuItem {
       id: removeProject
 
@@ -908,6 +924,34 @@ Page {
     }
   }
 
+  QfDialog {
+    id: cloneProjectDialog
+    parent: mainWindow.contentItem
+    title: qsTr("Project Cloning")
+
+    ColumnLayout {
+      width: parent.width
+      spacing: 10
+
+      Label {
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        text: qsTr("What name do you want to give to your cloned project?")
+      }
+
+      QfTextField {
+        id: cloneProjectName
+        Layout.fillWidth: true
+      }
+    }
+
+    onAccepted: {
+      if (cloneProjectName.text !== "") {
+        cloudProjectsModel.cloneProject(projectActions.projectId, cloneProjectName.text);
+      }
+    }
+  }
+
   Connections {
     id: codeReaderConnection
     target: codeReader
@@ -953,6 +997,14 @@ Page {
           projectDetails.cloudProject = cloudProjectsModel.findProject(projectId);
           projectsSwipeView.currentIndex = 1;
         }
+      }
+    }
+
+    function onProjectCloned(projectId, hasError, errorString) {
+      if (hasError) {
+        displayToast(qsTr("Project cloning failed: %1").arg(errorString));
+      } else {
+        displayToast(qsTr("Project successfully cloned"));
       }
     }
   }

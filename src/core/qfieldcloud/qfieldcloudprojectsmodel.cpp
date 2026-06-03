@@ -1243,6 +1243,76 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   emit isCreatingChanged();
 }
 
+void QFieldCloudProjectsModel::cloneProject( const QString &projectId, const QString &name )
+{
+  if ( projectId.isEmpty() || name.isEmpty() )
+  {
+    emit projectCloned( QString(), true, tr( "Project cloning requires a source project and a name" ) );
+    return;
+  }
+
+  mIsCloning = true;
+  emit isCloningChanged();
+
+  QString finalizedName = name;
+  finalizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
+
+  QStringList projectNames;
+  for ( const QFieldCloudProject *project : mProjects )
+  {
+    projectNames << project->name().toLower();
+  }
+
+  int uniqueSuffix = 1;
+  while ( projectNames.contains( finalizedName.toLower() ) )
+  {
+    finalizedName = QStringLiteral( "%1_%2" ).arg( name, QString::number( uniqueSuffix++ ) );
+  }
+
+  QVariantMap params;
+  params.insert( QStringLiteral( "name" ), finalizedName );
+  params.insert( QStringLiteral( "owner" ), mUsername );
+  params.insert( QStringLiteral( "description" ), QString() );
+  params.insert( QStringLiteral( "private" ), true );
+
+  params.insert( QStringLiteral( "clone_from_project" ), projectId );
+  QNetworkRequest request;
+  const NetworkReply *reply = mCloudConnection->post( request, QStringLiteral( "/api/v1/projects/" ), params );
+  connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectCloneReceived );
+}
+
+void QFieldCloudProjectsModel::projectCloneReceived()
+{
+  NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
+  QNetworkReply *rawReply = reply->currentRawReply();
+  Q_ASSERT( rawReply );
+
+  if ( rawReply->error() != QNetworkReply::NoError )
+  {
+    emit projectCloned( QString(), true, mCloudConnection->errorString( rawReply ) );
+    mIsCloning = false;
+    emit isCloningChanged();
+    return;
+  }
+
+  QByteArray response = rawReply->readAll();
+  QJsonDocument doc = QJsonDocument::fromJson( response );
+  QVariantHash projectDetails = doc.object().toVariantHash();
+  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
+  if ( cloudProject )
+  {
+    insertProjects( QList<QFieldCloudProject *>() << cloudProject );
+    emit projectCloned( cloudProject->id() );
+  }
+  else
+  {
+    emit projectCloned( QString(), true, tr( "Cloud project could not be cloned." ) );
+  }
+
+  mIsCloning = false;
+  emit isCloningChanged();
+}
+
 // --
 
 QFieldCloudProjectsFilterModel::QFieldCloudProjectsFilterModel( QObject *parent )
