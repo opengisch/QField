@@ -333,16 +333,36 @@ Page {
             width: parent.width
           }
 
-          CheckBox {
-            id: takeMediaCheckBox
-            text: qsTr("Take image and video attachments")
-            font: Theme.defaultFont
-            indicator.height: 16
-            indicator.width: 16
-            indicator.implicitHeight: 24
-            indicator.implicitWidth: 24
-            leftPadding: 1
-            checked: true
+          RowLayout {
+            width: parent.width
+            spacing: 0
+
+            CheckBox {
+              id: takeMediaCheckBox
+              font: Theme.defaultFont
+              indicator.height: 16
+              indicator.width: 16
+              indicator.implicitHeight: 24
+              indicator.implicitWidth: 24
+              leftPadding: 1
+              checked: true
+            }
+
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              text: qsTr("Take image and video attachments")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              wrapMode: Text.WordWrap
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                  takeMediaCheckBox.checked = !takeMediaCheckBox.checked;
+                }
+              }
+            }
           }
         }
 
@@ -372,16 +392,36 @@ Page {
             width: parent.width
           }
 
-          CheckBox {
-            id: autoTrackPositionCheckBox
-            text: qsTr("Begin tracking automatically")
-            font: Theme.defaultFont
-            indicator.height: 16
-            indicator.width: 16
-            indicator.implicitHeight: 24
-            indicator.implicitWidth: 24
-            leftPadding: 1
-            checked: false
+          RowLayout {
+            width: parent.width
+            spacing: 0
+
+            CheckBox {
+              id: autoTrackPositionCheckBox
+              font: Theme.defaultFont
+              indicator.height: 16
+              indicator.width: 16
+              indicator.implicitHeight: 24
+              indicator.implicitWidth: 24
+              leftPadding: 1
+              checked: false
+            }
+
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              text: qsTr("Begin tracking automatically")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              wrapMode: Text.WordWrap
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                  autoTrackPositionCheckBox.checked = !autoTrackPositionCheckBox.checked;
+                }
+              }
+            }
           }
         }
 
@@ -409,6 +449,39 @@ Page {
             width: parent.width
             textFormat: Text.RichText
             onLinkActivated: link => Qt.openUrlExternally(link)
+          }
+
+          RowLayout {
+            width: parent.width
+            spacing: 0
+
+            CheckBox {
+              id: autoPushCheckBox
+              Layout.alignment: Qt.AlignVCenter
+              font: Theme.defaultFont
+              indicator.height: 16
+              indicator.width: 16
+              indicator.implicitHeight: 24
+              indicator.implicitWidth: 24
+              leftPadding: 1
+              checked: false
+            }
+
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              text: qsTr("Automatically push changes on a regular interval")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              wrapMode: Text.WordWrap
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                  autoPushCheckBox.checked = !autoPushCheckBox.checked;
+                }
+              }
+            }
           }
         }
 
@@ -451,7 +524,8 @@ Page {
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
-          "track_on_launch": autoTrackPositionCheckBox.checked
+          "track_on_launch": autoTrackPositionCheckBox.checked,
+          "auto_push_to_cloud": qfieldCloudGroupBox.checked && autoPushCheckBox.checked
         };
         if (qfieldCloudGroupBox.checked) {
           if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
