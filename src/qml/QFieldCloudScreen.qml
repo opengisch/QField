@@ -946,8 +946,9 @@ Page {
     }
 
     onAccepted: {
-      if (cloneProjectName.text !== "") {
-        cloudProjectsModel.cloneProject(projectActions.projectId, cloneProjectName.text);
+      const trimmedName = cloneProjectName.text.trim();
+      if (trimmedName !== "") {
+        cloudProjectsModel.cloneProject(projectActions.projectId, trimmedName);
       }
     }
   }

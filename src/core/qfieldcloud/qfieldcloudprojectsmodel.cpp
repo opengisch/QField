@@ -1254,19 +1254,25 @@ void QFieldCloudProjectsModel::cloneProject( const QString &projectId, const QSt
   mIsCloning = true;
   emit isCloningChanged();
 
-  QString finalizedName = name;
-  finalizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
-
-  QStringList projectNames;
-  for ( const QFieldCloudProject *project : mProjects )
-  {
-    projectNames << project->name().toLower();
-  }
+  static const QRegularExpression sInvalidChars( "[^A-Za-z0-9_]" );
+  QString baseName = name;
+  baseName.replace( sInvalidChars, QStringLiteral( "_" ) );
+  QString finalizedName = baseName;
 
   int uniqueSuffix = 1;
-  while ( projectNames.contains( finalizedName.toLower() ) )
+  bool nameExists = true;
+  while ( nameExists )
   {
-    finalizedName = QStringLiteral( "%1_%2" ).arg( name, QString::number( uniqueSuffix++ ) );
+    nameExists = false;
+    for ( const QFieldCloudProject *project : mProjects )
+    {
+      if ( project->name().compare( finalizedName, Qt::CaseInsensitive ) == 0 )
+      {
+        nameExists = true;
+        finalizedName = QStringLiteral( "%1_%2" ).arg( baseName, QString::number( uniqueSuffix++ ) );
+        break;
+      }
+    }
   }
 
   QVariantMap params;
