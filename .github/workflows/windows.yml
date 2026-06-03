@@ -151,14 +151,15 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            INSTALLER_SUFFIX="zip"
+            INSTALLER_SUFFIX="exe"
           else
             INSTALLER_SUFFIX="exe"
           fi
 
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.${INSTALLER_SUFFIX} | head -n 1)
-          mv "$ARTIFACT_PATHNAME" "QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
-          ARTIFACT_PATHNAME="QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
+          mv "$ARTIFACT_PATHNAME" "${{ env.CMAKE_BUILD_DIR }}/QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
+
+          ARTIFACT_PATHNAME="${{ env.CMAKE_BUILD_DIR }}/QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}" >> $GITHUB_ENV
@@ -175,7 +176,7 @@ jobs:
             ${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt
 
       - name: 🎭 Sign
-        if: ( github.event_name == 'release'  && startsWith(github.ref, 'refs/tags/v') ) || github.event_name == 'workflow_dispatch' && env.ARTIFACT_NAME != null
+        if: env.ARTIFACT_NAME != null #( github.event_name == 'release'  && startsWith(github.ref, 'refs/tags/v') ) || github.event_name == 'workflow_dispatch' && env.ARTIFACT_NAME != null
         uses: azure/trusted-signing-action@v2.0.0
         with:
           azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
