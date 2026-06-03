@@ -928,9 +928,10 @@ Page {
     id: cloneProjectDialog
     parent: mainWindow.contentItem
     title: qsTr("Project Cloning")
+    width: mainWindow.width - 40
 
     ColumnLayout {
-      width: parent.width
+      width: cloneProjectDialog.availableWidth
       spacing: 10
 
       Label {
