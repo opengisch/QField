@@ -519,6 +519,12 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     }
   }
 
+  if ( options.value( QStringLiteral( "auto_push_to_cloud" ) ).toBool() )
+  {
+    createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPush" ), true );
+    createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "forceAutoPushIntervalMins" ), 30 );
+  }
+
   connect( createdProject, &QgsProject::writeProject, [createdProject, createdProjectExtent, positionInformation]( QDomDocument &document ) {
     QDomNodeList nodes = document.elementsByTagName( "qgis" );
     if ( !nodes.isEmpty() )
