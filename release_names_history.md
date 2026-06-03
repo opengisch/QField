@@ -32,4 +32,5 @@
 - Gondwana (3.6)
 - Haida Gwaii (3.7)
 - Aare (4.0)
-- Barents (4.1)
+- Barents Sea (4.1)
+- Coral Sea (4.2)
