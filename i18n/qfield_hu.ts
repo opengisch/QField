@@ -23,15 +23,15 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>QField-el működtetve</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 alkalmazás könyvtárak</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 alkalmazás könyvtár</translation>
     </message>
 </context>
 <context>
@@ -284,19 +284,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Használj Bluetooth Low Energy-t (BLE)</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth eszköz beállítás:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>Hagyományos (BT)</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Return home</source>
-        <translation type="unfinished"/>
+        <translation>Vissza a kezdethez</translation>
     </message>
     <message>
         <source>Expand All</source>
@@ -626,11 +626,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Projekt információ</translation>
     </message>
     <message>
         <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
+        <translation>Üres projekt összefoglaló és leírás</translation>
     </message>
 </context>
 <context>
@@ -961,11 +961,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>A puha korlátozások nem teljesültek</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>A szigorú korlátozások nem teljesültek</translation>
     </message>
     <message>
         <source>Previous page</source>
@@ -1398,14 +1398,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP</translation>
     </message>
 </context>
 <context>
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Szerző</translation>
     </message>
 </context>
 <context>
@@ -1428,7 +1428,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Beküldés</translation>
     </message>
 </context>
 <context>
@@ -1977,19 +1977,19 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>NtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Váratlan válasz az NTRIP sugárzótól</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>Kapcsolat bontása a forrástábla fogadása előtt</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>Nincs elérhető adatfolyam az NTRIP forrásban</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>NTRIP forrástábla lekérési hiba</translation>
     </message>
 </context>
 <context>
@@ -2031,7 +2031,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>A szigorú korlátozások nem teljesültek</translation>
     </message>
 </context>
 <context>
@@ -2211,11 +2211,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>A jelenleg megnyitott projekt betöltött egy bővítményt</translation>
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Engedély megtagadása</translation>
     </message>
 </context>
 <context>
@@ -2360,7 +2360,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2485,11 +2485,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Beállítások</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Kiszolgáló</translation>
     </message>
     <message>
         <source>Port</source>
@@ -2497,15 +2497,15 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Protokoll</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Revision 1</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Revision 2</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2517,27 +2517,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Mount point</translation>
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Azonosító:</translation>
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Adatformátum:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Távolság:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Pozíció küldés az NTRIP sugárzónak</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
 </context>
 <context>
@@ -2552,27 +2552,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Hangos távolság visszajelzés</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Nézet forgatás</translation>
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Forgatási központ</translation>
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>Iránytű</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Mozgás</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Pontosság</translation>
     </message>
 </context>
 <context>
@@ -2620,35 +2620,35 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>ProjectCreationScreen</name>
     <message>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>Hozz létre új projektet</translation>
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
+        <translation>Ez az oldal egy egyszerű projekt létrehozását támogatja, beállítások segítségével. Haladóbb igényekhez javasoljuk, hogy a QGIS-ben a QFieldSync használatával hozza létre a projekteket.</translation>
     </message>
     <message>
         <source>New project name</source>
-        <translation type="unfinished"/>
+        <translation>Új projekt neve</translation>
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>Válassz alaptérképet</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
+        <translation>Válassz alaptérképet a projekhez. Jelölj egyet az elérhető lehetőségek közül, vagy adj meg egyéni URL-t.</translation>
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>Színes</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>Sötétszürke</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>Világosszürke</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2656,62 +2656,62 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Egyéni</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
+        <translation>Egyéni alaptérkép URL</translation>
     </message>
     <message>
         <source>Take notes?</source>
-        <translation type="unfinished"/>
+        <translation>Van megjegyzésed?</translation>
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation type="unfinished"/>
+        <translation>Gyors jegyzet rögzítés dátummal, idővel és szöveggel. Választható multimédia anyag, mint kép és videó csatolása a jegyzet gazdagítására.</translation>
     </message>
     <message>
         <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
+        <translation>Készíts kép és videó csatolmányt</translation>
     </message>
     <message>
         <source>Track your position?</source>
-        <translation type="unfinished"/>
+        <translation>Követed a pozíciódat?</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation type="unfinished"/>
+        <translation>Rögzítsd a helyedet minden másodpercben, dátummal és idővel, a mozgásod nyomvonalának megőrzésére.</translation>
     </message>
     <message>
         <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus nyomrögzítés kezdése</translation>
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
+        <translation>Biztonsági mentés és együttműködés?</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
+        <translation>Tudj meg többet a QFieldCloud-ról itt</translation>
     </message>
     <message>
         <source>Create Project</source>
-        <translation type="unfinished"/>
+        <translation>Hozz létre projektet</translation>
     </message>
     <message>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>Projektem</translation>
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud biztosítja a %1 során a csapatoddal gyűjtött adatok szinkronizálását és egyesítését. Kis egyedi projektektől nagy adatgyűjtési kampányokig. </translation>
     </message>
 </context>
 <context>
     <name>ProjectUtils</name>
     <message>
         <source>Created Project</source>
-        <translation type="unfinished"/>
+        <translation>Létrehozott projektek</translation>
     </message>
     <message>
         <source>Notes</source>
@@ -4717,7 +4717,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Host</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
