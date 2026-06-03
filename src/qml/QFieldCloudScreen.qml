@@ -849,6 +849,7 @@ Page {
 
       text: qsTr("Clone Project")
       onTriggered: {
+        cloneProjectDialog.sourceProjectId = projectActions.projectId;
         cloneProjectName.text = projectActions.projectName;
         cloneProjectDialog.open();
       }
@@ -929,6 +930,7 @@ Page {
     parent: mainWindow.contentItem
     title: qsTr("Project Cloning")
     width: mainWindow.width - 40
+    property string sourceProjectId: ""
 
     ColumnLayout {
       width: cloneProjectDialog.availableWidth
@@ -949,7 +951,7 @@ Page {
     onAccepted: {
       const trimmedName = cloneProjectName.text.trim();
       if (trimmedName !== "") {
-        cloudProjectsModel.cloneProject(projectActions.projectId, trimmedName);
+        cloudProjectsModel.cloneProject(sourceProjectId, trimmedName);
       }
     }
   }

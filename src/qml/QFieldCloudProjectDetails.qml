@@ -391,6 +391,7 @@ ColumnLayout {
       leftPadding: Theme.menuItemLeftPadding
       text: qsTr("Clone project")
       onTriggered: {
+        cloneProjectDialog.sourceProjectId = cloudProject.id;
         cloneProjectName.text = cloudProject.name;
         cloneProjectDialog.open();
       }

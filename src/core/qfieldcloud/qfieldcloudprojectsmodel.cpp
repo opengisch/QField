@@ -1260,19 +1260,11 @@ void QFieldCloudProjectsModel::cloneProject( const QString &projectId, const QSt
   QString finalizedName = baseName;
 
   int uniqueSuffix = 1;
-  bool nameExists = true;
-  while ( nameExists )
+  while ( std::any_of( mProjects.cbegin(), mProjects.cend(), [&finalizedName]( const QFieldCloudProject *project ) {
+    return project->name().compare( finalizedName, Qt::CaseInsensitive ) == 0;
+  } ) )
   {
-    nameExists = false;
-    for ( const QFieldCloudProject *project : mProjects )
-    {
-      if ( project->name().compare( finalizedName, Qt::CaseInsensitive ) == 0 )
-      {
-        nameExists = true;
-        finalizedName = QStringLiteral( "%1_%2" ).arg( baseName, QString::number( uniqueSuffix++ ) );
-        break;
-      }
-    }
+    finalizedName = QStringLiteral( "%1_%2" ).arg( baseName, QString::number( uniqueSuffix++ ) );
   }
 
   QVariantMap params;
@@ -1304,7 +1296,7 @@ void QFieldCloudProjectsModel::projectCloneReceived()
   QByteArray response = rawReply->readAll();
   QJsonDocument doc = QJsonDocument::fromJson( response );
   QVariantHash projectDetails = doc.object().toVariantHash();
-  QFieldCloudProject *cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
+  QFieldCloudProject *const cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
   if ( cloudProject )
   {
     insertProjects( QList<QFieldCloudProject *>() << cloudProject );
