@@ -248,42 +248,20 @@ QfPopup {
           }
         }
 
-        RowLayout {
+        QfLabeledTextField {
+          id: timeIntervalValue
           Layout.columnSpan: 2
           Layout.fillWidth: true
           visible: timeInterval.checked
           enabled: timeInterval.checked
-
-          Label {
-            text: qsTr("Minimum time")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            Layout.fillWidth: true
+          label: qsTr("Minimum time")
+          suffixText: qsTr("sec")
+          validator: DoubleValidator {
+            locale: 'C'
           }
 
-          QfTextField {
-            id: timeIntervalValue
-            font: Theme.defaultFont
-            horizontalAlignment: TextInput.AlignHCenter
-            rightPadding: timeIntervalUnit.width + 20
-            inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator {
-              locale: 'C'
-            }
-
-            Label {
-              id: timeIntervalUnit
-              text: qsTr("sec")
-              anchors.right: parent.right
-              anchors.rightMargin: 10
-              anchors.verticalCenter: parent.verticalCenter
-              font: parent.font
-              color: Theme.mainTextDisabledColor
-            }
-
-            onTextChanged: {
-              positioningSettings.trackerTimeInterval = parseFloat(text);
-            }
+          onTextChanged: {
+            positioningSettings.trackerTimeInterval = parseFloat(text);
           }
         }
 
@@ -327,42 +305,20 @@ QfPopup {
           crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
         }
 
-        RowLayout {
+        QfLabeledTextField {
+          id: minimumDistanceValue
           Layout.columnSpan: 2
           Layout.fillWidth: true
           visible: minimumDistance.checked
           enabled: minimumDistance.checked
-
-          Label {
-            text: qsTr("Minimum distance")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            Layout.fillWidth: true
+          label: qsTr("Minimum distance")
+          suffixText: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
+          validator: DoubleValidator {
+            locale: 'C'
           }
 
-          QfTextField {
-            id: minimumDistanceValue
-            font: Theme.defaultFont
-            horizontalAlignment: TextInput.AlignHCenter
-            rightPadding: minimumDistanceUnit.width + 20
-            inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator {
-              locale: 'C'
-            }
-
-            Label {
-              id: minimumDistanceUnit
-              text: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
-              anchors.right: parent.right
-              anchors.rightMargin: 10
-              anchors.verticalCenter: parent.verticalCenter
-              font: parent.font
-              color: Theme.mainTextDisabledColor
-            }
-
-            onTextChanged: {
-              positioningSettings.trackerMinimumDistance = parseFloat(text);
-            }
+          onTextChanged: {
+            positioningSettings.trackerMinimumDistance = parseFloat(text);
           }
         }
 
@@ -480,42 +436,20 @@ QfPopup {
           }
         }
 
-        RowLayout {
+        QfLabeledTextField {
+          id: erroneousDistanceValue
           Layout.columnSpan: 2
           Layout.fillWidth: true
           visible: erroneousDistanceSafeguard.checked
           enabled: erroneousDistanceSafeguard.checked
-
-          Label {
-            text: qsTr("Maximum tolerated distance")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
-            Layout.fillWidth: true
+          label: qsTr("Maximum tolerated distance")
+          suffixText: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
+          validator: DoubleValidator {
+            locale: 'C'
           }
 
-          QfTextField {
-            id: erroneousDistanceValue
-            font: Theme.defaultFont
-            horizontalAlignment: TextInput.AlignHCenter
-            rightPadding: erroneousDistanceUnit.width + 20
-            inputMethodHints: Qt.ImhFormattedNumbersOnly
-            validator: DoubleValidator {
-              locale: 'C'
-            }
-
-            Label {
-              id: erroneousDistanceUnit
-              text: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
-              anchors.right: parent.right
-              anchors.rightMargin: 10
-              anchors.verticalCenter: parent.verticalCenter
-              font: parent.font
-              color: Theme.mainTextDisabledColor
-            }
-
-            onTextChanged: {
-              positioningSettings.trackerErroneousDistance = parseFloat(text);
-            }
+          onTextChanged: {
+            positioningSettings.trackerErroneousDistance = parseFloat(text);
           }
         }
 
