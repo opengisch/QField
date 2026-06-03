@@ -48,7 +48,10 @@ void EgenioussReceiver::handleConnectDevice()
   connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     if ( reply->error() != QNetworkReply::NoError )
     {
-      handleErrorMessage( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );
+      const QString errorMessage = tr( "HTTP request failed: %1" ).arg( reply->errorString() );
+      qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
+      handleErrorMessage( errorMessage );
+      reply->deleteLater();
       return;
     }
     const QJsonObject jsonObject = QJsonDocument::fromJson( reply->readAll() ).object();
@@ -60,7 +63,10 @@ void EgenioussReceiver::handleConnectDevice()
     }
     else
     {
-      handleErrorMessage( tr( "Failed to start egeniouss server." ) );
+      const QString message = jsonObject.value( "message" ).toString();
+      const QString errorMessage = tr( "Failed to start egeniouss server." ) + ( message.isEmpty() ? QString() : QStringLiteral( " %1" ).arg( message ) );
+      qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
+      handleErrorMessage( errorMessage );
     }
     reply->deleteLater();
   } );
@@ -73,7 +79,10 @@ void EgenioussReceiver::handleDisconnectDevice()
   connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     if ( reply->error() != QNetworkReply::NoError )
     {
-      handleErrorMessage( QString( "HTTP request failed: %1" ).arg( reply->errorString() ) );
+      const QString errorMessage = tr( "HTTP request failed: %1" ).arg( reply->errorString() );
+      qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
+      handleErrorMessage( errorMessage );
+      reply->deleteLater();
       return;
     }
     const QJsonObject jsonObject = QJsonDocument::fromJson( reply->readAll() ).object();
@@ -85,7 +94,10 @@ void EgenioussReceiver::handleDisconnectDevice()
     }
     else
     {
-      handleErrorMessage( tr( "Failed to stop egeniouss server." ) );
+      const QString message = jsonObject.value( "message" ).toString();
+      const QString errorMessage = tr( "Failed to stop egeniouss server." ) + ( message.isEmpty() ? QString() : QStringLiteral( " %1" ).arg( message ) );
+      qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
+      handleErrorMessage( errorMessage );
     }
     reply->deleteLater();
   } );
