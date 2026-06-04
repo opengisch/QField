@@ -154,7 +154,7 @@ def test_projection(app, screenshot_path, screenshot_check, extra, process_alive
 
     # Arbitrary wait period to insure project fully loaded and rendered
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
-    time.sleep(4)
+    time.sleep(8)
 
     app.takeScreenshot(
         "mainWindow", os.path.join(screenshot_path, "test_projection.png")
