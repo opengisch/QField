@@ -1004,11 +1004,11 @@ Page {
       }
     }
 
-    function onProjectCreated(projectId, hasError, errorString) {
+    function onProjectCreated(projectId, isClone, hasError, errorString) {
       if (hasError) {
-        displayToast(qsTr("Project creation failed: %1").arg(errorString));
+        displayToast(isClone ? qsTr("Project cloning failed: %1").arg(errorString) : qsTr("Project creation failed: %1").arg(errorString));
       } else {
-        displayToast(qsTr("Project successfully created"));
+        displayToast(isClone ? qsTr("Project successfully cloned") : qsTr("Project successfully created"));
       }
     }
   }

@@ -786,7 +786,10 @@ Popup {
       }
     }
 
-    function onProjectCreated(projectId, hasError, errorString) {
+    function onProjectCreated(projectId, isClone, hasError, errorString) {
+      if (isClone) {
+        return;
+      }
       if (!qfieldCloudPopup.visible) {
         qfieldCloudPopup.visible = true;
       }
