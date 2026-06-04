@@ -951,7 +951,7 @@ Page {
     onAccepted: {
       const trimmedName = cloneProjectName.text.trim();
       if (trimmedName !== "") {
-        cloudProjectsModel.cloneProject(sourceProjectId, trimmedName);
+        cloudProjectsModel.createProject(trimmedName, sourceProjectId);
       }
     }
   }
@@ -1004,11 +1004,11 @@ Page {
       }
     }
 
-    function onProjectCloned(projectId, hasError, errorString) {
+    function onProjectCreated(projectId, hasError, errorString) {
       if (hasError) {
-        displayToast(qsTr("Project cloning failed: %1").arg(errorString));
+        displayToast(qsTr("Project creation failed: %1").arg(errorString));
       } else {
-        displayToast(qsTr("Project successfully cloned"));
+        displayToast(qsTr("Project successfully created"));
       }
     }
   }

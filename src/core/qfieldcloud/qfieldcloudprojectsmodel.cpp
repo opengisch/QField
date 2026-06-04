@@ -1148,7 +1148,7 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
-void QFieldCloudProjectsModel::createProject( QString name )
+void QFieldCloudProjectsModel::createProject( const QString name, const QString fromProjectId )
 {
   if ( name.isEmpty() )
   {
@@ -1159,7 +1159,8 @@ void QFieldCloudProjectsModel::createProject( QString name )
   mIsCreating = true;
   emit isCreatingChanged();
 
-  name.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
+  QString sanitizedName = name;
+  sanitizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
   QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( mUsername );
   QNetworkRequest request( url );
@@ -1168,7 +1169,7 @@ void QFieldCloudProjectsModel::createProject( QString name )
   mCloudConnection->setAuthenticationDetails( request );
 
   const NetworkReply *listingreply = mCloudConnection->get( request, url );
-  connect( listingreply, &NetworkReply::finished, this, [this, name]() {
+  connect( listingreply, &NetworkReply::finished, this, [this, sanitizedName, fromProjectId]() {
     NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
     QNetworkReply *rawReply = reply->currentRawReply();
     Q_ASSERT( rawReply );
@@ -1190,10 +1191,10 @@ void QFieldCloudProjectsModel::createProject( QString name )
     }
 
     int uniqueSuffix = 1;
-    QString finalizedName = name;
+    QString finalizedName = sanitizedName;
     while ( projectNames.contains( finalizedName.toLower() ) )
     {
-      finalizedName = QStringLiteral( "%1_%2" ).arg( name, QString::number( uniqueSuffix++ ) );
+      finalizedName = QStringLiteral( "%1_%2" ).arg( sanitizedName, QString::number( uniqueSuffix++ ) );
     }
 
     QString url = QStringLiteral( "/api/v1/projects/" );
@@ -1203,6 +1204,11 @@ void QFieldCloudProjectsModel::createProject( QString name )
     params.insert( QStringLiteral( "owner" ), mUsername );
     params.insert( QStringLiteral( "description" ), QString() );
     params.insert( QStringLiteral( "private" ), true );
+
+    if ( !fromProjectId.isEmpty() )
+    {
+      params.insert( QStringLiteral( "clone_from_project" ), fromProjectId );
+    }
 
     QNetworkRequest request;
     const NetworkReply *creationReply = mCloudConnection->post( request, url, params );
@@ -1241,74 +1247,6 @@ void QFieldCloudProjectsModel::projectCreationReceived()
 
   mIsCreating = false;
   emit isCreatingChanged();
-}
-
-void QFieldCloudProjectsModel::cloneProject( const QString &projectId, const QString &name )
-{
-  if ( projectId.isEmpty() || name.isEmpty() )
-  {
-    emit projectCloned( QString(), true, tr( "Project cloning requires a source project and a name" ) );
-    return;
-  }
-
-  mIsCloning = true;
-  emit isCloningChanged();
-
-  static const QRegularExpression sInvalidChars( "[^A-Za-z0-9_]" );
-  QString baseName = name;
-  baseName.replace( sInvalidChars, QStringLiteral( "_" ) );
-  QString finalizedName = baseName;
-
-  int uniqueSuffix = 1;
-  while ( std::any_of( mProjects.cbegin(), mProjects.cend(), [&finalizedName]( const QFieldCloudProject *project ) {
-    return project->name().compare( finalizedName, Qt::CaseInsensitive ) == 0;
-  } ) )
-  {
-    finalizedName = QStringLiteral( "%1_%2" ).arg( baseName, QString::number( uniqueSuffix++ ) );
-  }
-
-  QVariantMap params;
-  params.insert( QStringLiteral( "name" ), finalizedName );
-  params.insert( QStringLiteral( "owner" ), mUsername );
-  params.insert( QStringLiteral( "description" ), QString() );
-  params.insert( QStringLiteral( "private" ), true );
-
-  params.insert( QStringLiteral( "clone_from_project" ), projectId );
-  QNetworkRequest request;
-  const NetworkReply *reply = mCloudConnection->post( request, QStringLiteral( "/api/v1/projects/" ), params );
-  connect( reply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectCloneReceived );
-}
-
-void QFieldCloudProjectsModel::projectCloneReceived()
-{
-  NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
-  QNetworkReply *rawReply = reply->currentRawReply();
-  Q_ASSERT( rawReply );
-
-  if ( rawReply->error() != QNetworkReply::NoError )
-  {
-    emit projectCloned( QString(), true, mCloudConnection->errorString( rawReply ) );
-    mIsCloning = false;
-    emit isCloningChanged();
-    return;
-  }
-
-  QByteArray response = rawReply->readAll();
-  QJsonDocument doc = QJsonDocument::fromJson( response );
-  QVariantHash projectDetails = doc.object().toVariantHash();
-  QFieldCloudProject *const cloudProject = QFieldCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
-  if ( cloudProject )
-  {
-    insertProjects( QList<QFieldCloudProject *>() << cloudProject );
-    emit projectCloned( cloudProject->id() );
-  }
-  else
-  {
-    emit projectCloned( QString(), true, tr( "Cloud project could not be cloned." ) );
-  }
-
-  mIsCloning = false;
-  emit isCloningChanged();
 }
 
 // --
