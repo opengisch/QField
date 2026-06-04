@@ -626,7 +626,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Informacje o projekcie</translation>
     </message>
     <message>
         <source>Empty project abstract and description</source>
@@ -1410,7 +1410,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -2561,7 +2561,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Obróć widok</translation>
     </message>
     <message>
         <source>Rotation source</source>
@@ -2569,7 +2569,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>Kompas</translation>
     </message>
     <message>
         <source>Movement</source>
@@ -2577,7 +2577,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Precyzja</translation>
     </message>
 </context>
 <context>
@@ -7291,6 +7291,10 @@ aby wyświetlić działania</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>metry</translation>
     </message>
 </context>
 <context>

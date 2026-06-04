@@ -7286,6 +7286,10 @@ to show actions</source>
         <source>Long press on the destination marker to show actions</source>
         <translation>长按目标标记显示动作</translation>
     </message>
+    <message>
+        <source>meters</source>
+        <translation>米</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

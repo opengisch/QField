@@ -7288,6 +7288,10 @@ para mostrar las acciones</translation>
         <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>meters</source>
+        <translation>metros</translation>
+    </message>
 </context>
 <context>
     <name>relation_editor</name>

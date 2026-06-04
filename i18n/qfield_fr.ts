@@ -625,11 +625,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Informations sur le projet </translation>
     </message>
     <message>
         <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
+        <translation>Pas de résumé et/ou de description</translation>
     </message>
 </context>
 <context>
@@ -1407,7 +1407,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Auteur</translation>
     </message>
 </context>
 <context>
@@ -4767,7 +4767,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Dispositif de positionnement</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -4791,11 +4791,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Ajustement de la hauteur</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Horodatage (secondes depuis l&apos;époque)</translation>
     </message>
 </context>
 <context>
@@ -5749,7 +5749,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Horodatage (secondes depuis l&apos;époque)</translation>
     </message>
 </context>
 <context>
@@ -7286,6 +7286,10 @@ pour afficher des actions</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>mètres</translation>
     </message>
 </context>
 <context>
