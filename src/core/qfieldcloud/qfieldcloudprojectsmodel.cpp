@@ -1148,7 +1148,7 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
-void QFieldCloudProjectsModel::createProject( const QString name, const QString fromProjectId )
+void QFieldCloudProjectsModel::createProject( const QString &name, const QString &fromProjectId )
 {
   if ( name.isEmpty() )
   {

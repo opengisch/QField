@@ -202,7 +202,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
      * The converted project will then be removed from the local storage in favor of a newly packaged
      * cloud project downloaded from the server.
      */
-    Q_INVOKABLE void createProject( const QString name, const QString fromProjectId = QString() );
+    Q_INVOKABLE void createProject( const QString &name, const QString &fromProjectId = QString() );
 
   signals:
     void cloudConnectionChanged();
