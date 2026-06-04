@@ -112,8 +112,12 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   QList<QgsMapLayer *> createdProjectLayers;
   QgsProject *createdProject = new QgsProject();
 
+  // Metadata
+  QgsProjectMetadata projectMetadata = createdProject->metadata();
+  projectMetadata.setTitle( projectTitle );
+  createdProject->setMetadata( projectMetadata );
+
   // Basic project settings
-  createdProject->setTitle( projectTitle );
   createdProject->setCrs( QgsCoordinateReferenceSystem( "EPSG:3857" ) );
   createdProject->displaySettings()->setCoordinateType( Qgis::CoordinateDisplayType::CustomCrs );
   createdProject->displaySettings()->setCoordinateCustomCrs( QgsCoordinateReferenceSystem( "EPSG:4326" ) );
