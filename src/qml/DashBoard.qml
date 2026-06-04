@@ -338,7 +338,7 @@ Drawer {
 
         property string projectAuthor: {
           if (qgisProject) {
-            if (qgisProject.metadata.author !== "" && qgisProject.metadata.author !== "Not Available") {
+            if (qgisProject.metadata.author !== "" && qgisProject.metadata.author !== "Not available") {
               return qgisProject.metadata.author;
             } else if (cloudProjectsModel.currentProject) {
               return cloudProjectsModel.currentProject.owner;
