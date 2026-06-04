@@ -1666,6 +1666,7 @@ Page {
                   text: qsTr("Bad accuracy threshold")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
                   Layout.fillWidth: true
                 }
 
@@ -1703,6 +1704,7 @@ Page {
                   text: qsTr("Excellent accuracy threshold")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
                   Layout.fillWidth: true
                 }
 
@@ -1923,6 +1925,7 @@ Page {
                   text: qsTr("Antenna height")
                   font: Theme.defaultFont
                   color: Theme.mainTextColor
+                  wrapMode: Text.WordWrap
                   Layout.fillWidth: true
                 }
 

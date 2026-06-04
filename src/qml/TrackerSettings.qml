@@ -258,6 +258,7 @@ QfPopup {
             text: qsTr("Minimum time")
             font: Theme.defaultFont
             color: Theme.mainTextColor
+            wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
@@ -327,6 +328,7 @@ QfPopup {
             text: qsTr("Minimum distance")
             font: Theme.defaultFont
             color: Theme.mainTextColor
+            wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
@@ -470,6 +472,7 @@ QfPopup {
             text: qsTr("Maximum tolerated distance")
             font: Theme.defaultFont
             color: Theme.mainTextColor
+            wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
