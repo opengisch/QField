@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: windows-2022
+          - os: windows-2025
             triplet: x64-windows-static
             arch: amd64
             platform_arch: x64
@@ -144,6 +144,11 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
+      - name: Install NSIS
+        uses: repolevedavaj/install-nsis@v1.2.0
+        with:
+          nsis-version: '3.10'
+
       - name: Package
         id: package
         shell: bash
@@ -151,7 +156,7 @@ jobs:
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            INSTALLER_SUFFIX="exe"
+            INSTALLER_SUFFIX="zip"
           else
             INSTALLER_SUFFIX="exe"
           fi
@@ -176,7 +181,7 @@ jobs:
             ${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt
 
       - name: 🎭 Sign
-        if: env.ARTIFACT_NAME != null #( github.event_name == 'release'  && startsWith(github.ref, 'refs/tags/v') ) || github.event_name == 'workflow_dispatch' && env.ARTIFACT_NAME != null
+        if: ( github.event_name == 'release'  && startsWith(github.ref, 'refs/tags/v') ) || github.event_name == 'workflow_dispatch' && env.ARTIFACT_NAME != null
         uses: azure/trusted-signing-action@v2.0.0
         with:
           azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -190,6 +195,7 @@ jobs:
           file-digest: SHA256
           timestamp-rfc3161: http://timestamp.acs.microsoft.com
           timestamp-digest: SHA256
+          cache-dependencies: false
 
       - name: 📦 Upload artifacts
         if: ${{ env.ARTIFACT_NAME != null }}
