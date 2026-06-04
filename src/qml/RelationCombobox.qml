@@ -306,10 +306,9 @@ Item {
       }
 
       contentItem: Text {
-        leftPadding: comboBox.background.visible ? 8 : 0
-        rightPadding: comboBox.indicator.width + comboBox.spacing
-        topPadding: 8
-        bottomPadding: 8
+        leftPadding: comboBox.background.visible ? comboBox.Material.textFieldHorizontalPadding : 0
+        topPadding: comboBox.Material.textFieldVerticalPadding
+        bottomPadding: comboBox.Material.textFieldVerticalPadding
         text: comboBox.displayText
         font: Theme.defaultFont
         color: displayedTextColor
@@ -370,10 +369,9 @@ Item {
               id: delegateLabel
               text: model.display
               font: Theme.defaultFont
-              color: highlighted ? Theme.mainColor : Theme.mainTextColor
+              color: comboBox.currentIndex === index ? Theme.mainColor : Theme.mainTextColor
               wrapMode: Text.WordWrap
               verticalAlignment: Text.AlignVCenter
-              leftPadding: 8
             }
           }
 
