@@ -628,10 +628,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Project Information</source>
         <translation>工程信息</translation>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation>空工程摘要和描述</translation>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2704,6 +2700,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>QFieldCloud允许同步与合并您的团队在%1中收集的数据。从小型个人工程到大型数据收集活动。</translation>
+    </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation>定期自动推送更新</translation>
     </message>
 </context>
 <context>

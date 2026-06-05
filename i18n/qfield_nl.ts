@@ -628,10 +628,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2705,6 +2701,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>

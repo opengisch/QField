@@ -628,10 +628,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2702,6 +2698,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>QField இல் உங்கள் குழுவால் சேகரிக்கப்பட்ட தரவை  %1 ஒத்திசைக்கவும் ஒன்றிணைக்கவும் QFieldCloud அனுமதிக்கிறது. சிறிய தனிப்பட்ட திட்டங்கள் முதல் பெரிய தரவு சேகரிப்பு பிரச்சாரங்கள் வரை.</translation>
+    </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

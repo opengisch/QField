@@ -628,10 +628,6 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2708,6 +2704,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>QFieldCloud permite sincronizar y fusionar los datos recopilados por su equipo en %1. Desde pequeños proyectos individuales hasta grandes campañas de recopilación de datos. </translation>
+    </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

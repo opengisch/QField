@@ -628,10 +628,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Project Information</source>
         <translation>Projekt információ</translation>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation>Üres projekt összefoglaló és leírás</translation>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2706,6 +2702,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>A QFieldCloud biztosítja a %1 során a csapatoddal gyűjtött adatok szinkronizálását és egyesítését. Kis egyedi projektektől nagy adatgyűjtési kampányokig. </translation>
     </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation>Változásfeltöltés automatikusan, állandó időközönként</translation>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -2715,43 +2715,43 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Megjegyzések</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Idő</translation>
     </message>
     <message>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>Jelzőszín</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Cím</translation>
     </message>
     <message>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Jegyzet</translation>
     </message>
     <message>
         <source>Tracks</source>
-        <translation type="unfinished"/>
+        <translation>Nyomvonalak</translation>
     </message>
     <message>
         <source>Basemap</source>
-        <translation type="unfinished"/>
+        <translation>Alaptérkép</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Média</translation>
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>Nyomvonal szín</translation>
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Jegyzet csatolmányok</translation>
     </message>
     <message>
         <source>Description</source>
@@ -2759,7 +2759,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Csatolmányok</translation>
     </message>
 </context>
 <context>
@@ -2770,11 +2770,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>a host-nál</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>a szolgáltatásnál</translation>
     </message>
 </context>
 <context>
@@ -2812,7 +2812,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>Felülbélyegzés megengedve</translation>
     </message>
     <message>
         <source>Latitude</source>
@@ -2836,7 +2836,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>Felülbélyegzés kikapcsolva</translation>
     </message>
 </context>
 <context>
@@ -2989,7 +2989,8 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1Szerver URL
+(Alapértelmezett szerver esetén hagyd üresen)</translation>
     </message>
 </context>
 <context>
@@ -3012,11 +3013,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Néhány réteg helytelenül lett becsomagolva. Ezen a rétegek konfigurációja hibás lehet vagy az adatforrásai nem érhetők el a QFieldCloud szerverről.</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Ellenőrizd az alábbi visszajelzést és az utolsó csomagolási naplót a QFieldCloud oldalán.</translation>
     </message>
 </context>
 <context>
@@ -3233,31 +3234,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Változások feltöltése, %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud érvényesíti a legutóbb feltöltött változásokat. Ez eltarthat egy ideig, kérem várjon...</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Az aktuális projekt feltöltése a QFieldCloud-ra.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Ez a projekt nincs fent a QFieldCloud fiókodban.</translation>
     </message>
     <message>
         <source>Cloudifying project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt felhőbe töltés</translation>
     </message>
     <message>
         <source>Cloudify!</source>
-        <translation type="unfinished"/>
+        <translation>Felhősítés!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés: %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3835,7 +3836,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés: %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>

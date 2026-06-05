@@ -628,10 +628,6 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2705,6 +2701,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>QFieldCloud ermöglicht es Ihnen Daten, die von ihrem Team in QField gesammelt wurden, zu synchronisieren und zusammenzufügen. Von kleinen individuellen Projekten bis zu großen Datenerfassungskampagnen.</translation>
+    </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -628,10 +628,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Project Information</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2706,6 +2702,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>QFieldCloudin avulla voit synkronoida ja yhdistää tiimisi keräämän datan kohteessa %1. Se soveltuu sekä pieniin projekteihin että laajoihin tiedonkeruukampanjoihin.</translation>
+    </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

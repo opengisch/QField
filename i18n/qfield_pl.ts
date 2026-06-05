@@ -628,10 +628,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Project Information</source>
         <translation>Informacje o projekcie</translation>
     </message>
-    <message>
-        <source>Empty project abstract and description</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -2711,6 +2707,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation>QFieldCloud pozwala synchronizować i łączyć dane zebrane przez Twój zespół w %1. Od małych indywidualnych projektów po duże kampanie gromadzenia danych. </translation>
     </message>
+    <message>
+        <source>Automatically push changes on a regular interval</source>
+        <translation>Automatycznie publikuj zmiany w regularnych odstępach czasu</translation>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -3019,11 +3019,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Niektóre warstwy nie zostały poprawnie spakowane. Warstwy te mogą być nieprawidłowo skonfigurowane lub serwer QFieldCloud nie ma dostępu do ich źródła danych.</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Zapoznaj się z poniższą szczegółową informacją zwrotną oraz najnowszymi dziennikami zadań pakowania na stronie QFieldCloud.</translation>
     </message>
 </context>
 <context>
@@ -3286,7 +3286,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 nie może być spakowany, ponieważ miejsce w chmurze właściciela projektu jest zapełnione.</translation>
     </message>
 </context>
 <context>
@@ -3888,11 +3888,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Dostępna przestrzeń w chmurze dla projektu jest zapełniona.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Plan subskrypcyjny właściciela projektu jest niewystarczający.</translation>
     </message>
 </context>
 <context>
@@ -7270,11 +7270,11 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 nie może być spakowany, ponieważ miejsce w chmurze użytkownika jest zapełnione.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 nie może być pobrany, ponieważ Twój plan subskrypcji jest niewystarczający.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
@@ -7282,7 +7282,7 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 nie może być pobrany, ponieważ plan subskrypcji właściciela projektu jest niewystarczający.</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
@@ -7290,7 +7290,7 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Naciśnij i przytrzymaj znacznik miejsca docelowego, aby wyświetlić dostępne opcje</translation>
     </message>
     <message>
         <source>meters</source>
