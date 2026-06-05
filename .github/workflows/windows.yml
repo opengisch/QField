@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: windows-2022
+          - os: windows-2025
             triplet: x64-windows-static
             arch: amd64
             platform_arch: x64
@@ -144,6 +144,11 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
+      - name: Install NSIS
+        uses: repolevedavaj/install-nsis@v1.2.0
+        with:
+          nsis-version: '3.10'
+
       - name: Package
         id: package
         shell: bash
@@ -157,8 +162,9 @@ jobs:
           fi
 
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.${INSTALLER_SUFFIX} | head -n 1)
-          mv "$ARTIFACT_PATHNAME" "QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
-          ARTIFACT_PATHNAME="QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
+          mv "$ARTIFACT_PATHNAME" "${{ env.CMAKE_BUILD_DIR }}/QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
+
+          ARTIFACT_PATHNAME="${{ env.CMAKE_BUILD_DIR }}/QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}" >> $GITHUB_ENV
@@ -189,6 +195,7 @@ jobs:
           file-digest: SHA256
           timestamp-rfc3161: http://timestamp.acs.microsoft.com
           timestamp-digest: SHA256
+          cache-dependencies: false
 
       - name: 📦 Upload artifacts
         if: ${{ env.ARTIFACT_NAME != null }}
@@ -258,7 +265,7 @@ jobs:
           marker: windows
           body: |
             ### 🪟 Windows builds
-            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/QField-x64.zip) and for [arm64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/QField-arm64.zip).
+            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.zip) and for [arm64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-arm64.zip).
 
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
