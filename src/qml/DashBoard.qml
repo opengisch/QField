@@ -324,7 +324,31 @@ Drawer {
 
       QfToolButton {
         id: projectInformationButton
+
+        property string projectDescription: {
+          if (qgisProject) {
+            if (qgisProject.metadata.abstract !== "") {
+              return qgisProject.metadata.abstract;
+            } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.description !== "") {
+              return cloudProjectsModel.currentProject.description;
+            }
+          }
+          return "";
+        }
+
+        property string projectAuthor: {
+          if (qgisProject) {
+            if (qgisProject.metadata.author !== "" && qgisProject.metadata.author !== "Not available") {
+              return qgisProject.metadata.author;
+            } else if (cloudProjectsModel.currentProject) {
+              return cloudProjectsModel.currentProject.owner;
+            }
+          }
+          return "";
+        }
+
         Layout.alignment: Qt.AlignVCenter
+        visible: projectDescription != "" || projectAuthor != ""
         width: 36
         height: 36
         padding: 0
@@ -336,21 +360,8 @@ Drawer {
           informationPopup.title = projectTitleText.text;
 
           informationPopup.descriptionFormat = Text.MarkdownText;
-          if (qgisProject.metadata.abstract !== "") {
-            informationPopup.description = qgisProject.metadata.abstract;
-          } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.description !== "") {
-            informationPopup.description = cloudProjectsModel.currentProject.description;
-          } else {
-            informationPopup.description = qsTr("Empty project abstract and description");
-          }
-
-          if (qgisProject.metadata.author !== "") {
-            informationPopup.author = qgisProject.metadata.author;
-          } else if (cloudProjectsModel.currentProject) {
-            informationPopup.author = cloudProjectsModel.currentProject.owner;
-          } else {
-            informationPopup.author = "";
-          }
+          informationPopup.description = projectDescription;
+          informationPopup.author = projectAuthor;
 
           informationPopup.open();
         }
