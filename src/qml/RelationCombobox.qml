@@ -296,6 +296,21 @@ Item {
       }
 
       font: Theme.defaultFont
+      delegate: ItemDelegate {
+        width: ListView.view.width
+        height: Math.max(delegateLabel.implicitHeight + 16, 48)
+        highlighted: comboBox.highlightedIndex === index
+
+        contentItem: Text {
+          id: delegateLabel
+          text: model[comboBox.textRole] ?? ""
+          font: Theme.defaultFont
+          color: comboBox.currentIndex === index ? Theme.mainColor : Theme.mainTextColor
+          wrapMode: Text.WordWrap
+          verticalAlignment: Text.AlignVCenter
+        }
+      }
+
       displayText: {
         if (!isEditing && value === "") {
           return qsTr("Empty");
@@ -357,21 +372,6 @@ Item {
                 text: section
                 visible: featureListModel.displayGroupName
               }
-            }
-          }
-
-          delegate: ItemDelegate {
-            width: ListView.view.width
-            height: Math.max(delegateLabel.implicitHeight + 16, 48)
-            highlighted: comboBox.highlightedIndex === index
-
-            contentItem: Text {
-              id: delegateLabel
-              text: model.display
-              font: Theme.defaultFont
-              color: comboBox.currentIndex === index ? Theme.mainColor : Theme.mainTextColor
-              wrapMode: Text.WordWrap
-              verticalAlignment: Text.AlignVCenter
             }
           }
 
