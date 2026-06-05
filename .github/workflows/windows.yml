@@ -265,7 +265,7 @@ jobs:
           marker: windows
           body: |
             ### 🪟 Windows builds
-            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/QField-x64.zip) and for [arm64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/QField-arm64.zip).
+            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-x64.zip) and for [arm64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-arm64.zip).
 
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
