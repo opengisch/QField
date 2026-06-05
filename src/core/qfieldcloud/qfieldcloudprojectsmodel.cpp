@@ -1152,12 +1152,11 @@ void QFieldCloudProjectsModel::createProject( const QString &name, const QString
 {
   if ( name.isEmpty() )
   {
-    emit projectCreated( QString(), !fromProjectId.isEmpty(), true, tr( "Project creation requires a name" ) );
+    emit projectCreated( QString(), fromProjectId, true, tr( "Project creation requires a name" ) );
     return;
   }
 
   mIsCreating = true;
-  mPendingCreationIsClone = !fromProjectId.isEmpty();
   emit isCreatingChanged();
 
   QString sanitizedName = name;
@@ -1177,7 +1176,7 @@ void QFieldCloudProjectsModel::createProject( const QString &name, const QString
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      emit projectCreated( QString(), mPendingCreationIsClone, true, mCloudConnection->errorString( rawReply ) );
+      emit projectCreated( QString(), fromProjectId, true, mCloudConnection->errorString( rawReply ) );
       return;
     }
 
@@ -1212,6 +1211,7 @@ void QFieldCloudProjectsModel::createProject( const QString &name, const QString
     }
 
     QNetworkRequest request;
+    request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FromProjectId ), fromProjectId );
     const NetworkReply *creationReply = mCloudConnection->post( request, url, params );
     connect( creationReply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectCreationReceived );
   } );
@@ -1223,9 +1223,11 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   QNetworkReply *rawReply = reply->currentRawReply();
   Q_ASSERT( rawReply );
 
+  const QString fromProjectId = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FromProjectId ) ).toString();
+
   if ( rawReply->error() != QNetworkReply::NoError )
   {
-    emit projectCreated( QString(), mPendingCreationIsClone, true, mCloudConnection->errorString( rawReply ) );
+    emit projectCreated( QString(), fromProjectId, true, mCloudConnection->errorString( rawReply ) );
 
     mIsCreating = false;
     emit isCreatingChanged();
@@ -1239,11 +1241,11 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   if ( cloudProject )
   {
     insertProjects( QList<QFieldCloudProject *>() << cloudProject );
-    emit projectCreated( cloudProject->id(), mPendingCreationIsClone );
+    emit projectCreated( cloudProject->id(), fromProjectId );
   }
   else
   {
-    emit projectCreated( QString(), mPendingCreationIsClone, true, tr( "Cloud project could not be created." ) );
+    emit projectCreated( QString(), fromProjectId, true, tr( "Cloud project could not be created." ) );
   }
 
   mIsCreating = false;

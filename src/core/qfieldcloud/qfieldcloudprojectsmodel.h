@@ -101,6 +101,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectId = QNetworkRequest::User + 4,
       ProjectOwnerName = QNetworkRequest::User + 5,
       ProjectSearchTerm = QNetworkRequest::User + 6,
+      FromProjectId = QNetworkRequest::User + 7,
     };
 
     Q_ENUM( ColumnRole )
@@ -215,7 +216,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
-    void projectCreated( const QString &projectId, const bool isClone = false, const bool hasError = false, const QString &errorString = QString() );
+    void projectCreated( const QString &projectId, const QString &fromProjectId = QString(), const bool hasError = false, const QString &errorString = QString() );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );
@@ -250,7 +251,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     bool mIsRefreshing = false;
     bool mIsCreating = false;
-    bool mPendingCreationIsClone = false;
 
     QString mCurrentProjectId;
     QPointer<QFieldCloudProject> mCurrentProject;
