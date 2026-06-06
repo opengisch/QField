@@ -7,11 +7,25 @@ import org.qfield
  */
 TextField {
   id: textField
+
+  property string suffixText: ""
+
   echoMode: TextInput.Normal
   passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
   font: Theme.defaultFont
-  rightPadding: showPasswordButton.visible ? showPasswordButton.width : leftPadding
+  rightPadding: showPasswordButton.visible ? showPasswordButton.width : (suffixLabel.visible ? suffixLabel.implicitWidth + 16 : leftPadding)
   inputMethodHints: Qt.ImhNone
+
+  Label {
+    id: suffixLabel
+    visible: textField.suffixText !== ""
+    text: textField.suffixText
+    anchors.right: parent.right
+    anchors.rightMargin: 10
+    anchors.verticalCenter: parent.verticalCenter
+    font: parent.font
+    color: Theme.mainTextDisabledColor
+  }
 
   QfToolButton {
     id: showPasswordButton
