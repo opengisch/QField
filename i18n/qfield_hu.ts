@@ -3270,15 +3270,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Tárhelybővítés</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>A %1 projekt nem becsomagolható, mert a tárhelyed betelt.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>A %1 projekt nem becsomagolható, mert a projekt tulajdonos tárhelye betelt.</translation>
     </message>
 </context>
 <context>
@@ -3367,62 +3367,62 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Fájlrendszer hiba. Sikertelen a csatolmány `%1` ideiglenes helyre írása.</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Fájlrendszer hiba. Nem megnyitható a csatolmány az `%1` ideiglenes helyre íráshoz.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati hiba. Nem sikerült letölteni a `%1` csatolmányt.</translation>
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Fájlrendszer hiba. Sikertelen a`%1` részleges fájlba írás.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Fájlrendszer hiba. Sikertelen a `%1` részleges fájl megnyitása.</translation>
     </message>
     <message>
         <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
+        <translation>Nincs ilyen helyi elérési út</translation>
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
+        <translation>A feltöltés helyi elérési útja nem jó, mivel több projektfájlt tartalmaz.</translation>
     </message>
     <message>
         <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
+        <translation>A feltöltés helyi elérési útja nem tartalmaz egy érvényes projektfájlt.</translation>
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati hiba. Sikertelen a `%1` fájl feltöltése.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Egy vagy több fájl feltöltése sikertelen.</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Tulajdonos</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>Létrehozás</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>Utolsó frissítés</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>Ezt a QR-kódot a hozzáféréssel bíró felhasználók beolvashatják a projekt letöltéséhez és megnyitásához.</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3434,15 +3434,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud projektet csomagol, szoríts</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt letöltés</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>Töltsd le a projektet</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -3454,30 +3454,30 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Szinkronizálás</translation>
     </message>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 használata %2 -ből</translation>
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Tárhely méret</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Előre megadott szűrők</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Feltétel</translation>
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation>Nyilvános projekteket tartalmaz</translation>
     </message>
     <message>
         <source>Search</source>
@@ -3485,19 +3485,19 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>%1 projektjei</translation>
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Saját projektjeim</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>A cím vagy a leírás tartalmaz</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>A tulajdonos</translation>
     </message>
 </context>
 <context>
@@ -3630,15 +3630,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
+        <translation>Projekt létrehozáshoz kell egy név</translation>
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>A felhőprojekt nem létrehozható</translation>
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>A hálózat most nem aktív, ha újra lesz aktív kapcsolat automatikusan feltöltjük a változásokat.</translation>
     </message>
 </context>
 <context>
@@ -3773,23 +3773,23 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>Mutasd a hibás projekteket</translation>
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>Projekt részletek nézet</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>Felhőprojekt részleteinek lekérése sikertelen</translation>
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Projekt mappa nézet</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Valóban törölni kívánod `%1`-t?</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3805,31 +3805,31 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Projektlista frissítése...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Projektek keresése...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Nem található felhőprojekt.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Kezdetnek %1 olvasd el a %2 leírását.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Próbálj %1 felhasználni nyilvános projekteket %2, nézd, mit kínál a közösség.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Próbálj %1 felhasználni nyilvános projekteket %2</translation>
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Projektek keresése</translation>
     </message>
 </context>
 <context>
@@ -7242,7 +7242,7 @@ to show actions</source>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Tárhelybővítés</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
@@ -7254,11 +7254,11 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>A %1 projekt nem becsomagolható, mert a tárhelyed betelt.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>A %1 projekt nem becsomagolható, mert a projekt tulajdonos tárhelye betelt.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
