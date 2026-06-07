@@ -24,7 +24,7 @@ TextField {
     anchors.rightMargin: 10
     anchors.verticalCenter: parent.verticalCenter
     font: parent.font
-    color: Theme.mainTextDisabledColor
+    color: enabled ? Theme.secondaryTextColor : Theme.mainTextDisabledColor
   }
 
   QfToolButton {
@@ -33,7 +33,7 @@ TextField {
     z: 1
     visible: (!!textField.echoMode && textField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
     iconSource: textField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-    iconColor: Theme.mainColor
+    iconColor: textField.enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
     anchors.right: textField.right
     anchors.verticalCenter: textField.verticalCenter
     opacity: textField.text.length > 0 ? 1 : 0.25
