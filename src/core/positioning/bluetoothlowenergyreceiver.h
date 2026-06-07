@@ -65,11 +65,12 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
     void serviceErrorOccurred( QLowEnergyService::ServiceError error );
     void characteristicChanged( const QLowEnergyCharacteristic &characteristic, const QByteArray &value );
 
-    //! Used to wait for previous connection to finish disconnecting
-    void doConnectDevice();
-
   private:
     void clearService();
+
+    //! Used to wait for previous connection to finish disconnecting
+    void doConnectDevice();
+    void doDisconnectDevice();
 
     QString mAddress;
 
