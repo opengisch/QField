@@ -195,6 +195,7 @@ class Setup : public QObject
       iface->setParent( engine );
       AppInterface::setInstance( iface );
       engine->rootContext()->setContextProperty( QStringLiteral( "iface" ), iface );
+      engine->globalObject().setProperty( QStringLiteral( "displayToast" ), engine->evaluate( QStringLiteral( "(function() {})" ) ) );
     }
 };
 
