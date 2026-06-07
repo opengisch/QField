@@ -4392,7 +4392,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>Toplanan minimum konum sayısı</translation>
+        <translation type="vanished">Toplanan minimum konum sayısı</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -4408,7 +4408,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation>Anten yüksekliği [m]</translation>
+        <translation type="vanished">Anten yüksekliği [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
@@ -4615,14 +4615,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation>Etkinleştirildiğinde, harita kullanıcı tarafından döndürülebilir.</translation>
     </message>
     <message>
-        <source>Bad accuracy threshold [m]</source>
-        <translation>Kötü doğruluk eşiği [m]</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold [m]</source>
-        <translation>Harika doğruluk eşiği [m]</translation>
-    </message>
-    <message>
         <source>Enforce accuracy requirement</source>
         <translation>Doğruluk gereksinimini zorla</translation>
     </message>
@@ -4792,6 +4784,26 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5630,7 +5642,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimum zaman [sn]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
@@ -5642,7 +5654,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>Minimum mesafe [%1]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
@@ -5671,10 +5683,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Erroneous distance safeguard</source>
         <translation>Hatalı mesafe koruması</translation>
-    </message>
-    <message>
-        <source>Maximum tolerated distance [%1]</source>
-        <translation>Maximum tolere edilen mesafe [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -5746,6 +5754,22 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>

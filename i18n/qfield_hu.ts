@@ -4393,7 +4393,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>Minimális pozíciószám összegyűjtve</translation>
+        <translation type="vanished">Minimális pozíciószám összegyűjtve</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -4409,7 +4409,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation>Antenna magasság [m]</translation>
+        <translation type="vanished">Antenna magasság [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
@@ -4616,14 +4616,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation>Bekapcsolásakor, a térkép forgatható a felhasználó által.</translation>
     </message>
     <message>
-        <source>Bad accuracy threshold [m]</source>
-        <translation>Rossz pontosság küszöbértéke [m]</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold [m]</source>
-        <translation>Kiváló pontosság küszöbértéke [m]</translation>
-    </message>
-    <message>
         <source>Enforce accuracy requirement</source>
         <translation>Pontossági követelmény érvényesítése</translation>
     </message>
@@ -4795,6 +4787,26 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Timestamp (seconds since epoch)</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>Antenna magasság</translation>
     </message>
 </context>
 <context>
@@ -5632,7 +5644,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimum idő [sec]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
@@ -5644,7 +5656,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>Minimum távolság [%1]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
@@ -5673,10 +5685,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Erroneous distance safeguard</source>
         <translation>Hibás távolság biztosítás</translation>
-    </message>
-    <message>
-        <source>Maximum tolerated distance [%1]</source>
-        <translation>Maximum tolerált távolság [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -5748,6 +5756,22 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>

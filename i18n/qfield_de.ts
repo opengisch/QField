@@ -4394,7 +4394,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>Mindestanzahl an gemessenen Positionen</translation>
+        <translation type="vanished">Mindestanzahl an gemessenen Positionen</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -4410,7 +4410,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation>Antennenhöhe [m]</translation>
+        <translation type="vanished">Antennenhöhe [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
@@ -4617,14 +4617,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Wenn aktiviert, kann die Kartenansicht gedreht werden.</translation>
     </message>
     <message>
-        <source>Bad accuracy threshold [m]</source>
-        <translation>Schwelle für schlechte Genauigkeit [m]</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold [m]</source>
-        <translation>Schwelle für exzellente Genauigkeit [m]</translation>
-    </message>
-    <message>
         <source>Enforce accuracy requirement</source>
         <translation>Erzwinge Genauigkeitsvorgabe </translation>
     </message>
@@ -4794,6 +4786,26 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5632,7 +5644,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimumzeit [Sek]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
@@ -5644,7 +5656,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>Minimumentfernung [%1]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
@@ -5673,10 +5685,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Erroneous distance safeguard</source>
         <translation>Falsche Distanz-Schutzmaßnahme</translation>
-    </message>
-    <message>
-        <source>Maximum tolerated distance [%1]</source>
-        <translation>Maximal tolerierte Distanz [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -5748,6 +5756,22 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>

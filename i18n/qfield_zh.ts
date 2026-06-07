@@ -4396,7 +4396,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation>收集的最少位置数量</translation>
+        <translation type="vanished">收集的最少位置数量</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
@@ -4412,7 +4412,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation>天线高度 [米]</translation>
+        <translation type="vanished">天线高度 [米]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
@@ -4619,14 +4619,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>打开后，用户可以旋转地图。</translation>
     </message>
     <message>
-        <source>Bad accuracy threshold [m]</source>
-        <translation>差精度阈值 [米]</translation>
-    </message>
-    <message>
-        <source>Excellent accuracy threshold [m]</source>
-        <translation>优精度阈值 [米]</translation>
-    </message>
-    <message>
         <source>Enforce accuracy requirement</source>
         <translation>执行精度要求</translation>
     </message>
@@ -4797,6 +4789,26 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Timestamp (seconds since epoch)</source>
         <translation>时间戳 (纪元秒数)</translation>
+    </message>
+    <message>
+        <source>Bad accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Excellent accuracy threshold</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum positions count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Antenna height</source>
+        <translation>天线高度</translation>
     </message>
 </context>
 <context>
@@ -5634,7 +5646,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>最短时间 [秒]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
@@ -5646,7 +5658,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>最短距离 [%1]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
@@ -5675,10 +5687,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Erroneous distance safeguard</source>
         <translation>错误距离保护</translation>
-    </message>
-    <message>
-        <source>Maximum tolerated distance [%1]</source>
-        <translation>最大容许距离 [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
@@ -5751,6 +5759,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Timestamp (seconds since epoch)</source>
         <translation>时间戳 (纪元秒数)</translation>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
