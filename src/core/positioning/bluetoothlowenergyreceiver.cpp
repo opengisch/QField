@@ -77,7 +77,7 @@ void BluetoothLowEnergyReceiver::handleConnectDevice()
 
   if ( mController && mController->state() != QLowEnergyController::UnconnectedState )
   {
-    disconnectDevice();
+    doDisconnectDevice();
   }
   else
   {
@@ -87,17 +87,8 @@ void BluetoothLowEnergyReceiver::handleConnectDevice()
 
 void BluetoothLowEnergyReceiver::handleDisconnectDevice()
 {
-  if ( mController && mController->state() != QLowEnergyController::UnconnectedState )
-  {
-    qInfo() << "BluetoothLowEnergyReceiver: Disconnecting from device:" << mAddress;
-
-    clearService();
-
-    mConnectOnDisconnect = false;
-    mDisconnecting = true;
-    mLastGnssPositionValid = false;
-    mController->disconnectFromDevice();
-  }
+  mConnectOnDisconnect = false;
+  doDisconnectDevice();
 }
 
 void BluetoothLowEnergyReceiver::doConnectDevice()
@@ -123,6 +114,20 @@ void BluetoothLowEnergyReceiver::doConnectDevice()
   mController->connectToDevice();
 }
 
+void BluetoothLowEnergyReceiver::doDisconnectDevice()
+{
+  if ( mController && mController->state() != QLowEnergyController::UnconnectedState )
+  {
+    qInfo() << "BluetoothLowEnergyReceiver: Disconnecting from device:" << mAddress;
+
+    clearService();
+
+    mDisconnecting = true;
+    mLastGnssPositionValid = false;
+    mController->disconnectFromDevice();
+  }
+}
+
 void BluetoothLowEnergyReceiver::deviceConnected()
 {
   qInfo() << "BluetoothLowEnergyReceiver: Connected, discovering services";
@@ -135,6 +140,11 @@ void BluetoothLowEnergyReceiver::deviceDisconnected()
   setSocketState( QAbstractSocket::UnconnectedState );
 
   clearService();
+
+  if ( mConnectOnDisconnect )
+  {
+    doConnectDevice();
+  }
 }
 
 void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::Error error )

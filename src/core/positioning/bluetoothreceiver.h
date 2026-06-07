@@ -59,8 +59,8 @@ class BluetoothReceiver : public NmeaGnssReceiver
 
     void repairDevice( const QBluetoothAddress &address );
 
-    //! Used to wait for previous connection to finish disconnecting
     void doConnectDevice();
+    void doDisconnectDevice();
 
     QString mAddress;
 

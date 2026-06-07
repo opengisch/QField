@@ -70,14 +70,8 @@ AbstractGnssReceiver::Capabilities BluetoothReceiver::capabilities() const
 
 void BluetoothReceiver::handleDisconnectDevice()
 {
-  if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
-  {
-    qInfo() << "BluetoothReceiver: Disconnecting from device: " << mAddress;
-    mConnectOnDisconnect = false;
-    mDisconnecting = true;
-    mLastGnssPositionValid = false;
-    mSocket->disconnectFromService();
-  }
+  mConnectOnDisconnect = false;
+  doDisconnectDevice();
 }
 
 void BluetoothReceiver::handleConnectDevice()
@@ -92,7 +86,7 @@ void BluetoothReceiver::handleConnectDevice()
   mConnectOnDisconnect = true;
   if ( mSocket->state() == QBluetoothSocket::SocketState::ConnectedState )
   {
-    disconnectDevice();
+    doDisconnectDevice();
   }
   else
   {
@@ -194,6 +188,17 @@ void BluetoothReceiver::doConnectDevice()
   }
 
   repairDevice( QBluetoothAddress( mAddress ) );
+}
+
+void BluetoothReceiver::doDisconnectDevice()
+{
+  if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
+  {
+    qInfo() << "BluetoothReceiver: Disconnecting from device: " << mAddress;
+    mDisconnecting = true;
+    mLastGnssPositionValid = false;
+    mSocket->disconnectFromService();
+  }
 }
 
 QString BluetoothReceiver::socketStateString()
