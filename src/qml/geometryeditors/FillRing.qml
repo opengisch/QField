@@ -41,7 +41,6 @@ GeometryEditorBase {
     EmbeddedFeatureForm {
       id: formPopupLoader
       state: 'Add'
-      currentLayer: featureModel && featureModel.currentLayer
       onRequestJumpToPoint: function (center, scale, handleMargins) {
         fillRingToolbar.requestJumpToPoint(center, scale, handleMargins);
       }
@@ -121,9 +120,10 @@ GeometryEditorBase {
     var polygonGeometry = GeometryUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs, featureModel.currentLayer.wkbType());
     var feature = FeatureUtils.createBlankFeature(featureModel.currentLayer.fields, polygonGeometry);
 
-    // Show form
     formPopupLoader.onFeatureSaved.connect(commitRingFeature);
     formPopupLoader.onFeatureCancelled.connect(cancelRingFeature);
+
+    formPopupLoader.currentLayer = fillRingToolbar.featureModel.currentLayer;
     formPopupLoader.feature = feature;
     formPopupLoader.open();
   }
