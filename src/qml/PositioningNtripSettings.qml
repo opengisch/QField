@@ -85,14 +85,14 @@ QfPopup {
             Layout.preferredWidth: 100
           }
 
-          TextField {
+          QfTextField {
             id: ntripHostTextField
             Layout.fillWidth: true
             font: Theme.defaultFont
             inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
           }
 
-          TextField {
+          QfTextField {
             id: ntripPortTextField
             Layout.preferredWidth: 100
             font: Theme.defaultFont
@@ -144,7 +144,7 @@ QfPopup {
           Layout.fillWidth: true
         }
 
-        TextField {
+        QfTextField {
           id: ntripUsernameTextField
           Layout.fillWidth: true
           font: Theme.defaultFont
@@ -159,7 +159,7 @@ QfPopup {
           Layout.fillWidth: true
         }
 
-        TextField {
+        QfTextField {
           id: ntripPasswordTextField
           Layout.fillWidth: true
           font: Theme.defaultFont
