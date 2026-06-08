@@ -35,6 +35,10 @@
 #include <objc/runtime.h>
 #include <qpa/qplatformnativeinterface.h>
 
+#include <QDirIterator>
+#include <qgsfileutils.h>
+#include <qgsziputils.h>
+
 #include <QtGui>
 #include <QtQuick>
 
@@ -70,7 +74,7 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera |
                                                  AdjustBrightness | FilePicker |
-                                                 CustomImport;
+                                                 CustomImport | CustomSend;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -419,4 +423,73 @@ void IosPlatformUtilities::importDatasets() const {
                            OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
   [root presentViewController:picker animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::sendDatasetTo(const QString &path) const {
+  NSMutableArray *items = [NSMutableArray array];
+  [items addObject:[NSURL fileURLWithPath:path.toNSString()]];
+
+  const QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath(path);
+  if (!sidecarFiles.isEmpty()) {
+    QStringList paths;
+    paths << path;
+    for (const QString &file : sidecarFiles) {
+      paths << file;
+    }
+    QString tempZipPath =
+        QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
+        QStringLiteral("/") + QFileInfo(path).fileName() +
+        QStringLiteral(".zip");
+    QFile::remove(tempZipPath);
+    if (QgsZipUtils::zip(tempZipPath, paths)) {
+      items = [NSMutableArray array];
+      [items addObject:[NSURL fileURLWithPath:tempZipPath.toNSString()]];
+    }
+  }
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIActivityViewController *activityVC =
+      [[UIActivityViewController alloc] initWithActivityItems:items
+                                        applicationActivities:nil];
+  activityVC.popoverPresentationController.sourceView = root.view;
+  activityVC.popoverPresentationController.sourceRect =
+      CGRectMake(root.view.bounds.size.width / 2.0,
+                 root.view.bounds.size.height / 2.0, 1.0, 1.0);
+
+  [root presentViewController:activityVC animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
+  QString tempZipPath =
+      QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
+      QStringLiteral("/") + QFileInfo(path).fileName() + QStringLiteral(".zip");
+  QFile::remove(tempZipPath);
+
+  QStringList files;
+  QDirIterator it(path, QDir::Files, QDirIterator::Subdirectories);
+  while (it.hasNext()) {
+    files << it.next();
+  }
+
+  if (files.isEmpty() || !QgsZipUtils::zip(tempZipPath, files)) {
+    return;
+  }
+
+  NSMutableArray *items = [NSMutableArray array];
+  [items addObject:[NSURL fileURLWithPath:tempZipPath.toNSString()]];
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIActivityViewController *activityVC =
+      [[UIActivityViewController alloc] initWithActivityItems:items
+                                        applicationActivities:nil];
+  activityVC.popoverPresentationController.sourceView = root.view;
+  activityVC.popoverPresentationController.sourceRect =
+      CGRectMake(root.view.bounds.size.width / 2.0,
+                 root.view.bounds.size.height / 2.0, 1.0, 1.0);
+
+  [root presentViewController:activityVC animated:YES completion:nil];
 }
