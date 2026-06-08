@@ -235,6 +235,9 @@ Popup {
             imageCapture: ImageCapture {
               id: imageCapture
 
+              fileFormat: ImageCapture.JPEG
+              quality: ImageCapture.VeryHighQuality
+
               onImageSaved: (requestId, path) => {
                 currentPath = path;
                 orientationNormalizer.normalizeImageOrientation(currentPath);
