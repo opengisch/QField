@@ -504,7 +504,8 @@ public class QFieldActivity extends QtActivity {
         for (File file : externalFilesDirs) {
             if (file != null) {
                 // Don't duplicate primary external files directory
-                if (file.getAbsolutePath().equals(
+                if (primaryExternalFilesDir != null &&
+                    file.getAbsolutePath().equals(
                         primaryExternalFilesDir.getAbsolutePath())) {
                     continue;
                 }
