@@ -42,11 +42,11 @@ EditorWidgetBase {
         } else if (isNull) {
           return qsTr("NULL");
         }
-        return value;
+        return rangeItem.suffix ? value + " " + rangeItem.suffix : value;
       }
     }
 
-    TextField {
+    QfTextField {
       id: textField
       leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
       width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
@@ -54,6 +54,7 @@ EditorWidgetBase {
 
       font: Theme.defaultFont
       color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      suffixText: rangeItem.suffix
 
       text: isNull ? '' : value
 
