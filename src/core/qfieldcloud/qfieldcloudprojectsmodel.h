@@ -216,7 +216,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
-    void projectCreated( const QString &projectId, const QString &fromProjectId = QString(), const bool hasError = false, const QString &errorString = QString() );
+    void projectCreated( const QString &projectId, const QString &fromProjectId, const bool hasError, const QString &errorString );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );

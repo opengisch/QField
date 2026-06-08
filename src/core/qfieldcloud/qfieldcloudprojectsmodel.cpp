@@ -1241,7 +1241,7 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   if ( cloudProject )
   {
     insertProjects( QList<QFieldCloudProject *>() << cloudProject );
-    emit projectCreated( cloudProject->id(), fromProjectId );
+    emit projectCreated( cloudProject->id(), fromProjectId, false, QString() );
   }
   else
   {
