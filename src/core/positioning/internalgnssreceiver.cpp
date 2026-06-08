@@ -25,7 +25,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
 {
   if ( mGeoPositionSource )
   {
-    mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::AllPositioningMethods );
+    mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::SatellitePositioningMethods );
     mGeoPositionSource->setUpdateInterval( 1000 );
 
     connect( mGeoPositionSource.get(), &QGeoPositionInfoSource::positionUpdated, this, &InternalGnssReceiver::handlePositionUpdated );
