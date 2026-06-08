@@ -268,7 +268,7 @@ public class QFieldActivity extends QtActivity {
                 String filePath = QFieldUtils.getPathFromUri(context, uri);
                 String importDatasetPath = "";
                 String importProjectPath = "";
-                File externalFilesDir = getExternalFilesDir(null);
+                File externalFilesDir = getApplicationDir();
                 if (externalFilesDir != null) {
                     importDatasetPath = externalFilesDir.getAbsolutePath() +
                                         "/Imported Datasets/";
@@ -463,7 +463,8 @@ public class QFieldActivity extends QtActivity {
 
         List<String> dataDirs = new ArrayList<String>();
 
-        File primaryExternalFilesDir = getExternalFilesDir(null);
+        File primaryExternalFilesDir = getApplicationDir();
+
         if (primaryExternalFilesDir != null) {
             String dataDir = primaryExternalFilesDir.getAbsolutePath() + "/";
             // create import and creation directories
@@ -569,10 +570,12 @@ public class QFieldActivity extends QtActivity {
     }
 
     private String getApplicationDirectory() {
-        File primaryExternalFilesDir = getExternalFilesDir(null);
+        File primaryExternalFilesDir = getApplicationDir();
+
         if (primaryExternalFilesDir != null) {
             return primaryExternalFilesDir.getAbsolutePath();
         }
+
         return "";
     }
 
@@ -590,14 +593,14 @@ public class QFieldActivity extends QtActivity {
                 Environment.getExternalStorageDirectory();
         }
 
-        File primaryExternalFilesDir = getExternalFilesDir(null);
-
+        File primaryExternalFilesDir = getApplicationDir();
         File[] externalFilesDirs = getExternalFilesDirs(null);
         for (File file : externalFilesDirs) {
             if (file != null) {
                 // Don't duplicate external files directory or storage
                 // path already added
-                if (file.getAbsolutePath().equals(
+                if (primaryExternalFilesDir != null &&
+                    file.getAbsolutePath().equals(
                         primaryExternalFilesDir.getAbsolutePath())) {
                     continue;
                 }
@@ -1005,7 +1008,8 @@ public class QFieldActivity extends QtActivity {
     }
 
     void importDatasets(Uri[] datasetUris) {
-        File externalFilesDir = getExternalFilesDir(null);
+        File externalFilesDir = getApplicationDir();
+
         if (externalFilesDir == null || datasetUris.length == 0) {
             return;
         }
@@ -1061,7 +1065,8 @@ public class QFieldActivity extends QtActivity {
     }
 
     void importProjectFolder(Uri folderUri) {
-        File externalFilesDir = getExternalFilesDir(null);
+        File externalFilesDir = getApplicationDir();
+
         if (externalFilesDir == null) {
             return;
         }
@@ -1105,7 +1110,8 @@ public class QFieldActivity extends QtActivity {
     }
 
     void importProjectArchive(Uri archiveUri) {
-        File externalFilesDir = getExternalFilesDir(null);
+        File externalFilesDir = getApplicationDir();
+
         if (externalFilesDir == null) {
             return;
         }
@@ -1172,7 +1178,7 @@ public class QFieldActivity extends QtActivity {
     }
 
     void updateProjectFromArchive(Uri archiveUri) {
-        File externalFilesDir = getExternalFilesDir(null);
+        File externalFilesDir = getApplicationDir();
         if (externalFilesDir == null) {
             return;
         }
@@ -1332,6 +1338,16 @@ public class QFieldActivity extends QtActivity {
         }
     }
 
+    private File getApplicationDir() {
+        File applicationDirectory = getExternalFilesDir(null);
+        if (applicationDirectory == null) {
+            // On some Android devices, getExternalFilesDir(null) can return a
+            // null value, fallback to getFilesDir()
+            applicationDirectory = getFilesDir();
+        }
+        return applicationDirectory;
+    }
+
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         if (requestCode == CAMERA_RESOURCE) {
@@ -1444,7 +1460,7 @@ public class QFieldActivity extends QtActivity {
         } else if (requestCode == IMPORT_DATASET &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import dataset(s)");
-            File externalFilesDir = getExternalFilesDir(null);
+            File externalFilesDir = getApplicationDir();
             if (externalFilesDir == null || data == null) {
                 return;
             }
@@ -1509,7 +1525,7 @@ public class QFieldActivity extends QtActivity {
         } else if (requestCode == IMPORT_PROJECT_FOLDER &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import project folder");
-            File externalFilesDir = getExternalFilesDir(null);
+            File externalFilesDir = getApplicationDir();
             if (externalFilesDir == null || data == null) {
                 return;
             }
@@ -1548,7 +1564,7 @@ public class QFieldActivity extends QtActivity {
         } else if (requestCode == IMPORT_PROJECT_ARCHIVE &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling import project archive");
-            File externalFilesDir = getExternalFilesDir(null);
+            File externalFilesDir = getApplicationDir();
             if (externalFilesDir == null || data == null) {
                 return;
             }
@@ -1596,7 +1612,7 @@ public class QFieldActivity extends QtActivity {
         } else if (requestCode == UPDATE_PROJECT_FROM_ARCHIVE &&
                    resultCode == Activity.RESULT_OK) {
             Log.d("QField", "handling updating project from archive");
-            File externalFilesDir = getExternalFilesDir(null);
+            File externalFilesDir = getApplicationDir();
             if (externalFilesDir == null || data == null) {
                 return;
             }
