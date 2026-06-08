@@ -39,6 +39,8 @@ class IosPlatformUtilities : public PlatformUtilities
     void importProjectFolder() const override;
     void importProjectArchive() const override;
     void importDatasets() const override;
+    void sendDatasetTo( const QString &path ) const override;
+    void sendCompressedFolderTo( const QString &path ) const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
     virtual ResourceSource *getCameraPicture( const QString &prefix,
