@@ -59,7 +59,7 @@ jobs:
 
     steps:
       - name: 🐣 Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
         with:
           submodules: recursive
 
@@ -102,7 +102,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 🪟 Setup .NET
-        uses: actions/setup-dotnet@v5.2.0
+        uses: actions/setup-dotnet@v5.3.0
         with:
           dotnet-version: 8.0.x
 
@@ -244,7 +244,7 @@ jobs:
     if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
@@ -289,7 +289,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
 
       - name: Vars
         id: vars
@@ -324,7 +324,7 @@ jobs:
     if: ${{ github.event_name == 'push' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
