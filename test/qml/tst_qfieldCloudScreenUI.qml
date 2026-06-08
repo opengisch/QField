@@ -529,7 +529,7 @@ TestCase {
    * Tests that subscription information is successfully fetched from the server.
    *
    * Scenario: After login, request subscription details and verify the response
-   * contains valid plan, storage, and status fields.
+   * contains valid plan, storage, threshold, and status fields.
    */
   function test_11_subscriptionInformationReceived_data() {
     return serverConfigs();
@@ -544,6 +544,9 @@ TestCase {
     verify(info.plan !== "");
     verify(info.storageTotal > 0);
     verify(info.storageUsed >= 0);
+    verify(info.storageThresholdWarning > 0);
+    verify(info.storageThresholdCritical > 0);
+    verify(info.storageThresholdCritical < info.storageThresholdWarning);
     verify(info.status !== "");
   }
 }
