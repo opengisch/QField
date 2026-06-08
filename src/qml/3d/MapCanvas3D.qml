@@ -258,30 +258,8 @@ Item {
       }
     }
 
-    Repeater3D {
-      id: pluginGeometries3D
-      model: pluginGeometryModel
-
-      Node {
-        required property string wkt
-        required property var crs
-        required property string lineColor
-
-        Model {
-          geometry: Quick3DGeometry {
-            qgsGeometry: GeometryUtils.createGeometryFromWkt(wkt)
-            crs: crs
-            terrainProvider: mapTerrainProvider
-            lineWidth: 4.0
-            heightOffset: 20.0
-            altitudeClamping: Quick3DGeometry.ClampToGround
-            color: lineColor
-          }
-          materials: PrincipledMaterial {
-            vertexColorsEnabled: true
-          }
-        }
-      }
+    Node {
+      objectName: 'mapCanvas3DPluginOverlay'
     }
   }
 
@@ -398,21 +376,5 @@ Item {
 
   function zoomOut() {
     cameraController.distance = cameraController.clampDistance(cameraController.distance * 1.25);
-  }
-
-  function addPluginGeometry(wkt, crs, lineColor) {
-    pluginGeometryModel.append({
-      wkt: wkt,
-      crs: crs,
-      lineColor: lineColor || '#FF6600'
-    });
-  }
-
-  function clearPluginGeometries() {
-    pluginGeometryModel.clear();
-  }
-
-  ListModel {
-    id: pluginGeometryModel
   }
 }
