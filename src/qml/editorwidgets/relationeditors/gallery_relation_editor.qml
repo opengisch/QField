@@ -260,7 +260,7 @@ RelationEditorBase {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
+      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), ExternalResource.DocumentImage, FileUtils);
       filepath = filepath.replace('{extension}', 'JPG');
       resourceSource = platformUtilities.getCameraPicture(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
@@ -276,7 +276,7 @@ RelationEditorBase {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
+      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), ExternalResource.DocumentVideo, FileUtils);
       filepath = filepath.replace('{extension}', 'MP4');
       resourceSource = platformUtilities.getCameraVideo(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
@@ -543,7 +543,7 @@ RelationEditorBase {
         }
 
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
+          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), relationCameraLoader.isVideo ? ExternalResource.DocumentVideo : ExternalResource.DocumentImage, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           if (!FileUtils.mimeTypeName(path).startsWith("video/")) {
             let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
@@ -569,7 +569,7 @@ RelationEditorBase {
         visible: false
         Component.onCompleted: open()
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
+          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), ExternalResource.DocumentAudio, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           showAddFeaturePopup(undefined, filepath);
           close();
