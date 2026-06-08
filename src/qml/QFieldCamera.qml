@@ -236,7 +236,7 @@ Popup {
               id: imageCapture
 
               fileFormat: ImageCapture.JPEG
-              quality: ImageCapture.HighQuality
+              quality: ImageCapture.VeryHighQuality
 
               onImageSaved: (requestId, path) => {
                 currentPath = path;
