@@ -22,13 +22,13 @@ RelationEditorBase {
     property int featureFocus: -1
     onModelUpdated: {
       if (featureFocus > -1) {
-        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
+        listView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
         featureFocus = -1;
       }
     }
   }
 
-  property bool isGridView: true
+  property bool isCardView: true
   property string imagePrefix: {
     if (qgisProject == undefined)
       return "";
@@ -181,7 +181,7 @@ RelationEditorBase {
     property string currentProcess: ""
     property var availableBars: ({})
 
-    barCount: isGridView ? 40 : 20
+    barCount: isCardView ? 40 : 20
 
     onBarCountChanged: {
       availableBars = {};
@@ -224,41 +224,38 @@ RelationEditorBase {
     }
   }
 
-  readonly property int visibleCards: Math.max(2, Math.floor(gridView.width / 180))
-  readonly property int cardSize: Math.floor(gridView.width / (visibleCards + 0.5))
+  readonly property int visibleCards: Math.max(2, Math.floor(listView.width / 180))
+  readonly property int cardSize: Math.floor(listView.width / (visibleCards + 0.5))
+  readonly property int cardMargin: 8
   readonly property int listItemHeight: 72
   readonly property int toggleHeight: 40
-  readonly property int gridMargin: 8
 
   bottomMargin: 10 + (itemCount > 0 ? toggleHeight : 0)
 
   height: {
     const toggleSpace = itemCount > 0 ? toggleHeight : 0;
-    if (isGridView) {
+    if (isCardView) {
       if (itemCount === 0) {
         return headerEntry.height + 10 + toggleSpace;
       }
-      return cardSize + gridMargin * 2 + headerEntry.height + 10 + toggleSpace;
+      return cardSize + cardMargin * 2 + headerEntry.height + toggleSpace;
     }
-    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
+    const cappedHeight = !isCardView && !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * relationEditor.itemHeight, listView.contentHeight) : listView.contentHeight;
     return cappedHeight + headerEntry.height + 10 + toggleSpace;
   }
 
-  gridView.flow: isGridView ? GridView.FlowTopToBottom : GridView.FlowLeftToRight
-  gridView.flickableDirection: isGridView ? Flickable.HorizontalFlick : Flickable.VerticalFlick
-  gridView.topMargin: isGridView ? gridMargin : 0
-  gridView.bottomMargin: isGridView ? gridMargin : 0
-  gridView.ScrollBar.vertical.policy: isGridView ? ScrollBar.AlwaysOff : ScrollBar.AsNeeded
+  listView.orientation: isCardView ? Qt.Horizontal : Qt.Vertical
+  listView.flickableDirection: isCardView ? Flickable.HorizontalFlick : Flickable.VerticalFlick
+  listView.topMargin: isCardView ? cardMargin : 0
+  listView.bottomMargin: isCardView ? cardMargin : 0
+  listView.ScrollBar.vertical.policy: isCardView ? ScrollBar.AlwaysOff : ScrollBar.AsNeeded
 
-  gridView.cellWidth: isGridView ? cardSize : gridView.width
-  gridView.cellHeight: isGridView ? cardSize : listItemHeight
-
-  gridView.model: DelegateModel {
+  listView.model: DelegateModel {
     model: referencingFeatureListModel
-    delegate: isGridView ? gridDelegate : listDelegate
+    delegate: isCardView ? cardDelegate : listDelegate
   }
 
-  onIsGridViewChanged: stopAllMedia()
+  onIsCardViewChanged: stopAllMedia()
 
   ExpressionEvaluator {
     id: attachmentNamingEvaluator
@@ -361,7 +358,7 @@ RelationEditorBase {
     padding: 0
     width: slotSize * 2 + 4
     height: toggleHeight
-    checked: !isGridView
+    checked: !isCardView
     indicator: Rectangle {
       implicitHeight: viewSwitch.slotSize
       implicitWidth: viewSwitch.slotSize * 2
@@ -430,7 +427,7 @@ RelationEditorBase {
     }
 
     onClicked: {
-      isGridView = !checked;
+      isCardView = !checked;
     }
   }
 
@@ -585,8 +582,8 @@ RelationEditorBase {
     id: listDelegate
 
     Item {
-      width: gridView.cellWidth
-      height: gridView.cellHeight
+      width: listView.width
+      height: relationEditor.listItemHeight
 
       property string attachmentFullPath: ""
       Component.onCompleted: {
@@ -876,11 +873,11 @@ RelationEditorBase {
   }
 
   Component {
-    id: gridDelegate
+    id: cardDelegate
 
     Item {
-      width: gridView.cellWidth
-      height: gridView.cellHeight
+      width: relationEditor.cardSize
+      height: relationEditor.cardSize
 
       property string attachmentFullPath: ""
       Component.onCompleted: {
@@ -1100,33 +1097,33 @@ RelationEditorBase {
           clip: true
 
           Row {
-            id: gridWaveformBars
+            id: cardWaveformBars
             anchors.centerIn: parent
             width: parent.width
             height: parent.height * 0.7
             spacing: 2
 
-            property int barCount: gridWaveformRepeater.count
-            property real barWidth: (gridWaveformBars.width - (spacing * barCount)) / barCount
+            property int barCount: cardWaveformRepeater.count
+            property real barWidth: (cardWaveformBars.width - (spacing * barCount)) / barCount
 
             Repeater {
-              id: gridWaveformRepeater
+              id: cardWaveformRepeater
 
               model: attachmentFullPath in audioAnalyzer.availableBars ? audioAnalyzer.availableBars[attachmentFullPath] : [0]
 
               Rectangle {
-                width: gridWaveformBars.barWidth
-                height: gridWaveformBars.height * modelData
+                width: cardWaveformBars.barWidth
+                height: cardWaveformBars.height * modelData
                 radius: 1.5
                 anchors.verticalCenter: parent.verticalCenter
                 color: {
-                  if (audioPlayerLoader.active && (index / gridWaveformBars.barCount) < audioPlayerLoader.progress) {
+                  if (audioPlayerLoader.active && (index / cardWaveformBars.barCount) < audioPlayerLoader.progress) {
                     return Theme.mainColor;
                   }
                   return Theme.mainTextDisabledColor;
                 }
                 opacity: {
-                  if (audioPlayerLoader.active && (index / gridWaveformBars.barCount) < audioPlayerLoader.progress) {
+                  if (audioPlayerLoader.active && (index / cardWaveformBars.barCount) < audioPlayerLoader.progress) {
                     return 0.9;
                   }
                   return 0.35;
@@ -1137,7 +1134,7 @@ RelationEditorBase {
 
           Rectangle {
             visible: audioPlayerLoader.active && audioPlayerLoader.progress > 0
-            x: gridWaveformBars.x + gridWaveformBars.width * audioPlayerLoader.progress
+            x: cardWaveformBars.x + cardWaveformBars.width * audioPlayerLoader.progress
             y: 0
             width: 2
             height: parent.height
@@ -1185,14 +1182,14 @@ RelationEditorBase {
 
           Rectangle {
             anchors.centerIn: parent
-            width: Math.min(gridSuffixText.contentWidth + 8, parent.width)
-            height: gridSuffixText.contentHeight + 4
+            width: Math.min(cardSuffixText.contentWidth + 8, parent.width)
+            height: cardSuffixText.contentHeight + 4
             radius: 2
             color: Theme.controlBorderColor
-            visible: gridSuffixText.text !== ""
+            visible: cardSuffixText.text !== ""
 
             Text {
-              id: gridSuffixText
+              id: cardSuffixText
               anchors.centerIn: parent
               text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
               font.pointSize: Theme.tinyFont.pointSize
