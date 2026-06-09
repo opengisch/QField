@@ -1761,7 +1761,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Type optional details</source>
-        <translation>Írja be az opcionális részleteket</translation>
+        <translation>Írja be a választott értékeket</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
@@ -2159,7 +2159,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation>Bővítmény telepítése URL megadásával</translation>
+        <translation>Plugin telepítés URL-ről</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
@@ -2616,7 +2616,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>ProjectCreationScreen</name>
     <message>
         <source>Create a new project</source>
-        <translation>Hozz létre új projektet</translation>
+        <translation>Hozd létre az új projektet</translation>
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
@@ -2684,7 +2684,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
-        <translation>Biztonsági mentés és együttműködés?</translation>
+        <translation>Mentés és együttműködés?</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
@@ -3262,7 +3262,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n fájl marad meg</numerusform><numerusform>%n fájl marad meg</numerusform></translation>
     </message>
     <message>
         <source>Used %1 of %2</source>
@@ -3477,7 +3477,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Include public projects</source>
-        <translation>Nyilvános projekteket tartalmaz</translation>
+        <translation>A nyilvános projekteket is beleértve</translation>
     </message>
     <message>
         <source>Search</source>
@@ -3493,7 +3493,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation>A cím vagy a leírás tartalmaz</translation>
+        <translation>A cím vagy a leírás tartalmazza</translation>
     </message>
     <message>
         <source>Owner is</source>
@@ -3840,30 +3840,30 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n fájl marad meg</numerusform><numerusform>%n fájl marad meg</numerusform></translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud szerver nem hívható</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>A %1 szerver nem hívható. Kérlek ellenőrizd az internet kapcsolatot.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud karbantartás alatt</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud szolgáltatás rontott</translation>
     </message>
     <message>
         <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
+        <translation>IT incidens zajlik</translation>
     </message>
 </context>
 <context>
@@ -3878,11 +3878,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>A projekt tulajdonos elérhető tárhelye megtelt.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>A projekt tulajdonos csomagja nem elegendő.</translation>
     </message>
 </context>
 <context>
@@ -3992,7 +3992,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>View file</source>
-        <translation type="unfinished"/>
+        <translation>Fájl megnézése</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
@@ -4016,11 +4016,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Mappa törlése</translation>
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Fájl törlése</translation>
     </message>
     <message>
         <source>Remove folder</source>
@@ -4064,11 +4064,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Válassz ki egy, vagy több fájlt a QFieldCloud-ba töltésre.</translation>
     </message>
     <message>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Fájl(ok) törlése</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
@@ -4076,11 +4076,11 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>A QFieldCloud-ra feltöltendő elemek</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
-        <translation type="unfinished"/>
+        <translation>Fájl(ok) eltávolítása</translation>
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
@@ -4168,15 +4168,15 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>root folder</source>
-        <translation type="unfinished"/>
+        <translation>gyökérkönyvtár</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Elérhető helyben itt: ‘%1’</translation>
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>Importált mappa neve</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -4626,67 +4626,67 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>Előnézeti kép előállítása a látható térkép körül</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>Az alakzat űrlap automatikusan nyílik, ha csak egy alakzat került kiválasztásra, az alakzatlista nézet kimarad.</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>Zoom gombok megjelenítése</translation>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Teljes képernyős alakzat űrlap</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Egyetlen alakzat kiválasztásakor az űrlap azonnali nyitása</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Bekapcsolva, a látható térképvászon körüli kép is részleges előállításra kerül, előnézetet adva a nagyítás és mozgatás során.</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus mentés mód</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>Bekapcsolva, a friss alakzatok azonnal mentődnek, amint érvényes a geometriájuk, teljesültek a megszorítások és az attribútum szerkesztés befejeződött.</translation>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Auto-zoom a kiválasztott alakzat(ok)ra</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyezve, a térkép automatikusan nagyít a kiválasztott alakzatokra, akárcsak az űrlap nézetben éppen megjelenített adatokhoz tartozó alakzatra.</translation>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
+        <translation>Pozícióhoz kötött viselkedési mód:</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Pozíció követés kizárólag</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Pozíció és iránytű orientáció követése</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Pozíció és mozgásirány követése</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Ha a térképvászon követi, vagy rögzített is a pozícióhoz, ugyanakkor képes igazodni az iránytű orientációjához, vagy a mozgás irányához.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Ez az érték módosítja a helymeghatározó eszköz által rögzített Z értéket. Ha pl. 1.6 kerül megadásra, a rendszer automatikusan kivon 1.6-ot minden rögzített értékből. Győződj meg a valós antenna magasságról, ami pl. a rúd magasság + antenna fázisközpont eltolás.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
@@ -4694,19 +4694,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Hálózat</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy engedélyezése</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Típus</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Rendszer alapértelmezett</translation>
     </message>
     <message>
         <source>Host</source>
@@ -4714,7 +4714,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>pl. proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -4722,7 +4722,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>pl. 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -4730,7 +4730,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Választható</translation>
     </message>
     <message>
         <source>Password</source>
@@ -4738,31 +4738,31 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>Proxyból kizárt URL-ek (vesszővel elválasztva)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>pl. localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati proxy beállítása, a QField forgalom proxy szerveren keresztüli vezetésére. Hasznos vállalati hálózatokhoz és VPN-hez.</translation>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Bekapcsolva, a rendszer által biztosított, belső kamera lesz használva.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyezve, névtelen mérőszámok kerülnek gyűjtésre és elküldésre,  segítve a használati érték fejlesztését.</translation>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Pozícionáló eszköz</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP korrekciók fogadása</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
@@ -4782,11 +4782,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Magasság beállítás</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Időbélyeg (másodperc Unix-idő)</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
@@ -4988,7 +4988,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>Magasság</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
@@ -5756,7 +5756,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Időbélyeg (másodperc Unix-idő)</translation>
     </message>
     <message>
         <source>Minimum time</source>
@@ -6178,11 +6178,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Üdvözli a QField. Először használja ezt az alkalmazást? Próbálja ki az alábbi listában  szreplő mintaprojekteket.</translation>
+        <translation type="vanished">Üdvözöl a QField. Először használod ezt az alkalmazást? Próbáld ki az alábbi listában szereplő mintaprojekteket.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation type="vanished">Üdvözöljük újra a QField-ben.</translation>
+        <translation type="vanished">Üdvözöllek újra a QField-ben.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -6223,17 +6223,20 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>QFieldCloud
 projects</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud
+projektek</translation>
     </message>
     <message>
         <source>Local projects and
  datasets</source>
-        <translation type="unfinished"/>
+        <translation>Helyi projektek és
+adatkészletek</translation>
     </message>
     <message>
         <source>Create new
 project</source>
-        <translation type="unfinished"/>
+        <translation>Új projekt
+készítése</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
@@ -6245,11 +6248,11 @@ project</source>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Üdvözöl újra a %1.</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Üdvözöl a %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
@@ -6438,7 +6441,7 @@ project</source>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>magasság</translation>
     </message>
     <message>
         <source>easting [X]</source>
@@ -6450,7 +6453,7 @@ project</source>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>magasság [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
@@ -7077,11 +7080,11 @@ project</source>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen alakzat készítés</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen az alakzat készítés, a létrehozási jogosultság hiánya miatt</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
@@ -7093,7 +7096,7 @@ project</source>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Átkapcsolás a böngészési és digitalizálási mód között. A böngészési mód a térkép és alakzatai nézeti élményének növelésére fókuszál, míg a digitalizálási mód alakzatok készítésére és geometriák módosítására szolgál.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -7133,63 +7136,63 @@ project</source>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Alakzat másolása</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Alakzat kivágása</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Alakzat rendben beillesztve</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen az alakzat rétegbe illesztése</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Rétegbe illesztés</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>Többrészes geometria szerkesztése még nem támogatott</translation>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Koordináta kurzor a pozícióhoz kötött</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Térképvászon feloldva</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Térképvászon helyhez rögzítve</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Térképvászon helyhez és iránytű orientációhoz rögzítve</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>A térkép követi a pozíciót és az iránytű orientációját</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>A térkép követi a pozíciót</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Rögzítsd helyhez a koordináta kurzort</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Rögzítsd helyhez a térképvásznat</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Térképvászon rögzítés szünetel</translation>
     </message>
     <message>
         <source>Tap on your location marker
@@ -7238,7 +7241,7 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>A térkép követi a pozíciót és a mozgásirányt</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
@@ -7270,11 +7273,11 @@ to show actions</source>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Plugin kezelő</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Projekt plugin betöltve</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
@@ -7298,7 +7301,7 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP korrekciók fogadása</translation>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
