@@ -274,11 +274,11 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( QgsRelation nmRelation WRITE setNmRelation READ nmRelation NOTIFY nmRelationChanged )
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( Qt::SortOrder sortOrder READ sortOrder WRITE setSortOrder NOTIFY sortOrderChanged )
-    Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
-    Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY relationChanged )
-    Q_PROPERTY( QString attachmentStorageType READ attachmentStorageType NOTIFY relationChanged )
-    Q_PROPERTY( QString attachmentStorageAuthConfigId READ attachmentStorageAuthConfigId NOTIFY relationChanged )
-    Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( QString attachmentStorageType READ attachmentStorageType NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( QString attachmentStorageAuthConfigId READ attachmentStorageAuthConfigId NOTIFY attachmentDetailsChanged )
+    Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY attachmentDetailsChanged )
 
   public:
     explicit ReferencingFeatureListModel( QObject *parent = nullptr );
@@ -432,6 +432,7 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     void beforeModelUpdated();
     void modelUpdated();
     void sortOrderChanged();
+    void attachmentDetailsChanged();
 
   private:
     ReferencingFeatureListModelBase *mSourceModel = nullptr;

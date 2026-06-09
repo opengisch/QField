@@ -448,6 +448,7 @@ ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
   connect( mSourceModel, &ReferencingFeatureListModelBase::beforeModelUpdated, this, &ReferencingFeatureListModel::beforeModelUpdated );
   connect( mSourceModel, &ReferencingFeatureListModelBase::modelUpdated, this, &ReferencingFeatureListModel::modelUpdated );
   connect( mSourceModel, &ReferencingFeatureListModelBase::attributeFormModelChanged, this, &ReferencingFeatureListModel::attributeFormModelChanged );
+  connect( mSourceModel, &ReferencingFeatureListModelBase::attachmentDetailsChanged, this, &ReferencingFeatureListModel::attachmentDetailsChanged );
 
   setSourceModel( mSourceModel );
   setSortRole( ReferencingFeatureListModelBase::DisplayString );
