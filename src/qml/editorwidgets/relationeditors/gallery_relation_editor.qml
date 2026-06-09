@@ -13,6 +13,21 @@ import "../ExternalResourceUtils.js" as ExternalResourceUtils
 RelationEditorBase {
   id: relationEditor
 
+  relationEditorModel: ReferencingFeatureListModel {
+    id: referencingFeatureListModel
+    currentRelationId: relationId
+    currentNmRelationId: nmRelationId ? nmRelationId : ""
+    feature: currentFeature
+
+    property int featureFocus: -1
+    onModelUpdated: {
+      if (featureFocus > -1) {
+        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
+        featureFocus = -1;
+      }
+    }
+  }
+
   property bool isGridView: true
   property string imagePrefix: {
     if (qgisProject == undefined)
@@ -21,7 +36,6 @@ RelationEditorBase {
     return path.endsWith("/") ? path : path + "/";
   }
 
-  property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
   property var activeMediaItem: null
 
   function requestMediaFocus(item) {
@@ -199,7 +213,7 @@ RelationEditorBase {
     target: resourceSource
     function onResourceReceived(path) {
       if (path) {
-        if (documentViewer === ExternalResource.DocumentImage) {
+        if (referencingFeatureListModel.attachmentDocumentViewer === ExternalResource.DocumentImage) {
           let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
           if (maximumWidthHeight > 0) {
             FileUtils.restrictImageSize(imagePrefix + path, maximumWidthHeight);
@@ -260,7 +274,7 @@ RelationEditorBase {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
+      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), ExternalResource.DocumentImage, FileUtils);
       filepath = filepath.replace('{extension}', 'JPG');
       resourceSource = platformUtilities.getCameraPicture(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
@@ -276,7 +290,7 @@ RelationEditorBase {
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     attachmentNamingEvaluator.expressionText = ExternalResourceUtils.getAttachmentNaming(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName);
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
-      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
+      let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), ExternalResource.DocumentVideo, FileUtils);
       filepath = filepath.replace('{extension}', 'MP4');
       resourceSource = platformUtilities.getCameraVideo(imagePrefix, filepath, FileUtils.fileSuffix(filepath), relationEditor);
     } else {
@@ -302,7 +316,7 @@ RelationEditorBase {
 
       round: false
       iconSource: {
-        switch (documentViewer) {
+        switch (referencingFeatureListModel.attachmentDocumentViewer) {
         case ExternalResource.DocumentVideo:
           return Theme.getThemeVectorIcon("ic_camera_video_black_24dp");
         case ExternalResource.DocumentAudio:
@@ -318,7 +332,7 @@ RelationEditorBase {
           return;
         }
 
-        switch (documentViewer) {
+        switch (referencingFeatureListModel.attachmentDocumentViewer) {
         case ExternalResource.DocumentVideo:
           captureVideo();
           break;
@@ -420,21 +434,6 @@ RelationEditorBase {
     }
   }
 
-  relationEditorModel: ReferencingFeatureListModel {
-    id: referencingFeatureListModel
-    currentRelationId: relationId
-    currentNmRelationId: nmRelationId ? nmRelationId : ""
-    feature: currentFeature
-
-    property int featureFocus: -1
-    onModelUpdated: {
-      if (featureFocus > -1) {
-        gridView.currentIndex = referencingFeatureListModel.getFeatureIdRow(featureFocus);
-        featureFocus = -1;
-      }
-    }
-  }
-
   onToggleSortAction: {
     stopAllMedia();
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
@@ -532,7 +531,9 @@ RelationEditorBase {
   Loader {
     id: relationCameraLoader
     active: false
+
     property bool isVideo: false
+
     sourceComponent: Component {
       QFieldCamera {
         allowCaptureModeToggle: true
@@ -543,7 +544,7 @@ RelationEditorBase {
         }
 
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
+          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), state === "VideoPreview" ? ExternalResource.DocumentVideo : ExternalResource.DocumentImage, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           if (!FileUtils.mimeTypeName(path).startsWith("video/")) {
             let maximumWidthHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
@@ -569,7 +570,7 @@ RelationEditorBase {
         visible: false
         Component.onCompleted: open()
         onFinished: path => {
-          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils), path);
+          const filepath = StringUtils.replaceFilenameTags(ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), ExternalResource.DocumentAudio, FileUtils), path);
           platformUtilities.renameFile(path, imagePrefix + filepath);
           showAddFeaturePopup(undefined, filepath);
           close();
