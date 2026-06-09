@@ -10,7 +10,7 @@ EditorWidgetBase {
 
   property var relationEditorModel: undefined
 
-  property alias gridView: gridView
+  property alias listView: listView
   property alias footer: footer
   property alias headerEntry: headerEntry
 
@@ -19,7 +19,7 @@ EditorWidgetBase {
   property int maximumVisibleItems: 4
   property bool showAllItems: false
   property bool showSortButton: true
-  property alias itemCount: gridView.count
+  property alias itemCount: listView.count
 
   // Generic container slots for subclass specific content
   property alias headerActions: headerActionsContainer.data
@@ -37,7 +37,7 @@ EditorWidgetBase {
   }
 
   height: {
-    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
+    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * relationEditorBase.itemHeight, listView.contentHeight) : listView.contentHeight;
     return cappedHeight + headerEntry.height + (footer.visible ? footer.height : 0) + 10;
   }
   enabled: true
@@ -156,19 +156,17 @@ EditorWidgetBase {
       }
     }
 
-    GridView {
-      id: gridView
+    ListView {
+      id: listView
+      visible: count > 0
       anchors.top: headerEntry.bottom
       anchors.left: parent.left
       anchors.right: parent.right
-      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height
-
-      // Default to single-column list layout, subclasses can override
-      cellWidth: width
-      cellHeight: itemHeight
+      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height - 10
       focus: true
       clip: true
       boundsBehavior: Flickable.StopAtBounds
+      highlightRangeMode: ListView.ApplyRange
       ScrollBar.vertical: QfScrollBar {}
     }
 
