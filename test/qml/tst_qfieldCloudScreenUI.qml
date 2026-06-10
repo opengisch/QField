@@ -404,18 +404,16 @@ TestCase {
     compare(project1.localPath, "");
     compare(project2.localPath, "");
     table.positionViewAtIndex(project1Info.rowIndex, ListView.Center);
-    wait(300);
+    tryVerify(() => table.itemAtIndex(project1Info.rowIndex) !== null, 5000);
     const delegate1 = table.itemAtIndex(project1Info.rowIndex);
-    verify(delegate1 !== null);
     const downloadButton1 = delegate1.children[1].children[2].children[0];
     verify(downloadButton1 !== null);
     downloadButton1.clicked();
     wait(500);
 
     table.positionViewAtIndex(project2Info.rowIndex, ListView.Center);
-    wait(300);
+    tryVerify(() => table.itemAtIndex(project2Info.rowIndex) !== null, 5000);
     const delegate2 = table.itemAtIndex(project2Info.rowIndex);
-    verify(delegate2 !== null);
     const downloadButton2 = delegate2.children[1].children[2].children[0];
     verify(downloadButton2 !== null);
     downloadButton2.clicked();
@@ -464,9 +462,8 @@ TestCase {
       // only attempt cancel if still downloading.
       if (project.status === QFieldCloudProject.Downloading) {
         table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
-        wait(200);
+        tryVerify(() => table.itemAtIndex(projectInfo.rowIndex) !== null, 5000);
         delegate = table.itemAtIndex(projectInfo.rowIndex);
-        verify(delegate !== null);
         downloadButton = delegate.children[1].children[2].children[0];
         verify(downloadButton !== null);
         downloadButton.clicked();
