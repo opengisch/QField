@@ -22,6 +22,41 @@ Page {
   signal showSettings
   signal showProjectCreationScreen
 
+  component WelcomeActionItem: ColumnLayout {
+    property url iconSource
+    property color iconColor
+    property string label
+    signal clicked
+
+    Layout.fillWidth: true
+    Layout.alignment: Qt.AlignTop
+    spacing: 4
+
+    QfToolButton {
+      Layout.alignment: Qt.AlignHCenter
+      Layout.preferredWidth: Math.min(mainWindow.height / 4, welcomeActions.width / 3 / 1.5)
+      Layout.preferredHeight: Layout.preferredWidth
+      icon.width: width / 2.2
+      icon.height: height / 2.2
+      bgcolor: Theme.controlBackgroundAlternateColor
+      round: false
+      roundborder: true
+      iconSource: parent.iconSource
+      iconColor: parent.iconColor
+      smooth: true
+      onClicked: parent.clicked()
+    }
+
+    Text {
+      Layout.preferredWidth: welcomeActions.width / 3
+      text: parent.label
+      horizontalAlignment: Text.AlignHCenter
+      wrapMode: Text.WordWrap
+      color: Theme.mainTextColor
+      font: Theme.tipFont
+    }
+  }
+
   visible: false
   focus: visible
 
@@ -481,65 +516,36 @@ Page {
           width: parent.width - 12
           spacing: 12
 
-          GridLayout {
+          RowLayout {
+            objectName: "welcomeActionsContainer"
             Layout.fillWidth: true
-            columns: 3
-            rows: 2
+            spacing: 0
 
-            Repeater {
-              id: actionsRepeater
-              model: [
-                {
-                  "icon": Theme.getThemeVectorIcon("ic_cloud_active_24dp"),
-                  "iconColor": Theme.cloudColor,
-                  "action": function () {
-                    showQFieldCloudScreen();
-                  }
-                },
-                {
-                  "icon": Theme.getThemeVectorIcon("ic_folder_open_black_24dp"),
-                  "iconColor": Theme.mainColor,
-                  "action": function () {
-                    platformUtilities.requestStoragePermission();
-                    showLocalDataPicker();
-                  }
-                },
-                {
-                  "icon": Theme.getThemeVectorIcon("ic_add_white_24dp"),
-                  "iconColor": Theme.mainColor,
-                  "action": function () {
-                    showProjectCreationScreen();
-                  }
-                }
-              ]
+            WelcomeActionItem {
+              objectName: "welcomeActionCloud"
+              iconSource: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
+              iconColor: Theme.cloudColor
+              label: qsTr("QFieldCloud\nprojects")
+              onClicked: showQFieldCloudScreen()
+            }
 
-              delegate: QfToolButton {
-                Layout.alignment: Qt.AlignHCenter
-                Layout.preferredWidth: Math.min(mainWindow.height / 4, welcomeActions.width / actionsRepeater.count / 1.5)
-                Layout.preferredHeight: Layout.preferredWidth
-                icon.width: width / 2.2
-                icon.height: height / 2.2
-                bgcolor: Theme.controlBackgroundAlternateColor
-                round: false
-                roundborder: true
-                iconSource: modelData.icon
-                iconColor: modelData.iconColor
-                smooth: true
-                onClicked: modelData.action()
+            WelcomeActionItem {
+              objectName: "welcomeActionLocalProjects"
+              iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
+              iconColor: Theme.mainColor
+              label: qsTr("Local projects and\n datasets")
+              onClicked: {
+                platformUtilities.requestStoragePermission();
+                showLocalDataPicker();
               }
             }
 
-            Repeater {
-              model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
-
-              delegate: Text {
-                Layout.preferredWidth: welcomeActions.width / 3
-                text: modelData
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: Text.WordWrap
-                color: Theme.mainTextColor
-                font: Theme.tipFont
-              }
+            WelcomeActionItem {
+              objectName: "welcomeActionNewProject"
+              iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+              iconColor: Theme.mainColor
+              label: qsTr("Create new\nproject")
+              onClicked: showProjectCreationScreen()
             }
           }
 
