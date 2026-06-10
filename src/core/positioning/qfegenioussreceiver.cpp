@@ -43,12 +43,12 @@ QfEgenioussReceiver::~QfEgenioussReceiver()
 
 void QfEgenioussReceiver::handleConnectDevice()
 {
-  QNetworkRequest request( QString( "http://%1:%2/app/start" ).arg( mAddress.toString() ).arg( mPort ) );
+  QNetworkRequest request( QString( "http://%1:%2/app//app/getStatus" ).arg( mAddress.toString() ).arg( mPort ) );
   QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
   connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     if ( reply->error() != QNetworkReply::NoError )
     {
-      const QString errorMessage = tr( "HTTP request failed: %1" ).arg( reply->errorString() );
+      const QString errorMessage = tr( "Is the app running? HTTP request failed: %1" ).arg( reply->errorString() );
       qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
       handleErrorMessage( errorMessage );
       reply->deleteLater();
@@ -64,7 +64,7 @@ void QfEgenioussReceiver::handleConnectDevice()
     else
     {
       const QString message = jsonObject.value( "message" ).toString();
-      const QString errorMessage = tr( "Failed to start egeniouss server." ) + ( message.isEmpty() ? QString() : QStringLiteral( " %1" ).arg( message ) );
+      const QString errorMessage = tr( "Failed to connect to the Egeniouss service." ) + ( message.isEmpty() ? QString() : QStringLiteral( " %1" ).arg( message ) );
       qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
       handleErrorMessage( errorMessage );
     }
@@ -74,33 +74,7 @@ void QfEgenioussReceiver::handleConnectDevice()
 
 void QfEgenioussReceiver::handleDisconnectDevice()
 {
-  QNetworkRequest request( QString( "http://%1:%2/app/stop" ).arg( mAddress.toString() ).arg( mPort ) );
-  QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
-  connect( reply, &QNetworkReply::finished, this, [this, reply]() {
-    if ( reply->error() != QNetworkReply::NoError )
-    {
-      const QString errorMessage = tr( "HTTP request failed: %1" ).arg( reply->errorString() );
-      qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
-      handleErrorMessage( errorMessage );
-      reply->deleteLater();
-      return;
-    }
-    const QJsonObject jsonObject = QJsonDocument::fromJson( reply->readAll() ).object();
-    const bool success = jsonObject.value( "success" ).toBool();
-
-    if ( success )
-    {
-      mTcpSocket->disconnectFromHost();
-    }
-    else
-    {
-      const QString message = jsonObject.value( "message" ).toString();
-      const QString errorMessage = tr( "Failed to stop egeniouss server." ) + ( message.isEmpty() ? QString() : QStringLiteral( " %1" ).arg( message ) );
-      qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
-      handleErrorMessage( errorMessage );
-    }
-    reply->deleteLater();
-  } );
+  mTcpSocket->disconnectFromHost();
 }
 
 void QfEgenioussReceiver::handleErrorMessage( const QString &errorMessage )
