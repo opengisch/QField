@@ -553,5 +553,56 @@ def test_gallery_editor(app, screenshot_path, screenshot_check, extra, process_a
     assert screenshot_check("test_gallery_editor", "test_gallery_editor_list", 0.075)
 
 
+@pytest.mark.project_file("test_canvas_click_handler.gpkg")
+def test_canvas_click_handler_blocks_feature_form(
+    app, screenshot_path, extra, process_alive
+):
+    """
+    Starts a test app loading a project whose bundled plugin registers a
+    catch-all MapCanvasPointHandler handler returning true for every
+    interaction. Tapping the canvas should not open the feature list form,
+    because the plugin's handler claims the event before QField's identify
+    path runs.
+    """
+    assert app.existsAndVisible("mainWindow")
+
+    # Arbitrary wait period to insure project fully loaded and rendered
+    app.invokeMethod("mainWindow/toursController", "blockGuides", [])
+    time.sleep(4)
+    messagesCount = 0
+    for i in range(0, 10):
+        message = app.getStringProperty(
+            f"mainWindow/messageLog/messageItem_{i}/messageText", "text"
+        )
+        if message == "":
+            break
+        extra.append(extras.html("Message logs content: {}".format(message)))
+        messagesCount = messagesCount + 1
+    extra.append(extras.html("Message logs count: {}".format(messagesCount)))
+    assert messagesCount == 0
+
+    # Feature form should start hidden
+    assert app.getStringProperty("mainWindow/featureForm", "state") == "Hidden"
+
+    bounds = app.getBoundingBox("mainWindow/mapCanvas")
+    move_x = bounds[0] + bounds[2] / 2
+    move_y = bounds[1] + bounds[3] * 2 / 3
+    pyautogui.moveTo(move_x, move_y, duration=0.5)
+    pyautogui.click(interval=0.5)
+    time.sleep(2)
+
+    app.takeScreenshot(
+        "mainWindow",
+        os.path.join(screenshot_path, "test_canvas_click_handler_blocks.png"),
+    )
+    assert process_alive()
+    extra.append(
+        extras.html('<img src="images/test_canvas_click_handler_blocks.png"/>')
+    )
+
+    # Feature form should remain hidden because the plugin's handler claimed the tap
+    assert app.getStringProperty("mainWindow/featureForm", "state") == "Hidden"
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__]))
