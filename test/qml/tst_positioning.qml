@@ -71,7 +71,7 @@ TestCase {
     }
 
     featureModel.resetAttributes();
-    compare(featureModel.feature.attribute("source"), "manual");
+    tryVerify(() => featureModel.feature.attribute("source") === "manual", 2000);
     verify(featureModel.feature.attribute("Quality") !== undefined);
     verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
@@ -82,7 +82,7 @@ TestCase {
     verify(featureModel.appExpressionContextScopesGenerator.positionInformation.latitude !== undefined);
     featureModel.appExpressionContextScopesGenerator.positionLocked = true;
     featureModel.resetAttributes();
-    compare(featureModel.feature.attribute("source"), "nmea");
+    tryVerify(() => featureModel.feature.attribute("source") === "nmea", 2000);
     verify(featureModel.feature.attribute("Quality") !== undefined);
     verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
