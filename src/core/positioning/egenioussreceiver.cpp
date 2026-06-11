@@ -43,7 +43,7 @@ EgenioussReceiver::~EgenioussReceiver()
 
 void EgenioussReceiver::handleConnectDevice()
 {
-  QNetworkRequest request( QString( "http://%1:%2/app//app/getStatus" ).arg( mAddress.toString() ).arg( mPort ) );
+  QNetworkRequest request( QString( "http://%1:%2/app/getStatus" ).arg( mAddress.toString() ).arg( mPort ) );
   QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
   connect( reply, &QNetworkReply::finished, this, [this, reply]() {
     if ( reply->error() != QNetworkReply::NoError )
