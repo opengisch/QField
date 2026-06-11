@@ -55,19 +55,17 @@ void EgenioussReceiver::handleConnectDevice()
       return;
     }
     const QJsonObject jsonObject = QJsonDocument::fromJson( reply->readAll() ).object();
-    const bool success = jsonObject.value( "success" ).toBool();
+    const bool isRunning = jsonObject.value( "estimation_status" ).toBool();
 
-    if ( success )
+    if ( !isRunning )
     {
-      mTcpSocket->connectToHost( mAddress, mPort + 1, QTcpSocket::ReadOnly );
-    }
-    else
-    {
-      const QString message = jsonObject.value( "message" ).toString();
-      const QString errorMessage = tr( "Failed to connect to the Egeniouss service." ) + ( message.isEmpty() ? QString() : QStringLiteral( " %1" ).arg( message ) );
+      const QString errorMessage = tr( "Egeniouss service is not ready." );
       qInfo() << QStringLiteral( "EgenioussReceiver: %1" ).arg( errorMessage );
       handleErrorMessage( errorMessage );
+      reply->deleteLater();
     }
+
+    mTcpSocket->connectToHost( mAddress, mPort + 1, QTcpSocket::ReadOnly );
     reply->deleteLater();
   } );
 }
