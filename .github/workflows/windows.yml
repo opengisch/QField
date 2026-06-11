@@ -77,6 +77,11 @@ jobs:
         with:
           cmakeVersion: 3.31.6
 
+      - name: Install NSIS
+        uses: negrutiu/nsis-install@v3
+        with:
+          version: 'v3.10.7422.0'
+
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
@@ -143,11 +148,6 @@ jobs:
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
-
-      - name: Install NSIS
-        uses: repolevedavaj/install-nsis@v1.2.0
-        with:
-          nsis-version: '3.10'
 
       - name: Package
         id: package
