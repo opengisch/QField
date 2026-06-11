@@ -90,7 +90,9 @@ GnssPositionDetails EgenioussReceiver::details() const
     return detailsList;
   }
 
-  detailsList.append( "q", mPayload.value( "q" ).toDouble() );
+  const qint64 timeNs = static_cast<qint64>( mPayload.value( "time" ).toDouble() );
+  const QDateTime timestamp = QDateTime::fromMSecsSinceEpoch( timeNs / 1000000, QTimeZone( QTimeZone::Initialization::UTC ) );
+  detailsList.append( tr( "Last fix" ), timestamp.toLocalTime().toString( QStringLiteral( "hh:mm:ss.zzz" ) ) );
 
   return detailsList;
 }
