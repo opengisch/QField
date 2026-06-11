@@ -2304,7 +2304,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="vanished">Automatikus kitöltéséhez hagyja üresen</translation>
+        <translation type="vanished">Üresen hagyva automata név</translation>
     </message>
     <message>
         <source>Connection type:</source>
@@ -2344,7 +2344,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation>(automatikus kitöltéséhez hagyja üresen)</translation>
+        <translation>(üresen hagyva automata név)</translation>
     </message>
     <message>
         <source>Connection details</source>
@@ -4128,7 +4128,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%1&lt;/b&gt; módosított tartalmának letöltésére készülsz a &lt;b&gt;%2&lt;/b&gt; felhasználóval.&lt;br&gt;&lt;br&gt;Ez a művelet felülírja a helyben tárolt adatokat, valóban ezt szeretnéd?</translation>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
@@ -4152,7 +4152,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>üresen hagyva a megjegyzettet veszi</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
@@ -4690,7 +4690,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 beállítások</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4766,19 +4766,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP kliens lecsatlakozott</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP kliens csatlakozva</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP kliens csatlakozva</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Kérem adj érvényes NTRIP beállításokat</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
@@ -4790,19 +4790,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Rossz pontossági határérték</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Kíváló pontossági határérték</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Minimális pozíció szám</translation>
     </message>
     <message>
         <source>Antenna height</source>
@@ -4928,7 +4928,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Kihagyva a %2 könyvtáron kívüli %1 fájl</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -4952,39 +4952,39 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Kör #1: sugár</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Kör #2: sugár</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Jelölt</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>XYZ paraméterek</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>Távolság/szög a ponttól</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>Körök metszete</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Pont</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>Szög</translation>
     </message>
     <message>
         <source>Elevation</source>
@@ -4992,11 +4992,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>Kör #1: pont</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>Kör #2: pont</translation>
     </message>
     <message>
         <source>KB</source>
@@ -5020,19 +5020,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Nem megengedett a fájl törlése: %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>A fájl nem létezik: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen a könyvtár törlése: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Sikertelen a fájl törlése: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -5062,51 +5062,51 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>Január</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>Február</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>Március</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>Április</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>Május</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>Június</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>Július</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>Augusztus</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>Szeptember</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>Október</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>November</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>December</translation>
     </message>
 </context>
 <context>
@@ -5128,7 +5128,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Igen</translation>
     </message>
     <message>
         <source>No</source>
@@ -5136,14 +5136,14 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Bezár</translation>
     </message>
 </context>
 <context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Tárhely</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
