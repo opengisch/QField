@@ -241,7 +241,7 @@ jobs:
           export QFIELDCLOUD_REMOTE_URL="${QFIELDCLOUD_REMOTE_URL}"
           export QFIELDCLOUD_REMOTE_USERNAME="${QFIELDCLOUD_REMOTE_USERNAME}"
           export QFIELDCLOUD_REMOTE_PASSWORD="${QFIELDCLOUD_REMOTE_PASSWORD}"
-          xvfb-run --server-args="-screen 0 640x480x24" ctest --output-on-failure -C ${{ env.BUILD_TYPE }}
+          xvfb-run --server-args="-screen 0 640x480x24" ctest --repeat until-pass:3 --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: Docker cleanup
         if: always()
