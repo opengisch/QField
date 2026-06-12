@@ -364,6 +364,7 @@ QfPopup {
         if (idx > -1) {
           ntripMountPointComboBox.currentIndex = idx;
         } else {
+          ntripMountPointComboBox.currentIndex = -1;
           ntripMountPointComboBox.editText = previousMountPoint;
         }
       } else {
