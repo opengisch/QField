@@ -1148,18 +1148,19 @@ void QFieldCloudProjectsModel::updateLocalizedDataPaths( const QString &projectP
   QgsApplication::instance()->localizedDataPathRegistry()->setPaths( localizedDataPaths );
 }
 
-void QFieldCloudProjectsModel::createProject( QString name )
+void QFieldCloudProjectsModel::createProject( const QString &name, const QString &fromProjectId )
 {
   if ( name.isEmpty() )
   {
-    emit projectCreated( QString(), true, tr( "Project creation requires a name" ) );
+    emit projectCreated( QString(), fromProjectId, true, tr( "Project creation requires a name" ) );
     return;
   }
 
   mIsCreating = true;
   emit isCreatingChanged();
 
-  name.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
+  QString sanitizedName = name;
+  sanitizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
   QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( mUsername );
   QNetworkRequest request( url );
@@ -1168,14 +1169,14 @@ void QFieldCloudProjectsModel::createProject( QString name )
   mCloudConnection->setAuthenticationDetails( request );
 
   const NetworkReply *listingreply = mCloudConnection->get( request, url );
-  connect( listingreply, &NetworkReply::finished, this, [this, name]() {
+  connect( listingreply, &NetworkReply::finished, this, [this, sanitizedName, fromProjectId]() {
     NetworkReply *reply = qobject_cast<NetworkReply *>( sender() );
     QNetworkReply *rawReply = reply->currentRawReply();
     Q_ASSERT( rawReply );
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
-      emit projectCreated( QString(), true, mCloudConnection->errorString( rawReply ) );
+      emit projectCreated( QString(), fromProjectId, true, mCloudConnection->errorString( rawReply ) );
       return;
     }
 
@@ -1190,10 +1191,10 @@ void QFieldCloudProjectsModel::createProject( QString name )
     }
 
     int uniqueSuffix = 1;
-    QString finalizedName = name;
+    QString finalizedName = sanitizedName;
     while ( projectNames.contains( finalizedName.toLower() ) )
     {
-      finalizedName = QStringLiteral( "%1_%2" ).arg( name, QString::number( uniqueSuffix++ ) );
+      finalizedName = QStringLiteral( "%1_%2" ).arg( sanitizedName, QString::number( uniqueSuffix++ ) );
     }
 
     QString url = QStringLiteral( "/api/v1/projects/" );
@@ -1204,7 +1205,13 @@ void QFieldCloudProjectsModel::createProject( QString name )
     params.insert( QStringLiteral( "description" ), QString() );
     params.insert( QStringLiteral( "private" ), true );
 
+    if ( !fromProjectId.isEmpty() )
+    {
+      params.insert( QStringLiteral( "clone_from_project" ), fromProjectId );
+    }
+
     QNetworkRequest request;
+    request.setAttribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FromProjectId ), fromProjectId );
     const NetworkReply *creationReply = mCloudConnection->post( request, url, params );
     connect( creationReply, &NetworkReply::finished, this, &QFieldCloudProjectsModel::projectCreationReceived );
   } );
@@ -1216,9 +1223,11 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   QNetworkReply *rawReply = reply->currentRawReply();
   Q_ASSERT( rawReply );
 
+  const QString fromProjectId = rawReply->request().attribute( static_cast<QNetworkRequest::Attribute>( ProjectsRequestAttribute::FromProjectId ) ).toString();
+
   if ( rawReply->error() != QNetworkReply::NoError )
   {
-    emit projectCreated( QString(), true, mCloudConnection->errorString( rawReply ) );
+    emit projectCreated( QString(), fromProjectId, true, mCloudConnection->errorString( rawReply ) );
 
     mIsCreating = false;
     emit isCreatingChanged();
@@ -1232,11 +1241,11 @@ void QFieldCloudProjectsModel::projectCreationReceived()
   if ( cloudProject )
   {
     insertProjects( QList<QFieldCloudProject *>() << cloudProject );
-    emit projectCreated( cloudProject->id() );
+    emit projectCreated( cloudProject->id(), fromProjectId, false, QString() );
   }
   else
   {
-    emit projectCreated( QString(), true, tr( "Cloud project could not be created." ) );
+    emit projectCreated( QString(), fromProjectId, true, tr( "Cloud project could not be created." ) );
   }
 
   mIsCreating = false;

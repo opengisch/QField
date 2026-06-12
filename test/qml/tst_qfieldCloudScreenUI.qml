@@ -59,6 +59,10 @@ TestCase {
     width: 400
     height: 600
 
+    function displayToast(message, type, actionText, actionCallback) {
+    // no-op for test environment
+    }
+
     QFieldControls.QFieldCloudScreen {
       id: qfieldCloudScreen
       width: mainWindow.width
@@ -109,6 +113,12 @@ TestCase {
     signalName: "currentProjectChanged"
   }
 
+  SignalSpy {
+    id: projectCreatedSpy
+    target: cloudProjectsModel
+    signalName: "projectCreated"
+  }
+
   function cleanup() {
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       cloudConnection.logout();
@@ -123,6 +133,7 @@ TestCase {
     currentProjectIdSpy.clear();
     currentProjectSpy.clear();
     subscriptionSpy.clear();
+    projectCreatedSpy.clear();
   }
 
   // Returns all available server configurations (local if provided, remote if provided)
@@ -199,6 +210,18 @@ TestCase {
       wait(1000);
     }
     return projectInfo;
+  }
+
+  // Helper: Find a project id by name
+  function findProjectIdByName(projectName) {
+    for (let i = 0; i < cloudProjectsModel.rowCount(); i++) {
+      const index = cloudProjectsModel.index(i, 0);
+      const name = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+      if (name === projectName) {
+        return cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole);
+      }
+    }
+    return "";
   }
 
   /**
@@ -548,5 +571,100 @@ TestCase {
     verify(info.storageThresholdCritical > 0);
     verify(info.storageThresholdCritical < info.storageThresholdWarning);
     verify(info.status !== "");
+  }
+
+  /**
+   * Tests that createProject with an empty name fails fast and preserves fromProjectId.
+   *
+   * Scenario: Calling createProject with an empty name emits projectCreated synchronously
+   * with hasError true and the original fromProjectId, so callers can distinguish
+   * create vs clone failures from the signal alone.
+   */
+  function test_12_createProjectEmptyNameFailsWithFromProjectId_data() {
+    return serverConfigs();
+  }
+  function test_12_createProjectEmptyNameFailsWithFromProjectId(data) {
+    loginToServer(data);
+    projectCreatedSpy.clear();
+
+    const sourceId = "some-source-id";
+    cloudProjectsModel.createProject("", sourceId);
+    tryCompare(projectCreatedSpy, "count", 1, 5000);
+
+    // projectCreated(projectId, fromProjectId, hasError, errorString)
+    const args = projectCreatedSpy.signalArguments[0];
+    compare(args[0], "");
+    compare(args[1], sourceId);
+    compare(args[2], true);
+    verify(args[3] !== "");
+  }
+
+  /**
+   * Tests plain project creation emits an empty fromProjectId.
+   *
+   * Scenario: createProject without a source id results in projectCreated where
+   * fromProjectId is empty, which is how the UI distinguishes a regular creation
+   * from a clone operation.
+   */
+  function test_13_createProjectEmitsEmptyFromProjectId_data() {
+    return remoteConfigs();
+  }
+  function test_13_createProjectEmitsEmptyFromProjectId(data) {
+    loginAndRefresh(data);
+    projectCreatedSpy.clear();
+
+    const projectName = "TestCreate_" + Date.now();
+    cloudProjectsModel.createProject(projectName);
+
+    tryCompare(projectCreatedSpy, "count", 1, 60000);
+
+    const args = projectCreatedSpy.signalArguments[0];
+    verify(args[0] !== "");
+    compare(args[1], "");
+    compare(args[2], false);
+
+    const createdProject = cloudProjectsModel.findProject(args[0]);
+    verify(createdProject !== null);
+    verify(createdProject.name.indexOf("TestCreate_") === 0);
+  }
+
+  /**
+   * Tests cloning a cloud project end-to-end via createProject with a fromProjectId.
+   *
+   * Scenario: Clone QFieldCloudTesting; verify projectCreated carries the source
+   * project id back, a new project appears in the model, and the original is intact.
+   */
+  function test_14_cloneProjectViaCreateProject_data() {
+    return remoteConfigs();
+  }
+  function test_14_cloneProjectViaCreateProject(data) {
+    loginAndRefresh(data);
+    verify(cloudProjectsModel.rowCount() > 0);
+
+    const sourceProjectId = findProjectIdByName("QFieldCloudTesting");
+    verify(sourceProjectId !== "");
+
+    projectCreatedSpy.clear();
+    const cloneName = "TestClone_" + Date.now();
+    cloudProjectsModel.createProject(cloneName, sourceProjectId);
+
+    tryCompare(projectCreatedSpy, "count", 1, 60000);
+
+    const args = projectCreatedSpy.signalArguments[0];
+    const newProjectId = args[0];
+    const fromProjectId = args[1];
+    const hasError = args[2];
+
+    compare(hasError, false);
+    compare(fromProjectId, sourceProjectId);
+    verify(newProjectId !== "");
+
+    const clonedProject = cloudProjectsModel.findProject(newProjectId);
+    verify(clonedProject !== null);
+
+    // Source project must remain in the model after cloning
+    const sourceProject = cloudProjectsModel.findProject(sourceProjectId);
+    verify(sourceProject !== null);
+    compare(sourceProject.name, "QFieldCloudTesting");
   }
 }

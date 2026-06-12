@@ -327,6 +327,7 @@ ColumnLayout {
   QfButton {
     id: downloadProjectInDetailsLayout
     Layout.fillWidth: true
+    dropdown: !showProgress
     progressValue: cloudProject ? cloudProject.downloadProgress : 0
     showProgress: cloudProject != undefined && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
     text: {
@@ -352,11 +353,16 @@ ColumnLayout {
         cloudProjectsModel.projectPackageAndDownload(cloudProject.id);
       }
     }
+
+    onDropdownClicked: {
+      projectDetailsMenu.popup(downloadProjectInDetailsLayout.width - projectDetailsMenu.width, downloadProjectInDetailsLayout.y);
+    }
   }
 
   QfButton {
     id: openProjectBtn
     Layout.fillWidth: true
+    dropdown: true
     text: qsTr("Open project")
     visible: cloudProject != undefined && cloudProject.localPath !== ""
     enabled: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.Idle
@@ -368,6 +374,27 @@ ColumnLayout {
       }
       projectsSwipeView.currentIndex = 0;
       cloudProject = undefined;
+    }
+
+    onDropdownClicked: {
+      projectDetailsMenu.popup(openProjectBtn.width - projectDetailsMenu.width, openProjectBtn.y);
+    }
+  }
+
+  QfMenu {
+    id: projectDetailsMenu
+
+    MenuItem {
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      text: qsTr("Clone project")
+      onTriggered: {
+        cloneProjectDialog.sourceProjectId = cloudProject.id;
+        cloneProjectName.text = cloudProject.name;
+        cloneProjectDialog.open();
+      }
     }
   }
 }

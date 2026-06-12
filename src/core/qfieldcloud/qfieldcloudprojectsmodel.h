@@ -101,6 +101,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       ProjectId = QNetworkRequest::User + 4,
       ProjectOwnerName = QNetworkRequest::User + 5,
       ProjectSearchTerm = QNetworkRequest::User + 6,
+      FromProjectId = QNetworkRequest::User + 7,
     };
 
     Q_ENUM( ColumnRole )
@@ -202,7 +203,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
      * The converted project will then be removed from the local storage in favor of a newly packaged
      * cloud project downloaded from the server.
      */
-    Q_INVOKABLE void createProject( const QString name );
+    Q_INVOKABLE void createProject( const QString &name, const QString &fromProjectId = QString() );
 
   signals:
     void cloudConnectionChanged();
@@ -215,7 +216,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void gpkgFlusherChanged();
     void warning( const QString &message );
 
-    void projectCreated( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
+    void projectCreated( const QString &projectId, const QString &fromProjectId, const bool hasError, const QString &errorString );
     void projectAppended( const QString &projectId, const bool hasError = false, const QString &errorString = QString() );
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );
