@@ -212,12 +212,8 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
       payload.replace( 0, 2, QStringLiteral( "GP" ) );
 
       // Calculate new checkum
-      quint8 checksum = 0;
       const QByteArray payloadBytes = payload.toLatin1();
-      for ( char c : payloadBytes )
-      {
-        checksum ^= c;
-      }
+      const quint8 checksum = std::accumulate( payloadBytes.begin(), payloadBytes.end(), 0, std::bit_xor<quint8>() );
 
       const QString trailing = sentence.mid( asteriskIndex + 3 );
       sentenceToSend = QStringLiteral( "$%1*%2%3" )
