@@ -4952,15 +4952,15 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation>Kör #1: sugár</translation>
+        <translation>Kör #1: sugara</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation>Kör #2: sugár</translation>
+        <translation>Kör #2: sugara</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation>Jelölt</translation>
+        <translation>Megjelölve</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
@@ -4972,7 +4972,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation>Körök metszete</translation>
+        <translation>Körök metszéspontja</translation>
     </message>
     <message>
         <source>Point</source>
@@ -4992,11 +4992,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation>Kör #1: pont</translation>
+        <translation>Kör #1: középpont</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation>Kör #2: pont</translation>
+        <translation>Kör #2: középpont</translation>
     </message>
     <message>
         <source>KB</source>
@@ -5223,7 +5223,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nem betölthető forrás betűtípus: %1</translation>
     </message>
 </context>
 <context>
@@ -5431,7 +5431,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Űrlap megnyitás</translation>
     </message>
 </context>
 <context>
@@ -5748,7 +5748,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Réteg</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
@@ -5760,19 +5760,19 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Minimális idő</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>mp</translation>
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Minimális távolság</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
-        <translation type="unfinished"/>
+        <translation>Maximum elfogadható távolság</translation>
     </message>
 </context>
 <context>
@@ -6055,59 +6055,59 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés befejezve.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Nincs helyi útvonal megadva.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>A WebDAV elfoglalt.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>Nem WebDAV által importált projekt.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>Kötelező mezők hiányoznak a WebDAV konfigból.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Nincs tárolt jelszó</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>A kiválasztott elemek más WebDAV projekthez tartoznak.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Nincs semmi feltöltendő.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Nem érzékelhető helyi változás.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés törölve.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Feltöltés kihagyva.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>Másik folyamat által zárolt feltöltés.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>Nem olvasható WebDAV konfig fájl.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Hibás WebDAV konfig JSON.</translation>
     </message>
 </context>
 <context>
@@ -6457,7 +6457,7 @@ készítése</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Pont alakzat átvétel</translation>
     </message>
 </context>
 <context>
@@ -7221,11 +7221,11 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>COGO digitalizálás bekapcsolva</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>COGO digitalizálás kikapcsolva</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
