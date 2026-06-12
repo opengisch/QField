@@ -126,6 +126,7 @@
         <file>imports/Theme/qmldir</file>
         <file>imports/Theme/QfSwipeAnimator.qml</file>
         <file>imports/Theme/QfVisibilityFadingRow.qml</file>
+        <file>imports/Theme/QfWelcomeAction.qml</file>
         <file>imports/Theme/QfProgressRing.qml</file>
         <file>imports/Theme/QfProjectThumbnail.qml</file>
         <file>imports/Theme/QfScrollBar.qml</file>

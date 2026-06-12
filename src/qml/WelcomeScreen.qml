@@ -22,41 +22,6 @@ Page {
   signal showSettings
   signal showProjectCreationScreen
 
-  component WelcomeActionItem: ColumnLayout {
-    property url iconSource
-    property color iconColor
-    property string label
-    signal clicked
-
-    Layout.fillWidth: true
-    Layout.alignment: Qt.AlignTop
-    spacing: 4
-
-    QfToolButton {
-      Layout.alignment: Qt.AlignHCenter
-      Layout.preferredWidth: Math.min(mainWindow.height / 4, welcomeActions.width / 3 / 1.5)
-      Layout.preferredHeight: Layout.preferredWidth
-      icon.width: width / 2.2
-      icon.height: height / 2.2
-      bgcolor: Theme.controlBackgroundAlternateColor
-      round: false
-      roundborder: true
-      iconSource: parent.iconSource
-      iconColor: parent.iconColor
-      smooth: true
-      onClicked: parent.clicked()
-    }
-
-    Text {
-      Layout.preferredWidth: welcomeActions.width / 3
-      text: parent.label
-      horizontalAlignment: Text.AlignHCenter
-      wrapMode: Text.WordWrap
-      color: Theme.mainTextColor
-      font: Theme.tipFont
-    }
-  }
-
   visible: false
   focus: visible
 
@@ -516,21 +481,37 @@ Page {
           width: parent.width - 12
           spacing: 12
 
-          RowLayout {
+          Container {
+            id: welcomeActionsContainer
             objectName: "welcomeActionsContainer"
             Layout.fillWidth: true
-            spacing: 0
 
-            WelcomeActionItem {
+            readonly property real buttonSize: Math.min(mainWindow.height / 4, width / 3 / 1.5)
+            Layout.preferredHeight: buttonSize + 4 + Theme.tipFont.pixelSize * 3
+
+            contentItem: ListView {
+              model: parent.contentModel
+              width: parent.width
+              height: parent.height
+              orientation: ListView.Horizontal
+              spacing: 0
+              ScrollBar.horizontal: QfScrollBar {
+                policy: contentWidth > width ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+              }
+            }
+
+            QfWelcomeAction {
               objectName: "welcomeActionCloud"
+              width: welcomeActionsContainer.width / 3
               iconSource: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
               iconColor: Theme.cloudColor
               label: qsTr("QFieldCloud\nprojects")
               onClicked: showQFieldCloudScreen()
             }
 
-            WelcomeActionItem {
+            QfWelcomeAction {
               objectName: "welcomeActionLocalProjects"
+              width: welcomeActionsContainer.width / 3
               iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
               iconColor: Theme.mainColor
               label: qsTr("Local projects and\n datasets")
@@ -540,8 +521,9 @@ Page {
               }
             }
 
-            WelcomeActionItem {
+            QfWelcomeAction {
               objectName: "welcomeActionNewProject"
+              width: welcomeActionsContainer.width / 3
               iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
               iconColor: Theme.mainColor
               label: qsTr("Create new\nproject")
