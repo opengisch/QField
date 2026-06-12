@@ -31,6 +31,7 @@ Item {
   property TrackingModel trackingModel: null
 
   property alias terrainProvider: mapTerrainProvider
+  property Node pluginScene: null
 
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
@@ -76,6 +77,7 @@ Item {
   View3D {
     id: view3d
     anchors.fill: parent
+    importScene: mapArea.pluginScene
 
     environment: SceneEnvironment {
       clearColor: mapArea.mapSettings ? mapArea.mapSettings.backgroundColor : "#FFFFFF"
@@ -256,10 +258,6 @@ Item {
         color: modelData.tracker ? modelData.tracker.color : "#FFFF3232"
         visible: modelData.tracker ? modelData.tracker.visible : false
       }
-    }
-
-    Node {
-      objectName: 'mapCanvas3DPluginOverlay'
     }
   }
 
