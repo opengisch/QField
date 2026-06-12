@@ -377,10 +377,28 @@ void NtripSocket::onReadyRead()
     mHeaderBuffer.append( data );
 
     qsizetype headerEnd = mHeaderBuffer.indexOf( "\r\n\r\n" );
-    if ( headerEnd != -1 )
+    int separatorSize = 4;
+    if ( headerEnd == -1 )
+    {
+      // Check for ICY 200 header
+      headerEnd = mHeaderBuffer.indexOf( "\r\n" );
+      if ( headerEnd >= 0 )
+      {
+        if ( mHeaderBuffer.startsWith( "ICY 200 OK" ) )
+        {
+          separatorSize = 2;
+        }
+        else
+        {
+          headerEnd = -1;
+        }
+      }
+    }
+
+    if ( headerEnd >= 0 )
     {
       const QByteArray headerBlock = mHeaderBuffer.left( headerEnd );
-      const QByteArray body = mHeaderBuffer.mid( headerEnd + 4 );
+      const QByteArray body = mHeaderBuffer.mid( headerEnd + separatorSize );
       mHeaderBuffer.clear();
 
       // Check for SOURCETABLE response (mountpoint not found)
