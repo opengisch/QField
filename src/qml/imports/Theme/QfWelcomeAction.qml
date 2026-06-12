@@ -18,6 +18,8 @@ ColumnLayout {
 
   QfToolButton {
     Layout.alignment: Qt.AlignHCenter
+    Layout.minimumWidth: 48
+    Layout.minimumHeight: 48
     Layout.preferredWidth: Math.min(Screen.height / 4, root.width / 1.5)
     Layout.preferredHeight: Layout.preferredWidth
     icon.width: width / 2.2
