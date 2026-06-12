@@ -189,53 +189,26 @@ TestCase {
     wait(500);
   }
 
-  // DEBUG: log full delegate children tree
-  function debugDelegate(label, delegate) {
-    if (delegate === null) {
-      console.log("[DEBUG][" + label + "] delegate is NULL");
-      return;
-    }
-    console.log("[DEBUG][" + label + "] delegate.children.length:", delegate.children.length);
-    for (let a = 0; a < delegate.children.length; a++) {
-      const c0 = delegate.children[a];
-      console.log("[DEBUG][" + label + "]   [" + a + "] " + c0 + " visible=" + c0.visible + " children=" + c0.children.length);
-      for (let b = 0; b < c0.children.length; b++) {
-        const c1 = c0.children[b];
-        console.log("[DEBUG][" + label + "]     [" + a + "][" + b + "] " + c1 + " visible=" + c1.visible + " children=" + c1.children.length);
-        for (let c = 0; c < c1.children.length; c++) {
-          const c2 = c1.children[c];
-          console.log("[DEBUG][" + label + "]       [" + a + "][" + b + "][" + c + "] " + c2 + " visible=" + c2.visible);
-        }
-      }
-    }
-  }
-
   // Helper: Prepare project for download by clearing local data
   function prepareProjectForDownload(projectName) {
-    console.log("[DEBUG][prepareProjectForDownload] searching for:", projectName, "| table.count:", table.count);
     let projectInfo = null;
-    for (let i = 0; i < cloudProjectsModel.rowCount(); i++) {
-      const index = cloudProjectsModel.index(i, 0);
-      const name = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+    for (let i = 0; i < table.model.rowCount(); i++) {
+      const index = table.model.index(i, 0);
+      const name = table.model.data(index, QFieldCloudProjectsModel.NameRole);
       if (name === projectName) {
         projectInfo = {
-          id: cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole),
+          id: table.model.data(index, QFieldCloudProjectsModel.IdRole),
           rowIndex: i
         };
         break;
       }
     }
     verify(projectInfo !== null);
-    console.log("[DEBUG][prepareProjectForDownload] found:", projectName, "| source rowIndex:", projectInfo.rowIndex, "| id:", projectInfo.id);
     const project = cloudProjectsModel.findProject(projectInfo.id);
-    console.log("[DEBUG][prepareProjectForDownload] localPath before:", project.localPath);
     if (project.localPath !== "") {
       cloudProjectsModel.removeLocalProject(projectInfo.id);
       wait(1000);
-      const projectAfter = cloudProjectsModel.findProject(projectInfo.id);
-      console.log("[DEBUG][prepareProjectForDownload] localPath after 1s:", projectAfter.localPath, "| status:", projectAfter.status);
     }
-    console.log("[DEBUG][prepareProjectForDownload] table.count after prepare:", table.count);
     return projectInfo;
   }
 
@@ -332,10 +305,7 @@ TestCase {
     compare(connectionSettings.visible, false);
     cloudConnection.logout();
     tryCompare(cloudConnection, "status", QFieldCloudConnection.Disconnected, 5000);
-    wait(500);
-    console.log("[DEBUG][test_04] table.count after logout+500ms:", table.count, "| cloudConnection.status:", cloudConnection.status);
-    console.log("[DEBUG][test_04] connectionSettings.visible:", connectionSettings.visible, "| projectsSwipeView.visible:", projectsSwipeView.visible);
-    verify(table.count === 0);
+    tryCompare(table, "count", 0, 5000);
     verify(connectionSettings.visible);
   }
 
@@ -419,15 +389,11 @@ TestCase {
     let project = cloudProjectsModel.findProject(projectInfo.id);
     compare(project.localPath, "");
     compare(project.status, QFieldCloudProject.Idle);
-    console.log("[DEBUG][test_07] rowIndex:", projectInfo.rowIndex, "| table.count:", table.count, "| localPath:", project.localPath, "| status:", project.status);
     table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
     wait(500);
     const delegate = table.itemAtIndex(projectInfo.rowIndex);
-    console.log("[DEBUG][test_07] delegate after positionViewAtIndex+500ms:", delegate);
-    debugDelegate("test_07", delegate);
     verify(delegate !== null);
     const downloadButton = delegate.children[1].children[2].children[0];
-    console.log("[DEBUG][test_07] downloadButton:", downloadButton, "| visible:", downloadButton ? downloadButton.visible : "N/A");
     verify(downloadButton !== null);
     verify(downloadButton.visible);
     downloadButton.clicked();
@@ -459,15 +425,11 @@ TestCase {
     let project2 = cloudProjectsModel.findProject(project2Info.id);
     compare(project1.localPath, "");
     compare(project2.localPath, "");
-    console.log("[DEBUG][test_08] project1 rowIndex:", project1Info.rowIndex, "| project2 rowIndex:", project2Info.rowIndex, "| table.count:", table.count);
     table.positionViewAtIndex(project1Info.rowIndex, ListView.Center);
     tryVerify(() => table.itemAtIndex(project1Info.rowIndex) !== null, 5000);
     const delegate1 = table.itemAtIndex(project1Info.rowIndex);
-    console.log("[DEBUG][test_08] delegate1 after positionViewAtIndex+300ms:", delegate1);
-    debugDelegate("test_08_d1", delegate1);
     verify(delegate1 !== null);
     const downloadButton1 = delegate1.children[1].children[2].children[0];
-    console.log("[DEBUG][test_08] downloadButton1:", downloadButton1, "| visible:", downloadButton1 ? downloadButton1.visible : "N/A");
     verify(downloadButton1 !== null);
     downloadButton1.clicked();
     wait(500);
@@ -475,11 +437,8 @@ TestCase {
     table.positionViewAtIndex(project2Info.rowIndex, ListView.Center);
     tryVerify(() => table.itemAtIndex(project2Info.rowIndex) !== null, 5000);
     const delegate2 = table.itemAtIndex(project2Info.rowIndex);
-    console.log("[DEBUG][test_08] delegate2 after positionViewAtIndex+300ms:", delegate2);
-    debugDelegate("test_08_d2", delegate2);
     verify(delegate2 !== null);
     const downloadButton2 = delegate2.children[1].children[2].children[0];
-    console.log("[DEBUG][test_08] downloadButton2:", downloadButton2, "| visible:", downloadButton2 ? downloadButton2.visible : "N/A");
     verify(downloadButton2 !== null);
     downloadButton2.clicked();
     wait(3000);
@@ -512,18 +471,13 @@ TestCase {
     let project = cloudProjectsModel.findProject(projectInfo.id);
 
     compare(project.localPath, "");
-    console.log("[DEBUG][test_09] rowIndex:", projectInfo.rowIndex, "| table.count:", table.count);
 
     for (let i = 0; i < 3; i++) {
-      console.log("[DEBUG][test_09] loop iteration:", i, "| localPath:", project.localPath, "| status:", project.status);
       table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
       wait(500);
       let delegate = table.itemAtIndex(projectInfo.rowIndex);
-      console.log("[DEBUG][test_09][iter=" + i + "] delegate:", delegate);
-      debugDelegate("test_09_iter" + i, delegate);
       verify(delegate !== null);
       let downloadButton = delegate.children[1].children[2].children[0];
-      console.log("[DEBUG][test_09][iter=" + i + "] downloadButton:", downloadButton, "| visible:", downloadButton ? downloadButton.visible : "N/A");
       verify(downloadButton !== null);
       downloadButton.clicked();
       wait(1000);
@@ -534,10 +488,8 @@ TestCase {
         table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
         tryVerify(() => table.itemAtIndex(projectInfo.rowIndex) !== null, 5000);
         delegate = table.itemAtIndex(projectInfo.rowIndex);
-        console.log("[DEBUG][test_09][iter=" + i + "][cancel] delegate:", delegate);
         verify(delegate !== null);
         downloadButton = delegate.children[1].children[2].children[0];
-        console.log("[DEBUG][test_09][iter=" + i + "][cancel] downloadButton:", downloadButton, "| visible:", downloadButton ? downloadButton.visible : "N/A");
         verify(downloadButton !== null);
         downloadButton.clicked();
         wait(1000);
