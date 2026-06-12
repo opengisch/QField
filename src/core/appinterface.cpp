@@ -38,6 +38,7 @@
 #include <QSettings>
 #include <QTemporaryFile>
 #include <QTranslator>
+#include <QtQuick3D/QQuick3DObject>
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 #include <qgsmessagelog.h>
@@ -116,6 +117,21 @@ void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
   if ( toolbar )
   {
     item->setParentItem( toolbar );
+  }
+}
+
+void AppInterface::addItemToMapCanvas3D( QQuick3DObject *node ) const
+{
+  QObject *root = rootObject();
+  if ( !root )
+  {
+    return;
+  }
+
+  QQuick3DObject *scene = root->findChild<QQuick3DObject *>( QStringLiteral( "mapCanvas3DPluginScene" ) );
+  if ( scene )
+  {
+    node->setParentItem( scene );
   }
 }
 
