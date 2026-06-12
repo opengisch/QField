@@ -484,12 +484,12 @@ Page {
           Container {
             id: welcomeActionsContainer
             objectName: "welcomeActionsContainer"
-            Layout.fillWidth: true
-
-            readonly property real buttonSize: Math.min(mainWindow.height / 4, width / 3 / 1.5)
-            Layout.preferredHeight: buttonSize + 4 + Theme.tipFont.pixelSize * 3
+            Layout.preferredWidth: Math.min(welcomeActionsListView.contentWidth, welcomeActions.width)
+            Layout.preferredHeight: Math.max(welcomeActionCloud.height, welcomeActionLocalProjects.height, welcomeActionNewProject.height)
+            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
 
             contentItem: ListView {
+              id: welcomeActionsListView
               model: parent.contentModel
               width: parent.width
               height: parent.height
@@ -501,8 +501,9 @@ Page {
             }
 
             QfWelcomeAction {
+              id: welcomeActionCloud
               objectName: "welcomeActionCloud"
-              width: welcomeActionsContainer.width / 3
+              width: welcomeActions.width / 3
               iconSource: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
               iconColor: Theme.cloudColor
               label: qsTr("QFieldCloud\nprojects")
@@ -510,8 +511,9 @@ Page {
             }
 
             QfWelcomeAction {
+              id: welcomeActionLocalProjects
               objectName: "welcomeActionLocalProjects"
-              width: welcomeActionsContainer.width / 3
+              width: welcomeActions.width / 3
               iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
               iconColor: Theme.mainColor
               label: qsTr("Local projects and\n datasets")
@@ -522,8 +524,9 @@ Page {
             }
 
             QfWelcomeAction {
+              id: welcomeActionNewProject
               objectName: "welcomeActionNewProject"
-              width: welcomeActionsContainer.width / 3
+              width: welcomeActions.width / 3
               iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
               iconColor: Theme.mainColor
               label: qsTr("Create new\nproject")
