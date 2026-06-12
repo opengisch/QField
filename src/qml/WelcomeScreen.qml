@@ -487,6 +487,7 @@ Page {
             Layout.preferredWidth: Math.min(welcomeActionsListView.contentWidth, welcomeActions.width)
             Layout.preferredHeight: Math.max(welcomeActionCloud.height, welcomeActionLocalProjects.height, welcomeActionNewProject.height)
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+            clip: true
 
             contentItem: ListView {
               id: welcomeActionsListView
