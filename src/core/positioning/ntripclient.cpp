@@ -194,13 +194,41 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
 
   const thread_local QRegularExpression rxSentence( u"^\\$([A-Z]{2})([A-Z]{3})"_s );
   const QRegularExpressionMatch sentenceMatch = rxSentence.match( sentence );
+  const QString talkerId = sentenceMatch.captured( 1 );
   const QString sentenceId = sentenceMatch.captured( 2 );
   if ( sentenceId != QStringLiteral( "GGA" ) )
   {
     return;
   }
 
-  sendNmeaSentence( sentence );
+  QString sentenceToSend = sentence;
+  if ( talkerId != QStringLiteral( "GP" ) )
+  {
+    // Some NTRIP servers will only consume GPGGA sentences, we must adjust accordingly
+    const int asteriskIndex = sentence.lastIndexOf( '*' );
+    if ( asteriskIndex > 0 )
+    {
+      QString payload = sentence.mid( 1, asteriskIndex - 1 );
+      payload.replace( 0, 2, QStringLiteral( "GP" ) );
+
+      // Calculate new checkum
+      quint8 checksum = 0;
+      const QByteArray payloadBytes = payload.toLatin1();
+      for ( char c : payloadBytes )
+      {
+        checksum ^= c;
+      }
+
+      const QString trailing = sentence.mid( asteriskIndex + 3 );
+      sentenceToSend = QStringLiteral( "$%1*%2%3" )
+                         .arg( payload )
+                         .arg( checksum, 2, 16, QLatin1Char( '0' ) )
+                         .toUpper()
+                         .arg( trailing );
+    }
+  }
+
+  sendNmeaSentence( sentenceToSend );
   mLastNtripGgaSent = epoch;
 }
 
