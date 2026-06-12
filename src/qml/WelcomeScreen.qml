@@ -489,6 +489,8 @@ Page {
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             clip: true
 
+            readonly property real itemWidth: count > 3 ? welcomeActions.width / 3.3 : welcomeActions.width / 3
+
             contentItem: ListView {
               id: welcomeActionsListView
               model: parent.contentModel
@@ -504,7 +506,7 @@ Page {
             QfWelcomeAction {
               id: welcomeActionCloud
               objectName: "welcomeActionCloud"
-              width: welcomeActions.width / 3
+              width: welcomeActionsContainer.itemWidth
               iconSource: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
               iconColor: Theme.cloudColor
               label: qsTr("QFieldCloud\nprojects")
@@ -514,7 +516,7 @@ Page {
             QfWelcomeAction {
               id: welcomeActionLocalProjects
               objectName: "welcomeActionLocalProjects"
-              width: welcomeActions.width / 3
+              width: welcomeActionsContainer.itemWidth
               iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
               iconColor: Theme.mainColor
               label: qsTr("Local projects and\n datasets")
@@ -527,7 +529,7 @@ Page {
             QfWelcomeAction {
               id: welcomeActionNewProject
               objectName: "welcomeActionNewProject"
-              width: welcomeActions.width / 3
+              width: welcomeActionsContainer.itemWidth
               iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
               iconColor: Theme.mainColor
               label: qsTr("Create new\nproject")
