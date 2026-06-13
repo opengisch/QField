@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: windows-2025
+          - os: windows-2022
             triplet: x64-windows-static
             arch: amd64
             platform_arch: x64
