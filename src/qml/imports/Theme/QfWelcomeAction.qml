@@ -17,6 +17,7 @@ ColumnLayout {
   spacing: 4
 
   QfToolButton {
+    id: actionButton
     Layout.alignment: Qt.AlignHCenter
     Layout.minimumWidth: 48
     Layout.minimumHeight: 48
@@ -35,6 +36,7 @@ ColumnLayout {
 
   Text {
     Layout.fillWidth: true
+    visible: root.width / 1.5 > actionButton.Layout.minimumWidth
     text: root.label
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
