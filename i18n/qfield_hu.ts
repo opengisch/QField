@@ -3464,6 +3464,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Storage size</source>
         <translation>Tárhely méret</translation>
     </message>
+    <message>
+        <source>Clone project</source>
+        <translation>Projekt másolás</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
@@ -3830,6 +3834,34 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Search for projects</source>
         <translation>Projektek keresése</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>Projekt Másolás</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>Projekt Másolás</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>Milyen nevet akarsz adni a projekt másolatának?</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Projekt másolás sikertelen: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Projekt készítés sikertelen: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>A projekt másolása sikerült</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>Sikerült létrehozni a projektet</translation>
     </message>
 </context>
 <context>
@@ -6256,21 +6288,21 @@ készítése</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Először használod az applikációt? Próbáld ki az alábbi mintaprojekteket.</translation>
     </message>
 </context>
 <context>
     <name>angle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>fok</translation>
     </message>
 </context>
 <context>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>négyzetfok</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -6278,11 +6310,11 @@ készítése</translation>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>m²</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>km²</translation>
     </message>
     <message>
         <source>sqr. feet</source>
@@ -6298,7 +6330,7 @@ készítése</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>hektár</translation>
     </message>
     <message>
         <source>acres</source>
@@ -6310,11 +6342,11 @@ készítése</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>cm²</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>mm²</translation>
     </message>
     <message>
         <source>sqr. inches</source>
@@ -6433,11 +6465,11 @@ készítése</translation>
     <name>point</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>szélesség</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>hosszúság</translation>
     </message>
     <message>
         <source>elevation</source>
@@ -6445,11 +6477,11 @@ készítése</translation>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>keleti [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>északi [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>

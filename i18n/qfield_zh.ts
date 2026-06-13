@@ -3466,6 +3466,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Storage size</source>
         <translation>存储容量</translation>
     </message>
+    <message>
+        <source>Clone project</source>
+        <translation>克隆工程</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
@@ -3834,6 +3838,34 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Search for projects</source>
         <translation>搜索工程</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation>克隆工程</translation>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation>工程克隆</translation>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation>您想给克隆工程取什么名字？</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>工程克隆失败: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>工程创建失败: %1</translation>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation>工程克隆成功</translation>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation>工程创建成功</translation>
     </message>
 </context>
 <context>

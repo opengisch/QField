@@ -3472,6 +3472,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Storage size</source>
         <translation>Rozmiar pamięci</translation>
     </message>
+    <message>
+        <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
@@ -3840,6 +3844,34 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Search for projects</source>
         <translation>Wyszukaj projekty</translation>
+    </message>
+    <message>
+        <source>Clone Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project Cloning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>What name do you want to give to your cloned project?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully cloned</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project successfully created</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
