@@ -43,7 +43,12 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Cleanup space
+      - name: Install NSIS
+        uses: negrutiu/nsis-install@v3
+        with:
+          version: 'v3.10.7422.0'
+
+      - name: 🧹 Cleanup space
         shell: bash
         run: |
           echo "Free space before cleanup:"
@@ -158,11 +163,6 @@ jobs:
           pip install -r "${SOURCE_DIR}/test/spix/requirements.txt"
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
-
-      - name: Install NSIS
-        uses: negrutiu/nsis-install@v3
-        with:
-          version: 'v3.10.7422.0'
 
       - name: Package
         id: package
