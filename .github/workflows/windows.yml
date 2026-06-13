@@ -43,6 +43,24 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Cleanup space
+        shell: bash
+        run: |
+          echo "Free space before cleanup:"
+          df -h /c
+
+          # Remove Android SDKs/NDKs
+          rm -rf /c/Android
+
+          # Remove GitHub Hosted Tool Cache (Python, Node, Ruby, Go, etc.)
+          rm -rf /c/hostedtoolcache/windows
+
+          # Remove Docker (You are building natively, not in containers)
+          rm -rf /c/ProgramData/Docker
+
+          echo "Free space after cleanup:"
+          df -h /c
+
       - name: 🌾 Prepare vars
         id: vars
         shell: bash
