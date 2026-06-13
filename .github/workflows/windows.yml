@@ -55,9 +55,6 @@ jobs:
           # Remove GitHub Hosted Tool Cache (Python, Node, Ruby, Go, etc.)
           rm -rf /c/hostedtoolcache/windows
 
-          # Remove Docker (You are building natively, not in containers)
-          rm -rf /c/ProgramData/Docker
-
           echo "Free space after cleanup:"
           df -h /c
 
