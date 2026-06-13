@@ -57,9 +57,6 @@ jobs:
           # Remove Android SDKs/NDKs
           rm -rf /c/Android
 
-          # Remove GitHub Hosted Tool Cache (Python, Node, Ruby, Go, etc.)
-          rm -rf /c/hostedtoolcache/windows
-
           echo "Free space after cleanup:"
           df -h /c
 
