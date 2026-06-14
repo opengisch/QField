@@ -1579,11 +1579,19 @@ public class QFieldActivity extends QtActivity {
 
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
-            File importPath = new File(
-                externalFilesDir.getAbsolutePath() + "/Imported Projects/" +
-                documentFile.getName().substring(
-                    0, documentFile.getName().lastIndexOf(".")) +
-                "/");
+
+            if (documentFile.getName().lastIndexOf(".") > -1) {
+                importProjectPath =
+                    importProjectPath + "/" +
+                    documentFile.getName().substring(
+                        0, documentFile.getName().lastIndexOf(".")) +
+                    "/";
+            } else {
+                importProjectPath =
+                    importProjectPath + "/" + documentFile.getName() + "/";
+            }
+
+            File importPath = new File(importProjectPath);
             if (importPath.exists()) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.import_overwrite_title));
