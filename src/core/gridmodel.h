@@ -74,9 +74,9 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( bool prepareMarkers READ prepareMarkers WRITE setPrepareMarkers NOTIFY prepareMarkersChanged )
     Q_PROPERTY( bool prepareAnnotations READ prepareAnnotations WRITE setPrepareAnnotations NOTIFY prepareAnnotationsChanged )
 
-    Q_PROPERTY( QList<QList<QPointF>> majorLines READ majorLines NOTIFY majorLinesChanged )
-    Q_PROPERTY( QList<QList<QPointF>> minorLines READ minorLines NOTIFY minorLinesChanged )
-    Q_PROPERTY( QList<QPointF> markers READ markers NOTIFY markersChanged )
+    Q_PROPERTY( QString majorLinesPath READ majorLinesPath NOTIFY majorLinesChanged )
+    Q_PROPERTY( QString minorLinesPath READ minorLinesPath NOTIFY minorLinesChanged )
+    Q_PROPERTY( QString markersPath READ markersPath NOTIFY markersChanged )
     Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY annotationsChanged )
 
     Q_PROPERTY( bool autoColor READ autoColor WRITE setAutoColor NOTIFY autoColorChanged )
@@ -148,10 +148,10 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     void setPrepareLines( bool prepare );
 
     //! Returns the grid major lines
-    QList<QList<QPointF>> majorLines() const { return mMajorLines; }
+    QString majorLinesPath() const { return mMajorLinesPath; }
 
     //! Returns the grid minor lines
-    QList<QList<QPointF>> minorLines() const { return mMinorLines; }
+    QString minorLinesPath() const { return mMinorLinesPath; }
 
     //! Returns whether grid markers will be prepared
     bool prepareMarkers() const { return mPrepareMarkers; }
@@ -160,7 +160,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     void setPrepareMarkers( bool prepare );
 
     //! Returns the grid markers
-    QList<QPointF> markers() const { return mMarkers; }
+    QString markersPath() const { return mMarkersPath; }
 
     //! Returns whether grid annotations will be prepared
     bool prepareAnnotations() const { return mPrepareAnnotations; }
@@ -312,8 +312,13 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     bool mPrepareLines = false;
     QList<QList<QPointF>> mMajorLines;
     QList<QList<QPointF>> mMinorLines;
+    QString mMajorLinesPath;
+    QString mMinorLinesPath;
+
     bool mPrepareMarkers = false;
     QList<QPointF> mMarkers;
+    QString mMarkersPath;
+
     bool mPrepareAnnotations = false;
     QList<GridAnnotation> mAnnotations;
 
