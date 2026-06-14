@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: windows-2025
+          - os: windows-2022
             triplet: x64-windows-static
             arch: amd64
             platform_arch: x64
@@ -42,6 +42,23 @@ jobs:
         uses: actions/checkout@v6.0.2
         with:
           submodules: recursive
+
+      - name: Install NSIS
+        uses: negrutiu/nsis-install@v3
+        with:
+          version: 'v3.10.7422.0'
+
+      - name: 🧹 Cleanup space
+        shell: bash
+        run: |
+          echo "Free space before cleanup:"
+          df -h /c
+
+          # Remove Android SDKs/NDKs
+          rm -rf /c/Android
+
+          echo "Free space after cleanup:"
+          df -h /c
 
       - name: 🌾 Prepare vars
         id: vars
@@ -77,11 +94,6 @@ jobs:
         with:
           cmakeVersion: 3.31.6
 
-      - name: Install NSIS
-        uses: negrutiu/nsis-install@v3
-        with:
-          version: 'v3.10.7422.0'
-
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
@@ -115,7 +127,7 @@ jobs:
                 -D CMAKE_MSVC_RUNTIME_LIBRARY="MultiThreaded\$<\$<CONFIG:Debug>:Debug>" \
                 -D PKG_CONFIG_EXECUTABLE=${CMAKE_BUILD_DIR}/vcpkg_installed/${{ matrix.triplet }}/tools/pkgconf/pkgconf.exe \
                 -D WITH_BLUETOOTH=ON \
-                -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src;--x-abi-tools-use-exact-versions" \
+                -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src;--x-abi-tools-use-exact-versions;--clean-after-build" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D CMAKE_WIN32_EXECUTABLE=ON \
