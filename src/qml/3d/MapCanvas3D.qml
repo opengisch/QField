@@ -30,6 +30,9 @@ Item {
 
   property TrackingModel trackingModel: null
 
+  property alias terrainProvider: mapTerrainProvider
+  property Node pluginScene: null
+
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
 
@@ -74,6 +77,7 @@ Item {
   View3D {
     id: view3d
     anchors.fill: parent
+    importScene: mapArea.pluginScene
 
     environment: SceneEnvironment {
       clearColor: mapArea.mapSettings ? mapArea.mapSettings.backgroundColor : "#FFFFFF"
