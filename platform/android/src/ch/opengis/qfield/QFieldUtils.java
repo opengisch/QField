@@ -140,6 +140,10 @@ public class QFieldUtils {
      */
     public static boolean fileToDocumentFile(File file, DocumentFile directory,
                                              ContentResolver resolver) {
+        if (file == null || directory == null) {
+            return false;
+        }
+
         File[] files =
             file.isDirectory() ? file.listFiles() : new File[] {file};
         for (File f : files) {

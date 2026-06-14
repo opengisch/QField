@@ -1143,7 +1143,7 @@ public class QFieldActivity extends QtActivity {
                     e.printStackTrace();
                 }
 
-                if (projectName != "") {
+                if (documentFile.getName() != null && projectName != "") {
                     String importPath =
                         importProjectPath +
                         documentFile.getName().substring(
@@ -1378,7 +1378,7 @@ public class QFieldActivity extends QtActivity {
             } else {
                 resourceCanceled("");
             }
-        } else if (requestCode == GALLERY_RESOURCE) {
+        } else if (requestCode == GALLERY_RESOURCE && data != null) {
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
                 DocumentFile documentFile = DocumentFile.fromSingleUri(
@@ -1408,7 +1408,7 @@ public class QFieldActivity extends QtActivity {
                 resourceCanceled("");
             }
         } else if (requestCode == FILE_PICKER_RESOURCE) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK && data != null) {
                 Uri uri = data.getData();
                 DocumentFile documentFile = DocumentFile.fromSingleUri(
                     getApplication().getApplicationContext(), uri);
@@ -1430,7 +1430,7 @@ public class QFieldActivity extends QtActivity {
                 resourceCanceled("");
             }
         } else if (requestCode == OPEN_RESOURCE) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK && data != null) {
                 try {
                     if (resourceIsEditing) {
                         Log.d(
@@ -1579,11 +1579,19 @@ public class QFieldActivity extends QtActivity {
 
             DocumentFile documentFile =
                 DocumentFile.fromSingleUri(context, uri);
-            File importPath = new File(
-                externalFilesDir.getAbsolutePath() + "/Imported Projects/" +
-                documentFile.getName().substring(
-                    0, documentFile.getName().lastIndexOf(".")) +
-                "/");
+
+            if (documentFile.getName().lastIndexOf(".") > -1) {
+                importProjectPath =
+                    importProjectPath + "/" +
+                    documentFile.getName().substring(
+                        0, documentFile.getName().lastIndexOf(".")) +
+                    "/";
+            } else {
+                importProjectPath =
+                    importProjectPath + "/" + documentFile.getName() + "/";
+            }
+
+            File importPath = new File(importProjectPath);
             if (importPath.exists()) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.import_overwrite_title));
