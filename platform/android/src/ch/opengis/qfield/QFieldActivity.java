@@ -1378,7 +1378,7 @@ public class QFieldActivity extends QtActivity {
             } else {
                 resourceCanceled("");
             }
-        } else if (requestCode == GALLERY_RESOURCE) {
+        } else if (requestCode == GALLERY_RESOURCE && data != null) {
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
                 DocumentFile documentFile = DocumentFile.fromSingleUri(
@@ -1408,7 +1408,7 @@ public class QFieldActivity extends QtActivity {
                 resourceCanceled("");
             }
         } else if (requestCode == FILE_PICKER_RESOURCE) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK && data != null) {
                 Uri uri = data.getData();
                 DocumentFile documentFile = DocumentFile.fromSingleUri(
                     getApplication().getApplicationContext(), uri);
@@ -1430,7 +1430,7 @@ public class QFieldActivity extends QtActivity {
                 resourceCanceled("");
             }
         } else if (requestCode == OPEN_RESOURCE) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK && data != null) {
                 try {
                     if (resourceIsEditing) {
                         Log.d(
