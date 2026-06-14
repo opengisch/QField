@@ -138,11 +138,13 @@ void GridModel::setPrepareLines( bool prepare )
     if ( !mMajorLines.isEmpty() )
     {
       mMajorLines.clear();
+      mMajorLinesPath.clear();
       emit majorLinesChanged();
     }
     if ( !mMinorLines.isEmpty() )
     {
       mMinorLines.clear();
+      mMajorLinesPath.clear();
       emit minorLinesChanged();
     }
   }
@@ -165,6 +167,7 @@ void GridModel::setPrepareMarkers( bool prepare )
     if ( !mMarkers.isEmpty() )
     {
       mMarkers.clear();
+      mMarkersPath.clear();
       emit markersChanged();
     }
   }
@@ -290,16 +293,19 @@ void GridModel::clear()
   if ( !mMajorLines.isEmpty() )
   {
     mMajorLines.clear();
+    mMajorLinesPath.clear();
     emit majorLinesChanged();
   }
   if ( !mMinorLines.isEmpty() )
   {
     mMinorLines.clear();
+    mMajorLinesPath.clear();
     emit minorLinesChanged();
   }
   if ( !mMarkers.isEmpty() )
   {
     mMarkers.clear();
+    mMarkersPath.clear();
     emit markersChanged();
   }
   if ( !mAnnotations.isEmpty() )
@@ -493,13 +499,35 @@ void GridModel::update()
 
   if ( mPrepareMarkers )
   {
+    mMarkersPath.clear();
+    for ( const QPointF &marker : std::as_const( mMarkers ) )
+    {
+      mMarkersPath += QStringLiteral( "M %1 %2 L %3 %4 M %5 %6 L %7 %8 " ).arg( marker.x() ).arg( marker.y() - 5 ).arg( marker.x() ).arg( marker.y() + 5 ).arg( marker.x() - 5 ).arg( marker.y() ).arg( marker.x() + 5 ).arg( marker.y() );
+    }
     emit markersChanged();
   }
   if ( mPrepareLines )
   {
+    mMajorLinesPath.clear();
+    for ( const QList<QPointF> &majorLine : std::as_const( mMajorLines ) )
+    {
+      if ( majorLine.size() >= 2 )
+      {
+        mMajorLinesPath += QStringLiteral( "M %1 %2 L %3 %4 " ).arg( majorLine[0].x() ).arg( majorLine[0].y() ).arg( majorLine[1].x() ).arg( majorLine[1].y() );
+      }
+    }
     emit majorLinesChanged();
+
     if ( !mMinorLines.isEmpty() || hadMinorLines )
     {
+      mMinorLinesPath.clear();
+      for ( const QList<QPointF> &minorLine : std::as_const( mMinorLines ) )
+      {
+        if ( minorLine.size() >= 2 )
+        {
+          mMinorLinesPath += QStringLiteral( "M %1 %2 L %3 %4 " ).arg( minorLine[0].x() ).arg( minorLine[0].y() ).arg( minorLine[1].x() ).arg( minorLine[1].y() );
+        }
+      }
       emit minorLinesChanged();
     }
   }

@@ -34,35 +34,11 @@ Item {
 
   GridModel {
     id: gridModel
-
-    onMajorLinesChanged: {
-      let svgPath = "";
-      for (const line of majorLines) {
-        svgPath += "M " + (line[0].x) + " " + (line[0].y) + " L " + (line[1].x) + " " + (line[1].y) + " ";
-      }
-      majorLineSvgPath.path = svgPath;
-    }
-
-    onMinorLinesChanged: {
-      let svgPath = "";
-      for (const line of minorLines) {
-        svgPath += "M " + (line[0].x) + " " + (line[0].y) + " L " + (line[1].x) + " " + (line[1].y) + " ";
-      }
-      minorLineSvgPath.path = svgPath;
-    }
-
-    onMarkersChanged: {
-      let svgPath = "";
-      for (const marker of markers) {
-        svgPath += "M " + (marker.x) + " " + (marker.y - 5) + " L " + (marker.x) + " " + (marker.y + 5) + " " + "M " + (marker.x - 5) + " " + (marker.y) + " L " + (marker.x + 5) + " " + (marker.y) + " ";
-      }
-      markerSvgPath.path = svgPath;
-    }
   }
 
   Shape {
     id: minorLinesContainer
-    visible: gridModel.prepareLines && gridModel.minorLines.length > 0
+    visible: gridModel.prepareLines && gridModel.minorLinesPath != ""
     anchors.fill: parent
 
     ShapePath {
@@ -76,14 +52,14 @@ Item {
 
       PathSvg {
         id: minorLineSvgPath
-        path: ""
+        path: gridModel.minorLinesPath
       }
     }
   }
 
   Shape {
     id: majorLinesContainer
-    visible: gridModel.prepareLines && gridModel.majorLines.length > 0
+    visible: gridModel.prepareLines && gridModel.majorLinesPath != ""
     anchors.fill: parent
 
     ShapePath {
@@ -97,14 +73,14 @@ Item {
 
       PathSvg {
         id: majorLineSvgPath
-        path: ""
+        path: gridModel.majorLinesPath
       }
     }
   }
 
   Shape {
     id: markersContainer
-    visible: gridModel.prepareMarkers && gridModel.markers.length > 0
+    visible: gridModel.prepareMarkers && gridModel.markersPath != ""
     anchors.fill: parent
 
     ShapePath {
@@ -118,7 +94,7 @@ Item {
 
       PathSvg {
         id: markerSvgPath
-        path: ""
+        path: gridModel.markersPath
       }
     }
   }
