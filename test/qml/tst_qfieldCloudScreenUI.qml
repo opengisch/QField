@@ -181,12 +181,12 @@ TestCase {
   // Helper: Prepare project for download by clearing local data
   function prepareProjectForDownload(projectName) {
     let projectInfo = null;
-    for (let i = 0; i < cloudProjectsModel.rowCount(); i++) {
-      const index = cloudProjectsModel.index(i, 0);
-      const name = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+    for (let i = 0; i < table.model.rowCount(); i++) {
+      const index = table.model.index(i, 0);
+      const name = table.model.data(index, QFieldCloudProjectsModel.NameRole);
       if (name === projectName) {
         projectInfo = {
-          id: cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole),
+          id: table.model.data(index, QFieldCloudProjectsModel.IdRole),
           rowIndex: i
         };
         break;
@@ -282,8 +282,7 @@ TestCase {
     compare(connectionSettings.visible, false);
     cloudConnection.logout();
     tryCompare(cloudConnection, "status", QFieldCloudConnection.Disconnected, 5000);
-    wait(500);
-    verify(table.count === 0);
+    tryCompare(table, "count", 0, 5000);
     verify(connectionSettings.visible);
   }
 
@@ -406,6 +405,7 @@ TestCase {
     table.positionViewAtIndex(project1Info.rowIndex, ListView.Center);
     tryVerify(() => table.itemAtIndex(project1Info.rowIndex) !== null, 5000);
     const delegate1 = table.itemAtIndex(project1Info.rowIndex);
+    verify(delegate1 !== null);
     const downloadButton1 = delegate1.children[1].children[2].children[0];
     verify(downloadButton1 !== null);
     downloadButton1.clicked();
@@ -414,6 +414,7 @@ TestCase {
     table.positionViewAtIndex(project2Info.rowIndex, ListView.Center);
     tryVerify(() => table.itemAtIndex(project2Info.rowIndex) !== null, 5000);
     const delegate2 = table.itemAtIndex(project2Info.rowIndex);
+    verify(delegate2 !== null);
     const downloadButton2 = delegate2.children[1].children[2].children[0];
     verify(downloadButton2 !== null);
     downloadButton2.clicked();
@@ -464,6 +465,7 @@ TestCase {
         table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
         tryVerify(() => table.itemAtIndex(projectInfo.rowIndex) !== null, 5000);
         delegate = table.itemAtIndex(projectInfo.rowIndex);
+        verify(delegate !== null);
         downloadButton = delegate.children[1].children[2].children[0];
         verify(downloadButton !== null);
         downloadButton.clicked();
