@@ -1143,7 +1143,7 @@ public class QFieldActivity extends QtActivity {
                     e.printStackTrace();
                 }
 
-                if (projectName != "") {
+                if (documentFile.getName() != null && projectName != "") {
                     String importPath =
                         importProjectPath +
                         documentFile.getName().substring(
