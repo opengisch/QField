@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackingSession" kind="class" language="C++" prot="public">
+    <compoundname>TrackingSession</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTrackingSession_1aac817395cf07980f84a28faee6ea9809" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var TrackingSession::tracker</definition>
+        <argsstring></argsstring>
+        <name>tracker</name>
+        <qualifiedname>TrackingSession::tracker</qualifiedname>
+        <read>dummyGetter_tracker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackingSession.qml" line="12" column="1" bodyfile="src/qml/TrackingSession.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTrackingSession_1a2ebeab707a346f0ee9f60325ad4af617" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component TrackingSession::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>TrackingSession::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackingSession.qml" line="14" column="14" bodyfile="src/qml/TrackingSession.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackingSession_1a90fed2779a55a9f620d63cea345f9bf5" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberbandModel" kindref="compound">RubberbandModel</ref></type>
+        <definition>RubberbandModel TrackingSession::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>TrackingSession::rubberbandModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackingSession.qml" line="15" column="17" bodyfile="src/qml/TrackingSession.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackingSession_1a9c82195567c8aa3e8524390b40d1ba1e" prot="private" static="no" mutable="no">
+        <type><ref refid="classRubberband" kindref="compound">Rubberband</ref></type>
+        <definition>Rubberband TrackingSession::rubberband</definition>
+        <argsstring></argsstring>
+        <name>rubberband</name>
+        <qualifiedname>TrackingSession::rubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackingSession.qml" line="16" column="12" bodyfile="src/qml/TrackingSession.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTrackingSession_1a0b75667c5aae44a572dcb8fb32c83454" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureModel" kindref="compound">FeatureModel</ref></type>
+        <definition>FeatureModel TrackingSession::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>TrackingSession::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/TrackingSession.qml" line="17" column="14" bodyfile="src/qml/TrackingSession.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TrackingSession</label>
+        <link refid="classTrackingSession"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TrackingSession</label>
+        <link refid="classTrackingSession"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/TrackingSession.qml" line="9" column="1" bodyfile="src/qml/TrackingSession.qml" bodystart="9" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classTrackingSession_1a0b75667c5aae44a572dcb8fb32c83454" prot="private" virt="non-virtual"><scope>TrackingSession</scope><name>featureModel</name></member>
+      <member refid="classTrackingSession_1a2ebeab707a346f0ee9f60325ad4af617" prot="private" virt="non-virtual"><scope>TrackingSession</scope><name>onCompleted</name></member>
+      <member refid="classTrackingSession_1a9c82195567c8aa3e8524390b40d1ba1e" prot="private" virt="non-virtual"><scope>TrackingSession</scope><name>rubberband</name></member>
+      <member refid="classTrackingSession_1a90fed2779a55a9f620d63cea345f9bf5" prot="private" virt="non-virtual"><scope>TrackingSession</scope><name>rubberbandModel</name></member>
+      <member refid="classTrackingSession_1aac817395cf07980f84a28faee6ea9809" prot="public" virt="non-virtual"><scope>TrackingSession</scope><name>tracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

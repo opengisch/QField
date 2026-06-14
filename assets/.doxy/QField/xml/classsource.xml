@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classsource" kind="class" language="C++" prot="public">
+    <compoundname>source</compoundname>
+    <basecompoundref refid="classProcessingParameterWidgetBase" prot="public" virt="non-virtual">ProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsource_1af9676e1518165998b8f8ec33d5401f5c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var source::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>source::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/source.qml" line="7" column="5" bodyfile="src/qml/processingparameterwidgets/source.qml" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsource_1a58c041b49f4c559a887d347465bfcf30" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox source::sourceComboBox</definition>
+        <argsstring></argsstring>
+        <name>sourceComboBox</name>
+        <qualifiedname>source::sourceComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/source.qml" line="8" column="12" bodyfile="src/qml/processingparameterwidgets/source.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>source</label>
+        <link refid="classsource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>source</label>
+        <link refid="classsource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/processingparameterwidgets/source.qml" line="6" column="1" bodyfile="src/qml/processingparameterwidgets/source.qml" bodystart="6" bodyend="9"/>
+    <listofallmembers>
+      <member refid="classsource_1af9676e1518165998b8f8ec33d5401f5c" prot="private" virt="non-virtual"><scope>source</scope><name>height</name></member>
+      <member refid="classsource_1a58c041b49f4c559a887d347465bfcf30" prot="private" virt="non-virtual"><scope>source</scope><name>sourceComboBox</name></member>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual"><scope>source</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

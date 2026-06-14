@@ -1,0 +1,874 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>QFieldLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="qfieldlocatorfilter_8h" local="no">qfieldlocatorfilter.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a2a0e6fd65d1fa358a5086ea6aa1f4905" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QFieldLocatorFilter::delay</definition>
+        <argsstring></argsstring>
+        <name>delay</name>
+        <qualifiedname>QFieldLocatorFilter::delay</qualifiedname>
+        <read>delay</read>
+        <write>setDelay</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="38" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a608afe221cc9a1f44c918266babc7109" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QFieldLocatorFilter::name</qualifiedname>
+        <read>name</read>
+        <write>setName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="39" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a97e2f560398782186e585e8db2432a60" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::displayName</definition>
+        <argsstring></argsstring>
+        <name>displayName</name>
+        <qualifiedname>QFieldLocatorFilter::displayName</qualifiedname>
+        <read>displayName</read>
+        <write>setDisplayName</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="40" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a6fb3d4122363d7054f29f6b5bec3465e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::prefix</definition>
+        <argsstring></argsstring>
+        <name>prefix</name>
+        <qualifiedname>QFieldLocatorFilter::prefix</qualifiedname>
+        <read>prefix</read>
+        <write>setPrefix</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="41" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a8faf057186a272698f9006423bc49cd1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QFieldLocatorFilter::description</qualifiedname>
+        <read>description</read>
+        <write>setDescription</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="42" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1abeb00e689c4013629bef75e7f80eec0b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QFieldLocatorFilter::parameters</definition>
+        <argsstring></argsstring>
+        <name>parameters</name>
+        <qualifiedname>QFieldLocatorFilter::parameters</qualifiedname>
+        <read>parameters</read>
+        <write>setParameters</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="44" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a964f9c3f3eda2bdb63cb46b1969335b0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QUrl</type>
+        <definition>QUrl QFieldLocatorFilter::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>QFieldLocatorFilter::source</qualifiedname>
+        <read>source</read>
+        <write>setSource</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="45" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldLocatorFilter_1a76a4802668c40aff7ce9a6b50dc75c9c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge * QFieldLocatorFilter::locatorBridge</definition>
+        <argsstring></argsstring>
+        <name>locatorBridge</name>
+        <qualifiedname>QFieldLocatorFilter::locatorBridge</qualifiedname>
+        <read>locatorBridge</read>
+        <write>setLocatorBridge</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="47" column="5" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a2af04f62b7837a481ed60c9ead86c011" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::mName</definition>
+        <argsstring></argsstring>
+        <name>mName</name>
+        <qualifiedname>QFieldLocatorFilter::mName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="163" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a58a18829c876099f6e79090d216fead7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::mDisplayName</definition>
+        <argsstring></argsstring>
+        <name>mDisplayName</name>
+        <qualifiedname>QFieldLocatorFilter::mDisplayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="164" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a8d190500fd9db599d7ab85263fbc3228" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::mPrefix</definition>
+        <argsstring></argsstring>
+        <name>mPrefix</name>
+        <qualifiedname>QFieldLocatorFilter::mPrefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="165" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a26b4b418d09c6f62d2ac6f9e3212616a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::mDescription</definition>
+        <argsstring></argsstring>
+        <name>mDescription</name>
+        <qualifiedname>QFieldLocatorFilter::mDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="166" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a98c21dc31cbbe300e4c537e42650cada" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QFieldLocatorFilter::mFetchResultsEnded</definition>
+        <argsstring></argsstring>
+        <name>mFetchResultsEnded</name>
+        <qualifiedname>QFieldLocatorFilter::mFetchResultsEnded</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="168" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1adb77717b8dc12184aadd10ff1d07d82a" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QFieldLocatorFilter::mParameters</definition>
+        <argsstring></argsstring>
+        <name>mParameters</name>
+        <qualifiedname>QFieldLocatorFilter::mParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="170" column="17" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a5c0e5c71fb5dbd30c0caa3eb1633cd8e" prot="private" static="no" mutable="no">
+        <type>QUrl</type>
+        <definition>QUrl QFieldLocatorFilter::mSource</definition>
+        <argsstring></argsstring>
+        <name>mSource</name>
+        <qualifiedname>QFieldLocatorFilter::mSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="171" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldLocatorFilter_1a5d1b1dfd8a0a2984ae44c1455603706c" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge* QFieldLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>QFieldLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="173" column="29" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldLocatorFilter_1ae24a94915c595628f9a220f6a5420f1e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QFieldLocatorFilter::QFieldLocatorFilter</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QFieldLocatorFilter</name>
+        <qualifiedname>QFieldLocatorFilter::QFieldLocatorFilter</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="50" column="14" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="25" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a40f297a7d2096517045e182fd0ce6fa2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQFieldLocatorFilter" kindref="compound">QFieldLocatorFilter</ref> *</type>
+        <definition>QFieldLocatorFilter * QFieldLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>QFieldLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+<para>Clone the locator filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="53" column="25" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="31" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a913ad9952d841c1d576c1261cac1082c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int QFieldLocatorFilter::delay</definition>
+        <argsstring>() const</argsstring>
+        <name>delay</name>
+        <qualifiedname>QFieldLocatorFilter::delay</qualifiedname>
+        <briefdescription>
+<para>Returns the delay before which the fetching of results is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="56" column="9" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1aef0fd4547c1e9b98601d6099898f98ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setDelay</definition>
+        <argsstring>(int delay)</argsstring>
+        <name>setDelay</name>
+        <qualifiedname>QFieldLocatorFilter::setDelay</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+<para>Sets the delay before which the fetching of results is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="59" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="78" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1aad0d757173bec69b5c6b493436c0d33f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>QFieldLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="62" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1ac9c1dd96a5fe564ec110fc9ce00c9381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setName</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>setName</name>
+        <qualifiedname>QFieldLocatorFilter::setName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the unique name of the filter. This should be an untranslated string identifying the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="67" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="87" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a8d808e792ea96f0afb17c72084b01f04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>QFieldLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="70" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a1ed9c135296acfa3c9e0adc3d76a75e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setDisplayName</definition>
+        <argsstring>(const QString &amp;displayName)</argsstring>
+        <name>setDisplayName</name>
+        <qualifiedname>QFieldLocatorFilter::setDisplayName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a translated, user-friendly name for the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="75" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="96" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a891a055e657f45eba181ddc10da796ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>QFieldLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="78" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a9dbe2c60154839e754fbc92ea10cbc4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setPrefix</definition>
+        <argsstring>(const QString &amp;prefix)</argsstring>
+        <name>setPrefix</name>
+        <qualifiedname>QFieldLocatorFilter::setPrefix</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the search prefix character(s) for this filter. Prefix a search with these characters will restrict the locator search to only include results from this filter. <simplesect kind="note"><para>The prefix must be &gt;= 3 characters otherwise it will be ignored. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="86" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="105" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a18d78f898fbe9a8844790ff09e128903" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QFieldLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>QFieldLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="89" column="13" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a470a1a9cd44a51b6a3b55d3233e6bacf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setDescription</definition>
+        <argsstring>(const QString &amp;description)</argsstring>
+        <name>setDescription</name>
+        <qualifiedname>QFieldLocatorFilter::setDescription</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a description for the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="94" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="114" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1aa74a25f7b051aa1f1b4c1cb214c77f71" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QUrl</type>
+        <definition>QUrl QFieldLocatorFilter::source</definition>
+        <argsstring>() const</argsstring>
+        <name>source</name>
+        <qualifiedname>QFieldLocatorFilter::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the source QML file which will process the locator filter results. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="99" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1abc5bea49cf3062bbef67c3d7ebfcd151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setSource</definition>
+        <argsstring>(const QUrl &amp;source)</argsstring>
+        <name>setSource</name>
+        <qualifiedname>QFieldLocatorFilter::setSource</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Setsthe source QML file which will process the locator filter results. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="104" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="53" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a9825ded2016bb78eabfe4eb6393379c3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QFieldLocatorFilter::parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>parameters</name>
+        <qualifiedname>QFieldLocatorFilter::parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns additional locator filter parameters which will possed onto the source QML that will process the locator filter results. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="110" column="17" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1af719eeaa8fb630513cb32546ea6b4abe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setParameters</definition>
+        <argsstring>(const QVariantMap &amp;parameters)</argsstring>
+        <name>setParameters</name>
+        <qualifiedname>QFieldLocatorFilter::setParameters</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets additional locator filter parameters which will possed onto the source QML that will process the locator filter results. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="116" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a412c472609951b677687f3c78594682f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge * QFieldLocatorFilter::locatorBridge</definition>
+        <argsstring>() const</argsstring>
+        <name>locatorBridge</name>
+        <qualifiedname>QFieldLocatorFilter::locatorBridge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the locator bridge object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="121" column="29" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a8f8942728f5ba0b4cdd7752aa236cb79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::setLocatorBridge</definition>
+        <argsstring>(LocatorModelSuperBridge *locatorBridge)</argsstring>
+        <name>setLocatorBridge</name>
+        <qualifiedname>QFieldLocatorFilter::setLocatorBridge</qualifiedname>
+        <param>
+          <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the locator bridge object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="126" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="69" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a2f29ba3f7cb80af0e2a80c285a1bf23a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority QFieldLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>QFieldLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="128" column="14" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a3f2001ebd80e7ed27810dfa9170c9e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>QFieldLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="129" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="147" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1a9ebe24d9e63cc4d4ae86899a8841d079" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>QFieldLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="130" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="176" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldLocatorFilter_1af6cd863ae7f92cae739d7fa48a13368f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>QFieldLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="131" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="181" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1adac22d9d2366cc91513c499737248e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::delayChanged</definition>
+        <argsstring>()</argsstring>
+        <name>delayChanged</name>
+        <qualifiedname>QFieldLocatorFilter::delayChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the fetch result delay has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="135" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1aa778175d24b3eeebf5c81c8495c4446b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::nameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>nameChanged</name>
+        <qualifiedname>QFieldLocatorFilter::nameChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the name has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="138" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1a73469edaa268dd468acfe15dfa636863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::displayNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>displayNameChanged</name>
+        <qualifiedname>QFieldLocatorFilter::displayNameChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the display name has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="141" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1ad2734f6a7d75850ac28586203683e0a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::prefixChanged</definition>
+        <argsstring>()</argsstring>
+        <name>prefixChanged</name>
+        <qualifiedname>QFieldLocatorFilter::prefixChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the prefix has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1a1a4c326e441a98bb59f8f71c0290ecef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::descriptionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>descriptionChanged</name>
+        <qualifiedname>QFieldLocatorFilter::descriptionChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the description has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="147" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1a9fc03bb3688cb1c091d28bd75a32333d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::parametersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>parametersChanged</name>
+        <qualifiedname>QFieldLocatorFilter::parametersChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the parameters object has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="150" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1a7e83649ffc8c8cb8b651af5647691a42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::sourceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sourceChanged</name>
+        <qualifiedname>QFieldLocatorFilter::sourceChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the source has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="153" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldLocatorFilter_1a7eeedfdcf52d4384d8a4caf60a777ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::locatorBridgeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>locatorBridgeChanged</name>
+        <qualifiedname>QFieldLocatorFilter::locatorBridgeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the locator bridge has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="156" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQFieldLocatorFilter_1a3328cb0a5024f74af7ee61a43ab0116a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::fetchResultsEnded</definition>
+        <argsstring>()</argsstring>
+        <name>fetchResultsEnded</name>
+        <qualifiedname>QFieldLocatorFilter::fetchResultsEnded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="159" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQFieldLocatorFilter_1a6b19c2a3de1cbfe39d972ddc016f67e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldLocatorFilter::prepareResult</definition>
+        <argsstring>(const QVariant &amp;details)</argsstring>
+        <name>prepareResult</name>
+        <qualifiedname>QFieldLocatorFilter::prepareResult</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>details</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qfieldlocatorfilter.h" line="160" column="10" bodyfile="src/core/locator/qfieldlocatorfilter.cpp" bodystart="128" bodyend="145"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQFieldLocatorFilter" kindref="compound">QFieldLocatorFilter</ref> is a locator filter item for QField plugins to integrate with locator searches. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldLocatorFilter</label>
+        <link refid="classQFieldLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldLocatorFilter</label>
+        <link refid="classQFieldLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qfieldlocatorfilter.h" line="34" column="1" bodyfile="src/core/locator/qfieldlocatorfilter.h" bodystart="35" bodyend="174"/>
+    <listofallmembers>
+      <member refid="classQFieldLocatorFilter_1a40f297a7d2096517045e182fd0ce6fa2" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>clone</name></member>
+      <member refid="classQFieldLocatorFilter_1a2a0e6fd65d1fa358a5086ea6aa1f4905" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>delay</name></member>
+      <member refid="classQFieldLocatorFilter_1a913ad9952d841c1d576c1261cac1082c" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>delay</name></member>
+      <member refid="classQFieldLocatorFilter_1adac22d9d2366cc91513c499737248e3b" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>delayChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a8faf057186a272698f9006423bc49cd1" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>description</name></member>
+      <member refid="classQFieldLocatorFilter_1a18d78f898fbe9a8844790ff09e128903" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>description</name></member>
+      <member refid="classQFieldLocatorFilter_1a1a4c326e441a98bb59f8f71c0290ecef" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>descriptionChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a97e2f560398782186e585e8db2432a60" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classQFieldLocatorFilter_1a8d808e792ea96f0afb17c72084b01f04" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classQFieldLocatorFilter_1a73469edaa268dd468acfe15dfa636863" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>displayNameChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a3f2001ebd80e7ed27810dfa9170c9e7d" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classQFieldLocatorFilter_1a3328cb0a5024f74af7ee61a43ab0116a" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>fetchResultsEnded</name></member>
+      <member refid="classQFieldLocatorFilter_1a76a4802668c40aff7ce9a6b50dc75c9c" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>locatorBridge</name></member>
+      <member refid="classQFieldLocatorFilter_1a412c472609951b677687f3c78594682f" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>locatorBridge</name></member>
+      <member refid="classQFieldLocatorFilter_1a7eeedfdcf52d4384d8a4caf60a777ee6" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>locatorBridgeChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a26b4b418d09c6f62d2ac6f9e3212616a" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mDescription</name></member>
+      <member refid="classQFieldLocatorFilter_1a58a18829c876099f6e79090d216fead7" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mDisplayName</name></member>
+      <member refid="classQFieldLocatorFilter_1a98c21dc31cbbe300e4c537e42650cada" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mFetchResultsEnded</name></member>
+      <member refid="classQFieldLocatorFilter_1a5d1b1dfd8a0a2984ae44c1455603706c" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classQFieldLocatorFilter_1a2af04f62b7837a481ed60c9ead86c011" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mName</name></member>
+      <member refid="classQFieldLocatorFilter_1adb77717b8dc12184aadd10ff1d07d82a" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mParameters</name></member>
+      <member refid="classQFieldLocatorFilter_1a8d190500fd9db599d7ab85263fbc3228" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mPrefix</name></member>
+      <member refid="classQFieldLocatorFilter_1a5c0e5c71fb5dbd30c0caa3eb1633cd8e" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>mSource</name></member>
+      <member refid="classQFieldLocatorFilter_1a608afe221cc9a1f44c918266babc7109" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>name</name></member>
+      <member refid="classQFieldLocatorFilter_1aad0d757173bec69b5c6b493436c0d33f" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>name</name></member>
+      <member refid="classQFieldLocatorFilter_1aa778175d24b3eeebf5c81c8495c4446b" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>nameChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1abeb00e689c4013629bef75e7f80eec0b" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>parameters</name></member>
+      <member refid="classQFieldLocatorFilter_1a9825ded2016bb78eabfe4eb6393379c3" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>parameters</name></member>
+      <member refid="classQFieldLocatorFilter_1a9fc03bb3688cb1c091d28bd75a32333d" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>parametersChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a6fb3d4122363d7054f29f6b5bec3465e" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classQFieldLocatorFilter_1a891a055e657f45eba181ddc10da796ec" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classQFieldLocatorFilter_1ad2734f6a7d75850ac28586203683e0a0" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>prefixChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a6b19c2a3de1cbfe39d972ddc016f67e1" prot="private" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>prepareResult</name></member>
+      <member refid="classQFieldLocatorFilter_1a2f29ba3f7cb80af0e2a80c285a1bf23a" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>priority</name></member>
+      <member refid="classQFieldLocatorFilter_1ae24a94915c595628f9a220f6a5420f1e" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>QFieldLocatorFilter</name></member>
+      <member refid="classQFieldLocatorFilter_1aef0fd4547c1e9b98601d6099898f98ed" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setDelay</name></member>
+      <member refid="classQFieldLocatorFilter_1a470a1a9cd44a51b6a3b55d3233e6bacf" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setDescription</name></member>
+      <member refid="classQFieldLocatorFilter_1a1ed9c135296acfa3c9e0adc3d76a75e7" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setDisplayName</name></member>
+      <member refid="classQFieldLocatorFilter_1a8f8942728f5ba0b4cdd7752aa236cb79" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setLocatorBridge</name></member>
+      <member refid="classQFieldLocatorFilter_1ac9c1dd96a5fe564ec110fc9ce00c9381" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setName</name></member>
+      <member refid="classQFieldLocatorFilter_1af719eeaa8fb630513cb32546ea6b4abe" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setParameters</name></member>
+      <member refid="classQFieldLocatorFilter_1a9dbe2c60154839e754fbc92ea10cbc4a" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setPrefix</name></member>
+      <member refid="classQFieldLocatorFilter_1abc5bea49cf3062bbef67c3d7ebfcd151" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>setSource</name></member>
+      <member refid="classQFieldLocatorFilter_1a964f9c3f3eda2bdb63cb46b1969335b0" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>source</name></member>
+      <member refid="classQFieldLocatorFilter_1aa74a25f7b051aa1f1b4c1cb214c77f71" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>source</name></member>
+      <member refid="classQFieldLocatorFilter_1a7e83649ffc8c8cb8b651af5647691a42" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>sourceChanged</name></member>
+      <member refid="classQFieldLocatorFilter_1a9ebe24d9e63cc4d4ae86899a8841d079" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classQFieldLocatorFilter_1af6cd863ae7f92cae739d7fa48a13368f" prot="public" virt="non-virtual"><scope>QFieldLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

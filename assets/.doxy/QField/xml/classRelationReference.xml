@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRelationReference" kind="class" language="C++" prot="public">
+    <compoundname>RelationReference</compoundname>
+    <basecompoundref refid="classEditorWidgetBase" prot="public" virt="non-virtual">EditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRelationReference_1add08f62f030e923e20159b7cee776940" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var RelationReference::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>RelationReference::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationReference.qml" line="8" column="5" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationReference_1afe13ee8d2196f56c8ed48921eb517ba3" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureCheckListModel" kindref="compound">FeatureCheckListModel</ref></type>
+        <definition>FeatureCheckListModel RelationReference::listModel</definition>
+        <argsstring></argsstring>
+        <name>listModel</name>
+        <qualifiedname>RelationReference::listModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationReference.qml" line="13" column="23" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationReference_1a2f517dcbd086a217e2462b14ea22dacb" prot="private" static="no" mutable="no">
+        <type><ref refid="classRelationCombobox" kindref="compound">RelationCombobox</ref></type>
+        <definition>RelationCombobox RelationReference::relationReference</definition>
+        <argsstring></argsstring>
+        <name>relationReference</name>
+        <qualifiedname>RelationReference::relationReference</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationReference.qml" line="14" column="18" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationReference_1a7d80ff275d811060654f7a00b8611c9e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton RelationReference::viewButton</definition>
+        <argsstring></argsstring>
+        <name>viewButton</name>
+        <qualifiedname>RelationReference::viewButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationReference.qml" line="15" column="14" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelationReference_1ad441181ff8796d83d881610e3e158be3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton RelationReference::openFormButton</definition>
+        <argsstring></argsstring>
+        <name>openFormButton</name>
+        <qualifiedname>RelationReference::openFormButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationReference.qml" line="16" column="14" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classRelationReference_1afcf969055f26e6a840bd0e61a33f6be0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool RelationReference::showOpenFormButton</definition>
+        <argsstring></argsstring>
+        <name>showOpenFormButton</name>
+        <qualifiedname>RelationReference::showOpenFormButton</qualifiedname>
+        <read>dummyGetter_showOpenFormButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/RelationReference.qml" line="11" column="1" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>RelationReference</label>
+        <link refid="classRelationReference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>RelationReference</label>
+        <link refid="classRelationReference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/RelationReference.qml" line="7" column="1" bodyfile="src/qml/editorwidgets/RelationReference.qml" bodystart="7" bodyend="17"/>
+    <listofallmembers>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>hasMenu</name></member>
+      <member refid="classRelationReference_1add08f62f030e923e20159b7cee776940" prot="private" virt="non-virtual"><scope>RelationReference</scope><name>height</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>isNull</name></member>
+      <member refid="classRelationReference_1afe13ee8d2196f56c8ed48921eb517ba3" prot="private" virt="non-virtual"><scope>RelationReference</scope><name>listModel</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>menu</name></member>
+      <member refid="classRelationReference_1ad441181ff8796d83d881610e3e158be3" prot="private" virt="non-virtual"><scope>RelationReference</scope><name>openFormButton</name></member>
+      <member refid="classRelationReference_1a2f517dcbd086a217e2462b14ea22dacb" prot="private" virt="non-virtual"><scope>RelationReference</scope><name>relationReference</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>requestBarcode</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>requestJumpToPoint</name></member>
+      <member refid="classRelationReference_1afcf969055f26e6a840bd0e61a33f6be0" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>showOpenFormButton</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>RelationReference</scope><name>valueChangeRequested</name></member>
+      <member refid="classRelationReference_1a7d80ff275d811060654f7a00b8611c9e" prot="private" virt="non-virtual"><scope>RelationReference</scope><name>viewButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

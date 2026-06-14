@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGeometryRenderer" kind="class" language="C++" prot="public">
+    <compoundname>GeometryRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGeometryRenderer_1aa9a8bc42c428154371be5431fa0d1e6e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings GeometryRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>GeometryRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="10" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeometryRenderer_1acf10dd4bd020878303031a8a8f7a9e4e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref></type>
+        <definition>QgsGeometryWrapper GeometryRenderer::geometryWrapper</definition>
+        <argsstring></argsstring>
+        <name>geometryWrapper</name>
+        <qualifiedname>GeometryRenderer::geometryWrapper</qualifiedname>
+        <read>dummyGetter_geometryWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="12" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeometryRenderer_1a41d6be0d8c454d1582b703fd2ec26b4d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GeometryRenderer::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>GeometryRenderer::lineWidth</qualifiedname>
+        <read>dummyGetter_lineWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="14" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeometryRenderer_1ac1997f0d34786b3de577aa06496e657f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color GeometryRenderer::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>GeometryRenderer::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="16" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeometryRenderer_1a22a1c7df136267cf9d3d033533d22968" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GeometryRenderer::pointSize</definition>
+        <argsstring></argsstring>
+        <name>pointSize</name>
+        <qualifiedname>GeometryRenderer::pointSize</qualifiedname>
+        <read>dummyGetter_pointSize_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="18" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeometryRenderer_1a568d74d43a5f96411c45945c355e9e07" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double GeometryRenderer::borderSize</definition>
+        <argsstring></argsstring>
+        <name>borderSize</name>
+        <qualifiedname>GeometryRenderer::borderSize</qualifiedname>
+        <read>dummyGetter_borderSize_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="20" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGeometryRenderer_1a120b3290b65191e90f649304e12e331e" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component GeometryRenderer::linePolygonHighlight</definition>
+        <argsstring></argsstring>
+        <name>linePolygonHighlight</name>
+        <qualifiedname>GeometryRenderer::linePolygonHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="23" column="11" bodyfile="src/qml/GeometryRenderer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeometryRenderer_1a5ab8a9835f4909c08478c850e676d470" prot="private" static="no" mutable="no">
+        <type><ref refid="classLinePolygon" kindref="compound">LinePolygon</ref></type>
+        <definition>LinePolygon GeometryRenderer::linePolygonItem</definition>
+        <argsstring></argsstring>
+        <name>linePolygonItem</name>
+        <qualifiedname>GeometryRenderer::linePolygonItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="24" column="13" bodyfile="src/qml/GeometryRenderer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeometryRenderer_1ad7ec3ebcde6ac8fd6bdbe6b5e07e3656" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component GeometryRenderer::pointHighlight</definition>
+        <argsstring></argsstring>
+        <name>pointHighlight</name>
+        <qualifiedname>GeometryRenderer::pointHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="25" column="11" bodyfile="src/qml/GeometryRenderer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeometryRenderer_1a0db71baaaa7e68b651c96ca26a999971" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapToScreen" kindref="compound">MapToScreen</ref></type>
+        <definition>MapToScreen GeometryRenderer::mapToScreenPosition</definition>
+        <argsstring></argsstring>
+        <name>mapToScreenPosition</name>
+        <qualifiedname>GeometryRenderer::mapToScreenPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="26" column="13" bodyfile="src/qml/GeometryRenderer.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeometryRenderer_1af64bec7b0b7787f97d4bd150bdde2230" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader GeometryRenderer::geometryComponent</definition>
+        <argsstring></argsstring>
+        <name>geometryComponent</name>
+        <qualifiedname>GeometryRenderer::geometryComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryRenderer.qml" line="27" column="8" bodyfile="src/qml/GeometryRenderer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GeometryRenderer</label>
+        <link refid="classGeometryRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeometryRenderer</label>
+        <link refid="classGeometryRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/GeometryRenderer.qml" line="7" column="1" bodyfile="src/qml/GeometryRenderer.qml" bodystart="7" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classGeometryRenderer_1a568d74d43a5f96411c45945c355e9e07" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>borderSize</name></member>
+      <member refid="classGeometryRenderer_1ac1997f0d34786b3de577aa06496e657f" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>color</name></member>
+      <member refid="classGeometryRenderer_1af64bec7b0b7787f97d4bd150bdde2230" prot="private" virt="non-virtual"><scope>GeometryRenderer</scope><name>geometryComponent</name></member>
+      <member refid="classGeometryRenderer_1acf10dd4bd020878303031a8a8f7a9e4e" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>geometryWrapper</name></member>
+      <member refid="classGeometryRenderer_1a120b3290b65191e90f649304e12e331e" prot="private" virt="non-virtual"><scope>GeometryRenderer</scope><name>linePolygonHighlight</name></member>
+      <member refid="classGeometryRenderer_1a5ab8a9835f4909c08478c850e676d470" prot="private" virt="non-virtual"><scope>GeometryRenderer</scope><name>linePolygonItem</name></member>
+      <member refid="classGeometryRenderer_1a41d6be0d8c454d1582b703fd2ec26b4d" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>lineWidth</name></member>
+      <member refid="classGeometryRenderer_1aa9a8bc42c428154371be5431fa0d1e6e" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>mapSettings</name></member>
+      <member refid="classGeometryRenderer_1a0db71baaaa7e68b651c96ca26a999971" prot="private" virt="non-virtual"><scope>GeometryRenderer</scope><name>mapToScreenPosition</name></member>
+      <member refid="classGeometryRenderer_1ad7ec3ebcde6ac8fd6bdbe6b5e07e3656" prot="private" virt="non-virtual"><scope>GeometryRenderer</scope><name>pointHighlight</name></member>
+      <member refid="classGeometryRenderer_1a22a1c7df136267cf9d3d033533d22968" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>pointSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

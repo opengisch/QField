@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSensorInformationView" kind="class" language="C++" prot="public">
+    <compoundname>SensorInformationView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSensorInformationView_1a5b15c176815e0b890a8ac5825ae7a4e5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias SensorInformationView::activeSensors</definition>
+        <argsstring></argsstring>
+        <name>activeSensors</name>
+        <qualifiedname>SensorInformationView::activeSensors</qualifiedname>
+        <read>dummyGetter_activeSensors_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="12" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1ae54e900f75158379247cdf7569adbc89" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int SensorInformationView::ceilsCount</definition>
+        <argsstring></argsstring>
+        <name>ceilsCount</name>
+        <qualifiedname>SensorInformationView::ceilsCount</qualifiedname>
+        <read>dummyGetter_ceilsCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="14" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1a7f262552b259490d32a19aab2ce73143" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double SensorInformationView::cellHeight</definition>
+        <argsstring></argsstring>
+        <name>cellHeight</name>
+        <qualifiedname>SensorInformationView::cellHeight</qualifiedname>
+        <read>dummyGetter_cellHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="16" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1ae5275c5b3f7cbb28101294064db5cc5e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double SensorInformationView::cellPadding</definition>
+        <argsstring></argsstring>
+        <name>cellPadding</name>
+        <qualifiedname>SensorInformationView::cellPadding</qualifiedname>
+        <read>dummyGetter_cellPadding_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="18" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1a275cfd27f44b6e93051dd50e7f4d63b3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color SensorInformationView::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>SensorInformationView::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="20" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1aa241d2a9c2a39fe51c77038b061ab412" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color SensorInformationView::alternateBackgroundColor</definition>
+        <argsstring></argsstring>
+        <name>alternateBackgroundColor</name>
+        <qualifiedname>SensorInformationView::alternateBackgroundColor</qualifiedname>
+        <read>dummyGetter_alternateBackgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="22" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1a13cab2d667037032e1ccc33ccf90d4d7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color SensorInformationView::textColor</definition>
+        <argsstring></argsstring>
+        <name>textColor</name>
+        <qualifiedname>SensorInformationView::textColor</qualifiedname>
+        <read>dummyGetter_textColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="24" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSensorInformationView_1a0fe13500328b0fa53b284257ba2c3401" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real SensorInformationView::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>SensorInformationView::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="26" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSensorInformationView_1a0cfc1d0327f2e63022ccc2956be2806b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var SensorInformationView::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>SensorInformationView::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="28" column="5" bodyfile="src/qml/SensorInformationView.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSensorInformationView_1a5f4feb29ff9a927d758debe90e21a29c" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors SensorInformationView::margins</definition>
+        <argsstring></argsstring>
+        <name>margins</name>
+        <qualifiedname>SensorInformationView::margins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="29" column="12" bodyfile="src/qml/SensorInformationView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSensorInformationView_1aa09648db4d932cd8a32d7185b2a84e95" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var SensorInformationView::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>SensorInformationView::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="30" column="5" bodyfile="src/qml/SensorInformationView.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSensorInformationView_1a90220cd6e7c78edcb4852d3475eccf32" prot="private" static="no" mutable="no">
+        <type>GridView</type>
+        <definition>GridView SensorInformationView::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <qualifiedname>SensorInformationView::grid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SensorInformationView.qml" line="31" column="10" bodyfile="src/qml/SensorInformationView.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>SensorInformationView</label>
+        <link refid="classSensorInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>SensorInformationView</label>
+        <link refid="classSensorInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/SensorInformationView.qml" line="9" column="1" bodyfile="src/qml/SensorInformationView.qml" bodystart="9" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classSensorInformationView_1a5b15c176815e0b890a8ac5825ae7a4e5" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>activeSensors</name></member>
+      <member refid="classSensorInformationView_1aa241d2a9c2a39fe51c77038b061ab412" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classSensorInformationView_1a275cfd27f44b6e93051dd50e7f4d63b3" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classSensorInformationView_1ae54e900f75158379247cdf7569adbc89" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>ceilsCount</name></member>
+      <member refid="classSensorInformationView_1a7f262552b259490d32a19aab2ce73143" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>cellHeight</name></member>
+      <member refid="classSensorInformationView_1ae5275c5b3f7cbb28101294064db5cc5e" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>cellPadding</name></member>
+      <member refid="classSensorInformationView_1aa09648db4d932cd8a32d7185b2a84e95" prot="private" virt="non-virtual"><scope>SensorInformationView</scope><name>color</name></member>
+      <member refid="classSensorInformationView_1a0fe13500328b0fa53b284257ba2c3401" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>contentHeight</name></member>
+      <member refid="classSensorInformationView_1a90220cd6e7c78edcb4852d3475eccf32" prot="private" virt="non-virtual"><scope>SensorInformationView</scope><name>grid</name></member>
+      <member refid="classSensorInformationView_1a5f4feb29ff9a927d758debe90e21a29c" prot="private" virt="non-virtual"><scope>SensorInformationView</scope><name>margins</name></member>
+      <member refid="classSensorInformationView_1a13cab2d667037032e1ccc33ccf90d4d7" prot="public" virt="non-virtual"><scope>SensorInformationView</scope><name>textColor</name></member>
+      <member refid="classSensorInformationView_1a0cfc1d0327f2e63022ccc2956be2806b" prot="private" virt="non-virtual"><scope>SensorInformationView</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

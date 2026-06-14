@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structFeatureListModel_1_1Entry" kind="struct" language="C++" prot="private">
+    <compoundname>FeatureListModel::Entry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structFeatureListModel_1_1Entry_1a9ef37f6aaf270e4105edad91245f4ee8" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FeatureListModel::Entry::displayString</definition>
+        <argsstring></argsstring>
+        <name>displayString</name>
+        <qualifiedname>FeatureListModel::Entry::displayString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="256" column="17" bodyfile="src/core/featurelistmodel.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureListModel_1_1Entry_1a4c5b275dcbf51bd6f00cd900fc476d96" prot="public" static="no" mutable="no">
+        <type>QVariant</type>
+        <definition>QVariant FeatureListModel::Entry::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>FeatureListModel::Entry::key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="257" column="18" bodyfile="src/core/featurelistmodel.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureListModel_1_1Entry_1aaff0cd4445a04153ca762312312b1ca7" prot="public" static="no" mutable="no">
+        <type>QVariant</type>
+        <definition>QVariant FeatureListModel::Entry::group</definition>
+        <argsstring></argsstring>
+        <name>group</name>
+        <qualifiedname>FeatureListModel::Entry::group</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="258" column="18" bodyfile="src/core/featurelistmodel.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureListModel_1_1Entry_1a276af5eed599c761e856b4b390ef10aa" prot="public" static="no" mutable="no">
+        <type>QgsFeatureId</type>
+        <definition>QgsFeatureId FeatureListModel::Entry::fid</definition>
+        <argsstring></argsstring>
+        <name>fid</name>
+        <qualifiedname>FeatureListModel::Entry::fid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="259" column="22" bodyfile="src/core/featurelistmodel.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFeatureListModel_1_1Entry_1aa81132e42375a61edc94b7038bb150f7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FeatureListModel::Entry::fuzzyScore</definition>
+        <argsstring></argsstring>
+        <name>fuzzyScore</name>
+        <qualifiedname>FeatureListModel::Entry::fuzzyScore</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="260" column="16" bodyfile="src/core/featurelistmodel.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structFeatureListModel_1_1Entry_1ac4da037c4c67e14f8b259135e1c334b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListModel::Entry::Entry</definition>
+        <argsstring>(const QString &amp;displayString, const QVariant &amp;key, const QVariant &amp;group, const QgsFeatureId &amp;fid)</argsstring>
+        <name>Entry</name>
+        <qualifiedname>FeatureListModel::Entry::Entry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayString</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>group</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureId &amp;</type>
+          <declname>fid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="246" column="9" bodyfile="src/core/featurelistmodel.h" bodystart="246" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="structFeatureListModel_1_1Entry_1aa3db4b31e047d02920cf1035dd8b3fce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeatureListModel::Entry::Entry</definition>
+        <argsstring>()=default</argsstring>
+        <name>Entry</name>
+        <qualifiedname>FeatureListModel::Entry::Entry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featurelistmodel.h" line="254" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/featurelistmodel.h" line="244" column="5" bodyfile="src/core/featurelistmodel.h" bodystart="245" bodyend="261"/>
+    <listofallmembers>
+      <member refid="structFeatureListModel_1_1Entry_1a9ef37f6aaf270e4105edad91245f4ee8" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>displayString</name></member>
+      <member refid="structFeatureListModel_1_1Entry_1ac4da037c4c67e14f8b259135e1c334b3" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>Entry</name></member>
+      <member refid="structFeatureListModel_1_1Entry_1aa3db4b31e047d02920cf1035dd8b3fce" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>Entry</name></member>
+      <member refid="structFeatureListModel_1_1Entry_1a276af5eed599c761e856b4b390ef10aa" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>fid</name></member>
+      <member refid="structFeatureListModel_1_1Entry_1aa81132e42375a61edc94b7038bb150f7" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>fuzzyScore</name></member>
+      <member refid="structFeatureListModel_1_1Entry_1aaff0cd4445a04153ca762312312b1ca7" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>group</name></member>
+      <member refid="structFeatureListModel_1_1Entry_1a4c5b275dcbf51bd6f00cd900fc476d96" prot="public" virt="non-virtual"><scope>FeatureListModel::Entry</scope><name>key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

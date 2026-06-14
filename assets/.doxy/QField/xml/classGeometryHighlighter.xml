@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGeometryHighlighter" kind="class" language="C++" prot="public">
+    <compoundname>GeometryHighlighter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classGeometryHighlighter_1aa6cf56c83ad8939dd15fd6a809edf416" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref></type>
+        <definition>QgsGeometryWrapper GeometryHighlighter::geometryWrapper</definition>
+        <argsstring></argsstring>
+        <name>geometryWrapper</name>
+        <qualifiedname>GeometryHighlighter::geometryWrapper</qualifiedname>
+        <read>dummyGetter_geometryWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryHighlighter.qml" line="9" column="1" bodyfile="src/qml/GeometryHighlighter.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classGeometryHighlighter_1a2b8deea212b9073f7a81218910ac4b0b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int GeometryHighlighter::duration</definition>
+        <argsstring></argsstring>
+        <name>duration</name>
+        <qualifiedname>GeometryHighlighter::duration</qualifiedname>
+        <read>dummyGetter_duration_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryHighlighter.qml" line="11" column="1" bodyfile="src/qml/GeometryHighlighter.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGeometryHighlighter_1a1e720016278f78c1fd4a0a479a913c82" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation GeometryHighlighter::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>GeometryHighlighter::timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryHighlighter.qml" line="13" column="21" bodyfile="src/qml/GeometryHighlighter.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGeometryHighlighter_1a50eec3439b4e9d869898933420b51e84" prot="private" static="no" mutable="no">
+        <type><ref refid="classGeometryRenderer" kindref="compound">GeometryRenderer</ref></type>
+        <definition>GeometryRenderer GeometryHighlighter::geometryRenderer</definition>
+        <argsstring></argsstring>
+        <name>geometryRenderer</name>
+        <qualifiedname>GeometryHighlighter::geometryRenderer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/GeometryHighlighter.qml" line="14" column="18" bodyfile="src/qml/GeometryHighlighter.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GeometryHighlighter</label>
+        <link refid="classGeometryHighlighter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeometryHighlighter</label>
+        <link refid="classGeometryHighlighter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/GeometryHighlighter.qml" line="6" column="1" bodyfile="src/qml/GeometryHighlighter.qml" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classGeometryHighlighter_1a2b8deea212b9073f7a81218910ac4b0b" prot="public" virt="non-virtual"><scope>GeometryHighlighter</scope><name>duration</name></member>
+      <member refid="classGeometryHighlighter_1a50eec3439b4e9d869898933420b51e84" prot="private" virt="non-virtual"><scope>GeometryHighlighter</scope><name>geometryRenderer</name></member>
+      <member refid="classGeometryHighlighter_1aa6cf56c83ad8939dd15fd6a809edf416" prot="public" virt="non-virtual"><scope>GeometryHighlighter</scope><name>geometryWrapper</name></member>
+      <member refid="classGeometryHighlighter_1a1e720016278f78c1fd4a0a479a913c82" prot="private" virt="non-virtual"><scope>GeometryHighlighter</scope><name>timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

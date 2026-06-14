@@ -1,0 +1,510 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfPageHeader" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfPageHeader</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ToolBar</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a7c61131d0bec6ccf07ae2601f9a8fe92" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>Theme::QfPageHeader::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1aa9561680b2ca4ffcd1fdf1e1082f3650" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPageHeader::backgroundFill</definition>
+        <argsstring></argsstring>
+        <name>backgroundFill</name>
+        <qualifiedname>Theme::QfPageHeader::backgroundFill</qualifiedname>
+        <read>dummyGetter_backgroundFill_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a3232679e2bad36a0ec1777de561e78ed" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPageHeader::backAsCancel</definition>
+        <argsstring></argsstring>
+        <name>backAsCancel</name>
+        <qualifiedname>Theme::QfPageHeader::backAsCancel</qualifiedname>
+        <read>dummyGetter_backAsCancel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a95d5f5e899a00d065a615f79a5c9aa31" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::showBackButton</definition>
+        <argsstring></argsstring>
+        <name>showBackButton</name>
+        <qualifiedname>Theme::QfPageHeader::showBackButton</qualifiedname>
+        <read>dummyGetter_showBackButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="21" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1af860dacba610a3d1dea07e56f99eef2f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::showApplyButton</definition>
+        <argsstring></argsstring>
+        <name>showApplyButton</name>
+        <qualifiedname>Theme::QfPageHeader::showApplyButton</qualifiedname>
+        <read>dummyGetter_showApplyButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="23" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a029b42b89222029729621576004724e4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::showCancelButton</definition>
+        <argsstring></argsstring>
+        <name>showCancelButton</name>
+        <qualifiedname>Theme::QfPageHeader::showCancelButton</qualifiedname>
+        <read>dummyGetter_showCancelButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="25" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a07f8804424714e2fe7815ce3156a47e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::showRemoveButton</definition>
+        <argsstring></argsstring>
+        <name>showRemoveButton</name>
+        <qualifiedname>Theme::QfPageHeader::showRemoveButton</qualifiedname>
+        <read>dummyGetter_showRemoveButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="27" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a1bfc91d6e77c029a6f6e55426f5d839c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::showMenuButton</definition>
+        <argsstring></argsstring>
+        <name>showMenuButton</name>
+        <qualifiedname>Theme::QfPageHeader::showMenuButton</qualifiedname>
+        <read>dummyGetter_showMenuButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="29" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a3e71ca2a4b7ebc12e2f82d3091478ed8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::busyIndicatorState</definition>
+        <argsstring></argsstring>
+        <name>busyIndicatorState</name>
+        <qualifiedname>Theme::QfPageHeader::busyIndicatorState</qualifiedname>
+        <read>dummyGetter_busyIndicatorState_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="31" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1ace32097e16a65fa91e42b1af93656e92" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfPageHeader::busyIndicatorValue</definition>
+        <argsstring></argsstring>
+        <name>busyIndicatorValue</name>
+        <qualifiedname>Theme::QfPageHeader::busyIndicatorValue</qualifiedname>
+        <read>dummyGetter_busyIndicatorValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="33" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPageHeader_1a512e2beaded8ef317b72a706afcb932e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Theme::QfPageHeader::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>Theme::QfPageHeader::topMargin</qualifiedname>
+        <read>dummyGetter_topMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="35" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a0ece1a0378e5643d9abb4020af700e99" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPageHeader::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfPageHeader::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="49" column="5" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1afe17d23911dd5ef2eeed3055cd3dadf5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPageHeader::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>Theme::QfPageHeader::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="50" column="5" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1aae0aa2a484448e9c0828d7f8e595d526" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPageHeader::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>Theme::QfPageHeader::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="51" column="5" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a21e7fff614f727baf2ef6d764d9957c2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPageHeader::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>Theme::QfPageHeader::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="52" column="5" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a995951a93475bb82d671eb15b8e5c818" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPageHeader::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>Theme::QfPageHeader::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="53" column="5" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1afc1c06c23cb6a7476797624fcd525c8b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPageHeader::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>Theme::QfPageHeader::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="54" column="5" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1ac26108fd87d7a87bf9e1e0583f9ff4cc" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material Theme::QfPageHeader::foreground</definition>
+        <argsstring></argsstring>
+        <name>foreground</name>
+        <qualifiedname>Theme::QfPageHeader::foreground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="55" column="13" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1ab9416d9a4a2589842eeb9046d9e9ea64" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfPageHeader::backButton</definition>
+        <argsstring></argsstring>
+        <name>backButton</name>
+        <qualifiedname>Theme::QfPageHeader::backButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="56" column="14" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a8796c0ce9c9bfca2acce3b78507bf1d7" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfPageHeader::applyButton</definition>
+        <argsstring></argsstring>
+        <name>applyButton</name>
+        <qualifiedname>Theme::QfPageHeader::applyButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="57" column="14" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a094761336022775bf32c67f146964c95" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label Theme::QfPageHeader::titleLabel</definition>
+        <argsstring></argsstring>
+        <name>titleLabel</name>
+        <qualifiedname>Theme::QfPageHeader::titleLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="58" column="7" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a016890299eafbb34bb03fbfb7ec29dec" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfPageHeader::removeButton</definition>
+        <argsstring></argsstring>
+        <name>removeButton</name>
+        <qualifiedname>Theme::QfPageHeader::removeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="59" column="14" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a5f2e6b5c0ccc4e8e093993423acf77a1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfPageHeader::cancelButton</definition>
+        <argsstring></argsstring>
+        <name>cancelButton</name>
+        <qualifiedname>Theme::QfPageHeader::cancelButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="60" column="14" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPageHeader_1a89736b01aeb163f654bacbd642102e5b" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfPageHeader::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>Theme::QfPageHeader::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="61" column="14" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfPageHeader_1a87650f64646ad6d6d87bb2ca21e8bebc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPageHeader::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>Theme::QfPageHeader::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="37" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTheme_1_1QfPageHeader_1a585fd50d0b9af9ff0735a98f1f182a26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPageHeader::apply</definition>
+        <argsstring>()</argsstring>
+        <name>apply</name>
+        <qualifiedname>Theme::QfPageHeader::apply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="39" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTheme_1_1QfPageHeader_1ae08e491c81778832e7d7becb2699a934" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPageHeader::back</definition>
+        <argsstring>()</argsstring>
+        <name>back</name>
+        <qualifiedname>Theme::QfPageHeader::back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="41" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTheme_1_1QfPageHeader_1abd3d117187e0c79abf3eb1565779c29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPageHeader::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>Theme::QfPageHeader::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="43" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTheme_1_1QfPageHeader_1ab09598ac9e901a28a18aa0f2d615df25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPageHeader::remove</definition>
+        <argsstring>()</argsstring>
+        <name>remove</name>
+        <qualifiedname>Theme::QfPageHeader::remove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="45" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classTheme_1_1QfPageHeader_1aa08a92206760bcd243d187060530101a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPageHeader::openMenu</definition>
+        <argsstring>()</argsstring>
+        <name>openMenu</name>
+        <qualifiedname>Theme::QfPageHeader::openMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPageHeader.qml" line="47" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Theme::QfPageHeader</label>
+        <link refid="classTheme_1_1QfPageHeader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ToolBar</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Theme::QfPageHeader</label>
+        <link refid="classTheme_1_1QfPageHeader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ToolBar</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfPageHeader.qml" line="12" column="1" bodyfile="src/qml/imports/Theme/QfPageHeader.qml" bodystart="12" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfPageHeader_1a585fd50d0b9af9ff0735a98f1f182a26" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>apply</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a8796c0ce9c9bfca2acce3b78507bf1d7" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>applyButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1ae08e491c81778832e7d7becb2699a934" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>back</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a3232679e2bad36a0ec1777de561e78ed" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>backAsCancel</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1ab9416d9a4a2589842eeb9046d9e9ea64" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>backButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1afc1c06c23cb6a7476797624fcd525c8b" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>background</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1aa9561680b2ca4ffcd1fdf1e1082f3650" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>backgroundFill</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a995951a93475bb82d671eb15b8e5c818" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>bottomPadding</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a3e71ca2a4b7ebc12e2f82d3091478ed8" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>busyIndicatorState</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1ace32097e16a65fa91e42b1af93656e92" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>busyIndicatorValue</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a87650f64646ad6d6d87bb2ca21e8bebc" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>cancel</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a5f2e6b5c0ccc4e8e093993423acf77a1" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>cancelButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1abd3d117187e0c79abf3eb1565779c29b" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>finished</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1ac26108fd87d7a87bf9e1e0583f9ff4cc" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>foreground</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a0ece1a0378e5643d9abb4020af700e99" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1aae0aa2a484448e9c0828d7f8e595d526" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>leftPadding</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a89736b01aeb163f654bacbd642102e5b" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>menuButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1aa08a92206760bcd243d187060530101a" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>openMenu</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1ab09598ac9e901a28a18aa0f2d615df25" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>remove</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a016890299eafbb34bb03fbfb7ec29dec" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>removeButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a21e7fff614f727baf2ef6d764d9957c2" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>rightPadding</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1af860dacba610a3d1dea07e56f99eef2f" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>showApplyButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a95d5f5e899a00d065a615f79a5c9aa31" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>showBackButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a029b42b89222029729621576004724e4" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>showCancelButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a1bfc91d6e77c029a6f6e55426f5d839c" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>showMenuButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a07f8804424714e2fe7815ce3156a47e7" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>showRemoveButton</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a7c61131d0bec6ccf07ae2601f9a8fe92" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>title</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a094761336022775bf32c67f146964c95" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>titleLabel</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1a512e2beaded8ef317b72a706afcb932e" prot="public" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>topMargin</name></member>
+      <member refid="classTheme_1_1QfPageHeader_1afe17d23911dd5ef2eeed3055cd3dadf5" prot="private" virt="non-virtual"><scope>Theme::QfPageHeader</scope><name>topPadding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

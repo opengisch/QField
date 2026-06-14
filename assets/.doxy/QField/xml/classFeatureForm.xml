@@ -1,0 +1,554 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureForm" kind="class" language="C++" prot="public">
+    <compoundname>FeatureForm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFeatureForm_1a402d6fe4b081c6d2d8f2392b9279d458" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classDigitizingToolbar" kindref="compound">DigitizingToolbar</ref></type>
+        <definition>DigitizingToolbar FeatureForm::digitizingToolbar</definition>
+        <argsstring></argsstring>
+        <name>digitizingToolbar</name>
+        <qualifiedname>FeatureForm::digitizingToolbar</qualifiedname>
+        <read>dummyGetter_digitizingToolbar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="40" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a6ef64eeef4d052d527457c7efb8e86cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classCodeReader" kindref="compound">CodeReader</ref></type>
+        <definition>CodeReader FeatureForm::codeReader</definition>
+        <argsstring></argsstring>
+        <name>codeReader</name>
+        <qualifiedname>FeatureForm::codeReader</qualifiedname>
+        <read>dummyGetter_codeReader_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="42" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1acdf8eafcbbacd0675afe2300d87bcf28" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classAttributeFormModel" kindref="compound">AttributeFormModel</ref></type>
+        <definition>AttributeFormModel FeatureForm::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>FeatureForm::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="44" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a165795bcc892561f90ac2aaff54a1155" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias FeatureForm::currentTab</definition>
+        <argsstring></argsstring>
+        <name>currentTab</name>
+        <qualifiedname>FeatureForm::currentTab</qualifiedname>
+        <read>dummyGetter_currentTab_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="46" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1aab494c1222f2c3f339b8c8960ceccdfb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias FeatureForm::toolbarVisible</definition>
+        <argsstring></argsstring>
+        <name>toolbarVisible</name>
+        <qualifiedname>FeatureForm::toolbarVisible</qualifiedname>
+        <read>dummyGetter_toolbarVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="48" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a377713745f05e7fa6b8daf7745d30e49" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureForm::embedded</definition>
+        <argsstring></argsstring>
+        <name>embedded</name>
+        <qualifiedname>FeatureForm::embedded</qualifiedname>
+        <read>dummyGetter_embedded_ignore</read>
+        <briefdescription>
+<para>if embedded form called by RelationEditor or RelationReferenceWidget </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="50" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a39a7574069b9e49e3d5ad7e5dd6b0636" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int FeatureForm::embeddedLevel</definition>
+        <argsstring></argsstring>
+        <name>embeddedLevel</name>
+        <qualifiedname>FeatureForm::embeddedLevel</qualifiedname>
+        <read>dummyGetter_embeddedLevel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="52" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1ab40c41c28252d56d69ef0cb7d8480cfa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureForm::setupOnly</definition>
+        <argsstring></argsstring>
+        <name>setupOnly</name>
+        <qualifiedname>FeatureForm::setupOnly</qualifiedname>
+        <read>dummyGetter_setupOnly_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="54" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1ac7d39058f7ec405c851e7e6e410cd6c5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureForm::featureCreated</definition>
+        <argsstring></argsstring>
+        <name>featureCreated</name>
+        <qualifiedname>FeatureForm::featureCreated</qualifiedname>
+        <read>dummyGetter_featureCreated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="56" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a27be8ef042a0d2583eeb9f20fb6d582b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureForm::isVertical</definition>
+        <argsstring></argsstring>
+        <name>isVertical</name>
+        <qualifiedname>FeatureForm::isVertical</qualifiedname>
+        <read>dummyGetter_isVertical_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="58" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1ab9b65b4f2310f7a5fa6ec4cc4f04dafa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FeatureForm::isDraggable</definition>
+        <argsstring></argsstring>
+        <name>isDraggable</name>
+        <qualifiedname>FeatureForm::isDraggable</qualifiedname>
+        <read>dummyGetter_isDraggable_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="60" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a55641956cfbc2ed53a548c3c41fe4d92" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureForm::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>FeatureForm::topMargin</qualifiedname>
+        <read>dummyGetter_topMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="62" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1acb6b1f4db9465666f6a9ce45e14d07c0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureForm::leftMargin</definition>
+        <argsstring></argsstring>
+        <name>leftMargin</name>
+        <qualifiedname>FeatureForm::leftMargin</qualifiedname>
+        <read>dummyGetter_leftMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="64" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1aba507af96c8a4bcf80911b0b443912b4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureForm::rightMargin</definition>
+        <argsstring></argsstring>
+        <name>rightMargin</name>
+        <qualifiedname>FeatureForm::rightMargin</qualifiedname>
+        <read>dummyGetter_rightMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="66" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFeatureForm_1a463832bfc7cd5546445cbc62ed1010b3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double FeatureForm::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>FeatureForm::bottomMargin</qualifiedname>
+        <read>dummyGetter_bottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="68" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureForm_1a210009c9826ffa40ef0b44d2fc28562d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FeatureForm::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>FeatureForm::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="74" column="5" bodyfile="src/qml/FeatureForm.qml" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureForm_1a1bdd9f1a58a84dece53c9753069b32e5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FeatureForm::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>FeatureForm::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="75" column="5" bodyfile="src/qml/FeatureForm.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFeatureForm_1a4d8515735b4397e744d29f1756ab92db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::confirmed</definition>
+        <argsstring>()</argsstring>
+        <name>confirmed</name>
+        <qualifiedname>FeatureForm::confirmed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="18" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1a7bb19d0a99c0379715cf57b25fd65111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::cancelled</definition>
+        <argsstring>()</argsstring>
+        <name>cancelled</name>
+        <qualifiedname>FeatureForm::cancelled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="20" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1af56281b55560fc3c499d688958f9f64f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::temporaryStored</definition>
+        <argsstring>()</argsstring>
+        <name>temporaryStored</name>
+        <qualifiedname>FeatureForm::temporaryStored</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="22" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1a664ec2a8f03a5e77b019d2c9fbc9e618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::valueChanged</definition>
+        <argsstring>(var field, var oldValue, var newValue)</argsstring>
+        <name>valueChanged</name>
+        <qualifiedname>FeatureForm::valueChanged</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>oldValue</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="24" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1a635663b96cb0a4d36a1ea4db7f121057" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::aboutToSave</definition>
+        <argsstring>()</argsstring>
+        <name>aboutToSave</name>
+        <qualifiedname>FeatureForm::aboutToSave</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="26" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1a2b16d05afa00aa9caa06a75d894da6f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::toolbarDragged</definition>
+        <argsstring>(var deltaX, var deltaY)</argsstring>
+        <name>toolbarDragged</name>
+        <qualifiedname>FeatureForm::toolbarDragged</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>deltaX</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>deltaY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="28" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1a04bde3f51b1adaa1b55ddf8120d7c55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::toolbarDragAcquired</definition>
+        <argsstring>()</argsstring>
+        <name>toolbarDragAcquired</name>
+        <qualifiedname>FeatureForm::toolbarDragAcquired</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="30" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1aeb5786a0cc35475630577d94482f3ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::toolbarDragReleased</definition>
+        <argsstring>()</argsstring>
+        <name>toolbarDragReleased</name>
+        <qualifiedname>FeatureForm::toolbarDragReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="32" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1a597edd9a0853f6acd04e8c74c6723e72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::requestGeometry</definition>
+        <argsstring>(var item, var layer)</argsstring>
+        <name>requestGeometry</name>
+        <qualifiedname>FeatureForm::requestGeometry</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>var</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="34" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1ac320c0c60b1ce7921270b2916f33e3d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::requestBarcode</definition>
+        <argsstring>(var item)</argsstring>
+        <name>requestBarcode</name>
+        <qualifiedname>FeatureForm::requestBarcode</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="36" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFeatureForm_1ac46c0a321af85e53fbecf745969017da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>FeatureForm::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="38" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureForm_1a5aa3bc1ed3b65c6a2acbf23b95b6221c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::requestCancel</definition>
+        <argsstring>()</argsstring>
+        <name>requestCancel</name>
+        <qualifiedname>FeatureForm::requestCancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="70" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureForm_1a628168f4edd6d722e2f16ccc8fc0c72e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureForm::resetTabs</definition>
+        <argsstring>()</argsstring>
+        <name>resetTabs</name>
+        <qualifiedname>FeatureForm::resetTabs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FeatureForm.qml" line="72" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureForm</label>
+        <link refid="classFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureForm</label>
+        <link refid="classFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Page</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/FeatureForm.qml" line="15" column="1" bodyfile="src/qml/FeatureForm.qml" bodystart="15" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classFeatureForm_1a635663b96cb0a4d36a1ea4db7f121057" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>aboutToSave</name></member>
+      <member refid="classFeatureForm_1a463832bfc7cd5546445cbc62ed1010b3" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>bottomMargin</name></member>
+      <member refid="classFeatureForm_1a7bb19d0a99c0379715cf57b25fd65111" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>cancelled</name></member>
+      <member refid="classFeatureForm_1a210009c9826ffa40ef0b44d2fc28562d" prot="private" virt="non-virtual"><scope>FeatureForm</scope><name>clip</name></member>
+      <member refid="classFeatureForm_1a6ef64eeef4d052d527457c7efb8e86cf" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>codeReader</name></member>
+      <member refid="classFeatureForm_1a4d8515735b4397e744d29f1756ab92db" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>confirmed</name></member>
+      <member refid="classFeatureForm_1a165795bcc892561f90ac2aaff54a1155" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>currentTab</name></member>
+      <member refid="classFeatureForm_1a402d6fe4b081c6d2d8f2392b9279d458" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>digitizingToolbar</name></member>
+      <member refid="classFeatureForm_1a377713745f05e7fa6b8daf7745d30e49" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>embedded</name></member>
+      <member refid="classFeatureForm_1a39a7574069b9e49e3d5ad7e5dd6b0636" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>embeddedLevel</name></member>
+      <member refid="classFeatureForm_1ac7d39058f7ec405c851e7e6e410cd6c5" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>featureCreated</name></member>
+      <member refid="classFeatureForm_1ab9b65b4f2310f7a5fa6ec4cc4f04dafa" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>isDraggable</name></member>
+      <member refid="classFeatureForm_1a27be8ef042a0d2583eeb9f20fb6d582b" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>isVertical</name></member>
+      <member refid="classFeatureForm_1acb6b1f4db9465666f6a9ce45e14d07c0" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>leftMargin</name></member>
+      <member refid="classFeatureForm_1acdf8eafcbbacd0675afe2300d87bcf28" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>model</name></member>
+      <member refid="classFeatureForm_1ac320c0c60b1ce7921270b2916f33e3d0" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestBarcode</name></member>
+      <member refid="classFeatureForm_1a5aa3bc1ed3b65c6a2acbf23b95b6221c" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestCancel</name></member>
+      <member refid="classFeatureForm_1a597edd9a0853f6acd04e8c74c6723e72" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestGeometry</name></member>
+      <member refid="classFeatureForm_1ac46c0a321af85e53fbecf745969017da" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classFeatureForm_1a628168f4edd6d722e2f16ccc8fc0c72e" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>resetTabs</name></member>
+      <member refid="classFeatureForm_1aba507af96c8a4bcf80911b0b443912b4" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>rightMargin</name></member>
+      <member refid="classFeatureForm_1ab40c41c28252d56d69ef0cb7d8480cfa" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>setupOnly</name></member>
+      <member refid="classFeatureForm_1a1bdd9f1a58a84dece53c9753069b32e5" prot="private" virt="non-virtual"><scope>FeatureForm</scope><name>states</name></member>
+      <member refid="classFeatureForm_1af56281b55560fc3c499d688958f9f64f" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>temporaryStored</name></member>
+      <member refid="classFeatureForm_1a04bde3f51b1adaa1b55ddf8120d7c55f" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarDragAcquired</name></member>
+      <member refid="classFeatureForm_1a2b16d05afa00aa9caa06a75d894da6f4" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarDragged</name></member>
+      <member refid="classFeatureForm_1aeb5786a0cc35475630577d94482f3ff8" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarDragReleased</name></member>
+      <member refid="classFeatureForm_1aab494c1222f2c3f339b8c8960ceccdfb" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>toolbarVisible</name></member>
+      <member refid="classFeatureForm_1a55641956cfbc2ed53a548c3c41fe4d92" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>topMargin</name></member>
+      <member refid="classFeatureForm_1a664ec2a8f03a5e77b019d2c9fbc9e618" prot="public" virt="non-virtual"><scope>FeatureForm</scope><name>valueChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

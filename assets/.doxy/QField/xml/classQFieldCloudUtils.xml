@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudUtils" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudUtils_1abad50f4f623d1d288a2a4c8c037c66d1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudUtils::errorCodeOverQuota</definition>
+        <argsstring></argsstring>
+        <name>errorCodeOverQuota</name>
+        <qualifiedname>QFieldCloudUtils::errorCodeOverQuota</qualifiedname>
+        <read>errorCodeOverQuota</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="222" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudUtils_1a28405d792c864d31ee71cae7cd7edba8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudUtils::errorCodePlanInsufficient</definition>
+        <argsstring></argsstring>
+        <name>errorCodePlanInsufficient</name>
+        <qualifiedname>QFieldCloudUtils::errorCodePlanInsufficient</qualifiedname>
+        <read>errorCodePlanInsufficient</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="223" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQFieldCloudUtils_1a12965eaf208586fb3606f17b329eb90b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudUtils::setLocalCloudDirectory</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setLocalCloudDirectory</name>
+        <qualifiedname>QFieldCloudUtils::setLocalCloudDirectory</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the local cloud directory. Must be set before the first call to localCloudDirectory. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="230" column="17" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const QString</type>
+        <definition>const QString QFieldCloudUtils::localCloudDirectory</definition>
+        <argsstring>()</argsstring>
+        <name>localCloudDirectory</name>
+        <qualifiedname>QFieldCloudUtils::localCloudDirectory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the path to the local cloud directory. By default inside the user profile unless overwritten with setLocalCloudDirectory <simplesect kind="note"><para>The returned path will never have have a trailing &apos;/&apos; or &apos;\&apos; . </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="237" column="26" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="38" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1aa5ea9ec9df75f9339ee12187ac2536fe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const QString</type>
+        <definition>const QString QFieldCloudUtils::localProjectFilePath</definition>
+        <argsstring>(const QString &amp;username, const QString &amp;projectId)</argsstring>
+        <name>localProjectFilePath</name>
+        <qualifiedname>QFieldCloudUtils::localProjectFilePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the file path to the locally-stored cloud project file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="242" column="26" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="51" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1a8769060abfce34af738bbe38bbbd03fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QFieldCloudUtils::isCloudAction</definition>
+        <argsstring>(const QgsMapLayer *layer)</argsstring>
+        <name>isCloudAction</name>
+        <qualifiedname>QFieldCloudUtils::isCloudAction</qualifiedname>
+        <param>
+          <type>const QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns if the layer action has do be handled with QFieldCloud.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to be checked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>const bool true if the layer has the action not selected &apos;no_action&apos; (on online databases) or &apos;remove&apos; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="250" column="17" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="63" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1aef69d7fdf59d1f653d53ad5808487250" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString QFieldCloudUtils::getProjectId</definition>
+        <argsstring>(const QString &amp;fileName)</argsstring>
+        <name>getProjectId</name>
+        <qualifiedname>QFieldCloudUtils::getProjectId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the cloud project ID for a given file path.</para>
+<para>This function checks if the given file path is under the QField local cloud directory. If it is, it extracts and returns the project ID (UUID-like string) from the path. Otherwise, it returns a null QString.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full path to a file or directory inside a cloud project </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>QString Project ID if found; otherwise, an empty string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="262" column="38" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="74" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1a376a6dd14f355786fc3d6e3c524ea189" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QFieldCloudUtils::userFriendlyErrorString</definition>
+        <argsstring>(const QString &amp;errorString)</argsstring>
+        <name>userFriendlyErrorString</name>
+        <qualifiedname>QFieldCloudUtils::userFriendlyErrorString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a user-friendly error message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errorString</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error string to be processed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A user-friendly error message that will be displayed to the user, translated based on received error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="270" column="32" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="100" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1ad190c49b9f947e2a74d853ec7d11fb16" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QFieldCloudUtils::documentationFromErrorString</definition>
+        <argsstring>(const QString &amp;errorString)</argsstring>
+        <name>documentationFromErrorString</name>
+        <qualifiedname>QFieldCloudUtils::documentationFromErrorString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a documentation page hyperlink related to the provided error string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errorString</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error string to be processed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The hyperlink to the documentation page related to the provided error code, or an empty string if no match is found. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="278" column="32" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="116" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1a2023e61c12bee6143776782f275699b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudUtils::setProjectSetting</definition>
+        <argsstring>(const QString &amp;projectId, const QString &amp;setting, const QVariant &amp;value)</argsstring>
+        <name>setProjectSetting</name>
+        <qualifiedname>QFieldCloudUtils::setProjectSetting</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>setting</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a <emphasis>setting</emphasis> to a given <emphasis>value</emphasis> for project with given <emphasis>projectId</emphasis> to the permanent storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="281" column="17" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="126" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1afe0089315277d544743d5903b77dba0a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const QVariant</type>
+        <definition>const QVariant QFieldCloudUtils::projectSetting</definition>
+        <argsstring>(const QString &amp;projectId, const QString &amp;setting, const QVariant &amp;defaultValue=QVariant())</argsstring>
+        <name>projectSetting</name>
+        <qualifiedname>QFieldCloudUtils::projectSetting</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>setting</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>defaultValue</declname>
+          <defval>QVariant()</defval>
+        </param>
+        <briefdescription>
+<para>Gets a <emphasis>setting</emphasis> value for project with given <emphasis>projectId</emphasis> from the permanent storage. Return <emphasis>defaultValue</emphasis> if not present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="284" column="27" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="133" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1a6620bedd7eca4c975c8432d45619a536" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QFieldCloudUtils::hasPendingAttachments</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>hasPendingAttachments</name>
+        <qualifiedname>QFieldCloudUtils::hasPendingAttachments</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if pending attachments are detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="287" column="29" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="140" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1a18c2f53d4bc4d0cf84158104cfa8695c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const QMultiMap&lt; QString, QString &gt;</type>
+        <definition>const QMultiMap&lt; QString, QString &gt; QFieldCloudUtils::getPendingAttachments</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>getPendingAttachments</name>
+        <qualifiedname>QFieldCloudUtils::getPendingAttachments</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Returns the list of attachments that have not yet been uploaded to the cloud. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="290" column="28" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="145" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1aedfb342c44cbccab9684eeb9a93ea8e3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QFieldCloudUtils::addPendingAttachments</definition>
+        <argsstring>(const QString &amp;username, const QString &amp;projectId, const QStringList &amp;fileNames, QFieldCloudConnection *cloudConnection=nullptr, const bool &amp;checkSumCheck=false)</argsstring>
+        <name>addPendingAttachments</name>
+        <qualifiedname>QFieldCloudUtils::addPendingAttachments</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>fileNames</declname>
+        </param>
+        <param>
+          <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> *</type>
+          <declname>cloudConnection</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>checkSumCheck</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an array of files and/or folders for a given cloud project to the pending upload attachments list. If <emphasis>checkSumCheck</emphasis> is true, checks file checksums with the server; otherwise, adds all files without validation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>projectId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project ID for which files are added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileNames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of file and/or folder path(s) to be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cloudConnection</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cloud connection used to fetch file data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>checkSumCheck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to validate files by comparing checksums with the server. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="301" column="29" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="240" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1ae56486e564b9ab8721047dc98f563400" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QFieldCloudUtils::removePendingAttachment</definition>
+        <argsstring>(const QString &amp;username, const QString &amp;projectId, const QString &amp;fileName)</argsstring>
+        <name>removePendingAttachment</name>
+        <qualifiedname>QFieldCloudUtils::removePendingAttachment</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Removes a <emphasis>fileName</emphasis> for a given <emphasis>projectId</emphasis> to the pending attachments list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="304" column="29" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="361" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1ad284d079db6c2699921a9f397d803350" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QFieldCloudUtils::subscriptionManagementUrl</definition>
+        <argsstring>(const QString &amp;serverUrl, const QString &amp;plan, const QString &amp;projectOwner, const QString &amp;username)</argsstring>
+        <name>subscriptionManagementUrl</name>
+        <qualifiedname>QFieldCloudUtils::subscriptionManagementUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>serverUrl</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>plan</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectOwner</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the URL for managing the subscription for a given <emphasis>plan</emphasis>, <emphasis>serverUrl</emphasis>, and <emphasis>username</emphasis>. Returns an empty string if the server is not the default QFieldCloud server or if the <emphasis>projectOwner</emphasis> does not match the <emphasis>username</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="310" column="32" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="389" bodyend="408"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classQFieldCloudUtils_1ad3ceb18496cb77ce028daa50022d6203" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudUtils::writeToAttachmentsFile</definition>
+        <argsstring>(const QString &amp;username, const QString &amp;projectId, const QStringList &amp;fileNames, const QHash&lt; QString, QString &gt; *fileChecksumMap, const bool &amp;checkSumCheck, QFieldCloudConnection *cloudConnection=nullptr)</argsstring>
+        <name>writeToAttachmentsFile</name>
+        <qualifiedname>QFieldCloudUtils::writeToAttachmentsFile</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>fileNames</declname>
+        </param>
+        <param>
+          <type>const QHash&lt; QString, QString &gt; *</type>
+          <declname>fileChecksumMap</declname>
+        </param>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>checkSumCheck</declname>
+        </param>
+        <param>
+          <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> *</type>
+          <declname>cloudConnection</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="313" column="17" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="290" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1a8cb368252ce3b43be91cece3ed879614" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudUtils::writeFilesFromDirectory</definition>
+        <argsstring>(const QString &amp;dirPath, const QString &amp;projectId, const QHash&lt; QString, QString &gt; *fileChecksumMap, const bool &amp;checkSumCheck, QTextStream &amp;attachmentsStream)</argsstring>
+        <name>writeFilesFromDirectory</name>
+        <qualifiedname>QFieldCloudUtils::writeFilesFromDirectory</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>dirPath</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QHash&lt; QString, QString &gt; *</type>
+          <declname>fileChecksumMap</declname>
+        </param>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>checkSumCheck</declname>
+        </param>
+        <param>
+          <type>QTextStream &amp;</type>
+          <declname>attachmentsStream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="314" column="17" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="321" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1ae96e2952ab06794019df9f7408fc8a2f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudUtils::writeFileDetails</definition>
+        <argsstring>(const QString &amp;fileName, const QString &amp;projectId, const QHash&lt; QString, QString &gt; *fileChecksumMap, const bool &amp;checkSumCheck, QTextStream &amp;attachmentsStream)</argsstring>
+        <name>writeFileDetails</name>
+        <qualifiedname>QFieldCloudUtils::writeFileDetails</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>projectId</declname>
+        </param>
+        <param>
+          <type>const QHash&lt; QString, QString &gt; *</type>
+          <declname>fileChecksumMap</declname>
+        </param>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>checkSumCheck</declname>
+        </param>
+        <param>
+          <type>QTextStream &amp;</type>
+          <declname>attachmentsStream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="315" column="17" bodyfile="src/core/utils/qfieldcloudutils.cpp" bodystart="344" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1aa448d4d5c0ef2af5148b3558a3470a01" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const QString</type>
+        <definition>static const QString QFieldCloudUtils::errorCodeOverQuota</definition>
+        <argsstring>()</argsstring>
+        <name>errorCodeOverQuota</name>
+        <qualifiedname>QFieldCloudUtils::errorCodeOverQuota</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="317" column="33" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="317" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudUtils_1af2d5a02fde2029035f75032a5275fa25" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const QString</type>
+        <definition>static const QString QFieldCloudUtils::errorCodePlanInsufficient</definition>
+        <argsstring>()</argsstring>
+        <name>errorCodePlanInsufficient</name>
+        <qualifiedname>QFieldCloudUtils::errorCodePlanInsufficient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="318" column="33" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="318" bodyend="318"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldCloudUtils</label>
+        <link refid="classQFieldCloudUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldCloudUtils</label>
+        <link refid="classQFieldCloudUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/qfieldcloudutils.h" line="218" column="1" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="219" bodyend="319"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudUtils_1aedfb342c44cbccab9684eeb9a93ea8e3" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>addPendingAttachments</name></member>
+      <member refid="classQFieldCloudUtils_1ad190c49b9f947e2a74d853ec7d11fb16" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>documentationFromErrorString</name></member>
+      <member refid="classQFieldCloudUtils_1abad50f4f623d1d288a2a4c8c037c66d1" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>errorCodeOverQuota</name></member>
+      <member refid="classQFieldCloudUtils_1aa448d4d5c0ef2af5148b3558a3470a01" prot="private" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>errorCodeOverQuota</name></member>
+      <member refid="classQFieldCloudUtils_1a28405d792c864d31ee71cae7cd7edba8" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>errorCodePlanInsufficient</name></member>
+      <member refid="classQFieldCloudUtils_1af2d5a02fde2029035f75032a5275fa25" prot="private" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>errorCodePlanInsufficient</name></member>
+      <member refid="classQFieldCloudUtils_1a18c2f53d4bc4d0cf84158104cfa8695c" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>getPendingAttachments</name></member>
+      <member refid="classQFieldCloudUtils_1aef69d7fdf59d1f653d53ad5808487250" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>getProjectId</name></member>
+      <member refid="classQFieldCloudUtils_1a6620bedd7eca4c975c8432d45619a536" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>hasPendingAttachments</name></member>
+      <member refid="classQFieldCloudUtils_1a8769060abfce34af738bbe38bbbd03fd" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>isCloudAction</name></member>
+      <member refid="classQFieldCloudUtils_1afe7210cb3134836919321ec4684509a9" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>localCloudDirectory</name></member>
+      <member refid="classQFieldCloudUtils_1aa5ea9ec9df75f9339ee12187ac2536fe" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>localProjectFilePath</name></member>
+      <member refid="classQFieldCloudUtils_1afe0089315277d544743d5903b77dba0a" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>projectSetting</name></member>
+      <member refid="classQFieldCloudUtils_1ae56486e564b9ab8721047dc98f563400" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>removePendingAttachment</name></member>
+      <member refid="classQFieldCloudUtils_1a12965eaf208586fb3606f17b329eb90b" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>setLocalCloudDirectory</name></member>
+      <member refid="classQFieldCloudUtils_1a2023e61c12bee6143776782f275699b4" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>setProjectSetting</name></member>
+      <member refid="classQFieldCloudUtils_1ad284d079db6c2699921a9f397d803350" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>subscriptionManagementUrl</name></member>
+      <member refid="classQFieldCloudUtils_1a376a6dd14f355786fc3d6e3c524ea189" prot="public" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>userFriendlyErrorString</name></member>
+      <member refid="classQFieldCloudUtils_1ae96e2952ab06794019df9f7408fc8a2f" prot="private" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>writeFileDetails</name></member>
+      <member refid="classQFieldCloudUtils_1a8cb368252ce3b43be91cece3ed879614" prot="private" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>writeFilesFromDirectory</name></member>
+      <member refid="classQFieldCloudUtils_1ad3ceb18496cb77ce028daa50022d6203" prot="private" virt="non-virtual"><scope>QFieldCloudUtils</scope><name>writeToAttachmentsFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

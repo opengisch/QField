@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerObserver" kind="class" language="C++" prot="public">
+    <compoundname>LayerObserver</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="layerobserver_8h" local="no">layerobserver.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLayerObserver_1aa9e885c4c0eca93c8cb86fb7e0e5d4e1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref> *</type>
+        <definition>DeltaFileWrapper * LayerObserver::deltaFileWrapper</definition>
+        <argsstring></argsstring>
+        <name>deltaFileWrapper</name>
+        <qualifiedname>LayerObserver::deltaFileWrapper</qualifiedname>
+        <read>deltaFileWrapper</read>
+        <write>setDeltaFileWrapper</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="42" column="5" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLayerObserver_1a7b541ccd95b688a07541b1e9c44678bc" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref> &gt;</type>
+        <definition>QPointer&lt;DeltaFileWrapper&gt; LayerObserver::mDeltaFileWrapper</definition>
+        <argsstring></argsstring>
+        <name>mDeltaFileWrapper</name>
+        <qualifiedname>LayerObserver::mDeltaFileWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current deltas file wrapper object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="146" column="14" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerObserver_1aa7a263b6a0b3593afe51682f4def4a5b" prot="private" static="no" mutable="no">
+        <type>const QgsProject *</type>
+        <definition>const QgsProject* LayerObserver::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>LayerObserver::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current project instance </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="152" column="22" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerObserver_1a7fb56a129e05b8968a561bf994a66659" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString LayerObserver::mDeltaFileName</definition>
+        <argsstring></argsstring>
+        <name>mDeltaFileName</name>
+        <qualifiedname>LayerObserver::mDeltaFileName</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current project delta file name </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="158" column="13" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerObserver_1a4fa4bc1f4567c9ec2b4e4ca05c990170" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsChangedFeatures &gt;</type>
+        <definition>QMap&lt;QString, QgsChangedFeatures&gt; LayerObserver::mChangedFeatures</definition>
+        <argsstring></argsstring>
+        <name>mChangedFeatures</name>
+        <qualifiedname>LayerObserver::mChangedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Store the old version of changed (patch or delete) features per layer. key - layer ID value - changed features for that layer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="166" column="10" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerObserver_1aff77e264a25f99dd10fd6e29b73db1ee" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsFeatureIds &gt;</type>
+        <definition>QMap&lt;QString, QgsFeatureIds&gt; LayerObserver::mPatchedFids</definition>
+        <argsstring></argsstring>
+        <name>mPatchedFids</name>
+        <qualifiedname>LayerObserver::mPatchedFids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Store the old version of patched features per layer. key - layer ID value - patched feature IDs for that layer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="174" column="10" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerObserver_1a6cec72a8680d4032e94bf7608fbef490" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; LayerObserver::mObservedLayerIds</definition>
+        <argsstring></argsstring>
+        <name>mObservedLayerIds</name>
+        <qualifiedname>LayerObserver::mObservedLayerIds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Layer ids being observed for changes. Should reset when the project is changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="180" column="10" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerObserver_1a66f74cb019c754cfb7b7a01a4eec3246" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LayerObserver::mLocalAndSourcePkAttrAreEqual</definition>
+        <argsstring></argsstring>
+        <name>mLocalAndSourcePkAttrAreEqual</name>
+        <qualifiedname>LayerObserver::mLocalAndSourcePkAttrAreEqual</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="189" column="10" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLayerObserver_1ae1a75a29c37d90b0c6c165baeee4c961" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LayerObserver::LayerObserver</definition>
+        <argsstring>(const QgsProject *project)</argsstring>
+        <name>LayerObserver</name>
+        <qualifiedname>LayerObserver::LayerObserver</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new Layer Observer object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="50" column="14" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="32" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerObserver_1a17b7c2b8b5478e7f54317676d703eeb1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void LayerObserver::reset</definition>
+        <argsstring>(bool isHardReset=false) const</argsstring>
+        <name>reset</name>
+        <qualifiedname>LayerObserver::reset</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>isHardReset</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the current delta file changes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="56" column="22" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="45" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerObserver_1a1a182788b146a8026772a07ec5f52725" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref> *</type>
+        <definition>DeltaFileWrapper * LayerObserver::deltaFileWrapper</definition>
+        <argsstring>() const</argsstring>
+        <name>deltaFileWrapper</name>
+        <qualifiedname>LayerObserver::deltaFileWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the current delta file</para>
+<para><simplesect kind="return"><para>current delta file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="64" column="22" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerObserver_1aefb9b21956ba8a1f975933155e828cae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::setDeltaFileWrapper</definition>
+        <argsstring>(DeltaFileWrapper *wrapper)</argsstring>
+        <name>setDeltaFileWrapper</name>
+        <qualifiedname>LayerObserver::setDeltaFileWrapper</qualifiedname>
+        <param>
+          <type><ref refid="classDeltaFileWrapper" kindref="compound">DeltaFileWrapper</ref> *</type>
+          <declname>wrapper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current delta file</para>
+<para><simplesect kind="return"><para>current delta file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="71" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="67" bodyend="76"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classLayerObserver_1abb6b13a91788b01fd8346e2da81223a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::layerEdited</definition>
+        <argsstring>(const QString &amp;layerId)</argsstring>
+        <name>layerEdited</name>
+        <qualifiedname>LayerObserver::layerEdited</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classLayerObserver_1a2e6f27dbece7c4a6b89c7b841a28e8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::deltaFileWrapperChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deltaFileWrapperChanged</name>
+        <qualifiedname>LayerObserver::deltaFileWrapperChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="75" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classLayerObserver_1a7569f0d1f16cb51b4864d35c813e1b1e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onLayersAdded</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>onLayersAdded</name>
+        <qualifiedname>LayerObserver::onLayersAdded</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Monitors the current project for new layers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layers added </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="84" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="94" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1aab35ba1e978881d72f2709b1b04b749f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onHomePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onHomePathChanged</name>
+        <qualifiedname>LayerObserver::onHomePathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Commit the changes of the current delta file and </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="91" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="79" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1af671202a36a7e036c33b7f967fe64f63" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onBeforeCommitChanges</definition>
+        <argsstring>()</argsstring>
+        <name>onBeforeCommitChanges</name>
+        <qualifiedname>LayerObserver::onBeforeCommitChanges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extracts the old values of the modified features </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="97" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="101" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1a709a0db834381970ac2176adfbca00a4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onCommittedFeaturesAdded</definition>
+        <argsstring>(const QString &amp;localLayerId, const QgsFeatureList &amp;addedFeatures)</argsstring>
+        <name>onCommittedFeaturesAdded</name>
+        <qualifiedname>LayerObserver::onCommittedFeaturesAdded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureList &amp;</type>
+          <declname>addedFeatures</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the &quot;create&quot; deltas</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>addedFeatures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new features </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="106" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="150" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1adfbc3b57201655d58239bc2498d7212e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onCommittedFeaturesRemoved</definition>
+        <argsstring>(const QString &amp;localLayerId, const QgsFeatureIds &amp;deletedFeatureIds)</argsstring>
+        <name>onCommittedFeaturesRemoved</name>
+        <qualifiedname>LayerObserver::onCommittedFeaturesRemoved</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureIds &amp;</type>
+          <declname>deletedFeatureIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the &quot;delete&quot; deltas</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deletedFeatureIds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>old feature IDs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="115" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="169" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1a40b9ed7f6c344442590504639a042b66" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onCommittedAttributeValuesChanges</definition>
+        <argsstring>(const QString &amp;localLayerId, const QgsChangedAttributesMap &amp;changedAttributesValues)</argsstring>
+        <name>onCommittedAttributeValuesChanges</name>
+        <qualifiedname>LayerObserver::onCommittedAttributeValuesChanges</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QgsChangedAttributesMap &amp;</type>
+          <declname>changedAttributesValues</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the &quot;patch&quot; deltas</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>changedAttributesValues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="124" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="195" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1a616a27c40548331c9da93ed32ea7f4ce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onCommittedGeometriesChanges</definition>
+        <argsstring>(const QString &amp;localLayerId, const QgsGeometryMap &amp;changedGeometries)</argsstring>
+        <name>onCommittedGeometriesChanges</name>
+        <qualifiedname>LayerObserver::onCommittedGeometriesChanges</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QgsGeometryMap &amp;</type>
+          <declname>changedGeometries</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the &quot;patch&quot; deltas.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localLayerId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layer ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>changedGeometries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="133" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="236" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="slot" id="classLayerObserver_1a2cda059dff951cdcb04e73e789d0a447" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::onEditingStopped</definition>
+        <argsstring>()</argsstring>
+        <name>onEditingStopped</name>
+        <qualifiedname>LayerObserver::onEditingStopped</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the deltas to the delta file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="139" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="277" bodyend="303"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classLayerObserver_1a6ad1c910adc3f6c0e211ea93975d4de0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerObserver::addLayerListeners</definition>
+        <argsstring>()</argsstring>
+        <name>addLayerListeners</name>
+        <qualifiedname>LayerObserver::addLayerListeners</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the needed event listeners to monitor for changes. Assigns listeners only for layer actions of <computeroutput>cloud</computeroutput> and <computeroutput>offline</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/layerobserver.h" line="187" column="10" bodyfile="src/core/qfieldcloud/layerobserver.cpp" bodystart="306" bodyend="363"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Monitors all layers for changes and writes those changes to a delta file </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerObserver</label>
+        <link refid="classLayerObserver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerObserver</label>
+        <link refid="classLayerObserver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/layerobserver.h" line="38" column="1" bodyfile="src/core/qfieldcloud/layerobserver.h" bodystart="39" bodyend="190"/>
+    <listofallmembers>
+      <member refid="classLayerObserver_1a6ad1c910adc3f6c0e211ea93975d4de0" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>addLayerListeners</name></member>
+      <member refid="classLayerObserver_1aa9e885c4c0eca93c8cb86fb7e0e5d4e1" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>deltaFileWrapper</name></member>
+      <member refid="classLayerObserver_1a1a182788b146a8026772a07ec5f52725" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>deltaFileWrapper</name></member>
+      <member refid="classLayerObserver_1a2e6f27dbece7c4a6b89c7b841a28e8bb" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>deltaFileWrapperChanged</name></member>
+      <member refid="classLayerObserver_1abb6b13a91788b01fd8346e2da81223a5" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>layerEdited</name></member>
+      <member refid="classLayerObserver_1ae1a75a29c37d90b0c6c165baeee4c961" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>LayerObserver</name></member>
+      <member refid="classLayerObserver_1a4fa4bc1f4567c9ec2b4e4ca05c990170" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mChangedFeatures</name></member>
+      <member refid="classLayerObserver_1a7fb56a129e05b8968a561bf994a66659" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mDeltaFileName</name></member>
+      <member refid="classLayerObserver_1a7b541ccd95b688a07541b1e9c44678bc" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mDeltaFileWrapper</name></member>
+      <member refid="classLayerObserver_1a66f74cb019c754cfb7b7a01a4eec3246" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mLocalAndSourcePkAttrAreEqual</name></member>
+      <member refid="classLayerObserver_1a6cec72a8680d4032e94bf7608fbef490" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mObservedLayerIds</name></member>
+      <member refid="classLayerObserver_1aff77e264a25f99dd10fd6e29b73db1ee" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mPatchedFids</name></member>
+      <member refid="classLayerObserver_1aa7a263b6a0b3593afe51682f4def4a5b" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>mProject</name></member>
+      <member refid="classLayerObserver_1af671202a36a7e036c33b7f967fe64f63" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onBeforeCommitChanges</name></member>
+      <member refid="classLayerObserver_1a40b9ed7f6c344442590504639a042b66" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onCommittedAttributeValuesChanges</name></member>
+      <member refid="classLayerObserver_1a709a0db834381970ac2176adfbca00a4" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onCommittedFeaturesAdded</name></member>
+      <member refid="classLayerObserver_1adfbc3b57201655d58239bc2498d7212e" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onCommittedFeaturesRemoved</name></member>
+      <member refid="classLayerObserver_1a616a27c40548331c9da93ed32ea7f4ce" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onCommittedGeometriesChanges</name></member>
+      <member refid="classLayerObserver_1a2cda059dff951cdcb04e73e789d0a447" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onEditingStopped</name></member>
+      <member refid="classLayerObserver_1aab35ba1e978881d72f2709b1b04b749f" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onHomePathChanged</name></member>
+      <member refid="classLayerObserver_1a7569f0d1f16cb51b4864d35c813e1b1e" prot="private" virt="non-virtual"><scope>LayerObserver</scope><name>onLayersAdded</name></member>
+      <member refid="classLayerObserver_1a17b7c2b8b5478e7f54317676d703eeb1" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>reset</name></member>
+      <member refid="classLayerObserver_1aefb9b21956ba8a1f975933155e828cae" prot="public" virt="non-virtual"><scope>LayerObserver</scope><name>setDeltaFileWrapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

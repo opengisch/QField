@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCogoParameterWidgetBase" kind="class" language="C++" prot="public">
+    <compoundname>CogoParameterWidgetBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classangle" prot="public" virt="non-virtual">angle</derivedcompoundref>
+    <derivedcompoundref refid="classdistance" prot="public" virt="non-virtual">distance</derivedcompoundref>
+    <derivedcompoundref refid="classelevation" prot="public" virt="non-virtual">elevation</derivedcompoundref>
+    <derivedcompoundref refid="classenum" prot="public" virt="non-virtual">enum</derivedcompoundref>
+    <derivedcompoundref refid="classpoint" prot="public" virt="non-virtual">point</derivedcompoundref>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CogoParameterWidgetBase::valueChangeRequested</definition>
+        <argsstring>(var value)</argsstring>
+        <name>valueChangeRequested</name>
+        <qualifiedname>CogoParameterWidgetBase::valueChangeRequested</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emmited when a processing parameter widget has changed the value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/CogoParameterWidgetBase.qml" line="8" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CogoParameterWidgetBase::requestPosition</definition>
+        <argsstring>(var item, bool fromCoordinateLocator)</argsstring>
+        <name>requestPosition</name>
+        <qualifiedname>CogoParameterWidgetBase::requestPosition</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fromCoordinateLocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emitted when a parameter requests a position from the internal/external GNSS. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/cogoparameterwidgets/CogoParameterWidgetBase.qml" line="12" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>angle</label>
+        <link refid="classangle"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>distance</label>
+        <link refid="classdistance"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>elevation</label>
+        <link refid="classelevation"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>enum</label>
+        <link refid="classenum"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>point</label>
+        <link refid="classpoint"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CogoParameterWidgetBase</label>
+        <link refid="classCogoParameterWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/cogoparameterwidgets/CogoParameterWidgetBase.qml" line="3" column="1" bodyfile="src/qml/cogoparameterwidgets/CogoParameterWidgetBase.qml" bodystart="3" bodyend="13"/>
+    <listofallmembers>
+      <member refid="classCogoParameterWidgetBase_1a52b53003934d715a6bbbf2f77b658371" prot="public" virt="non-virtual"><scope>CogoParameterWidgetBase</scope><name>requestPosition</name></member>
+      <member refid="classCogoParameterWidgetBase_1ab7393dc8cfb637327c684bef80703422" prot="public" virt="non-virtual"><scope>CogoParameterWidgetBase</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,819 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classgallery__relation__editor" kind="class" language="C++" prot="public">
+    <compoundname>gallery_relation_editor</compoundname>
+    <basecompoundref refid="classRelationEditorBase" prot="public" virt="non-virtual">RelationEditorBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgallery__relation__editor_1aab869019101160890286a40b5fb8d904" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::relationEditorModel</definition>
+        <argsstring></argsstring>
+        <name>relationEditorModel</name>
+        <qualifiedname>gallery_relation_editor::relationEditorModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="10" column="5" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a735e157c46929c8fc4586ebede1fbaae" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>gallery_relation_editor::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="25" column="5" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1af9911efd0b1c5be6c6c19a7132502d23" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component gallery_relation_editor::onDestruction</definition>
+        <argsstring></argsstring>
+        <name>onDestruction</name>
+        <qualifiedname>gallery_relation_editor::onDestruction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="26" column="14" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1aab27b721d39ac537db43f6f6588c28d5" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer gallery_relation_editor::videoQueueTimer</definition>
+        <argsstring></argsstring>
+        <name>videoQueueTimer</name>
+        <qualifiedname>gallery_relation_editor::videoQueueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="49" column="7" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1af93603b45fa7651c9326c3cc8159c402" prot="private" static="no" mutable="no">
+        <type>QtObject</type>
+        <definition>QtObject gallery_relation_editor::dummyTarget</definition>
+        <argsstring></argsstring>
+        <name>dummyTarget</name>
+        <qualifiedname>gallery_relation_editor::dummyTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="54" column="10" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1afe11ea8c1e35f144f5861fb363dc9f46" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections gallery_relation_editor::cloudProjectConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectConnection</name>
+        <qualifiedname>gallery_relation_editor::cloudProjectConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="55" column="13" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a28fdf59be48b6b40e9b919b724384b90" prot="private" static="no" mutable="no">
+        <type><ref refid="classExternalStorage" kindref="compound">ExternalStorage</ref></type>
+        <definition>ExternalStorage gallery_relation_editor::externalStorage</definition>
+        <argsstring></argsstring>
+        <name>externalStorage</name>
+        <qualifiedname>gallery_relation_editor::externalStorage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="56" column="17" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a368339f3eafba6ef9b963f65870ca259" prot="private" static="no" mutable="no">
+        <type><ref refid="classAudioAnalyzer" kindref="compound">AudioAnalyzer</ref></type>
+        <definition>AudioAnalyzer gallery_relation_editor::audioAnalyzer</definition>
+        <argsstring></argsstring>
+        <name>audioAnalyzer</name>
+        <qualifiedname>gallery_relation_editor::audioAnalyzer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="57" column="15" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a7c255e9b93f11ba3a2597d0615025ef8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>gallery_relation_editor::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="77" column="5" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1af47e168f247a1c90e9e60526f5463b61" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>gallery_relation_editor::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="78" column="5" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a56cc47952ac25c3f756984192dd8e78b" prot="private" static="no" mutable="no">
+        <type>var listView</type>
+        <definition>var listView gallery_relation_editor::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>gallery_relation_editor::orientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="79" column="13" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a179e24e31a854cb6d03cca9297b5b5f6" prot="private" static="no" mutable="no">
+        <type>var listView</type>
+        <definition>var listView gallery_relation_editor::flickableDirection</definition>
+        <argsstring></argsstring>
+        <name>flickableDirection</name>
+        <qualifiedname>gallery_relation_editor::flickableDirection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="80" column="13" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a43697979bda2f532b83d3e92ae0de457" prot="private" static="no" mutable="no">
+        <type>var listView</type>
+        <definition>var listView gallery_relation_editor::topMargin</definition>
+        <argsstring></argsstring>
+        <name>topMargin</name>
+        <qualifiedname>gallery_relation_editor::topMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="81" column="13" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a03227d50708ea489e3be169f200c631d" prot="private" static="no" mutable="no">
+        <type>var listView</type>
+        <definition>var listView gallery_relation_editor::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>gallery_relation_editor::bottomMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="82" column="13" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1ad765474043215e2a51cf2c002f3fd824" prot="private" static="no" mutable="no">
+        <type>var listView ScrollBar vertical</type>
+        <definition>var listView ScrollBar vertical gallery_relation_editor::policy</definition>
+        <argsstring></argsstring>
+        <name>policy</name>
+        <qualifiedname>gallery_relation_editor::policy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="83" column="30" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a738f692bb239c409056515a529886f2d" prot="private" static="no" mutable="no">
+        <type>var listView</type>
+        <definition>var listView gallery_relation_editor::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>gallery_relation_editor::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="84" column="13" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1afed40dcb20fe7029423266b72b3dfa9f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::onIsCardViewChanged</definition>
+        <argsstring></argsstring>
+        <name>onIsCardViewChanged</name>
+        <qualifiedname>gallery_relation_editor::onIsCardViewChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="85" column="5" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1a6f54f3c76bd6ce05c3c79c442f9ad360" prot="private" static="no" mutable="no">
+        <type><ref refid="classExpressionEvaluator" kindref="compound">ExpressionEvaluator</ref></type>
+        <definition>ExpressionEvaluator gallery_relation_editor::attachmentNamingEvaluator</definition>
+        <argsstring></argsstring>
+        <name>attachmentNamingEvaluator</name>
+        <qualifiedname>gallery_relation_editor::attachmentNamingEvaluator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="86" column="21" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgallery__relation__editor_1aa172e9ec860883c321fe66afcc39317d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::headerActions</definition>
+        <argsstring></argsstring>
+        <name>headerActions</name>
+        <qualifiedname>gallery_relation_editor::headerActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="95" column="5" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classgallery__relation__editor_1ada0d4257b54142f5d238573faecb4ba4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool gallery_relation_editor::isCardView</definition>
+        <argsstring></argsstring>
+        <name>isCardView</name>
+        <qualifiedname>gallery_relation_editor::isCardView</qualifiedname>
+        <read>dummyGetter_isCardView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="13" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a6dcd0b70e251ef0650bfdbc7f46ce971" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string gallery_relation_editor::imagePrefix</definition>
+        <argsstring></argsstring>
+        <name>imagePrefix</name>
+        <qualifiedname>gallery_relation_editor::imagePrefix</qualifiedname>
+        <read>dummyGetter_imagePrefix_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="15" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1abca2ba43d48d2fd8cdf74b6720993982" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::activeMediaItem</definition>
+        <argsstring></argsstring>
+        <name>activeMediaItem</name>
+        <qualifiedname>gallery_relation_editor::activeMediaItem</qualifiedname>
+        <read>dummyGetter_activeMediaItem_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="17" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a3c8239fffaf3240d1c6bf0e80df92528" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::pendingDownloads</definition>
+        <argsstring></argsstring>
+        <name>pendingDownloads</name>
+        <qualifiedname>gallery_relation_editor::pendingDownloads</qualifiedname>
+        <read>dummyGetter_pendingDownloads_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="29" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a6a963dd50c71c3ffabdc03f52cc8b8d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::failedDownloads</definition>
+        <argsstring></argsstring>
+        <name>failedDownloads</name>
+        <qualifiedname>gallery_relation_editor::failedDownloads</qualifiedname>
+        <read>dummyGetter_failedDownloads_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="31" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1ade7864198c29dd783476df5ede48d264" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::fetchedPaths</definition>
+        <argsstring></argsstring>
+        <name>fetchedPaths</name>
+        <qualifiedname>gallery_relation_editor::fetchedPaths</qualifiedname>
+        <read>dummyGetter_fetchedPaths_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="33" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a354c778fd8f90574db22aff69f35589e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int gallery_relation_editor::downloadRevision</definition>
+        <argsstring></argsstring>
+        <name>downloadRevision</name>
+        <qualifiedname>gallery_relation_editor::downloadRevision</qualifiedname>
+        <read>dummyGetter_downloadRevision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="35" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a9c1a883cb19cfc0778fe38bef6530d68" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::fetchQueue</definition>
+        <argsstring></argsstring>
+        <name>fetchQueue</name>
+        <qualifiedname>gallery_relation_editor::fetchQueue</qualifiedname>
+        <read>dummyGetter_fetchQueue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="37" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a02467391cc35bdc281748b60bf4956fb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string gallery_relation_editor::currentFetchKey</definition>
+        <argsstring></argsstring>
+        <name>currentFetchKey</name>
+        <qualifiedname>gallery_relation_editor::currentFetchKey</qualifiedname>
+        <read>dummyGetter_currentFetchKey_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="39" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a4b09d002ed4cd797649d8c73b707adc6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var gallery_relation_editor::videoQueue</definition>
+        <argsstring></argsstring>
+        <name>videoQueue</name>
+        <qualifiedname>gallery_relation_editor::videoQueue</qualifiedname>
+        <read>dummyGetter_videoQueue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="45" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1af6165fbf532bbf0c13e3e59fca614440" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool gallery_relation_editor::videoQueueBusy</definition>
+        <argsstring></argsstring>
+        <name>videoQueueBusy</name>
+        <qualifiedname>gallery_relation_editor::videoQueueBusy</qualifiedname>
+        <read>dummyGetter_videoQueueBusy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="47" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a736cfec34f6b6507196c724192fa3e9d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classResourceSource" kindref="compound">ResourceSource</ref></type>
+        <definition>ResourceSource gallery_relation_editor::resourceSource</definition>
+        <argsstring></argsstring>
+        <name>resourceSource</name>
+        <qualifiedname>gallery_relation_editor::resourceSource</qualifiedname>
+        <read>dummyGetter_resourceSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="60" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1aa31173d3a1e18bdb289d1a47c74a1b21" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int gallery_relation_editor::visibleCards</definition>
+        <argsstring></argsstring>
+        <name>visibleCards</name>
+        <qualifiedname>gallery_relation_editor::visibleCards</qualifiedname>
+        <read>dummyGetter_visibleCards_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="63" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a5a46b0d8e07e66037fd26fd6125e338f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int gallery_relation_editor::cardSize</definition>
+        <argsstring></argsstring>
+        <name>cardSize</name>
+        <qualifiedname>gallery_relation_editor::cardSize</qualifiedname>
+        <read>dummyGetter_cardSize_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="66" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1af5fef838ee93be676c23220e1107b91d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int gallery_relation_editor::cardMargin</definition>
+        <argsstring></argsstring>
+        <name>cardMargin</name>
+        <qualifiedname>gallery_relation_editor::cardMargin</qualifiedname>
+        <read>dummyGetter_cardMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="69" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1adadf51d97a62f838d5c22ab86867b861" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int gallery_relation_editor::listItemHeight</definition>
+        <argsstring></argsstring>
+        <name>listItemHeight</name>
+        <qualifiedname>gallery_relation_editor::listItemHeight</qualifiedname>
+        <read>dummyGetter_listItemHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="72" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classgallery__relation__editor_1a680bc334ea3e1a5e2e90f1b9eee8be7f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int gallery_relation_editor::toggleHeight</definition>
+        <argsstring></argsstring>
+        <name>toggleHeight</name>
+        <qualifiedname>gallery_relation_editor::toggleHeight</qualifiedname>
+        <read>dummyGetter_toggleHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="75" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgallery__relation__editor_1a7f19ac5b24fb80a8bf6e46b143a95d9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::requestMediaFocus</definition>
+        <argsstring>(item)</argsstring>
+        <name>requestMediaFocus</name>
+        <qualifiedname>gallery_relation_editor::requestMediaFocus</qualifiedname>
+        <param>
+          <type>item</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="19" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1a4f4ed21a0f63f0a02c231247fad3d930" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::releaseMediaFocus</definition>
+        <argsstring>(item)</argsstring>
+        <name>releaseMediaFocus</name>
+        <qualifiedname>gallery_relation_editor::releaseMediaFocus</qualifiedname>
+        <param>
+          <type>item</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1afc370ed1ca5bc2afeffcfa759b2f61fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::stopAllMedia</definition>
+        <argsstring>()</argsstring>
+        <name>stopAllMedia</name>
+        <qualifiedname>gallery_relation_editor::stopAllMedia</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1a1fe882455d395b635a03aa60992a7e78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::enqueueExternalFetch</definition>
+        <argsstring>(relativePath, fetchUrl, authConfigId)</argsstring>
+        <name>enqueueExternalFetch</name>
+        <qualifiedname>gallery_relation_editor::enqueueExternalFetch</qualifiedname>
+        <param>
+          <type>relativePath</type>
+        </param>
+        <param>
+          <type>fetchUrl</type>
+        </param>
+        <param>
+          <type>authConfigId</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="41" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1a500ec007f36bcce2a74a72f29c6a7e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::processNextFetch</definition>
+        <argsstring>()</argsstring>
+        <name>processNextFetch</name>
+        <qualifiedname>gallery_relation_editor::processNextFetch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="43" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1a8ca1ae1dfb3c784ab071c5d0f80aab67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::queueVideoLoad</definition>
+        <argsstring>(fn)</argsstring>
+        <name>queueVideoLoad</name>
+        <qualifiedname>gallery_relation_editor::queueVideoLoad</qualifiedname>
+        <param>
+          <type>fn</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="52" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1afee4c52d0f26dfb97c60d76c4edf75a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::capturePhoto</definition>
+        <argsstring>()</argsstring>
+        <name>capturePhoto</name>
+        <qualifiedname>gallery_relation_editor::capturePhoto</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="89" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1a886deb3a56cd7b12b14650d3c9152bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::captureVideo</definition>
+        <argsstring>()</argsstring>
+        <name>captureVideo</name>
+        <qualifiedname>gallery_relation_editor::captureVideo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="91" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classgallery__relation__editor_1a76011dae12b8b79b76c5e13e27384544" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gallery_relation_editor::captureAudio</definition>
+        <argsstring>()</argsstring>
+        <name>captureAudio</name>
+        <qualifiedname>gallery_relation_editor::captureAudio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="93" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="2">
+        <label>RelationEditorBase</label>
+        <link refid="classRelationEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>gallery_relation_editor</label>
+        <link refid="classgallery__relation__editor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>EditorWidgetBase</label>
+        <link refid="classEditorWidgetBase"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="2">
+        <label>RelationEditorBase</label>
+        <link refid="classRelationEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>gallery_relation_editor</label>
+        <link refid="classgallery__relation__editor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" line="9" column="1" bodyfile="src/qml/editorwidgets/relationeditors/gallery_relation_editor.qml" bodystart="9" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classgallery__relation__editor_1abca2ba43d48d2fd8cdf74b6720993982" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>activeMediaItem</name></member>
+      <member refid="classgallery__relation__editor_1a6f54f3c76bd6ce05c3c79c442f9ad360" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>attachmentNamingEvaluator</name></member>
+      <member refid="classgallery__relation__editor_1a368339f3eafba6ef9b963f65870ca259" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>audioAnalyzer</name></member>
+      <member refid="classgallery__relation__editor_1a7c255e9b93f11ba3a2597d0615025ef8" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>bottomMargin</name></member>
+      <member refid="classgallery__relation__editor_1a03227d50708ea489e3be169f200c631d" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>bottomMargin</name></member>
+      <member refid="classgallery__relation__editor_1a76011dae12b8b79b76c5e13e27384544" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>captureAudio</name></member>
+      <member refid="classgallery__relation__editor_1afee4c52d0f26dfb97c60d76c4edf75a4" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>capturePhoto</name></member>
+      <member refid="classgallery__relation__editor_1a886deb3a56cd7b12b14650d3c9152bfb" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>captureVideo</name></member>
+      <member refid="classgallery__relation__editor_1af5fef838ee93be676c23220e1107b91d" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>cardMargin</name></member>
+      <member refid="classgallery__relation__editor_1a5a46b0d8e07e66037fd26fd6125e338f" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>cardSize</name></member>
+      <member refid="classRelationEditorBase_1aa43132d3b35d2a05418f15c3f46caeef" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>childMenu</name></member>
+      <member refid="classgallery__relation__editor_1afe11ea8c1e35f144f5861fb363dc9f46" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>cloudProjectConnection</name></member>
+      <member refid="classgallery__relation__editor_1a02467391cc35bdc281748b60bf4956fb" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>currentFetchKey</name></member>
+      <member refid="classRelationEditorBase_1a345db2d35b0cc8f825dab478e6da8146" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>deleteDialog</name></member>
+      <member refid="classgallery__relation__editor_1a354c778fd8f90574db22aff69f35589e" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>downloadRevision</name></member>
+      <member refid="classgallery__relation__editor_1af93603b45fa7651c9326c3cc8159c402" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>dummyTarget</name></member>
+      <member refid="classRelationEditorBase_1ae242243bffe58b7d37a0f10e3a447e1d" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>embeddedPopup</name></member>
+      <member refid="classgallery__relation__editor_1a1fe882455d395b635a03aa60992a7e78" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>enqueueExternalFetch</name></member>
+      <member refid="classRelationEditorBase_1a3f02e30c8ca2a8bd3b44f5f14b768f3f" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>ensureEmbeddedFormLoaded</name></member>
+      <member refid="classgallery__relation__editor_1a28fdf59be48b6b40e9b919b724384b90" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>externalStorage</name></member>
+      <member refid="classgallery__relation__editor_1a6a963dd50c71c3ffabdc03f52cc8b8d0" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>failedDownloads</name></member>
+      <member refid="classgallery__relation__editor_1ade7864198c29dd783476df5ede48d264" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>fetchedPaths</name></member>
+      <member refid="classgallery__relation__editor_1a9c1a883cb19cfc0778fe38bef6530d68" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>fetchQueue</name></member>
+      <member refid="classgallery__relation__editor_1a179e24e31a854cb6d03cca9297b5b5f6" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>flickableDirection</name></member>
+      <member refid="classRelationEditorBase_1a3410cdaff00365e0d24674172533280d" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>footer</name></member>
+      <member refid="classRelationEditorBase_1a90221511c76807990ec0ad7d1ce73993" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>footerContent</name></member>
+      <member refid="classEditorWidgetBase_1a09df69fe97d43104557cf6b6ff92733d" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>hasMenu</name></member>
+      <member refid="classgallery__relation__editor_1aa172e9ec860883c321fe66afcc39317d" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>headerActions</name></member>
+      <member refid="classRelationEditorBase_1a238ad08db1c2ad22d7b2c74c9fe7fead" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>headerEntry</name></member>
+      <member refid="classgallery__relation__editor_1af47e168f247a1c90e9e60526f5463b61" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>height</name></member>
+      <member refid="classgallery__relation__editor_1a6dcd0b70e251ef0650bfdbc7f46ce971" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>imagePrefix</name></member>
+      <member refid="classRelationEditorBase_1af22c928cd2fd81e5283057233e9557fb" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>isActionEnabled</name></member>
+      <member refid="classgallery__relation__editor_1ada0d4257b54142f5d238573faecb4ba4" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>isCardView</name></member>
+      <member refid="classEditorWidgetBase_1a5e234aeb8a604b878c0ea42b3666287d" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>isEmpty</name></member>
+      <member refid="classEditorWidgetBase_1a9bf5802500e205dc6689be4e3144d7a9" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>isLoaded</name></member>
+      <member refid="classEditorWidgetBase_1a68f4219d74a2b92e087e85eb77d8cd4c" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>isNull</name></member>
+      <member refid="classRelationEditorBase_1abc8aa425dd351c3fda6ee678f7c4f9db" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>itemCount</name></member>
+      <member refid="classRelationEditorBase_1a7f71188f33e63c9b0ca6e7115f6cd32c" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>itemHeight</name></member>
+      <member refid="classgallery__relation__editor_1adadf51d97a62f838d5c22ab86867b861" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>listItemHeight</name></member>
+      <member refid="classRelationEditorBase_1af9338b08eaddcbeaef5b8e3ec753ada9" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>listView</name></member>
+      <member refid="classRelationEditorBase_1ab7379038b99e7503187dc0bdc6878c51" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>maximumVisibleItems</name></member>
+      <member refid="classEditorWidgetBase_1a7833a10df4c49cd3d197cb1fec54c1b8" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>menu</name></member>
+      <member refid="classgallery__relation__editor_1a738f692bb239c409056515a529886f2d" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>model</name></member>
+      <member refid="classgallery__relation__editor_1af9911efd0b1c5be6c6c19a7132502d23" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>onDestruction</name></member>
+      <member refid="classgallery__relation__editor_1afed40dcb20fe7029423266b72b3dfa9f" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>onIsCardViewChanged</name></member>
+      <member refid="classgallery__relation__editor_1a735e157c46929c8fc4586ebede1fbaae" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>onVisibleChanged</name></member>
+      <member refid="classgallery__relation__editor_1a56cc47952ac25c3f756984192dd8e78b" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>orientation</name></member>
+      <member refid="classgallery__relation__editor_1a3c8239fffaf3240d1c6bf0e80df92528" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>pendingDownloads</name></member>
+      <member refid="classgallery__relation__editor_1ad765474043215e2a51cf2c002f3fd824" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>policy</name></member>
+      <member refid="classRelationEditorBase_1a64804dbb52ccbeb140b3ce4a3f2d84e0" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>prepareParent</name></member>
+      <member refid="classgallery__relation__editor_1a500ec007f36bcce2a74a72f29c6a7e9e" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>processNextFetch</name></member>
+      <member refid="classgallery__relation__editor_1a8ca1ae1dfb3c784ab071c5d0f80aab67" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>queueVideoLoad</name></member>
+      <member refid="classgallery__relation__editor_1aab869019101160890286a40b5fb8d904" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>relationEditorModel</name></member>
+      <member refid="classgallery__relation__editor_1a4f4ed21a0f63f0a02c231247fad3d930" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>releaseMediaFocus</name></member>
+      <member refid="classEditorWidgetBase_1a85e6ed4c11d34c9e84215dd004e8711c" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>requestBarcode</name></member>
+      <member refid="classRelationEditorBase_1a434aaf56f9e0d61d16fdcdde4ad806ba" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>requestedGeometryReceived</name></member>
+      <member refid="classEditorWidgetBase_1ae2d3df77c7c98886d2f0bbd18090bd1c" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>requestGeometry</name></member>
+      <member refid="classEditorWidgetBase_1ac9d672c6436f98d79d2a5539cd0b9200" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>requestJumpToPoint</name></member>
+      <member refid="classgallery__relation__editor_1a7f19ac5b24fb80a8bf6e46b143a95d9a" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>requestMediaFocus</name></member>
+      <member refid="classgallery__relation__editor_1a736cfec34f6b6507196c724192fa3e9d" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>resourceSource</name></member>
+      <member refid="classRelationEditorBase_1a883415bd76c10f83c0af730b0254d789" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>showAddFeaturePopup</name></member>
+      <member refid="classRelationEditorBase_1a1a827458f333928b77dcb263bddc1125" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>showAllItems</name></member>
+      <member refid="classRelationEditorBase_1a77636f42f2208e63c20980ddee48a837" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>showAtlasMenu</name></member>
+      <member refid="classRelationEditorBase_1abbb94843663de8f6d24d46407545f343" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>showSortButton</name></member>
+      <member refid="classgallery__relation__editor_1afc370ed1ca5bc2afeffcfa759b2f61fa" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>stopAllMedia</name></member>
+      <member refid="classgallery__relation__editor_1a680bc334ea3e1a5e2e90f1b9eee8be7f" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>toggleHeight</name></member>
+      <member refid="classRelationEditorBase_1ac28ebc1abecde7bafcd636a967bb6bd2" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>toggleSortAction</name></member>
+      <member refid="classgallery__relation__editor_1a43697979bda2f532b83d3e92ae0de457" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>topMargin</name></member>
+      <member refid="classEditorWidgetBase_1afa2313f03e3b2887472534cc11ca1572" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>valueChangeRequested</name></member>
+      <member refid="classgallery__relation__editor_1a4b09d002ed4cd797649d8c73b707adc6" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>videoQueue</name></member>
+      <member refid="classgallery__relation__editor_1af6165fbf532bbf0c13e3e59fca614440" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>videoQueueBusy</name></member>
+      <member refid="classgallery__relation__editor_1aab27b721d39ac537db43f6f6588c28d5" prot="private" virt="non-virtual"><scope>gallery_relation_editor</scope><name>videoQueueTimer</name></member>
+      <member refid="classgallery__relation__editor_1aa31173d3a1e18bdb289d1a47c74a1b21" prot="public" virt="non-virtual"><scope>gallery_relation_editor</scope><name>visibleCards</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

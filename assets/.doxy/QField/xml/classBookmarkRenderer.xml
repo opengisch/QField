@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkRenderer" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBookmarkRenderer_1a3872e3fd3c7fcd79e12707aadb993806" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var BookmarkRenderer::bookmarkIndex</definition>
+        <argsstring></argsstring>
+        <name>bookmarkIndex</name>
+        <qualifiedname>BookmarkRenderer::bookmarkIndex</qualifiedname>
+        <read>dummyGetter_bookmarkIndex_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="12" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkRenderer_1a064a775c61c4f69ec3b48ff92dcc8886" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BookmarkRenderer::bookmarkId</definition>
+        <argsstring></argsstring>
+        <name>bookmarkId</name>
+        <qualifiedname>BookmarkRenderer::bookmarkId</qualifiedname>
+        <read>dummyGetter_bookmarkId_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="14" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkRenderer_1ad898994400cf1bd8ca174b8a8d90f987" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BookmarkRenderer::bookmarkName</definition>
+        <argsstring></argsstring>
+        <name>bookmarkName</name>
+        <qualifiedname>BookmarkRenderer::bookmarkName</qualifiedname>
+        <read>dummyGetter_bookmarkName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="16" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkRenderer_1aec6cbbe4f07ca855e4eaaa5c00705f87" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BookmarkRenderer::bookmarkGroup</definition>
+        <argsstring></argsstring>
+        <name>bookmarkGroup</name>
+        <qualifiedname>BookmarkRenderer::bookmarkGroup</qualifiedname>
+        <read>dummyGetter_bookmarkGroup_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="18" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkRenderer_1a6ab08a3331aa0eb40216dc63682cfe8a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BookmarkRenderer::bookmarkUser</definition>
+        <argsstring></argsstring>
+        <name>bookmarkUser</name>
+        <qualifiedname>BookmarkRenderer::bookmarkUser</qualifiedname>
+        <read>dummyGetter_bookmarkUser_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="20" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkRenderer_1a83213ff4158a06639af2ab8f885d700b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings BookmarkRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>BookmarkRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="22" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkRenderer_1aa66436b19814532fa306f97283183d0d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsGeometryWrapper" kindref="compound">QgsGeometryWrapper</ref></type>
+        <definition>QgsGeometryWrapper BookmarkRenderer::geometryWrapper</definition>
+        <argsstring></argsstring>
+        <name>geometryWrapper</name>
+        <qualifiedname>BookmarkRenderer::geometryWrapper</qualifiedname>
+        <read>dummyGetter_geometryWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="24" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBookmarkRenderer_1a425cef32e9fd5be0539c6d4a39d488b5" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component BookmarkRenderer::pointHighlight</definition>
+        <argsstring></argsstring>
+        <name>pointHighlight</name>
+        <qualifiedname>BookmarkRenderer::pointHighlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="27" column="11" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkRenderer_1ace12b1b4d34facd40550f124d0f6ff63" prot="private" static="no" mutable="no">
+        <type><ref refid="classMapToScreen" kindref="compound">MapToScreen</ref></type>
+        <definition>MapToScreen BookmarkRenderer::mapToScreenPosition</definition>
+        <argsstring></argsstring>
+        <name>mapToScreenPosition</name>
+        <qualifiedname>BookmarkRenderer::mapToScreenPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="28" column="13" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkRenderer_1a639b24c7515826deba75c981ea699244" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape BookmarkRenderer::bookmark</definition>
+        <argsstring></argsstring>
+        <name>bookmark</name>
+        <qualifiedname>BookmarkRenderer::bookmark</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="29" column="7" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkRenderer_1abd1212aff3867c626998bf0e1953e503" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader BookmarkRenderer::geometryComponent</definition>
+        <argsstring></argsstring>
+        <name>geometryComponent</name>
+        <qualifiedname>BookmarkRenderer::geometryComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkRenderer.qml" line="30" column="8" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkRenderer</label>
+        <link refid="classBookmarkRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkRenderer</label>
+        <link refid="classBookmarkRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BookmarkRenderer.qml" line="9" column="1" bodyfile="src/qml/BookmarkRenderer.qml" bodystart="9" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classBookmarkRenderer_1a639b24c7515826deba75c981ea699244" prot="private" virt="non-virtual"><scope>BookmarkRenderer</scope><name>bookmark</name></member>
+      <member refid="classBookmarkRenderer_1aec6cbbe4f07ca855e4eaaa5c00705f87" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>bookmarkGroup</name></member>
+      <member refid="classBookmarkRenderer_1a064a775c61c4f69ec3b48ff92dcc8886" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>bookmarkId</name></member>
+      <member refid="classBookmarkRenderer_1a3872e3fd3c7fcd79e12707aadb993806" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>bookmarkIndex</name></member>
+      <member refid="classBookmarkRenderer_1ad898994400cf1bd8ca174b8a8d90f987" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>bookmarkName</name></member>
+      <member refid="classBookmarkRenderer_1a6ab08a3331aa0eb40216dc63682cfe8a" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>bookmarkUser</name></member>
+      <member refid="classBookmarkRenderer_1abd1212aff3867c626998bf0e1953e503" prot="private" virt="non-virtual"><scope>BookmarkRenderer</scope><name>geometryComponent</name></member>
+      <member refid="classBookmarkRenderer_1aa66436b19814532fa306f97283183d0d" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>geometryWrapper</name></member>
+      <member refid="classBookmarkRenderer_1a83213ff4158a06639af2ab8f885d700b" prot="public" virt="non-virtual"><scope>BookmarkRenderer</scope><name>mapSettings</name></member>
+      <member refid="classBookmarkRenderer_1ace12b1b4d34facd40550f124d0f6ff63" prot="private" virt="non-virtual"><scope>BookmarkRenderer</scope><name>mapToScreenPosition</name></member>
+      <member refid="classBookmarkRenderer_1a425cef32e9fd5be0539c6d4a39d488b5" prot="private" virt="non-virtual"><scope>BookmarkRenderer</scope><name>pointHighlight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

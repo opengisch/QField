@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBrowserPanel" kind="class" language="C++" prot="public">
+    <compoundname>BrowserPanel</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBrowserPanel_1ad0ce1c77e43c402076442ca6cd65dcb3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::browserView</definition>
+        <argsstring></argsstring>
+        <name>browserView</name>
+        <qualifiedname>BrowserPanel::browserView</qualifiedname>
+        <read>dummyGetter_browserView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="15" column="1" bodyfile="src/qml/BrowserPanel.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBrowserPanel_1a88cd3099442a9857709c62031adc6499" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::browserCookies</definition>
+        <argsstring></argsstring>
+        <name>browserCookies</name>
+        <qualifiedname>BrowserPanel::browserCookies</qualifiedname>
+        <read>dummyGetter_browserCookies_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="17" column="1" bodyfile="src/qml/BrowserPanel.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBrowserPanel_1a46db66aafb27f9623b6847a58d4805ef" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BrowserPanel::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>BrowserPanel::url</qualifiedname>
+        <read>dummyGetter_url_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="19" column="1" bodyfile="src/qml/BrowserPanel.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBrowserPanel_1a1cfaf25868a856d978c354c62a8bacd6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BrowserPanel::fullscreen</definition>
+        <argsstring></argsstring>
+        <name>fullscreen</name>
+        <qualifiedname>BrowserPanel::fullscreen</qualifiedname>
+        <read>dummyGetter_fullscreen_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="21" column="1" bodyfile="src/qml/BrowserPanel.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBrowserPanel_1ab4697f2f3c2427e6ef60fea02d2d4de5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BrowserPanel::clearCookiesOnOpen</definition>
+        <argsstring></argsstring>
+        <name>clearCookiesOnOpen</name>
+        <qualifiedname>BrowserPanel::clearCookiesOnOpen</qualifiedname>
+        <read>dummyGetter_clearCookiesOnOpen_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="23" column="1" bodyfile="src/qml/BrowserPanel.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBrowserPanel_1a54dbed7e5af3ae949ab05f34734f486f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>BrowserPanel::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="25" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1a1361cbf8cbb9c7e5ff11eea10ab90550" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>BrowserPanel::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="26" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1aa1c37c33cf6dda166fc432fff76a60fd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>BrowserPanel::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="27" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1a42885515bb601b0f3a9816b92d57a43a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>BrowserPanel::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="28" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1a7370d14e2bece3d60a45347484c8f017" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>BrowserPanel::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="29" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1a1620ee04b55510f6715831d8a28882bc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>BrowserPanel::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="30" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1a511897c576566cf47bdc0cbbfac6cb51" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>BrowserPanel::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="31" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1ab6cd832a4407d1def2a332d38ef06c0c" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page BrowserPanel::browserContainer</definition>
+        <argsstring></argsstring>
+        <name>browserContainer</name>
+        <qualifiedname>BrowserPanel::browserContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="32" column="6" bodyfile="src/qml/BrowserPanel.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1a6c85a235c83f885086389307ddc1bf8d" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item BrowserPanel::browserContent</definition>
+        <argsstring></argsstring>
+        <name>browserContent</name>
+        <qualifiedname>BrowserPanel::browserContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="33" column="6" bodyfile="src/qml/BrowserPanel.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1af1a167251d823bbaaa223b32da61ad36" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>BrowserPanel::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="34" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrowserPanel_1ab0cbbd584d46d6e4d9f79ef10d7db6ec" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BrowserPanel::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>BrowserPanel::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="35" column="5" bodyfile="src/qml/BrowserPanel.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classBrowserPanel_1ae7b3a6f288c9b380d6b53949c075be64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BrowserPanel::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>BrowserPanel::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="13" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBrowserPanel_1a4628243cf7ff09a362c1ea20bac5c459" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BrowserPanel::deleteCookies</definition>
+        <argsstring>()</argsstring>
+        <name>deleteCookies</name>
+        <qualifiedname>BrowserPanel::deleteCookies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BrowserPanel.qml" line="38" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BrowserPanel</label>
+        <link refid="classBrowserPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BrowserPanel</label>
+        <link refid="classBrowserPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BrowserPanel.qml" line="10" column="1" bodyfile="src/qml/BrowserPanel.qml" bodystart="10" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classBrowserPanel_1ab6cd832a4407d1def2a332d38ef06c0c" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>browserContainer</name></member>
+      <member refid="classBrowserPanel_1a6c85a235c83f885086389307ddc1bf8d" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>browserContent</name></member>
+      <member refid="classBrowserPanel_1a88cd3099442a9857709c62031adc6499" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>browserCookies</name></member>
+      <member refid="classBrowserPanel_1ad0ce1c77e43c402076442ca6cd65dcb3" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>browserView</name></member>
+      <member refid="classBrowserPanel_1ae7b3a6f288c9b380d6b53949c075be64" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>cancel</name></member>
+      <member refid="classBrowserPanel_1ab4697f2f3c2427e6ef60fea02d2d4de5" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>clearCookiesOnOpen</name></member>
+      <member refid="classBrowserPanel_1a1620ee04b55510f6715831d8a28882bc" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>closePolicy</name></member>
+      <member refid="classBrowserPanel_1a4628243cf7ff09a362c1ea20bac5c459" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>deleteCookies</name></member>
+      <member refid="classBrowserPanel_1a511897c576566cf47bdc0cbbfac6cb51" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>focus</name></member>
+      <member refid="classBrowserPanel_1a1cfaf25868a856d978c354c62a8bacd6" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>fullscreen</name></member>
+      <member refid="classBrowserPanel_1a1361cbf8cbb9c7e5ff11eea10ab90550" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>height</name></member>
+      <member refid="classBrowserPanel_1af1a167251d823bbaaa223b32da61ad36" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>onAboutToHide</name></member>
+      <member refid="classBrowserPanel_1ab0cbbd584d46d6e4d9f79ef10d7db6ec" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>onAboutToShow</name></member>
+      <member refid="classBrowserPanel_1a7370d14e2bece3d60a45347484c8f017" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>padding</name></member>
+      <member refid="classBrowserPanel_1a46db66aafb27f9623b6847a58d4805ef" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>url</name></member>
+      <member refid="classBrowserPanel_1a54dbed7e5af3ae949ab05f34734f486f" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>width</name></member>
+      <member refid="classBrowserPanel_1aa1c37c33cf6dda166fc432fff76a60fd" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>x</name></member>
+      <member refid="classBrowserPanel_1a42885515bb601b0f3a9816b92d57a43a" prot="private" virt="non-virtual"><scope>BrowserPanel</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

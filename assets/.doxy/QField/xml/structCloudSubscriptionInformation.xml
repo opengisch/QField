@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structCloudSubscriptionInformation" kind="struct" language="C++" prot="public">
+    <compoundname>CloudSubscriptionInformation</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="structCloudSubscriptionInformation_1a4b4c998a04cecf4b0e03646339657a06" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudSubscriptionInformation::plan</definition>
+        <argsstring></argsstring>
+        <name>plan</name>
+        <qualifiedname>CloudSubscriptionInformation::plan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="83" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudSubscriptionInformation_1af26ad811c4f3c1aedc9a29b4c45d2bbd" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double CloudSubscriptionInformation::storageTotal</definition>
+        <argsstring></argsstring>
+        <name>storageTotal</name>
+        <qualifiedname>CloudSubscriptionInformation::storageTotal</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="84" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudSubscriptionInformation_1a9942e25c57b4391ec127a4937c39da93" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double CloudSubscriptionInformation::storageUsed</definition>
+        <argsstring></argsstring>
+        <name>storageUsed</name>
+        <qualifiedname>CloudSubscriptionInformation::storageUsed</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="85" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudSubscriptionInformation_1aeeda2ffad329aad27e147f0b0fe8dc7f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double CloudSubscriptionInformation::storageThresholdWarning</definition>
+        <argsstring></argsstring>
+        <name>storageThresholdWarning</name>
+        <qualifiedname>CloudSubscriptionInformation::storageThresholdWarning</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="86" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudSubscriptionInformation_1aacd42f68b0d898768662781dd2a5f533" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double CloudSubscriptionInformation::storageThresholdCritical</definition>
+        <argsstring></argsstring>
+        <name>storageThresholdCritical</name>
+        <qualifiedname>CloudSubscriptionInformation::storageThresholdCritical</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="87" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudSubscriptionInformation_1a5760df73658ef350f3e46bfcb06448e6" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudSubscriptionInformation::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>CloudSubscriptionInformation::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="88" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCloudSubscriptionInformation_1aa58953db570af3087f463e5e51112e0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CloudSubscriptionInformation::CloudSubscriptionInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>CloudSubscriptionInformation</name>
+        <qualifiedname>CloudSubscriptionInformation::CloudSubscriptionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="91" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudSubscriptionInformation_1a6e04e9a3c3c49d7f15be697bb5d223f0" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CloudSubscriptionInformation::CloudSubscriptionInformation</definition>
+        <argsstring>(const QJsonObject &amp;subscriptionInformation)</argsstring>
+        <name>CloudSubscriptionInformation</name>
+        <qualifiedname>CloudSubscriptionInformation::CloudSubscriptionInformation</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>subscriptionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="93" column="14" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="93" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudSubscriptionInformation_1a18c1c002f5c4becc2a6530c276aa1398" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudSubscriptionInformation::operator==</definition>
+        <argsstring>(const CloudSubscriptionInformation &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CloudSubscriptionInformation::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudSubscriptionInformation" kindref="compound">CloudSubscriptionInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="102" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="102" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/qfieldcloudutils.h" line="79" column="1" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="80" bodyend="113"/>
+    <listofallmembers>
+      <member refid="structCloudSubscriptionInformation_1aa58953db570af3087f463e5e51112e0d" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>CloudSubscriptionInformation</name></member>
+      <member refid="structCloudSubscriptionInformation_1a6e04e9a3c3c49d7f15be697bb5d223f0" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>CloudSubscriptionInformation</name></member>
+      <member refid="structCloudSubscriptionInformation_1a18c1c002f5c4becc2a6530c276aa1398" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>operator==</name></member>
+      <member refid="structCloudSubscriptionInformation_1a4b4c998a04cecf4b0e03646339657a06" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>plan</name></member>
+      <member refid="structCloudSubscriptionInformation_1a5760df73658ef350f3e46bfcb06448e6" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>status</name></member>
+      <member refid="structCloudSubscriptionInformation_1aacd42f68b0d898768662781dd2a5f533" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>storageThresholdCritical</name></member>
+      <member refid="structCloudSubscriptionInformation_1aeeda2ffad329aad27e147f0b0fe8dc7f" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>storageThresholdWarning</name></member>
+      <member refid="structCloudSubscriptionInformation_1af26ad811c4f3c1aedc9a29b4c45d2bbd" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>storageTotal</name></member>
+      <member refid="structCloudSubscriptionInformation_1a9942e25c57b4391ec127a4937c39da93" prot="public" virt="non-virtual"><scope>CloudSubscriptionInformation</scope><name>storageUsed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

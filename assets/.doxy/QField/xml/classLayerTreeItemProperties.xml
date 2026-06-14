@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerTreeItemProperties" kind="class" language="C++" prot="public">
+    <compoundname>LayerTreeItemProperties</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classLayerTreeItemProperties_1a5879707dcf85d395afd8ef19c1565774" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::layerTree</definition>
+        <argsstring></argsstring>
+        <name>layerTree</name>
+        <qualifiedname>LayerTreeItemProperties::layerTree</qualifiedname>
+        <read>dummyGetter_layerTree_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="13" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1a7c256d9764ae0828370494c0c2692265" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>LayerTreeItemProperties::index</qualifiedname>
+        <read>dummyGetter_index_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="15" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1a9dda6342345d0a64115f41f32e83e811" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LayerTreeItemProperties::zoomToButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>zoomToButtonVisible</name>
+        <qualifiedname>LayerTreeItemProperties::zoomToButtonVisible</qualifiedname>
+        <read>dummyGetter_zoomToButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="17" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1a14cf2962ac0ad2f61dc063d694ef2e31" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LayerTreeItemProperties::showFeaturesListButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesListButtonVisible</name>
+        <qualifiedname>LayerTreeItemProperties::showFeaturesListButtonVisible</qualifiedname>
+        <read>dummyGetter_showFeaturesListButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="19" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1a09f88d0b3929e594f67fe2e5a22a8421" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LayerTreeItemProperties::showVisibleFeaturesListDropdownVisible</definition>
+        <argsstring></argsstring>
+        <name>showVisibleFeaturesListDropdownVisible</name>
+        <qualifiedname>LayerTreeItemProperties::showVisibleFeaturesListDropdownVisible</qualifiedname>
+        <read>dummyGetter_showVisibleFeaturesListDropdownVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="21" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1afca31257f8f143298755c35a8165bf37" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LayerTreeItemProperties::reloadDataButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>reloadDataButtonVisible</name>
+        <qualifiedname>LayerTreeItemProperties::reloadDataButtonVisible</qualifiedname>
+        <read>dummyGetter_reloadDataButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="23" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1ad97f165c6ad1831b677856d6a4d63d39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LayerTreeItemProperties::trackingButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>trackingButtonVisible</name>
+        <qualifiedname>LayerTreeItemProperties::trackingButtonVisible</qualifiedname>
+        <read>dummyGetter_trackingButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="25" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1ac453ae5738980f27156db66516a5aaae" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::trackingButtonText</definition>
+        <argsstring></argsstring>
+        <name>trackingButtonText</name>
+        <qualifiedname>LayerTreeItemProperties::trackingButtonText</qualifiedname>
+        <read>dummyGetter_trackingButtonText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="27" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classLayerTreeItemProperties_1a23c1000c28e2a209cbb791c61f233af6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool LayerTreeItemProperties::opacitySliderVisible</definition>
+        <argsstring></argsstring>
+        <name>opacitySliderVisible</name>
+        <qualifiedname>LayerTreeItemProperties::opacitySliderVisible</qualifiedname>
+        <read>dummyGetter_opacitySliderVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="29" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a549edf08c1c9e83bdc5b9bbfce16e1c9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>LayerTreeItemProperties::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="31" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a1e10b08367a7979f1d0094f979b5d97b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>LayerTreeItemProperties::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="32" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1aa49f524527ef0dab5c589f431d14f40d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>LayerTreeItemProperties::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="33" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a92598dbe82bad47e763fe1e8696e8118" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>LayerTreeItemProperties::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="34" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a5925d9a7714a2e2bbaeffb54dd2b6c8d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>LayerTreeItemProperties::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="35" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a7b2730bbc436f7d1c1cc5b71ed55f86c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>LayerTreeItemProperties::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="36" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a58e307e1493206df0e6494e6cee9ed98" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>LayerTreeItemProperties::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="37" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a77b09fa6746b83be296c725bc7b49b2d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>LayerTreeItemProperties::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="38" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a51af7cd2957e513699e3dd80e104f49e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var LayerTreeItemProperties::onIndexChanged</definition>
+        <argsstring></argsstring>
+        <name>onIndexChanged</name>
+        <qualifiedname>LayerTreeItemProperties::onIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="39" column="5" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1aef899a4ffbb20aa19ef91b5ac3b15eed" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page LayerTreeItemProperties::popupContent</definition>
+        <argsstring></argsstring>
+        <name>popupContent</name>
+        <qualifiedname>LayerTreeItemProperties::popupContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="40" column="6" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a59b291f91dcb30fa7775a3e21c1e5026" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout LayerTreeItemProperties::popupLayout</definition>
+        <argsstring></argsstring>
+        <name>popupLayout</name>
+        <qualifiedname>LayerTreeItemProperties::popupLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="41" column="14" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a82542c58435c5c1db76089370e484a3a" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics LayerTreeItemProperties::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>LayerTreeItemProperties::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="42" column="13" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a913cd43b20d3e77a6589d0615b8baa18" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text LayerTreeItemProperties::invalidText</definition>
+        <argsstring></argsstring>
+        <name>invalidText</name>
+        <qualifiedname>LayerTreeItemProperties::invalidText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="43" column="6" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a6042ee969eca73447c6ba19437ccf341" prot="private" static="no" mutable="no">
+        <type><ref refid="classCheckBox" kindref="compound">CheckBox</ref></type>
+        <definition>CheckBox LayerTreeItemProperties::expandCheckBox</definition>
+        <argsstring></argsstring>
+        <name>expandCheckBox</name>
+        <qualifiedname>LayerTreeItemProperties::expandCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="44" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1aceb111d4d977d1a1d5305a3007ca9970" prot="private" static="no" mutable="no">
+        <type><ref refid="classCheckBox" kindref="compound">CheckBox</ref></type>
+        <definition>CheckBox LayerTreeItemProperties::itemVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemVisibleCheckBox</name>
+        <qualifiedname>LayerTreeItemProperties::itemVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="45" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a9b4c406948d9bc9ec1b6495cb5b251a8" prot="private" static="no" mutable="no">
+        <type><ref refid="classCheckBox" kindref="compound">CheckBox</ref></type>
+        <definition>CheckBox LayerTreeItemProperties::itemLabelsVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemLabelsVisibleCheckBox</name>
+        <qualifiedname>LayerTreeItemProperties::itemLabelsVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="46" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a8790793099785c1884890d0d206c16ad" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout LayerTreeItemProperties::opacitySlider</definition>
+        <argsstring></argsstring>
+        <name>opacitySlider</name>
+        <qualifiedname>LayerTreeItemProperties::opacitySlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="47" column="11" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a4972cec52cb6f613680631b84c496ade" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSlider" kindref="compound">QfSlider</ref></type>
+        <definition>QfSlider LayerTreeItemProperties::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <qualifiedname>LayerTreeItemProperties::slider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="48" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a5dfae7c02b6b8d4a99c4e71da759dd53" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton LayerTreeItemProperties::zoomToButton</definition>
+        <argsstring></argsstring>
+        <name>zoomToButton</name>
+        <qualifiedname>LayerTreeItemProperties::zoomToButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="49" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a555efa8651929eb2e0fc037275f9b0ee" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton LayerTreeItemProperties::showFeaturesList</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesList</name>
+        <qualifiedname>LayerTreeItemProperties::showFeaturesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="50" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a9130dc81667a99e612236460170d6b23" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton LayerTreeItemProperties::trackingButton</definition>
+        <argsstring></argsstring>
+        <name>trackingButton</name>
+        <qualifiedname>LayerTreeItemProperties::trackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="51" column="10" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1acf76195cb3e2e4b16a6add76dd3c6ead" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text LayerTreeItemProperties::lockText</definition>
+        <argsstring></argsstring>
+        <name>lockText</name>
+        <qualifiedname>LayerTreeItemProperties::lockText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="52" column="6" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1ab7b5782ab8b28e7e633209e906bf8990" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text LayerTreeItemProperties::creditsText</definition>
+        <argsstring></argsstring>
+        <name>creditsText</name>
+        <qualifiedname>LayerTreeItemProperties::creditsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="53" column="6" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLayerTreeItemProperties_1a59d8db61e91b49a09afecafd3519410b" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu LayerTreeItemProperties::showFeaturesMenu</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesMenu</name>
+        <qualifiedname>LayerTreeItemProperties::showFeaturesMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="54" column="8" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLayerTreeItemProperties_1a55e69e65dacf0cb6e967afeab6e0947d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerTreeItemProperties::updateTitle</definition>
+        <argsstring>()</argsstring>
+        <name>updateTitle</name>
+        <qualifiedname>LayerTreeItemProperties::updateTitle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerTreeItemProperties_1a3c79818c18644d366a5bed5179897914" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerTreeItemProperties::updateCredits</definition>
+        <argsstring>()</argsstring>
+        <name>updateCredits</name>
+        <qualifiedname>LayerTreeItemProperties::updateCredits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="59" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerTreeItemProperties_1a2a7392e2eca20d76e7ac996a77a5b34a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerTreeItemProperties::isTrackingButtonVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isTrackingButtonVisible</name>
+        <qualifiedname>LayerTreeItemProperties::isTrackingButtonVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="61" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerTreeItemProperties_1a4253e78ba6a8fdf39c0a55945244eccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerTreeItemProperties::isShowFeaturesListButtonVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isShowFeaturesListButtonVisible</name>
+        <qualifiedname>LayerTreeItemProperties::isShowFeaturesListButtonVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classLayerTreeItemProperties_1a0acac34fa6a30d2e3af716260c2b0128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LayerTreeItemProperties::isShowVisibleFeaturesListDropdownVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isShowVisibleFeaturesListDropdownVisible</name>
+        <qualifiedname>LayerTreeItemProperties::isShowVisibleFeaturesListDropdownVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/LayerTreeItemProperties.qml" line="65" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/LayerTreeItemProperties.qml" line="10" column="1" bodyfile="src/qml/LayerTreeItemProperties.qml" bodystart="10" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classLayerTreeItemProperties_1a7b2730bbc436f7d1c1cc5b71ed55f86c" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>closePolicy</name></member>
+      <member refid="classLayerTreeItemProperties_1ab7b5782ab8b28e7e633209e906bf8990" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>creditsText</name></member>
+      <member refid="classLayerTreeItemProperties_1a6042ee969eca73447c6ba19437ccf341" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>expandCheckBox</name></member>
+      <member refid="classLayerTreeItemProperties_1a58e307e1493206df0e6494e6cee9ed98" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>focus</name></member>
+      <member refid="classLayerTreeItemProperties_1a82542c58435c5c1db76089370e484a3a" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>fontMetrics</name></member>
+      <member refid="classLayerTreeItemProperties_1aa49f524527ef0dab5c589f431d14f40d" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>height</name></member>
+      <member refid="classLayerTreeItemProperties_1a7c256d9764ae0828370494c0c2692265" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>index</name></member>
+      <member refid="classLayerTreeItemProperties_1a913cd43b20d3e77a6589d0615b8baa18" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>invalidText</name></member>
+      <member refid="classLayerTreeItemProperties_1a4253e78ba6a8fdf39c0a55945244eccd" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isShowFeaturesListButtonVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a0acac34fa6a30d2e3af716260c2b0128" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isShowVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a2a7392e2eca20d76e7ac996a77a5b34a" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isTrackingButtonVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a9b4c406948d9bc9ec1b6495cb5b251a8" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>itemLabelsVisibleCheckBox</name></member>
+      <member refid="classLayerTreeItemProperties_1aceb111d4d977d1a1d5305a3007ca9970" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>itemVisibleCheckBox</name></member>
+      <member refid="classLayerTreeItemProperties_1a5879707dcf85d395afd8ef19c1565774" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>layerTree</name></member>
+      <member refid="classLayerTreeItemProperties_1acf76195cb3e2e4b16a6add76dd3c6ead" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>lockText</name></member>
+      <member refid="classLayerTreeItemProperties_1a77b09fa6746b83be296c725bc7b49b2d" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>onClosed</name></member>
+      <member refid="classLayerTreeItemProperties_1a51af7cd2957e513699e3dd80e104f49e" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>onIndexChanged</name></member>
+      <member refid="classLayerTreeItemProperties_1a8790793099785c1884890d0d206c16ad" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>opacitySlider</name></member>
+      <member refid="classLayerTreeItemProperties_1a23c1000c28e2a209cbb791c61f233af6" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>opacitySliderVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a549edf08c1c9e83bdc5b9bbfce16e1c9" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>parent</name></member>
+      <member refid="classLayerTreeItemProperties_1aef899a4ffbb20aa19ef91b5ac3b15eed" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>popupContent</name></member>
+      <member refid="classLayerTreeItemProperties_1a59b291f91dcb30fa7775a3e21c1e5026" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>popupLayout</name></member>
+      <member refid="classLayerTreeItemProperties_1afca31257f8f143298755c35a8165bf37" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>reloadDataButtonVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a555efa8651929eb2e0fc037275f9b0ee" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showFeaturesList</name></member>
+      <member refid="classLayerTreeItemProperties_1a14cf2962ac0ad2f61dc063d694ef2e31" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showFeaturesListButtonVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a59d8db61e91b49a09afecafd3519410b" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showFeaturesMenu</name></member>
+      <member refid="classLayerTreeItemProperties_1a09f88d0b3929e594f67fe2e5a22a8421" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a4972cec52cb6f613680631b84c496ade" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>slider</name></member>
+      <member refid="classLayerTreeItemProperties_1a9130dc81667a99e612236460170d6b23" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButton</name></member>
+      <member refid="classLayerTreeItemProperties_1ac453ae5738980f27156db66516a5aaae" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButtonText</name></member>
+      <member refid="classLayerTreeItemProperties_1ad97f165c6ad1831b677856d6a4d63d39" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButtonVisible</name></member>
+      <member refid="classLayerTreeItemProperties_1a3c79818c18644d366a5bed5179897914" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>updateCredits</name></member>
+      <member refid="classLayerTreeItemProperties_1a55e69e65dacf0cb6e967afeab6e0947d" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>updateTitle</name></member>
+      <member refid="classLayerTreeItemProperties_1a1e10b08367a7979f1d0094f979b5d97b" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>width</name></member>
+      <member refid="classLayerTreeItemProperties_1a92598dbe82bad47e763fe1e8696e8118" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>x</name></member>
+      <member refid="classLayerTreeItemProperties_1a5925d9a7714a2e2bbaeffb54dd2b6c8d" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>y</name></member>
+      <member refid="classLayerTreeItemProperties_1a5dfae7c02b6b8d4a99c4e71da759dd53" prot="private" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>zoomToButton</name></member>
+      <member refid="classLayerTreeItemProperties_1a9dda6342345d0a64115f41f32e83e811" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>zoomToButtonVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

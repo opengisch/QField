@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classChangelogContents" kind="class" language="C++" prot="public">
+    <compoundname>ChangelogContents</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="changelogcontents_8h" local="no">changelogcontents.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Status</name>
+        <qualifiedname>ChangelogContents::Status</qualifiedname>
+        <enumvalue id="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a40c412c37f152201ff199f22c2d6c092" prot="public">
+          <name>IdleStatus</name>
+          <briefdescription>
+<para><ref refid="classChangelog" kindref="compound">Changelog</ref> has not been requested. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a9e5d7a05deae1e09d94d51a45aaa2161" prot="public">
+          <name>LoadingStatus</name>
+          <briefdescription>
+<para><ref refid="classChangelog" kindref="compound">Changelog</ref> has been requested, but still not received. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a2c440112120b3e6347966d2e968cf3c5" prot="public">
+          <name>SuccessStatus</name>
+          <briefdescription>
+<para><ref refid="classChangelog" kindref="compound">Changelog</ref> has been successfully generated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a318d58999b7b342a0a9e400cc9a9d123" prot="public">
+          <name>ErrorStatus</name>
+          <briefdescription>
+<para><ref refid="classChangelog" kindref="compound">Changelog</ref> has been requested, but failed to be generated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para><ref refid="classChangelog" kindref="compound">Changelog</ref> contents status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="40" column="5" bodyfile="src/core/changelogcontents.h" bodystart="41" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classChangelogContents_1a4de0688f3caa67d14c2a8991075ad5f8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString ChangelogContents::markdown</definition>
+        <argsstring></argsstring>
+        <name>markdown</name>
+        <qualifiedname>ChangelogContents::markdown</qualifiedname>
+        <read>markdown</read>
+        <briefdescription>
+<para>Holds the current changelog contents formatted as markdown. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="30" column="5" bodyfile="src/core/changelogcontents.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classChangelogContents_1ab4a225c387d4f38ea64dfb429e329a1f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref></type>
+        <definition>ChangelogContents::Status ChangelogContents::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>ChangelogContents::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+<para>Holds the current changelog contents status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="33" column="5" bodyfile="src/core/changelogcontents.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classChangelogContents_1a5d5d3fa1ef1f7e3a430c44a2bbd2a232" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ChangelogContents::mMarkdown</definition>
+        <argsstring></argsstring>
+        <name>mMarkdown</name>
+        <qualifiedname>ChangelogContents::mMarkdown</qualifiedname>
+        <briefdescription>
+<para>Holds the current changelog contents formatted as markdown. Null string if no changelog. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="80" column="13" bodyfile="src/core/changelogcontents.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classChangelogContents_1a61c87d5e37a73f467870e09064aec5d9" prot="private" static="no" mutable="no">
+        <type><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref></type>
+        <definition>Status ChangelogContents::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>ChangelogContents::mStatus</qualifiedname>
+        <initializer>= <ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a40c412c37f152201ff199f22c2d6c092" kindref="member">Status::IdleStatus</ref></initializer>
+        <briefdescription>
+<para>Holds the current status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="83" column="12" bodyfile="src/core/changelogcontents.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classChangelogContents_1ace9255c1c017400b0a43421b9c4faea5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ChangelogContents::ChangelogContents</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ChangelogContents</name>
+        <qualifiedname>ChangelogContents::ChangelogContents</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="37" column="14" bodyfile="src/core/changelogcontents.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classChangelogContents_1a63eb25a2cb35597f58eea286f0babc67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ChangelogContents::request</definition>
+        <argsstring>()</argsstring>
+        <name>request</name>
+        <qualifiedname>ChangelogContents::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initiates a HTTP request to obtain the changelog contents. <simplesect kind="see"><para><ref refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" kindref="member">markdownChanged()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" kindref="member">statusChanged()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="59" column="22" bodyfile="src/core/changelogcontents.cpp" bodystart="34" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classChangelogContents_1adfd29446c5cd1de0a1c27f44e5e7d529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ChangelogContents::markdown</definition>
+        <argsstring>()</argsstring>
+        <name>markdown</name>
+        <qualifiedname>ChangelogContents::markdown</qualifiedname>
+        <briefdescription>
+<para>Returns the current changelog contents formatted as markdown. Null string if no changelog. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="62" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classChangelogContents_1a8a2b519bbdba360b85f9bccca62d5a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" kindref="member">Status</ref></type>
+        <definition>Status ChangelogContents::status</definition>
+        <argsstring>()</argsstring>
+        <name>status</name>
+        <qualifiedname>ChangelogContents::status</qualifiedname>
+        <briefdescription>
+<para>Returns the current changelog contents status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="65" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ChangelogContents::markdownChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markdownChanged</name>
+        <qualifiedname>ChangelogContents::markdownChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the markdown contents has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="70" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ChangelogContents::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>ChangelogContents::statusChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the status has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="73" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classChangelogContents_1a3866d647f68b5642191b257b3229ddc6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; int &gt;</type>
+        <definition>QList&lt; int &gt; ChangelogContents::parseVersion</definition>
+        <argsstring>(const QString &amp;version)</argsstring>
+        <name>parseVersion</name>
+        <qualifiedname>ChangelogContents::parseVersion</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>version</declname>
+        </param>
+        <briefdescription>
+<para>Parses a given <emphasis>version</emphasis> string into a list of three numbers, e.g. &apos;v1.5.6-dev&apos; to [1, 5, 6]. Returns an empty list if cannot be parsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/changelogcontents.h" line="77" column="11" bodyfile="src/core/changelogcontents.cpp" bodystart="151" bodyend="164"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Obtain the QField changelog contents from the GitHub releases API. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ChangelogContents</label>
+        <link refid="classChangelogContents"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ChangelogContents</label>
+        <link refid="classChangelogContents"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/changelogcontents.h" line="25" column="1" bodyfile="src/core/changelogcontents.h" bodystart="26" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classChangelogContents_1ace9255c1c017400b0a43421b9c4faea5" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>ChangelogContents</name></member>
+      <member refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a318d58999b7b342a0a9e400cc9a9d123" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>ErrorStatus</name></member>
+      <member refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a40c412c37f152201ff199f22c2d6c092" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>IdleStatus</name></member>
+      <member refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a9e5d7a05deae1e09d94d51a45aaa2161" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>LoadingStatus</name></member>
+      <member refid="classChangelogContents_1a4de0688f3caa67d14c2a8991075ad5f8" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>markdown</name></member>
+      <member refid="classChangelogContents_1adfd29446c5cd1de0a1c27f44e5e7d529" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>markdown</name></member>
+      <member refid="classChangelogContents_1a3e7205e7a66d0c7ed1d5de0826e8a9fa" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>markdownChanged</name></member>
+      <member refid="classChangelogContents_1a5d5d3fa1ef1f7e3a430c44a2bbd2a232" prot="private" virt="non-virtual"><scope>ChangelogContents</scope><name>mMarkdown</name></member>
+      <member refid="classChangelogContents_1a61c87d5e37a73f467870e09064aec5d9" prot="private" virt="non-virtual"><scope>ChangelogContents</scope><name>mStatus</name></member>
+      <member refid="classChangelogContents_1a3866d647f68b5642191b257b3229ddc6" prot="private" virt="non-virtual"><scope>ChangelogContents</scope><name>parseVersion</name></member>
+      <member refid="classChangelogContents_1a63eb25a2cb35597f58eea286f0babc67" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>request</name></member>
+      <member refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>Status</name></member>
+      <member refid="classChangelogContents_1ab4a225c387d4f38ea64dfb429e329a1f" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>status</name></member>
+      <member refid="classChangelogContents_1a8a2b519bbdba360b85f9bccca62d5a4f" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>status</name></member>
+      <member refid="classChangelogContents_1aa8f10c29c60da8f240ac23f62b0f3a60" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>statusChanged</name></member>
+      <member refid="classChangelogContents_1a99f2eb5c295a2f918712ad513b92f944a2c440112120b3e6347966d2e968cf3c5" prot="public" virt="non-virtual"><scope>ChangelogContents</scope><name>SuccessStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

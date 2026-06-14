@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningNtripSettings" kind="class" language="C++" prot="public">
+    <compoundname>PositioningNtripSettings</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPositioningNtripSettings_1ac67493c0cac3a0cc5299f70f6d589c55" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>PositioningNtripSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="14" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a47d642aae6171b086173e3dfc659b4a2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>PositioningNtripSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="19" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a798a05fb3763ab3203c3583efe7e9264" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>PositioningNtripSettings::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="20" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1aa7fe1499d6522e656f1f567e5dec2732" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>PositioningNtripSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="21" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a6c4a3efc54630720e514320a08073290" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>PositioningNtripSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="22" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1ab9597304e37496bf984083934d7dd06a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>PositioningNtripSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="23" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1aaf82b221ef64ee2887018cb8275aa4ae" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>PositioningNtripSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="24" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1aa40c79e8a901511acbbc83f1cb7a2109" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var PositioningNtripSettings::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>PositioningNtripSettings::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="25" column="5" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1aabe0bb871e3e183337de88e98d468ff1" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page PositioningNtripSettings::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>PositioningNtripSettings::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="26" column="6" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1afcdabc953496bca3e626d21f6bd5b198" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout PositioningNtripSettings::settingsLayout</definition>
+        <argsstring></argsstring>
+        <name>settingsLayout</name>
+        <qualifiedname>PositioningNtripSettings::settingsLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="27" column="14" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a37bc6c05ee57956e8c08fcd9a9391865" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField PositioningNtripSettings::ntripHostTextField</definition>
+        <argsstring></argsstring>
+        <name>ntripHostTextField</name>
+        <qualifiedname>PositioningNtripSettings::ntripHostTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="28" column="13" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a45eb4ef98cba8aa8be8b4df909189ec1" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField PositioningNtripSettings::ntripPortTextField</definition>
+        <argsstring></argsstring>
+        <name>ntripPortTextField</name>
+        <qualifiedname>PositioningNtripSettings::ntripPortTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="29" column="13" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a91cc46770ee1a274f3e77fc527e37d5a" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox PositioningNtripSettings::ntripProtocolComboBox</definition>
+        <argsstring></argsstring>
+        <name>ntripProtocolComboBox</name>
+        <qualifiedname>PositioningNtripSettings::ntripProtocolComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="30" column="12" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a0bce2455aa29d3268824de45fd9874f3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField PositioningNtripSettings::ntripUsernameTextField</definition>
+        <argsstring></argsstring>
+        <name>ntripUsernameTextField</name>
+        <qualifiedname>PositioningNtripSettings::ntripUsernameTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="31" column="13" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1ac2f01edd60047a38402c9e6e325a1bce" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField PositioningNtripSettings::ntripPasswordTextField</definition>
+        <argsstring></argsstring>
+        <name>ntripPasswordTextField</name>
+        <qualifiedname>PositioningNtripSettings::ntripPasswordTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="32" column="13" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1acc52faf06ecc1fc977b8e8dca6ae77b8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox PositioningNtripSettings::ntripMountPointComboBox</definition>
+        <argsstring></argsstring>
+        <name>ntripMountPointComboBox</name>
+        <qualifiedname>PositioningNtripSettings::ntripMountPointComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="33" column="12" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a3ef45e42f97abe6a9fd8c8a43c58c6c9" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton PositioningNtripSettings::refreshNtripMountPointsButton</definition>
+        <argsstring></argsstring>
+        <name>refreshNtripMountPointsButton</name>
+        <qualifiedname>PositioningNtripSettings::refreshNtripMountPointsButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="34" column="14" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a82260e08fadf2af10a77f01ca787b8c0" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator PositioningNtripSettings::refreshNtripMountPointsIndicator</definition>
+        <argsstring></argsstring>
+        <name>refreshNtripMountPointsIndicator</name>
+        <qualifiedname>PositioningNtripSettings::refreshNtripMountPointsIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="35" column="15" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1ae97ddf879df73586b2449a51d56d3801" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label PositioningNtripSettings::ntripMountPointsDetails</definition>
+        <argsstring></argsstring>
+        <name>ntripMountPointsDetails</name>
+        <qualifiedname>PositioningNtripSettings::ntripMountPointsDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="36" column="7" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1af8db9ac91a6f04d4ef17b08a81059ebb" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label PositioningNtripSettings::refreshNtripMountPointsFeedback</definition>
+        <argsstring></argsstring>
+        <name>refreshNtripMountPointsFeedback</name>
+        <qualifiedname>PositioningNtripSettings::refreshNtripMountPointsFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="37" column="7" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a332e3f0675359f978c7fc2402a012589" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label PositioningNtripSettings::ntripForwardNmeaSentencesLabel</definition>
+        <argsstring></argsstring>
+        <name>ntripForwardNmeaSentencesLabel</name>
+        <qualifiedname>PositioningNtripSettings::ntripForwardNmeaSentencesLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="38" column="7" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1a92931a2e315f201377eb723cc7b41336" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfSwitch" kindref="compound">QfSwitch</ref></type>
+        <definition>QfSwitch PositioningNtripSettings::ntripForwardNmeaSentencesSwitch</definition>
+        <argsstring></argsstring>
+        <name>ntripForwardNmeaSentencesSwitch</name>
+        <qualifiedname>PositioningNtripSettings::ntripForwardNmeaSentencesSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="39" column="10" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPositioningNtripSettings_1af0b13aa990d3a3811ccf33bd9e830db8" prot="private" static="no" mutable="no">
+        <type><ref refid="classNtripSourceTableFetcher" kindref="compound">NtripSourceTableFetcher</ref></type>
+        <definition>NtripSourceTableFetcher PositioningNtripSettings::ntripSourceTableFetcher</definition>
+        <argsstring></argsstring>
+        <name>ntripSourceTableFetcher</name>
+        <qualifiedname>PositioningNtripSettings::ntripSourceTableFetcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="40" column="25" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classPositioningNtripSettings_1ae0bcced010c83b5451d541c3a40ba0df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PositioningNtripSettings::apply</definition>
+        <argsstring>()</argsstring>
+        <name>apply</name>
+        <qualifiedname>PositioningNtripSettings::apply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/PositioningNtripSettings.qml" line="17" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/PositioningNtripSettings.qml" line="13" column="1" bodyfile="src/qml/PositioningNtripSettings.qml" bodystart="13" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classPositioningNtripSettings_1ae0bcced010c83b5451d541c3a40ba0df" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>apply</name></member>
+      <member refid="classPositioningNtripSettings_1aaf82b221ef64ee2887018cb8275aa4ae" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>closePolicy</name></member>
+      <member refid="classPositioningNtripSettings_1ab9597304e37496bf984083934d7dd06a" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>focus</name></member>
+      <member refid="classPositioningNtripSettings_1a798a05fb3763ab3203c3583efe7e9264" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>height</name></member>
+      <member refid="classPositioningNtripSettings_1a332e3f0675359f978c7fc2402a012589" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripForwardNmeaSentencesLabel</name></member>
+      <member refid="classPositioningNtripSettings_1a92931a2e315f201377eb723cc7b41336" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripForwardNmeaSentencesSwitch</name></member>
+      <member refid="classPositioningNtripSettings_1a37bc6c05ee57956e8c08fcd9a9391865" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripHostTextField</name></member>
+      <member refid="classPositioningNtripSettings_1acc52faf06ecc1fc977b8e8dca6ae77b8" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripMountPointComboBox</name></member>
+      <member refid="classPositioningNtripSettings_1ae97ddf879df73586b2449a51d56d3801" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripMountPointsDetails</name></member>
+      <member refid="classPositioningNtripSettings_1ac2f01edd60047a38402c9e6e325a1bce" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripPasswordTextField</name></member>
+      <member refid="classPositioningNtripSettings_1a45eb4ef98cba8aa8be8b4df909189ec1" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripPortTextField</name></member>
+      <member refid="classPositioningNtripSettings_1a91cc46770ee1a274f3e77fc527e37d5a" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripProtocolComboBox</name></member>
+      <member refid="classPositioningNtripSettings_1af0b13aa990d3a3811ccf33bd9e830db8" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripSourceTableFetcher</name></member>
+      <member refid="classPositioningNtripSettings_1a0bce2455aa29d3268824de45fd9874f3" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>ntripUsernameTextField</name></member>
+      <member refid="classPositioningNtripSettings_1aa40c79e8a901511acbbc83f1cb7a2109" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>onAboutToHide</name></member>
+      <member refid="classPositioningNtripSettings_1aabe0bb871e3e183337de88e98d468ff1" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>page</name></member>
+      <member refid="classPositioningNtripSettings_1ac67493c0cac3a0cc5299f70f6d589c55" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>parent</name></member>
+      <member refid="classPositioningNtripSettings_1a3ef45e42f97abe6a9fd8c8a43c58c6c9" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>refreshNtripMountPointsButton</name></member>
+      <member refid="classPositioningNtripSettings_1af8db9ac91a6f04d4ef17b08a81059ebb" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>refreshNtripMountPointsFeedback</name></member>
+      <member refid="classPositioningNtripSettings_1a82260e08fadf2af10a77f01ca787b8c0" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>refreshNtripMountPointsIndicator</name></member>
+      <member refid="classPositioningNtripSettings_1afcdabc953496bca3e626d21f6bd5b198" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>settingsLayout</name></member>
+      <member refid="classPositioningNtripSettings_1a47d642aae6171b086173e3dfc659b4a2" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>width</name></member>
+      <member refid="classPositioningNtripSettings_1aa7fe1499d6522e656f1f567e5dec2732" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>x</name></member>
+      <member refid="classPositioningNtripSettings_1a6c4a3efc54630720e514320a08073290" prot="private" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classElevationProfile" kind="class" language="C++" prot="public">
+    <compoundname>ElevationProfile</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classElevationProfile_1aa0a5af502ce91fb9ffcf250c5a98be4c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ElevationProfile::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>ElevationProfile::project</qualifiedname>
+        <read>dummyGetter_project_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="13" column="1" bodyfile="src/qml/ElevationProfile.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classElevationProfile_1a1b0cf23c65461b31eba6c19e37cfe8d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ElevationProfile::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>ElevationProfile::crs</qualifiedname>
+        <read>dummyGetter_crs_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="15" column="1" bodyfile="src/qml/ElevationProfile.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classElevationProfile_1a5b82eb73311c58c41f9f8fe75d1c77f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ElevationProfile::profileCurve</definition>
+        <argsstring></argsstring>
+        <name>profileCurve</name>
+        <qualifiedname>ElevationProfile::profileCurve</qualifiedname>
+        <read>dummyGetter_profileCurve_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="17" column="1" bodyfile="src/qml/ElevationProfile.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classElevationProfile_1add5756c11c64b24ef389b915153085f9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ElevationProfile::tolerance</definition>
+        <argsstring></argsstring>
+        <name>tolerance</name>
+        <qualifiedname>ElevationProfile::tolerance</qualifiedname>
+        <read>dummyGetter_tolerance_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="19" column="1" bodyfile="src/qml/ElevationProfile.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classElevationProfile_1ae7b448cfcec4aa2c137b4c30f03e9aa1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ElevationProfile::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>ElevationProfile::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="27" column="5" bodyfile="src/qml/ElevationProfile.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElevationProfile_1a3a05a34cdb77b519f0a56abbe843cecb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var ElevationProfile::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>ElevationProfile::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="28" column="5" bodyfile="src/qml/ElevationProfile.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElevationProfile_1aee9d01e97b2b9dd04ced1a1177c41eba" prot="private" static="no" mutable="no">
+        <type>ElevationProfileCanvas</type>
+        <definition>ElevationProfileCanvas ElevationProfile::elevationProfileCanvas</definition>
+        <argsstring></argsstring>
+        <name>elevationProfileCanvas</name>
+        <qualifiedname>ElevationProfile::elevationProfileCanvas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="29" column="24" bodyfile="src/qml/ElevationProfile.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElevationProfile_1a6fff63524a4937648a2cc026a2265eb0" prot="private" static="no" mutable="no">
+        <type>ProgressBar</type>
+        <definition>ProgressBar ElevationProfile::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>ElevationProfile::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="30" column="13" bodyfile="src/qml/ElevationProfile.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElevationProfile_1ac4640535e136eb5a1b6a87ad0171cfcd" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text ElevationProfile::instrutionLabel</definition>
+        <argsstring></argsstring>
+        <name>instrutionLabel</name>
+        <qualifiedname>ElevationProfile::instrutionLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="31" column="6" bodyfile="src/qml/ElevationProfile.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classElevationProfile_1ab4f6cd47dccdae27902594e081bfef19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElevationProfile::populateLayersFromProject</definition>
+        <argsstring>()</argsstring>
+        <name>populateLayersFromProject</name>
+        <qualifiedname>ElevationProfile::populateLayersFromProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classElevationProfile_1a148f2da7211617f47b36caf20ad3bfda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElevationProfile::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>ElevationProfile::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classElevationProfile_1a3d4cab19a1067eb8dd406faacf44b263" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElevationProfile::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>ElevationProfile::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ElevationProfile.qml" line="25" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ElevationProfile</label>
+        <link refid="classElevationProfile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ElevationProfile</label>
+        <link refid="classElevationProfile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ElevationProfile.qml" line="10" column="1" bodyfile="src/qml/ElevationProfile.qml" bodystart="10" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classElevationProfile_1a6fff63524a4937648a2cc026a2265eb0" prot="private" virt="non-virtual"><scope>ElevationProfile</scope><name>busyIndicator</name></member>
+      <member refid="classElevationProfile_1a3d4cab19a1067eb8dd406faacf44b263" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>clear</name></member>
+      <member refid="classElevationProfile_1ae7b448cfcec4aa2c137b4c30f03e9aa1" prot="private" virt="non-virtual"><scope>ElevationProfile</scope><name>color</name></member>
+      <member refid="classElevationProfile_1a1b0cf23c65461b31eba6c19e37cfe8d4" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>crs</name></member>
+      <member refid="classElevationProfile_1aee9d01e97b2b9dd04ced1a1177c41eba" prot="private" virt="non-virtual"><scope>ElevationProfile</scope><name>elevationProfileCanvas</name></member>
+      <member refid="classElevationProfile_1ac4640535e136eb5a1b6a87ad0171cfcd" prot="private" virt="non-virtual"><scope>ElevationProfile</scope><name>instrutionLabel</name></member>
+      <member refid="classElevationProfile_1ab4f6cd47dccdae27902594e081bfef19" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>populateLayersFromProject</name></member>
+      <member refid="classElevationProfile_1a5b82eb73311c58c41f9f8fe75d1c77f7" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>profileCurve</name></member>
+      <member refid="classElevationProfile_1aa0a5af502ce91fb9ffcf250c5a98be4c" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>project</name></member>
+      <member refid="classElevationProfile_1a3a05a34cdb77b519f0a56abbe843cecb" prot="private" virt="non-virtual"><scope>ElevationProfile</scope><name>radius</name></member>
+      <member refid="classElevationProfile_1a148f2da7211617f47b36caf20ad3bfda" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>refresh</name></member>
+      <member refid="classElevationProfile_1add5756c11c64b24ef389b915153085f9" prot="public" virt="non-virtual"><scope>ElevationProfile</scope><name>tolerance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

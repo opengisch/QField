@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structDrawingTemplateModel_1_1Template" kind="struct" language="C++" prot="private">
+    <compoundname>DrawingTemplateModel::Template</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structDrawingTemplateModel_1_1Template_1a39b7b0eb0897d02ce06bfe84f72fe2a9" prot="public" static="no" mutable="no">
+        <type>TemplateType</type>
+        <definition>TemplateType DrawingTemplateModel::Template::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>DrawingTemplateModel::Template::type</qualifiedname>
+        <initializer>= TemplateType::AppTemplate</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="87" column="22" bodyfile="src/core/drawingtemplatemodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDrawingTemplateModel_1_1Template_1a1d2198916db6157a9b8e1c8e2ab7b717" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DrawingTemplateModel::Template::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>DrawingTemplateModel::Template::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="88" column="17" bodyfile="src/core/drawingtemplatemodel.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDrawingTemplateModel_1_1Template_1a72b392af1461ab35865429443bf304e7" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DrawingTemplateModel::Template::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>DrawingTemplateModel::Template::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="89" column="17" bodyfile="src/core/drawingtemplatemodel.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structDrawingTemplateModel_1_1Template_1a782185046da414bf7ee50f9f9568c879" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DrawingTemplateModel::Template::Template</definition>
+        <argsstring>(TemplateType type, const QString &amp;title, const QString &amp;path)</argsstring>
+        <name>Template</name>
+        <qualifiedname>DrawingTemplateModel::Template::Template</qualifiedname>
+        <param>
+          <type>TemplateType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingtemplatemodel.h" line="81" column="9" bodyfile="src/core/drawingtemplatemodel.h" bodystart="81" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/drawingtemplatemodel.h" line="79" column="5" bodyfile="src/core/drawingtemplatemodel.h" bodystart="80" bodyend="90"/>
+    <listofallmembers>
+      <member refid="structDrawingTemplateModel_1_1Template_1a72b392af1461ab35865429443bf304e7" prot="public" virt="non-virtual"><scope>DrawingTemplateModel::Template</scope><name>path</name></member>
+      <member refid="structDrawingTemplateModel_1_1Template_1a782185046da414bf7ee50f9f9568c879" prot="public" virt="non-virtual"><scope>DrawingTemplateModel::Template</scope><name>Template</name></member>
+      <member refid="structDrawingTemplateModel_1_1Template_1a1d2198916db6157a9b8e1c8e2ab7b717" prot="public" virt="non-virtual"><scope>DrawingTemplateModel::Template</scope><name>title</name></member>
+      <member refid="structDrawingTemplateModel_1_1Template_1a39b7b0eb0897d02ce06bfe84f72fe2a9" prot="public" virt="non-virtual"><scope>DrawingTemplateModel::Template</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

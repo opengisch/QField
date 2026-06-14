@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFileDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>FileDeviceChooser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFileDeviceChooser_1a40f62e31ab1d3bbca834850989c60d2c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FileDeviceChooser::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>FileDeviceChooser::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="11" column="5" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFileDeviceChooser_1a2bdeb04a171e2e6669fa26f495057cad" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var FileDeviceChooser::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>FileDeviceChooser::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="12" column="5" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFileDeviceChooser_1acb7e3b8fad4d8bf6a321e86f832f547b" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField FileDeviceChooser::filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>FileDeviceChooser::filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="25" column="11" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFileDeviceChooser_1aa174438bfdab9c768d0ad679046e9429" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField FileDeviceChooser::interval</definition>
+        <argsstring></argsstring>
+        <name>interval</name>
+        <qualifiedname>FileDeviceChooser::interval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="26" column="11" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFileDeviceChooser_1aa4c192251ceb3cda1deb87798df1a1d7" prot="private" static="no" mutable="no">
+        <type>FileDialog</type>
+        <definition>FileDialog FileDeviceChooser::fileDialog</definition>
+        <argsstring></argsstring>
+        <name>fileDialog</name>
+        <qualifiedname>FileDeviceChooser::fileDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="27" column="12" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFileDeviceChooser_1afe8765fd7cb7fb01ebdda5cd81d5d75c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias FileDeviceChooser::deviceFilePath</definition>
+        <argsstring></argsstring>
+        <name>deviceFilePath</name>
+        <qualifiedname>FileDeviceChooser::deviceFilePath</qualifiedname>
+        <read>dummyGetter_deviceFilePath_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="15" column="1" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFileDeviceChooser_1ae4993a445be447e0ff3fdde1ec89eeb1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias FileDeviceChooser::deviceInterval</definition>
+        <argsstring></argsstring>
+        <name>deviceInterval</name>
+        <qualifiedname>FileDeviceChooser::deviceInterval</qualifiedname>
+        <read>dummyGetter_deviceInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="17" column="1" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFileDeviceChooser_1a0972e376790525fda4267d36deed0df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileDeviceChooser::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>FileDeviceChooser::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="19" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileDeviceChooser_1adce8f139dde68da568632de7117b9f97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileDeviceChooser::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>FileDeviceChooser::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classFileDeviceChooser_1a9ede3f4eaca81957f8eb7ecedef218f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileDeviceChooser::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>FileDeviceChooser::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/FileDeviceChooser.qml" line="23" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FileDeviceChooser</label>
+        <link refid="classFileDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FileDeviceChooser</label>
+        <link refid="classFileDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/FileDeviceChooser.qml" line="10" column="1" bodyfile="src/qml/FileDeviceChooser.qml" bodystart="10" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classFileDeviceChooser_1afe8765fd7cb7fb01ebdda5cd81d5d75c" prot="public" virt="non-virtual"><scope>FileDeviceChooser</scope><name>deviceFilePath</name></member>
+      <member refid="classFileDeviceChooser_1ae4993a445be447e0ff3fdde1ec89eeb1" prot="public" virt="non-virtual"><scope>FileDeviceChooser</scope><name>deviceInterval</name></member>
+      <member refid="classFileDeviceChooser_1aa4c192251ceb3cda1deb87798df1a1d7" prot="private" virt="non-virtual"><scope>FileDeviceChooser</scope><name>fileDialog</name></member>
+      <member refid="classFileDeviceChooser_1acb7e3b8fad4d8bf6a321e86f832f547b" prot="private" virt="non-virtual"><scope>FileDeviceChooser</scope><name>filePath</name></member>
+      <member refid="classFileDeviceChooser_1a0972e376790525fda4267d36deed0df0" prot="public" virt="non-virtual"><scope>FileDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classFileDeviceChooser_1a9ede3f4eaca81957f8eb7ecedef218f3" prot="public" virt="non-virtual"><scope>FileDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classFileDeviceChooser_1a2bdeb04a171e2e6669fa26f495057cad" prot="private" virt="non-virtual"><scope>FileDeviceChooser</scope><name>height</name></member>
+      <member refid="classFileDeviceChooser_1aa174438bfdab9c768d0ad679046e9429" prot="private" virt="non-virtual"><scope>FileDeviceChooser</scope><name>interval</name></member>
+      <member refid="classFileDeviceChooser_1adce8f139dde68da568632de7117b9f97" prot="public" virt="non-virtual"><scope>FileDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classFileDeviceChooser_1a40f62e31ab1d3bbca834850989c60d2c" prot="private" virt="non-virtual"><scope>FileDeviceChooser</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
