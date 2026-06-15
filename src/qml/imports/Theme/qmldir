@@ -28,3 +28,4 @@ QfToolButton 1.0 QfToolButton.qml
 QfToolButtonDrawer 1.0 QfToolButtonDrawer.qml
 QfToolButtonPie 1.0 QfToolButtonPie.qml
 QfVisibilityFadingRow 1.0 QfVisibilityFadingRow.qml
+QfWelcomeAction 1.0 QfWelcomeAction.qml
