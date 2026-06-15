@@ -101,7 +101,15 @@
         "qml"
       ]
     },
-    "qtwebview",
+    {
+      "name": "qtwebview",
+      "features": [
+        {
+          "name": "webview2",
+          "platform": "windows"
+        }
+      ]
+    },
     {
       "name": "sentry-cocoa",
       "platform": "ios"
