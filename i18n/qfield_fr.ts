@@ -3470,7 +3470,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Cloner le projet</translation>
     </message>
 </context>
 <context>
@@ -3841,31 +3841,31 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Cloner le projet</translation>
     </message>
     <message>
         <source>Project Cloning</source>
-        <translation type="unfinished"/>
+        <translation>Clonage du projet</translation>
     </message>
     <message>
         <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
+        <translation>Quel nom veux-tu donner à ton projet cloné ?</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Échec du clonage du projet: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Échec de la création du projet: %1</translation>
     </message>
     <message>
         <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
+        <translation>Projet cloné avec succès</translation>
     </message>
     <message>
         <source>Project successfully created</source>
-        <translation type="unfinished"/>
+        <translation>Projet créé avec succès</translation>
     </message>
 </context>
 <context>
