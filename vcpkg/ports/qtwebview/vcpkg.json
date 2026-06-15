@@ -30,6 +30,13 @@
           ]
         }
       ]
+    },
+    "webview2": {
+      "description": "Build with webview2",
+      "supports": "windows",
+      "dependencies": [
+        "webview2"
+      ]
     }
   }
 }

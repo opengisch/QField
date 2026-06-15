@@ -7,6 +7,7 @@ set(${PORT}_PATCHES)
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
 FEATURES
     "webengine"     CMAKE_REQUIRE_FIND_PACKAGE_WebEngineCore
+    "webview2"      FEATURE_webview_webview2_plugin
 INVERTED_FEATURES
     "webengine"     CMAKE_DISABLE_FIND_PACKAGE_WebEngineCore
 )
