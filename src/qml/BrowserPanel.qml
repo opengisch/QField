@@ -22,7 +22,7 @@ QfPopup {
 
   width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeHorizontalMargin * 2)
   height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin * 2)
-  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
+  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeHorizontalMargin
   y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
   padding: fullscreen ? 0 : 5
   closePolicy: Popup.CloseOnEscape
