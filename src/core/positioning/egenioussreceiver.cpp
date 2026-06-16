@@ -153,6 +153,7 @@ void EgenioussReceiver::onReadyRead()
     return;
   }
   mPayload = jsonDoc.object();
+  qDebug() << "EgenioussReceiver payload:" << QJsonDocument( mPayload ).toJson( QJsonDocument::Compact );
   const double latitude = mPayload.value( "lat" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lat" ).toDouble();
   const double longitude = mPayload.value( "lon" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lon" ).toDouble();
   const double elevation = mPayload.value( "alt" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "alt" ).toDouble();
