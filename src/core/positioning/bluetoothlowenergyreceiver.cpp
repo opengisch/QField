@@ -90,6 +90,7 @@ void BluetoothLowEnergyReceiver::handleConnectDevice()
 
 void BluetoothLowEnergyReceiver::handleDisconnectDevice()
 {
+  setSocketState( QAbstractSocket::UnconnectedState );
   mConnectOnDisconnect = false;
   doDisconnectDevice();
 }
@@ -139,15 +140,7 @@ void BluetoothLowEnergyReceiver::deviceConnected()
 
 void BluetoothLowEnergyReceiver::deviceDisconnected()
 {
-  qInfo() << "BluetoothLowEnergyReceiver: Disconnected.";
-  setSocketState( QAbstractSocket::UnconnectedState );
-
-  clearService();
-
-  if ( mConnectOnDisconnect )
-  {
-    doConnectDevice();
-  }
+  qInfo() << "BluetoothLowEnergyReceiver: Received disconnected signal.";
 }
 
 void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::Error error )
