@@ -43,7 +43,7 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
 
   mReconnectTimer.setSingleShot( true );
   connect( &mReconnectTimer, &QTimer::timeout, this, [this]() {
-    mSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadOnly );
+    mSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadWrite );
   } );
 
   setValid( !mAddress.isEmpty() && mPort > 0 );
