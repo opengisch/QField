@@ -23,6 +23,8 @@
 #include <QTimeZone>
 #include <qgsnetworkaccessmanager.h>
 
+#include <cmath>
+
 QLatin1String EgenioussReceiver::identifier = QLatin1String( "egeniouss" );
 
 EgenioussReceiver::EgenioussReceiver( const QString &address, const int port, QObject *parent )
@@ -94,6 +96,38 @@ GnssPositionDetails EgenioussReceiver::details() const
   const QDateTime timestamp = QDateTime::fromMSecsSinceEpoch( timeMs, QTimeZone( QTimeZone::Initialization::UTC ) );
   detailsList.append( tr( "Last fix" ), timestamp.toLocalTime().toString( QStringLiteral( "hh:mm:ss.zzz" ) ) );
 
+  const double heading = mPayload.value( "kappa" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  if ( !std::isnan( heading ) )
+  {
+    detailsList.append( tr( "Heading" ), QStringLiteral( "%1°" ).arg( heading, 0, 'f', 1 ) );
+  }
+
+  const double roll = mPayload.value( "omega" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double pitch = mPayload.value( "phi" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  if ( !std::isnan( roll ) && !std::isnan( pitch ) )
+  {
+    detailsList.append( tr( "Roll" ), QStringLiteral( "%1°" ).arg( roll, 0, 'f', 1 ) );
+    detailsList.append( tr( "Pitch" ), QStringLiteral( "%1°" ).arg( pitch, 0, 'f', 1 ) );
+  }
+
+  const double sigLat = mPayload.value( "sig_lat" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double sigLon = mPayload.value( "sig_lon" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double sigAlt = mPayload.value( "sig_alt" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double sigKappa = mPayload.value( "sig_kappa" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  if ( !std::isnan( sigLat ) && !std::isnan( sigLon ) )
+  {
+    const double hacc = std::sqrt( sigLat * sigLat + sigLon * sigLon );
+    detailsList.append( tr( "H. sigma" ), QStringLiteral( "%1m" ).arg( hacc, 0, 'f', 3 ) );
+  }
+  if ( !std::isnan( sigAlt ) )
+  {
+    detailsList.append( tr( "V. sigma" ), QStringLiteral( "%1m" ).arg( sigAlt, 0, 'f', 3 ) );
+  }
+  if ( !std::isnan( sigKappa ) )
+  {
+    detailsList.append( tr( "Heading sigma" ), QStringLiteral( "%1°" ).arg( sigKappa, 0, 'f', 2 ) );
+  }
+
   return detailsList;
 }
 
@@ -134,6 +168,16 @@ void EgenioussReceiver::onReadyRead()
   const double latitude = mPayload.value( "lat" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lat" ).toDouble();
   const double longitude = mPayload.value( "lon" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lon" ).toDouble();
   const double elevation = mPayload.value( "alt" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "alt" ).toDouble();
+  // omega=roll, phi=pitch, kappa=yaw/heading — Egeniouss naming convention
+  const double roll = mPayload.value( "omega" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double pitch = mPayload.value( "phi" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double heading = mPayload.value( "kappa" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  // 1-sigma position accuracy in metres
+  const double sigLat = mPayload.value( "sig_lat" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double sigLon = mPayload.value( "sig_lon" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  const double sigAlt = mPayload.value( "sig_alt" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
+  // horizontal accuracy: RSS of sig_lat and sig_lon
+  const double hacc = ( std::isnan( sigLat ) || std::isnan( sigLon ) ) ? std::numeric_limits<double>::quiet_NaN() : std::sqrt( sigLat * sigLat + sigLon * sigLon );
   mLastGnssPositionInformation = GnssPositionInformation(
     latitude,
     longitude,
@@ -144,12 +188,24 @@ void EgenioussReceiver::onReadyRead()
     0,
     0,
     0,
-    std::numeric_limits<double>::quiet_NaN(),
-    std::numeric_limits<double>::quiet_NaN(),
+    hacc,
+    sigAlt,
     QDateTime::fromMSecsSinceEpoch( static_cast<qint64>( mPayload.value( "time" ).toDouble() * 1000.0 ), QTimeZone( QTimeZone::Initialization::UTC ) ),
     QChar(),
     0,
-    1 );
+    1,
+    0,
+    QChar(),
+    QList<int>(),
+    false,
+    std::numeric_limits<double>::quiet_NaN(),
+    std::numeric_limits<double>::quiet_NaN(),
+    0,
+    QString(),
+    true,
+    roll,
+    pitch,
+    heading );
 
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
