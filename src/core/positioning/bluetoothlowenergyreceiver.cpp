@@ -235,11 +235,17 @@ void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Service
 
       if ( mRxCharacteristic.isValid() )
       {
+        qInfo() << "BluetoothLowEnergyReceiver: Subscribing to RX characteristic notification";
         QLowEnergyDescriptor notificationDesc = mRxCharacteristic.descriptor( QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration );
         if ( notificationDesc.isValid() )
         {
           mService->writeDescriptor( notificationDesc, QByteArray::fromHex( "0100" ) );
           qInfo() << "BluetoothLowEnergyReceiver: Subscribed to RX characteristic notifications.";
+        }
+
+        if ( mTxCharacteristic.isValid() )
+        {
+          qInfo() << "BluetoothLowEnergyReceiver: Valid TX characteristic.";
         }
 
         mBufferData.clear();
