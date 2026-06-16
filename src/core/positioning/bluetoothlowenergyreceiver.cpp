@@ -41,6 +41,9 @@ BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver( const QString &address, 
 {
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
+  mCorrectionTimer.setInterval( 20 );
+  connect( &mCorrectionTimer, &QTimer::timeout, this, &BluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
+
   initNmeaConnection( mBuffer );
   setValid( !mAddress.isEmpty() );
 }
@@ -365,12 +368,26 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
     return;
   }
 
+  mCorrectionData.append( data );
+
+  if ( !mCorrectionTimer.isActive() )
+  {
+    mCorrectionTimer.start();
+  }
+}
+
+void BluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
+{
+  if ( mCorrectionData.isEmpty() || !mService || !mTxCharacteristic.isValid() )
+  {
+    mCorrectionTimer.stop();
+    return;
+  }
+
   // Payloag must not be longer than 20 bytes
   // https://doc.qt.io/qt-6/qlowenergyservice.html#WriteMode-enum
-  const int chunkSize = 20;
-  for ( int i = 0; i < data.length(); i += chunkSize )
-  {
-    QByteArray chunk = data.mid( i, chunkSize );
-    mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
-  }
+  const qsizetype chunkSize = std::min( static_cast<qsizetype>( 20 ), mCorrectionData.size() );
+  QByteArray chunk = mCorrectionData.left( chunkSize );
+  mCorrectionData.remove( 0, chunkSize );
+  mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
 }
