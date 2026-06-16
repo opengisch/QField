@@ -110,19 +110,7 @@ GnssPositionDetails EgenioussReceiver::details() const
     detailsList.append( tr( "Pitch" ), QStringLiteral( "%1°" ).arg( pitch, 0, 'f', 1 ) );
   }
 
-  const double sigLat = mPayload.value( "sig_lat" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
-  const double sigLon = mPayload.value( "sig_lon" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
-  const double sigAlt = mPayload.value( "sig_alt" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
   const double sigKappa = mPayload.value( "sig_kappa" ).toDouble( std::numeric_limits<double>::quiet_NaN() );
-  if ( !std::isnan( sigLat ) && !std::isnan( sigLon ) )
-  {
-    const double hacc = std::sqrt( sigLat * sigLat + sigLon * sigLon );
-    detailsList.append( tr( "H. sigma" ), QStringLiteral( "%1m" ).arg( hacc, 0, 'f', 3 ) );
-  }
-  if ( !std::isnan( sigAlt ) )
-  {
-    detailsList.append( tr( "V. sigma" ), QStringLiteral( "%1m" ).arg( sigAlt, 0, 'f', 3 ) );
-  }
   if ( !std::isnan( sigKappa ) )
   {
     detailsList.append( tr( "Heading sigma" ), QStringLiteral( "%1°" ).arg( sigKappa, 0, 'f', 2 ) );
