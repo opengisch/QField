@@ -155,7 +155,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesLayers << notesPointLayer;
 
     LayerUtils::setDefaultRenderer( notesPointLayer, nullptr,
-                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation', 'max', \"media\")" ) : QString(),
+                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation_%1', 'max', \"media\")" ).arg( notesPointLayer->id() ) : QString(),
                                     QStringLiteral( "color" ) );
     LayerUtils::setDefaultLabeling( notesPointLayer );
 
