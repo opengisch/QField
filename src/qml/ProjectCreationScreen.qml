@@ -324,6 +324,7 @@ Page {
           id: takeNotesColumn
           anchors.left: parent.left
           anchors.right: parent.right
+          spacing: 8
 
           Label {
             text: qsTr("Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.")
@@ -339,11 +340,13 @@ Page {
 
             CheckBox {
               id: takeMediaCheckBox
+              Layout.alignment: Qt.AlignVCenter
               font: Theme.defaultFont
               indicator.height: 16
               indicator.width: 16
               indicator.implicitHeight: 24
               indicator.implicitWidth: 24
+              implicitHeight: 32
               leftPadding: 1
               checked: true
             }
@@ -360,6 +363,39 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                   takeMediaCheckBox.checked = !takeMediaCheckBox.checked;
+                }
+              }
+            }
+          }
+
+          RowLayout {
+            width: parent.width
+            spacing: 0
+
+            CheckBox {
+              id: notesOnLinesPolygonsCheckBox
+              font: Theme.defaultFont
+              indicator.height: 16
+              indicator.width: 16
+              indicator.implicitHeight: 24
+              indicator.implicitWidth: 24
+              implicitHeight: 32
+              leftPadding: 1
+              checked: false
+            }
+
+            Label {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignVCenter
+              text: qsTr("Allow notes on lines and polygons geometries")
+              font: Theme.defaultFont
+              color: Theme.mainTextColor
+              wrapMode: Text.WordWrap
+
+              MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                  notesOnLinesPolygonsCheckBox.checked = !notesOnLinesPolygonsCheckBox.checked;
                 }
               }
             }
@@ -403,6 +439,7 @@ Page {
               indicator.width: 16
               indicator.implicitHeight: 24
               indicator.implicitWidth: 24
+              implicitHeight: 32
               leftPadding: 1
               checked: false
             }
@@ -463,6 +500,7 @@ Page {
               indicator.width: 16
               indicator.implicitHeight: 24
               indicator.implicitWidth: 24
+              implicitHeight: 32
               leftPadding: 1
               checked: false
             }
@@ -523,6 +561,7 @@ Page {
           "basemap_custom_extent": basemapLoader.item ? basemapLoader.item.customExtent || "" : "",
           "notes": takeNotesGroupBox.checked,
           "camera_capture": takeMediaCheckBox.checked,
+          "notes_on_lines_polygons": notesOnLinesPolygonsCheckBox.checked,
           "tracks": trackPositionGroupBox.checked,
           "track_on_launch": autoTrackPositionCheckBox.checked,
           "auto_push_to_cloud": qfieldCloudGroupBox.checked && autoPushCheckBox.checked
