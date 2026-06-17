@@ -387,7 +387,7 @@ Page {
             Label {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
-              text: qsTr("Allow notes on lines and polygons geometries")
+              text: qsTr("Allow notes on lines and polygons")
               font: Theme.defaultFont
               color: Theme.mainTextColor
               wrapMode: Text.WordWrap
