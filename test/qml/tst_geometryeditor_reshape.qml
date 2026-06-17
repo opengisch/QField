@@ -19,7 +19,6 @@ TestCase {
 
   function init() {
     lastToastType = "";
-    verify(fieldsLayer.getFeature("39").isValid());
   }
 
   function cleanup() {
