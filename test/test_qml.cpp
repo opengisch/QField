@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+#include "cogo/cogoregistry.h"
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qfield_qml_init.h"
@@ -195,6 +196,8 @@ class Setup : public QObject
       iface->setParent( engine );
       AppInterface::setInstance( iface );
       engine->rootContext()->setContextProperty( QStringLiteral( "iface" ), iface );
+      CogoRegistry *cogoRegistry = new CogoRegistry( engine );
+      CogoRegistry::setInstance( cogoRegistry );
     }
 };
 
