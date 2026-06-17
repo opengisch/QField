@@ -19,6 +19,7 @@ TestCase {
 
   function init() {
     lastToastType = "";
+    verify(fieldsLayer.getFeature("39").isValid());
   }
 
   function cleanup() {
@@ -141,7 +142,8 @@ TestCase {
     property string positionInformation: ""
     property string topSnappingResult: ""
     property bool positionLocked: false
-    function flash() {}
+    function flash() {
+    }
   }
 
   Item {
