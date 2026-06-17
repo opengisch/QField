@@ -235,6 +235,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     {
       // Second layer in the same notes.gpkg
       QgsFields attachFields;
+      attachFields.append( QgsField( QStringLiteral( "note_layer" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "note_uuid" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "description" ), QMetaType::QString ) );
@@ -259,6 +260,13 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
       // Hide fid
       attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "fid" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+      }
+
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "note_layer" ) );
       if ( attachFieldIndex >= 0 )
       {
         attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
@@ -322,7 +330,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesFormConfig.clearTabs();
       notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
       QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
-      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), root );
+      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation_%1" ).arg( notesLayer->id() ), root );
       root->addChildElement( relationElement );
       const QStringList orderedFields = {
         QStringLiteral( "color" ),
@@ -510,16 +518,18 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   if ( notesLayer && attachmentsLayer )
   {
     QgsRelationContext relationContext( createdProject );
-    QgsRelation rel( relationContext );
-    rel.setId( QStringLiteral( "notes_attachments_relation" ) );
-    rel.setName( tr( "Attachments" ) );
-    rel.setReferencedLayer( notesLayer->id() );
-    rel.setReferencingLayer( attachmentsLayer->id() );
-    rel.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
-    rel.setStrength( Qgis::RelationshipStrength::Association );
-    if ( rel.isValid() )
+    QgsPolymorphicRelation relation( relationContext );
+    relation.setId( QStringLiteral( "notes_attachments_relation" ) );
+    relation.setName( tr( "Attachments" ) );
+    relation.setReferencingLayer( attachmentsLayer->id() );
+    relation.setReferencedLayerIds( QStringList() << notesLayer->id() );
+    relation.setReferencedLayerExpression( QStringLiteral( "@layer_id" ) );
+    relation.setReferencedLayerField( QStringLiteral( "note_layer" ) );
+    relation.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
+    relation.setRelationStrength( Qgis::RelationshipStrength::Association );
+    if ( relation.isValid() )
     {
-      createdProject->relationManager()->addRelation( rel );
+      createdProject->relationManager()->addPolymorphicRelation( relation );
     }
   }
 
