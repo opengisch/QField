@@ -58,7 +58,7 @@ PlatformUtilities::~PlatformUtilities()
 
 PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | FilePicker | NativeLocalDataPicker;
+  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | FilePicker | NativeLocalDataPicker | UpdateProjectFromArchive;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -281,7 +281,21 @@ void PlatformUtilities::importDatasets() const
 
 void PlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
 {
-  Q_UNUSED( projectPath )
+  const QString zipFilePath = QFileDialog::getOpenFileName( nullptr,
+                                                            tr( "Select ZIP Archive" ),
+                                                            QFileInfo( projectPath ).absolutePath(),
+                                                            tr( "ZIP Archives (*.zip)" ) );
+  if ( zipFilePath.isEmpty() )
+  {
+    return;
+  }
+
+  QStringList extractedFiles;
+  const QString projectFolder = QFileInfo( projectPath ).absolutePath();
+  if ( FileUtils::unzip( zipFilePath, projectFolder, extractedFiles, false ) )
+  {
+    AppInterface::instance()->loadFile( projectPath );
+  }
 }
 
 void PlatformUtilities::exportFolderTo( const QString &path ) const
