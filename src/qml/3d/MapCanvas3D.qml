@@ -31,7 +31,7 @@ Item {
   property TrackingModel trackingModel: null
 
   property alias terrainProvider: mapTerrainProvider
-  property Node pluginScene: null
+  property Item pluginContainer: null
 
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
@@ -77,7 +77,6 @@ Item {
   View3D {
     id: view3d
     anchors.fill: parent
-    importScene: mapArea.pluginScene
 
     environment: SceneEnvironment {
       clearColor: mapArea.mapSettings ? mapArea.mapSettings.backgroundColor : "#FFFFFF"
@@ -257,6 +256,31 @@ Item {
         terrainProvider: mapTerrainProvider
         color: modelData.tracker ? modelData.tracker.color : "#FFFF3232"
         visible: modelData.tracker ? modelData.tracker.visible : false
+      }
+    }
+
+    Repeater3D {
+      model: mapArea.pluginContainer ? mapArea.pluginContainer.children.length : 0
+
+      Node {
+        required property int index
+
+        property Quick3DGeometryConfiguration config: mapArea.pluginContainer ? mapArea.pluginContainer.children[index] : null
+
+        Model {
+          geometry: Quick3DGeometry {
+            qgsGeometry: GeometryUtils.createGeometryFromWkt(config ? config.wkt : '')
+            crs: config ? config.crs : qgisProject.crs
+            terrainProvider: mapTerrainProvider
+            lineWidth: config ? config.lineWidth : 4.0
+            heightOffset: 20.0
+            altitudeClamping: Quick3DGeometry.ClampToGround
+            color: config ? config.lineColor : '#FF6600'
+          }
+          materials: PrincipledMaterial {
+            vertexColorsEnabled: true
+          }
+        }
       }
     }
   }

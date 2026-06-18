@@ -27,7 +27,6 @@ class QgisMobileapp;
 class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
-class QQuick3DObject;
 class QQmlEngine;
 class QFieldXmlHttpRequest;
 
@@ -185,9 +184,9 @@ class AppInterface : public QObject
     Q_INVOKABLE void addItemToPluginsToolbar( QQuickItem *item ) const;
 
     /**
-     * Adds a 3D \a node to the plugin scene container.
+     * Adds a geometry \a configuration to the persistent plugin 3D container.
      */
-    Q_INVOKABLE void addItemToMapCanvas3D( QQuick3DObject *node ) const;
+    Q_INVOKABLE void addItemToMapCanvas3D( QQuickItem *item ) const;
 
     /**
      * Adds an \a item in the map canvas menu's action toolbar container

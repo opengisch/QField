@@ -16,7 +16,6 @@
  ***************************************************************************/
 import QtCore
 import QtQuick
-import QtQuick3D
 import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
@@ -725,9 +724,10 @@ ApplicationWindow {
       color: mapCanvas.mapSettings.backgroundColor
     }
 
-    Node {
-      id: mapCanvas3DPluginScene
-      objectName: 'mapCanvas3DPluginScene'
+    Item {
+      id: mapCanvas3DPluginContainer
+      objectName: 'mapCanvas3DPluginContainer'
+      visible: false
     }
 
     Loader {
@@ -757,7 +757,7 @@ ApplicationWindow {
 
       onLoaded: {
         item.objectName = 'mapCanvas3D';
-        item.pluginScene = mapCanvas3DPluginScene;
+        item.pluginContainer = mapCanvas3DPluginContainer;
         item.mapSettings = mapCanvas.mapSettings;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
