@@ -21,6 +21,7 @@
 
 #include <QBuffer>
 #include <QObject>
+#include <QTimer>
 #include <QtBluetooth/QBluetoothUuid>
 #include <QtBluetooth/QLowEnergyController>
 #include <QtBluetooth/QLowEnergyService>
@@ -65,6 +66,8 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
     void serviceErrorOccurred( QLowEnergyService::ServiceError error );
     void characteristicChanged( const QLowEnergyCharacteristic &characteristic, const QByteArray &value );
 
+    void forwardCorrectionDataChunk();
+
   private:
     void clearService();
 
@@ -85,6 +88,9 @@ class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
 
     QBuffer *mBuffer = nullptr;
     QByteArray mBufferData;
+
+    QByteArray mCorrectionData;
+    QTimer mCorrectionTimer;
 
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
