@@ -30,6 +30,7 @@
 #include <UIKit/UIKit.h>
 #include <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
+#include <QFileInfo>
 #include <QGuiApplication>
 #include <QStandardPaths>
 #include <objc/runtime.h>
@@ -72,9 +73,9 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 }
 
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
-  PlatformUtilities::Capabilities capabilities = Capabilities() | NativeCamera |
-                                                 AdjustBrightness | FilePicker |
-                                                 CustomImport | CustomSend;
+  PlatformUtilities::Capabilities capabilities =
+      Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
+      CustomImport | CustomSend | UpdateProjectFromArchive;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -346,6 +347,19 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
     if (AppInterface::instance()) {
       emit AppInterface::instance()->openPath(importedPath);
     }
+  } else if ([_mode isEqualToString:@"updateFromArchive"]) {
+    [url stopAccessingSecurityScopedResource];
+    [url startAccessingSecurityScopedResource];
+
+    QString zipPath = QString::fromNSString(url.path);
+    QString destDir = QString::fromNSString(_importPath);
+    QStringList extractedFiles;
+    FileUtils::unzip(zipPath, destDir, extractedFiles, false);
+    [url stopAccessingSecurityScopedResource];
+
+    if (AppInterface::instance()) {
+      emit AppInterface::instance()->openPath(destDir);
+    }
   }
 }
 
@@ -492,4 +506,28 @@ void IosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
                  root.view.bounds.size.height / 2.0, 1.0, 1.0);
 
   [root presentViewController:activityVC animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::updateProjectFromArchive(
+    const QString &projectPath) const {
+  QString importPath = QFileInfo(projectPath).absolutePath();
+  NSString *importBasePath = importPath.toNSString();
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc] initForOpeningContentTypes:@[
+        [UTType typeWithIdentifier:@"public.zip-archive"]
+      ]];
+  picker.allowsMultipleSelection = NO;
+
+  IosImportDelegate *delegate = [[IosImportDelegate alloc] init];
+  delegate.importPath = importBasePath;
+  delegate.mode = @"updateFromArchive";
+  picker.delegate = delegate;
+  objc_setAssociatedObject(picker, &kIosImportDelegateKey, delegate,
+                           OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+  [root presentViewController:picker animated:YES completion:nil];
 }
