@@ -122,134 +122,79 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   createdProject->displaySettings()->setCoordinateType( Qgis::CoordinateDisplayType::CustomCrs );
   createdProject->displaySettings()->setCoordinateCustomCrs( QgsCoordinateReferenceSystem( "EPSG:4326" ) );
 
-  // Notes layer
-  QgsVectorLayer *notesLayer = nullptr;
+  // Notes-related layers
+  QgsVectorLayer *notesPointLayer = nullptr;
+  QgsVectorLayer *notesLineLayer = nullptr;
+  QgsVectorLayer *notesPolygonLayer = nullptr;
   QgsVectorLayer *attachmentsLayer = nullptr;
   if ( options.value( QStringLiteral( "notes" ) ).toBool() )
   {
+    QList<QgsVectorLayer *> notesLayers;
+
     createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
 
     const QString notesFilepath = QStringLiteral( "%1/notes.gpkg" ).arg( createdProjectDir );
+    const bool notesHasAdditionalGeometries = options.value( QStringLiteral( "notes_on_lines_polygons" ) ).toBool();
+    const bool notesHasAttachments = options.value( QStringLiteral( "camera_capture" ) ).toBool();
 
-    QgsFields fields;
-    fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
+    QgsFields notesFields;
+    notesFields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
+    notesFields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
+    notesFields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
+    notesFields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
+    notesFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
-    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    writerOptions.layerName = "notes_point";
+    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     delete writer;
 
-    notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
-    fields = notesLayer->fields();
-    LayerUtils::setDefaultRenderer( notesLayer, nullptr,
-                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation', 'max', \"media\")" ) : QString(),
+    writerOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteLayer;
+
+    notesPointLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), notesHasAdditionalGeometries ? QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Point" ) ) : ( "Notes" ) );
+    notesLayers << notesPointLayer;
+
+    LayerUtils::setDefaultRenderer( notesPointLayer, nullptr,
+                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation_%1', 'max', \"media\")" ).arg( notesPointLayer->id() ) : QString(),
                                     QStringLiteral( "color" ) );
-    LayerUtils::setDefaultLabeling( notesLayer );
+    LayerUtils::setDefaultLabeling( notesPointLayer );
 
-    // Set a nice display expression for the feature list
-    notesLayer->setDisplayExpression( "COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
-
-    int fieldIndex;
-    QVariantMap widgetOptions;
-    QgsEditorWidgetSetup widgetSetup;
-
-    // Configure fid field
-    fieldIndex = fields.indexOf( QStringLiteral( "fid" ) );
-    if ( fieldIndex >= 0 )
+    if ( notesHasAdditionalGeometries )
     {
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      writerOptions.layerName = "notes_line";
+      writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::LineStringZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+      delete writer;
+
+      notesLineLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Line" ) ) );
+      notesLayers << notesLineLayer;
+
+      LayerUtils::setDefaultRenderer( notesLineLayer, nullptr, QString(), QStringLiteral( "color" ) );
+
+      writerOptions.layerName = "notes_polygon";
+      writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PolygonZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+      delete writer;
+
+      notesPolygonLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Polygon" ) ) );
+      notesLayers << notesPolygonLayer;
+
+      LayerUtils::setDefaultRenderer( notesPolygonLayer, nullptr, QString(), QStringLiteral( "color" ) );
     }
 
-    // Configure uuid field (referenced key for relations)
-    fieldIndex = fields.indexOf( QStringLiteral( "uuid" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "uuid()" ), false ) );
-    }
-
-    // Configure time field
-    fieldIndex = fields.indexOf( QStringLiteral( "timestamp" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
-      widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
-      widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
-      widgetOptions[QStringLiteral( "allow_null" )] = true;
-      widgetOptions[QStringLiteral( "calendar_popup" )] = true;
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
-    }
-
-    // Configure color field
-    fieldIndex = fields.indexOf( QStringLiteral( "color" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
-    }
-
-    // Configure note field
-    fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
-    }
-
-    // Configure note field
-    fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetOptions[QStringLiteral( "IsMultiline" )] = true;
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
-    }
-
-    // Insure the layer is ready cloud-friendly
-    notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
-    notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
-
-    notesLayer->setDisplayExpression( QStringLiteral( "\"title\"" ) );
-
-    createdProjectLayers << notesLayer;
-
-    // Attachments child layer (when camera capture is enabled)
-    if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
+    if ( notesHasAttachments )
     {
       // Second layer in the same notes.gpkg
       QgsFields attachFields;
+      attachFields.append( QgsField( QStringLiteral( "note_layer" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "note_uuid" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "description" ), QMetaType::QString ) );
       attachFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
-      QgsVectorFileWriter::SaveVectorOptions attachWriterOptions;
-      attachWriterOptions.layerName = QStringLiteral( "notes_attachments" );
-      attachWriterOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteLayer;
-      QgsVectorFileWriter *attachWriter = QgsVectorFileWriter::create(
-        notesFilepath, attachFields, Qgis::WkbType::NoGeometry,
-        QgsCoordinateReferenceSystem(),
-        createdProject->transformContext(), attachWriterOptions );
+      writerOptions.layerName = QStringLiteral( "notes_attachments" );
+      QgsVectorFileWriter *attachWriter = QgsVectorFileWriter::create( notesFilepath, attachFields, Qgis::WkbType::NoGeometry, QgsCoordinateReferenceSystem(), createdProject->transformContext(), writerOptions );
       delete attachWriter;
 
-      const QString attachUri = QStringLiteral( "%1|layername=notes_attachments" ).arg( notesFilepath );
+      const QString attachUri = QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName );
       attachmentsLayer = new QgsVectorLayer( attachUri, tr( "Note attachments" ) );
       QgsFields liveAttachFields = attachmentsLayer->fields();
 
@@ -259,6 +204,13 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
       // Hide fid
       attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "fid" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+      }
+
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "note_layer" ) );
       if ( attachFieldIndex >= 0 )
       {
         attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
@@ -317,28 +269,116 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       attachmentsLayer->setFlags( attachmentsLayer->flags() | QgsMapLayer::Private );
 
       createdProjectLayers << attachmentsLayer;
+    }
 
-      QgsEditFormConfig notesFormConfig = notesLayer->editFormConfig();
-      notesFormConfig.clearTabs();
-      notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
-      QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
-      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), root );
-      root->addChildElement( relationElement );
-      const QStringList orderedFields = {
-        QStringLiteral( "color" ),
-        QStringLiteral( "title" ),
-        QStringLiteral( "note" ),
-        QStringLiteral( "timestamp" ) };
-      for ( const QString &fieldName : orderedFields )
+    for ( QgsVectorLayer *notesLayer : notesLayers )
+    {
+      QgsFields fields = notesLayer->fields();
+      // Set a nice display expression for the feature list
+      notesLayer->setDisplayExpression( "COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
+
+      int fieldIndex;
+      QVariantMap widgetOptions;
+      QgsEditorWidgetSetup widgetSetup;
+
+      // Configure fid field
+      fieldIndex = fields.indexOf( QStringLiteral( "fid" ) );
+      if ( fieldIndex >= 0 )
       {
-        const int idx = notesLayer->fields().indexOf( fieldName );
-        if ( idx >= 0 )
-        {
-          root->addChildElement( new QgsAttributeEditorField( fieldName, idx, root ) );
-        }
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       }
 
-      notesLayer->setEditFormConfig( notesFormConfig );
+      // Configure uuid field (referenced key for relations)
+      fieldIndex = fields.indexOf( QStringLiteral( "uuid" ) );
+      if ( fieldIndex >= 0 )
+      {
+        widgetOptions.clear();
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "uuid()" ), false ) );
+      }
+
+      // Configure time field
+      fieldIndex = fields.indexOf( QStringLiteral( "timestamp" ) );
+      if ( fieldIndex >= 0 )
+      {
+        widgetOptions.clear();
+        widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+        widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+        widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
+        widgetOptions[QStringLiteral( "allow_null" )] = true;
+        widgetOptions[QStringLiteral( "calendar_popup" )] = true;
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+        notesLayer->setFieldAlias( fieldIndex, tr( "Time" ) );
+      }
+
+      // Configure color field
+      fieldIndex = fields.indexOf( QStringLiteral( "color" ) );
+      if ( fieldIndex >= 0 )
+      {
+        widgetOptions.clear();
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
+        notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
+      }
+
+      // Configure note field
+      fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
+      if ( fieldIndex >= 0 )
+      {
+        widgetOptions.clear();
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
+      }
+
+      // Configure note field
+      fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
+      if ( fieldIndex >= 0 )
+      {
+        widgetOptions.clear();
+        widgetOptions[QStringLiteral( "IsMultiline" )] = true;
+        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+        notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
+      }
+
+      // Insure the layer is ready cloud-friendly
+      notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
+      notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
+
+      notesLayer->setDisplayExpression( QStringLiteral( "\"title\"" ) );
+
+      createdProjectLayers << notesLayer;
+
+      if ( notesHasAttachments )
+      {
+        QgsEditFormConfig notesFormConfig = notesLayer->editFormConfig();
+        notesFormConfig.clearTabs();
+        notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+        QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
+        QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation_%1" ).arg( notesLayer->id() ), root );
+        root->addChildElement( relationElement );
+        const QStringList orderedFields = {
+          QStringLiteral( "color" ),
+          QStringLiteral( "title" ),
+          QStringLiteral( "note" ),
+          QStringLiteral( "timestamp" ) };
+        for ( const QString &fieldName : orderedFields )
+        {
+          const int idx = notesLayer->fields().indexOf( fieldName );
+          if ( idx >= 0 )
+          {
+            root->addChildElement( new QgsAttributeEditorField( fieldName, idx, root ) );
+          }
+        }
+
+        notesLayer->setEditFormConfig( notesFormConfig );
+      }
     }
   }
 
@@ -507,19 +547,31 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   createdProject->addMapLayers( createdProjectLayers );
 
   // Register the notes
-  if ( notesLayer && attachmentsLayer )
+  if ( notesPointLayer && attachmentsLayer )
   {
     QgsRelationContext relationContext( createdProject );
-    QgsRelation rel( relationContext );
-    rel.setId( QStringLiteral( "notes_attachments_relation" ) );
-    rel.setName( tr( "Attachments" ) );
-    rel.setReferencedLayer( notesLayer->id() );
-    rel.setReferencingLayer( attachmentsLayer->id() );
-    rel.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
-    rel.setStrength( Qgis::RelationshipStrength::Association );
-    if ( rel.isValid() )
+    QgsPolymorphicRelation relation( relationContext );
+    relation.setId( QStringLiteral( "notes_attachments_relation" ) );
+    relation.setName( tr( "Attachments" ) );
+    relation.setReferencingLayer( attachmentsLayer->id() );
+    QStringList referencedLayerIds;
+    referencedLayerIds << notesPointLayer->id();
+    if ( notesLineLayer )
     {
-      createdProject->relationManager()->addRelation( rel );
+      referencedLayerIds << notesLineLayer->id();
+    }
+    if ( notesPolygonLayer )
+    {
+      referencedLayerIds << notesPolygonLayer->id();
+    }
+    relation.setReferencedLayerIds( referencedLayerIds );
+    relation.setReferencedLayerExpression( QStringLiteral( "@layer_id" ) );
+    relation.setReferencedLayerField( QStringLiteral( "note_layer" ) );
+    relation.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
+    relation.setRelationStrength( Qgis::RelationshipStrength::Association );
+    if ( relation.isValid() )
+    {
+      createdProject->relationManager()->addPolymorphicRelation( relation );
     }
   }
 
