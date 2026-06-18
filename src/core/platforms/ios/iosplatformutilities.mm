@@ -287,13 +287,27 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller
     didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
+  NSLog(@"[QField] documentPicker:didPickDocumentsAtURLs: called, "
+        @"urls.count=%lu, mode=%@",
+        (unsigned long)urls.count, _mode);
+
   if (urls.count == 0) {
+    NSLog(@"[QField] No URLs received, returning early");
     return;
   }
 
   NSURL *url = urls.firstObject;
-  [url startAccessingSecurityScopedResource];
+  NSLog(@"[QField] Selected URL: %@", url);
+  NSLog(@"[QField] URL path: %@", url.path);
+  NSLog(@"[QField] URL isFileURL: %d", url.isFileURL);
+
+  BOOL accessGranted = [url startAccessingSecurityScopedResource];
+  NSLog(@"[QField] startAccessingSecurityScopedResource result: %d",
+        accessGranted);
+
   NSFileManager *fileManager = [NSFileManager defaultManager];
+  NSLog(@"[QField] File exists at URL path: %d",
+        [fileManager fileExistsAtPath:url.path]);
 
   if ([_mode isEqualToString:@"projectFolder"]) {
     NSString *folderName = url.lastPathComponent;
@@ -348,23 +362,49 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
       emit AppInterface::instance()->openPath(importedPath);
     }
   } else if ([_mode isEqualToString:@"updateFromArchive"]) {
-    [url stopAccessingSecurityScopedResource];
-    [url startAccessingSecurityScopedResource];
+    NSLog(@"[QField] updateFromArchive branch entered");
+    NSLog(@"[QField] importPath (destDir): %@", _importPath);
+
+    BOOL destExists = [fileManager fileExistsAtPath:_importPath];
+    BOOL destIsDir = NO;
+    [fileManager fileExistsAtPath:_importPath isDirectory:&destIsDir];
+    NSLog(@"[QField] destDir exists: %d, isDirectory: %d", destExists,
+          destIsDir);
+
+    NSDictionary *zipAttrs = [fileManager attributesOfItemAtPath:url.path
+                                                           error:nil];
+    NSLog(@"[QField] ZIP file size: %@", zipAttrs[NSFileSize]);
 
     QString zipPath = QString::fromNSString(url.path);
     QString destDir = QString::fromNSString(_importPath);
     QStringList extractedFiles;
-    FileUtils::unzip(zipPath, destDir, extractedFiles, false);
+
+    NSLog(@"[QField] Calling FileUtils::unzip...");
+    bool unzipResult =
+        FileUtils::unzip(zipPath, destDir, extractedFiles, false);
+    NSLog(@"[QField] FileUtils::unzip result: %d, extracted files count: %d",
+          unzipResult, extractedFiles.count());
+
+    for (const QString &f : extractedFiles) {
+      NSLog(@"[QField] Extracted: %s", f.toUtf8().constData());
+    }
+
     [url stopAccessingSecurityScopedResource];
+    NSLog(@"[QField] stopAccessingSecurityScopedResource called");
 
     if (AppInterface::instance()) {
-      emit AppInterface::instance()->openPath(destDir);
+      NSLog(@"[QField] AppInterface instance found, calling reloadProject()");
+      AppInterface::instance()->reloadProject();
+      NSLog(@"[QField] reloadProject() called");
+    } else {
+      NSLog(@"[QField] ERROR: AppInterface::instance() is null!");
     }
   }
 }
 
 - (void)documentPickerWasCancelled:
     (UIDocumentPickerViewController *)controller {
+  NSLog(@"[QField] documentPickerWasCancelled called (mode=%@)", _mode);
 }
 
 @end
@@ -510,11 +550,18 @@ void IosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
 
 void IosPlatformUtilities::updateProjectFromArchive(
     const QString &projectPath) const {
+  NSLog(@"[QField] updateProjectFromArchive called with projectPath: %s",
+        projectPath.toUtf8().constData());
+
   QString importPath = QFileInfo(projectPath).absolutePath();
+  NSLog(@"[QField] computed importPath (destDir): %s",
+        importPath.toUtf8().constData());
+
   NSString *importBasePath = importPath.toNSString();
 
   UIViewController *root = [[[[UIApplication sharedApplication] windows]
       firstObject] rootViewController];
+  NSLog(@"[QField] rootViewController: %@", root);
 
   UIDocumentPickerViewController *picker =
       [[UIDocumentPickerViewController alloc] initForOpeningContentTypes:@[
@@ -529,5 +576,6 @@ void IosPlatformUtilities::updateProjectFromArchive(
   objc_setAssociatedObject(picker, &kIosImportDelegateKey, delegate,
                            OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
+  NSLog(@"[QField] presenting UIDocumentPickerViewController...");
   [root presentViewController:picker animated:YES completion:nil];
 }
