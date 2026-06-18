@@ -481,65 +481,59 @@ Page {
           width: parent.width - 12
           spacing: 12
 
-          GridLayout {
-            Layout.fillWidth: true
-            columns: 3
-            rows: 2
+          Container {
+            id: welcomeActionsContainer
+            objectName: "welcomeActionsContainer"
+            Layout.preferredWidth: Math.min(welcomeActionsListView.contentWidth, welcomeActions.width)
+            Layout.preferredHeight: Math.max(welcomeActionCloud.height, welcomeActionLocalProjects.height, welcomeActionNewProject.height)
+            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+            clip: true
 
-            Repeater {
-              id: actionsRepeater
-              model: [
-                {
-                  "icon": Theme.getThemeVectorIcon("ic_cloud_active_24dp"),
-                  "iconColor": Theme.cloudColor,
-                  "action": function () {
-                    showQFieldCloudScreen();
-                  }
-                },
-                {
-                  "icon": Theme.getThemeVectorIcon("ic_folder_open_black_24dp"),
-                  "iconColor": Theme.mainColor,
-                  "action": function () {
-                    platformUtilities.requestStoragePermission();
-                    showLocalDataPicker();
-                  }
-                },
-                {
-                  "icon": Theme.getThemeVectorIcon("ic_add_white_24dp"),
-                  "iconColor": Theme.mainColor,
-                  "action": function () {
-                    showProjectCreationScreen();
-                  }
-                }
-              ]
+            readonly property real itemWidth: count > 3 ? welcomeActions.width / 3.3 : welcomeActions.width / 3
 
-              delegate: QfToolButton {
-                Layout.alignment: Qt.AlignHCenter
-                Layout.preferredWidth: Math.min(mainWindow.height / 4, welcomeActions.width / actionsRepeater.count / 1.5)
-                Layout.preferredHeight: Layout.preferredWidth
-                icon.width: width / 2.2
-                icon.height: height / 2.2
-                bgcolor: Theme.controlBackgroundAlternateColor
-                round: false
-                roundborder: true
-                iconSource: modelData.icon
-                iconColor: modelData.iconColor
-                smooth: true
-                onClicked: modelData.action()
+            contentItem: ListView {
+              id: welcomeActionsListView
+              model: parent.contentModel
+              width: parent.width
+              height: parent.height
+              orientation: ListView.Horizontal
+              spacing: 0
+              ScrollBar.horizontal: QfScrollBar {
+                policy: contentWidth > width ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
               }
             }
 
-            Repeater {
-              model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
+            QfWelcomeAction {
+              id: welcomeActionCloud
+              objectName: "welcomeActionCloud"
+              width: welcomeActionsContainer.itemWidth
+              iconSource: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
+              iconColor: Theme.cloudColor
+              label: qsTr("QFieldCloud\nprojects")
+              onClicked: showQFieldCloudScreen()
+            }
 
-              delegate: Text {
-                Layout.preferredWidth: welcomeActions.width / 3
-                text: modelData
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: Text.WordWrap
-                color: Theme.mainTextColor
-                font: Theme.tipFont
+            QfWelcomeAction {
+              id: welcomeActionLocalProjects
+              objectName: "welcomeActionLocalProjects"
+              width: welcomeActionsContainer.itemWidth
+              iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
+              iconColor: Theme.mainColor
+              label: qsTr("Local projects and\n datasets")
+              onClicked: {
+                platformUtilities.requestStoragePermission();
+                showLocalDataPicker();
               }
+            }
+
+            QfWelcomeAction {
+              id: welcomeActionNewProject
+              objectName: "welcomeActionNewProject"
+              width: welcomeActionsContainer.itemWidth
+              iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+              iconColor: Theme.mainColor
+              label: qsTr("Create new\nproject")
+              onClicked: showProjectCreationScreen()
             }
           }
 
