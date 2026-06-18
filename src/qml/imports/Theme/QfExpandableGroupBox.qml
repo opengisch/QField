@@ -8,7 +8,7 @@ import org.qfield
  */
 Rectangle {
   id: expandableGroupBox
-  implicitHeight: checked ? header.height + body.childrenRect.height + 20 : 60
+  implicitHeight: checked ? header.height + body.childrenRect.height + 30 : 60
 
   radius: 8
   color: Theme.groupBoxBackgroundColor
@@ -96,12 +96,10 @@ Rectangle {
   Item {
     id: body
     anchors.top: splitter.bottom
-    anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.leftMargin: 20
     anchors.rightMargin: 20
     anchors.topMargin: 10
-    anchors.bottomMargin: 10
   }
 }
