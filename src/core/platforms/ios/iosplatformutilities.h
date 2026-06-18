@@ -39,6 +39,8 @@ class IosPlatformUtilities : public PlatformUtilities
     void importProjectFolder() const override;
     void importProjectArchive() const override;
     void importDatasets() const override;
+    void exportDatasetTo( const QString &path ) const override;
+    void exportFolderTo( const QString &path ) const override;
     void sendDatasetTo( const QString &path ) const override;
     void sendCompressedFolderTo( const QString &path ) const override;
     void updateProjectFromArchive( const QString &projectPath ) const override;
