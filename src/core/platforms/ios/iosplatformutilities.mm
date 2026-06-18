@@ -75,7 +75,7 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
-      CustomImport | CustomSend | UpdateProjectFromArchive;
+      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -365,6 +365,37 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 }
 
 @end
+
+void IosPlatformUtilities::exportFolderTo(const QString &path) const {
+  NSURL *folderURL = [NSURL fileURLWithPath:path.toNSString() isDirectory:YES];
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc]
+          initForExportingURLs:@[ folderURL ]];
+
+  [root presentViewController:picker animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::exportDatasetTo(const QString &path) const {
+  NSMutableArray<NSURL *> *urls = [NSMutableArray array];
+  [urls addObject:[NSURL fileURLWithPath:path.toNSString()]];
+
+  const QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath(path);
+  for (const QString &file : sidecarFiles) {
+    [urls addObject:[NSURL fileURLWithPath:file.toNSString()]];
+  }
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc] initForExportingURLs:urls];
+
+  [root presentViewController:picker animated:YES completion:nil];
+}
 
 void IosPlatformUtilities::importProjectFolder() const {
   QString appDir = applicationDirectory();
