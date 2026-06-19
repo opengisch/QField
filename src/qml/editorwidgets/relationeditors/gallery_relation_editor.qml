@@ -508,7 +508,7 @@ RelationEditorBase {
     // File not found locally; attempt on-demand download
     if (externalStorage.type !== "") {
       const authConfigId = referencingFeatureListModel.attachmentStorageAuthConfigId;
-      if (authConfigId !== "" && !iface.isAuthenticationConfigurationAvailable(authConfigId)) {
+      if (authConfigId !== "" && !AuthUtils.isAuthenticationConfigurationAvailable(authConfigId)) {
         failedDownloads[path] = true;
         mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(appName), "error", qsTr("Learn more"), function () {
           Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
