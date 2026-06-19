@@ -24,9 +24,53 @@ AuthUtils::AuthUtils( QObject *parent )
 {
 }
 
+bool AuthUtils::hasAuthenticationConfigurations()
+{
+  QgsAuthManager *authManager = QgsApplication::authManager();
+  const QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+  return !configs.isEmpty();
+}
+
+QVariantList AuthUtils::authenticationConfigurationDetails( const QString &id )
+{
+  QVariantList details;
+  QgsAuthManager *authManager = QgsApplication::authManager();
+  const QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+  for ( const QgsAuthMethodConfig &config : configs )
+  {
+    if ( config.name() == QStringLiteral( "qfieldcloud-credentials" ) )
+    {
+      continue;
+    }
+
+    if ( id.isEmpty() || config.id() == id )
+    {
+      QVariantMap configDetails;
+      configDetails.insert( QStringLiteral( "id" ), config.id() );
+      configDetails.insert( QStringLiteral( "name" ), config.name() );
+      configDetails.insert( QStringLiteral( "uri" ), config.uri() );
+      details << configDetails;
+    }
+  }
+  return details;
+}
+
 bool AuthUtils::isAuthenticationConfigurationAvailable( const QString &id )
 {
   QgsAuthManager *authManager = QgsApplication::authManager();
-  QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
+  const QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   return configs.contains( id );
+}
+
+void AuthUtils::clearAuthenticationConfigurationCache( const QString &id )
+{
+  QgsAuthManager *authManager = QgsApplication::authManager();
+  if ( !id.isEmpty() )
+  {
+    authManager->clearCachedConfig( id );
+  }
+  else
+  {
+    authManager->clearAllCachedConfigs();
+  }
 }
