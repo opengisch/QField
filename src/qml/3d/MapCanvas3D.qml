@@ -260,22 +260,20 @@ Item {
     }
 
     Repeater3D {
-      model: mapArea.pluginContainer ? mapArea.pluginContainer.children.length : 0
+      model: mapArea.pluginContainer ? mapArea.pluginContainer.children : null
 
       Node {
-        required property int index
-
-        property Quick3DGeometryConfiguration config: mapArea.pluginContainer ? mapArea.pluginContainer.children[index] : null
+        required property Quick3DGeometryConfiguration modelData
 
         Model {
           geometry: Quick3DGeometry {
-            qgsGeometry: GeometryUtils.createGeometryFromWkt(config ? config.wkt : '')
-            crs: config ? config.crs : qgisProject.crs
+            qgsGeometry: GeometryUtils.createGeometryFromWkt(modelData.wkt)
+            crs: modelData.crs
             terrainProvider: mapTerrainProvider
-            lineWidth: config ? config.lineWidth : 4.0
+            lineWidth: modelData.lineWidth
             heightOffset: 20.0
             altitudeClamping: Quick3DGeometry.ClampToGround
-            color: config ? config.lineColor : '#FF6600'
+            color: modelData.lineColor
           }
           materials: PrincipledMaterial {
             vertexColorsEnabled: true

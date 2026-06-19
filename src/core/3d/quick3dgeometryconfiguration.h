@@ -30,7 +30,6 @@
 class Quick3DGeometryConfiguration : public QQuickItem
 {
     Q_OBJECT
-    QML_ELEMENT
 
     //! WKT representation of the geometry to render
     Q_PROPERTY( QString wkt READ wkt WRITE setWkt NOTIFY wktChanged )
