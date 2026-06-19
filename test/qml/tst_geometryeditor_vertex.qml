@@ -105,18 +105,74 @@ TestCase {
     compare(vertexEditor.blocking, true);
   }
 
+  // returns how many points in list a are not present (within tolerance) in
+  // list b. Comparing both directions makes this independent of vertex order or
+  // ring rotation, which a vertex move can introduce.
+  function pointsNotIn(a, b) {
+    let missing = 0;
+    for (let i = 0; i < a.length; ++i) {
+      let found = false;
+      for (let j = 0; j < b.length; ++j) {
+        if (Math.abs(a[i].x - b[j].x) < 0.001 && Math.abs(a[i].y - b[j].y) < 0.001) {
+          found = true;
+          break;
+        }
+      }
+      if (!found)
+        missing++;
+    }
+    return missing;
+  }
+
+  // reads the vertices out of a geometry's WKT as a plain array of points, so
+  // tests can compare geometries vertex by vertex. Uses asWkt only, which is the
+  // same accessor the other tests rely on. For a polygon ring the closing vertex
+  // repeats the first one, so we drop that duplicate to count each vertex once.
+  function geometryPoints(geometry) {
+    const points = [];
+    const wkt = geometry.asWkt(6);
+    // pull the coordinate pairs from inside the parentheses
+    const inner = wkt.substring(wkt.indexOf("("), wkt.lastIndexOf(")") + 1);
+    const pairs = inner.replace(/[()]/g, " ").trim().split(",");
+    for (let i = 0; i < pairs.length; ++i) {
+      const nums = pairs[i].trim().split(/\s+/);
+      if (nums.length >= 2 && nums[0] !== "") {
+        points.push({
+          x: parseFloat(nums[0]),
+          y: parseFloat(nums[1])
+        });
+      }
+    }
+    // drop a repeated closing vertex (polygons repeat the first point at the end)
+    if (points.length > 1) {
+      const first = points[0];
+      const last = points[points.length - 1];
+      if (Math.abs(first.x - last.x) < 0.001 && Math.abs(first.y - last.y) < 0.001) {
+        points.pop();
+      }
+    }
+    return points;
+  }
+
   function test_applyChangesAppliesMovedVertexToLayerBuffer() {
     const model = makeFieldsModel();
     vertexEditor.init(model, mapSettingsItem, null, null);
 
+    // capture the polygon before the edit
+    const before = geometryPoints(model.feature.geometry);
+
+    // move the first real vertex and apply. we never commit, so the layer file
+    // is untouched.
     selectAndMoveFirstVertex();
-    const before = model.feature.geometry.asWkt();
-
-    // apply pushes the vertex model edit onto the feature. we check the feature
-    // geometry changed but never commit, so the layer file is untouched
     vertexEditor.applyChanges(true);
+    const movedGeom = model.feature.geometry;
+    verify(!movedGeom.isNull);
+    compare(movedGeom.type, Qgis.GeometryType.Polygon);
 
-    verify(model.feature.geometry.asWkt() !== before);
+    const after = geometryPoints(movedGeom);
+    compare(after.length, before.length);
+    compare(pointsNotIn(before, after), 1);
+    compare(pointsNotIn(after, before), 1);
   }
 
   function test_applyChangesWithAutoSaveOffDoesNotApply() {
@@ -168,14 +224,16 @@ TestCase {
 
     vertexModel.editingMode = VertexModel.EditVertex;
     vertexModel.currentVertexIndex = 1;
-    // the polygon has 12 real vertices, well above the minimum, so removing one is allowed
+    // the polygon has plenty of real vertices, well above the minimum, so
+    // removing one is allowed
     verify(vertexModel.canRemoveVertex);
     const countBefore = vertexModel.vertexCount;
 
     vertexModel.removeCurrentVertex();
 
-    // removing a vertex drops the row count and marks the edit dirty
-    verify(vertexModel.vertexCount < countBefore);
+    // removing one existing vertex drops it and its paired segment candidate, so
+    // the row count goes down by exactly two, and the edit is marked dirty
+    compare(vertexModel.vertexCount, countBefore - 2);
     compare(vertexModel.dirty, true);
   }
 
@@ -222,6 +280,8 @@ TestCase {
     vertexEditor.init(model, mapSettingsItem, null, null);
     const vertexModel = model.vertexModel;
 
+    const before = geometryPoints(model.feature.geometry);
+
     // on a line the first real vertex is also at an odd index
     vertexModel.editingMode = VertexModel.EditVertex;
     vertexModel.currentVertexIndex = 1;
@@ -229,10 +289,18 @@ TestCase {
     vertexModel.currentPoint = GeometryUtils.point(point.x + 5, point.y + 5);
     compare(vertexModel.dirty, true);
 
-    const before = model.feature.geometry.asWkt();
     vertexEditor.applyChanges(true);
 
-    verify(model.feature.geometry.asWkt() !== before);
+    // a still-valid line with the same vertex count, where exactly one original
+    // point is replaced by exactly one new point: the moved vertex
+    const movedGeom = model.feature.geometry;
+    verify(!movedGeom.isNull);
+    compare(movedGeom.type, Qgis.GeometryType.Line);
+
+    const after = geometryPoints(movedGeom);
+    compare(after.length, before.length);
+    compare(pointsNotIn(before, after), 1);
+    compare(pointsNotIn(after, before), 1);
   }
 
   // scope objects the tool expects from the app
