@@ -7,11 +7,11 @@
     </message>
     <message>
         <source>Support QField</source>
-        <translation>Support QField</translation>
+        <translation>QField unterstützen</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation>Änderungshinweise</translation>
     </message>
     <message>
         <source>Documentation</source>
@@ -23,15 +23,15 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>Unterstützt von QField</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 App Verzeichnisse</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>1% App Verzeichnis</translation>
     </message>
 </context>
 <context>
@@ -91,7 +91,7 @@
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>Keine Transformation verfügbar zwischen %1 und %2</translation>
+        <translation>Keine Transformation zwischen %1 und %2 verfügbar</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
@@ -146,7 +146,7 @@
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Angabe erforderlich</translation>
+        <translation>Nicht NULL</translation>
     </message>
     <message>
         <source>Unique</source>
@@ -284,26 +284,26 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Nutze Bluetooth Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-Geräteeinstellung:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>Klassisch (BT)</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">Interne antenne</translation>
+        <translation type="vanished">Interne Antenne</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
@@ -626,7 +626,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Projektinformation</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>Die ID für die Authentifizierungs-Einstellung des externen Speichers fehlt. Bitte stellen Sie sicher, dass diese in QField importiert wurde.</translation>
     </message>
 </context>
 <context>
@@ -965,15 +965,15 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Vorherige Seite</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Nächste Seite</translation>
     </message>
 </context>
 <context>
@@ -1395,14 +1395,14 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip</translation>
     </message>
 </context>
 <context>
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autor*in</translation>
     </message>
 </context>
 <context>
@@ -1973,19 +1973,19 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>NtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Unerwartete Antwort des Ntrip Casters</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>Verbindung wurde vor dem Erhalt der Quelltabelle getrennt</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>Kein Einhängepunkt in der Ntrip-Quelltabelle gefunden</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim herunterladen der Ntrip-Quelltabelle</translation>
     </message>
 </context>
 <context>
@@ -2207,11 +2207,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>Das gerade geöffnete Projekt hat ein Projekt-Plugin geladen.</translation>
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Berechtigung ablehen</translation>
     </message>
 </context>
 <context>
@@ -2289,7 +2289,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Interne antenne</translation>
+        <translation>Interne Antenne</translation>
     </message>
 </context>
 <context>
@@ -2356,7 +2356,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2411,7 +2411,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -2481,7 +2481,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <name>PositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip Einstellungen</translation>
     </message>
     <message>
         <source>Host</source>
@@ -2493,15 +2493,15 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Protokoll</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip Revision 1</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip Revision 2</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2513,27 +2513,27 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Einhängepunkt</translation>
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Kennung:</translation>
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Datenformat:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Distanz:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Position an Ntrip Caster weitergeben</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip SSL/TLS</translation>
     </message>
 </context>
 <context>
@@ -2548,34 +2548,34 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Akustische Rückmeldung bei Annäherung</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Ansicht drehen</translation>
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Quelle für Ausrichtung</translation>
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>Kompass</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Bewegungsrichtung</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Genauigkeit</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>Internes Gerät</translation>
+        <translation>Internes Antenne</translation>
     </message>
 </context>
 <context>
@@ -2704,6 +2704,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Automatically push changes on a regular interval</source>
+        <translation>Änderungen automatisch in einem bestimmten Intervall übertragen</translation>
+    </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2751,7 +2755,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Anhänge für Notizen</translation>
     </message>
     <message>
         <source>Description</source>
@@ -2759,6 +2763,18 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Attachments</source>
+        <translation>Anhänge</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Punkt</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Polygon</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2990,7 +3006,8 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1Server URL
+(Leer lassen um den Standard-Server zu verwenden)</translation>
     </message>
 </context>
 <context>
@@ -3013,11 +3030,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Einige Layer sind in QFieldCloud nicht korrekt gepackt worden. Diese Layer könnten falsch konfiguriert sein oder ihre Datenquelle ist für den QFieldCloud-Server nicht zugänglich.</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte schau dir unten die detaillierte Rückmeldung und die letzten Protokolle der Paketerstellung auf der QFieldCloud Webseite an.</translation>
     </message>
 </context>
 <context>
@@ -3268,19 +3285,19 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 von %2 genutzt</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Speicher erweitern</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 kann nicht gepackt werden, da dein Speicher voll ist.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 kann nicht gepackt werden, da der Speicher des Projekt-Besitzers voll ist.</translation>
     </message>
 </context>
 <context>
@@ -3460,30 +3477,30 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Nutze %1 von %2</translation>
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Speichergröße</translation>
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt klonen</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Vordefinierte Filter</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Kriterien</translation>
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation>Beziehe öffentliche Projekte mit ein</translation>
     </message>
     <message>
         <source>Search</source>
@@ -3491,19 +3508,19 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>%1&apos;s Projekte</translation>
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Eigenen Projekte</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>Title oder Beschreibung beinhaltet</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Besitzer</translation>
     </message>
 </context>
 <context>
@@ -3811,59 +3828,59 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Projektliste wird neu geladen...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Projekte werden gesucht...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Keine Cloud-Projekte gefunden</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Los geht&apos;s, %1 lies die Dokumentation%2</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Versuche %1 öffentliche Projekte einzubeziehen%2 und schau was die die Community bieten kann.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Versuche %1 öffentliche Projekte einzubeziehen%2</translation>
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Suche nach Projekten</translation>
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Projekt klonen</translation>
     </message>
     <message>
         <source>Project Cloning</source>
-        <translation type="unfinished"/>
+        <translation>Projektklonen</translation>
     </message>
     <message>
         <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
+        <translation>Welchen Namen möchtest du dem geklonten Projekt geben?</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Klonen des Projekts fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Erstellung des Projekts fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
+        <translation>Projekt erfolgreich geklont</translation>
     </message>
     <message>
         <source>Project successfully created</source>
-        <translation type="unfinished"/>
+        <translation>Projekt erfolgreich erstellt</translation>
     </message>
 </context>
 <context>
@@ -3912,11 +3929,11 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Der Speicher des Projekt-Besitzers ist voll.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Das Abonnement des Projekt-Besitzer ist nicht ausreichend.</translation>
     </message>
 </context>
 <context>
@@ -4050,7 +4067,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Ordner löschen</translation>
     </message>
     <message>
         <source>Delete file</source>
@@ -4482,7 +4499,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="vanished">Zeitstempel (Milisekunden seit letzter Messung)</translation>
+        <translation type="vanished">Zeitstempel (Milisekunden seit Epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -4718,7 +4735,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Z-Werte, die vom GPS-Empfänger aufgezeichnet werden, werden um diesen Wert korrigiert. Wenn ein Wert von 1,6 eingegeben wird, führt dies zu einer Korrektur von -1,6 für jeden aufgezeichneten Wert. Vergewissern Sie sich, dass die komplette Antennenhöhe (Stabhöhe + Antenne-Phasenzentrum-Korrektur) richtig gesetzt ist.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
@@ -4782,63 +4799,63 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird die standardmäßige Kamera des Betriebssystems verwendet.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, werden anonymisierte Metriken gesammelt, und versendet um die Nutzererfahrung von QField für alle zu verbessern.</translation>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Positionierungsgerät</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Ntrip Korrekturen</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip Client getrennt</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip Client wird verbunden</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>Ntrip Client verbunden</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Bitte gib gültige Ntrip Einstellungen an</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Höhenanpassung</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Zeitstempel (Sekunden seit Epoch)</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Schwelle für schlechte Genauigkeit</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Schwelle für exzellente Genauigkeit</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Mindestanzahl an gemessenen Positionen</translation>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Antennenhöhe</translation>
     </message>
 </context>
 <context>
@@ -5032,39 +5049,39 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Datei kann nicht gelöscht werden (nicht erlaubt): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Datei existiert nicht: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Löschen des Verzeichnisses fehlgeschlagen: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Löschen der Dateien fehlgeschlagen: %1- %2</translation>
     </message>
 </context>
 <context>
@@ -5175,15 +5192,15 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Speicher</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Tippe um den Speicher zu erweitern</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Tippe um den Speicher zu verwalten</translation>
     </message>
 </context>
 <context>
@@ -5255,7 +5272,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Schriftart der Quelle konnte nicht geladen werden: %1</translation>
     </message>
 </context>
 <context>
@@ -5463,7 +5480,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Formular öffnen</translation>
     </message>
 </context>
 <context>
@@ -5788,23 +5805,23 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Zeitstempel (Sekunden seit Epoch)</translation>
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Minimale Zeit</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>Sekunden</translation>
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Minimale Distanz</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
-        <translation type="unfinished"/>
+        <translation>Maximal tolerierte Distanz</translation>
     </message>
 </context>
 <context>
@@ -5863,7 +5880,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="vanished">Zeitstempel (Millisekunden seit letzter Messung)</translation>
+        <translation type="vanished">Zeitstempel (Millisekunden seit Epoch)</translation>
     </message>
     <message>
         <source>Ground speed</source>
@@ -6139,7 +6156,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige JSON-Datei für WebDAV Konfigurierung</translation>
     </message>
 </context>
 <context>
@@ -6272,23 +6289,23 @@ erstellen</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Hallo, wie gefällt dir deine Arbeit mit %1 bisher?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Um die Stabilität für alle zu verbessern, sammelt und sendet %1 anonymisierte Nutzungsdaten.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Willkommen zurück in %1.</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Willkommen bei %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Nutzt du diese Anwendung das erste mal? Probiere eins der Beispielprojekte unten in der Liste.</translation>
     </message>
 </context>
 <context>
@@ -6419,7 +6436,7 @@ erstellen</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>Die ID für die Authentifizierungs-Einstellung des externen Speichers fehlt. Bitte stellen Sie sicher, dass diese in QField importiert wurde.</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -6496,7 +6513,7 @@ erstellen</translation>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Sie sind nun im Browser-Modus.</translation>
+        <translation>Sie sind nun im Ansichts-Modus.</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
@@ -7044,7 +7061,7 @@ erstellen</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>Bevor in den Navigationsmodus gewechselt werden kann muss das digitalisierte Feature gespeichern oder verworfen werden</translation>
+        <translation>Bevor in den Ansichts-Modus gewechselt werden kann muss das digitalisierte Feature gespeichert oder verworfen werden</translation>
     </message>
     <message>
         <source>Variables</source>
@@ -7278,11 +7295,11 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Laden der 3D Ansicht fehlgeschlagen</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Terrain wird geladen...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
@@ -7290,55 +7307,55 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Über %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Möchtest du &lt;b&gt;%1&lt;/b&gt; aus &lt;b&gt;%2&lt;/b&gt; in %3 importieren?</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Tippe lang auf dein Standortmarkierung um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Speicher erweitern</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Plugin Manager</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Projekt Plugin geladen</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 kann nicht gepackt werden, da dein Speicher voll ist.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 kann nicht gepackt werden, da der Speicher des Projekt-Besitzers voll ist.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Das Projekt %1 konnten nicht heruntergeladen werden, da dein Abonnement nicht ausreicht.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Abonnement hochstufen</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Das Projekt %1 konnten nicht heruntergeladen werden, da das Abonnement des Projekt-Besitzers nicht ausreicht.</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Ntrip Korrekturen</translation>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Tippe lang auf die Zielmarkierung um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>meters</source>

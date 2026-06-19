@@ -2705,6 +2705,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Automatically push changes on a regular interval</source>
         <translation>定期自动推送更新</translation>
     </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation>允许在线和多边形上注释</translation>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -2759,6 +2763,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Attachments</source>
         <translation>附件</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>点</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>线</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>多边形</translation>
     </message>
 </context>
 <context>

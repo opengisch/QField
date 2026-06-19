@@ -2708,6 +2708,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Automatically push changes on a regular interval</source>
         <translation>Pousser automatiquement les modifications à intervalles réguliers</translation>
     </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation>Autoriser les annotations sur les lignes et les polygones</translation>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -2762,6 +2766,18 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Attachments</source>
         <translation>Pièces jointes</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Point</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Ligne</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polygone</translation>
     </message>
 </context>
 <context>

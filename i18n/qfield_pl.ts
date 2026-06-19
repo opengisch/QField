@@ -2711,6 +2711,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Automatically push changes on a regular interval</source>
         <translation>Automatycznie publikuj zmiany w regularnych odstępach czasu</translation>
     </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation>Zezwól na dodawanie notatek do linii i poligonów</translation>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -2765,6 +2769,18 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Attachments</source>
         <translation>Załączniki</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Punkt</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linia</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Poligon</translation>
     </message>
 </context>
 <context>
@@ -3474,7 +3490,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Klonuj projekt</translation>
     </message>
 </context>
 <context>
@@ -3847,31 +3863,31 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Klonuj projekt</translation>
     </message>
     <message>
         <source>Project Cloning</source>
-        <translation type="unfinished"/>
+        <translation>Klonowanie projektu</translation>
     </message>
     <message>
         <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
+        <translation>Jaką nazwę chcesz nadać swojemu sklonowanemu projektowi?</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Klonowanie projektu nie powiodło się: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się utworzyć projektu: %1</translation>
     </message>
     <message>
         <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
+        <translation>Projekt udało się sklonować</translation>
     </message>
     <message>
         <source>Project successfully created</source>
-        <translation type="unfinished"/>
+        <translation>Projekt utworzono pomyślnie</translation>
     </message>
 </context>
 <context>
@@ -4834,7 +4850,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
@@ -4842,7 +4858,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Minimalna liczba pozycji</translation>
     </message>
     <message>
         <source>Antenna height</source>

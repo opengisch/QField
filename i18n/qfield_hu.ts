@@ -42,11 +42,11 @@
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Sikeresen kapcsolódtam</translation>
+        <translation>Sikeresen kapcsolódva</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Lecsatlakoztam</translation>
+        <translation>Lecsatlakozva</translation>
     </message>
     <message>
         <source>Socket state %1</source>
@@ -57,15 +57,15 @@
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation>Korlátozza a keresést a köv. mezőre: &apos;%1&apos;</translation>
+        <translation>A keresést korlátozd a &apos;%1&apos; mezőre</translation>
     </message>
     <message>
         <source>Open form</source>
-        <translation>Úrlap nyitás</translation>
+        <translation>Űrlap nyitás</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Elem beállítása célként</translation>
+        <translation>Alakzat célpontként megadása</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
@@ -165,11 +165,11 @@
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation type="vanished">További segítséghez megnézheti a Hordozható projekt fejezetet a QField dokumentációjában.</translation>
+        <translation type="vanished">További segítségért keresd a Hordozható projekt fejezetet a QField dokumentációjában.</translation>
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>További segítséghez megnézheti a %1Portable Project%2 dokumentáció oldalt.</translation>
+        <translation>További segítségért keresd a %1Portable Project%2 dokumentációs oldalt.</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="vanished">Irányítsa a kamerát a kódra</translation>
+        <translation type="vanished">Irányítsd a kamerát a kódra</translation>
     </message>
 </context>
 <context>
@@ -222,13 +222,13 @@
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Teljes körű szolgáltatás felfedezés</translation>
+        <translation type="vanished">Végezz teljes szolgáltatás felderítést</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">Egy teljes keresés tovább tarthat.Valóban ezt akarja?
- Szakítsa meg a minimális eszközkereséshez.</translation>
+        <translation type="vanished">Egy teljes keresés hosszú lehet. Valóban ezt akarod?
+Szakítsd meg a minimális eszközkereséshez.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -272,7 +272,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="vanished">Bluetotth eszközt nem észleltem, keress a közeli eszközök listázásáért</translation>
+        <translation type="vanished">Nincs észlelt bluetooth eszköz, keresés a közeli eszközök után</translation>
     </message>
     <message>
         <source>Scanning error: %1</source>
@@ -2706,6 +2706,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Automatically push changes on a regular interval</source>
         <translation>Változásfeltöltés automatikusan, állandó időközönként</translation>
     </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation>Megjegyzés adható vonalakhoz és poligonokhoz</translation>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -2760,6 +2764,18 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Attachments</source>
         <translation>Csatolmányok</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Pont</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Vonal</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Poligon</translation>
     </message>
 </context>
 <context>
@@ -5179,11 +5195,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Tárhelyet bővíteni koppints ide</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Tárhelyet kezelni koppints ide</translation>
     </message>
 </context>
 <context>
@@ -5411,7 +5427,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Elem lecsatolás</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -5784,7 +5800,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Nyomvonal a %1 rétegen elutasítva</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
@@ -6272,11 +6288,11 @@ készítése</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Szia, milyen tapasztalataid vannak eddig a %1-ről?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>A %1 névtelen mérőszámokat gyűjt és küld a stabilitás javítása érdekében.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
@@ -6988,19 +7004,19 @@ készítése</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A pozíció átlépett ide: ‘%1’</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A pozíció az ‘%1’-et elhagyva területen kívüli</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A pozíció belépett ide: ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>A pozíció elhagyta ezt: ‘%1’</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
@@ -7028,15 +7044,15 @@ készítése</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Eljárás megszakítása</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation>A folyamatban lévő algoritmusművelet megszakítására készül, folytatja?</translation>
+        <translation>A folyamatban lévő eljárás megszakítására készül, folytatja?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation>Oldja fel a képernyő zárolását a projekt és az alkalmazás bezárásához</translation>
+        <translation>Oldd fel a képernyő zárolást a projekt és az app bezárásához</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -7064,7 +7080,7 @@ készítése</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation>Illesztés minden</translation>
+        <translation>Illesztés mindenhez</translation>
     </message>
     <message>
         <source>%1°</source>
@@ -7076,7 +7092,7 @@ készítése</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Szűk</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -7092,23 +7108,23 @@ készítése</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Importálás megerősítése</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Bővítmény engedély</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>Felold</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Projekt bővítmény</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>Engedélyezed a bővítmény aktiválását?</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
@@ -7120,11 +7136,11 @@ készítése</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>Alakzat mentés sikertelen</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizálás kapcsoló</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>

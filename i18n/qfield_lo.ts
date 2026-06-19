@@ -2698,6 +2698,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Automatically push changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ProjectUtils</name>
@@ -2751,6 +2755,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>ຈຸດ</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Polygon</source>
         <translation type="unfinished"/>
     </message>
 </context>
