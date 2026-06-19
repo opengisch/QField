@@ -1321,16 +1321,16 @@ bool QFieldCloudProjectsFilterModel::lessThan( const QModelIndex &sourceLeft, co
     }
   }
 
-  QString left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::OwnerRole ).toString();
-  QString right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::OwnerRole ).toString();
+  QString left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::OwnerRole ).toString().toLower();
+  QString right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::OwnerRole ).toString().toLower();
   int compare = QString::localeAwareCompare( left, right );
   if ( compare != 0 )
   {
     return compare < 0;
   }
 
-  left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::NameRole ).toString();
-  right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::NameRole ).toString();
+  left = mSourceModel->data( sourceLeft, QFieldCloudProjectsModel::NameRole ).toString().toLower();
+  right = mSourceModel->data( sourceRight, QFieldCloudProjectsModel::NameRole ).toString().toLower();
   compare = QString::localeAwareCompare( left, right );
   return compare < 0;
 }
