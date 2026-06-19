@@ -839,6 +839,12 @@ Page {
         }
       }
 
+      MenuSeparator {
+        visible: updateProjectFromArchive.visible && compressProjectAndSendTo.visible
+        width: parent.width
+        height: visible ? undefined : 0
+      }
+
       MenuItem {
         id: compressProjectAndSendTo
 
