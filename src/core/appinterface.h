@@ -184,6 +184,11 @@ class AppInterface : public QObject
     Q_INVOKABLE void addItemToPluginsToolbar( QQuickItem *item ) const;
 
     /**
+     * Adds a geometry \a configuration to the persistent plugin 3D container.
+     */
+    Q_INVOKABLE void addItemToMapCanvas3D( QQuickItem *item ) const;
+
+    /**
      * Adds an \a item in the map canvas menu's action toolbar container
      */
     Q_INVOKABLE void addItemToCanvasActionsToolbar( QQuickItem *item ) const;

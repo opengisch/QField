@@ -30,6 +30,9 @@ Item {
 
   property TrackingModel trackingModel: null
 
+  property alias terrainProvider: mapTerrainProvider
+  property Item pluginContainer: null
+
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
 
@@ -253,6 +256,29 @@ Item {
         terrainProvider: mapTerrainProvider
         color: modelData.tracker ? modelData.tracker.color : "#FFFF3232"
         visible: modelData.tracker ? modelData.tracker.visible : false
+      }
+    }
+
+    Repeater3D {
+      model: mapArea.pluginContainer ? mapArea.pluginContainer.children : null
+
+      Node {
+        required property Quick3DGeometryConfiguration modelData
+
+        Model {
+          geometry: Quick3DGeometry {
+            qgsGeometry: GeometryUtils.createGeometryFromWkt(modelData.wkt)
+            crs: modelData.crs
+            terrainProvider: mapTerrainProvider
+            lineWidth: modelData.lineWidth
+            heightOffset: 20.0
+            altitudeClamping: Quick3DGeometry.ClampToGround
+            color: modelData.lineColor
+          }
+          materials: PrincipledMaterial {
+            vertexColorsEnabled: true
+          }
+        }
       }
     }
   }

@@ -119,6 +119,19 @@ void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
   }
 }
 
+void AppInterface::addItemToMapCanvas3D( QQuickItem *item ) const
+{
+  QObject *root = rootObject();
+  if ( !root )
+    return;
+
+  QQuickItem *container = root->findChild<QQuickItem *>( QStringLiteral( "mapCanvas3DPluginContainer" ) );
+  if ( container )
+  {
+    item->setParentItem( container );
+  }
+}
+
 void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
 {
   QObject *root = rootObject();
