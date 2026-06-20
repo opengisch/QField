@@ -65,6 +65,8 @@ TestCase {
   MapSettings {
     id: mapSettingsItem
     destinationCrs: CoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
+    outputSize: Qt.size(600, 600)
+    extent: GeometryUtils.createRectangleFromPoints(GeometryUtils.point(1030800, 5911300), GeometryUtils.point(1031200, 5911700))
   }
 
   FeatureModel {
