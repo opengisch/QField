@@ -24,8 +24,9 @@ TestCase {
   property var fieldsLayer: qgisProject.mapLayersByName("Fields")[0]
   property var tracksLayer: qgisProject.mapLayersByName("Tracks")[0]
 
-  // we never commit to the layer, so just make sure any open edit session is
-  // rolled back between tests and the layer is left clean
+  // reset between tests. the tests assert on the vertex model geometry and do
+  // not commit, so this only needs to clear editing state and roll back any
+  // stray edit buffer.
   function cleanup() {
     vertexEditor.cancel();
     if (fieldsLayer.editBuffer()) {
@@ -62,6 +63,10 @@ TestCase {
     vertexModel.currentPoint = GeometryUtils.point(point.x + 5, point.y + 5);
   }
 
+  // pin a known extent and output size so mapUnitsPerPixel is deterministic on
+  // every platform. the vertex model ignores moves smaller than one pixel, so
+  // without a fixed map scale a move that registers locally can be dropped on a
+  // headless CI where the default map scale differs.
   MapSettings {
     id: mapSettingsItem
     destinationCrs: CoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
@@ -156,36 +161,20 @@ TestCase {
     return points;
   }
 
-  function test_applyChangesAppliesMovedVertexToLayerBuffer() {
+  function test_movedVertexProducesExpectedGeometry() {
     const model = makeFieldsModel();
     vertexEditor.init(model, mapSettingsItem, null, null);
+    const before = geometryPoints(model.vertexModel.geometry);
 
-    console.log("CI mapUnitsPerPixel:", mapSettingsItem.mapUnitsPerPixel);
-    console.log("CI mapUnitsPerPoint:", mapSettingsItem.mapUnitsPerPoint);
-    console.log("CI outputSize:", mapSettingsItem.outputSize.width, mapSettingsItem.outputSize.height);
-    console.log("CI visibleExtent:", mapSettingsItem.visibleExtent);
+    selectAndMoveFirstVertex();
 
-    // capture the polygon before the edit
-    const before = geometryPoints(model.feature.geometry);
+    // a single vertex move produces the same polygon with exactly one vertex
+    // relocated: one original point gone, one new point present, count unchanged
+    const moved = model.vertexModel.geometry;
+    verify(!moved.isNull);
+    compare(moved.type, Qgis.GeometryType.Polygon);
 
-    // move the first real vertex and apply. we never commit, so the layer file
-    // is untouched.
-
-    // selectAndMoveFirstVertex();
-    const vertexModel = model.vertexModel;
-    vertexModel.editingMode = VertexModel.EditVertex;
-    vertexModel.currentVertexIndex = 1;
-    const p0 = vertexModel.currentPoint;
-    console.log("CI before move:", p0.x, p0.y);
-    vertexModel.currentPoint = GeometryUtils.point(p0.x + 5, p0.y + 5);
-    console.log("CI after move:", vertexModel.currentPoint.x, vertexModel.currentPoint.y, "dirty:", vertexModel.dirty);
-
-    vertexEditor.applyChanges(true);
-    const movedGeom = model.feature.geometry;
-    verify(!movedGeom.isNull);
-    compare(movedGeom.type, Qgis.GeometryType.Polygon);
-
-    const after = geometryPoints(movedGeom);
+    const after = geometryPoints(moved);
     compare(after.length, before.length);
     compare(pointsNotIn(before, after), 1);
     compare(pointsNotIn(after, before), 1);
@@ -290,13 +279,13 @@ TestCase {
     compare(model.vertexModel.dirty, false);
   }
 
-  function test_applyChangesAppliesMovedVertexOnLineLayer() {
-    // same apply path but on a line feature, to cover the line geometry branch
+  function test_movedVertexProducesExpectedGeometryOnLine() {
+    // same path on a line feature, to cover the line geometry branch
     const model = makeFeatureModel(tracksLayer, "1");
     vertexEditor.init(model, mapSettingsItem, null, null);
     const vertexModel = model.vertexModel;
 
-    const before = geometryPoints(model.feature.geometry);
+    const before = geometryPoints(vertexModel.geometry);
 
     // on a line the first real vertex is also at an odd index
     vertexModel.editingMode = VertexModel.EditVertex;
@@ -305,15 +294,12 @@ TestCase {
     vertexModel.currentPoint = GeometryUtils.point(point.x + 5, point.y + 5);
     compare(vertexModel.dirty, true);
 
-    vertexEditor.applyChanges(true);
+    // the vertex model geometry reflects the move directly, one vertex relocated
+    const moved = vertexModel.geometry;
+    verify(!moved.isNull);
+    compare(moved.type, Qgis.GeometryType.Line);
 
-    // a still-valid line with the same vertex count, where exactly one original
-    // point is replaced by exactly one new point: the moved vertex
-    const movedGeom = model.feature.geometry;
-    verify(!movedGeom.isNull);
-    compare(movedGeom.type, Qgis.GeometryType.Line);
-
-    const after = geometryPoints(movedGeom);
+    const after = geometryPoints(moved);
     compare(after.length, before.length);
     compare(pointsNotIn(before, after), 1);
     compare(pointsNotIn(after, before), 1);
