@@ -10,8 +10,8 @@ EditorWidgetBase {
 
   // if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
   readonly property bool isBool: field.type == 1  // needs type coercion
-  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] !== null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
-  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] !== null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
+  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] !== undefined && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
+  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] !== undefined && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
 
   anchors {
     right: parent.right
