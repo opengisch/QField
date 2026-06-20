@@ -35,7 +35,7 @@ class AuthUtils : public QObject
     Q_INVOKABLE static bool hasAuthenticationConfigurations();
 
     /**
-     * Returns authentication configuration \id details. If no id is provided,
+     * Returns authentication configuration \a id details. If no id is provided,
      * details for all authentication configuration will be returned.
      */
     Q_INVOKABLE static QVariantList authenticationConfigurationDetails( const QString &id = QString() );
@@ -46,7 +46,7 @@ class AuthUtils : public QObject
     Q_INVOKABLE static bool isAuthenticationConfigurationAvailable( const QString &id );
 
     /**
-     * Clears any cache associated to the authentication configuration \id. If no id is
+     * Clears any cache associated to the authentication configuration \a id. If no id is
      * provided, cache for all authentication configurations will be cleared.
      */
     Q_INVOKABLE static void clearAuthenticationConfigurationCache( const QString &id = QString() );
