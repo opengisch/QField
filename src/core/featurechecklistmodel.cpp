@@ -273,6 +273,8 @@ FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &FeatureListModel::groupFieldChanged, this, &FeatureCheckListModel::groupFieldChanged );
   connect( mSourceModel, &FeatureListModel::displayGroupNameChanged, this, &FeatureCheckListModel::displayGroupNameChanged );
   connect( mSourceModel, &FeatureListModel::orderByValueChanged, this, &FeatureCheckListModel::orderByValueChanged );
+  connect( mSourceModel, &FeatureListModel::orderByFieldChanged, this, &FeatureCheckListModel::orderByFieldChanged );
+  connect( mSourceModel, &FeatureListModel::orderByFieldNameChanged, this, &FeatureCheckListModel::orderByFieldNameChanged );
   connect( mSourceModel, &FeatureListModel::addNullChanged, this, &FeatureCheckListModel::addNullChanged );
   connect( mSourceModel, &FeatureListModel::filterExpressionChanged, this, &FeatureCheckListModel::filterExpressionChanged );
   connect( mSourceModel, &FeatureListModel::searchTermChanged, this, &FeatureCheckListModel::searchTermChanged );
@@ -372,6 +374,26 @@ bool FeatureCheckListModel::orderByValue() const
 void FeatureCheckListModel::setOrderByValue( bool orderByValue )
 {
   mSourceModel->setOrderByValue( orderByValue );
+}
+
+bool FeatureCheckListModel::orderByField() const
+{
+  return mSourceModel->orderByField();
+}
+
+void FeatureCheckListModel::setOrderByField( bool orderByField )
+{
+  mSourceModel->setOrderByField( orderByField );
+}
+
+QString FeatureCheckListModel::orderByFieldName() const
+{
+  return mSourceModel->orderByFieldName();
+}
+
+void FeatureCheckListModel::setOrderByFieldName( const QString &orderByFieldName )
+{
+  mSourceModel->setOrderByFieldName( orderByFieldName );
 }
 
 bool FeatureCheckListModel::addNull() const

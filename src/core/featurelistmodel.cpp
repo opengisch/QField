@@ -477,6 +477,21 @@ void FeatureListModel::processFeatureList()
       return entry1.fuzzyScore > entry2.fuzzyScore;
     }
 
+    if ( mOrderByField && !mOrderByFieldName.isEmpty() )
+    {
+      QgsFeature f1 = getFeatureById( entry1.fid );
+      QgsFeature f2 = getFeatureById( entry2.fid );
+
+      if ( f1.isValid() && f2.isValid() )
+      {
+        QVariant attr1 = f1.attribute( mOrderByFieldName );
+        QVariant attr2 = f2.attribute( mOrderByFieldName );
+
+        if ( attr1.isValid() && attr2.isValid() )
+          return attr1 < attr2;
+      }
+    }
+
     if ( mOrderByValue )
     {
       return entry1.displayString.toLower() < entry2.displayString.toLower();
@@ -546,6 +561,40 @@ void FeatureListModel::setOrderByValue( bool orderByValue )
   mOrderByValue = orderByValue;
   reloadLayer();
   emit orderByValueChanged();
+}
+
+bool FeatureListModel::orderByField() const
+{
+  return mOrderByField;
+}
+
+void FeatureListModel::setOrderByField( bool orderByField )
+{
+  if ( mOrderByField == orderByField )
+  {
+    return;
+  }
+
+  mOrderByField = orderByField;
+  reloadLayer();
+  emit orderByFieldChanged();
+}
+
+QString FeatureListModel::orderByFieldName() const
+{
+  return mOrderByFieldName;
+}
+
+void FeatureListModel::setOrderByFieldName( const QString &orderByFieldName )
+{
+  if ( mOrderByFieldName == orderByFieldName )
+  {
+    return;
+  }
+
+  mOrderByFieldName = orderByFieldName;
+  reloadLayer();
+  emit orderByFieldNameChanged();
 }
 
 QString FeatureListModel::filterExpression() const

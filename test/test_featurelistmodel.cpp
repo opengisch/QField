@@ -202,6 +202,32 @@ TEST_CASE( "FeatureListModel behaviours" )
     REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
   }
 
+  // orderByField behaviour (wait for sorted first item, not rowCount)
+  {
+    featureListModel.setOrderByField( true );
+    featureListModel.setOrderByFieldName( QStringLiteral( "name" ) );
+    featureListModel.setGroupField( "" );
+
+    QElapsedTimer waitForSortTimer;
+    waitForSortTimer.start();
+    while ( waitForSortTimer.elapsed() < maximumWaitTimeMilliseconds )
+    {
+      const QString firstRowDisplayLower = featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString();
+      if ( firstRowDisplayLower == QStringLiteral( "one" ) )
+      {
+        break;
+      }
+
+      QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+    }
+
+    featureListModel.setGroupField( "grp" );
+
+    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "one" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 1, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 2, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "two" ) );
+  }
+
   // Layer change triggers reload (featureAdded gives reload)
   {
     QgsFeature featureFour( vectorLayerDummy->fields() );
