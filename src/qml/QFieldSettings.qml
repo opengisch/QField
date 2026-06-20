@@ -855,18 +855,20 @@ Page {
               }
 
               Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: authenticationConfigurationsListView.count > 0
                 text: qsTr("Available authentication configurations:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
               }
 
               Rectangle {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.preferredHeight: 140
+                visible: authenticationConfigurationsListView.count > 0
                 color: Theme.controlBackgroundColor
                 border.width: 1
                 border.color: Theme.controlBorderColor
@@ -921,6 +923,7 @@ Page {
               QfButton {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
+                visible: authenticationConfigurationsListView.count > 0
 
                 text: qsTr("Clear authentication cache")
 
