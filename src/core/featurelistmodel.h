@@ -71,12 +71,12 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
     /**
-     * Set to TRUE if features should be ordered by value
+     * Set to TRUE if features should be ordered by a field
      */
     Q_PROPERTY( bool orderByField READ orderByField WRITE setOrderByField NOTIFY orderByFieldChanged )
 
     /**
-     * Name of field to order features by.
+     * Name of field to order features by
      */
     Q_PROPERTY( QString orderByFieldName READ orderByFieldName WRITE setOrderByFieldName NOTIFY orderByFieldNameChanged )
 
@@ -175,13 +175,13 @@ class FeatureListModel : public QAbstractItemModel
     void setOrderByValue( bool orderByValue );
 
     /**
-     * Orders all the values alphabethically by their displayString.
+     * Orders all the values alphabethically by a field
      */
     bool orderByField() const;
 
     /**
-       * Orders all the values alphabethically by their displayString.
-       */
+     * Orders all the values alphabethically by a field
+     */
     void setOrderByField( bool orderByField );
 
     /**
@@ -192,7 +192,7 @@ class FeatureListModel : public QAbstractItemModel
     /**
      * Orders all the values by another field.
      */
-    void setOrderByFieldName( const QString &OrderByFieldName );
+    void setOrderByFieldName( const QString &orderByFieldName );
 
     /**
        * Add a NULL value as the first entry.
