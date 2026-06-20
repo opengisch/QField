@@ -1097,16 +1097,19 @@ void AttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
 
         QStandardItem *tab = root->child( i, 0 );
         _checkChildrenValidity( tab, hardValidity, softValidity );
-        if ( !hardValidity )
-        {
-          allConstraintsHardValid = false;
-        }
-        if ( !softValidity )
-        {
-          allConstraintsSoftValid = false;
-        }
         tab->setData( hardValidity, AttributeFormModel::ConstraintHardValid );
         tab->setData( softValidity, AttributeFormModel::ConstraintSoftValid );
+        if ( tab->data( AttributeFormModel::CurrentlyVisible ).toBool() )
+        {
+          if ( !hardValidity )
+          {
+            allConstraintsHardValid = false;
+          }
+          if ( !softValidity )
+          {
+            allConstraintsSoftValid = false;
+          }
+        }
       }
     }
     else
