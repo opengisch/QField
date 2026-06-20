@@ -965,15 +965,15 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Página anterior</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Próxima página</translation>
     </message>
 </context>
 <context>
@@ -2768,11 +2768,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Linha</translation>
     </message>
     <message>
         <source>Polygon</source>
-        <translation type="unfinished"/>
+        <translation>Poligono</translation>
     </message>
 </context>
 <context>
@@ -3508,7 +3508,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Meus projetos</translation>
     </message>
     <message>
         <source>Title or description contains</source>
@@ -5175,7 +5175,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Sim</translation>
     </message>
     <message>
         <source>No</source>
@@ -5183,14 +5183,14 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Fechar</translation>
     </message>
 </context>
 <context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Armazenar</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
@@ -6293,11 +6293,11 @@ project</source>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Bem-vindo de volta ao %1</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Bem-vindo ao %1</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>

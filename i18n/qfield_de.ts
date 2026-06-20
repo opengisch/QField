@@ -953,7 +953,7 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation>Vergesse alle wiederverwendbaren Werte</translation>
+        <translation>Vergiss alle wiederverwendbaren Werte</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
