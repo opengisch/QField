@@ -144,7 +144,7 @@ void GridModel::setPrepareLines( bool prepare )
     if ( !mMinorLines.isEmpty() )
     {
       mMinorLines.clear();
-      mMajorLinesPath.clear();
+      mMinorLinesPath.clear();
       emit minorLinesChanged();
     }
   }
@@ -299,7 +299,7 @@ void GridModel::clear()
   if ( !mMinorLines.isEmpty() )
   {
     mMinorLines.clear();
-    mMajorLinesPath.clear();
+    mMinorLinesPath.clear();
     emit minorLinesChanged();
   }
   if ( !mMarkers.isEmpty() )
