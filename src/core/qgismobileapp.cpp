@@ -588,7 +588,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
   qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
 
-  qmlRegisterUncreatableType<NtripSettings>( "org.qfield", 1, 0, "NtripSettings", "Used for property values" );
+  qmlRegisterUncreatableType<NtripSettings>( "org.qfield", 1, 0, "ntripSettings", "Used for property values" );
   qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
 
   qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "gnssPositionInformation", "Used for property values" );
