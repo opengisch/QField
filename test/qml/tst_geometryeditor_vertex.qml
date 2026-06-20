@@ -160,12 +160,26 @@ TestCase {
     const model = makeFieldsModel();
     vertexEditor.init(model, mapSettingsItem, null, null);
 
+    console.log("CI mapUnitsPerPixel:", mapSettingsItem.mapUnitsPerPixel);
+    console.log("CI mapUnitsPerPoint:", mapSettingsItem.mapUnitsPerPoint);
+    console.log("CI outputSize:", mapSettingsItem.outputSize.width, mapSettingsItem.outputSize.height);
+    console.log("CI visibleExtent:", mapSettingsItem.visibleExtent);
+
     // capture the polygon before the edit
     const before = geometryPoints(model.feature.geometry);
 
     // move the first real vertex and apply. we never commit, so the layer file
     // is untouched.
-    selectAndMoveFirstVertex();
+
+    // selectAndMoveFirstVertex();
+    const vertexModel = model.vertexModel;
+    vertexModel.editingMode = VertexModel.EditVertex;
+    vertexModel.currentVertexIndex = 1;
+    const p0 = vertexModel.currentPoint;
+    console.log("CI before move:", p0.x, p0.y);
+    vertexModel.currentPoint = GeometryUtils.point(p0.x + 5, p0.y + 5);
+    console.log("CI after move:", vertexModel.currentPoint.x, vertexModel.currentPoint.y, "dirty:", vertexModel.dirty);
+
     vertexEditor.applyChanges(true);
     const movedGeom = model.feature.geometry;
     verify(!movedGeom.isNull);
