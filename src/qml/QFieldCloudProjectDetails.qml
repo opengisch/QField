@@ -17,22 +17,19 @@ ColumnLayout {
   onCloudProjectChanged: {
     if (cloudProject != undefined) {
       cloudProject.downloadThumbnail();
-      if (cloudProject.owner !== lastSubscriptionUser) {
-        detailsStorageMeter.visible = false;
-        detailsStorageMeter.value = 0;
-      }
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-        if (cloudProject.owner === cloudConnection.username) {
-          detailsStorageMeter.loading = true;
-          detailsStorageMeter.visible = true;
-        }
-        cloudConnection.getSubscriptionInformation(cloudProject.owner);
-      }
+      updateStorageMeter();
     } else {
       detailsStorageMeter.visible = false;
       detailsStorageMeter.value = 0;
-      lastSubscriptionUser = "";
       projectsSwipeView.currentIndex = 0;
+    }
+  }
+
+  Connections {
+    target: cloudProject !== undefined ? cloudProject : null
+
+    function onLocalPathChanged() {
+      updateStorageMeter();
     }
   }
 
@@ -50,6 +47,22 @@ ColumnLayout {
         detailsStorageMeter.criticalThreshold = subscriptionInformation.storageThresholdCritical > 0 ? 1.0 - (subscriptionInformation.storageThresholdCritical / subscriptionInformation.storageTotal) : 0.95;
         detailsStorageMeter.visible = true;
       }
+    }
+  }
+
+  function updateStorageMeter() {
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProject.localPath !== "") {
+      if (cloudProject.owner === lastSubscriptionUser || cloudProject.owner === cloudConnection.username) {
+        detailsStorageMeter.visible = true;
+        detailsStorageMeter.loading = true;
+      } else {
+        detailsStorageMeter.visible = false;
+        detailsStorageMeter.value = 0;
+      }
+      cloudConnection.getSubscriptionInformation(cloudProject.owner);
+    } else {
+      detailsStorageMeter.visible = false;
+      detailsStorageMeter.value = 0;
     }
   }
 
