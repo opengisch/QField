@@ -31,6 +31,7 @@
 
 package ch.opengis.qfield;
 
+import android.app.ForegroundServiceStartNotAllowedException;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -149,10 +150,20 @@ public class QFieldCloudService extends QtService {
             } else {
                 startForeground(NOTIFICATION_ID, notification);
             }
-        } catch (SecurityException e) {
-            Log.v("QFieldCloudService",
-                  "Missing permission to launch the QFieldCloud service");
-            return START_NOT_STICKY;
+        } catch (Exception e) {
+            if (e instanceof SecurityException) {
+                Log.v("QFieldCloudService",
+                      "Missing permission to launch the QFieldCloud service");
+                return START_NOT_STICKY;
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+                       e instanceof ForegroundServiceStartNotAllowedException) {
+                Log.v(
+                    "QFieldCloudService",
+                    "The QFieldCloud service already ran for the permitted 6 hours during the last 24 hours window");
+                return START_NOT_STICKY;
+            } else {
+                throw e;
+            }
         }
 
         return START_STICKY;
