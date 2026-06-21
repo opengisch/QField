@@ -42,6 +42,7 @@
 #include "attributeformmodel.h"
 #include "audioanalyzer.h"
 #include "audiorecorder.h"
+#include "authutils.h"
 #include "badlayerhandler.h"
 #include "barcodedecoder.h"
 #include "barcodeimageprovider.h"
@@ -616,6 +617,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
     return t;
   } );
 
+  REGISTER_SINGLETON( "org.qfield", AuthUtils, "AuthUtils" );
   REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
   REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
   REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
