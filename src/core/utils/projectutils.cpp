@@ -151,7 +151,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     writerOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteLayer;
 
-    notesPointLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), notesHasAdditionalGeometries ? QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Point" ) ) : ( "Notes" ) );
+    notesPointLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), notesHasAdditionalGeometries ? QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Point" ) ) : tr( "Notes" ) );
     notesLayers << notesPointLayer;
 
     LayerUtils::setDefaultRenderer( notesPointLayer, nullptr,
