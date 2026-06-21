@@ -16,6 +16,7 @@
 
 #include "referencingfeaturelistmodel.h"
 
+#include <QTimer>
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
 
@@ -122,8 +123,24 @@ QgsFeature ReferencingFeatureListModelBase::feature() const
 
 void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
+  if ( mRelation.isValid() && mRelation.referencingLayer() )
+  {
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedAttributeValuesChanges );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedGeometriesChanges );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesAdded );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesRemoved );
+  }
+
   mRelation = relation;
   emit relationChanged();
+
+  if ( mRelation.isValid() && mRelation.referencingLayer() )
+  {
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedAttributeValuesChanges );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedGeometriesChanges );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesAdded );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesRemoved );
+  }
 
   mLastGathererFeaturesFilter.clear();
   updateAttachmentFieldInfo();
@@ -219,6 +236,37 @@ void ReferencingFeatureListModelBase::gathererThreadFinished()
   emit isLoadingChanged();
 }
 
+void ReferencingFeatureListModelBase::referencingLayerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues )
+{
+  const QList<QgsFeatureId> featureIds = changedAttributesValues.keys();
+  if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
+  {
+    QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+  }
+}
+
+void ReferencingFeatureListModelBase::referencingLayerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries )
+{
+  const QList<QgsFeatureId> featureIds = changedGeometries.keys();
+  if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
+  {
+    QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+  }
+}
+
+void ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures )
+{
+  QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+}
+
+void ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
+{
+  if ( std::any_of( mEntries.begin(), mEntries.end(), [&deletedFeatureIds]( const Entry &entry ) { return deletedFeatureIds.contains( entry.referencingFeature.id() ); } ) )
+  {
+    QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+  }
+}
+
 void ReferencingFeatureListModelBase::reload()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
@@ -309,8 +357,6 @@ bool ReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFea
 
     return false;
   }
-
-  reload();
 
   return true;
 }

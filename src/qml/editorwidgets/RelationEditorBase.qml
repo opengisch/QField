@@ -247,15 +247,8 @@ EditorWidgetBase {
       digitizingToolbar: form.digitizingToolbar
       codeReader: form.codeReader
 
-      onFeatureCancelled: {
-        if (autoSave) {
-          relationEditorModel.reload();
-        }
-      }
-
       onFeatureSaved: id => {
         relationEditorModel.featureFocus = id;
-        relationEditorModel.reload();
         form.model.applyRelationshipDefaultValues();
       }
 
