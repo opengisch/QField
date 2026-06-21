@@ -2111,6 +2111,14 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4100,6 +4108,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Update project from ZIP</source>
         <translation>Atualizar projeto do ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

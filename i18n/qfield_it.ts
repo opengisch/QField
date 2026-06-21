@@ -2111,6 +2111,14 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4104,6 +4112,10 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Update project from ZIP</source>
         <translation>Aggiorna progetto da ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

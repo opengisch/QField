@@ -2104,6 +2104,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>Proje klasörü silinecek, kaldırmaya devam edilsin mi?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4093,6 +4101,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Update project from ZIP</source>
         <translation>ZIP dosyasından projeyi güncelle</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

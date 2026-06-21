@@ -2105,6 +2105,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>A pasta de projeto será excluída, confirma?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4094,6 +4102,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Update project from ZIP</source>
         <translation>Atualizar projeto a partir de ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

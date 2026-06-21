@@ -2110,6 +2110,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>Le répertoire du projet va être supprimé, procéder à sa suppression ?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation>Choisir une archive ZIP</translation>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation>Archives ZIP (*.zip)</translation>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4097,6 +4105,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Update project from ZIP</source>
         <translation>Mettre à jour le projet à partir du ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

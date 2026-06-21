@@ -2108,6 +2108,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>A projekt mappát törlöm, folytassuk az eltávolítást?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4093,6 +4101,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Update project from ZIP</source>
         <translation>Projekt aktualizálása ZIP-ből</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

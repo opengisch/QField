@@ -2113,6 +2113,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>Folder projektu zostanie usunięty, kontynuować usuwanie?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation>Wybierz archiwum ZIP</translation>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation>Archiwa ZIP (*.zip)</translation>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4103,6 +4111,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Update project from ZIP</source>
         <translation>Zaktualizuj projekt z archiwum ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

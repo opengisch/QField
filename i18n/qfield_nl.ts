@@ -2109,6 +2109,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>De project map wordt verwijderd, wilt u doorgaan?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4098,6 +4106,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Update project from ZIP</source>
         <translation>Project bijwerken met ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

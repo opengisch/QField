@@ -2168,6 +2168,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>

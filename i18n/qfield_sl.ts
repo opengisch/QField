@@ -2100,6 +2100,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>Mapa projekta bo izbrisana. Želiš nadaljevati z brisanjem?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4085,6 +4093,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -2113,6 +2113,14 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4100,6 +4108,10 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
     </message>
     <message>
         <source>Update project from ZIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
         <translation type="unfinished"/>
     </message>
     <message>

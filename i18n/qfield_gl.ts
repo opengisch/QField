@@ -2109,6 +2109,14 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>O directorio do proxecto será eliminado, continuar coa eliminación?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4098,6 +4106,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
     <message>
         <source>Update project from ZIP</source>
         <translation>Actualizar proxecto dende ZIP</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

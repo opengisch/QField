@@ -2107,6 +2107,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>工程文件夹将被删除，是否继续？</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation>选择ZIP档案文件</translation>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation>ZIP档案文件 (*.zip)</translation>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -4097,6 +4105,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Update project from ZIP</source>
         <translation>从ZIP更新工程</translation>
+    </message>
+    <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload project to WebDAV</source>

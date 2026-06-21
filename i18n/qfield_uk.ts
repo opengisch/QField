@@ -23,15 +23,15 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>Працює на QField</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>Каталог застосунку %1</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>Каталог застосунку %1</translation>
     </message>
 </context>
 <context>
@@ -284,15 +284,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Використати Bluetooth з низьким енергоспоживанням (BLE - Bluetooth Low Energy)</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Конфігурація пристрою Bluetooth:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Низьке енергоспоживання (BLE - Bluetooth Low Energy)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
@@ -618,15 +618,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Розгорнути все</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Згорнути все</translation>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Інформація про проект</translation>
     </message>
 </context>
 <context>
@@ -965,15 +965,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Попередня сторінка</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Зберігти</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Наступна сторінка</translation>
     </message>
 </context>
 <context>
@@ -1399,14 +1399,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP</translation>
     </message>
 </context>
 <context>
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Автор</translation>
     </message>
 </context>
 <context>
@@ -1844,7 +1844,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>Авто збільшення до об&apos;єкта</translation>
+        <translation>Автоматичне масштабування до об&apos;єкта</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -2113,6 +2113,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The project folder will be deleted, proceed with removal?</source>
         <translation>Папку проекту буде видалено, продовжити видалення?</translation>
     </message>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PluginItem</name>
@@ -2216,7 +2224,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Відмовити в дозволі</translation>
     </message>
 </context>
 <context>
@@ -2361,7 +2369,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2416,7 +2424,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/сек</translation>
     </message>
 </context>
 <context>
@@ -2486,7 +2494,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP налаштування</translation>
     </message>
     <message>
         <source>Host</source>
@@ -2498,7 +2506,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Протокол</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
@@ -2526,11 +2534,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Формат даних:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Відстань:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
@@ -2565,7 +2573,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>Компас</translation>
     </message>
     <message>
         <source>Movement</source>
@@ -2573,7 +2581,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Точність</translation>
     </message>
 </context>
 <context>
@@ -2689,7 +2697,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
+        <translation>Резервне копіювання та співпраця?</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
@@ -2705,11 +2713,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud дозволяє синхронізувати та об&apos;єднувати дані, зібрані вашою командою в %1. Від невеликих індивідуальних проектів до великих кампаній зі збору даних. </translation>
     </message>
     <message>
         <source>Automatically push changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Автоматично надсилати зміни через регулярні проміжки часу</translation>
     </message>
     <message>
         <source>Allow notes on lines and polygons</source>
@@ -2768,19 +2776,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Додатки</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Точка</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Лінія</translation>
     </message>
     <message>
         <source>Polygon</source>
-        <translation type="unfinished"/>
+        <translation>Полігон</translation>
     </message>
 </context>
 <context>
@@ -2929,7 +2937,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>Жодних змін ще не внесено!</translation>
     </message>
 </context>
 <context>
@@ -3011,7 +3019,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1сервер URL
+(Залиште порожнім, щоб використовувати сервер за замовчуванням)</translation>
     </message>
 </context>
 <context>
@@ -3245,7 +3254,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Автоматично надсилати зміни кожні %n хвилин(и)</numerusform><numerusform>Автоматично надсилати зміни кожні %n хвилин(и)</numerusform><numerusform>Автоматично надсилати зміни кожні %n хвилин(и)</numerusform><numerusform>Автоматично надсилати зміни кожні %n хвилин(и)</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
@@ -3281,15 +3290,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform></translation>
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Використано %1 із %2</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -3516,7 +3525,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Мої власні проекти</translation>
     </message>
     <message>
         <source>Title or description contains</source>
@@ -3524,7 +3533,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Власником є</translation>
     </message>
 </context>
 <context>
@@ -3838,7 +3847,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Пошук проектів...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
@@ -3858,7 +3867,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Пошук проектів</translation>
     </message>
     <message>
         <source>Clone Project</source>
@@ -3866,45 +3875,45 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project Cloning</source>
-        <translation type="unfinished"/>
+        <translation>Клонування проекту</translation>
     </message>
     <message>
         <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
+        <translation>Як Ви хочете назвати свій клоновий проект?</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Клонування проекту не вдалося: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося створити проект: %1</translation>
     </message>
     <message>
         <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
+        <translation>Проект успішно клоновано</translation>
     </message>
     <message>
         <source>Project successfully created</source>
-        <translation type="unfinished"/>
+        <translation>Проект успішно створено</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform><numerusform> Залишилось %n файл(ів)</numerusform></translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>Сервер QFieldCloud не доступний</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
@@ -3912,7 +3921,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud знаходиться на технічному обслуговуванні</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
@@ -3935,11 +3944,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Доступне сховище влсника облікового запису заповнене.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>Тарифний план власника проекту недостатній.</translation>
     </message>
 </context>
 <context>
@@ -4073,11 +4082,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Видалити папку</translation>
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Видалити файл</translation>
     </message>
     <message>
         <source>Remove folder</source>
@@ -4104,6 +4113,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Оновити проект із ZIP</translation>
     </message>
     <message>
+        <source>Compress project and send to...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Upload project to WebDAV</source>
         <translation>Завантаження проекту до WebDAV</translation>
     </message>
@@ -4125,7 +4138,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Видалити файл(и)</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
@@ -4137,19 +4150,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove File(s)</source>
-        <translation type="unfinished"/>
+        <translation>Видалити файл(и)</translation>
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ви впевнені, що хочете видалити %n файл?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform><numerusform>Ви впевнені, що хочете видалити %n файлів?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform><numerusform>Успішно видалено %n файл(ів)</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform><numerusform>Не вдалося видалити %n файл(ів)</numerusform></translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -4189,7 +4202,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation type="unfinished"/>
+        <translation>Пароль (залиште поле порожнім, щоб використовувати збережений пароль)</translation>
     </message>
     <message>
         <source>Remember password</source>
@@ -4209,7 +4222,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation type="unfinished"/>
+        <translation>залиште поле порожнім, щоб використовувати збережений пароль</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
@@ -4429,11 +4442,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation type="vanished">Погана точність нижче [м]</translation>
+        <translation type="vanished">Низька точність нижче [м]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation type="vanished">Чудова точність вище [м]</translation>
+        <translation type="vanished">Висока точність вище [м]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
@@ -4557,7 +4570,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>Системна тема</translation>
     </message>
     <message>
         <source>Light theme</source>
@@ -4633,7 +4646,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
@@ -4701,7 +4714,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо ввімкнено, області безпосередньо за межами видимого полотна карти будуть частково відображатися для попереднього перегляду під час масштабування та панорамування.</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
@@ -4713,55 +4726,55 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Автоматичне масштабування до визначених об&apos;єктів</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо цю функцію ввімкнено, карта автоматично масштабуватиметься, щоб відобразити всі виявлені об’єкти, а також вибраний об’єкт, коли відкрито форму об’єкта.</translation>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
+        <translation>Дії при фіксації положення:</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Відслідковувати лише положення</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Відслідковувати положення та орієнтацію за компасом</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Відслідковувати положення та напрямок руху</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Коли полотно карти відповідає положенню або зафіксоване в ньому, воно також може обертатися відповідно до орієнтації компаса або напрямку руху.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Ця поправка скоригує значення висот Z, записані з пристрою позиціонування. Якщо введено значення 1.6, система автоматично відніме 1.6 від кожного записаного значення. Обов’язково введіть ефективну висоту антени, тобто довжина віхи + зсув фазового центру антени. </translation>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 Налаштування</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Мережа</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути проксі-сервер</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Тип</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Система за умовчанням</translation>
     </message>
     <message>
         <source>Host</source>
@@ -4769,7 +4782,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>напр. proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -4777,7 +4790,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>напр. 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -4793,67 +4806,67 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>URL-адреси, виключені з проксі-сервера (розділені комами)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>напр. локальний хост, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
+        <translation>Налаштуйте мережевий проксі-сервер для маршрутизації трафіку QField через проксі-сервер. Корисно для корпоративних мереж та VPN.</translation>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо ввімкнено, буде використовуватися вбудована камера, що надається операційною системою.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо цю функцію ввімкнено, анонімні показники будуть збиратися та надсилатися для покращення взаємодії з користувачем.</translation>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Пристрій позиціонування</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути корекції NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Клієнт NTRIP відключився</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>Підключення клієнта NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>Клієнта NTRIP підключено</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, вкажіть дійсні налаштування NTRIP</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Поправки висоти</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Позначка часу (секунди з епохи)</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Межа низької точності</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>м</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Межа високої точності</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
@@ -4861,7 +4874,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Висота антени</translation>
     </message>
 </context>
 <context>
@@ -5007,11 +5020,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Коло #1: радіус</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Коло #2: радіус</translation>
     </message>
     <message>
         <source>Candidate</source>
@@ -5019,75 +5032,75 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>XYZ Координати</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>Відстань/Кут від токи</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>Перетин кіл</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Точка</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>Відстань</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>Кут</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>Висота</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>Коло #1: точка</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>Коло #2: точка</translation>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Неможливо видалити файл (не дозволено): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Файл не існує: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося видалити каталог: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося видалити файл: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -5183,30 +5196,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Так</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Ні</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрити</translation>
     </message>
 </context>
 <context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Пам’ять</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Торкніться, щоб збільшити пам’ять</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Натисніть, щоб керувати пам’яттю</translation>
     </message>
 </context>
 <context>
@@ -5278,7 +5291,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося завантажити шрифт: %1</translation>
     </message>
 </context>
 <context>
@@ -5811,23 +5824,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Позначка часу (секунди з епохи)</translation>
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Мінімальний час</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>сек</translation>
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Мінімальна відстань</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
-        <translation type="unfinished"/>
+        <translation>Максимально допустима відстань</translation>
     </message>
 </context>
 <context>
@@ -6110,7 +6123,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження завершено.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
@@ -6130,7 +6143,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Немає збереженого пароля.</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
@@ -6138,23 +6151,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Немає нічого для завантаження.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Локальних змін не виявлено.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження скасовано.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження пропущено.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження заблоковано іншим процесом.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
@@ -6295,7 +6308,7 @@ project</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Привіт, як Вам поки що користуватися %1?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
@@ -6303,7 +6316,7 @@ project</source>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>З поверненням до %1.</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
@@ -6311,21 +6324,21 @@ project</source>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Вперше користуєтеся цим застосунком? Спробуйте зразки проектів, перелічені нижче.</translation>
     </message>
 </context>
 <context>
     <name>angle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>град</translation>
     </message>
 </context>
 <context>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>квадратні градуси</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -6488,15 +6501,15 @@ project</source>
     <name>point</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>широта</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>довгота</translation>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>висота</translation>
     </message>
     <message>
         <source>easting [X]</source>
@@ -6508,11 +6521,11 @@ project</source>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>висота [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть точковий об&apos;єкт</translation>
     </message>
 </context>
 <context>
@@ -7296,11 +7309,11 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Полотно карти слідує за розташуванням та напрямком руху</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося завантажити 3D-вигляд</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
@@ -7308,11 +7321,11 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Закрити 3D-вигляд</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Про %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
@@ -7328,7 +7341,7 @@ to show actions</source>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Менеджер плагінів</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
