@@ -94,20 +94,21 @@ TestCase {
     initFillRingOnFields();
     rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
     rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
-    verify(rubberband.vertexCount > 1);
+    // each added point carries a trailing cursor vertex, so two points give three
+    compare(rubberband.vertexCount, 3);
 
     fillRingTool.cancel();
 
-    // cancel clears the rubberband back down
-    verify(rubberband.vertexCount <= 1);
+    // cancel resets the rubberband down to its single trailing vertex
+    compare(rubberband.vertexCount, 1);
   }
 
   // scope objects the tool and DigitizingToolbar expect from the app
   Item {
     id: mainWindow
     property var contentItem: mainWindow
-    property int width: 800
-    property int height: 600
+    width: 800
+    height: 600
     property int sceneTopMargin: 0
     property int sceneBottomMargin: 0
   }
@@ -137,7 +138,8 @@ TestCase {
     property string positionInformation: ""
     property string topSnappingResult: ""
     property bool positionLocked: false
-    function flash() {}
+    function flash() {
+    }
   }
 
   Item {
