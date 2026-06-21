@@ -162,7 +162,7 @@ EditorWidgetBase {
       anchors.top: headerEntry.bottom
       anchors.left: parent.left
       anchors.right: parent.right
-      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height - 10
+      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height
       focus: true
       clip: true
       boundsBehavior: Flickable.StopAtBounds
