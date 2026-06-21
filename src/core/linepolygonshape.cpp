@@ -58,7 +58,7 @@ void LinePolygonShape::createPolylines()
           {
             polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
           }
-          mPolylines << polyline;
+          mPolylines.append( polyline );
         }
         break;
       }
@@ -68,14 +68,14 @@ void LinePolygonShape::createPolylines()
         const QgsMultiPolygonXY polygons = geometry.isMultipart() ? geometry.asMultiPolygon() : QgsMultiPolygonXY() << geometry.asPolygon();
         for ( const QgsPolygonXY &polygon : polygons )
         {
-          for ( const QgsPolylineXY line : polygon )
+          for ( const QgsPolylineXY &line : polygon )
           {
             QPolygonF polyline;
             for ( const QgsPointXY &point : line )
             {
               polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
             }
-            mPolylines << polyline;
+            mPolylines.append( polyline );
           }
         }
         break;
