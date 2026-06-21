@@ -275,17 +275,19 @@ class FeatureListModel : public QAbstractItemModel
   private:
     struct Entry
     {
-        Entry( const QString &displayString, const QVariant &key, const QVariant &group, const QgsFeatureId &fid )
+        Entry( const QString &displayString, const QVariant &key, const QVariant &group, const QgsFeatureId &fid, const QString &sortFieldValue )
           : displayString( displayString )
           , key( key )
           , group( group )
           , fid( fid )
+          , sortFieldValue( sortFieldValue )
           , fuzzyScore( 0 )
         {}
 
         Entry() = default;
 
         QString displayString;
+        QString sortFieldValue;
         QVariant key;
         QVariant group;
         QgsFeatureId fid;

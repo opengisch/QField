@@ -339,6 +339,11 @@ void FeatureListModel::gatherFeatureList()
     referencedColumns << mGroupField;
   }
 
+  if ( orderByField() && !orderByFieldName().isNull() )
+  {
+    referencedColumns << mOrderByFieldName;
+  }
+
   referencedColumns << mDisplayValueField;
 
   QgsFields fields = mCurrentLayer->fields();
@@ -403,7 +408,7 @@ void FeatureListModel::gatherFeatureList()
 
   cleanupGatherer();
 
-  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() );
+  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() << orderByFieldName() );
   connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
   mGatherer->start();
 }
@@ -421,7 +426,7 @@ void FeatureListModel::processFeatureList()
 
   if ( mAddNull )
   {
-    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId() ) );
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId(), QStringLiteral() ) );
   }
 
   const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
@@ -430,7 +435,7 @@ void FeatureListModel::processFeatureList()
 
   for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
-    Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId );
+    Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId, gatheredEntry.identifierFields.at( 2 ).toString() );
 
     if ( !mSearchTerm.isEmpty() )
     {
@@ -477,24 +482,14 @@ void FeatureListModel::processFeatureList()
       return entry1.fuzzyScore > entry2.fuzzyScore;
     }
 
-    if ( mOrderByField && !mOrderByFieldName.isEmpty() )
-    {
-      QgsFeature f1 = getFeatureById( entry1.fid );
-      QgsFeature f2 = getFeatureById( entry2.fid );
-
-      if ( f1.isValid() && f2.isValid() )
-      {
-        QVariant attr1 = f1.attribute( mOrderByFieldName );
-        QVariant attr2 = f2.attribute( mOrderByFieldName );
-
-        if ( attr1.isValid() && attr2.isValid() )
-          return attr1 < attr2;
-      }
-    }
-
     if ( mOrderByValue )
     {
       return entry1.displayString.toLower() < entry2.displayString.toLower();
+    }
+
+    if ( mOrderByField && !mOrderByFieldName.isEmpty() )
+    {
+      return entry1.sortFieldValue < entry2.sortFieldValue;
     }
 
     // Order By Key (as a fallback)
