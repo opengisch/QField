@@ -11,6 +11,7 @@ set(QFIELD_CORE_SRCS
     3d/quick3dgeometry.cpp
     3d/quick3dgeometryutils.cpp
     3d/maptoview3d.cpp
+    utils/authutils.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
     utils/featureutils.cpp
@@ -163,6 +164,7 @@ set(QFIELD_CORE_HDRS
     3d/quick3dgeometryutils.h
     3d/quick3dgeometry.h
     3d/maptoview3d.h
+    utils/authutils.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
     utils/featureutils.h

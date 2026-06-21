@@ -106,6 +106,8 @@ Page {
     const typeIdx = proxyTypeComboBox.indexOfValue(proxyType);
     proxyTypeComboBox.currentIndex = typeIdx >= 0 ? typeIdx : 0;
     proxySettingsLoaded = true;
+
+    authenticationConfigurationsListView.model = AuthUtils.authenticationConfigurationDetails();
   }
 
   function reset() {
@@ -850,6 +852,85 @@ Page {
                 Layout.fillWidth: true
                 Layout.topMargin: 10
                 Layout.columnSpan: 2
+              }
+
+              Label {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: authenticationConfigurationsListView.count > 0
+                text: qsTr("Available authentication configurations:")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+              }
+
+              Rectangle {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.preferredHeight: 140
+                visible: authenticationConfigurationsListView.count > 0
+                color: Theme.controlBackgroundColor
+                border.width: 1
+                border.color: Theme.controlBorderColor
+
+                ListView {
+                  id: authenticationConfigurationsListView
+                  anchors.fill: parent
+                  clip: true
+
+                  model: []
+
+                  delegate: Rectangle {
+                    width: ListView.view.width
+                    height: authenticationConfigurationDetailsLayout.childrenRect.height + 10
+                    color: "transparent"
+
+                    ColumnLayout {
+                      id: authenticationConfigurationDetailsLayout
+                      width: parent.width - 10
+                      anchors.horizontalCenter: parent.horizontalCenter
+
+                      Text {
+                        Layout.fillWidth: true
+                        Layout.topMargin: 5
+                        font: Theme.defaultFont
+                        color: Theme.mainTextColor
+                        text: modelData["name"] + ' (' + modelData["id"] + ')'
+                        wrapMode: Text.Wrap
+                      }
+
+                      Text {
+                        Layout.fillWidth: true
+                        visible: modelData["uri"] !== ""
+                        font: Theme.tipFont
+                        color: Theme.secondaryTextColor
+                        text: modelData["uri"]
+                        wrapMode: Text.Wrap
+                      }
+                    }
+
+                    Rectangle {
+                      anchors.left: parent.left
+                      anchors.bottom: parent.bottom
+                      width: parent.width
+                      height: 1
+                      color: Theme.controlBorderColor
+                    }
+                  }
+                }
+              }
+
+              QfButton {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: authenticationConfigurationsListView.count > 0
+
+                text: qsTr("Clear authentication cache")
+
+                onClicked: {
+                  AuthUtils.clearAuthenticationConfigurationCache();
+                  displayToast(qsTr('Authentication cache cleared'));
+                }
               }
 
               Label {
