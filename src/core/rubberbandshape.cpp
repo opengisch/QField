@@ -230,7 +230,7 @@ void RubberbandShape::createPolylines()
 
   mPolylines.clear();
 
-  QList<QPointF> polyline;
+  QPolygonF polyline;
   QVector<QgsPoint> allVertices = QVector<QgsPoint>();
   Qgis::GeometryType geomType = mGeometryType;
   if ( mRubberbandModel && !mRubberbandModel->isEmpty() )
@@ -253,7 +253,7 @@ void RubberbandShape::createPolylines()
   {
     polyline << QPointF( ( point.x() - visibleExtent.xMinimum() ) * scaleFactor, ( point.y() - visibleExtent.yMaximum() ) * -scaleFactor );
   }
-  mPolylines << polyline;
+  mPolylines.append( polyline );
 
   if ( geomType != mPolylinesType )
   {
