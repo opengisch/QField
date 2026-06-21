@@ -75,7 +75,7 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
-      CustomImport | CustomSend | UpdateProjectFromArchive;
+      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -253,6 +253,7 @@ void IosPlatformUtilities::requestMicrophonePermission(
 }
 
 static char kIosImportDelegateKey;
+static char kIosExportDelegateKey;
 
 static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
   NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -365,6 +366,82 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 }
 
 @end
+
+@interface IosExportDelegate : NSObject <UIDocumentPickerDelegate>
+@property(nonatomic, strong) NSArray<NSString *> *sourcePaths;
+@end
+
+@implementation IosExportDelegate
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller
+    didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
+  if (urls.count == 0) {
+    return;
+  }
+
+  NSURL *destURL = urls.firstObject;
+  [destURL startAccessingSecurityScopedResource];
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+
+  for (NSString *srcPath in _sourcePaths) {
+    NSString *destPath =
+        [destURL.path stringByAppendingPathComponent:srcPath.lastPathComponent];
+    [fileManager removeItemAtPath:destPath error:nil];
+    [fileManager copyItemAtPath:srcPath toPath:destPath error:nil];
+  }
+
+  [destURL stopAccessingSecurityScopedResource];
+}
+
+- (void)documentPickerWasCancelled:
+    (UIDocumentPickerViewController *)controller {
+}
+
+@end
+
+void IosPlatformUtilities::exportFolderTo(const QString &path) const {
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc]
+          initForOpeningContentTypes:@[ UTTypeFolder ]];
+  picker.allowsMultipleSelection = NO;
+
+  IosExportDelegate *delegate = [[IosExportDelegate alloc] init];
+  delegate.sourcePaths = @[ path.toNSString() ];
+  picker.delegate = delegate;
+  objc_setAssociatedObject(picker, &kIosExportDelegateKey, delegate,
+                           OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+  [root presentViewController:picker animated:YES completion:nil];
+}
+
+void IosPlatformUtilities::exportDatasetTo(const QString &path) const {
+  NSMutableArray<NSString *> *sourcePaths = [NSMutableArray array];
+  [sourcePaths addObject:path.toNSString()];
+
+  const QSet<QString> sidecarFiles = QgsFileUtils::sidecarFilesForPath(path);
+  for (const QString &file : sidecarFiles) {
+    [sourcePaths addObject:file.toNSString()];
+  }
+
+  UIViewController *root = [[[[UIApplication sharedApplication] windows]
+      firstObject] rootViewController];
+
+  UIDocumentPickerViewController *picker =
+      [[UIDocumentPickerViewController alloc]
+          initForOpeningContentTypes:@[ UTTypeFolder ]];
+  picker.allowsMultipleSelection = NO;
+
+  IosExportDelegate *delegate = [[IosExportDelegate alloc] init];
+  delegate.sourcePaths = sourcePaths;
+  picker.delegate = delegate;
+  objc_setAssociatedObject(picker, &kIosExportDelegateKey, delegate,
+                           OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+  [root presentViewController:picker animated:YES completion:nil];
+}
 
 void IosPlatformUtilities::importProjectFolder() const {
   QString appDir = applicationDirectory();
