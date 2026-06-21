@@ -1634,7 +1634,7 @@ public class QFieldActivity extends QtActivity {
 
             updateProjectFromArchive(uri);
         } else if (requestCode == EXPORT_TO_FOLDER &&
-                   resultCode == Activity.RESULT_OK) {
+                   resultCode == Activity.RESULT_OK && pathsToExport != null) {
             Log.d("QField", "handling export to folder");
 
             String[] paths = pathsToExport.split("--;--");
