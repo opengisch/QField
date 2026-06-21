@@ -438,10 +438,9 @@ Page {
         id: actionButton
         round: true
 
-        // Since the project menu only has one action for now, hide if PlatformUtilities.UpdateProjectFromArchive is missing
         property bool isLocalProject: qgisProject && QFieldCloudUtils.getProjectId(qgisProject.fileName) === '' && (projectInfo.filePath.endsWith('.qgs') || projectInfo.filePath.endsWith('.qgz'))
-        property bool isLocalProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled
-        visible: (projectFolderView && isLocalProject && table.model.currentDepth === 1) || table.model.currentPath === 'root'
+        property bool isLocalProjectActionAvailable: updateProjectFromArchive.enabled || uploadProjectToWebdav.enabled || compressProjectAndSendTo.enabled
+        visible: (projectFolderView && isLocalProject && isLocalProjectActionAvailable && table.model.currentDepth === 1) || table.model.currentPath === 'root'
 
         anchors.bottom: parent.bottom
         anchors.right: parent.right
@@ -449,7 +448,7 @@ Page {
         anchors.rightMargin: 10
 
         bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
+        iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
         iconColor: Theme.toolButtonColor
 
         onClicked: {
@@ -837,6 +836,28 @@ Page {
         text: qsTr("Update project from ZIP")
         onTriggered: {
           platformUtilities.updateProjectFromArchive(projectInfo.filePath);
+        }
+      }
+
+      MenuSeparator {
+        visible: updateProjectFromArchive.visible && compressProjectAndSendTo.visible
+        width: parent.width
+        height: visible ? undefined : 0
+      }
+
+      MenuItem {
+        id: compressProjectAndSendTo
+
+        enabled: platformUtilities.capabilities & PlatformUtilities.CustomSend
+        visible: enabled
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Compress project and send to...")
+        onTriggered: {
+          platformUtilities.sendCompressedFolderTo(FileUtils.absolutePath(projectInfo.filePath));
         }
       }
 
