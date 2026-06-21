@@ -112,12 +112,13 @@ TestCase {
     initSplitOnFields();
     rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
     rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
-    verify(rubberband.vertexCount > 1);
+    // each added point carries a trailing cursor vertex, so two points give three
+    compare(rubberband.vertexCount, 3);
 
     splitTool.cancel();
 
-    // cancel clears the rubberband back down
-    verify(rubberband.vertexCount <= 1);
+    // cancel resets the rubberband down to its single trailing vertex
+    compare(rubberband.vertexCount, 1);
   }
 
   // scope objects the tool and DigitizingToolbar expect from the app
