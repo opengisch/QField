@@ -213,6 +213,11 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     void updateModel();
     void gathererThreadFinished();
 
+    void referencingLayerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues );
+    void referencingLayerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries );
+    void referencingLayerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures );
+    void referencingLayerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds );
+
   private:
     struct Entry
     {
@@ -482,7 +487,6 @@ class FeatureGatherer : public QThread
     void run() override
     {
       mWasCanceled = false;
-
 
       QgsFeatureIterator relatedFeaturesIt = mReferencingSource->getFeatures( mRequest );
       QgsExpression expression( mDisplayExpression );

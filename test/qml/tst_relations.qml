@@ -118,7 +118,6 @@ TestCase {
     child3.setAttribute(3, 3000);
     verify(LayerUtils.addFeature(referencingLayer, child3), "Child3 insertion failed");
     referencingLayer.commitChanges();
-    relation_editor.item.relationEditorModel.reload();
     wait(200);
     compare(relation_editor.item.relationEditorModel.rowCount(), 3);
     const delegate3TextString = relation_editor.item.listView.itemAtIndex(2).children[2].children[0].text;
