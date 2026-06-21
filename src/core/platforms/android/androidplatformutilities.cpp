@@ -290,6 +290,11 @@ void AndroidPlatformUtilities::sendDatasetTo( const QString &path ) const
 
 void AndroidPlatformUtilities::exportDatasetTo( const QString &path ) const
 {
+  if ( path.trimmed().isEmpty() )
+  {
+    return;
+  }
+
   if ( mActivity.isValid() )
   {
     runOnAndroidMainThread( [path] {
@@ -339,6 +344,11 @@ void AndroidPlatformUtilities::removeDataset( const QString &path ) const
 
 void AndroidPlatformUtilities::exportFolderTo( const QString &path ) const
 {
+  if ( path.trimmed().isEmpty() )
+  {
+    return;
+  }
+
   if ( mActivity.isValid() )
   {
     runOnAndroidMainThread( [path] {
