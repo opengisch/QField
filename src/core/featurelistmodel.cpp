@@ -426,7 +426,7 @@ void FeatureListModel::processFeatureList()
 
   if ( mAddNull )
   {
-    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId(), QStringLiteral() ) );
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId(), QStringLiteral( "" ) ) );
   }
 
   const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();

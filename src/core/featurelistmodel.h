@@ -287,10 +287,10 @@ class FeatureListModel : public QAbstractItemModel
         Entry() = default;
 
         QString displayString;
-        QString sortFieldValue;
         QVariant key;
         QVariant group;
         QgsFeatureId fid;
+        QString sortFieldValue;
         double fuzzyScore = 0.0;
     };
     Entry entryFromRow( int row );
