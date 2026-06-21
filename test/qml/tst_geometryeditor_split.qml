@@ -152,7 +152,8 @@ TestCase {
     property string positionInformation: ""
     property string topSnappingResult: ""
     property bool positionLocked: false
-    function flash() {}
+    function flash() {
+    }
   }
 
   Item {
