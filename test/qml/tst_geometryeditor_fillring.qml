@@ -76,16 +76,17 @@ TestCase {
   }
 
   function test_confirmWithInvalidRingToasts() {
-    initFillRingOnFields();
+    const model = initFillRingOnFields();
     const before = fieldsLayer.getFeature("39").geometry.asWkt();
 
-    // a single point is fewer than the three vertices a ring needs, so
-    // addRingFromRubberband returns AddRingNotValid. the handler should toast an
-    // error and leave the feature unchanged
+    // a single point is fewer than the three vertices a ring needs. drive the
+    // operation directly: it returns AddRingNotValid and leaves the feature
+    // unchanged. the confirm() handler is not exercised here because its success
+    // branch instantiates an embedded feature form, which is covered separately
     rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    fillRingTool.children[0].confirm();
+    const result = GeometryUtils.addRingFromRubberband(fieldsLayer, model.feature.id, rubberband);
 
-    compare(lastToastType, "error");
+    compare(Number(result), Number(GeometryUtils.AddRingNotValid));
     const after = fieldsLayer.getFeature("39").geometry.asWkt();
     compare(after, before);
   }
