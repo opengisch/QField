@@ -396,7 +396,7 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
                                                      lastGnssPositionInformation.imuPitch(),
                                                      lastGnssPositionInformation.imuHeading(),
                                                      lastGnssPositionInformation.imuSteering(),
-                                                     mOrientation );
+                                                     lastGnssPositionInformation.imuHeadingValid() ? lastGnssPositionInformation.imuHeading() : mOrientation );
   mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
