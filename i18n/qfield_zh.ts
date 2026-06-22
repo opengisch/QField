@@ -4108,7 +4108,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>压缩工程并发送到...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -4869,6 +4869,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Antenna height</source>
         <translation>天线高度</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>可用认证配置：</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>清除认证缓存</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>认证缓存已清除</translation>
     </message>
 </context>
 <context>

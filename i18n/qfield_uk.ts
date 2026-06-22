@@ -296,7 +296,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>Класичний (BT)</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор конфігурації автентифікації зовнішнього сховища відсутній. Переконайтеся, що його імпортовано в %1</translation>
     </message>
 </context>
 <context>
@@ -1429,7 +1429,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Надіслати</translation>
     </message>
 </context>
 <context>
@@ -1559,7 +1559,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Відстеження на шарі %1 зупинено</translation>
     </message>
 </context>
 <context>
@@ -1635,11 +1635,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>Відстеження активне на цьому шарі.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>Відстеження на шарі %1 зупинено</translation>
     </message>
 </context>
 <context>
@@ -1670,7 +1670,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Головна сторінка</translation>
     </message>
 </context>
 <context>
@@ -1978,7 +1978,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Несподівана відповідь від NTRIP-кастера</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
@@ -2115,11 +2115,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть ZIP-архів</translation>
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>ZIP-архіви (*.zip)</translation>
     </message>
 </context>
 <context>
@@ -2416,7 +2416,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>орто.</translation>
     </message>
     <message>
         <source>ant.</source>
@@ -2498,7 +2498,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Хост</translation>
     </message>
     <message>
         <source>Port</source>
@@ -2530,7 +2530,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор:</translation>
     </message>
     <message>
         <source>Data format:</source>
@@ -2546,7 +2546,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
 </context>
 <context>
@@ -2561,11 +2561,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Звуковий сигнал наближення</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Повернути зображення</translation>
     </message>
     <message>
         <source>Rotation source</source>
@@ -2603,7 +2603,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Підтримка</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -2721,7 +2721,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити нотатки на лініях та полігонах</translation>
     </message>
 </context>
 <context>
@@ -3521,7 +3521,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>Проекти %1</translation>
     </message>
     <message>
         <source>My own projects</source>
@@ -3529,7 +3529,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>Назва або опис містять</translation>
     </message>
     <message>
         <source>Owner is</source>
@@ -4050,7 +4050,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Головна сторінка</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -4778,7 +4778,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Хост</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
@@ -4875,6 +4875,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Antenna height</source>
         <translation>Висота антени</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6320,7 +6332,7 @@ project</source>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Ласкаво просимо до %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
@@ -6455,7 +6467,7 @@ project</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор конфігурації автентифікації зовнішнього сховища відсутній. Переконайтеся, що його імпортовано в %1</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -7164,7 +7176,7 @@ project</source>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Перемикайтеся між режимами перегляду та оцифрування. Режим перегляду націлений на забезпечення найкращого перегляду карти та її об&apos;єктів, тоді як режим оцифрування дозволяє створювати об&apos;єкти та редагувати геометрію.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -7277,7 +7289,7 @@ to show actions</source>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Зупинити все</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
@@ -7317,7 +7329,7 @@ to show actions</source>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Завантаження рельєфу місцевості...</translation>
     </message>
     <message>
         <source>Close 3D view</source>

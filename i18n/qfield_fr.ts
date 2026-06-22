@@ -4108,7 +4108,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>Compresser le projet et l&apos;envoyer à...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -4868,6 +4868,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Antenna height</source>
         <translation>Hauteur de l&apos;antenne</translation>
+    </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation>Configurations d&apos;authentification disponibles :</translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation>Vider le cache d&apos;authentification</translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation>Le cache d&apos;authentification a été vidé</translation>
     </message>
 </context>
 <context>

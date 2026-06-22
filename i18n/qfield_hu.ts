@@ -4868,6 +4868,18 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>Antenna height</source>
         <translation>Antenna magasság</translation>
     </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>

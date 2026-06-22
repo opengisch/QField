@@ -4736,6 +4736,18 @@ Cancel to make a minimal device scan instead.</translation>
         <source>Antenna height</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>

@@ -4871,6 +4871,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Antenna height</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Available authentication configurations:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear authentication cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
