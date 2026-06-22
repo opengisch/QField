@@ -528,15 +528,16 @@ void AppInterface::importUrl( const QString &url, const QString &title, bool loa
               }
 
               // Project archive successfully imported
+              QFile::remove( filePath );
               emit importEnded( loadOnImport && projectFilePaths.size() == 1 ? projectFilePaths.at( 0 ) : zipDirectory, url );
               return;
             }
             else
             {
               // Broken project archive, bail out
+              QFile::remove( filePath );
               QDir dir( zipDirectory );
               dir.removeRecursively();
-              filePath.clear();
               emit importEnded();
               return;
             }
