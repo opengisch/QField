@@ -69,12 +69,34 @@ class QFIELD_CORE_EXPORT Quick3DGeometryUtils
      * fan from vertex 0 when ear clipping cannot make further progress (which
      * keeps degenerate or self-touching rings from leaving uninitialised
      * indices in the buffer).
+     *
+     * When \a extrusionHeight is non-zero every fill vertex is shifted upward
+     * by that amount so the fill becomes a roof cap on top of extruded walls.
      */
     static void generatePolygonFill( const QVector<QVector3D> &vertices,
                                      float r, float g, float b, float a,
                                      float *&vptr, quint32 *&iptr,
                                      quint32 &vertexOffset,
-                                     QVector3D &minBound, QVector3D &maxBound );
+                                     QVector3D &minBound, QVector3D &maxBound,
+                                     float extrusionHeight = 0.0f );
+
+    /**
+     * Generates vertical wall quads for each edge of a closed polygon ring,
+     * extruding from the base vertices upward by \a extrusionHeight scene units.
+     * Each edge produces 4 vertices and 2 triangles (6 indices).
+     */
+    static void generatePolygonWalls( const QVector<QVector3D> &vertices,
+                                      float extrusionHeight,
+                                      float r, float g, float b, float a,
+                                      float *&vptr, quint32 *&iptr,
+                                      quint32 &vertexOffset,
+                                      QVector3D &minBound, QVector3D &maxBound );
+
+    //! Returns the number of vertices produced by generatePolygonWalls() for a ring with \a ringSize unique vertices.
+    static int polygonWallsVertexCount( int ringSize ) { return ringSize * 4; }
+
+    //! Returns the number of indices produced by generatePolygonWalls() for a ring with \a ringSize unique vertices.
+    static int polygonWallsIndexCount( int ringSize ) { return ringSize * 6; }
 
   private:
     //! Returns true if the triangle ( prev, cur, next ) of \a indices is an ear of \a ring on the XZ plane.
