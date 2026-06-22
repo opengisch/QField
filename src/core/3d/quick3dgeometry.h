@@ -73,6 +73,8 @@ class Quick3DGeometry : public QQuick3DGeometry
     Q_PROPERTY( bool fillPolygons READ fillPolygons WRITE setFillPolygons NOTIFY fillPolygonsChanged )
     //! How the geometry's Z values are combined with the terrain elevation
     Q_PROPERTY( AltitudeClamping altitudeClamping READ altitudeClamping WRITE setAltitudeClamping NOTIFY altitudeClampingChanged )
+    //! Extrusion height in scene units; when > 0, polygons are rendered as volumetric solids with walls and a roof cap
+    Q_PROPERTY( float extrusionHeight READ extrusionHeight WRITE setExtrusionHeight NOTIFY extrusionHeightChanged )
 
   public:
     explicit Quick3DGeometry( QQuick3DObject *parent = nullptr );
@@ -101,6 +103,9 @@ class Quick3DGeometry : public QQuick3DGeometry
     AltitudeClamping altitudeClamping() const { return mAltitudeClamping; }
     void setAltitudeClamping( AltitudeClamping clamping );
 
+    float extrusionHeight() const { return mExtrusionHeight; }
+    void setExtrusionHeight( float height );
+
   signals:
     void qgsGeometryChanged();
     void crsChanged();
@@ -110,6 +115,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     void heightOffsetChanged();
     void fillPolygonsChanged();
     void altitudeClampingChanged();
+    void extrusionHeightChanged();
 
   private slots:
     void markDirtyAndUpdate();
@@ -139,6 +145,7 @@ class Quick3DGeometry : public QQuick3DGeometry
 
     float mLineWidth = 3.0f;
     float mHeightOffset = 15.0f;
+    float mExtrusionHeight = 0.0f;
     bool mFillPolygons = true;
     bool mDirty = true;
     AltitudeClamping mAltitudeClamping = AltitudeClamping::Ignore;
