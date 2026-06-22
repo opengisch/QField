@@ -10,8 +10,30 @@ EditorWidgetBase {
 
   // if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
   readonly property bool isBool: field.type == 1  // needs type coercion
-  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] !== undefined && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
-  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] !== undefined && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
+
+  property var checkedState: {
+    if (config['CheckedState'] === undefined) {
+      if (field.type == 10) { // needs type coercion
+        return 'true';
+      } else {
+        return 1;
+      }
+    }
+    return config['CheckedState'];
+  }
+  property var uncheckedState: {
+    if (config['UncheckedState'] === undefined) {
+      if (field.type === 10) {
+        return 'false';
+      } else {
+        return 0;
+      }
+    }
+    return config['UncheckedState'];
+  }
+
+  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] !== null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
+  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] !== null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
 
   anchors {
     right: parent.right
@@ -55,7 +77,7 @@ EditorWidgetBase {
         }
         return !isNull ? actualValue : false;
       } else {
-        return !isNull ? String(value) === config['CheckedState'] : false;
+        return !isNull ? String(value) === String(checkedState) : false;
       }
     }
   }
@@ -75,11 +97,12 @@ EditorWidgetBase {
         }
         editedValue = !isNull ? !actualValue : true;
       } else {
+        // Work around absence of proper configuration
         if (!isNull) {
           // Type coercion is desired here as custom unchecked/checked states are stored as strings yet value could be integers
-          editedValue = value == config['CheckedState'] ? config['UncheckedState'] : config['CheckedState'];
+          editedValue = value === checkedState ? uncheckedState : checkedState;
         } else {
-          editedValue = config['CheckedState'];
+          editedValue = checkedState;
         }
       }
       valueChangeRequested(editedValue, false);
