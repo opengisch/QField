@@ -643,7 +643,7 @@ Page {
       }
 
       MenuSeparator {
-        enabled: deleteFile.visible || removeDataset.visible || removeProjectFolder.visible
+        enabled: deleteFile.visible || removeDataset.visible
         visible: enabled
         width: parent.width
         height: enabled ? undefined : 0
@@ -679,23 +679,6 @@ Page {
         text: qsTr("Remove dataset")
         onTriggered: {
           platformUtilities.removeDataset(itemMenu.itemPath);
-          table.model.resetToPath(table.model.currentPath);
-        }
-      }
-
-      MenuItem {
-        id: removeProjectFolder
-        enabled: itemMenu.itemMetaType == LocalFilesModel.Folder && !qfieldLocalDataPickerScreen.projectFolderView && table.model.isDeletedAllowedInCurrentPath
-        visible: enabled
-
-        font: Theme.defaultFont
-        width: parent.width
-        height: enabled ? 48 : 0
-        leftPadding: Theme.menuItemLeftPadding
-
-        text: qsTr("Remove folder")
-        onTriggered: {
-          platformUtilities.removeFolder(itemMenu.itemPath);
           table.model.resetToPath(table.model.currentPath);
         }
       }
