@@ -68,7 +68,7 @@ TestCase {
   EditorWidgets.CheckBox {
     id: checkBox
     property var mainWindow: mainWindowItem
-    property bool value: true
+    property bool value: false
     property var config: ({})
     property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
     property bool isEnabled: true
@@ -358,7 +358,7 @@ TestCase {
   function test_01_checkBox() {
     const labelItem = checkBox.children[0];
     const checkBoxItem = checkBox.children[1];
-    compare(checkBox.value, true);
+    compare(checkBox.value, false);
     compare(checkBox.isBool, false);
     compare(checkBox.isNull, false);
     compare(checkBox.checkedLabel, "True");
