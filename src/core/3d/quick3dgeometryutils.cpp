@@ -206,11 +206,60 @@ bool Quick3DGeometryUtils::polygonIsEar( const QVector<QVector3D> &ring, const Q
   return true;
 }
 
+void Quick3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &vertices,
+                                                 float extrusionHeight,
+                                                 float r, float g, float b, float a,
+                                                 float *&vptr, quint32 *&iptr,
+                                                 quint32 &vertexOffset,
+                                                 QVector3D &minBound, QVector3D &maxBound )
+{
+  QVector<QVector3D> ring = vertices;
+  if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
+    ring.removeLast();
+
+  const int n = ring.size();
+  if ( n < 2 )
+    return;
+
+  for ( int i = 0; i < n; ++i )
+  {
+    const QVector3D &edgeStart = ring[i];
+    const QVector3D &edgeEnd = ring[( i + 1 ) % n];
+    const QVector3D edgeStartTop = edgeStart + QVector3D( 0, extrusionHeight, 0 );
+    const QVector3D edgeEndTop = edgeEnd + QVector3D( 0, extrusionHeight, 0 );
+
+    const float dx = edgeEnd.x() - edgeStart.x();
+    const float dz = edgeEnd.z() - edgeStart.z();
+    const float len = std::sqrt( dx * dx + dz * dz );
+    const QVector3D normal = len > 1e-6f ? QVector3D( dz / len, 0.0f, -dx / len ) : QVector3D( 0.0f, 0.0f, 1.0f );
+
+    const quint32 base = vertexOffset;
+    // CCW winding seen from outside (outward normal): start, startTop, endTop, end
+    writeVertex( vptr, edgeStart, normal, r, g, b, a );
+    updateBounds( minBound, maxBound, edgeStart );
+    writeVertex( vptr, edgeStartTop, normal, r, g, b, a );
+    updateBounds( minBound, maxBound, edgeStartTop );
+    writeVertex( vptr, edgeEndTop, normal, r, g, b, a );
+    updateBounds( minBound, maxBound, edgeEndTop );
+    writeVertex( vptr, edgeEnd, normal, r, g, b, a );
+    updateBounds( minBound, maxBound, edgeEnd );
+    vertexOffset += 4;
+
+    *iptr++ = base + 0;
+    *iptr++ = base + 1;
+    *iptr++ = base + 2;
+    *iptr++ = base + 0;
+    *iptr++ = base + 2;
+    *iptr++ = base + 3;
+  }
+}
+
 void Quick3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertices,
                                                 float r, float g, float b, float a,
                                                 float *&vptr, quint32 *&iptr,
                                                 quint32 &vertexOffset,
-                                                QVector3D &minBound, QVector3D &maxBound )
+                                                QVector3D &minBound, QVector3D &maxBound,
+                                                float extrusionHeight )
 {
   QVector<QVector3D> ring = vertices;
   if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
@@ -226,11 +275,13 @@ void Quick3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertic
 
   const quint32 baseVertex = vertexOffset;
   const QVector3D upNormal( 0.0f, 1.0f, 0.0f );
+  const QVector3D lift( 0.0f, extrusionHeight, 0.0f );
 
   for ( int i = 0; i < n; ++i )
   {
-    writeVertex( vptr, ring[i], upNormal, r, g, b, a );
-    updateBounds( minBound, maxBound, ring[i] );
+    const QVector3D pos = ring[i] + lift;
+    writeVertex( vptr, pos, upNormal, r, g, b, a );
+    updateBounds( minBound, maxBound, pos );
   }
   vertexOffset += n;
 
