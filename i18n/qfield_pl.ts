@@ -4114,7 +4114,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>Skompresuj projekt i wyślij do...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -4878,15 +4878,15 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Dostępne konfiguracje uwierzytelniania:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Wyczyść pamięć podręczną uwierzytelniania</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>Pamięć podręczna uwierzytelniania została wyczyszczona</translation>
     </message>
 </context>
 <context>
