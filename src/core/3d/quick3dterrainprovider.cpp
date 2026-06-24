@@ -387,6 +387,27 @@ void Quick3DTerrainProvider::calcNormalizedData()
       delete terrainProvider;
     }
 
+    // Reject gross low outliers (DEM spikes) as missing so they don't drag the height range down.
+    const double outlierFence = Quick3DTerrainProvider::lowerOutlierFence( heights, 3.0 );
+    lowestHeight = std::numeric_limits<double>::max();
+    for ( int index = 0; index < heights.size(); ++index )
+    {
+      double &height = heights[index];
+      if ( std::isnan( height ) )
+      {
+        continue;
+      }
+      if ( height < outlierFence )
+      {
+        height = std::numeric_limits<double>::quiet_NaN();
+        missingValueIndexes << index;
+      }
+      else if ( lowestHeight > height )
+      {
+        lowestHeight = height;
+      }
+    }
+
     if ( !missingValueIndexes.isEmpty() )
     {
       if ( lowestHeight == std::numeric_limits<double>::max() )
@@ -405,6 +426,25 @@ void Quick3DTerrainProvider::calcNormalizedData()
 
   mFutureExtent = mExtent;
   mFutureWatcher->setFuture( future );
+}
+
+double Quick3DTerrainProvider::lowerOutlierFence( QVector<double> samples, double factor )
+{
+  samples.erase( std::remove_if( samples.begin(), samples.end(), []( double value ) { return std::isnan( value ); } ), samples.end() );
+  if ( samples.size() < 8 )
+  {
+    return std::numeric_limits<double>::lowest();
+  }
+
+  const auto quantileValue = [&samples]( double quantile ) {
+    const int index = qBound( 0, static_cast<int>( quantile * ( samples.size() - 1 ) ), static_cast<int>( samples.size() ) - 1 );
+    std::nth_element( samples.begin(), samples.begin() + index, samples.end() );
+    return samples[index];
+  };
+
+  const double firstQuartile = quantileValue( 0.25 );
+  const double thirdQuartile = quantileValue( 0.75 );
+  return firstQuartile - factor * ( thirdQuartile - firstQuartile );
 }
 
 double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double y ) const
