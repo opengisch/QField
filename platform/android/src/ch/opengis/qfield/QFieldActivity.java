@@ -1351,7 +1351,7 @@ public class QFieldActivity extends QtActivity {
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         if (requestCode == CAMERA_RESOURCE) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK && resourceTempFilePath != null) {
                 File file = new File(resourceTempFilePath);
                 String finalFilePath = QFieldUtils.replaceFilenameTags(
                     resourceFilePath, file.getName());
