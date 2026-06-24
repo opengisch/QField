@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+#include "platformutilities.h"
 #include "qfieldurlhandler.h"
 
 QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
@@ -25,6 +26,13 @@ QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
 
 void QFieldUrlHandler::handleUrl( const QUrl &url )
 {
+  // A file shared with QField is imported, while a qfield:// URL is an action to execute
+  if ( url.isLocalFile() )
+  {
+    PlatformUtilities::instance()->importFile( url.toLocalFile() );
+    return;
+  }
+
   if ( mIface )
   {
     mIface->executeAction( url.toString() );
