@@ -513,6 +513,91 @@ void IosPlatformUtilities::importDatasets() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
+static void removeInboxFile(const QString &path, const QString &appDir) {
+  const QString inboxDir = appDir + QStringLiteral("/Inbox/");
+  if (path.startsWith(inboxDir)) {
+    QFile::remove(path);
+  }
+}
+
+void IosPlatformUtilities::importFile(const QString &path) const {
+  QFileInfo fileInfo(path);
+  if (!fileInfo.exists() || !fileInfo.isFile() || !AppInterface::instance()) {
+    return;
+  }
+
+  const QString appDir = applicationDirectory();
+  const QString suffix = fileInfo.suffix().toLower();
+  const bool isProjectFile =
+      suffix == QLatin1String("qgs") || suffix == QLatin1String("qgz");
+  const bool isArchive = suffix == QLatin1String("zip");
+
+  if (isArchive) {
+    const QString importBase = appDir + QStringLiteral("/Imported Projects/");
+    QDir().mkpath(importBase);
+
+    QString destinationDir = importBase + fileInfo.completeBaseName();
+    int index = 1;
+    while (QFileInfo::exists(destinationDir)) {
+      destinationDir = importBase + fileInfo.completeBaseName() +
+                       QStringLiteral("_%1").arg(index);
+      ++index;
+    }
+    QDir().mkpath(destinationDir);
+
+    QStringList extractedFiles;
+    if (!FileUtils::unzip(path, destinationDir, extractedFiles, false)) {
+      return;
+    }
+    removeInboxFile(path, appDir);
+
+    // Open the project bundled within the archive, or reveal its content
+    QString projectFile;
+    for (const QString &extractedFile : extractedFiles) {
+      const QString extractedSuffix =
+          QFileInfo(extractedFile).suffix().toLower();
+      if (extractedSuffix == QLatin1String("qgs") ||
+          extractedSuffix == QLatin1String("qgz")) {
+        projectFile = extractedFile;
+        break;
+      }
+    }
+
+    if (!projectFile.isEmpty()) {
+      AppInterface::instance()->loadFile(projectFile);
+    } else {
+      emit AppInterface::instance()->openPath(destinationDir);
+    }
+    return;
+  }
+
+  // Project files go to "Imported Projects", other datasets to "Imported Datasets"
+  const QString importBase =
+      isProjectFile ? appDir + QStringLiteral("/Imported Projects/")
+                    : appDir + QStringLiteral("/Imported Datasets/");
+  QDir().mkpath(importBase);
+
+  const QString suffixPart =
+      suffix.isEmpty() ? QString() : QStringLiteral(".") + suffix;
+  QString destinationFile = importBase + fileInfo.fileName();
+  int index = 1;
+  while (QFileInfo::exists(destinationFile)) {
+    destinationFile = importBase + fileInfo.completeBaseName() +
+                      QStringLiteral("_%1").arg(index) + suffixPart;
+    ++index;
+  }
+
+  if (!QFile::copy(path, destinationFile)) {
+    return;
+  }
+  removeInboxFile(path, appDir);
+
+  // Open the dataset when supported, otherwise reveal it in the local files browser
+  if (!AppInterface::instance()->loadFile(destinationFile)) {
+    emit AppInterface::instance()->openPath(importBase);
+  }
+}
+
 void IosPlatformUtilities::sendDatasetTo(const QString &path) const {
   NSMutableArray *items = [NSMutableArray array];
   [items addObject:[NSURL fileURLWithPath:path.toNSString()]];
