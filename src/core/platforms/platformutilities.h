@@ -146,6 +146,8 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void importProjectArchive() const;
     //! Requests and imports one or more datasets into QField's application directory action
     Q_INVOKABLE virtual void importDatasets() const;
+    //! Imports a file shared with QField by the operating system into its application directory and opens it
+    Q_INVOKABLE virtual void importFile( const QString &path ) const;
 
     /**
      * Update a local project content from a user-picked archive file action
