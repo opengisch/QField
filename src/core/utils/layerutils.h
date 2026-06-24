@@ -181,6 +181,12 @@ class LayerUtils : public QObject
     Q_INVOKABLE static bool hasMValue( QgsVectorLayer *layer );
 
     /**
+     * Guesses the name of the field in \a layer most likely to carry a per-feature
+     * height/extrusion value, or an empty string when no suitable field is found.
+     */
+    Q_INVOKABLE static QString guessFriendlyHeightField( QgsVectorLayer *layer );
+
+    /**
      * Returns a list of unique values for a given \a fieldIndex from the \a layer.
      */
     Q_INVOKABLE QSet<QVariant> uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex );
