@@ -37,6 +37,7 @@ Node {
           lineWidth: featureListSelectionHighlight3D.lineWidth
           heightOffset: featureListSelectionHighlight3D.heightOffset
           altitudeClamping: featureListSelectionHighlight3D.altitudeClamping
+          extrusionHeight: model.extrusionHeight
           color: model.featureSelected ? featureListSelectionHighlight3D.selectedColor : featureListSelectionHighlight3D.selectionModel.model.selectedCount === 0 && index === featureListSelectionHighlight3D.selectionModel.focusedItem ? featureListSelectionHighlight3D.focusedColor : featureListSelectionHighlight3D.color
         }
 
@@ -46,7 +47,8 @@ Node {
             metalness: 0.0
             roughness: 1.0
             vertexColorsEnabled: true
-            alphaMode: PrincipledMaterial.Blend
+            alphaMode: model.extrusionHeight > 0 ? PrincipledMaterial.Opaque : PrincipledMaterial.Blend
+            depthDrawMode: Material.AlwaysDepthDraw
             cullMode: PrincipledMaterial.NoCulling
           }
         ]
