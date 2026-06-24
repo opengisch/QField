@@ -551,6 +551,45 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
   return QgsWkbTypes::hasM( layer->wkbType() );
 }
 
+QString LayerUtils::guessFriendlyHeightField( QgsVectorLayer *layer )
+{
+  if ( !layer )
+    return QString();
+
+  const QgsFields fields = layer->fields();
+  if ( fields.isEmpty() )
+    return QString();
+
+  static const QStringList sCandidates {
+    QStringLiteral( "extrusion" ),
+    QStringLiteral( "height" ),
+  };
+
+  QString bestPartialMatch;
+  for ( const QString &candidate : sCandidates )
+  {
+    for ( const QgsField &field : fields )
+    {
+      if ( !field.isNumeric() )
+      {
+        continue;
+      }
+
+      const QString fieldName = field.name();
+      if ( fieldName.compare( candidate, Qt::CaseInsensitive ) == 0 )
+      {
+        return fieldName;
+      }
+      if ( bestPartialMatch.isEmpty() && fieldName.contains( candidate, Qt::CaseInsensitive ) )
+      {
+        bestPartialMatch = fieldName;
+      }
+    }
+  }
+
+  return bestPartialMatch;
+}
+
 QSet<QVariant> LayerUtils::uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex )
 {
   if ( !layer )
