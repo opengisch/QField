@@ -1118,6 +1118,8 @@ Page {
 
   QfMenu {
     id: featureFormMenu
+    objectName: "featureFormMenu"
+
     title: qsTr("Feature Form Menu")
 
     topMargin: mainWindow.sceneTopMargin
