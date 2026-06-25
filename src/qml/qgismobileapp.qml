@@ -2420,6 +2420,7 @@ ApplicationWindow {
       spacing: 4
 
       QfToolButtonDrawer {
+        objectName: "digitizingDrawer"
         name: "digitizingDrawer"
         size: 48
         round: true
