@@ -235,7 +235,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
         {
           for ( const QgsFeature &outputFeature : outputFeatures )
           {
-            mPreviewGeometries << outputFeature.geometry();
+            mPreviewGeometries << QVariant::fromValue( outputFeature.geometry() );
           }
 
           emit previewGeometriesChanged();
@@ -326,7 +326,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
           {
             for ( const QgsFeature &previewFeature : outputFeatures )
             {
-              mPreviewGeometries << previewFeature.geometry();
+              mPreviewGeometries << QVariant::fromValue( previewFeature.geometry() );
             }
 
             emit previewGeometriesChanged();

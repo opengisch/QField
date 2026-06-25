@@ -48,7 +48,7 @@ class ProcessingAlgorithm : public QObject
     Q_PROPERTY( QVariantList inPlaceFeatures READ inPlaceFeaturesVariant WRITE setInPlaceFeaturesVariant NOTIFY inPlaceFeaturesChanged )
 
     Q_PROPERTY( bool preview READ preview WRITE setPreview NOTIFY previewChanged )
-    Q_PROPERTY( QList<QgsGeometry> previewGeometries READ previewGeometries NOTIFY previewGeometriesChanged )
+    Q_PROPERTY( QVariantList previewGeometries READ previewGeometries NOTIFY previewGeometriesChanged )
 
   public:
     explicit ProcessingAlgorithm( QObject *parent = nullptr );
@@ -133,7 +133,7 @@ class ProcessingAlgorithm : public QObject
     /**
      * Returns a list of geometries previewing the algorithm result using current parameters.
      */
-    QList<QgsGeometry> previewGeometries() const { return mPreviewGeometries; }
+    QVariantList previewGeometries() const { return mPreviewGeometries; }
 
     /**
      * Executes the algorithm.
@@ -180,7 +180,7 @@ class ProcessingAlgorithm : public QObject
     QList<QgsFeature> mInPlaceFeatures;
 
     bool mPreview = false;
-    QList<QgsGeometry> mPreviewGeometries;
+    QVariantList mPreviewGeometries;
 };
 
 #endif // PROCESSINGALGORITHM
