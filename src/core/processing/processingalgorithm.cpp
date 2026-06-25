@@ -91,6 +91,36 @@ void ProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features 
   }
 }
 
+QVariantList ProcessingAlgorithm::inPlaceFeaturesVariant() const
+{
+  QVariantList featuresVariant;
+
+  featuresVariant.reserve( mInPlaceFeatures.size() );
+  for ( const QgsFeature &feature : mInPlaceFeatures )
+  {
+    // Pack the custom QgsFeature object into a QVariant safely
+    featuresVariant.append( QVariant::fromValue( feature ) );
+  }
+
+  return featuresVariant;
+}
+
+void ProcessingAlgorithm::setInPlaceFeaturesVariant( const QVariantList &features )
+{
+  QList<QgsFeature> featuresList;
+  featuresList.reserve( features.size() );
+
+  for ( const QVariant &variant : features )
+  {
+    if ( variant.canConvert<QgsFeature>() )
+    {
+      featuresList.append( variant.value<QgsFeature>() );
+    }
+  }
+
+  setInPlaceFeatures( featuresList );
+}
+
 void ProcessingAlgorithm::setParameters( const QVariantMap &parameters )
 {
   if ( mAlgorithmParameters == parameters )
