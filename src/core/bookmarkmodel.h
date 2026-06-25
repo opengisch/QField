@@ -20,6 +20,7 @@
 
 #include "qgsquickmapsettings.h"
 
+#include <QSet>
 #include <qgsbookmarkmanager.h>
 #include <qgsbookmarkmodel.h>
 #include <qobjectuniqueptr.h>
@@ -33,6 +34,15 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
 
+    //! When TRUE, only project bookmarks are listed; user bookmarks are hidden.
+    Q_PROPERTY( bool showProjectOnly READ showProjectOnly WRITE setShowProjectOnly NOTIFY showProjectOnlyChanged )
+
+    //! When TRUE, bookmarks are grouped/sorted by their color; insertion order is kept within each color.
+    Q_PROPERTY( bool groupByColor READ groupByColor WRITE setGroupByColor NOTIFY groupByColorChanged )
+
+    //! Number of currently selected bookmarks.
+    Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
+
   public:
     enum Roles
     {
@@ -42,6 +52,7 @@ class BookmarkModel : public QSortFilterProxyModel
       BookmarkPoint,
       BookmarkCrs,
       BookmarkUser,
+      BookmarkSelected,
     };
     Q_ENUM( Roles )
 
@@ -69,14 +80,56 @@ class BookmarkModel : public QSortFilterProxyModel
 
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
 
+    bool showProjectOnly() const { return mShowProjectOnly; }
+    void setShowProjectOnly( bool showProjectOnly );
+
+    bool groupByColor() const { return mGroupByColor; }
+    void setGroupByColor( bool groupByColor );
+
+    int selectedCount() const { return mSelectedIds.size(); }
+
+    //! Toggles the selection state of the bookmark identified by \a id.
+    Q_INVOKABLE void toggleSelected( const QString &id );
+
+    //! Sets the selection state of the bookmark identified by \a id to \a selected.
+    Q_INVOKABLE void setSelected( const QString &id, bool selected );
+
+    //! Selects all currently listed bookmarks.
+    Q_INVOKABLE void selectAll();
+
+    //! Clears the current selection.
+    Q_INVOKABLE void clearSelection();
+
+    //! Returns the identifiers of all currently selected bookmarks.
+    Q_INVOKABLE QStringList selectedIds() const { return QStringList( mSelectedIds.constBegin(), mSelectedIds.constEnd() ); }
+
   signals:
     void mapSettingsChanged();
+    void showProjectOnlyChanged();
+    void groupByColorChanged();
+    void selectedCountChanged();
     void requestJumpToPoint( const QgsPoint &center, const double &scale = -1.0, bool handleMargins = false ) const;
 
+  protected:
+    bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
+    bool lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const override;
+
   private:
+    //! Returns TRUE if the source row is a user/global bookmark, FALSE if it is a project bookmark.
+    bool isUserBookmark( int sourceRow ) const;
+
+    //! Emits dataChanged for the BookmarkSelected role across all listed rows.
+    void emitSelectionChanged();
+
+    //! Returns the sort rank for a bookmark group/color ("" first, then orange, red, blue).
+    int groupRank( const QString &group ) const;
+
     QObjectUniquePtr<QgsBookmarkManagerModel> mModel;
     QgsBookmarkManager *mManager = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
+    bool mShowProjectOnly = false;
+    bool mGroupByColor = false;
+    QSet<QString> mSelectedIds;
 };
 
 #endif // BOOKMARKMODEL_H

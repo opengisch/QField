@@ -3580,6 +3580,15 @@ ApplicationWindow {
       qfieldLocalDataPickerScreen.visible = true;
     }
 
+    onShowBookmarks: {
+      dashBoard.close();
+      if (featureListForm.visible) {
+        featureListForm.hide();
+      }
+      bookmarkModel.showProjectOnly = true;
+      bookmarkList.show();
+    }
+
     // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
     // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
     // We will also use `shouldReturnHome` to know that we need to return home as well or not.
@@ -4615,6 +4624,9 @@ ApplicationWindow {
 
     onStateChanged: {
       platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && state === "Hidden");
+      if (state !== "Hidden" && bookmarkList.visible) {
+        bookmarkList.hide();
+      }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -4627,6 +4639,31 @@ ApplicationWindow {
     radius: 6.0
     color: "#80000000"
     source: featureListForm
+  }
+
+  BookmarkList {
+    id: bookmarkList
+    objectName: "bookmarkList"
+
+    model: bookmarkModel
+
+    focus: visible
+
+    anchors {
+      right: parent.right
+      bottom: parent.bottom
+    }
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
+  QfDropShadow {
+    anchors.fill: bookmarkList
+    horizontalOffset: mainWindow.width >= mainWindow.height ? -2 : 0
+    verticalOffset: mainWindow.width < mainWindow.height ? -2 : 0
+    radius: 6.0
+    color: "#80000000"
+    source: bookmarkList
   }
 
   OverlayFeatureFormDrawer {

@@ -166,5 +166,6 @@
         <file>3d/TerrainMesh.qml</file>
         <file>3d/Rubberband3D.qml</file>
         <file>3d/FeatureListSelectionHighlight3D.qml</file>
+        <file>BookmarkList.qml</file>
     </qresource>
 </RCC>
