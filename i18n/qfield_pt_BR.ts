@@ -2216,7 +2216,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Negar permissão</translation>
     </message>
 </context>
 <context>
@@ -7203,7 +7203,7 @@ project</source>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>A legenda mostra as camadas do mapa e permite que você alterne a visibilidade e a opacidade pressionando longamente uma camada para abrir um popup de propriedades. O popup oferece funcionalidades adicionais, como dar zoom na extensão da camada e exibir os elementos contidos nas camadas vetoriais.</translation>
     </message>
     <message>
         <source>Copy Feature</source>
