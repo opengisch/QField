@@ -62,7 +62,13 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
 
     case BookmarkModel::BookmarkUser:
     {
-      return mModel->data( mModel->index( sourceIndex.row(), QgsBookmarkManagerModel::ColumnStore ), Qt::CheckStateRole ).value<Qt::CheckState>() != Qt::Checked;
+      return isUserBookmark( sourceIndex.row() );
+    }
+
+    case BookmarkModel::BookmarkSelected:
+    {
+      const QString id = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) ).toString();
+      return mSelectedIds.contains( id );
     }
   }
 
@@ -78,13 +84,16 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
   roleNames[BookmarkModel::BookmarkPoint] = "BookmarkPoint";
   roleNames[BookmarkModel::BookmarkCrs] = "BookmarkCrs";
   roleNames[BookmarkModel::BookmarkUser] = "BookmarkUser";
+  roleNames[BookmarkModel::BookmarkSelected] = "BookmarkSelected";
   return roleNames;
 }
 
 void BookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
+  {
     return;
+  }
 
   mMapSettings = mapSettings;
 
@@ -95,7 +104,9 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
 {
   QModelIndex sourceIndex = mapToSource( index );
   if ( !sourceIndex.isValid() || !mMapSettings )
+  {
     return;
+  }
 
   const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
   QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
@@ -122,7 +133,9 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
 QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
 {
   if ( !mMapSettings )
+  {
     return QString();
+  }
 
   QgsRectangle extent = mMapSettings->extent();
   const QgsPointXY center = extent.center();
@@ -191,4 +204,166 @@ void BookmarkModel::store()
     doc.save( out, 2 );
     f.close();
   }
+}
+
+void BookmarkModel::setShowProjectOnly( bool showProjectOnly )
+{
+  if ( mShowProjectOnly == showProjectOnly )
+  {
+    return;
+  }
+
+  mShowProjectOnly = showProjectOnly;
+  beginFilterChange();
+  endFilterChange();
+
+  emit showProjectOnlyChanged();
+}
+
+bool BookmarkModel::isUserBookmark( int sourceRow ) const
+{
+  return mModel->data( mModel->index( sourceRow, QgsBookmarkManagerModel::ColumnStore ), Qt::CheckStateRole ).value<Qt::CheckState>() != Qt::Checked;
+}
+
+bool BookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
+{
+  if ( !mShowProjectOnly )
+  {
+    return true;
+  }
+  return isUserBookmark( sourceRow );
+}
+
+void BookmarkModel::toggleSelected( const QString &id )
+{
+  if ( id.isEmpty() )
+  {
+    return;
+  }
+
+  if ( mSelectedIds.contains( id ) )
+  {
+    mSelectedIds.remove( id );
+  }
+  else
+  {
+    mSelectedIds.insert( id );
+  }
+
+  emitSelectionChanged();
+  emit selectedCountChanged();
+}
+
+void BookmarkModel::setSelected( const QString &id, bool selected )
+{
+  if ( id.isEmpty() )
+  {
+    return;
+  }
+
+  if ( selected == mSelectedIds.contains( id ) )
+  {
+    return;
+  }
+
+  if ( selected )
+  {
+    mSelectedIds.insert( id );
+  }
+  else
+  {
+    mSelectedIds.remove( id );
+  }
+
+  emitSelectionChanged();
+  emit selectedCountChanged();
+}
+
+void BookmarkModel::selectAll()
+{
+  const int count = rowCount();
+  bool changed = false;
+  for ( int row = 0; row < count; ++row )
+  {
+    const QString id = data( index( row, 0 ), BookmarkModel::BookmarkId ).toString();
+    if ( !id.isEmpty() && !mSelectedIds.contains( id ) )
+    {
+      mSelectedIds.insert( id );
+      changed = true;
+    }
+  }
+
+  if ( changed )
+  {
+    emitSelectionChanged();
+    emit selectedCountChanged();
+  }
+}
+
+void BookmarkModel::clearSelection()
+{
+  if ( mSelectedIds.isEmpty() )
+  {
+    return;
+  }
+
+  mSelectedIds.clear();
+  emitSelectionChanged();
+  emit selectedCountChanged();
+}
+
+void BookmarkModel::emitSelectionChanged()
+{
+  const int count = rowCount();
+  if ( count > 0 )
+  {
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
+  }
+}
+
+void BookmarkModel::setGroupByColor( bool groupByColor )
+{
+  if ( mGroupByColor == groupByColor )
+  {
+    return;
+  }
+
+  mGroupByColor = groupByColor;
+
+  if ( mGroupByColor )
+  {
+    setSortRole( BookmarkModel::BookmarkGroup );
+    sort( 0 );
+  }
+  else
+  {
+    // Restore the source model insertion order
+    sort( -1 );
+  }
+
+  emit groupByColorChanged();
+}
+
+int BookmarkModel::groupRank( const QString &group ) const
+{
+  if ( group == QLatin1String( "orange" ) )
+  {
+    return 1;
+  }
+  else if ( group == QLatin1String( "red" ) )
+  {
+    return 2;
+  }
+  else if ( group == QLatin1String( "blue" ) )
+  {
+    return 3;
+  }
+  return 0;
+}
+
+bool BookmarkModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+{
+  const QString leftGroup = mModel->data( sourceLeft, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
+  const QString rightGroup = mModel->data( sourceRight, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
+  return groupRank( leftGroup ) < groupRank( rightGroup );
 }

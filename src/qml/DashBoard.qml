@@ -17,6 +17,7 @@ Drawer {
   signal showPrintLayouts(point p)
   signal showCloudPopup
   signal showProjectFolder
+  signal showBookmarks
   signal toggleMeasurementTool
   signal toggle3DView
   signal returnHome
@@ -262,6 +263,20 @@ Drawer {
             round: true
             onClicked: {
               showProjectFolder();
+            }
+          }
+
+          QfToolButton {
+            id: bookmarksButton
+            objectName: "BookmarksButton"
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: "transparent"
+            onClicked: {
+              showBookmarks();
+              highlighted = false;
             }
           }
         }
