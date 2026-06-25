@@ -188,7 +188,7 @@ RelationEditorBase {
     }
 
     onReady: bars => {
-      availableBars[currentProcess] = bars;
+      availableBars[currentProcess] = Array.from(bars);
       availableBarsChanged();
       processQueue();
     }
