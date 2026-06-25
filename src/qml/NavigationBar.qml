@@ -497,6 +497,7 @@ Rectangle {
 
   QfMenu {
     id: featureListMenu
+    objectName: "featureListMenu"
     title: qsTr("Feature List Menu")
 
     topMargin: mainWindow.sceneTopMargin
@@ -616,6 +617,7 @@ Rectangle {
 
   QfMenu {
     id: featureMenu
+    objectName: "featureMenu"
     title: qsTr("Feature Menu")
 
     topMargin: mainWindow.sceneTopMargin

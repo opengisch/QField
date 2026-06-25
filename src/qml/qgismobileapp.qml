@@ -3631,6 +3631,8 @@ ApplicationWindow {
 
   QfMenu {
     id: mainMenu
+    objectName: "mainMenu"
+
     title: qsTr("Main Menu")
 
     topMargin: sceneTopMargin
@@ -4341,6 +4343,8 @@ ApplicationWindow {
 
   QfMenu {
     id: navigationMenu
+    objectName: "navigationMenu"
+
     title: qsTr("Navigation Options")
     font: Theme.defaultFont
 
@@ -4381,6 +4385,8 @@ ApplicationWindow {
 
   QfMenu {
     id: gnssMenu
+    objectName: "gnssMenu"
+
     title: qsTr("Positioning Options")
     font: Theme.defaultFont
 
