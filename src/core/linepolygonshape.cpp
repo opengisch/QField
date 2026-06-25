@@ -39,6 +39,8 @@ void LinePolygonShape::createPolylines()
   mPolylines.clear();
 
   QgsGeometry geometry( mGeometry ? mGeometry->qgsGeometry() : QgsGeometry() );
+  geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
+
   Qgis::GeometryType geomType = Qgis::GeometryType::Null;
   if ( mGeometry && !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
   {
