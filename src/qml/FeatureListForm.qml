@@ -666,8 +666,8 @@ Pane {
     }
 
     onDeleteClicked: {
-      var selectedFeatures = featureFormList.selection.model.selectedFeatures;
-      var selectedFeature = selectedFeatures && selectedFeatures.length > 0 ? selectedFeatures[0] : null;
+      let selectedFeatures = featureFormList.selection.model.selectedFeatures;
+      let selectedFeature = selectedFeatures && selectedFeatures.length > 0 ? selectedFeatures[0] : null;
       if (selectedFeature && featureFormList.selection.focusedLayer && trackingModel.featureInTracking(featureFormList.selection.focusedLayer, selectedFeature)) {
         displayToast(qsTr("A number of features are being tracked, stop tracking to delete those"));
       } else {
