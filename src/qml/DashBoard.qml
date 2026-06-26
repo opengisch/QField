@@ -370,6 +370,7 @@ Drawer {
 
     GroupBox {
       id: mapThemeContainer
+      objectName: "mapThemeContainer"
       Layout.fillWidth: true
       title: qsTr("Map Theme")
       leftPadding: 10
@@ -459,6 +460,7 @@ Drawer {
 
     GroupBox {
       id: legendContainer
+      objectName: "legendContainer"
       Layout.fillWidth: true
       Layout.fillHeight: true
       title: qsTr("Legend")

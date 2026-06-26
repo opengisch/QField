@@ -14,6 +14,7 @@ Item {
 
   property LocatorModelSuperBridge locatorBridge
 
+  property bool showAvailableSearchDescription: true
   property bool searchFieldVisible: searchField.visible
   property alias locatorFiltersModel: locatorFilters
 
@@ -346,7 +347,7 @@ Item {
       z: 2
       anchors.top: resultsBox.top
       anchors.topMargin: 24
-      model: searchField.displayText !== '' ? locatorBridge.proxyModel() : locatorFilters
+      model: searchField.displayText !== '' ? locatorBridge.proxyModel() : showAvailableSearchDescription ? locatorFilters : []
       width: parent.width
       height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0
       clip: true
