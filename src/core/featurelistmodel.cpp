@@ -489,7 +489,7 @@ void FeatureListModel::processFeatureList()
 
     if ( mOrderByField && !mOrderByFieldName.isEmpty() )
     {
-      return entry1.sortFieldValue < entry2.sortFieldValue;
+      return entry1.orderByValue < entry2.orderByValue;
     }
 
     // Order By Key (as a fallback)
