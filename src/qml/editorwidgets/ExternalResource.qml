@@ -129,7 +129,6 @@ EditorWidgetBase {
       mediaFrame.height = 200;
 
       image.visible = true;
-      image.hasImage = true;
       image.opacity = 1;
       image.anchors.topMargin = 0;
       image.source = UrlUtils.fromString(fullValue);
@@ -312,13 +311,10 @@ EditorWidgetBase {
     Image {
       id: image
 
-      property bool hasImage: false
-
-      visible: isImage
-      enabled: isImage
+      visible: false
       anchors.centerIn: parent
-      width: hasImage ? parent.width : 24
-      height: hasImage ? parent.height : 24
+      width: isImage ? parent.width : 24
+      height: isImage ? parent.height : 24
       opacity: 0.25
       autoTransform: true
       fillMode: Image.PreserveAspectFit
