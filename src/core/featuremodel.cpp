@@ -126,6 +126,36 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
   endResetModel();
 }
 
+QVariantList FeatureModel::featuresVariant() const
+{
+  QVariantList featuresVariant;
+
+  featuresVariant.reserve( mFeatures.size() );
+  for ( const QgsFeature &feature : mFeatures )
+  {
+    // Pack the custom QgsFeature object into a QVariant safely
+    featuresVariant.append( QVariant::fromValue( feature ) );
+  }
+
+  return featuresVariant;
+}
+
+void FeatureModel::setFeaturesVariant( const QVariantList &features )
+{
+  QList<QgsFeature> featuresList;
+  featuresList.reserve( features.size() );
+
+  for ( const QVariant &variant : features )
+  {
+    if ( variant.canConvert<QgsFeature>() )
+    {
+      featuresList.append( variant.value<QgsFeature>() );
+    }
+  }
+
+  setFeatures( featuresList );
+}
+
 void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 {
   if ( layer == mLayer )

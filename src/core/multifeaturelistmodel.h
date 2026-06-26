@@ -33,7 +33,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( int count READ count NOTIFY countChanged )
-    Q_PROPERTY( QList<QgsFeature> selectedFeatures READ selectedFeatures NOTIFY selectedCountChanged )
+    Q_PROPERTY( QVariantList selectedFeatures READ selectedFeaturesVariant NOTIFY selectedCountChanged )
     Q_PROPERTY( QgsVectorLayer *selectedLayer READ selectedLayer NOTIFY selectedLayerChanged )
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
     Q_PROPERTY( bool canEditAttributesSelection READ canEditAttributesSelection NOTIFY selectedCountChanged )
@@ -174,6 +174,11 @@ class MultiFeatureListModel : public QSortFilterProxyModel
      * Returns the list of currently selected features.
      */
     QList<QgsFeature> selectedFeatures();
+
+    /**
+     * Returns the list of currently selected features as a QVariantList object.
+     */
+    QVariantList selectedFeaturesVariant();
 
     /**
      * Returns the vector layer within which one or more features are currently selected

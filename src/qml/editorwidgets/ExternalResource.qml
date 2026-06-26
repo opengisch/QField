@@ -187,7 +187,7 @@ EditorWidgetBase {
     id: audioAnalyzer
     barCount: 80
     onReady: bars => {
-      audioWaveformRepeater.model = bars;
+      audioWaveformRepeater.model = Array.from(bars);
     }
   }
 
