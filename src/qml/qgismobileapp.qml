@@ -5040,7 +5040,7 @@ ApplicationWindow {
       }
 
       function onShowLoginBrowser(url) {
-        if (qfieldAuthRequestHandler.isProjectLoading) {
+        if (qfieldAuthRequestHandler.isProjectLoading || Qt.platform.os === "ios" || Qt.platform.os === "android") {
           browserPopup.url = url;
           browserPopup.fullscreen = false;
           browserPopup.clearCookiesOnOpen = true;
