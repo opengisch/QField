@@ -114,48 +114,69 @@ EditorWidgetBase {
   property string audioSourcePath: ''
 
   function prepareValue(fullValue) {
-    if (fullValue !== "") {
+    if (fullValue != "" && !config.UseLink) { // coercion needed
       const mimeType = FileUtils.mimeTypeName(fullValue);
-      isImage = !config.UseLink && mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
-      isAudio = !config.UseLink && mimeType.startsWith("audio/");
-      isVideo = !config.UseLink && mimeType.startsWith("video/");
-      image.visible = isImage;
-      geoTagBadge.visible = isImage;
-
-      if (isImage) {
-        mediaFrame.height = 200;
-        image.visible = true;
-        image.hasImage = true;
-        image.opacity = 1;
-        image.anchors.topMargin = 0;
-        image.source = UrlUtils.fromString(fullValue);
-        geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue);
-        audioSourcePath = '';
-      } else if (isAudio) {
-        mediaFrame.height = 148;
-        image.visible = false;
-        image.opacity = 0.5;
-        image.source = '';
-        audioSourcePath = fullValue;
-        player.firstFrameDrawn = false;
-        player.sourceUrl = UrlUtils.fromString(fullValue);
-        audioAnalyzer.analyze(player.sourceUrl);
-      } else if (isVideo) {
-        mediaFrame.height = 48;
-        image.visible = false;
-        image.opacity = 0.5;
-        image.source = '';
-        audioSourcePath = '';
-        player.firstFrameDrawn = false;
-        player.sourceUrl = UrlUtils.fromString(fullValue);
-      }
+      isImage = mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
+      isAudio = mimeType.startsWith("audio/");
+      isVideo = mimeType.startsWith("video/");
     } else {
+      isImage = false;
+      isAudio = false;
+      isVideo = false;
+    }
+
+    if (isImage) {
+      mediaFrame.height = 200;
+
+      image.visible = true;
+      image.hasImage = true;
+      image.opacity = 1;
+      image.anchors.topMargin = 0;
+      image.source = UrlUtils.fromString(fullValue);
+      geoTagBadge.visible = true;
+      geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue);
+
+      player.sourceUrl = '';
+      player.firstFrameDrawn = false;
+
+      audioSourcePath = '';
+    } else if (isAudio) {
+      mediaFrame.height = 148;
+
+      image.visible = false;
+      image.opacity = 0.5;
+      image.source = '';
+      geoTagBadge.visible = false;
+
+      player.firstFrameDrawn = false;
+      player.sourceUrl = UrlUtils.fromString(fullValue);
+
+      audioSourcePath = fullValue;
+      audioAnalyzer.analyze(player.sourceUrl);
+    } else if (isVideo) {
+      mediaFrame.height = 48;
+
+      image.visible = false;
+      image.opacity = 0.5;
+      image.source = '';
+      geoTagBadge.visible = false;
+
+      player.firstFrameDrawn = false;
+      player.sourceUrl = UrlUtils.fromString(fullValue);
+
+      audioSourcePath = '';
+    } else {
+      mediaFrame.height = 48;
+
       image.source = '';
       image.visible = documentViewer == ExternalResource.DocumentImage;
       image.opacity = 0.15;
       geoTagBadge.visible = false;
-      audioSourcePath = '';
+
       player.sourceUrl = '';
+      player.firstFrameDrawn = false;
+
+      audioSourcePath = '';
     }
   }
 
