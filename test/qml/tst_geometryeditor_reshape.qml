@@ -3,42 +3,44 @@ import QtTest
 import org.qfield
 import org.qgis
 import Theme
+import "Utils.js" as Utils
 import "../../src/qml/geometryeditors" as GeometryEditors
 
 TestCase {
   id: testCase
   name: "GeometryEditorReshape"
 
-  property var fieldsLayer: qgisProject.mapLayersByName("Fields")[0]
+  property var testLayer: null
   property string lastToastType: ""
-  property var originalGeometry: null
+  readonly property string squareJson: '{"type":"FeatureCollection","features":[{"type":"Feature","id":0,"geometry":{"type":"Polygon","coordinates":[[[0,0],[10,0],[10,10],[0,10],[0,0]]]},"properties":{}}]}'
 
   function init() {
     lastToastType = "";
+    testLayer = LayerUtils.memoryLayerFromJsonString("reshape_test", squareJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
   }
 
   function cleanup() {
     reshapeTool.cancel();
-    if (originalGeometry !== null) {
-      featureModel.currentLayer = fieldsLayer;
-      featureModel.feature = fieldsLayer.getFeature("39");
-      featureModel.changeGeometry(originalGeometry);
-      featureModel.save();
-      originalGeometry = null;
-    }
-    if (fieldsLayer.editBuffer()) {
-      fieldsLayer.rollBack();
-    }
+    testLayer = null;
   }
 
-  // reshape works on the current features layer, set up the feature model and
+  // set up the feature model on the memory layer and
   // hand the tool a fresh rubberband like the app does through init
-  function initReshapeOnFields() {
-    featureModel.currentLayer = fieldsLayer;
-    featureModel.feature = fieldsLayer.getFeature("39");
-    rubberband.vectorLayer = fieldsLayer;
+  function initReshapeOnSquare() {
+    featureModel.currentLayer = testLayer;
+    featureModel.feature = testLayer.getFeature(1);
+    rubberband.vectorLayer = testLayer;
     reshapeTool.init(featureModel, mapSettingsItem, rubberband, null);
     return featureModel;
+  }
+
+  function addToolVertex(toolbar, x, y) {
+    rubberband.currentCoordinate = GeometryUtils.point(x, y);
+    toolbar.addVertex();
+  }
+
+  function toolbar() {
+    return Utils.findChildren(reshapeTool, "reshapeDigitizingToolbar");
   }
 
   MapSettings {
@@ -67,7 +69,7 @@ TestCase {
   }
 
   function test_initSetsUpToolForPolygonReshape() {
-    initReshapeOnFields();
+    initReshapeOnSquare();
 
     // init wires the feature model and forces the rubberband to polygon mode,
     // since reshape only operates on polygon rings
@@ -76,58 +78,56 @@ TestCase {
   }
 
   function test_blockingFollowsRubberbandVertexCount() {
-    initReshapeOnFields();
+    initReshapeOnSquare();
     // blocking mirrors isDigitizing, which is vertexCount > 1
     compare(reshapeTool.blocking, false);
 
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
+    const tb = toolbar();
+    addToolVertex(tb, 5, 5);
+    addToolVertex(tb, 6, 6);
 
     compare(reshapeTool.blocking, true);
   }
 
   function test_reshapeWithValidLineProducesExpectedGeometry() {
-    const model = initReshapeOnFields();
-    // store the original so cleanup can restore it after confirm commits
-    originalGeometry = fieldsLayer.getFeature("39").geometry;
+    initReshapeOnSquare();
+    const tb = toolbar();
 
-    // a reshape line that crosses the polygon boundary twice, cutting a new edge
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030845.75, 5911397.39));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030771.49, 5911511.09));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030857.23, 5911624.79));
+    // a reshape line that cuts across the top right corner of the square
+    addToolVertex(tb, 10, 5);
+    addToolVertex(tb, 5, 10);
 
     // drive the tool through confirm so its onConfirmed runs the reshape
-    reshapeTool.children[0].confirm();
+    tb.confirm();
 
-    // the reshape succeeds and produces this exact polygon
-    const expected = "Polygon ((1031040.99 5911336.9, 1030978.97 5911394.33, 1030845.75 5911397.39, 1030845.75 5911397.4, 1030857.23 5911624.79, 1031057.07 5911646.23, 1031082.33 5911535.21, 1031119.08 5911493.1, 1031093.82 5911453.28, 1031072.67 5911421.57, 1031063.19 5911407.34, 1031044.82 5911362.94, 1031041.44 5911340.01, 1031040.99 5911336.9))";
-    compare(fieldsLayer.getFeature(model.feature.id).geometry.asWkt(2), expected);
+    // the corner is cut off, replaced by the reshape line
+    const expected = "Polygon ((5 10, 0 10, 0 0, 10 0, 10 5, 5 10))";
+    compare(testLayer.getFeature(1).geometry.asWkt(2), expected);
   }
 
   function test_confirmWithInvalidLineToastsAndDoesNotChangeGeometry() {
-    const model = initReshapeOnFields();
-    const before = fieldsLayer.getFeature("39").geometry.asWkt();
+    initReshapeOnSquare();
+    const before = testLayer.getFeature(1).geometry.asWkt();
+    const tb = toolbar();
 
     // a single point is not a valid reshape line, so reshapeFromRubberband
     // returns non-Success. the confirm handler should toast an error and roll
     // back, leaving the feature untouched
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    reshapeTool.children[0].confirm();
+    addToolVertex(tb, 5, 5);
+    tb.confirm();
 
     compare(lastToastType, "error");
-    const after = fieldsLayer.getFeature("39").geometry.asWkt();
+    const after = testLayer.getFeature(1).geometry.asWkt();
     compare(after, before);
   }
 
   function test_cancelResetsRubberband() {
-    initReshapeOnFields();
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
+    initReshapeOnSquare();
+    const tb = toolbar();
+    addToolVertex(tb, 5, 5);
+    addToolVertex(tb, 6, 6);
     compare(rubberband.vertexCount, 3);
-
-    reshapeTool.cancel();
-
-    // cancel resets the rubberband to empty
+    tb.cancel();
     compare(rubberband.vertexCount, 1);
   }
 
