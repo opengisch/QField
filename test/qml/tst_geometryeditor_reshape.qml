@@ -26,7 +26,7 @@ TestCase {
 
   // set up the feature model on the memory layer and
   // hand the tool a fresh rubberband like the app does through init
-  function initReshapeOnSquare() {
+  function initReshape() {
     featureModel.currentLayer = testLayer;
     featureModel.feature = testLayer.getFeature(1);
     rubberband.vectorLayer = testLayer;
@@ -69,7 +69,7 @@ TestCase {
   }
 
   function test_initSetsUpToolForPolygonReshape() {
-    initReshapeOnSquare();
+    initReshape();
 
     // init wires the feature model and forces the rubberband to polygon mode,
     // since reshape only operates on polygon rings
@@ -78,7 +78,7 @@ TestCase {
   }
 
   function test_blockingFollowsRubberbandVertexCount() {
-    initReshapeOnSquare();
+    initReshape();
     // blocking mirrors isDigitizing, which is vertexCount > 1
     compare(reshapeTool.blocking, false);
 
@@ -90,7 +90,7 @@ TestCase {
   }
 
   function test_reshapeWithValidLineProducesExpectedGeometry() {
-    initReshapeOnSquare();
+    initReshape();
     const tb = toolbar();
 
     // a reshape line that cuts across the top right corner of the square
@@ -106,7 +106,7 @@ TestCase {
   }
 
   function test_confirmWithInvalidLineToastsAndDoesNotChangeGeometry() {
-    initReshapeOnSquare();
+    initReshape();
     const before = testLayer.getFeature(1).geometry.asWkt();
     const tb = toolbar();
 
@@ -121,8 +121,21 @@ TestCase {
     compare(after, before);
   }
 
+  function test_confirmWithNonOverlappingLineToastsAndDoesNotChangeGeometry() {
+    initReshape();
+    const before = testLayer.getFeature(1).geometry.asWkt();
+    const tb = toolbar();
+    addToolVertex(tb, 0, -5);
+    addToolVertex(tb, 10, -5);
+    tb.confirm();
+
+    compare(lastToastType, "error");
+    const after = testLayer.getFeature(1).geometry.asWkt();
+    compare(after, before);
+  }
+
   function test_cancelResetsRubberband() {
-    initReshapeOnSquare();
+    initReshape();
     const tb = toolbar();
     addToolVertex(tb, 5, 5);
     addToolVertex(tb, 6, 6);
