@@ -5,17 +5,13 @@ import org.qgis
 import Theme
 import "../../src/qml/geometryeditors" as GeometryEditors
 
-// The reshape maths is covered in test_geometryutils.cpp, so here we just check the tool wiring around it: init,
-// the blocking state, the failure path (toast and rollback), and cancel. A valid
-// reshape through confirm() needs live digitizing state to be reproduced, so
-// that path is left to the C++ tests.
-
 TestCase {
   id: testCase
   name: "GeometryEditorReshape"
 
   property var fieldsLayer: qgisProject.mapLayersByName("Fields")[0]
   property string lastToastType: ""
+  property var originalGeometry: null
 
   function init() {
     lastToastType = "";
@@ -23,6 +19,13 @@ TestCase {
 
   function cleanup() {
     reshapeTool.cancel();
+    if (originalGeometry !== null) {
+      featureModel.currentLayer = fieldsLayer;
+      featureModel.feature = fieldsLayer.getFeature("39");
+      featureModel.changeGeometry(originalGeometry);
+      featureModel.save();
+      originalGeometry = null;
+    }
     if (fieldsLayer.editBuffer()) {
       fieldsLayer.rollBack();
     }
@@ -85,18 +88,18 @@ TestCase {
 
   function test_reshapeWithValidLineProducesExpectedGeometry() {
     const model = initReshapeOnFields();
+    // store the original so cleanup can restore it after confirm commits
+    originalGeometry = fieldsLayer.getFeature("39").geometry;
+
     // a reshape line that crosses the polygon boundary twice, cutting a new edge
     rubberband.addVertexFromPoint(GeometryUtils.point(1030845.75, 5911397.39));
     rubberband.addVertexFromPoint(GeometryUtils.point(1030771.49, 5911511.09));
     rubberband.addVertexFromPoint(GeometryUtils.point(1030857.23, 5911624.79));
 
-    // drive the operation directly and roll back instead of committing, so the
-    // shared layer data is untouched
-    if (!fieldsLayer.editBuffer())
-      fieldsLayer.startEditing();
-    const result = GeometryUtils.reshapeFromRubberband(fieldsLayer, model.feature.id, rubberband);
+    // drive the tool through confirm so its onConfirmed runs the reshape
+    reshapeTool.children[0].confirm();
+
     // the reshape succeeds and produces this exact polygon
-    compare(Number(result), Number(GeometryUtils.Success));
     const expected = "Polygon ((1031040.99 5911336.9, 1030978.97 5911394.33, 1030845.75 5911397.39, 1030845.75 5911397.4, 1030857.23 5911624.79, 1031057.07 5911646.23, 1031082.33 5911535.21, 1031119.08 5911493.1, 1031093.82 5911453.28, 1031072.67 5911421.57, 1031063.19 5911407.34, 1031044.82 5911362.94, 1031041.44 5911340.01, 1031040.99 5911336.9))";
     compare(fieldsLayer.getFeature(model.feature.id).geometry.asWkt(2), expected);
   }
