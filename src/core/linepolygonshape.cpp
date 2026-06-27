@@ -39,14 +39,23 @@ void LinePolygonShape::createPolylines()
   mPolylines.clear();
 
   QgsGeometry geometry( mGeometry ? mGeometry->qgsGeometry() : QgsGeometry() );
-  geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
+  if ( mGeometry && mGeometry->crs() != mMapSettings->destinationCrs() )
+  {
+    QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+    try
+    {
+      geometry.transform( ct );
+    }
+    catch ( const QgsException & )
+    {
+      geometry = QgsGeometry();
+    }
+  }
 
   Qgis::GeometryType geomType = Qgis::GeometryType::Null;
   if ( mGeometry && !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
   {
-    QgsCoordinateTransform ct( mGeometry->crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
-    geometry.transform( ct );
-
+    geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
     geomType = geometry.type();
     switch ( geomType )
     {
