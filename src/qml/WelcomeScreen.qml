@@ -478,7 +478,7 @@ Page {
 
         ColumnLayout {
           id: welcomeActions
-          width: parent.width - 12
+          width: parent.width
           spacing: 12
 
           Container {
