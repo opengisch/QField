@@ -4072,10 +4072,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Izbriši datoteko</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Izbriši mapo</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>

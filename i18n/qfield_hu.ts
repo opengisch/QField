@@ -4079,10 +4079,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Fájl törlése</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Mappa eltávolítása</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Import műveletek</translation>
     </message>

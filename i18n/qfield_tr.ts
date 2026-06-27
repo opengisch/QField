@@ -4079,10 +4079,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Klasörü kaldır</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>İçe Aktarma Eylemleri</translation>
     </message>

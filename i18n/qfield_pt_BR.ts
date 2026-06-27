@@ -4080,10 +4080,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Deletar elemento</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Remover pasta </translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Ações de importação</translation>
     </message>

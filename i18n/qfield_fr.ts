@@ -4083,10 +4083,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Supprimer le fichier</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Supprimer le répertoire</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Actions d&apos;importation</translation>
     </message>

@@ -4086,10 +4086,6 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>Poista tiedosto</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Poista kansio</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Tuo toimet</translation>
     </message>

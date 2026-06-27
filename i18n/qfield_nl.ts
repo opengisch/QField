@@ -4084,10 +4084,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Map verwijderen</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Importacties</translation>
     </message>

@@ -4087,10 +4087,6 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Importovať akcie</translation>
     </message>

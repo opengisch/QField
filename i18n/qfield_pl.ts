@@ -4089,10 +4089,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Usuń plik</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Usuń katalog</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Importuj działania</translation>
     </message>

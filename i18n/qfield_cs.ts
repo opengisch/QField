@@ -4087,10 +4087,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>

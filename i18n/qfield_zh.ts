@@ -4083,10 +4083,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>删除文件</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>移除文件夹</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>导入动作</translation>
     </message>

@@ -4090,10 +4090,6 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Importa Azioni</translation>
     </message>

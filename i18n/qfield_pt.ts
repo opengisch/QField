@@ -4086,10 +4086,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Importar Ações</translation>
     </message>

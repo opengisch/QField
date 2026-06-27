@@ -4082,10 +4082,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>フォルダを削除</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>インポートのアクション</translation>
     </message>

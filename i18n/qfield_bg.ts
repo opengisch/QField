@@ -4086,10 +4086,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Премахни директорията</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation type="unfinished"/>
     </message>

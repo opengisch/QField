@@ -4084,10 +4084,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Eliminar archivo</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Eliminar carpeta</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Acciones de importación</translation>
     </message>

@@ -4082,10 +4082,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>Datei löschen</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Ordner löschen</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Aktionen importieren</translation>
     </message>

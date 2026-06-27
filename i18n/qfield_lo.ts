@@ -4066,10 +4066,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ລົບໄຟລ໌</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>ເອົາໂຟນເດີອອກ</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>ນຳເຂົ້າການດໍາເນີນການ</translation>
     </message>

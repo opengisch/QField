@@ -4084,10 +4084,6 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>Eliminar directorio</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>Importar Accións</translation>
     </message>

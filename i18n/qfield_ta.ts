@@ -4080,10 +4080,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>கோப்பை அழி</translation>
     </message>
     <message>
-        <source>Remove folder</source>
-        <translation>கோப்புறையை அகற்று</translation>
-    </message>
-    <message>
         <source>Import Actions</source>
         <translation>இறக்குமதி நடவடிக்கைகள்</translation>
     </message>
