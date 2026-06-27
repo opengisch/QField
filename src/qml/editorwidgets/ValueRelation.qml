@@ -83,6 +83,8 @@ EditorWidgetBase {
     displayGroupName: config['DisplayGroupName'] ? config['DisplayGroupName'] : ""
     addNull: config['AllowNull'] ? config['AllowNull'] : ""
     orderByValue: config['OrderByValue'] ? config['OrderByValue'] : ""
+    orderByField: config['OrderByField'] ? config['OrderByField'] : ""
+    orderByFieldName: config['OrderByFieldName'] ? config['OrderByFieldName'] : ""
     appExpressionContextScopesGenerator: appScopesGenerator
     filterExpression: config['FilterExpression'] ? config['FilterExpression'] : ""
 

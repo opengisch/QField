@@ -128,6 +128,12 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     //! Set to TRUE if features should be ordered by value
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
+    //! Set to TRUE if features should be ordered by a field
+    Q_PROPERTY( bool orderByField READ orderByField WRITE setOrderByField NOTIFY orderByFieldChanged )
+
+    //! Field to sort features over
+    Q_PROPERTY( QString orderByFieldName READ orderByFieldName WRITE setOrderByFieldName NOTIFY orderByFieldNameChanged )
+
     //! Set to TRUE if null values are allowed in the list
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
@@ -204,6 +210,26 @@ class FeatureCheckListModel : public QSortFilterProxyModel
      * Orders all the values alphabethically by their displayString.
      */
     void setOrderByValue( bool orderByValue );
+
+    /**
+     * Orders all the values by a field.
+     */
+    bool orderByField() const;
+
+    /**
+     * Orders all the values by a field.
+     */
+    void setOrderByField( bool orderByField );
+
+    /**
+     * Orders all the values by a field.
+     */
+    QString orderByFieldName() const;
+
+    /**
+     * Orders all the values by a field.
+     */
+    void setOrderByFieldName( const QString &orderByFieldName );
 
     /**
      * Add a NULL value as the first entry.
@@ -314,6 +340,8 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void groupFieldChanged();
     void displayGroupNameChanged();
     void orderByValueChanged();
+    void orderByFieldChanged();
+    void orderByFieldNameChanged();
     void addNullChanged();
     void filterExpressionChanged();
     void searchTermChanged();

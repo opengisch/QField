@@ -1046,4 +1046,47 @@ TestCase {
     waitForRendering(valueRelation);
     wait(500);
   }
+
+  /**
+   * Tests ValueRelation component behavior (OrderByField = true)
+   *
+   * Verifies:
+   * - Verifies that items in the combobox should be sorted by a field
+   * - Compares actual order with the expected order
+   */
+  function test_12_ValueRelation() {
+    valueRelation.config = {
+      "AllowMulti": false,
+      "AllowNull": false,
+      "CompleterMatchFlags": 2,
+      "DisplayGroupName": false,
+      "Group": "",
+      "Key": "id",
+      "LayerName": "TestRelationValues",
+      "LayerProviderName": "ogr",
+      "NofColumns": 1,
+      "OrderByDescending": false,
+      "OrderByField": true,
+      "OrderByFieldName": "name",
+      "OrderByKey": false,
+      "OrderByValue": false,
+      "UseCompleter": false,
+      "Value": "name"
+    };
+    setupValueRelationInReadonlyMode();
+    const relationComboBoxParent = valueRelation.children[1];
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const featureListModel = comboBoxItem.model;
+    const expectedOrderedData = {
+      "name": ["Ava", "Ethan", "Liam", "Mason", "Mathieu", "Noah", "Olivia", "Sophia"]
+    };
+    const namesInList = expectedOrderedData["name"];
+    wait(1000);
+    compare(comboBoxItem.count, namesInList.length);
+
+    for (let i = 0; i < comboBoxItem.count; ++i) {
+      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      compare(value, namesInList[i]);
+    }
+  }
 }

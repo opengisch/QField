@@ -339,6 +339,11 @@ void FeatureListModel::gatherFeatureList()
     referencedColumns << mGroupField;
   }
 
+  if ( orderByField() && !orderByFieldName().isNull() )
+  {
+    referencedColumns << mOrderByFieldName;
+  }
+
   referencedColumns << mDisplayValueField;
 
   QgsFields fields = mCurrentLayer->fields();
@@ -403,7 +408,7 @@ void FeatureListModel::gatherFeatureList()
 
   cleanupGatherer();
 
-  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() );
+  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() << orderByFieldName() );
   connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
   mGatherer->start();
 }
@@ -421,7 +426,7 @@ void FeatureListModel::processFeatureList()
 
   if ( mAddNull )
   {
-    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId() ) );
+    entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId(), QString() ) );
   }
 
   const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
@@ -430,7 +435,7 @@ void FeatureListModel::processFeatureList()
 
   for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
-    Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId );
+    Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId, gatheredEntry.identifierFields.at( 2 ).toString() );
 
     if ( !mSearchTerm.isEmpty() )
     {
@@ -480,6 +485,11 @@ void FeatureListModel::processFeatureList()
     if ( mOrderByValue )
     {
       return entry1.displayString.toLower() < entry2.displayString.toLower();
+    }
+
+    if ( mOrderByField && !mOrderByFieldName.isEmpty() )
+    {
+      return entry1.orderByValue < entry2.orderByValue;
     }
 
     // Order By Key (as a fallback)
@@ -546,6 +556,40 @@ void FeatureListModel::setOrderByValue( bool orderByValue )
   mOrderByValue = orderByValue;
   reloadLayer();
   emit orderByValueChanged();
+}
+
+bool FeatureListModel::orderByField() const
+{
+  return mOrderByField;
+}
+
+void FeatureListModel::setOrderByField( bool orderByField )
+{
+  if ( mOrderByField == orderByField )
+  {
+    return;
+  }
+
+  mOrderByField = orderByField;
+  reloadLayer();
+  emit orderByFieldChanged();
+}
+
+QString FeatureListModel::orderByFieldName() const
+{
+  return mOrderByFieldName;
+}
+
+void FeatureListModel::setOrderByFieldName( const QString &orderByFieldName )
+{
+  if ( mOrderByFieldName == orderByFieldName )
+  {
+    return;
+  }
+
+  mOrderByFieldName = orderByFieldName;
+  reloadLayer();
+  emit orderByFieldNameChanged();
 }
 
 QString FeatureListModel::filterExpression() const

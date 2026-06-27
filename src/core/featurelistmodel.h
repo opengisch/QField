@@ -71,6 +71,16 @@ class FeatureListModel : public QAbstractItemModel
     Q_PROPERTY( bool orderByValue READ orderByValue WRITE setOrderByValue NOTIFY orderByValueChanged )
 
     /**
+     * Set to TRUE if features should be ordered by a field
+     */
+    Q_PROPERTY( bool orderByField READ orderByField WRITE setOrderByField NOTIFY orderByFieldChanged )
+
+    /**
+     * Name of field to order features by
+     */
+    Q_PROPERTY( QString orderByFieldName READ orderByFieldName WRITE setOrderByFieldName NOTIFY orderByFieldNameChanged )
+
+    /**
      * Set to TRUE if null values are allowed in the list
      */
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
@@ -165,6 +175,26 @@ class FeatureListModel : public QAbstractItemModel
     void setOrderByValue( bool orderByValue );
 
     /**
+     * Orders all the values alphabethically by a field
+     */
+    bool orderByField() const;
+
+    /**
+     * Orders all the values alphabethically by a field
+     */
+    void setOrderByField( bool orderByField );
+
+    /**
+     * Orders all the values by another field.
+     */
+    QString orderByFieldName() const;
+
+    /**
+     * Orders all the values by another field.
+     */
+    void setOrderByFieldName( const QString &orderByFieldName );
+
+    /**
        * Add a NULL value as the first entry.
        */
     bool addNull() const;
@@ -221,6 +251,8 @@ class FeatureListModel : public QAbstractItemModel
     void groupFieldChanged();
     void displayGroupNameChanged();
     void orderByValueChanged();
+    void orderByFieldChanged();
+    void orderByFieldNameChanged();
     void addNullChanged();
     void filterExpressionChanged();
     void searchTermChanged();
@@ -243,11 +275,12 @@ class FeatureListModel : public QAbstractItemModel
   private:
     struct Entry
     {
-        Entry( const QString &displayString, const QVariant &key, const QVariant &group, const QgsFeatureId &fid )
+        Entry( const QString &displayString, const QVariant &key, const QVariant &group, const QgsFeatureId &fid, const QString &orderByValue )
           : displayString( displayString )
           , key( key )
           , group( group )
           , fid( fid )
+          , orderByValue( orderByValue )
           , fuzzyScore( 0 )
         {}
 
@@ -257,6 +290,7 @@ class FeatureListModel : public QAbstractItemModel
         QVariant key;
         QVariant group;
         QgsFeatureId fid;
+        QString orderByValue;
         double fuzzyScore = 0.0;
     };
     Entry entryFromRow( int row );
@@ -282,6 +316,8 @@ class FeatureListModel : public QAbstractItemModel
     QString mGroupField;
     bool mDisplayGroupName = false;
     bool mOrderByValue = false;
+    bool mOrderByField = false;
+    QString mOrderByFieldName;
     bool mAddNull = false;
     QString mFilterExpression;
     QString mSearchTerm;
