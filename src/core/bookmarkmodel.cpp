@@ -22,6 +22,8 @@
 #include <qgsgeometry.h>
 #include <qgsproject.h>
 
+#include <algorithm>
+
 BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
   : QSortFilterProxyModel( parent )
   , mModel( new QgsBookmarkManagerModel( manager, projectManager, this ) )
@@ -264,15 +266,10 @@ int BookmarkModel::deleteSelected()
     return 0;
   }
 
-  int deleted = 0;
   const QStringList ids( mSelectedIds.constBegin(), mSelectedIds.constEnd() );
-  for ( const QString &id : ids )
-  {
-    if ( mManager->removeBookmark( id ) )
-    {
-      ++deleted;
-    }
-  }
+  const int deleted = static_cast<int>( std::count_if( ids.constBegin(), ids.constEnd(), [this]( const QString &id ) {
+    return mManager->removeBookmark( id );
+  } ) );
 
   // Persist once after all removals rather than on every bookmark.
   store();
