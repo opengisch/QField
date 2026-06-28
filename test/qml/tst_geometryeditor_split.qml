@@ -3,32 +3,44 @@ import QtTest
 import org.qfield
 import org.qgis
 import Theme
+import "Utils.js" as Utils
 import "../../src/qml/geometryeditors" as GeometryEditors
 
 TestCase {
   id: testCase
   name: "GeometryEditorSplit"
 
-  property var fieldsLayer: qgisProject.mapLayersByName("Fields")[0]
+  property var testLayer: null
   property string lastToastType: ""
+  readonly property string squareJson: '{"type":"FeatureCollection","features":[{"type":"Feature","id":0,"geometry":{"type":"Polygon","coordinates":[[[0,0],[10,0],[10,10],[0,10],[0,0]]]},"properties":{}}]}'
 
   function init() {
     lastToastType = "";
+    testLayer = LayerUtils.memoryLayerFromJsonString("split_test", squareJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
   }
 
   function cleanup() {
     splitTool.cancel();
-    if (fieldsLayer.editBuffer()) {
-      fieldsLayer.rollBack();
-    }
+    testLayer = null;
   }
 
-  function initSplitOnFields() {
-    featureModel.currentLayer = fieldsLayer;
-    featureModel.feature = fieldsLayer.getFeature("39");
-    rubberband.vectorLayer = fieldsLayer;
+  // set up the feature model on the memory layer and
+  // hand the tool a fresh rubberband like the app does through init
+  function initSplit() {
+    featureModel.currentLayer = testLayer;
+    featureModel.feature = testLayer.getFeature(1);
+    rubberband.vectorLayer = testLayer;
     splitTool.init(featureModel, mapSettingsItem, rubberband, null);
     return featureModel;
+  }
+
+  function addToolVertex(toolbar, x, y) {
+    rubberband.currentCoordinate = GeometryUtils.point(x, y);
+    toolbar.addVertex();
+  }
+
+  function toolbar() {
+    return Utils.findChildren(splitTool, "splitDigitizingToolbar");
   }
 
   MapSettings {
@@ -63,7 +75,7 @@ TestCase {
   }
 
   function test_initSetsUpToolForLineSplit() {
-    initSplitOnFields();
+    initSplit();
 
     // init wires the feature model and sets the rubberband to line mode, since
     // the split is drawn as a line across the feature
@@ -72,50 +84,70 @@ TestCase {
   }
 
   function test_blockingFollowsRubberbandVertexCount() {
-    initSplitOnFields();
+    initSplit();
     // blocking mirrors isDigitizing, which is vertexCount > 1
     compare(splitTool.blocking, false);
 
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
+    const tb = toolbar();
+    addToolVertex(tb, 5, 5);
+    addToolVertex(tb, 6, 6);
 
     compare(splitTool.blocking, true);
   }
 
+  function test_splitWithValidLineProducesExpectedGeometries() {
+    initSplit();
+    const tb = toolbar();
+
+    // a vertical line crossing the square, splitting it into two halves
+    addToolVertex(tb, 5, -1);
+    addToolVertex(tb, 5, 11);
+
+    // drive the tool through confirm so its onConfirmed runs the split
+    tb.confirm();
+
+    // the square is cut at x=5 into two rectangles: the original feature keeps
+    // the right half and a new feature holds the left half
+    compare(testLayer.getFeature(1).geometry.asWkt(2), "Polygon ((5 0, 5 10, 10 10, 10 0, 5 0))");
+    compare(testLayer.getFeature(2).geometry.asWkt(2), "Polygon ((5 10, 5 0, 0 0, 0 10, 5 10))");
+  }
+
   function test_confirmWithInvalidLineToasts() {
-    initSplitOnFields();
-    const before = fieldsLayer.getFeature("39").geometry.asWkt();
+    initSplit();
+    const before = testLayer.getFeature(1).geometry.asWkt();
+    const tb = toolbar();
 
     // a single point is not a valid split line, so splitFeatureFromRubberband
-    // returns non-Success and rolls back. the handler should toast an error and
-    // leave the feature unchanged
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    splitTool.children[0].confirm();
+    // returns non-Success. the handler should toast an error and leave the
+    // feature unchanged
+    addToolVertex(tb, 5, 5);
+    tb.confirm();
 
     compare(lastToastType, "error");
-    const after = fieldsLayer.getFeature("39").geometry.asWkt();
+    const after = testLayer.getFeature(1).geometry.asWkt();
     compare(after, before);
   }
 
   function test_confirmEmitsFinished() {
-    initSplitOnFields();
+    initSplit();
     finishedSpy.clear();
+    const tb = toolbar();
 
     // confirm always emits finished so the editor closes, even on a failed split
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    splitTool.children[0].confirm();
+    addToolVertex(tb, 5, 5);
+    tb.confirm();
 
     compare(finishedSpy.count, 1);
   }
 
   function test_cancelResetsRubberband() {
-    initSplitOnFields();
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
-    // each added point carries a trailing cursor vertex, so two points give three
+    initSplit();
+    const tb = toolbar();
+    addToolVertex(tb, 5, 5);
+    addToolVertex(tb, 6, 6);
     compare(rubberband.vertexCount, 3);
 
-    splitTool.cancel();
+    tb.cancel();
 
     // cancel resets the rubberband down to its single trailing vertex
     compare(rubberband.vertexCount, 1);
