@@ -1986,7 +1986,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>W tabeli źródłowej NTRIP nie znaleziono żadnych punktów montowania</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
@@ -2526,7 +2526,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Punkt montowania</translation>
     </message>
     <message>
         <source>Identifier:</source>
@@ -2577,7 +2577,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Ruch</translation>
     </message>
     <message>
         <source>Precision</source>
@@ -4854,7 +4854,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Zły próg dokładności</translation>
     </message>
     <message>
         <source>m</source>
@@ -4862,7 +4862,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Doskonały próg dokładności</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
