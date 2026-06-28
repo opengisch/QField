@@ -32,6 +32,7 @@ GeometryEditorBase {
 
   DigitizingToolbar {
     id: drawPolygonToolbar
+    objectName: "reshapeDigitizingToolbar"
     showConfirmButton: true
     screenHovering: reshapeToolbar.screenHovering
 
