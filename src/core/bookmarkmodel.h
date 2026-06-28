@@ -34,11 +34,8 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
 
-    //! When TRUE, only project bookmarks are listed; user bookmarks are hidden.
+    //! When TRUE, the list is scoped to user bookmarks (those created in QField).
     Q_PROPERTY( bool showProjectOnly READ showProjectOnly WRITE setShowProjectOnly NOTIFY showProjectOnlyChanged )
-
-    //! When TRUE, bookmarks are grouped/sorted by their color; insertion order is kept within each color.
-    Q_PROPERTY( bool groupByColor READ groupByColor WRITE setGroupByColor NOTIFY groupByColorChanged )
 
     //! Number of currently selected bookmarks.
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
@@ -83,30 +80,22 @@ class BookmarkModel : public QSortFilterProxyModel
     bool showProjectOnly() const { return mShowProjectOnly; }
     void setShowProjectOnly( bool showProjectOnly );
 
-    bool groupByColor() const { return mGroupByColor; }
-    void setGroupByColor( bool groupByColor );
-
     int selectedCount() const { return mSelectedIds.size(); }
 
     //! Toggles the selection state of the bookmark identified by \a id.
     Q_INVOKABLE void toggleSelected( const QString &id );
 
-    //! Sets the selection state of the bookmark identified by \a id to \a selected.
-    Q_INVOKABLE void setSelected( const QString &id, bool selected );
-
-    //! Selects all currently listed bookmarks.
-    Q_INVOKABLE void selectAll();
 
     //! Clears the current selection.
     Q_INVOKABLE void clearSelection();
 
-    //! Returns the identifiers of all currently selected bookmarks.
-    Q_INVOKABLE QStringList selectedIds() const { return QStringList( mSelectedIds.constBegin(), mSelectedIds.constEnd() ); }
+    //! Deletes all currently selected bookmarks, persisting once. Returns the number deleted.
+    Q_INVOKABLE int deleteSelected();
+
 
   signals:
     void mapSettingsChanged();
     void showProjectOnlyChanged();
-    void groupByColorChanged();
     void selectedCountChanged();
     void requestJumpToPoint( const QgsPoint &center, const double &scale = -1.0, bool handleMargins = false ) const;
 
@@ -128,7 +117,6 @@ class BookmarkModel : public QSortFilterProxyModel
     QgsBookmarkManager *mManager = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mShowProjectOnly = false;
-    bool mGroupByColor = false;
     QSet<QString> mSelectedIds;
 };
 
