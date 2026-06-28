@@ -13,17 +13,12 @@ import Theme
 Pane {
   id: bookmarkList
   property alias model: bookmarksList.model
-
   property bool multiSelection: false
   property bool fullScreenView: false
   property bool isVertical: parent.width < parent.height || parent.width < 300
-
   property bool isDragging: false
   property real dragHeightAdjustment: 0
   property real dragWidthAdjustment: 0
-
-  signal requestJumpToPoint(var center, real scale, bool handleMargins)
-
   property real lastWidth
 
   width: {
@@ -54,8 +49,8 @@ Pane {
         return parent.height;
       } else {
         const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
-        const contentHeight = bookmarkListToolBar.height + (bookmarksList.contentHeight + bookmarksList.anchors.bottomMargin) + 25;
-        const newHeight = Math.max(Math.min(contentHeight, defaultMin), Math.min(defaultMin, bookmarkListToolBar.height + 120));
+        const minContentHeight = bookmarkListToolBar.height + (bookmarksList.contentHeight + bookmarksList.anchors.bottomMargin) + 25;
+        const newHeight = Math.min(minContentHeight, defaultMin);
         lastHeight = newHeight;
         return newHeight;
       }
@@ -84,67 +79,47 @@ Pane {
     property bool isVisible: false
   }
 
-  ToolBar {
+  Rectangle {
     id: bookmarkListToolBar
 
     anchors.top: parent.top
+    anchors.topMargin: topMargin
     anchors.left: parent.left
     anchors.right: parent.right
-    height: 48 + mainWindow.sceneTopMargin
+    height: topMargin + 58
+    color: Theme.mainBackgroundColor
+    clip: true
 
-    background: Rectangle {
-      color: Theme.mainBackgroundColor
+    property double topMargin: bookmarkList.y == 0 ? mainWindow.sceneTopMargin : 0.0
+    property double leftMargin: bookmarkList.x == 0 ? mainWindow.sceneLeftMargin : 0.0
+    property double rightMargin: mainWindow.sceneRightMargin
+
+    Rectangle {
+      width: parent.width * 0.3
+      height: 5
+      radius: 10
+
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
+      anchors.topMargin: bookmarkListToolBar.topMargin + 1
+
+      color: Theme.controlBorderColor
     }
 
     Item {
-      anchors.fill: parent
-      anchors.topMargin: mainWindow.sceneTopMargin
-      anchors.leftMargin: bookmarkList.x == 0 ? mainWindow.sceneLeftMargin : 0
-      anchors.rightMargin: mainWindow.sceneRightMargin
-
-      QfToolButton {
-        id: backButton
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        width: 48
-        height: 48
-        iconSource: bookmarkList.multiSelection ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: "transparent"
-
-        onClicked: {
-          if (bookmarkList.multiSelection) {
-            bookmarkList.model.clearSelection();
-            bookmarkList.multiSelection = false;
-          } else {
-            bookmarkList.hide();
-          }
-        }
+      anchors {
+        fill: parent
+        topMargin: bookmarkListToolBar.topMargin + 5
       }
-
-      Text {
-        id: selectionCount
-        anchors.left: backButton.right
-        anchors.verticalCenter: parent.verticalCenter
-        width: bookmarkList.multiSelection ? 48 : 0
-        visible: width > 0
-        height: 48
-        verticalAlignment: Text.AlignVCenter
-        font: Theme.strongFont
-        color: Theme.mainTextColor
-        text: {
-          const count = bookmarkList.model ? bookmarkList.model.selectedCount : 0;
-          return count < 100 ? count : '99+';
-        }
-      }
+      clip: true
 
       Text {
         property double balancedMargin: Math.max(backButton.width + selectionCount.width, menuButton.width)
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: balancedMargin
-        anchors.rightMargin: balancedMargin
+        anchors.top: parent.top
+        anchors.leftMargin: balancedMargin + bookmarkListToolBar.leftMargin
+        anchors.rightMargin: balancedMargin + bookmarkListToolBar.rightMargin
         height: 48
 
         font: Theme.strongFont
@@ -155,21 +130,96 @@ Pane {
         fontSizeMode: Text.Fit
         wrapMode: Text.Wrap
         elide: Text.ElideRight
-      }
 
-      QfToolButton {
-        id: menuButton
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        width: 48
-        height: 48
-        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-        iconColor: Theme.mainTextColor
-        bgcolor: "transparent"
+        DragHandler {
+          enabled: true
+          target: null
+          acceptedButtons: Qt.LeftButton
+          grabPermissions: PointerHandler.CanTakeOverFromAnything
+          dragThreshold: 5
 
-        onClicked: {
-          bookmarkListMenu.popup(menuButton.x + menuButton.width - bookmarkListMenu.width, menuButton.y);
+          property var oldPos
+
+          onActiveChanged: {
+            if (active) {
+              bookmarkList.isDragging = true;
+              oldPos = centroid.scenePosition;
+            } else {
+              bookmarkList.statusIndicatorDragReleased();
+            }
+          }
+
+          onCentroidChanged: {
+            if (active) {
+              const dx = centroid.scenePosition.x - oldPos.x;
+              const dy = centroid.scenePosition.y - oldPos.y;
+              if (dx !== 0 || dy !== 0) {
+                bookmarkList.statusIndicatorDragged(dx, dy);
+                oldPos = centroid.scenePosition;
+              }
+            }
+          }
         }
+      }
+    }
+
+    QfToolButton {
+      id: backButton
+      anchors.left: parent.left
+      anchors.leftMargin: bookmarkListToolBar.leftMargin
+      anchors.top: parent.top
+      anchors.topMargin: bookmarkListToolBar.topMargin + 5
+      width: 48
+      height: 48
+      clip: true
+      iconSource: bookmarkList.multiSelection ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+      iconColor: Theme.mainTextColor
+
+      onClicked: {
+        if (bookmarkList.multiSelection) {
+          bookmarkList.model.clearSelection();
+          bookmarkList.multiSelection = false;
+        } else {
+          bookmarkList.hide();
+        }
+      }
+    }
+
+    Text {
+      id: selectionCount
+
+      anchors.left: backButton.right
+      anchors.top: parent.top
+      anchors.topMargin: bookmarkListToolBar.topMargin + 5
+
+      width: (bookmarkList.multiSelection && bookmarkList.model ? 48 : 0)
+      visible: width > 0
+      height: 48
+      verticalAlignment: Text.AlignVCenter
+      font: Theme.strongFont
+      color: Theme.mainTextColor
+
+      text: {
+        const count = bookmarkList.model ? bookmarkList.model.selectedCount : 0;
+        return count < 100 ? count : '99+';
+      }
+    }
+
+    QfToolButton {
+      id: menuButton
+      anchors.right: parent.right
+      anchors.rightMargin: bookmarkListToolBar.rightMargin
+      anchors.top: parent.top
+      anchors.topMargin: bookmarkListToolBar.topMargin + 5
+      width: 48
+      height: 48
+      clip: true
+
+      iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+      iconColor: Theme.mainTextColor
+
+      onClicked: {
+        bookmarkListMenu.popup(menuButton.x + menuButton.width - bookmarkListMenu.width, menuButton.y);
       }
     }
   }
@@ -204,19 +254,6 @@ Pane {
     }
 
     MenuItem {
-      id: moveSelectedBookmarksBtn
-      text: qsTr('Move Selected Bookmark(s)')
-      icon.source: Theme.getThemeVectorIcon("ic_move_white_24dp")
-      enabled: bookmarkList.multiSelection && bookmarkList.model && bookmarkList.model.selectedCount > 0
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-
-      onTriggered: {}
-    }
-
-    MenuItem {
       id: deleteSelectedBookmarksBtn
       text: qsTr('Delete Selected Bookmark(s)')
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
@@ -226,25 +263,40 @@ Pane {
       height: 48
       leftPadding: Theme.menuItemLeftPadding
 
-      onTriggered: {}
+      onTriggered: {
+        bookmarkListMenu.close();
+        deleteBookmarksDialog.selectedCount = bookmarkList.model ? bookmarkList.model.selectedCount : 0;
+        deleteBookmarksDialog.open();
+      }
+    }
+  }
+
+  QfDialog {
+    id: deleteBookmarksDialog
+    parent: mainWindow.contentItem
+
+    property int selectedCount: 0
+
+    title: qsTr("Delete bookmark(s)")
+    Label {
+      width: mainWindow.width - 60
+      wrapMode: Text.WordWrap
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+      text: qsTr("Should the %n selected bookmark(s) really be deleted?", "", deleteBookmarksDialog.selectedCount)
     }
 
-    MenuItem {
-      id: groupBookmarksBtn
-      text: qsTr('Group Bookmarks')
-      checkable: true
-      checked: bookmarkList.model ? bookmarkList.model.groupByColor : false
-      enabled: bookmarksList.count > 0
-
-      font: Theme.defaultFont
-      height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-
-      onTriggered: {
-        if (bookmarkList.model) {
-          bookmarkList.model.groupByColor = !bookmarkList.model.groupByColor;
-        }
+    onAccepted: {
+      if (bookmarkList.model) {
+        const deleted = bookmarkList.model.deleteSelected();
+        displayToast(qsTr("Deleted %n bookmark(s)", "", deleted));
       }
+      bookmarkList.multiSelection = false;
+      bookmarkList.focus = true;
+    }
+
+    onRejected: {
+      bookmarkList.focus = true;
     }
   }
 
@@ -259,13 +311,46 @@ Pane {
     anchors.rightMargin: mainWindow.sceneRightMargin
     anchors.bottom: parent.bottom
     anchors.bottomMargin: mainWindow.sceneBottomMargin
-
+    height: parent.height - bookmarkListToolBar.height
     ScrollBar.vertical: QfScrollBar {}
+
+    section.property: "BookmarkGroup"
+    section.labelPositioning: ViewSection.InlineLabels
+    section.delegate: Component {
+      Rectangle {
+        width: parent.width
+        height: 30
+        color: Theme.controlBorderColor
+
+        Text {
+          anchors {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+          }
+          font.bold: true
+          font.pointSize: Theme.resultFont.pointSize
+          color: Theme.mainTextColor
+          text: {
+            switch (section) {
+            case "orange":
+              return qsTr("Orange");
+            case "red":
+              return qsTr("Red");
+            case "blue":
+              return qsTr("Blue");
+            }
+            return qsTr("Green");
+          }
+        }
+      }
+    }
 
     delegate: Rectangle {
       id: itemBackground
-      anchors.left: parent ? parent.left : undefined
-      anchors.right: parent ? parent.right : undefined
+      anchors {
+        left: parent ? parent.left : undefined
+        right: parent ? parent.right : undefined
+      }
       height: Math.max(48, bookmarkLabel.height)
       color: "transparent"
 
@@ -279,28 +364,10 @@ Pane {
         color: Material.rippleColor
       }
 
-      Rectangle {
-        id: groupAccent
-        anchors.left: parent.left
-        height: parent.height
-        width: 6
-        color: {
-          switch (BookmarkGroup) {
-          case "orange":
-            return Theme.bookmarkOrange;
-          case "red":
-            return Theme.bookmarkRed;
-          case "blue":
-            return Theme.bookmarkBlue;
-          }
-          return Theme.bookmarkDefault;
-        }
-      }
-
       CheckBox {
         id: selectionCheckBox
         anchors {
-          leftMargin: 11
+          leftMargin: 5
           left: parent.left
           verticalCenter: parent.verticalCenter
         }
@@ -312,10 +379,10 @@ Pane {
         }
       }
 
-      Label {
+      Text {
         id: bookmarkLabel
         anchors {
-          leftMargin: bookmarkList.multiSelection ? 56 : 16
+          leftMargin: bookmarkList.multiSelection ? 50 : 10
           rightMargin: 10
           left: parent.left
           right: parent.right
@@ -373,6 +440,43 @@ Pane {
     }
   }
 
+  function statusIndicatorDragged(deltaX, deltaY) {
+    fullScreenView = false;
+    if (isVertical) {
+      dragHeightAdjustment += deltaY;
+    } else {
+      dragWidthAdjustment += deltaX;
+    }
+  }
+
+  function statusIndicatorDragReleased() {
+    isDragging = false;
+    if (isVertical) {
+      const minContentHeight = bookmarkListToolBar.height + 48 + 30;
+      if (bookmarkList.height < minContentHeight) {
+        if (fullScreenView) {
+          fullScreenView = false;
+        } else {
+          bookmarkList.hide();
+        }
+      } else if (dragHeightAdjustment < -parent.height * 0.2) {
+        fullScreenView = true;
+      }
+    } else {
+      if (bookmarkList.width < bookmarkList.parent.width * 0.3) {
+        if (fullScreenView) {
+          fullScreenView = false;
+        } else {
+          bookmarkList.hide();
+        }
+      } else if (dragWidthAdjustment < -parent.width * 0.2) {
+        fullScreenView = true;
+      }
+    }
+    dragHeightAdjustment = 0;
+    dragWidthAdjustment = 0;
+  }
+
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       if (Overlay.overlay && Overlay.overlay.visibleChildren.length > 1 || (Overlay.overlay.visibleChildren.length === 1 && !toast.visible)) {
@@ -395,11 +499,10 @@ Pane {
       easing.type: Easing.OutQuart
 
       onRunningChanged: {
-        if (running) {
+        if (running)
           mapCanvasMap.freeze('bookmarkresize');
-        } else {
+        else
           mapCanvasMap.unfreeze('bookmarkresize');
-        }
       }
     }
   }
@@ -411,11 +514,10 @@ Pane {
       easing.type: Easing.OutQuart
 
       onRunningChanged: {
-        if (running) {
+        if (running)
           mapCanvasMap.freeze('bookmarkresize');
-        } else {
+        else
           mapCanvasMap.unfreeze('bookmarkresize');
-        }
       }
     }
   }
@@ -428,11 +530,11 @@ Pane {
   function hide() {
     props.isVisible = false;
     focus = false;
+    fullScreenView = false;
     bookmarkList.multiSelection = false;
     if (bookmarkList.model) {
       bookmarkList.model.clearSelection();
       bookmarkList.model.showProjectOnly = false;
-      bookmarkList.model.groupByColor = false;
     }
   }
 }

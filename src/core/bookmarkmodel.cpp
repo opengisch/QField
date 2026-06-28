@@ -28,6 +28,10 @@ BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *p
   , mManager( manager )
 {
   setSourceModel( mModel.get() );
+
+  // Bookmarks are always grouped by color so the list can render color sections.
+  setSortRole( BookmarkModel::BookmarkGroup );
+  sort( 0 );
 }
 
 QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
@@ -45,7 +49,10 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
       return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Name ) );
 
     case BookmarkModel::BookmarkGroup:
-      return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) );
+    {
+      const QString group = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
+      return group.isEmpty() ? QStringLiteral( "green" ) : group;
+    }
 
     case BookmarkModel::BookmarkPoint:
     {
@@ -91,9 +98,7 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
 void BookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
-  {
     return;
-  }
 
   mMapSettings = mapSettings;
 
@@ -104,9 +109,7 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
 {
   QModelIndex sourceIndex = mapToSource( index );
   if ( !sourceIndex.isValid() || !mMapSettings )
-  {
     return;
-  }
 
   const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
   QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
@@ -133,9 +136,7 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
 QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
 {
   if ( !mMapSettings )
-  {
     return QString();
-  }
 
   QgsRectangle extent = mMapSettings->extent();
   const QgsPointXY center = extent.center();
@@ -209,9 +210,7 @@ void BookmarkModel::store()
 void BookmarkModel::setShowProjectOnly( bool showProjectOnly )
 {
   if ( mShowProjectOnly == showProjectOnly )
-  {
     return;
-  }
 
   mShowProjectOnly = showProjectOnly;
   beginFilterChange();
@@ -228,120 +227,67 @@ bool BookmarkModel::isUserBookmark( int sourceRow ) const
 bool BookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
 {
   if ( !mShowProjectOnly )
-  {
     return true;
-  }
+
+  // The drawer scopes the list to bookmarks created in QField (user bookmarks).
   return isUserBookmark( sourceRow );
 }
 
 void BookmarkModel::toggleSelected( const QString &id )
 {
   if ( id.isEmpty() )
-  {
     return;
-  }
 
   if ( mSelectedIds.contains( id ) )
-  {
     mSelectedIds.remove( id );
-  }
   else
-  {
     mSelectedIds.insert( id );
-  }
 
   emitSelectionChanged();
   emit selectedCountChanged();
-}
-
-void BookmarkModel::setSelected( const QString &id, bool selected )
-{
-  if ( id.isEmpty() )
-  {
-    return;
-  }
-
-  if ( selected == mSelectedIds.contains( id ) )
-  {
-    return;
-  }
-
-  if ( selected )
-  {
-    mSelectedIds.insert( id );
-  }
-  else
-  {
-    mSelectedIds.remove( id );
-  }
-
-  emitSelectionChanged();
-  emit selectedCountChanged();
-}
-
-void BookmarkModel::selectAll()
-{
-  const int count = rowCount();
-  bool changed = false;
-  for ( int row = 0; row < count; ++row )
-  {
-    const QString id = data( index( row, 0 ), BookmarkModel::BookmarkId ).toString();
-    if ( !id.isEmpty() && !mSelectedIds.contains( id ) )
-    {
-      mSelectedIds.insert( id );
-      changed = true;
-    }
-  }
-
-  if ( changed )
-  {
-    emitSelectionChanged();
-    emit selectedCountChanged();
-  }
 }
 
 void BookmarkModel::clearSelection()
 {
   if ( mSelectedIds.isEmpty() )
-  {
     return;
-  }
 
   mSelectedIds.clear();
   emitSelectionChanged();
   emit selectedCountChanged();
 }
 
+int BookmarkModel::deleteSelected()
+{
+  if ( mSelectedIds.isEmpty() )
+  {
+    return 0;
+  }
+
+  int deleted = 0;
+  const QStringList ids( mSelectedIds.constBegin(), mSelectedIds.constEnd() );
+  for ( const QString &id : ids )
+  {
+    if ( mManager->removeBookmark( id ) )
+    {
+      ++deleted;
+    }
+  }
+
+  // Persist once after all removals rather than on every bookmark.
+  store();
+
+  mSelectedIds.clear();
+  emit selectedCountChanged();
+
+  return deleted;
+}
+
 void BookmarkModel::emitSelectionChanged()
 {
   const int count = rowCount();
   if ( count > 0 )
-  {
     emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
-  }
-}
-
-void BookmarkModel::setGroupByColor( bool groupByColor )
-{
-  if ( mGroupByColor == groupByColor )
-  {
-    return;
-  }
-
-  mGroupByColor = groupByColor;
-
-  if ( mGroupByColor )
-  {
-    setSortRole( BookmarkModel::BookmarkGroup );
-    sort( 0 );
-  }
-  else
-  {
-    // Restore the source model insertion order
-    sort( -1 );
-  }
-
-  emit groupByColorChanged();
 }
 
 int BookmarkModel::groupRank( const QString &group ) const
@@ -358,6 +304,8 @@ int BookmarkModel::groupRank( const QString &group ) const
   {
     return 3;
   }
+
+  // Default (empty group) comes first.
   return 0;
 }
 

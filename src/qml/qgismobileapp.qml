@@ -3580,15 +3580,6 @@ ApplicationWindow {
       qfieldLocalDataPickerScreen.visible = true;
     }
 
-    onShowBookmarks: {
-      dashBoard.close();
-      if (featureListForm.visible) {
-        featureListForm.hide();
-      }
-      bookmarkModel.showProjectOnly = true;
-      bookmarkList.show();
-    }
-
     // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
     // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
     // We will also use `shouldReturnHome` to know that we need to return home as well or not.
@@ -3802,6 +3793,26 @@ ApplicationWindow {
       onTriggered: {
         dashBoard.close();
         pluginManagerSettings.open();
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Bookmarks")
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        mainMenu.close();
+        dashBoard.close();
+        if (featureListForm.visible) {
+          featureListForm.hide();
+        }
+        bookmarkModel.showProjectOnly = true;
+        bookmarkList.show();
+        highlighted = false;
       }
     }
 
@@ -4646,9 +4657,7 @@ ApplicationWindow {
     objectName: "bookmarkList"
 
     model: bookmarkModel
-
     focus: visible
-
     anchors {
       right: parent.right
       bottom: parent.bottom
