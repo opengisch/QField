@@ -14,6 +14,11 @@ Pane {
   id: bookmarkList
   property alias model: bookmarksList.model
   property bool multiSelection: false
+  onMultiSelectionChanged: {
+    if (model) {
+      model.hideProjectBookmarks = multiSelection;
+    }
+  }
   property bool fullScreenView: false
   property bool isVertical: parent.width < parent.height || parent.width < 300
   property bool isDragging: false
@@ -372,7 +377,7 @@ Pane {
           verticalCenter: parent.verticalCenter
         }
         checked: BookmarkSelected
-        visible: bookmarkList.multiSelection
+        visible: bookmarkList.multiSelection && BookmarkUser
 
         onClicked: {
           bookmarkList.model.toggleSelected(BookmarkId);
@@ -409,6 +414,9 @@ Pane {
         }
 
         onPressAndHold: {
+          if (!BookmarkUser) {
+            return;
+          }
           bookmarkList.multiSelection = true;
           bookmarkList.model.toggleSelected(BookmarkId);
         }
@@ -534,7 +542,7 @@ Pane {
     bookmarkList.multiSelection = false;
     if (bookmarkList.model) {
       bookmarkList.model.clearSelection();
-      bookmarkList.model.showProjectOnly = false;
+      bookmarkList.model.hideProjectBookmarks = false;
     }
   }
 }

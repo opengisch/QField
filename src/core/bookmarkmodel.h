@@ -34,11 +34,11 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ setMapSettings READ mapSettings NOTIFY mapSettingsChanged )
 
-    //! When TRUE, the list is scoped to user bookmarks (those created in QField).
-    Q_PROPERTY( bool showProjectOnly READ showProjectOnly WRITE setShowProjectOnly NOTIFY showProjectOnlyChanged )
+    //! When TRUE, project bookmarks are hidden so only user bookmarks (those created in QField) are listed.
+    Q_PROPERTY( bool hideProjectBookmarks READ hideProjectBookmarks WRITE setHideProjectBookmarks NOTIFY hideProjectBookmarksChanged )
 
     //! Number of currently selected bookmarks.
-    Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectedCountChanged )
+    Q_PROPERTY( qsizetype selectedCount READ selectedCount NOTIFY selectedCountChanged )
 
   public:
     enum Roles
@@ -77,14 +77,13 @@ class BookmarkModel : public QSortFilterProxyModel
 
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
 
-    bool showProjectOnly() const { return mShowProjectOnly; }
-    void setShowProjectOnly( bool showProjectOnly );
+    bool hideProjectBookmarks() const { return mHideProjectBookmarks; }
+    void setHideProjectBookmarks( bool hideProjectBookmarks );
 
-    int selectedCount() const { return mSelectedIds.size(); }
+    qsizetype selectedCount() const { return mSelectedIds.size(); }
 
     //! Toggles the selection state of the bookmark identified by \a id.
     Q_INVOKABLE void toggleSelected( const QString &id );
-
 
     //! Clears the current selection.
     Q_INVOKABLE void clearSelection();
@@ -92,10 +91,9 @@ class BookmarkModel : public QSortFilterProxyModel
     //! Deletes all currently selected bookmarks, persisting once. Returns the number deleted.
     Q_INVOKABLE int deleteSelected();
 
-
   signals:
     void mapSettingsChanged();
-    void showProjectOnlyChanged();
+    void hideProjectBookmarksChanged();
     void selectedCountChanged();
     void requestJumpToPoint( const QgsPoint &center, const double &scale = -1.0, bool handleMargins = false ) const;
 
@@ -116,7 +114,7 @@ class BookmarkModel : public QSortFilterProxyModel
     QObjectUniquePtr<QgsBookmarkManagerModel> mModel;
     QgsBookmarkManager *mManager = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
-    bool mShowProjectOnly = false;
+    bool mHideProjectBookmarks = false;
     QSet<QString> mSelectedIds;
 };
 

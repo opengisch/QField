@@ -3810,7 +3810,7 @@ ApplicationWindow {
         if (featureListForm.visible) {
           featureListForm.hide();
         }
-        bookmarkModel.showProjectOnly = true;
+        bookmarkModel.hideProjectBookmarks = false;
         bookmarkList.show();
         highlighted = false;
       }

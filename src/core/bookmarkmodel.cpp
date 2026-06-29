@@ -209,16 +209,16 @@ void BookmarkModel::store()
   }
 }
 
-void BookmarkModel::setShowProjectOnly( bool showProjectOnly )
+void BookmarkModel::setHideProjectBookmarks( bool hideProjectBookmarks )
 {
-  if ( mShowProjectOnly == showProjectOnly )
+  if ( mHideProjectBookmarks == hideProjectBookmarks )
     return;
 
-  mShowProjectOnly = showProjectOnly;
+  mHideProjectBookmarks = hideProjectBookmarks;
   beginFilterChange();
   endFilterChange();
 
-  emit showProjectOnlyChanged();
+  emit hideProjectBookmarksChanged();
 }
 
 bool BookmarkModel::isUserBookmark( int sourceRow ) const
@@ -228,7 +228,7 @@ bool BookmarkModel::isUserBookmark( int sourceRow ) const
 
 bool BookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
 {
-  if ( !mShowProjectOnly )
+  if ( !mHideProjectBookmarks )
     return true;
 
   // The drawer scopes the list to bookmarks created in QField (user bookmarks).
@@ -238,6 +238,10 @@ bool BookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
 void BookmarkModel::toggleSelected( const QString &id )
 {
   if ( id.isEmpty() )
+    return;
+
+  // Only user bookmarks (those owned by the user manager) can be selected.
+  if ( mManager->bookmarkById( id ).id().isEmpty() )
     return;
 
   if ( mSelectedIds.contains( id ) )
