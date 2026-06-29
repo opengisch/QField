@@ -236,7 +236,7 @@ QfPlatformUtilities::Capabilities QfIosPlatformUtilities::capabilities() const {
   QfPlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
       CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive |
-      VolumeKeys;
+      VolumeKeys | FileImport;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -736,7 +736,6 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
     return;
   }
 
-  // Project files go to "Imported Projects", other datasets to "Imported Datasets"
   const QString importBase =
       isProjectFile ? appDir + QStringLiteral("/Imported Projects/")
                     : appDir + QStringLiteral("/Imported Datasets/");
@@ -757,7 +756,6 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
   }
   removeInboxFile(path, appDir);
 
-  // Open the dataset when supported, otherwise reveal it in the local files browser
   if (!QfAppInterface::instance()->loadFile(destinationFile)) {
     emit QfAppInterface::instance()->openPath(importBase);
   }
