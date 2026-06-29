@@ -528,10 +528,10 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
-    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "addFeatureButton");
     const valueRelationListComponentParent = valueRelation.children[2];
-    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "valueRelationRepeater");
 
     // check ui in readonly mode
     compare(relationComboBoxParent.enabled, false);
@@ -578,7 +578,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
       "name": ["Ethan", "Liam", "Olivia", "Sophia", "Noah", "Ava", "Mathieu", "Mason"]
@@ -621,7 +621,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
       "name": ["Ava", "Ethan", "Liam", "Mason", "Mathieu", "Noah", "Olivia", "Sophia"]
@@ -664,7 +664,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "addFeatureButton");
     valueRelation.isEnabled = true;
     waitForRendering(valueRelation);
     verify(relationComboBoxParent.embeddedFeatureForm === null);
@@ -704,7 +704,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
       "name": ["Ava", "Ethan", "Liam", "Mason", "Mathieu", "Noah", "Olivia", "Sophia"]
@@ -753,12 +753,12 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation2.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
-    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "addFeatureButton");
     const valueRelationListComponentParent = valueRelation2.children[2];
-    const valueRelationGridView = Utils.findChildren(valueRelationListComponentParent, "ValueRelationGridView");
-    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
-    const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
+    const valueRelationGridView = Utils.findChildren(valueRelationListComponentParent, "valueRelationGridView");
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "valueRelationRepeater");
+    const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "valueRelationSearchBar");
     const featureListModel = valueRelationRepeater.model;
 
     // check ui in readonly mode
@@ -806,7 +806,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const valueRelationListComponentParent = valueRelation.children[2];
-    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "valueRelationRepeater");
     const featureListModel = valueRelationRepeater.model;
     const expectedOrderedData = {
       "name": ["<i>NULL</i>", "Ethan", "Olivia", "Mason", "Liam", "Mathieu", "Sophia", "Noah", "Ava"]
@@ -846,7 +846,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const valueRelationListComponentParent = valueRelation.children[2];
-    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "valueRelationRepeater");
     const featureListModel = valueRelationRepeater.model;
     const expectedOrderedData = {
       "name": ["Ethan", "Mason", "Olivia", "Liam", "Mathieu", "Ava", "Noah", "Sophia"]
@@ -886,8 +886,8 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const valueRelationListComponentParent = valueRelation.children[2];
-    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "ValueRelationRepeater");
-    const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "ValueRelationSearchBar");
+    const valueRelationRepeater = Utils.findChildren(valueRelationListComponentParent, "valueRelationRepeater");
+    const valueRelationSearchBar = Utils.findChildren(valueRelationListComponentParent, "valueRelationSearchBar");
     const searchTextField = valueRelationSearchBar.children[0].children[3];
 
     // turn on editable mode
@@ -942,9 +942,9 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
-    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "AddFeatureButton");
-    const openSearchFeaturePopupButton = Utils.findChildren(relationComboBoxParent, "OpenSearchFeaturePopupButton");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
+    const addFeatureButton = Utils.findChildren(relationComboBoxParent, "addFeatureButton");
+    const openSearchFeaturePopupButton = Utils.findChildren(relationComboBoxParent, "openSearchFeaturePopupButton");
 
     // Initially, the combobox should not select any item because the value is undefined
     compare(comboBoxItem.displayText, "NULL");
@@ -1075,7 +1075,7 @@ TestCase {
     };
     setupValueRelationInReadonlyMode();
     const relationComboBoxParent = valueRelation.children[1];
-    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "RelationComboBox");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
     const featureListModel = comboBoxItem.model;
     const expectedOrderedData = {
       "name": ["Ava", "Ethan", "Liam", "Mason", "Mathieu", "Noah", "Olivia", "Sophia"]

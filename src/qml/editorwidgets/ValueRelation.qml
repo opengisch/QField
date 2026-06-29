@@ -171,7 +171,7 @@ EditorWidgetBase {
 
     QfSearchBar {
       id: searchBar
-      objectName: "ValueRelationSearchBar"
+      objectName: "valueRelationSearchBar"
       width: parent.width
       height: searchHeight
       visible: enabled
@@ -206,7 +206,7 @@ EditorWidgetBase {
 
         GridLayout {
           id: valueGridView
-          objectName: "ValueRelationGridView"
+          objectName: "valueRelationGridView"
           anchors.left: parent.left
           anchors.right: parent.right
           anchors.top: parent.top
@@ -217,7 +217,7 @@ EditorWidgetBase {
           Repeater {
             id: repeater
             model: listModel.allowMulti ? listModel : 0
-            objectName: "ValueRelationRepeater"
+            objectName: "valueRelationRepeater"
 
             delegate: Item {
               id: listItem

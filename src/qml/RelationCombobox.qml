@@ -238,7 +238,7 @@ Item {
 
     QfComboBox {
       id: comboBox
-      objectName: "RelationComboBox"
+      objectName: "relationComboBox"
       visible: !enabled || (!useSearch && !useCompleter && (relation !== undefined ? relation.isValid : true))
       Layout.fillWidth: true
 
@@ -563,7 +563,7 @@ Item {
 
     QfToolButton {
       id: searchButton
-      objectName: "OpenSearchFeaturePopupButton"
+      objectName: "openSearchFeaturePopupButton"
 
       Layout.preferredWidth: enabled ? 48 : 0
       Layout.preferredHeight: 48
@@ -581,7 +581,7 @@ Item {
 
     QfToolButton {
       id: addFeatureButton
-      objectName: "AddFeatureButton"
+      objectName: "addFeatureButton"
 
       Layout.preferredWidth: comboBox.enabled ? 48 : 0
       Layout.preferredHeight: 48
