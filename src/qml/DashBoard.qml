@@ -125,7 +125,7 @@ Drawer {
 
           QfToolButton {
             id: measurementButton
-            objectName: "MeasurementButton"
+            objectName: "measurementButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
@@ -139,7 +139,7 @@ Drawer {
 
           QfToolButton {
             id: view3DButton
-            objectName: "View3DButton"
+            objectName: "view3DButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_3d_white_24dp")
@@ -153,7 +153,7 @@ Drawer {
 
           QfToolButton {
             id: printItemButton
-            objectName: "PrintItemButton"
+            objectName: "printItemButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
             iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
@@ -167,7 +167,7 @@ Drawer {
 
           QfToolButton {
             id: cloudButton
-            objectName: "CloudButton"
+            objectName: "cloudButton"
             anchors.verticalCenter: parent.verticalCenter
             iconSource: {
               if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
@@ -254,7 +254,7 @@ Drawer {
 
           QfToolButton {
             id: projectFolderButton
-            objectName: "ProjectFolderButton"
+            objectName: "projectFolderButton"
             anchors.verticalCenter: parent.verticalCenter
             font: Theme.defaultFont
             iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
@@ -512,7 +512,7 @@ Drawer {
 
       Legend {
         id: legend
-        objectName: "Legend"
+        objectName: "legend"
         isVisible: dashBoard.position > 0
         anchors.fill: parent
         anchors.leftMargin: mainWindow.sceneLeftMargin + 5
@@ -551,7 +551,7 @@ Drawer {
 
       QfSwitch {
         id: modeSwitch
-        objectName: "ModeSwitch"
+        objectName: "modeSwitch"
         width: 56 + 36
         height: 48
         anchors.right: parent.right
