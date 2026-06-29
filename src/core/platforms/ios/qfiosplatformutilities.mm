@@ -686,8 +686,15 @@ static void removeInboxFile(const QString &path, const QString &appDir) {
 }
 
 void QfIosPlatformUtilities::importFile(const QString &path) const {
+  NSLog(@"QField[importFile] called with path: %@", path.toNSString());
+
   QFileInfo fileInfo(path);
-  if (!fileInfo.exists() || !fileInfo.isFile() || !QfAppInterface::instance()) {
+  if (!fileInfo.exists() || !fileInfo.isFile()) {
+    NSLog(@"QField[importFile] abort: not an existing regular file");
+    return;
+  }
+  if (!QfAppInterface::instance()) {
+    NSLog(@"QField[importFile] abort: AppInterface instance is null");
     return;
   }
 
@@ -696,6 +703,8 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
   const bool isProjectFile =
       suffix == QLatin1String("qgs") || suffix == QLatin1String("qgz");
   const bool isArchive = suffix == QLatin1String("zip");
+  NSLog(@"QField[importFile] suffix=%@ isProjectFile=%d isArchive=%d",
+        suffix.toNSString(), isProjectFile, isArchive);
 
   if (isArchive) {
     const QString importBase = appDir + QStringLiteral("/Imported Projects/");
@@ -712,8 +721,12 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
 
     QStringList extractedFiles;
     if (!QfFileUtils::unzip(path, destinationDir, extractedFiles, false)) {
+      NSLog(@"QField[importFile] abort: unzip failed for %@",
+            path.toNSString());
       return;
     }
+    NSLog(@"QField[importFile] extracted %lu files into %@",
+          (unsigned long)extractedFiles.size(), destinationDir.toNSString());
     removeInboxFile(path, appDir);
 
     // Open the project bundled within the archive, or reveal its content
@@ -729,8 +742,12 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
     }
 
     if (!projectFile.isEmpty()) {
+      NSLog(@"QField[importFile] loading bundled project: %@",
+            projectFile.toNSString());
       QfAppInterface::instance()->loadFile(projectFile);
     } else {
+      NSLog(@"QField[importFile] no project in archive, revealing: %@",
+            destinationDir.toNSString());
       emit QfAppInterface::instance()->openPath(destinationDir);
     }
     return;
@@ -752,11 +769,19 @@ void QfIosPlatformUtilities::importFile(const QString &path) const {
   }
 
   if (!QFile::copy(path, destinationFile)) {
+    NSLog(@"QField[importFile] abort: copy failed %@ -> %@", path.toNSString(),
+          destinationFile.toNSString());
     return;
   }
+  NSLog(@"QField[importFile] copied to %@", destinationFile.toNSString());
   removeInboxFile(path, appDir);
 
-  if (!QfAppInterface::instance()->loadFile(destinationFile)) {
+  const bool loaded = QfAppInterface::instance()->loadFile(destinationFile);
+  NSLog(@"QField[importFile] loadFile(%@) returned %d",
+        destinationFile.toNSString(), loaded);
+  if (!loaded) {
+    NSLog(@"QField[importFile] revealing in browser: %@",
+          importBase.toNSString());
     emit QfAppInterface::instance()->openPath(importBase);
   }
 }
