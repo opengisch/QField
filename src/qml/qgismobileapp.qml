@@ -5685,37 +5685,37 @@ ApplicationWindow {
         "type": "information",
         "title": qsTr("Digitizing toggle"),
         "description": qsTr("Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries."),
-        "target": () => [iface.findItemByObjectName('ModeSwitch')]
+        "target": () => [iface.findItemByObjectName('modeSwitch')]
       },
       {
         "type": "information",
         "title": qsTr("Legend"),
         "description": qsTr("The legend shows map layers and allows you to toggle visibility and opacity properties by <b>long-pressing on a layer to open a properties popup</b>. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers."),
-        "target": () => [iface.findItemByObjectName('Legend')]
+        "target": () => [iface.findItemByObjectName('legend')]
       },
       {
         "type": "information",
         "title": qsTr("Measurement"),
         "description": qsTr("Toggle the measurement tool to calculate distances and areas on the map."),
-        "target": () => [iface.findItemByObjectName('MeasurementButton')]
+        "target": () => [iface.findItemByObjectName('measurementButton')]
       },
       {
         "type": "information",
         "title": qsTr("Print"),
         "description": qsTr("Export the map canvas to PDF using configured project print and atlas layouts."),
-        "target": () => [iface.findItemByObjectName('PrintItemButton')]
+        "target": () => [iface.findItemByObjectName('printItemButton')]
       },
       {
         "type": "information",
         "title": qsTr("QFieldCloud"),
         "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
-        "target": () => [iface.findItemByObjectName('CloudButton')]
+        "target": () => [iface.findItemByObjectName('cloudButton')]
       },
       {
         "type": "information",
         "title": qsTr("Project folder"),
         "description": qsTr("Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts."),
-        "target": () => [iface.findItemByObjectName('ProjectFolderButton')]
+        "target": () => [iface.findItemByObjectName('projectFolderButton')]
       }
     ]
 
