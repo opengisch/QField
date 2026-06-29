@@ -128,10 +128,10 @@
     <true/>
 
     <key>UISupportsDocumentBrowser</key>
-    <true/>
+    <false/>
 
     <key>LSSupportsOpeningDocumentsInPlace</key>
-    <true/>
+    <false/>
 
     <key>LSApplicationQueriesSchemes</key>
     <array>
