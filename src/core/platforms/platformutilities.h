@@ -56,6 +56,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       Vibrate = 1 << 9,                   //!< Haptic feedback / vibration support
       UpdateProjectFromArchive = 1 << 10, //!< Update local project from a ZIP archive support
       PositioningService = 1 << 11,       //!< Positioning service support
+      FileImport = 1 << 12,               //!< Importing files shared with the app from other applications
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
