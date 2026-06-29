@@ -75,7 +75,8 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
-      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive;
+      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive |
+      FileImport;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -571,7 +572,6 @@ void IosPlatformUtilities::importFile(const QString &path) const {
     return;
   }
 
-  // Project files go to "Imported Projects", other datasets to "Imported Datasets"
   const QString importBase =
       isProjectFile ? appDir + QStringLiteral("/Imported Projects/")
                     : appDir + QStringLiteral("/Imported Datasets/");
@@ -592,7 +592,6 @@ void IosPlatformUtilities::importFile(const QString &path) const {
   }
   removeInboxFile(path, appDir);
 
-  // Open the dataset when supported, otherwise reveal it in the local files browser
   if (!AppInterface::instance()->loadFile(destinationFile)) {
     emit AppInterface::instance()->openPath(importBase);
   }

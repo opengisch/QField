@@ -237,10 +237,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
-#if defined( Q_OS_IOS )
-  // iOS delivers files opened from other apps through the "file" URL scheme
-  QDesktopServices::setUrlHandler( QStringLiteral( "file" ), mUrlHandler.get(), "handleUrl" );
-#endif
+  if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::FileImport )
+  {
+    // Files opened from other apps are delivered through the "file" URL scheme
+    QDesktopServices::setUrlHandler( QStringLiteral( "file" ), mUrlHandler.get(), "handleUrl" );
+  }
 
   mMessageLogModel = new MessageLogModel( this );
 
