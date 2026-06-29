@@ -2110,11 +2110,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
+        <translation>Wähle ZIP Archiv</translation>
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>ZIP Archive (*.zip)</translation>
     </message>
 </context>
 <context>
@@ -2716,7 +2716,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
+        <translation>Notizen auf Linien und Polygonen zulassen</translation>
     </message>
 </context>
 <context>
@@ -2779,11 +2779,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Linie</translation>
     </message>
     <message>
         <source>Polygon</source>
-        <translation type="unfinished"/>
+        <translation>Polygon</translation>
     </message>
 </context>
 <context>
@@ -4103,7 +4103,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>Projekt komprimieren und senden an...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -4867,15 +4867,15 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Verfügbare Authentifizierungskonfigurationen:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Authentifizierungs-Cache löschen</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>Authentifizierungs-Cache gelöscht</translation>
     </message>
 </context>
 <context>
