@@ -172,6 +172,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   {
     // Files opened from other apps are delivered through the "file" URL scheme
     QDesktopServices::setUrlHandler( QStringLiteral( "file" ), mUrlHandler.get(), "handleUrl" );
+    qInfo() << "QField[init] registered file URL handler";
   }
 
   mMessageLogModel = new QfMessageLogModel( this );
@@ -477,6 +478,7 @@ void QgisMobileapp::onAfterFirstRendering()
   // disconnect( this, &QgisMobileapp::afterRendering, this, &QgisMobileapp::onAfterFirstRendering );
   if ( mFirstRenderingFlag )
   {
+    qInfo() << "QField[onAfterFirstRendering] running startup project load; current mProjectFilePath:" << mProjectFilePath;
     mPluginManager->restoreAppPlugins();
     if ( QfPlatformUtilities::instance()->hasQfAction() )
     {
