@@ -19,6 +19,8 @@
 #include "platformutilities.h"
 #include "qfieldurlhandler.h"
 
+#include <QDebug>
+
 QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
   : QObject( parent ), mIface( iface )
 {
@@ -26,6 +28,8 @@ QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
 
 void QFieldUrlHandler::handleUrl( const QUrl &url )
 {
+  qInfo() << "QField[handleUrl] received url:" << url.toString() << "isLocalFile:" << url.isLocalFile();
+
   // A file shared with QField is imported, while a qfield:// URL is an action to execute
   if ( url.isLocalFile() )
   {
