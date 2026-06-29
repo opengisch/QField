@@ -74,6 +74,12 @@ TestCase {
     signalName: "finished"
   }
 
+  SignalSpy {
+    id: committedFeaturesAddedSpy
+    target: testLayer
+    signalName: "committedFeaturesAdded"
+  }
+
   function test_initSetsUpToolForLineSplit() {
     initSplit();
 
@@ -97,6 +103,7 @@ TestCase {
 
   function test_splitWithValidLineProducesExpectedGeometries() {
     initSplit();
+    committedFeaturesAddedSpy.clear();
     const tb = toolbar();
 
     // a vertical line crossing the square, splitting it into two halves
@@ -110,10 +117,14 @@ TestCase {
     // the right half and a new feature holds the left half
     compare(testLayer.getFeature(1).geometry.asWkt(2), "Polygon ((5 0, 5 10, 10 10, 10 0, 5 0))");
     compare(testLayer.getFeature(2).geometry.asWkt(2), "Polygon ((5 10, 5 0, 0 0, 0 10, 5 10))");
+
+    // the split commits a new feature, so the layer reports one features-added commit
+    compare(committedFeaturesAddedSpy.count, 1);
   }
 
   function test_confirmWithInvalidLineToasts() {
     initSplit();
+    committedFeaturesAddedSpy.clear();
     const before = testLayer.getFeature(1).geometry.asWkt();
     const tb = toolbar();
 
@@ -126,6 +137,9 @@ TestCase {
     compare(lastToastType, "error");
     const after = testLayer.getFeature(1).geometry.asWkt();
     compare(after, before);
+
+    // nothing was committed, so the layer reports no features-added commit
+    compare(committedFeaturesAddedSpy.count, 0);
   }
 
   function test_confirmEmitsFinished() {
