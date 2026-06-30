@@ -14,11 +14,6 @@ QfPaneDrawer {
   id: bookmarkList
   property alias model: bookmarksList.model
   property bool multiSelection: false
-  onMultiSelectionChanged: {
-    if (model) {
-      model.hideProjectBookmarks = multiSelection;
-    }
-  }
 
   contentVisible: props.isVisible
   freezeKey: 'bookmarkresize'
@@ -415,6 +410,13 @@ QfPaneDrawer {
   function show() {
     props.isVisible = true;
     focus = true;
+  }
+
+  function setMultiSelection(active) {
+    multiSelection = active;
+    if (model) {
+      model.hideProjectBookmarks = active;
+    }
   }
 
   function hide() {
