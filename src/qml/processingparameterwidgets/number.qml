@@ -70,7 +70,7 @@ ProcessingParameterWidgetBase {
       }
       onPressAndHold: {
         changeValueTimer.increase = false;
-        changeValueTimer.interval = 700;
+        changeValueTimer.interval = 300;
         changeValueTimer.restart();
       }
       onReleased: {
@@ -101,7 +101,7 @@ ProcessingParameterWidgetBase {
       }
       onPressAndHold: {
         changeValueTimer.increase = true;
-        changeValueTimer.interval = 700;
+        changeValueTimer.interval = 300;
         changeValueTimer.restart();
       }
       onReleased: {
@@ -115,7 +115,7 @@ ProcessingParameterWidgetBase {
 
   Timer {
     id: changeValueTimer
-    interval: 700
+    interval: 300
     repeat: true
 
     property bool increase: true
