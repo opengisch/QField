@@ -359,14 +359,14 @@ void FeatureListModel::gatherFeatureList()
   if ( !mSearchTerm.isEmpty() )
   {
     QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
+    searchTermExpression = QStringLiteral( " unaccent( %1 ) ILIKE unaccent( '%%2%' ) " ).arg( fieldDisplayString, escapedSearchTerm );
 
     QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
     if ( !searchTermParts.isEmpty() )
     {
       for ( QString &searchTermPart : searchTermParts )
       {
-        searchTermPart = QStringLiteral( "%1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
+        searchTermPart = QStringLiteral( "unaccent( %1 ) ILIKE unaccent( '%%2%' ) " ).arg( fieldDisplayString, searchTermPart );
       }
       searchTermExpression += QStringLiteral( "OR (%2) " ).arg( searchTermParts.join( QStringLiteral( " AND " ) ) );
     }
