@@ -49,16 +49,20 @@ QString StringUtils::createUuid()
 
 double StringUtils::calcFuzzyScore( const QString &string, const QString &searchTerm )
 {
+  // Match accent-insensitively (e.g. "bez" matches "Béziers"), like the callers' search filter.
+  const QString unaccentedString = QgsStringUtils::unaccent( string );
+  const QString unaccentedSearchTerm = QgsStringUtils::unaccent( searchTerm );
+
   double fuzzyScore = 0.0;
-  if ( string.startsWith( searchTerm, Qt::CaseInsensitive ) )
+  if ( unaccentedString.startsWith( unaccentedSearchTerm, Qt::CaseInsensitive ) )
   {
     fuzzyScore += 0.5;
   }
   else
   {
     static QRegularExpression whitespaceRegex( QStringLiteral( "\\W+" ) );
-    const QStringList parts = string.split( whitespaceRegex );
-    const QStringList termParts = searchTerm.split( whitespaceRegex );
+    const QStringList parts = unaccentedString.split( whitespaceRegex );
+    const QStringList termParts = unaccentedSearchTerm.split( whitespaceRegex );
     const qsizetype termPartsCount = termParts.size();
 
     qsizetype lastMatchedTermPartIdx = -1;
@@ -82,7 +86,7 @@ double StringUtils::calcFuzzyScore( const QString &string, const QString &search
     }
   }
 
-  fuzzyScore += QgsStringUtils::fuzzyScore( string, searchTerm ) * 0.5;
+  fuzzyScore += QgsStringUtils::fuzzyScore( unaccentedString, unaccentedSearchTerm ) * 0.5;
   return fuzzyScore;
 };
 
@@ -197,31 +201,46 @@ QString StringUtils::replaceFilenameTags( const QString &string, const QString &
 
 QString StringUtils::highlightText( const QString &string, const QString &highlightText, const QColor &highlightColor )
 {
-  QString formattedString = string.toHtmlEscaped();
-  if ( !highlightText.isEmpty() )
+  if ( highlightText.isEmpty() )
   {
-    const QString formattedHighlightText = highlightText.toHtmlEscaped();
-    const QRegularExpression formattedHighlightExpression( QStringLiteral( "(?!=&[a-z]*)(%1)(?![a-z]*;)" ).arg( formattedHighlightText ), QRegularExpression::CaseInsensitiveOption );
-    if ( formattedString.contains( formattedHighlightExpression ) )
+    return string.toHtmlEscaped();
+  }
+
+  const QString unaccentedString = QgsStringUtils::unaccent( string );
+  const QString unaccentedHighlight = QgsStringUtils::unaccent( highlightText );
+  if ( unaccentedString.length() != string.length() )
+  {
+    return string.toHtmlEscaped();
+  }
+
+  QStringList patterns { QRegularExpression::escape( unaccentedHighlight ) };
+  if ( !unaccentedString.contains( QRegularExpression( patterns.constFirst(), QRegularExpression::CaseInsensitiveOption ) ) )
+  {
+    patterns = unaccentedHighlight.split( ' ', Qt::SkipEmptyParts );
+    patterns.removeDuplicates();
+    for ( QString &part : patterns )
     {
-      formattedString.replace( formattedHighlightExpression, QStringLiteral( "<span style=\"text-decoration:underline;%1\">\\1</span>" ).arg( highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString() ) );
-    }
-    else
-    {
-      QStringList highlightParts = highlightText.toLower().split( ' ', Qt::SkipEmptyParts );
-      highlightParts.removeDuplicates();
-      std::sort( highlightParts.begin(), highlightParts.end(), []( const QString &s1, const QString &s2 ) { return s1.size() < s2.size(); } );
-      for ( QString &highlightPart : highlightParts )
-      {
-        highlightPart = highlightPart.toHtmlEscaped();
-      }
-      const QRegularExpression formattedHighlightPartsExpression( QStringLiteral( "(?!=&[a-z]*)(%1)(?![a-z]*;)" ).arg( highlightParts.join( '|' ) ), QRegularExpression::CaseInsensitiveOption );
-      if ( formattedString.contains( formattedHighlightPartsExpression ) )
-      {
-        formattedString.replace( formattedHighlightPartsExpression, QStringLiteral( "<span style=\"text-decoration:underline;%1\">\\1</span>" ).arg( highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString() ) );
-      }
+      part = QRegularExpression::escape( part );
     }
   }
+  if ( patterns.isEmpty() )
+  {
+    return string.toHtmlEscaped();
+  }
+
+  const QRegularExpression expression( patterns.join( '|' ), QRegularExpression::CaseInsensitiveOption );
+  const QString spanStyle = highlightColor.isValid() ? QStringLiteral( "color:%1" ).arg( highlightColor.name() ) : QString();
+  QString formattedString;
+  qsizetype cursor = 0;
+  QRegularExpressionMatchIterator matchIterator = expression.globalMatch( unaccentedString );
+  while ( matchIterator.hasNext() )
+  {
+    const QRegularExpressionMatch match = matchIterator.next();
+    formattedString += string.mid( cursor, match.capturedStart() - cursor ).toHtmlEscaped();
+    formattedString += QStringLiteral( "<span style=\"text-decoration:underline;%1\">%2</span>" ).arg( spanStyle, string.mid( match.capturedStart(), match.capturedLength() ).toHtmlEscaped() );
+    cursor = match.capturedEnd();
+  }
+  formattedString += string.mid( cursor ).toHtmlEscaped();
 
   return formattedString;
 }
