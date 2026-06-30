@@ -32,29 +32,12 @@
 LayerObserver::LayerObserver( const QgsProject *project )
   : mProject( project )
 {
-  connect( mProject, &QgsProject::homePathChanged, this, &LayerObserver::onHomePathChanged );
-  connect( mProject, &QgsProject::layersAdded, this, &LayerObserver::onLayersAdded );
+  connect( mProject, &QgsProject::readProject, this, &LayerObserver::onReadProject );
 
   if ( !project->fileName().isEmpty() )
   {
-    onHomePathChanged();
+    onReadProject();
   }
-}
-
-
-void LayerObserver::reset( bool isHardReset ) const
-{
-  if ( !mDeltaFileWrapper )
-  {
-    return;
-  }
-
-  if ( isHardReset )
-  {
-    mDeltaFileWrapper->resetId();
-  }
-
-  mDeltaFileWrapper->reset();
 }
 
 
@@ -76,7 +59,7 @@ void LayerObserver::setDeltaFileWrapper( DeltaFileWrapper *wrapper )
 }
 
 
-void LayerObserver::onHomePathChanged()
+void LayerObserver::onReadProject()
 {
   if ( mProject->fileName().isEmpty() )
   {
@@ -89,12 +72,6 @@ void LayerObserver::onHomePathChanged()
   {
     addLayerListeners();
   }
-}
-
-void LayerObserver::onLayersAdded( const QList<QgsMapLayer *> &layers )
-{
-  Q_UNUSED( layers );
-  addLayerListeners();
 }
 
 
@@ -305,6 +282,7 @@ void LayerObserver::onEditingStopped()
 
 void LayerObserver::addLayerListeners()
 {
+  qInfo() << "Add layer listeners";
   const QList<QgsMapLayer *> layers = mProject->mapLayers().values();
 
   // we should keep track only of the layers on cloud projects
@@ -357,6 +335,7 @@ void LayerObserver::addLayerListeners()
         connect( vl, &QgsVectorLayer::editingStopped, this, &LayerObserver::onEditingStopped );
 
         mObservedLayerIds.insert( vl->id() );
+        qInfo() << QStringLiteral( "Listener added on layer \"%1\"" ).arg( vl->name() );
       }
     }
   }

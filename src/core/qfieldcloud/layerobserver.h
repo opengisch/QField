@@ -51,12 +51,6 @@ class LayerObserver : public QObject
 
 
     /**
-     * Clears the current delta file changes
-     */
-    Q_INVOKABLE void reset( bool isHardReset = false ) const;
-
-
-    /**
      * Gets the current delta file
      *
      * @return current delta file
@@ -70,6 +64,13 @@ class LayerObserver : public QObject
      */
     void setDeltaFileWrapper( DeltaFileWrapper *wrapper );
 
+    /**
+     * Add the needed event listeners to monitor for changes.
+     * Assigns listeners only for layer actions of `cloud` and `offline`.
+     */
+    void addLayerListeners();
+
+
   signals:
     void layerEdited( const QString &layerId );
     void deltaFileWrapperChanged();
@@ -77,18 +78,10 @@ class LayerObserver : public QObject
 
   private slots:
     /**
-     * Monitors the current project for new layers.
-     *
-     * @param layers layers added
-     */
-    void onLayersAdded( const QList<QgsMapLayer *> &layers );
-
-
-    /**
-     * Commit the changes of the current delta file and
+     * Reacts to project read event
      *
      */
-    void onHomePathChanged();
+    void onReadProject();
 
 
     /**
@@ -179,12 +172,6 @@ class LayerObserver : public QObject
      */
     QSet<QString> mObservedLayerIds;
 
-
-    /**
-     * Add the needed event listeners to monitor for changes.
-     * Assigns listeners only for layer actions of `cloud` and `offline`.
-     */
-    void addLayerListeners();
 
     bool mLocalAndSourcePkAttrAreEqual = false;
 };
