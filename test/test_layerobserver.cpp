@@ -104,6 +104,7 @@ TEST_CASE( "LayerObserver" )
   mLayerObserver->setDeltaFileWrapper( mDeltaFileWrapper.get() );
 
   REQUIRE( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );
+  mLayerObserver->addLayerListeners();
   REQUIRE( !mLayerObserver->deltaFileWrapper()->hasError() );
 
 #if 0
@@ -138,7 +139,7 @@ TEST_CASE( "LayerObserver" )
     REQUIRE( mLayer->commitChanges() );
     REQUIRE( getDeltaOperations( mLayerObserver->deltaFileWrapper()->fileName() ).size() == 2 );
 
-    mLayerObserver->reset();
+    mLayerObserver->deltaFileWrapper()->reset();
     REQUIRE( mLayer->startEditing() );
     REQUIRE( mLayer->commitChanges() );
 
