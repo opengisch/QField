@@ -174,8 +174,8 @@
             <string>Owner</string>
             <key>LSItemContentTypes</key>
             <array>
-                <string>org.qgis.gpkg</string>
-                <string>org.qgis.mbtiles</string>
+                <string>org.opengeospatial.geopackage</string>
+                <string>com.mapbox.mbtiles</string>
                 <string>org.geojson.geojson</string>
                 <string>com.google.earth.kml</string>
                 <string>com.google.earth.kmz</string>
@@ -186,7 +186,7 @@
             <key>CFBundleTypeName</key>
             <string>Supported document</string>
             <key>CFBundleTypeRole</key>
-            <string>Editor</string>
+            <string>Viewer</string>
             <key>LSHandlerRank</key>
             <string>Alternate</string>
             <key>LSItemContentTypes</key>
@@ -239,12 +239,11 @@
         </dict>
         <dict>
             <key>UTTypeIdentifier</key>
-            <string>org.qgis.gpkg</string>
+            <string>org.opengeospatial.geopackage</string>
             <key>UTTypeDescription</key>
             <string>GeoPackage</string>
             <key>UTTypeConformsTo</key>
             <array>
-                <string>public.database</string>
                 <string>public.data</string>
             </array>
             <key>UTTypeTagSpecification</key>
@@ -257,12 +256,11 @@
         </dict>
         <dict>
             <key>UTTypeIdentifier</key>
-            <string>org.qgis.mbtiles</string>
+            <string>com.mapbox.mbtiles</string>
             <key>UTTypeDescription</key>
             <string>MBTiles</string>
             <key>UTTypeConformsTo</key>
             <array>
-                <string>public.database</string>
                 <string>public.data</string>
             </array>
             <key>UTTypeTagSpecification</key>

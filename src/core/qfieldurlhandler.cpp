@@ -19,7 +19,7 @@
 #include "platformutilities.h"
 #include "qfieldurlhandler.h"
 
-#include <QDebug>
+#include <QTimer>
 
 QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
   : QObject( parent ), mIface( iface )
@@ -28,12 +28,12 @@ QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
 
 void QFieldUrlHandler::handleUrl( const QUrl &url )
 {
-  qInfo() << "QField[handleUrl] received url:" << url.toString() << "isLocalFile:" << url.isLocalFile();
-
-  // A file shared with QField is imported, while a qfield:// URL is an action to execute
   if ( url.isLocalFile() )
   {
-    PlatformUtilities::instance()->importFile( url.toLocalFile() );
+    // Import on the next event loop cycle so the potentially heavy work (e.g.
+    // unzipping an archive) does not block the incoming-URL handling
+    const QString path = url.toLocalFile();
+    QTimer::singleShot( 0, [path]() { PlatformUtilities::instance()->importFile( path ); } );
     return;
   }
 
