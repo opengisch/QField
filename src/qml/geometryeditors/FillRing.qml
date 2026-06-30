@@ -33,6 +33,7 @@ GeometryEditorBase {
 
   DigitizingToolbar {
     id: drawPolygonToolbar
+    objectName: "fillRingDigitizingToolbar"
     showConfirmButton: true
     screenHovering: fillRingToolbar.screenHovering
 

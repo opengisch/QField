@@ -3,34 +3,42 @@ import QtTest
 import org.qfield
 import org.qgis
 import Theme
+import "Utils.js" as Utils
 import "../../src/qml/geometryeditors" as GeometryEditors
 
 TestCase {
   id: testCase
   name: "GeometryEditorFillRing"
 
-  property var fieldsLayer: qgisProject.mapLayersByName("Fields")[0]
+  property var testLayer: null
   property string lastToastType: ""
+  readonly property string squareJson: '{"type":"FeatureCollection","features":[{"type":"Feature","id":0,"geometry":{"type":"Polygon","coordinates":[[[0,0],[10,0],[10,10],[0,10],[0,0]]]},"properties":{}}]}'
 
   function init() {
     lastToastType = "";
+    testLayer = LayerUtils.memoryLayerFromJsonString("fillring_test", squareJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
   }
 
   function cleanup() {
     fillRingTool.cancel();
-    if (fieldsLayer.editBuffer()) {
-      fieldsLayer.rollBack();
-    }
+    testLayer = null;
   }
 
-  // fill ring works on the current feature's layer, set up the feature model and
-  // hand the tool a fresh rubberband like the app does through init
-  function initFillRingOnFields() {
-    featureModel.currentLayer = fieldsLayer;
-    featureModel.feature = fieldsLayer.getFeature("39");
-    rubberband.vectorLayer = fieldsLayer;
+  function initFillRing() {
+    featureModel.currentLayer = testLayer;
+    featureModel.feature = testLayer.getFeature(1);
+    rubberband.vectorLayer = testLayer;
     fillRingTool.init(featureModel, mapSettingsItem, rubberband, null);
     return featureModel;
+  }
+
+  function addToolVertex(toolbar, x, y) {
+    rubberband.currentCoordinate = GeometryUtils.point(x, y);
+    toolbar.addVertex();
+  }
+
+  function toolbar() {
+    return Utils.findChildren(fillRingTool, "fillRingDigitizingToolbar");
   }
 
   MapSettings {
@@ -59,52 +67,65 @@ TestCase {
   }
 
   function test_initSetsUpToolForPolygonRing() {
-    initFillRingOnFields();
+    initFillRing();
     compare(fillRingTool.featureModel, featureModel);
     compare(Number(rubberband.geometryType), Qgis.GeometryType.Polygon);
   }
 
   function test_blockingFollowsRubberbandVertexCount() {
-    initFillRingOnFields();
-    // blocking mirrors isDigitizing, which is vertexCount > 1
+    initFillRing();
     compare(fillRingTool.blocking, false);
 
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
+    const tb = toolbar();
+    addToolVertex(tb, 5, 5);
+    addToolVertex(tb, 6, 6);
 
     compare(fillRingTool.blocking, true);
   }
 
+  function test_confirmWithValidRingAddsInteriorRing() {
+    initFillRing();
+    const tb = toolbar();
+
+    // the feature starts as a plain square with a single ring
+    compare(testLayer.getFeature(1).geometry.asWkt(2), "Polygon ((0 0, 10 0, 10 10, 0 10, 0 0))");
+
+    addToolVertex(tb, 2, 2);
+    addToolVertex(tb, 8, 2);
+    addToolVertex(tb, 2, 8);
+
+    tb.confirm();
+
+    // confirm adds the interior ring, so the polygon now has a hole
+    const expected = "Polygon ((0 0, 10 0, 10 10, 0 10, 0 0),(2 2, 2 8, 2 8, 8 2, 2 2))";
+    compare(testLayer.getFeature(1).geometry.asWkt(2), expected);
+  }
+
   function test_confirmWithInvalidRingToasts() {
-    const model = initFillRingOnFields();
-    const before = fieldsLayer.getFeature("39").geometry.asWkt();
+    initFillRing();
+    const before = testLayer.getFeature(1).geometry.asWkt();
+    const tb = toolbar();
 
-    // a single point is fewer than the three vertices a ring needs. drive the
-    // operation directly: it returns AddRingNotValid and leaves the feature
-    // unchanged. the confirm() handler is not exercised here because its success
-    // branch instantiates an embedded feature form, which is covered separately
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    const result = GeometryUtils.addRingFromRubberband(fieldsLayer, model.feature.id, rubberband);
+    addToolVertex(tb, 5, 5);
+    tb.confirm();
 
-    compare(Number(result), Number(GeometryUtils.AddRingNotValid));
-    const after = fieldsLayer.getFeature("39").geometry.asWkt();
+    compare(lastToastType, "error");
+    const after = testLayer.getFeature(1).geometry.asWkt();
     compare(after, before);
   }
 
   function test_cancelResetsRubberband() {
-    initFillRingOnFields();
-    rubberband.addVertexFromPoint(GeometryUtils.point(1030900, 5911400));
-    rubberband.addVertexFromPoint(GeometryUtils.point(1031000, 5911500));
-    // each added point carries a trailing cursor vertex, so two points give three
+    initFillRing();
+    const tb = toolbar();
+    addToolVertex(tb, 5, 5);
+    addToolVertex(tb, 6, 6);
     compare(rubberband.vertexCount, 3);
 
-    fillRingTool.cancel();
+    tb.cancel();
 
-    // cancel resets the rubberband down to its single trailing vertex
     compare(rubberband.vertexCount, 1);
   }
 
-  // scope objects the tool and DigitizingToolbar expect from the app
   Item {
     id: mainWindow
     property var contentItem: mainWindow
@@ -146,6 +167,14 @@ TestCase {
   Item {
     id: projectInfo
     property string cloudUserInformation: ""
+  }
+
+  AppExpressionContextScopesGenerator {
+    id: appScopesGenerator
+    objectName: "appScopesGenerator"
+    positionInformation: positionSource.positionInformation
+    positionLocked: coordinateLocator.positionLocked
+    cloudUserInformation: projectInfo.cloudUserInformation
   }
 
   Item {
