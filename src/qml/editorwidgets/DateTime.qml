@@ -116,26 +116,8 @@ EditorWidgetBase {
         enabled: config['calendar_popup'] === undefined || config['calendar_popup']
         anchors.fill: parent
         onClicked: {
-          let usedDate = new Date();
-          if (value !== undefined && value != '') {
-            usedDate = value;
-          }
-
-          if (usedDate instanceof Date) {
-            // Deal with invalid (i.e. null) QDateTime
-            if (isNaN(usedDate.getTime())) {
-              usedDate = new Date();
-            }
-          } else {
-            let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
-            if (!!config['field_format_overwrite']) {
-              dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
-            }
-            usedDate = Date.fromLocaleString(Qt.locale(), value, dateFormat);
-          }
-
           todayButton.forceActiveFocus();
-          calendarPanel.selectedDate = usedDate;
+          calendarPanel.selectedDate = convertValueToDate(value);
           calendarPanel.open();
         }
       }
@@ -255,5 +237,27 @@ EditorWidgetBase {
       dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
     }
     return Qt.formatDateTime(date, dateFormat);
+  }
+
+  function convertValueToDate(value) {
+    let usedDate = new Date();
+    if (value !== undefined && value != '') {
+      usedDate = value;
+    }
+
+    if (usedDate instanceof Date) {
+      // Deal with invalid (i.e. null) QDateTime
+      if (isNaN(usedDate.getTime())) {
+        usedDate = new Date();
+      }
+    } else {
+      let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
+      if (!!config['field_format_overwrite']) {
+        dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
+      }
+      usedDate = Date.fromLocaleString(Qt.locale(), value, dateFormat);
+    }
+
+    return usedDate;
   }
 }
