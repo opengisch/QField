@@ -14,11 +14,6 @@ Pane {
   id: bookmarkList
   property alias model: bookmarksList.model
   property bool multiSelection: false
-  onMultiSelectionChanged: {
-    if (model) {
-      model.hideProjectBookmarks = multiSelection;
-    }
-  }
   property bool fullScreenView: false
   property bool isVertical: parent.width < parent.height || parent.width < 300
   property bool isDragging: false
@@ -183,7 +178,7 @@ Pane {
       onClicked: {
         if (bookmarkList.multiSelection) {
           bookmarkList.model.clearSelection();
-          bookmarkList.multiSelection = false;
+          bookmarkList.setMultiSelection(false);
         } else {
           bookmarkList.hide();
         }
@@ -247,7 +242,7 @@ Pane {
       leftPadding: Theme.menuItemCheckLeftPadding
 
       onTriggered: {
-        bookmarkList.multiSelection = !bookmarkList.multiSelection;
+        bookmarkList.setMultiSelection(!bookmarkList.multiSelection);
         if (!bookmarkList.multiSelection) {
           bookmarkList.model.clearSelection();
         }
@@ -296,7 +291,7 @@ Pane {
         const deleted = bookmarkList.model.deleteSelected();
         displayToast(qsTr("Deleted %n bookmark(s)", "", deleted));
       }
-      bookmarkList.multiSelection = false;
+      bookmarkList.setMultiSelection(false);
       bookmarkList.focus = true;
     }
 
@@ -417,7 +412,7 @@ Pane {
           if (!BookmarkUser) {
             return;
           }
-          bookmarkList.multiSelection = true;
+          bookmarkList.setMultiSelection(true);
           bookmarkList.model.toggleSelected(BookmarkId);
         }
       }
@@ -445,6 +440,13 @@ Pane {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
+    }
+  }
+
+  function setMultiSelection(active) {
+    multiSelection = active;
+    if (model) {
+      model.hideProjectBookmarks = active;
     }
   }
 
@@ -492,7 +494,7 @@ Pane {
       }
       if (bookmarkList.multiSelection) {
         bookmarkList.model.clearSelection();
-        bookmarkList.multiSelection = false;
+        bookmarkList.setMultiSelection(false);
       } else {
         bookmarkList.hide();
       }
@@ -539,10 +541,9 @@ Pane {
     props.isVisible = false;
     focus = false;
     fullScreenView = false;
-    bookmarkList.multiSelection = false;
+    bookmarkList.setMultiSelection(false);
     if (bookmarkList.model) {
       bookmarkList.model.clearSelection();
-      bookmarkList.model.hideProjectBookmarks = false;
     }
   }
 }
