@@ -36,11 +36,11 @@ Here are the steps to generate translation files for your plugin:
 
 ```sh
 # e.g. french
-lupdate main.qml -ts mainfr.ts
+lupdate main.qml -ts main_fr.ts
 # e.g. spanish
-lupdate main.qml -ts maines.ts
+lupdate main.qml -ts main_es.ts
 # e.g. german
-lupdate main.qml -ts mainde.ts
+lupdate main.qml -ts main_de.ts
 ```
 
 !!! warning
@@ -49,17 +49,17 @@ lupdate main.qml -ts mainde.ts
 - Translate the `.ts` files, e.g. using Qt Linguist:
 
 ```sh
-linguist mainfr.ts
-linguist maines.ts
-linguist mainde.ts
+linguist main_fr.ts
+linguist main_es.ts
+linguist main_de.ts
 ```
 
 - Compile the strings into `.qm` files using the `lrelease` tool:
 
 ```sh
-lrelease mainfr.ts -qm mainfr.qm
-lrelease maines.ts -qm maines.qm
-lrelease mainde.ts -qm mainde.qm
+lrelease main_fr.ts -qm main_fr.qm
+lrelease main_es.ts -qm main_es.qm
+lrelease main_de.ts -qm main_de.qm
 ```
 
 !!! warning
