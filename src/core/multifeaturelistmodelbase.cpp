@@ -84,7 +84,7 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
 
 void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::IdentifyResult> &results )
 {
-  beginInsertRows( QModelIndex(), static_cast<int>( mFeatures.count() ), static_cast<int>( mFeatures.count() + results.count() ) - 1 );
+  QList<QPair<QgsMapLayer *, QgsFeature>> newFeatures;
 
   QMap<QString, QgsExpressionContext> expressionContext;
   for ( const IdentifyTool::IdentifyResult &result : results )
@@ -94,7 +94,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       QPair<QgsMapLayer *, QgsFeature> item( layer, result.feature );
       if ( !mFeatures.contains( item ) )
       {
-        mFeatures.append( item );
+        newFeatures.append( item );
         connect( layer, &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
         connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
         connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
@@ -138,7 +138,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
       if ( !mFeatures.contains( item ) )
       {
-        mFeatures.append( item );
+        newFeatures.append( item );
       }
     }
     else if ( QgsVectorTileLayer *layer = qobject_cast<QgsVectorTileLayer *>( result.layer ) )
@@ -166,11 +166,20 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       QPair<QgsMapLayer *, QgsFeature> item( representationalLayer, result.feature );
       if ( !mFeatures.contains( item ) )
       {
-        mFeatures.append( item );
+        newFeatures.append( item );
       }
     }
   }
-  endInsertRows();
+
+  if ( !newFeatures.isEmpty() )
+  {
+    beginInsertRows( QModelIndex(), static_cast<int>( mFeatures.count() ), static_cast<int>( mFeatures.count() + newFeatures.count() ) - 1 );
+    for ( const QPair<QgsMapLayer *, QgsFeature> &newFeature : newFeatures )
+    {
+      mFeatures.append( newFeature );
+    }
+    endInsertRows();
+  }
 
   if ( !mSelectedFeatures.isEmpty() )
   {
