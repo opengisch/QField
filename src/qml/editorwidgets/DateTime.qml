@@ -120,13 +120,20 @@ EditorWidgetBase {
           if (value !== undefined && value != '') {
             usedDate = value;
           }
-          if (!(usedDate instanceof Date)) {
+
+          if (usedDate instanceof Date) {
+            // Deal with invalid (i.e. null) QDateTime
+            if (isNaN(usedDate.getTime())) {
+              usedDate = new Date();
+            }
+          } else {
             let dateFormat = config['field_format'] !== undefined ? config['field_format'] : 'yyyy-MM-dd';
             if (!!config['field_format_overwrite']) {
               dateFormat = !!config['field_iso_format'] ? 'yyyy-MM-dd HH:mm:ss+t' : config['field_format'];
             }
             usedDate = Date.fromLocaleString(Qt.locale(), value, dateFormat);
           }
+
           todayButton.forceActiveFocus();
           calendarPanel.selectedDate = usedDate;
           calendarPanel.open();
