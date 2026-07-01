@@ -115,6 +115,21 @@ TestCase {
     compare(after, before);
   }
 
+  function test_confirmWithRingOutsideFeatureToasts() {
+    initFillRing();
+    const before = testLayer.getFeature(1).geometry.asWkt();
+    const tb = toolbar();
+
+    addToolVertex(tb, 20, 20);
+    addToolVertex(tb, 30, 20);
+    addToolVertex(tb, 20, 30);
+    tb.confirm();
+
+    compare(lastToastType, "error");
+    const after = testLayer.getFeature(1).geometry.asWkt();
+    compare(after, before);
+  }
+
   function test_cancelResetsRubberband() {
     initFillRing();
     const tb = toolbar();
