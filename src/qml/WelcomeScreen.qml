@@ -568,16 +568,22 @@ Page {
                 property string path: ProjectPath
                 property var type: ProjectType
                 property int changesCount: {
-                  const project = cloudProjectsModel.findProject(QFieldCloudUtils.getProjectId(ProjectPath));
-                  if (project) {
-                    return project.deltasCount;
+                  const cloudProjectId = QFieldCloudUtils.getProjectId(ProjectPath);
+                  if (cloudProjectId !== "") {
+                    const project = cloudProjectsModel.findProject(cloudProjectId);
+                    if (project) {
+                      return project.deltasCount;
+                    }
                   }
                   return 0;
                 }
                 property bool isOutdated: {
-                  const project = cloudProjectsModel.findProject(QFieldCloudUtils.getProjectId(ProjectPath));
-                  if (project) {
-                    return project.isOutdated;
+                  const cloudProjectId = QFieldCloudUtils.getProjectId(ProjectPath);
+                  if (cloudProjectId !== "") {
+                    const project = cloudProjectsModel.findProject(cloudProjectId);
+                    if (project) {
+                      return project.isOutdated;
+                    }
                   }
                   return 0;
                 }
