@@ -13,6 +13,9 @@ GeometryEditorBase {
 
   readonly property bool blocking: drawPolygonToolbar.isDigitizing
 
+  property alias addPolygonDialog: addPolygonDialog
+  property alias formPopupLoader: formPopupLoader
+
   spacing: 4
 
   function canvasClicked(point, type) {
@@ -33,6 +36,7 @@ GeometryEditorBase {
 
   DigitizingToolbar {
     id: drawPolygonToolbar
+    objectName: "fillRingDigitizingToolbar"
     showConfirmButton: true
     screenHovering: fillRingToolbar.screenHovering
 
