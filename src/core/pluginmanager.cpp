@@ -86,7 +86,7 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   QFileInfo pluginFileInfo( pluginPath );
   const QString languageCode = QLocale().name();
   QTranslator *languageTranslator = new QTranslator();
-  if ( languageTranslator->load( QStringLiteral( "%1%2%3" ).arg( pluginFileInfo.fileName().chopped( 4 ), pluginFileInfo.fileName() == QStringLiteral( "main.qml" ) ? "" : QStringLiteral( "-plugin_" ), languageCode ), pluginFileInfo.absolutePath(), "_" ) )
+  if ( languageTranslator->load( QStringLiteral( "%1%2%3" ).arg( pluginFileInfo.fileName().chopped( 4 ), pluginFileInfo.fileName() == QStringLiteral( "main.qml" ) ? QStringLiteral( "_" ) : QStringLiteral( "-plugin_" ), languageCode ), pluginFileInfo.absolutePath(), "_" ) )
   {
     QCoreApplication::installTranslator( languageTranslator );
     mLoadedPluginTranslators.insert( pluginPath, languageTranslator );
