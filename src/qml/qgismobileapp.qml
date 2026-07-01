@@ -5131,7 +5131,7 @@ ApplicationWindow {
           // Go ahead and upload pending attachments in the background
           platformUtilities.uploadPendingAttachments(cloudConnection);
         }
-        var cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
+        const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
         if (cloudProjectId) {
           projectInfo.cloudUserInformation = userInformation;
           // Refresh cloud project details
