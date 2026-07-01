@@ -105,9 +105,6 @@ class BookmarkModel : public QSortFilterProxyModel
     //! Returns TRUE if the source row is a user/global bookmark, FALSE if it is a project bookmark.
     bool isUserBookmark( int sourceRow ) const;
 
-    //! Emits dataChanged for the BookmarkSelected role across all listed rows.
-    void emitSelectionChanged();
-
     //! Returns the sort rank for a bookmark group/color ("" first, then orange, red, blue).
     int groupRank( const QString &group ) const;
 

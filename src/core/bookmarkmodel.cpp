@@ -214,8 +214,8 @@ void BookmarkModel::setHideProjectBookmarks( bool hideProjectBookmarks )
   if ( mHideProjectBookmarks == hideProjectBookmarks )
     return;
 
-  mHideProjectBookmarks = hideProjectBookmarks;
   beginFilterChange();
+  mHideProjectBookmarks = hideProjectBookmarks;
   endFilterChange();
 
   emit hideProjectBookmarksChanged();
@@ -245,11 +245,19 @@ void BookmarkModel::toggleSelected( const QString &id )
     return;
 
   if ( mSelectedIds.contains( id ) )
+  {
     mSelectedIds.remove( id );
+  }
   else
+  {
     mSelectedIds.insert( id );
+  }
 
-  emitSelectionChanged();
+  const int count = rowCount();
+  if ( count > 0 )
+  {
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
+  }
   emit selectedCountChanged();
 }
 
@@ -259,7 +267,12 @@ void BookmarkModel::clearSelection()
     return;
 
   mSelectedIds.clear();
-  emitSelectionChanged();
+
+  const int count = rowCount();
+  if ( count > 0 )
+  {
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
+  }
   emit selectedCountChanged();
 }
 
@@ -282,13 +295,6 @@ int BookmarkModel::deleteSelected()
   emit selectedCountChanged();
 
   return deleted;
-}
-
-void BookmarkModel::emitSelectionChanged()
-{
-  const int count = rowCount();
-  if ( count > 0 )
-    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
 }
 
 int BookmarkModel::groupRank( const QString &group ) const
