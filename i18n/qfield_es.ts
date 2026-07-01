@@ -1976,7 +1976,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <name>NtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Respuesta inesperada del emisor NTRIP</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
@@ -2540,7 +2540,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Reenviar la posición al emisor NTRIP</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
@@ -2559,7 +2559,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Retroalimentación de proximidad de audio</translation>
     </message>
     <message>
         <source>Rotate view</source>
@@ -3017,7 +3017,8 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1URL del servidor
+(Déjalo en blanco para utilizar el servidor predeterminado)</translation>
     </message>
 </context>
 <context>
@@ -3040,11 +3041,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Algunas capas no se han empaquetado correctamente. Es posible que estas capas estén mal configuradas o que no se pueda acceder a su fuente de datos desde el servidor de QFieldCloud.</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Consulta los comentarios detallados que figuran a continuación y los últimos registros de tareas de empaquetado en la página web de QFieldCloud.</translation>
     </message>
 </context>
 <context>
@@ -3301,11 +3302,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede empaquetar el proyecto %1 porque el espacio de almacenamiento disponible está lleno.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto %1 no se puede empaquetar porque el espacio de almacenamiento disponible del propietario del proyecto está lleno.</translation>
     </message>
 </context>
 <context>
@@ -3516,19 +3517,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>Los proyectos de %1</translation>
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Mis propios proyectos</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>El título o la descripción contiene</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>El propietario es</translation>
     </message>
 </context>
 <context>
@@ -3838,59 +3839,59 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Actualizando la lista de proyectos...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Buscando proyectos...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>No se han encontrado proyectos en la nube.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Para empezar, %1lee la documentación%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Intenta %1incluir proyectos públicos%2 y descubre lo que la comunidad tiene que ofrecer.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"/>
+        <translation>Intenta %1incluir proyectos públicos%2.</translation>
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Buscar proyectos</translation>
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Clonar proyecto</translation>
     </message>
     <message>
         <source>Project Cloning</source>
-        <translation type="unfinished"/>
+        <translation>Proyecto clonado</translation>
     </message>
     <message>
         <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
+        <translation>¿Qué nombre quieres darle a tu proyecto clonado?</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error al clonar el proyecto: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error al crear el proyecto: %1</translation>
     </message>
     <message>
         <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto se ha clonado con éxito</translation>
     </message>
     <message>
         <source>Project successfully created</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto se ha creado correctamente</translation>
     </message>
 </context>
 <context>
@@ -3939,11 +3940,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El espacio de almacenamiento disponible del propietario del proyecto está lleno.</translation>
     </message>
     <message>
         <source>The project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>El plan de suscripción del responsable del proyecto es insuficiente.</translation>
     </message>
 </context>
 <context>
@@ -4105,7 +4106,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Compress project and send to...</source>
-        <translation type="unfinished"/>
+        <translation>Comprimir el proyecto y enviarlo a...</translation>
     </message>
     <message>
         <source>Upload project to WebDAV</source>
@@ -4818,67 +4819,67 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo de posicionamiento</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Activar correcciones NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>El cliente NTRIP se ha desconectado</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>Conexión del cliente NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>Cliente NTRIP conectado</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Introduce unos parámetros NTRIP válidos</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste de la altura</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Marca de tiempo (segundos desde la época)</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Umbral de precisión inadecuado</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Excelente umbral de precisión</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Recuento de posiciones mínimas</translation>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Altura de la antena</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Configuraciones de autenticación disponibles:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Borrar la caché de autenticación</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>Se ha vaciado la caché de autenticación</translation>
     </message>
 </context>
 <context>
@@ -5828,23 +5829,23 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Marca de tiempo (segundos desde la época)</translation>
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Tiempo mínimo</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>seg</translation>
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Distancia mínima</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
-        <translation type="unfinished"/>
+        <translation>Distancia máxima tolerada</translation>
     </message>
 </context>
 <context>
@@ -7346,39 +7347,39 @@ para mostrar las acciones</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestor de complementos</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Se ha cargado el complemento del proyecto</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede empaquetar el proyecto %1 porque el espacio de almacenamiento disponible está lleno.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto %1 no se puede empaquetar porque el espacio de almacenamiento disponible del propietario del proyecto está lleno.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede descargar el proyecto %1 porque tu plan de suscripción no es suficiente.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Actualizar plan</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede descargar el proyecto %1 porque el plan de suscripción del propietario del proyecto no es suficiente.</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar correcciones NTRIP</translation>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Mantén pulsado el marcador de destino para mostrar las acciones</translation>
     </message>
     <message>
         <source>meters</source>
