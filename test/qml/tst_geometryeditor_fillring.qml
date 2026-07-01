@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Window
 import QtTest
 import org.qfield
 import org.qgis
@@ -126,9 +127,22 @@ TestCase {
     compare(rubberband.vertexCount, 1);
   }
 
+  function test_fillRingCreatesNewFeature() {
+    initFillRing();
+    const tb = toolbar();
+    addToolVertex(tb, 2, 2);
+    addToolVertex(tb, 8, 2);
+    addToolVertex(tb, 2, 8);
+    tb.confirm();
+    fillRingTool.addPolygonDialog.accept();
+    fillRingTool.formPopupLoader.confirmForm();
+    compare(testLayer.getFeature(1).geometry.asWkt(2), "Polygon ((0 0, 10 0, 10 10, 0 10, 0 0),(2 2, 2 8, 2 8, 8 2, 2 2))");
+    compare(testLayer.getFeature(2).geometry.asWkt(2), "Polygon ((2 2, 8 2, 2 8, 2 8, 2 2))");
+  }
+
   Item {
     id: mainWindow
-    property var contentItem: mainWindow
+    property var contentItem: Window.window ? Window.window.contentItem : null
     width: 800
     height: 600
     property int sceneTopMargin: 0
