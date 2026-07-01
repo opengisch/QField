@@ -3807,10 +3807,6 @@ ApplicationWindow {
       onTriggered: {
         mainMenu.close();
         dashBoard.close();
-        if (featureListForm.visible) {
-          featureListForm.hide();
-        }
-        bookmarkModel.hideProjectBookmarks = false;
         bookmarkList.show();
         highlighted = false;
       }
@@ -4661,6 +4657,12 @@ ApplicationWindow {
     anchors {
       right: parent.right
       bottom: parent.bottom
+    }
+
+    onVisibleChanged: {
+      if (visible && featureListForm.visible) {
+        featureListForm.hide();
+      }
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
