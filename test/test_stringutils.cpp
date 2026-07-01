@@ -36,5 +36,9 @@ TEST_CASE( "StringUtils" )
     REQUIRE( StringUtils::highlightText( "QField roxx", "doxx", QColor( Qt::black ) ) == "QField roxx" );
     REQUIRE( StringUtils::highlightText( "QField <roxx>", "rox", QColor( Qt::black ) ) == "QField &lt;<span style=\"text-decoration:underline;color:#000000\">rox</span>x&gt;" );
     REQUIRE( StringUtils::highlightText( "QField rox - rox", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span> - <span style=\"text-decoration:underline;color:#000000\">rox</span>" );
+
+    REQUIRE( StringUtils::highlightText( "Béziers", "bez", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Béz</span>iers" );
+    REQUIRE( StringUtils::highlightText( "Crème brûlée", "creme", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Crème</span> brûlée" );
+    REQUIRE( StringUtils::highlightText( "beziers", "béz", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">bez</span>iers" );
   }
 }
