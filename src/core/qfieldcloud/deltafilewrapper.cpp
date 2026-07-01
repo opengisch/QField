@@ -69,9 +69,9 @@ DeltaFileWrapper::DeltaFileWrapper( const QString &projectId, const QString &fil
 
   if ( mErrorType == DeltaFileWrapper::ErrorType::NoError && QFileInfo::exists( mFileName ) )
   {
-    QJsonParseError jsonError;
+    qInfo() << QStringLiteral( "Loading deltas from file at %1" ).arg( mFileName );
 
-    QgsLogger::debug( QStringLiteral( "Loading deltas from %1" ).arg( mFileName ) );
+    QJsonParseError jsonError;
 
     if ( !deltaFile.open( QIODevice::ReadWrite ) )
     {
@@ -141,6 +141,8 @@ DeltaFileWrapper::DeltaFileWrapper( const QString &projectId, const QString &fil
   }
   else if ( mErrorType == DeltaFileWrapper::ErrorType::NoError )
   {
+    qInfo() << QStringLiteral( "Creating deltas file at %1" ).arg( mFileName );
+
     mJsonRoot = QJsonObject( { { "version", DeltaFormatVersion },
                                { "id", QUuid::createUuid().toString( QUuid::WithoutBraces ) },
                                { "project", mCloudProjectId },
