@@ -42,4 +42,7 @@ nav:
   - QML Items: QField/group__qml.md
 
 markdown_extensions:
+  - admonition
   - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
