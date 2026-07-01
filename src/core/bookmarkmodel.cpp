@@ -283,8 +283,7 @@ int BookmarkModel::deleteSelected()
     return 0;
   }
 
-  const QStringList ids( mSelectedIds.constBegin(), mSelectedIds.constEnd() );
-  const int deleted = static_cast<int>( std::count_if( ids.constBegin(), ids.constEnd(), [this]( const QString &id ) {
+  const int deleted = static_cast<int>( std::count_if( mSelectedIds.constBegin(), mSelectedIds.constEnd(), [this]( const QString &id ) {
     return mManager->removeBookmark( id );
   } ) );
 
