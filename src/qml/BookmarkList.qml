@@ -22,6 +22,16 @@ QfPaneDrawer {
 
   onCollapsed: bookmarkList.hide()
 
+  states: [
+    State {
+      name: "Hidden"
+    },
+    State {
+      name: "Visible"
+    }
+  ]
+  state: "Hidden"
+
   QtObject {
     id: props
 
@@ -410,6 +420,7 @@ QfPaneDrawer {
   function show() {
     props.isVisible = true;
     focus = true;
+    state = "Visible";
   }
 
   function setMultiSelection(active) {
@@ -427,5 +438,6 @@ QfPaneDrawer {
     if (bookmarkList.model) {
       bookmarkList.model.clearSelection();
     }
+    state = "Hidden";
   }
 }

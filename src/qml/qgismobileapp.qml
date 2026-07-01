@@ -4659,8 +4659,8 @@ ApplicationWindow {
       bottom: parent.bottom
     }
 
-    onVisibleChanged: {
-      if (visible && featureListForm.visible) {
+    onStateChanged: {
+      if (state !== "Hidden" && featureListForm.visible) {
         featureListForm.hide();
       }
     }
