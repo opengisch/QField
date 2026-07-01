@@ -260,15 +260,19 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
     return GeometryUtils::GeometryOperationResult::AddRingNotValid;
   }
 
-  //Try to fix invalid geometries, useful when being passed on a freehand digitized ring
+  // Try to fix invalid geometries, useful when being passed on a freehand digitized ring
   QgsGeometry geometry( new QgsLineString( ring ) );
   if ( !geometry.isNull() )
   {
     geometry = geometry.makeValid();
-    if ( !geometry.isNull() )
+    const QgsLineString *line = qgsgeometry_cast<const QgsLineString *>( geometry.constGet() );
+    if ( !line || line->isEmpty() )
     {
-      static_cast<QgsLineString *>( geometry.get() )->points( ring );
+      return GeometryUtils::GeometryOperationResult::AddRingNotValid;
     }
+
+    // Reset the ring to match the valid geometry
+    line->points( ring );
   }
 
   const bool wasEditing = ( layer->editBuffer() );
