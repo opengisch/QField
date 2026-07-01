@@ -335,6 +335,11 @@ TestCase {
         compare(label.text, results[resultIdx++]);
       }
     }
+
+    // Simulate an empty QDateTime() value and insure we get a valid date to be used with the calendar popup in return
+    const invalidDatetimeValue = new Date("-");
+    const date = dateTime.convertValueToDate(invalidDatetimeValue);
+    verify(!isNaN(date.getTime()));
   }
 
   /**
