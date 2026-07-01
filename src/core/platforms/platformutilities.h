@@ -56,6 +56,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       Vibrate = 1 << 9,                   //!< Haptic feedback / vibration support
       UpdateProjectFromArchive = 1 << 10, //!< Update local project from a ZIP archive support
       PositioningService = 1 << 11,       //!< Positioning service support
+      FileImport = 1 << 12,               //!< Importing files shared with the app from other applications
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
@@ -146,6 +147,8 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     Q_INVOKABLE virtual void importProjectArchive() const;
     //! Requests and imports one or more datasets into QField's application directory action
     Q_INVOKABLE virtual void importDatasets() const;
+    //! Imports a file shared with QField by the operating system into its application directory and opens it
+    Q_INVOKABLE virtual void importFile( const QString &path ) const;
 
     /**
      * Update a local project content from a user-picked archive file action

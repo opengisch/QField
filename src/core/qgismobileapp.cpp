@@ -237,6 +237,10 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
+  if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::FileImport )
+  {
+    QDesktopServices::setUrlHandler( QStringLiteral( "file" ), mUrlHandler.get(), "handleUrl" );
+  }
 
   mMessageLogModel = new MessageLogModel( this );
 

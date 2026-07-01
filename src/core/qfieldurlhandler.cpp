@@ -16,7 +16,10 @@
  ***************************************************************************/
 
 #include "appinterface.h"
+#include "platformutilities.h"
 #include "qfieldurlhandler.h"
+
+#include <QTimer>
 
 QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
   : QObject( parent ), mIface( iface )
@@ -25,6 +28,15 @@ QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
 
 void QFieldUrlHandler::handleUrl( const QUrl &url )
 {
+  if ( url.isLocalFile() )
+  {
+    // Import on the next event loop cycle so the potentially heavy work (e.g.
+    // unzipping an archive) does not block the incoming-URL handling
+    const QString path = url.toLocalFile();
+    QTimer::singleShot( 0, [path]() { PlatformUtilities::instance()->importFile( path ); } );
+    return;
+  }
+
   if ( mIface )
   {
     mIface->executeAction( url.toString() );
