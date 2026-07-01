@@ -2318,7 +2318,13 @@ void QFieldCloudProject::restoreLocalSettings( QFieldCloudProject *project, cons
 void QFieldCloudProject::setupDeltaFileWrapper()
 {
   const QDir localPath( QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), mUsername, mId ) );
-  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() ) ) );
+  const QString deltaFilePath = QStringLiteral( "%1/deltafile.json" ).arg( localPath.absolutePath() );
+
+  mDeltaFileWrapper.reset( new DeltaFileWrapper( mId, deltaFilePath ) );
+  if ( mDeltaFileWrapper->hasError() )
+  {
+    qInfo() << QStringLiteral( "Error setting up the delta file wrapper: %1" ).arg( mDeltaFileWrapper->errorString() );
+  }
 
   connect( mDeltaFileWrapper.get(), &DeltaFileWrapper::countChanged, this, [this]() {
     refreshModification();
