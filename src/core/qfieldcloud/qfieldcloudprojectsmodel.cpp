@@ -682,11 +682,9 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
 void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *> &projects )
 {
   int currentCount = static_cast<int>( mProjects.size() );
-  int newProjectsCount = 0;
+  QList<QFieldCloudProject *> newProjects;
   for ( QFieldCloudProject *project : projects )
   {
-    setupProjectConnections( project );
-
     bool found = false;
     for ( int i = 0; i < mProjects.count(); ++i )
     {
@@ -721,13 +719,20 @@ void QFieldCloudProjectsModel::insertProjects( const QList<QFieldCloudProject *>
     }
     if ( !found )
     {
-      newProjectsCount++;
-      mProjects.append( project );
+      newProjects.append( project );
     }
   }
 
-  beginInsertRows( QModelIndex(), currentCount, currentCount + newProjectsCount - 1 );
-  endInsertRows();
+  if ( !newProjects.isEmpty() )
+  {
+    beginInsertRows( QModelIndex(), currentCount, currentCount + newProjects.size() - 1 );
+    for ( QFieldCloudProject *newProject : newProjects ) // cppcheck-suppress constVariablePointer
+    {
+      mProjects.append( newProject );
+      setupProjectConnections( newProject );
+    }
+    endInsertRows();
+  }
 }
 
 void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *project )
