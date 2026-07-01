@@ -13,6 +13,7 @@ QfMeterBar 1.0 QfMeterBar.qml
 QfOpacityMask 1.0 QfOpacityMask.qml
 QfOverlayContainer 1.0 QfOverlayContainer.qml
 QfPageHeader 1.0 QfPageHeader.qml
+QfPaneDrawer 1.0 QfPaneDrawer.qml
 QfPopup 1.0 QfPopup.qml
 QfProgressRing 1.0 QfProgressRing.qml
 QfProjectThumbnail 1.0 QfProjectThumbnail.qml

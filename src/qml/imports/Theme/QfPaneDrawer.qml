@@ -1,0 +1,149 @@
+import QtQuick
+import QtQuick.Controls
+
+/**
+ * \ingroup qml
+ */
+Pane {
+  id: paneDrawer
+
+  property bool isVertical: parent.width < parent.height || parent.width < 300
+  property bool fullScreenView: false
+  property bool isDragging: false
+  property real dragHeightAdjustment: 0
+  property real dragWidthAdjustment: 0
+  property real lastWidth
+  property real lastHeight
+
+  // When TRUE the pane is laid out at its resting size, when FALSE it collapses to zero
+  property bool contentVisible: false
+  // Content driven minimum height the pane snaps to at rest, clamped to half the available height
+  property real minContentHeight: 0
+  // When TRUE the resting height ignores a minContentHeight and uses the default minimum
+  property bool useDefaultMinHeight: false
+  // Height of the header, used to compute the collapse threshold
+  property real headerHeight: 0
+  // Key passed to mapCanvasMap freeze/unfreeze so concurrent panes does not clear each other
+  property string freezeKey
+  // Emitted when a drag releases below the minimum size without entering fullscreen
+  signal collapsed
+
+  width: {
+    if (contentVisible) {
+      if (dragWidthAdjustment != 0) {
+        return lastWidth - dragWidthAdjustment;
+      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
+        lastWidth = parent.width;
+        return parent.width;
+      } else {
+        const newWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
+        lastWidth = newWidth;
+        return newWidth;
+      }
+    } else {
+      lastWidth = 0;
+      return 0;
+    }
+  }
+
+  height: {
+    if (contentVisible) {
+      if (dragHeightAdjustment != 0) {
+        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
+        lastHeight = parent.height;
+        return parent.height;
+      } else {
+        const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
+        const newHeight = useDefaultMinHeight ? defaultMin : Math.min(minContentHeight, defaultMin);
+        lastHeight = newHeight;
+        return newHeight;
+      }
+    } else {
+      lastHeight = 0;
+      return 0;
+    }
+  }
+
+  topPadding: 0
+  leftPadding: 0
+  rightPadding: 0
+  bottomPadding: 0
+
+  visible: contentVisible
+  clip: true
+
+  WheelHandler {
+    acceptedDevices: PointerDevice.AllDevices
+    onWheel: {}
+  }
+
+  function statusIndicatorDragged(deltaX, deltaY) {
+    fullScreenView = false;
+    if (isVertical) {
+      dragHeightAdjustment += deltaY;
+    } else {
+      dragWidthAdjustment += deltaX;
+    }
+  }
+
+  function statusIndicatorDragReleased() {
+    isDragging = false;
+    if (isVertical) {
+      const minHeight = headerHeight + 48 + 30;
+      if (paneDrawer.height < minHeight) {
+        if (fullScreenView) {
+          fullScreenView = false;
+        } else {
+          paneDrawer.collapsed();
+        }
+      } else if (dragHeightAdjustment < -parent.height * 0.2) {
+        fullScreenView = true;
+      }
+    } else {
+      if (paneDrawer.width < paneDrawer.parent.width * 0.3) {
+        if (fullScreenView) {
+          fullScreenView = false;
+        } else {
+          paneDrawer.collapsed();
+        }
+      } else if (dragWidthAdjustment < -parent.width * 0.2) {
+        fullScreenView = true;
+      }
+    }
+    dragHeightAdjustment = 0;
+    dragWidthAdjustment = 0;
+  }
+
+  Behavior on width {
+    enabled: !isDragging
+    PropertyAnimation {
+      duration: paneDrawer.parent.width > paneDrawer.parent.height ? 250 : 0
+      easing.type: Easing.OutQuart
+
+      onRunningChanged: {
+        if (running) {
+          mapCanvasMap.freeze(paneDrawer.freezeKey);
+        } else {
+          mapCanvasMap.unfreeze(paneDrawer.freezeKey);
+        }
+      }
+    }
+  }
+
+  Behavior on height {
+    enabled: !isDragging
+    PropertyAnimation {
+      duration: paneDrawer.parent.width < paneDrawer.parent.height ? 250 : 0
+      easing.type: Easing.OutQuart
+
+      onRunningChanged: {
+        if (running) {
+          mapCanvasMap.freeze(paneDrawer.freezeKey);
+        } else {
+          mapCanvasMap.unfreeze(paneDrawer.freezeKey);
+        }
+      }
+    }
+  }
+}

@@ -10,68 +10,27 @@ import Theme
 /**
  * \ingroup qml
  */
-Pane {
+QfPaneDrawer {
   id: bookmarkList
   property alias model: bookmarksList.model
   property bool multiSelection: false
-  property bool fullScreenView: false
-  property bool isVertical: parent.width < parent.height || parent.width < 300
-  property bool isDragging: false
-  property real dragHeightAdjustment: 0
-  property real dragWidthAdjustment: 0
-  property real lastWidth
 
-  width: {
-    if (props.isVisible) {
-      if (dragWidthAdjustment != 0) {
-        return lastWidth - dragWidthAdjustment;
-      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
-        lastWidth = parent.width;
-        return parent.width;
-      } else {
-        const newWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
-        lastWidth = newWidth;
-        return newWidth;
-      }
-    } else {
-      lastWidth = 0;
-      return 0;
+  contentVisible: props.isVisible
+  freezeKey: 'bookmarkresize'
+  headerHeight: bookmarkListToolBar.height
+  minContentHeight: bookmarkListToolBar.height + (bookmarksList.contentHeight + bookmarksList.anchors.bottomMargin) + 25
+
+  onCollapsed: bookmarkList.hide()
+
+  states: [
+    State {
+      name: "Hidden"
+    },
+    State {
+      name: "Visible"
     }
-  }
-  property real lastHeight
-
-  height: {
-    if (props.isVisible) {
-      if (dragHeightAdjustment != 0) {
-        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
-      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
-        lastHeight = parent.height;
-        return parent.height;
-      } else {
-        const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
-        const minContentHeight = bookmarkListToolBar.height + (bookmarksList.contentHeight + bookmarksList.anchors.bottomMargin) + 25;
-        const newHeight = Math.min(minContentHeight, defaultMin);
-        lastHeight = newHeight;
-        return newHeight;
-      }
-    } else {
-      lastHeight = 0;
-      return 0;
-    }
-  }
-
-  topPadding: 0
-  leftPadding: 0
-  rightPadding: 0
-  bottomPadding: 0
-
-  visible: props.isVisible
-  clip: true
-
-  WheelHandler {
-    acceptedDevices: PointerDevice.AllDevices
-    onWheel: {}
-  }
+  ]
+  state: "Hidden"
 
   QtObject {
     id: props
@@ -443,50 +402,6 @@ Pane {
     }
   }
 
-  function setMultiSelection(active) {
-    multiSelection = active;
-    if (model) {
-      model.hideProjectBookmarks = active;
-    }
-  }
-
-  function statusIndicatorDragged(deltaX, deltaY) {
-    fullScreenView = false;
-    if (isVertical) {
-      dragHeightAdjustment += deltaY;
-    } else {
-      dragWidthAdjustment += deltaX;
-    }
-  }
-
-  function statusIndicatorDragReleased() {
-    isDragging = false;
-    if (isVertical) {
-      const minContentHeight = bookmarkListToolBar.height + 48 + 30;
-      if (bookmarkList.height < minContentHeight) {
-        if (fullScreenView) {
-          fullScreenView = false;
-        } else {
-          bookmarkList.hide();
-        }
-      } else if (dragHeightAdjustment < -parent.height * 0.2) {
-        fullScreenView = true;
-      }
-    } else {
-      if (bookmarkList.width < bookmarkList.parent.width * 0.3) {
-        if (fullScreenView) {
-          fullScreenView = false;
-        } else {
-          bookmarkList.hide();
-        }
-      } else if (dragWidthAdjustment < -parent.width * 0.2) {
-        fullScreenView = true;
-      }
-    }
-    dragHeightAdjustment = 0;
-    dragWidthAdjustment = 0;
-  }
-
   Keys.onReleased: event => {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       if (Overlay.overlay && Overlay.overlay.visibleChildren.length > 1 || (Overlay.overlay.visibleChildren.length === 1 && !toast.visible)) {
@@ -502,39 +417,17 @@ Pane {
     }
   }
 
-  Behavior on width {
-    enabled: !isDragging
-    PropertyAnimation {
-      duration: parent.width > parent.height ? 250 : 0
-      easing.type: Easing.OutQuart
-
-      onRunningChanged: {
-        if (running)
-          mapCanvasMap.freeze('bookmarkresize');
-        else
-          mapCanvasMap.unfreeze('bookmarkresize');
-      }
-    }
-  }
-
-  Behavior on height {
-    enabled: !isDragging
-    PropertyAnimation {
-      duration: parent.width < parent.height ? 250 : 0
-      easing.type: Easing.OutQuart
-
-      onRunningChanged: {
-        if (running)
-          mapCanvasMap.freeze('bookmarkresize');
-        else
-          mapCanvasMap.unfreeze('bookmarkresize');
-      }
-    }
-  }
-
   function show() {
     props.isVisible = true;
     focus = true;
+    state = "Visible";
+  }
+
+  function setMultiSelection(active) {
+    multiSelection = active;
+    if (model) {
+      model.hideProjectBookmarks = active;
+    }
   }
 
   function hide() {
@@ -545,5 +438,6 @@ Pane {
     if (bookmarkList.model) {
       bookmarkList.model.clearSelection();
     }
+    state = "Hidden";
   }
 }
