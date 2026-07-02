@@ -40,6 +40,75 @@ TEST_CASE( "FeatureListModel validation checks" )
   REQUIRE( featureListModel.findDisplayValueMatches( QStringLiteral( "t" ) ).isEmpty() );
 }
 
+TEST_CASE( "FeatureListModel accent-insensitive search" )
+{
+  if ( !QCoreApplication::instance() )
+  {
+    static int applicationArgumentCount = 1;
+    static char applicationArgumentZero[] = "qfield-tests";
+    static char *applicationArgumentValues[] = { applicationArgumentZero, nullptr };
+    static QCoreApplication coreApplication( applicationArgumentCount, applicationArgumentValues );
+    Q_UNUSED( coreApplication );
+  }
+
+  static const int maximumWaitTimeMilliseconds = 5000;
+
+  std::unique_ptr<QgsVectorLayer> vectorLayerDummy(
+    new QgsVectorLayer(
+      "Point?crs=epsg:4326&field=key:integer&field=name:string",
+      "test",
+      "memory" ) );
+
+  REQUIRE( vectorLayerDummy->isValid() );
+
+  QgsFeature accentedFeature( vectorLayerDummy->fields() );
+  accentedFeature.setAttribute( "key", 1 );
+  accentedFeature.setAttribute( "name", QString::fromUtf8( "Béziers" ) );
+  accentedFeature.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 0, 0 ) ) );
+
+  QgsFeature otherFeature( vectorLayerDummy->fields() );
+  otherFeature.setAttribute( "key", 2 );
+  otherFeature.setAttribute( "name", QStringLiteral( "Bricks" ) );
+  otherFeature.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 1, 1 ) ) );
+
+  vectorLayerDummy->startEditing();
+  vectorLayerDummy->addFeature( accentedFeature );
+  vectorLayerDummy->addFeature( otherFeature );
+  vectorLayerDummy->commitChanges();
+
+  FeatureListModel featureListModel;
+  featureListModel.setKeyField( QStringLiteral( "key" ) );
+  featureListModel.setDisplayValueField( QStringLiteral( "name" ) );
+  featureListModel.setCurrentLayer( vectorLayerDummy.get() );
+
+  // Wait for initial population (timer and gatherer thread)
+  {
+    QElapsedTimer waitForPopulationTimer;
+    waitForPopulationTimer.start();
+    while ( featureListModel.rowCount() != 2 && waitForPopulationTimer.elapsed() < maximumWaitTimeMilliseconds )
+    {
+      QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+    }
+    REQUIRE( featureListModel.rowCount() == 2 );
+  }
+
+  // Searching without the accent still matches the accented value ("bez" -> "Béziers")
+  {
+    featureListModel.setSearchTerm( QStringLiteral( "bez" ) );
+
+    QElapsedTimer waitForSearchTimer;
+    waitForSearchTimer.start();
+    while ( featureListModel.rowCount() != 1 && waitForSearchTimer.elapsed() < maximumWaitTimeMilliseconds )
+    {
+      QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+    }
+
+    REQUIRE( featureListModel.rowCount() == 1 );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString() == QString::fromUtf8( "Béziers" ) );
+    REQUIRE( featureListModel.findKey( QVariant( 1 ) ) >= 0 );
+  }
+}
+
 TEST_CASE( "FeatureListModel behaviours" )
 {
   if ( !QCoreApplication::instance() )

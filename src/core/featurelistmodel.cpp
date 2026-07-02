@@ -22,6 +22,7 @@
 #include <QRegularExpression>
 #include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
+#include <qgsstringutils.h>
 #include <qgsvaluerelationfieldformatter.h>
 
 
@@ -358,15 +359,15 @@ void FeatureListModel::gatherFeatureList()
   QString searchTermExpression;
   if ( !mSearchTerm.isEmpty() )
   {
-    QString escapedSearchTerm = QgsExpression::quotedValue( mSearchTerm ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
-    searchTermExpression = QStringLiteral( " %1 ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
+    QString escapedSearchTerm = QgsExpression::quotedValue( QgsStringUtils::unaccent( mSearchTerm ) ).replace( QRegularExpression( QStringLiteral( "^'|'$" ) ), QString( "" ) );
+    searchTermExpression = QStringLiteral( " unaccent( %1 ) ILIKE '%%2%' " ).arg( fieldDisplayString, escapedSearchTerm );
 
     QStringList searchTermParts = escapedSearchTerm.split( QRegularExpression( QStringLiteral( "\\s+" ) ), Qt::SkipEmptyParts );
     if ( !searchTermParts.isEmpty() )
     {
       for ( QString &searchTermPart : searchTermParts )
       {
-        searchTermPart = QStringLiteral( "%1 ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
+        searchTermPart = QStringLiteral( "unaccent( %1 ) ILIKE '%%2%' " ).arg( fieldDisplayString, searchTermPart );
       }
       searchTermExpression += QStringLiteral( "OR (%2) " ).arg( searchTermParts.join( QStringLiteral( " AND " ) ) );
     }
