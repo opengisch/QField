@@ -5,6 +5,7 @@
     <string name="use_internal_storage">Sử dụng bộ lưu trữ trong</string>
     <string name="primary_storage">Bộ nhớ trong</string>
     <string name="secondary_storage">Thư mục tệp QField</string>
+    <string name="secondary_storage_extra">Thư mục tệp bổ sung</string>
     <string name="secondary_storage_read_only">Lưu trữ ngoài (chỉ đọc)</string>
     <string name="loading">Đang tải</string>
     <string name="select_project">Chọn một dự án hoặc bộ dữ liệu QGIS</string>
@@ -27,8 +28,12 @@
     <string name="import_overwrite_confirm">Nạp và ghi đè</string>
     <string name="import_overwrite_cancel">Hủy</string>
     <string name="export_error">Lỗi xuất dữ liệu</string>
+    <string name="delete_confirm_title">Xác nhận gỡ bỏ</string>
+    <string name="delete_confirm">Gỡ bỏ</string>
     <string name="delete_cancel">Hủy</string>
     <string name="storage_information_title">Thông tin lưu trữ</string>
     <string name="storage_information_view">Cho tôi xem tài liệu</string>
     <string name="storage_information_dismiss">Tôi sẽ đọc sau</string>
+    <string name="positioning_title">Định vị</string>
+    <string name="positioning_running">Dịch vụ định vị đang chạy</string>
     </resources>

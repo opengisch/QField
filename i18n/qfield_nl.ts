@@ -23,7 +23,7 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>Mogeijk gemaakt door QField</translation>
     </message>
     <message>
         <source>%1 app directories</source>
@@ -367,6 +367,61 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Unknown error</source>
         <translation type="vanished">Onbekende fout</translation>
+    </message>
+</context>
+<context>
+    <name>BookmarkList</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark List Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle Bookmark Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n selected bookmark(s) really be deleted?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Deleted %n bookmark(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Naamloze bladwijzer</translation>
+    </message>
+    <message>
+        <source>No bookmarks yet</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6327,7 +6382,7 @@ project</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik je deze applicatie voor het eerst? Probeer de voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
     </message>
 </context>
 <context>
@@ -7127,7 +7182,7 @@ project</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Snapping tolerantie is ingesteld op %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
@@ -7381,6 +7436,10 @@ to show actions</source>
     <message>
         <source>meters</source>
         <translation>meters</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

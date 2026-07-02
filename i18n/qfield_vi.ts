@@ -1,186 +1,186 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ja">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="vi">
 <context>
     <name>About</name>
     <message>
         <source>Developed by</source>
-        <translation>デベロッパー</translation>
+        <translation>Được phát triển bởi</translation>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QFieldをサポート</translation>
+        <translation>Hỗ trợ QField</translation>
     </message>
     <message>
         <source>Changelog</source>
-        <translation>変更履歴</translation>
+        <translation>Những thay đổi</translation>
     </message>
     <message>
         <source>Documentation</source>
-        <translation>ドキュメンテーション</translation>
+        <translation>Tài liệu</translation>
     </message>
     <message>
         <source>Links Menu</source>
-        <translation>リンクメニュー</translation>
+        <translation>Menu liên kết</translation>
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>Được cung cấp bởi Qfield</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>Các thư mục của %1</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>Thư mục của %1</translation>
     </message>
 </context>
 <context>
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>接続しています...</translation>
+        <translation>Đang kết nối...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>接続しました</translation>
+        <translation>Đã kết nối thành công</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>接続を解除しました</translation>
+        <translation>Đã ngắt kết nối</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>ソケットの状態 %1</translation>
+        <translation>Trạng thái chờ %1</translation>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation>検索をフィールド &apos;%1&apos; に制限します。</translation>
+        <translation>Giới hạn tìm kiếm trong trường &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Open form</source>
-        <translation>フォームを開く</translation>
+        <translation>Mở biểu mẫu</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>地物を目的地として設定する</translation>
+        <translation>Đặt đối tượng làm đích đến</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>地物にジオメトリがありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation>アクティブレイヤーからの地物</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>アクティブレイヤーから、属性が一致するフィーチャーのリストを返します。マッチングを単一の属性に制限するには、その属性の名前の先頭に &apos;@&apos; を付けます。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>ファイル %1 は存在しません</translation>
+        <translation>Tệp %1 không tồn tại</translation>
     </message>
 </context>
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>%1 と %2 の間での変換はできません</translation>
+        <translation>Không có biến đổi nào khả dụng giữa % 1 và %2</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>このグリッドは 「&lt;i&gt;%1&lt;/i&gt;」パッケージに含まれており、 &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt; からのダウンロードをご利用いただけます。</translation>
+        <translation>Lưới này là một phần của gói &quot;&lt;i&gt;%1&lt;/i&gt;&quot;, có sẵn để tải về từ &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>このグリッドは &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt; からダウンロードをご利用いただけます。</translation>
+        <translation>Lưới này sẵn có để tải về từ &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>投影法</translation>
+        <translation>hệ chiếu</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation>この変換にはグリッドファイル「%1」が必要ですが、これはシステムで使用できません。</translation>
+        <translation>Phép biến đổi này yêu cầu tệp lưới “%1”, nó không có sẵn để sử dụng trên hệ thống này.</translation>
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>このグリッドは 「&lt;i&gt;%1&lt;/i&gt;」パッケージに含まれており、 &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt; からのダウンロードをご利用いただけます。</translation>
+        <translation>Lưới này là một phần của gói &lt;i&gt;%1&lt;/i&gt;, có sẵn để tải về từ &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;現在の座標変換「&lt;i&gt;%1&lt;/i&gt;」の精度は %2 メートルです。推奨される座標変換「&lt;i&gt;%3&lt;/i&gt;」の精度は %4 メートルです。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Chuyển đổi “&lt;i&gt;%1&lt;/i&gt;” có độ chính xác %2 mét, trong khi phép chuyển đổi tham khảo “&lt;i&gt;%3&lt;/i&gt;” có độ chính xác %4 mét.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;現在の座標変換「&lt;i&gt;%1&lt;/i&gt;」の精度は不明確です。推奨される座標変換「&lt;i&gt;%2&lt;/i&gt;」の精度は %3 メートルです。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Chuyển đổi “&lt;i&gt;%1&lt;/i&gt;” không xác định độ chính xác, trong khi phép chuyển đổi tham khảo “&lt;i&gt;%2&lt;/i&gt;” có độ chính xác %3 mét.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;推奨される &lt;i&gt;%1&lt;/i&gt; と &lt;i&gt;%2&lt;/i&gt; の間での座標変換は、このシステムでは利用できません。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Phép chuyển ưu tiên giữa &lt;i&gt;%1&lt;/i&gt; và &lt;i&gt;%2&lt;/i&gt; không hiệu lực để sử dụng trên hệ thống.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation>&lt;i&gt;%1&lt;/i&gt; と &lt;i&gt;%2&lt;/i&gt;の間での変換はできません。&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
+        <translation>Không có sẵn phép chuyển giữa &lt;i&gt;%1&lt;/i&gt; và &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>%1 と%2 の間で投影変換を使用できません</translation>
+        <translation>Không thể sử dụng chuyển đổi dự án giữa %1 và %2</translation>
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>%1 から %2 へのボールパーク変換をしました</translation>
+        <translation>Đã sử dụng một phép chuyển sân bóng từ %1 sang %2</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>式の制約</translation>
+        <translation>Hạn chế biểu hiện</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Not NULL制約</translation>
+        <translation>Không RỖNG</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>ユニーク制約</translation>
+        <translation>Duy nhất</translation>
     </message>
 </context>
 <context>
     <name>BadLayerItem</name>
     <message>
         <source>Unable to load some layers</source>
-        <translation>いくつかのレイヤーを読み込めませんでした</translation>
+        <translation>Không thể đọc được một số lớp</translation>
     </message>
     <message>
         <source>The following layers could not be loaded, please review those and reconfigure the QGIS project.</source>
-        <translation>次のレイヤーは読み込めませんでした。ご使用のQGISプロジェクトの設定をご確認ください。</translation>
+        <translation>Các lớp sau đây không mở được, vui lòng kiểm tra và cấu hình lại dự án QGIS.</translation>
     </message>
     <message>
         <source>You may check the Portable Project section in the QField documentation for more help.</source>
-        <translation type="vanished">QFieldドキュメントページの「Portable Project」の箇所をご覧いただくと参考になるかもしれません。</translation>
+        <translation type="vanished">Bạn có thể kiểm tra mục Dự án Lưu động trong tài liệu QField để được hướng dẫn thêm</translation>
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation>詳しくは %1Portable Project%2 ドキュメント・ページを参照してください。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BarcodeReader</name>
     <message>
         <source>Code Reader</source>
-        <translation type="vanished">コードリーダー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center your camera on a code</source>
-        <translation type="vanished">カメラの中心をコードに合わせてください</translation>
+        <translation type="vanished">Đưa camera vào giữa mã</translation>
     </message>
 </context>
 <context>
@@ -194,93 +194,93 @@
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
-        <translation type="vanished">使用中の測位デバイス:</translation>
+        <translation type="vanished">Thiết bị định vị đang sử dụng:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>ペアリングされたデバイスをスキャンしています</translation>
+        <translation>Đang quét các thiết bị đã ghép nối</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>スキャンに失敗しました: %1</translation>
+        <translation>Quét thất bại: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>スキャン完了</translation>
+        <translation>Đã quét xong</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>%n個のデバイスが見つかりました。</numerusform></translation>
+        <translation><numerusform>Đã tìm thấy %n thiết bị</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>スキャンがキャンセルされました。</translation>
+        <translation>Hủy quét</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">スキャン</translation>
+        <translation type="vanished">Quét</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">フルサービス検出をする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
-キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
+        <translation type="vanished">Việc quét đầy đủ thiết bị có thể mất nhiều thời gian hơn. Bạn có chắc muốn thực hiện?
+Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="vanished">%1 に接続しました</translation>
+        <translation type="vanished">Đã kết nối với %1</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation type="vanished">%1に接続する</translation>
+        <translation type="vanished">Kết nối tới %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1 に接続する</translation>
+        <translation type="vanished">Kết nối tới %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="vanished">%1 に接続しています</translation>
+        <translation type="vanished">Đang kết nối tới %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">デバイスから取得したオルソメトリック高度を使う</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>以下のリストからBluetoothデバイスを選択します：</translation>
+        <translation>Chọn thiết bị Bluetooth từ danh sách bên dưới:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation>Bluetoothデバイス名：</translation>
+        <translation>Tên thiết bị Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation type="vanished">Không áp dụng</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation>Bluetoothデバイスのアドレス：</translation>
+        <translation>Địa chỉ thiết bị Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation>近くのデバイスをスキャン</translation>
+        <translation>Quét các thiết bị xung quanh</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
-        <translation type="vanished">近くにあるBluetoothデバイスが検出されませんでした。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation>スキャンエラー: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation>Bluetooth機器が見つかりません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
@@ -288,11 +288,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Cấu hình thiết bị Bluetooth:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Năng lượng thấp (BLE)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
@@ -303,11 +303,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation type="vanished">内蔵デバイス</translation>
+        <translation type="vanished">Thiết bị nội bộ</translation>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation>Bluetoothのパーミッションが拒否されました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
@@ -315,7 +315,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Location permission denied</source>
-        <translation>位置情報関連のパーミッションが拒否されました</translation>
+        <translation>Không được cấp quyền truy cập vị trí</translation>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
@@ -326,47 +326,47 @@ Cancel to make a minimal device scan instead.</source>
     <name>BluetoothReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation type="vanished">接続しています...</translation>
+        <translation type="vanished">Đang kết nối...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation type="vanished">接続しました</translation>
+        <translation type="vanished">Đã kết nối thành công</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="vanished">接続を解除しました</translation>
+        <translation type="vanished">Đã ngắt kết nối</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="vanished">ソケットの状態 %1</translation>
+        <translation type="vanished">Trạng thái chờ %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="vanished">リモートホストが見つかりません</translation>
+        <translation type="vanished">Không tìm thấy máy chủ từ xa</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="vanished">リモートホストでサービスの UUID が見つかりませんでした。</translation>
+        <translation type="vanished">Không tìm thấy UUID dịch vụ trên máy chủ từ xa</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="vanished">ソケットから読み書きしようとするとエラーが返されました</translation>
+        <translation type="vanished">Thao tác đọc hoặc ghi từ socket trả về lỗi</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="vanished">このプロトコルはこのプラットフォームではサポートされていません。</translation>
+        <translation type="vanished">Giao thức này không được hỗ trợ trên nền tảng này</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="vanished">ソケットが許可されていない状態で操作が行われました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="vanished">リモートホストが接続を閉じました</translation>
+        <translation type="vanished">Máy chủ từ xa đã ngắt kết nối</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="vanished">不明なエラー</translation>
+        <translation type="vanished">Lỗi không xác định</translation>
     </message>
 </context>
 <context>
@@ -417,7 +417,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>無題のブックマーク</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No bookmarks yet</source>
@@ -428,38 +428,38 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>空間ブックマーク</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>ユーザーおよび現在開いているプロジェクトのブックマークのうち、名前が一致するものの一覧を返します。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>ブックマークプロパティ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
-        <translation type="vanished">名前</translation>
+        <translation type="vanished">Tên</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="vanished">色</translation>
+        <translation type="vanished">Màu</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="vanished">ブックマークの詳細をコピーする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">経度</translation>
+        <translation type="vanished">Kinh độ</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">緯度</translation>
+        <translation type="vanished">Vĩ độ</translation>
     </message>
     <message>
         <source>X</source>
@@ -471,101 +471,101 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>ブックマークの詳細をクリップボードにコピーしました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>ブックマークを削除</translation>
+        <translation>Xóa dấu trang</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>ブックマークを削除しますか？</translation>
+        <translation>Bạn sắp xóa một dấu trang, tiếp tục?</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation>説明</translation>
+        <translation>Mô tả</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Đổi màu</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>ブックマーク: %1</translation>
+        <translation>Dấu trang: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>プロジェクトのブックマークは編集できません</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>ブラウザ</translation>
+        <translation>Trình duyệt</translation>
     </message>
 </context>
 <context>
     <name>CalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation type="vanished">時間</translation>
+        <translation type="vanished">Giờ</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">分</translation>
+        <translation type="vanished">Phút</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">秒</translation>
+        <translation type="vanished">Giây</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation type="vanished">Đồng ý</translation>
     </message>
 </context>
 <context>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>QFieldの新機能</translation>
+        <translation>Những tính năng mới trong QField</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>変更履歴の取得中にエラーが発生しました、後でもう一度試してください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Support QField</source>
-        <translation>QFieldをサポート</translation>
+        <translation>Hỗ trợ QField</translation>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>QFieldの新しい変更内容を確認する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QFieldリリースページ</translation>
+        <translation>Trang phát hành QField</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Githubでの過去のリリース</translation>
+        <translation>Các bản phát hành trước trên GitHub</translation>
     </message>
 </context>
 <context>
     <name>CheckBox</name>
     <message>
         <source>True</source>
-        <translation>真</translation>
+        <translation>Đúng</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>偽</translation>
+        <translation>Sai</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -573,87 +573,87 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Trống</translation>
     </message>
 </context>
 <context>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation>ジオメトリ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation>貼り付けに失敗: 出力先のレイヤーが指定されていません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation>切り取り: 出力元及び出力先のレイヤーが同じため、貼り付けをスキップします。</translation>
+        <translation>Thao tác cắt: lớp nguồn và lớp đích giống nhau, bỏ qua thao tác dán.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation>貼り付けに失敗: クリップボード機能が無効です</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation>切り取りに失敗: ソースレイヤー %1の編集を開始できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation>切り取りに失敗: ソースレイヤー %1からオリジナルの地物を削除できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation>貼り付けに失敗: 互換可能な地物で作成できるものはありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation>貼り付けに失敗: レイヤー %1の編集を開始できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation>貼り付けに失敗: レイヤー %1に地物を追加できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>貼り付けに失敗: レイヤー %1のコミットに失敗しました</translation>
+        <translation>Dán thất bại: không thể lưu các thay đổi vào lớp %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation>ソースレイヤー %1の切り取りのコミットに失敗しました</translation>
+        <translation>Không thể lưu các thay đổi sau thao tác cắt trên lớp nguồn %1</translation>
     </message>
 </context>
 <context>
     <name>CloseTool</name>
     <message>
         <source>close</source>
-        <translation type="vanished">閉じる</translation>
+        <translation type="vanished">đóng</translation>
     </message>
 </context>
 <context>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation>NFCテキストタグを検出</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Code Reader</source>
-        <translation>コードリーダー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation>デバイスをコードの中央に配置する</translation>
+        <translation>Đưa thiết bị vào giữa mã</translation>
     </message>
 </context>
 <context>
     <name>DashBoard</name>
     <message>
         <source>The layer %1 is read only.</source>
-        <translation>レイヤー %1 は読み取り専用です。</translation>
+        <translation>Lớp %1 chỉ đọc thôi.</translation>
     </message>
     <message>
         <source>Map Theme</source>
-        <translation>マップテーマ</translation>
+        <translation>Chủ đề bản đồ</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -661,129 +661,129 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation>プロジェクトは読み取り専用です。</translation>
+        <translation>Dự án ở chế độ chỉ đọc.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation>凡例</translation>
+        <translation>Chú giải</translation>
     </message>
     <message>
         <source>Return home</source>
-        <translation type="unfinished"/>
+        <translation>Về trang chính</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Mở rộng tất cả</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Thu gọn tất cả</translation>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Thông tin dự án</translation>
     </message>
 </context>
 <context>
     <name>DateTime</name>
     <message>
         <source>(no date)</source>
-        <translation>(日付がありません)</translation>
+        <translation>(không ngày)</translation>
     </message>
     <message>
         <source>Date value set to today.</source>
-        <translation>日付は本日の値が設定されます。</translation>
+        <translation>Giá trị ngày được đặt theo hôm nay</translation>
     </message>
     <message>
         <source>Hours</source>
-        <translation type="vanished">時間</translation>
+        <translation type="vanished">Giờ</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="vanished">分</translation>
+        <translation type="vanished">Phút</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="vanished">秒</translation>
+        <translation type="vanished">Giây</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation type="vanished">Đồng ý</translation>
     </message>
 </context>
 <context>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>jsonドキュメントはDelta形式の配列である必要があります</translation>
+        <translation>Dự kiến ​​tài liệu json là một mảng trạng thái delta</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>すべての配列要素はオブジェクトである必要がありますが、#%1 の要素はオブジェクトではありません</translation>
+        <translation>Mong đợi tất cả các phần tử mảng là một đối tượng, nhưng phần tử tại #%1 thì không.</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>すべての配列要素はキー &quot;%1&quot; を含むオブジェクトである必要がありますが、#%2 の要素はそうではありません</translation>
+        <translation>Mong đợi tất cả các phần tử mảng là một đối tượng chứa một khóa &quot;%1&quot;, nhưng phần tử tại #%2 thì không</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>$%2 の認証されないステータス &quot;%1&quot;</translation>
+        <translation>Không thể nhận dạng trạng thái &quot;%1&quot; cho $%2</translation>
     </message>
 </context>
 <context>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation>デジタイジングロガーの %2 フィールドのデフォルト値の式に変換エラーがあります：%3</translation>
+        <translation>Biểu thức giá trị mặc định cho trường %2 của nhật ký số hóa có lỗi phân tích cú pháp: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation>デジタイジングロガーの %2 フィールドのデフォルト値の式に評価エラーがあります：%3</translation>
+        <translation>Biểu thức giá trị mặc định cho trường %2 của nhật ký số hóa có lỗi đánh giá: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>デジタイジングログ レイヤーの地物の追加に失敗</translation>
+        <translation>Bổ sung tính năng nhật lý số hóa lớp bị thất bại</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation>デジタイジングログ レイヤーの変更のコミットに失敗</translation>
+        <translation>Lưu thay đổi nhật ký số hóa lớp bị thất bại</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation>デジタイジングログ レイヤーの編集に失敗</translation>
+        <translation>Chỉnh sửa số hóa lớp bị thất bại</translation>
     </message>
 </context>
 <context>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>位置精度が最小要件を満たしていないため、頂点は追加されません</translation>
+        <translation>Độ chính xác của vị trí không đáp ứng yêu cầu tối thiểu, đỉnh không được thêm vào</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
-        <translation>編集をキャンセルする</translation>
+        <translation>Thoát số hóa</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>集められた位置の数が条件を満たしていません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>編集されたジオメトリを破棄しますか？</translation>
+        <translation>Hình học đã số hóa có nên bỏ đi không?</translation>
     </message>
 </context>
 <context>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation>空白</translation>
+        <translation>Trống</translation>
     </message>
 </context>
 <context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation>アイテムメニュー</translation>
+        <translation>Menu của mục</translation>
     </message>
 </context>
 <context>
@@ -798,134 +798,134 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation>受信したデータを処理するには短すぎます</translation>
+        <translation>Dữ liệu nhận được quá ngắn để xử lý</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation>無効な開始バイト文字列</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation>受信したデータは短すぎてペイロードを含めません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation>JSONの変換に失敗しました</translation>
+        <translation>Không thể phân tích JSON</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>リモートホストが見つかりません</translation>
+        <translation>Không tìm thấy máy chủ từ xa</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>ソケットからの読み取りまたは書き込みの試行がエラーを返しました。</translation>
+        <translation>Thao tác đọc hoặc ghi từ socket đã trả về lỗi</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>リモートホストによって接続が拒否されました。</translation>
+        <translation>Kết nối đã bị máy chủ từ xa từ chối</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation>TCP受信エラー (%1)</translation>
+        <translation>Lỗi bộ nhận TCP (%1)</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation>サーバーのスタートに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation>サーバーの停止に失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation>標高プロファイルを描画するパスをデジタイズする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation>標高プロファイルを描画しています...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation>ジオメトリを複数パーツに変更することはできませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation>ジオメトリを変更することができませんでした</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation>“%1”をクリップボードにコピーする</translation>
+        <translation>Sao chép “%1” vào bộ nhớ tạm</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation>計算機</translation>
+        <translation>Máy tính</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>検索バーに入力された式の値を返します。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
-        <translation>利用できません</translation>
+        <translation>Không có sẵn</translation>
     </message>
 </context>
 <context>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>値がありません</translation>
+        <translation>Không giá trị</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>このファイル種別は利用できません</translation>
+        <translation>Không thể xử lý loại tệp này</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation>写真を撮影</translation>
+        <translation>Chụp ảnh</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation>ビデオを撮影</translation>
+        <translation>Quay video</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation>オーディオクリップを録音する</translation>
+        <translation>Ghi âm</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation>ギャラリーからアイテムを追加する</translation>
+        <translation>Đính kèm mục từ thư viện ảnh</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation>ファイルを追加する</translation>
+        <translation>Đính kèm tệp</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation>スケッチする</translation>
+        <translation>Vẽ phác thảo</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation>詳細はこちら</translation>
+        <translation>Tìm hiểu thêm</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation>QFieldCloudのオンデマンド添付ファイルエラー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Trống</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -940,63 +940,63 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>適用された値</translation>
+        <translation>Giá trị được áp dụng</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>スキップされた値</translation>
+        <translation>Giá trị đã bỏ qua</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
-        <translation> (クリックして切り替え)</translation>
+        <translation>(nhấn để bật)</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation type="vanished">制約が無効です</translation>
+        <translation type="vanished">Ràng buộc không hợp lệ</translation>
     </message>
     <message>
         <source>Note: soft constraints were not met</source>
-        <translation type="vanished">注: 制約（soft constraints）が満たされていません</translation>
+        <translation type="vanished">Chú ý: các ràng buộc mềm không đáp ứng</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>変更内容を保存できませんでした</translation>
+        <translation>Không thể lưu những thay đổi</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>%1に地物を追加する</translation>
+        <translation>Thêm tính năng vào %1</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>%1に地物を編集する</translation>
+        <translation>Chỉnh sửa tính năng ở %1</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>%1に地物を表示する</translation>
+        <translation>Xem tính năng trên %1</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>編集をキャンセルする</translation>
+        <translation>Hủy chỉnh sửa</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>新しい機能をオフにしますか？</translation>
+        <translation>Bạn sắp hủy đối tượng mới này, tiếp tục?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>編集モードから抜けると、全ての変更内容が失われます。よろしいですか？</translation>
+        <translation>Bạn sắp rời khỏi trạng thái chỉnh sửa, mọi thay đổi sẽ bị mất. Tiếp tục?</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation>このフィールドに最後に入力された値は記憶され、新しい地物を作成する際に再利用されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation>このフィールドに最後に入力された値は、新しい地物を作成する際には再利用されません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation>地物の追加は無効です</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature Form Menu</source>
@@ -1020,591 +1020,588 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Trang trước</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Lưu</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Trang tiếp theo</translation>
     </message>
 </context>
 <context>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; に作成された地物の取り消しに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; で削除された地物の取り消しに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; で更新された地物の取り消しに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; に編集された地物のコミットに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; に編集された地物のロールバックに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation><numerusform>レイヤー %1 への %n 地物の作成をもとに戻す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation><numerusform>%n 地物の作成をもとに戻す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation><numerusform>レイヤー %1 への %n 地物の削除をもとに戻す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation><numerusform>%n 地物の削除をもとに戻す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation><numerusform>レイヤー %1 への %n 地物の修正をもとに戻す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation><numerusform>%n 地物の修正をもとに戻す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation><numerusform>レイヤー %1 への %n 地物の作成をやり直す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation><numerusform>%n 地物の作成をやり直す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation><numerusform>レイヤー %1 への %n 地物の削除をやり直す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation><numerusform>%n 地物の削除をやり直す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation><numerusform>レイヤー %1 への %n 地物の修正をやり直す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation><numerusform>%n 地物の修正をやり直す。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>この地物の追跡を停止して属性情報を編集します</translation>
+        <translation>Ngừng theo dõi đặc trưng này để chỉnh sửa thuộc tính</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>この地物の追跡を停止してジオメトリを編集します</translation>
+        <translation>Ngừng theo dõi đặc trưng này để chỉnh sửa hình học</translation>
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>編集内容が保存されました</translation>
+        <translation>Những thay đổi đã được lưu</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">最後に行った変更は破棄されました</translation>
+        <translation type="vanished">Những thay đổi mới nhất đã bỏ qua</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>地物をコピーしました</translation>
+        <translation>Nhân bản dữ liệu thành công</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>多くの地物が追跡されています。追跡を停止してそれらを削除します</translation>
+        <translation>Một số đặc trưng đang được theo dõi, hãy ngừng theo dõi để xóa những đặc trưng đó</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>多くの地物が追跡されています。追跡を停止してそれらをマージします</translation>
+        <translation>Một số đặc trưng đang được theo dõi, hãy ngừng theo dõi để gộp những đặc trưng đó</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>選択された地物をコピーし、新しく作成された地物を表示するためにリストを更新しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>この位置に地物がありません</translation>
+        <translation>Không có đặc trưng nào tại vị trí này</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
-        <translation>地物をマージ</translation>
+        <translation>Gộp (những) đặc trưng</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation><numerusform>%n 個の地物が選択されていますが、本当にマージしますか？ 
-
-地物のジオメトリは属性値を保持したまま地物 &apos;%1&apos; に結合されます。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>%n 個の地物をマージしました</numerusform></translation>
+        <translation><numerusform>Đã gộp thành công %n đối tượng</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>%n 個の地物をマージできませんでした</numerusform></translation>
+        <translation><numerusform>Không thể gộp %n đối tượng</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>地物を削除</translation>
+        <translation>Xóa đối tượng</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>%n 個の地物が選択されていますが、本当に削除しますか？</numerusform></translation>
+        <translation><numerusform>Bạn có chắc muốn xóa %n đối tượng đã chọn không?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>%n 個の地物を削除しました</numerusform></translation>
+        <translation><numerusform>Đã xóa thành công %n đối tượng</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>%n 個の地物を削除できませんでした</numerusform></translation>
+        <translation><numerusform>Không thể xóa %n đối tượng</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>編集内容を破棄しました</translation>
+        <translation>Những thay đổi đã bỏ qua</translation>
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation>地物の属性を転送する</translation>
+        <translation>Chuyển thuộc tính đối tượng</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation>現在開いている地物に属性を転送する地物を以下から選択します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation>地物の属性が転送されました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation>地物の属性は転送されませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Features</source>
-        <translation>地物</translation>
+        <translation>Đối tượng</translation>
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation>アルゴリズムを処理しています</translation>
+        <translation>Thuật toán xử lý</translation>
     </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>値 &quot;％1&quot;％4をフィールド％2（％3）の互換性のある値に変換できませんでした。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>地物を更新できません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>コミット後に地物％1を取得できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>％1：％2のデフォルト値の式に変換エラーがあります：％3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>％1：％2のデフォルト値の式には評価エラーがあります：％3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>レイヤー &quot;%1&quot;の編集を開始して地物 %2 を作成できません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>レイヤー &quot;%1&quot; は保存されましたが、新しく追加された地物 %2 を読み込めませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>新しく追加された地物 %2 をレイヤー &quot;%1&quot; に保存できませんでした。 原因:
-%3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>地物 %2 をレイヤー &quot;%1&quot; に追加できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>編集内容を保存できません。ロールバックします。</translation>
+        <translation>Không thể lưu thay đổi. Đang khôi phục.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>編集を開始できません</translation>
+        <translation>Không thể bắt đầu chỉnh sửa</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>フォームを開く</translation>
+        <translation>Mở biểu mẫu</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>地物を目的地として設定する</translation>
+        <translation>Đặt đối tượng làm đích đến</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
-        <translation type="vanished">地物をナビゲーションに設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>地物にジオメトリがありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>全てのレイヤーの地物</translation>
+        <translation>Đối tượng trong tất cả các lớp</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>検索可能なすべてのレイヤーのうち、表示名が一致する地物のリストを返します。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation>ファイルパス</translation>
+        <translation>Đường dẫn tệp</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation>間隔 (ミリ秒)</translation>
+        <translation>Khoảng thời gian (tính bằng mili giây)</translation>
     </message>
 </context>
 <context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>リングが閉じられていません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>リングが有効ではありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>リングが既存のリングと交差しています (2つが交わりを持たない状態(disjoint)でありません)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>入力されたリングには適合する既存のリングがありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>リングを作成する際に不明なエラーが起きました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>リングの充填</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>新しいポリゴンでリングを充填しますか？</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FillRingToolBar</name>
     <message>
         <source>The ring is not closed</source>
-        <translation type="vanished">リングが閉じられていません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation type="vanished">リングが有効ではありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="vanished">リングが既存のリングと交差しています (2つが交わりを持たない状態(disjoint)でありません)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="vanished">入力されたリングには適合する既存のリングがありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation type="vanished">リングを作成する際に不明なエラーが起きました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation type="vanished">リングの充填</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation type="vanished">新しいポリゴンでリングを充填しますか？</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>フィンランド語の住所検索</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>頂点ツール</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>分割ツール</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>地物の変形ツール</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>リング充填ツール</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation>消しゴムツール</translation>
+        <translation>Công cụ xóa</translation>
     </message>
 </context>
 <context>
     <name>GotoLocatorFilter</name>
     <message>
         <source>Go to %1 %2 (Map CRS)</source>
-        <translation type="vanished">%1 %2 (地図のCRS)にいく</translation>
+        <translation type="vanished">Đi tới %1 %2 (CRS bản đồ)</translation>
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation>ナビゲーションポイントを設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
-        <translation type="vanished">%1° %2° (WGS84)にいく</translation>
+        <translation type="vanished">Đi tới %1° %2° (WGS84)</translation>
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>座標に行く</translation>
+        <translation>Đến tọa độ</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation>%1%2 %3%4 (地図CRS, %5)に行く</translation>
+        <translation>Đi tới %1%2 %3%4 (CRS bản đồ, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation>%1°N %2°E (%3)に行く</translation>
+        <translation>Đi tới %1°B %2°Đ (%3)</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>検索バーに入力されたX座標とY座標、またはWGS84緯度と経度の組み合わせから点を返します。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation>QFieldドキュメンテーション</translation>
+        <translation>Tài liệu QField</translation>
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation>該当する QField ドキュメントページに戻ります。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation>ナビゲーション</translation>
+        <translation>Điều hướng</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>測位</translation>
+        <translation>Định vị</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation>センサー</translation>
+        <translation>Cảm biến</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation>標高プロファイル</translation>
+        <translation>Biểu đồ cao độ</translation>
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP</translation>
     </message>
 </context>
 <context>
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Tác giả</translation>
     </message>
 </context>
 <context>
     <name>LayerLoginDialog</name>
     <message>
         <source>Login information</source>
-        <translation type="vanished">ログイン情報</translation>
+        <translation type="vanished">Thông tin đăng nhập</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>ユーザー名</translation>
+        <translation>Tên đăng nhập</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>パスワード</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation>資格情報詳細</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Gửi</translation>
     </message>
 </context>
 <context>
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; でローカルの主キー列が見つかりませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation>レイヤ &quot;%1&quot; でソースの主キー列が見つかりませんでした</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>グループを展開</translation>
+        <translation>Mở rộng nhóm</translation>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>凡例を展開</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>追跡を停止する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>トラッキングの設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>このレイヤーは無効です。これはネットワークの問題、ファイルの欠落、もしくはプロジェクトの設定ミスが原因の可能性があります。</translation>
+        <translation>Lớp này không hợp lệ. Nguyên nhân có thể là sự cố mạng, thiếu tệp hoặc cấu hình dự án sai.</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>地図に表示</translation>
+        <translation>Hiển thị trên bản đồ</translation>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>ラベルを表示</translation>
+        <translation>Hiển thị nhãn</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>透明度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation>グループにズーム</translation>
+        <translation>Thu phóng đến nhóm</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation>親レイヤにズーム</translation>
+        <translation>Thu phóng đến lớp cha</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>レイヤーにズーム</translation>
+        <translation>Thu phóng đến lớp</translation>
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">データを再読み込み</translation>
+        <translation type="vanished">Tải lại dữ liệu</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation>レイヤ %1 の再読み込みがトリガーされました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show features list</source>
-        <translation>地物の一覧を表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>レイヤに地物がありません</translation>
+        <translation>Lớp không có đối tượng nào</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation type="vanished">レイヤ %1 の追跡を停止しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">読み取り専用レイヤ</translation>
+        <translation type="vanished">Lớp chỉ đọc</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">ジオメトリロックされたレイヤ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation type="vanished">このレイヤは「読取専用」と設定されているため、地物の追加、削除、編集は行えません。</translation>
+        <translation type="vanished">Lớp này được cấu hình là &quot;Chỉ đọc&quot;, nên không thể thêm, xóa và chỉnh sửa đối tượng.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation type="vanished">このレイヤーは、地物の追加と削除、および既存のフィーチャのジオメトリの変更を無効にする「ジオメトリのロック」が設定されています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>表示される地物を一覧表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>地物のメニューを表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation>読み取り専用レイヤ</translation>
+        <translation>Lớp chỉ đọc</translation>
     </message>
     <message>
         <source>feature addition</source>
-        <translation>地物の追加</translation>
+        <translation>thêm đối tượng</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation>属性の編集</translation>
+        <translation>chỉnh sửa thuộc tính</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation>ジオメトリの編集</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation>地物の削除</translation>
+        <translation>xóa đối tượng</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation>レイヤの権限を無効しました: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
@@ -1615,56 +1612,56 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>レイヤーがないため、編集を開始できません</translation>
+        <translation>Không thể bắt đầu chỉnh sửa, không có lớp</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>編集を開始できません</translation>
+        <translation>Không thể bắt đầu chỉnh sửa</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>レイヤー &quot;%1&quot; の地物 %2 の削除をコミットできません。 原因:
+        <translation>Không thể xác nhận việc xóa đối tượng %2 trong lớp &quot;%1&quot;. Lý do:
 %3</translation>
     </message>
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>レイヤ&quot;%1&quot;の削除ができません。原因:
+        <translation>Không thể xác nhận việc xóa trong lớp &quot;%1&quot;. Lý do:
 %3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
-        <translation>地物 %1 を削除できません</translation>
+        <translation>Không thể xóa đối tượng %1</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>レイヤー %1 の変更内容をロールバックできませんでした。</translation>
+        <translation>Không thể khôi phục các thay đổi của lớp trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>無効な地物をコピーできません</translation>
+        <translation>Không thể sao chép đối tượng không hợp lệ</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>レイヤ&quot;%1&quot;に新しい地物を追加できません。原因:
+        <translation>Không thể thêm đối tượng mới vào lớp &quot;%1&quot;. Lý do:
 %2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">レイヤ&quot;%1&quot;に新しい地物を追加できません。</translation>
+        <translation type="vanished">Không thể thêm đối tượng mới vào lớp &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
     <name>Legend</name>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>このレイヤーは無効です。これはネットワークの問題、ファイルの欠落、もしくはプロジェクトの設定ミスが原因の可能性があります。</translation>
+        <translation>Lớp này không hợp lệ. Nguyên nhân có thể là sự cố mạng, thiếu tệp hoặc cấu hình dự án sai.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>このレイヤは「読取専用」と設定されているため、地物の追加、削除、編集は行えません。</translation>
+        <translation>Lớp này được cấu hình là &quot;Chỉ đọc&quot;, nên không thể thêm, xóa và chỉnh sửa đối tượng.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
@@ -1672,7 +1669,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Stop</source>
-        <translation>停止</translation>
+        <translation>Dừng</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1680,7 +1677,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>権限設定によりこのレイヤーへの地物の追加は無効になっています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tracking active on this layer.</source>
@@ -1695,296 +1692,296 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>QFieldファイルディレクトリ</translation>
+        <translation>Thư mục tệp QField</translation>
     </message>
     <message>
         <source>Imported projects</source>
-        <translation>インポートしたプロジェクト</translation>
+        <translation>Các dự án đã nạp</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation>インポートしたデータセット</translation>
+        <translation>Các bộ dữ liệu đã nạp</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>追加ファイルのディレクトリ</translation>
+        <translation>Thư mục tệp bổ sung</translation>
     </message>
     <message>
         <source>Sample projects</source>
-        <translation type="vanished">サンプルプロジェクト</translation>
+        <translation type="vanished">Các dự án mẫu</translation>
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>Dự án đã tạo</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Trang chủ</translation>
     </message>
 </context>
 <context>
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="vanished">一致する属性を持つ、検索可能なすべてのレイヤーにまたがる地物のリストを返します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="vanished">検索バーに入力されたX、Y座標の組み合せから点を返します</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="vanished">名前が一致するブックマークの一覧を返します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="vanished">一致する条件でフィンランド国内の場所と住所のリストを返します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>ロケーションの検索フィルタが有効になっている場合は、設定パネルで結果をカスタマイズしてください。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">検索しています…</translation>
+        <translation type="vanished">Tìm kiếm ...</translation>
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation>アクティブレイヤー内の地物を検索するには、凡例からベクターレイヤーを選択します。</translation>
+        <translation>Để tìm kiếm đối tượng trong lớp đang hoạt động, hãy chọn một lớp vector thông qua chú giải.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation>この機能を使うには、まず凡例のベクター・レイヤーをアクティブにします</translation>
+        <translation>Trước tiên hãy kích hoạt một lớp vector trong chú giải để sử dụng chức năng này</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">検索の設定</translation>
+        <translation type="vanished">Cài đặt tìm kiếm</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">接頭辞のないトリガー</translation>
+        <translation type="vanished">Kích hoạt mà không cần tiền tố</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
-        <translation>検索バーの設定</translation>
+        <translation>Cài đặt thanh tìm kiếm</translation>
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation>無効にした場合でも、検索バーに接頭辞 %1 を入力すれば、このロケーター・フィルターを使うことができます。</translation>
+        <translation>Khi bị tắt, bộ lọc định vị này vẫn có thể được sử dụng bằng cách nhập tiền tố %1 trong thanh tìm kiếm.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation>%1 ロケーターをデフォルトで有効にする</translation>
+        <translation>Bật bộ định vị %1 theo mặc định</translation>
     </message>
 </context>
 <context>
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>メッセージログ</translation>
+        <translation>Nhật ký thông báo</translation>
     </message>
     <message>
         <source>Message text copied</source>
-        <translation>メッセージテキストをコピーしました</translation>
+        <translation>Đã sao chép nội dung thông báo</translation>
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>メッセージログをクリア</translation>
+        <translation>Xóa nhật ký thông báo</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>メッセージログをクリアしました</translation>
+        <translation>Đã xóa nhật ký thông báo</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>アプリのログを送る</translation>
+        <translation>Gửi nhật ký ứng dụng</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation type="vanished">アプリのログが送信されています</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation>ログ・ランタイム・プロファイラー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation>オプションの詳細を入力する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation>クラウドユーザーの詳細を含める</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation>これにより、現在のセッションのログが開発チームに送信されます。これは、要求されたときだけ行う必要があります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation>アプリのログを送信中です...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>編集を開始できません</translation>
+        <translation>Không thể bắt đầu chỉnh sửa</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>レイヤー %1 の変更内容をロールバックできませんでした。</translation>
+        <translation>Không thể khôi phục các thay đổi của lớp trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>%2 の地物 %1 のジオメトリの変更ができません。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>地物</translation>
+        <translation>Đối tượng</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation>地物リストメニュー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
-        <translation>地物選択の切り替え</translation>
+        <translation>Bật/tắt lựa chọn đối tượng</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>地図帳の地物をPDFに印刷</translation>
+        <translation>In đối tượng atlas ra PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>選択された地物をマージ</translation>
+        <translation>Gộp các đối tượng đã chọn</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>選択された地物を移動</translation>
+        <translation>Di chuyển đối tượng đã chọn</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>選択された地物をコピー</translation>
+        <translation>Nhân bản đối tượng đã chọn</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>選択された地物を削除</translation>
+        <translation>Xóa đối tượng đã chọn</translation>
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation>地物メニュー</translation>
+        <translation>Menu đối tượng</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="vanished">地図帳の地物をPDFに印刷</translation>
+        <translation type="vanished">In đối tượng atlas ra PDF</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>地物にズーム</translation>
+        <translation>Thu phóng đến đối tượng</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>地物に自動でズーム</translation>
+        <translation>Tự động thu phóng đến đối tượng</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="vanished">目的地として地物を設定</translation>
+        <translation type="vanished">Đặt đối tượng làm đích đến</translation>
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>地物を移動</translation>
+        <translation>Di chuyển đối tượng</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>地物をコピー</translation>
+        <translation>Nhân bản đối tượng</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>地物を削除</translation>
+        <translation>Xóa đối tượng</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>下のテンプレートを選択</translation>
+        <translation>Chọn mẫu bên dưới</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">地図帳の地物をPDFに印刷</translation>
+        <translation type="vanished">Đang in đối tượng atlas ra PDF</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">地図帳の地物がPDFに印刷され、ドキュメントに保存されました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="vanished">地図帳の地物をPDFに印刷</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="vanished">地図帳の地物をPDFに印刷</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>地図帳の地物を印刷</translation>
+        <translation>In đối tượng atlas</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>印刷...</translation>
+        <translation>Đang in ...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>地図帳の地物がPDFに印刷され、プロジェクトフォルダに保存されました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation>クリップボードから地物の属性を更新</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation>クリップボードから地物の属性は更新されませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation>地物は目的地として設定されました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation>選択された地物を処理</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation>地物を回転</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation>地物から属性を更新する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Process Feature</source>
-        <translation>地物を処理</translation>
+        <translation>Xử lý đối tượng</translation>
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation>地物がクリップボードにコピーされました</translation>
+        <translation>Đã sao chép đối tượng vào bộ nhớ tạm</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation>地物がクリップボードに切り取られました</translation>
+        <translation>Đã cắt đối tượng vào bộ nhớ tạm</translation>
     </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">緯度</translation>
+        <translation type="vanished">Vĩ độ</translation>
     </message>
     <message>
         <source>X</source>
@@ -1992,15 +1989,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">経度</translation>
+        <translation type="vanished">Kinh độ</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="vanished">重心</translation>
+        <translation type="vanished">trọng tâm</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>経度</translation>
+        <translation>Kinh độ</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2008,19 +2005,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation>緯度</translation>
+        <translation>Vĩ độ</translation>
     </message>
     <message>
         <source>Dist.</source>
-        <translation>目的地</translation>
+        <translation>Khoảng cách</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Không áp dụng</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>方位</translation>
+        <translation>Phương vị</translation>
     </message>
 </context>
 <context>
@@ -2046,38 +2043,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>編集を開始できません</translation>
+        <translation>Không thể bắt đầu chỉnh sửa</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>レイヤー %1 の変更内容をロールバックできませんでした。</translation>
+        <translation>Không thể khôi phục các thay đổi của lớp trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>レイヤー %1 の変更内容を保存できませんでした。</translation>
+        <translation>Không thể xác nhận các thay đổi của lớp trong lớp %1.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>地物の順序を更新できません</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>編集内容が保存されました</translation>
+        <translation>Những thay đổi đã được lưu</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>編集内容を破棄しました</translation>
+        <translation>Những thay đổi đã bỏ qua</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">最後に行った変更は破棄されました</translation>
+        <translation type="vanished">Những thay đổi mới nhất đã bỏ qua</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation type="vanished">制約が無効です</translation>
+        <translation type="vanished">Ràng buộc không hợp lệ</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
@@ -2088,79 +2085,79 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">メディアファイルを選択</translation>
+        <translation type="vanished">Chọn tệp phương tiện</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG 画像 (*.jpg *.jpeg)</translation>
+        <translation type="vanished">Ảnh JPEG (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">ギャラリー画像を保存できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open File</source>
-        <translation>ファイルを開く</translation>
+        <translation>Mở tệp</translation>
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation>全てのサポートされるファイル</translation>
+        <translation>Tất cả tệp được hỗ trợ</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
-        <translation>QGISプロジェクトファイル</translation>
+        <translation>Tệp dự án QGIS</translation>
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>ベクターデータセット</translation>
+        <translation>Bộ dữ liệu vector</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation>ラスターデータセット</translation>
+        <translation>Bộ dữ liệu raster</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation>ファイルリソースの保存に失敗しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation>画像ファイルを選択</translation>
+        <translation>Chọn tệp ảnh</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation>全ての画像 (*.jpg *.jpeg *.png *.bmp);;JPEG画像 (*.jpg *.jpeg);;PNG画像 (*.png);;BMP画像 (*.bmp)</translation>
+        <translation>Tất cả ảnh (*.jpg *.jpeg *.png *.bmp);;Ảnh JPEG (*.jpg *.jpeg);;Ảnh PNG (*.jpg *.jpeg);;Ảnh BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation>動画ファイルを選択</translation>
+        <translation>Chọn tệp video</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation>全ての動画 (*.mp4 *.mkv *.mov);;MP4動画 (*.mp4);;MKV 動画(*.mkv);;MOV動画 (*.mov)</translation>
+        <translation>Tất cả video (*.mp4 *.mkv *.mov);;Video MP4 (*.mp4);;Video MKV (*.mkv);;Video MOV (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="vanished">音声ファイル (*.mp3 *.aac *.ogg)</translation>
+        <translation type="vanished">Tệp âm thanh (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="vanished">全てのファイル (*.*)</translation>
+        <translation type="vanished">Tất cả tệp (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation>ファイルを選択</translation>
+        <translation>Chọn tệp</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
-        <translation>削除の確認</translation>
+        <translation>Xác nhận gỡ bỏ</translation>
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation>データセットは削除されます。削除しますか？</translation>
+        <translation>Bộ dữ liệu sẽ bị xóa, tiếp tục gỡ bỏ?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation>プロジェクトフォルダは削除されます。削除しますか？</translation>
+        <translation>Thư mục dự án sẽ bị xóa, tiếp tục gỡ bỏ?</translation>
     </message>
     <message>
         <source>Select ZIP Archive</source>
@@ -2175,97 +2172,97 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PluginItem</name>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation>著者：%1%2%3</translation>
+        <translation>Tác giả: %1%2%3</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation>バージョン %1 をアンインストールする</translation>
+        <translation>Gỡ cài đặt phiên bản %1</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation>プラグインをアンインストール</translation>
+        <translation>Gỡ cài đặt plugin</translation>
     </message>
 </context>
 <context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation>ダウンロードされたZIPファイルは解凍できませんでした</translation>
+        <translation>Không thể giải nén tệp zip đã tải xuống</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>ダウンロードされたZIPファイルには必須ファイルであるmain.qmlプラグインファイルが含まれていません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation>ダウンロードされたファイルを保存できませんでした</translation>
+        <translation>Không thể lưu tệp đã tải xuống</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation>ダウンロードされたファイルはZIP圧縮されたプラグインではありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network error</source>
-        <translation>ネットワークエラー</translation>
+        <translation>Lỗi mạng</translation>
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation>リクエストされたプラグインのURLは利用可能なプラグインのリストにあります。ダウンロードボタンからインストールしてください。</translation>
+        <translation>URL plugin được yêu cầu đã có trong danh sách plugin khả dụng, vui lòng cài đặt bằng nút tải xuống của nó</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation>プラグイン</translation>
+        <translation>Plugin</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation>URLからプラグインをインストール</translation>
+        <translation>Cài đặt plugin từ URL</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation>記憶されたパーミッションのクリア</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation>URLを下に入力してプラグインをダウンロード、インストールする:</translation>
+        <translation>Nhập URL bên dưới để tải xuống và cài đặt plugin:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation>%1をインストールしています</translation>
+        <translation>Đang cài đặt %1</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation>本当に`%1`をアンインストールしますか？</translation>
+        <translation>Bạn có chắc muốn gỡ cài đặt `%1` không?</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation>上に表示されている作者の詳細は、プラグインによって自己申告されたものであり、独自に検証されたものではありません。プラグインの出所を信頼するようにしてください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation>プラグイン管理メニュー</translation>
+        <translation>Menu quản lý plugin</translation>
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation>ローカルプラグイン</translation>
+        <translation>Plugin cục bộ</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation>利用可能なプラグイン</translation>
+        <translation>Plugin khả dụng</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation>プラグインを検索</translation>
+        <translation>Tìm kiếm plugin</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation>利用可能なプラグインを取得しています</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation>プラグインはまだインストールされていません。 %1利用可能なプラグイン%3 タブに切り替えて、試してみてください。&lt;br&gt;&lt;br&gt;さらに詳細な情報については %2ドキュメントを参照ください%3。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
@@ -2273,18 +2270,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Từ chối quyền</translation>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">緯度</translation>
+        <translation type="vanished">Vĩ độ</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="vanished">N/A</translation>
+        <translation type="vanished">Không áp dụng</translation>
     </message>
     <message>
         <source>X</source>
@@ -2292,11 +2289,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">経度</translation>
+        <translation type="vanished">Kinh độ</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">経度</translation>
+        <translation type="vanished">Kinh độ</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2304,73 +2301,73 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">緯度</translation>
+        <translation type="vanished">Vĩ độ</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">高度</translation>
+        <translation type="vanished">Độ cao</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">スピード</translation>
+        <translation type="vanished">Tốc độ</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">水平方向の精度</translation>
+        <translation type="vanished">Độ chính xác ngang</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">垂直方向の精度</translation>
+        <translation type="vanished">Độ chính xác đứng</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP（位置精度劣化度）</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP（水平精度劣化度）</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP（垂直精度劣化度）</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">有効</translation>
+        <translation type="vanished">Hợp lệ</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">修正</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">品質</translation>
+        <translation type="vanished">Chất lượng</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>内蔵デバイス</translation>
+        <translation>Thiết bị nội bộ</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation>測位デバイスの設定</translation>
+        <translation>Cài đặt thiết bị định vị</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="vanished">名前:</translation>
+        <translation type="vanished">Tên:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="vanished">空欄のまま自動入力</translation>
+        <translation type="vanished">Để trống để tự động điền</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="vanished">接続タイプ:</translation>
+        <translation type="vanished">Kiểu kết nối:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2390,58 +2387,58 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation>シリアルポート (NMEA)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation>素晴らしい</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection type</source>
-        <translation>接続タイプ</translation>
+        <translation>Kiểu kết nối</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>名前</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation>(空欄のまま自動入力)</translation>
+        <translation>(để trống để tự động điền)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation>接続の詳細</translation>
+        <translation>Chi tiết kết nối</translation>
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation>ログファイル (NMEA)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
     <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
-        <translation>高度</translation>
+        <translation>Độ cao</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>スピード</translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>水平方向の精度</translation>
+        <translation>Độ chính xác ngang</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>垂直方向の精度</translation>
+        <translation>Độ chính xác đứng</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>経度</translation>
+        <translation>Kinh độ</translation>
     </message>
     <message>
         <source>X</source>
@@ -2449,7 +2446,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation>緯度</translation>
+        <translation>Vĩ độ</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2457,30 +2454,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Không áp dụng</translation>
     </message>
     <message>
         <source>grid</source>
-        <translation>グリッド</translation>
+        <translation>lưới</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation>ortho.</translation>
+        <translation>trực chuẩn</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation>ant.</translation>
+        <translation>ăng-ten</translation>
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
-        <translation type="vanished">経度</translation>
+        <translation type="vanished">Kinh độ</translation>
     </message>
     <message>
         <source>X</source>
@@ -2488,11 +2485,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Không áp dụng</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">緯度</translation>
+        <translation type="vanished">Vĩ độ</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2500,62 +2497,62 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Altitude</source>
-        <translation type="vanished">高度</translation>
+        <translation type="vanished">Độ cao</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">スピード</translation>
+        <translation type="vanished">Tốc độ</translation>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">水平方向の精度</translation>
+        <translation type="vanished">Độ chính xác ngang</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">垂直方向の精度</translation>
+        <translation type="vanished">Độ chính xác đứng</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP（位置精度劣化度）</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP（水平精度劣化度）</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP（垂直精度劣化度）</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">有効</translation>
+        <translation type="vanished">Hợp lệ</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">修正</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">品質</translation>
+        <translation type="vanished">Chất lượng</translation>
     </message>
 </context>
 <context>
     <name>PositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>Cài đặt NTRIP</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Máy chủ</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>ポート</translation>
+        <translation>Cổng</translation>
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Giao thức</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
@@ -2567,27 +2564,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Username</source>
-        <translation>ユーザー名</translation>
+        <translation>Tên đăng nhập</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>パスワード</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Điểm gắn kết</translation>
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Mã định danh:</translation>
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Định dạng dữ liệu:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Khoảng cách:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
@@ -2595,18 +2592,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>目的地</translation>
+        <translation>K.cách</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation>この精度レベルでは位置精度が低すぎます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Audio proximity feedback</source>
@@ -2622,63 +2619,63 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>La bàn</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Chuyển động</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Độ chính xác</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>内蔵デバイス</translation>
+        <translation>Thiết bị nội bộ</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation>一般パラメーター</translation>
+        <translation>Tham số chung</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation>高度なパラメータ</translation>
+        <translation>Tham số nâng cao</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>ヘルプ</translation>
+        <translation>Trợ giúp</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation>このアルゴリズムに一般的なパラメーターはありません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation>アルゴリズムの詳細</translation>
+        <translation>Mô tả thuật toán</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation>お気に入り</translation>
+        <translation>Yêu thích</translation>
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation>全てのアルゴリズム</translation>
+        <translation>Tất cả thuật toán</translation>
     </message>
 </context>
 <context>
     <name>ProjectCreationScreen</name>
     <message>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>Tạo dự án mới</translation>
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
@@ -2686,11 +2683,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>New project name</source>
-        <translation type="unfinished"/>
+        <translation>Tên dự án mới</translation>
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>Chọn bản đồ nền của bạn</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
@@ -2698,23 +2695,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>Nhiều màu</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>Xám đậm</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>Xám nhạt</translation>
     </message>
     <message>
         <source>Blank</source>
-        <translation>空白</translation>
+        <translation>Trống</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Tùy chỉnh</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
@@ -2722,7 +2719,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Take notes?</source>
-        <translation type="unfinished"/>
+        <translation>Ghi chú?</translation>
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
@@ -2750,15 +2747,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
+        <translation>Tìm hiểu thêm về QFieldCloud tại đây</translation>
     </message>
     <message>
         <source>Create Project</source>
-        <translation type="unfinished"/>
+        <translation>Tạo dự án</translation>
     </message>
     <message>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>Dự án của tôi</translation>
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
@@ -2777,15 +2774,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>ProjectUtils</name>
     <message>
         <source>Created Project</source>
-        <translation type="unfinished"/>
+        <translation>Dự án đã tạo</translation>
     </message>
     <message>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Ghi chú</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Thời gian</translation>
     </message>
     <message>
         <source>Marker color</source>
@@ -2793,7 +2790,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Tiêu đề</translation>
     </message>
     <message>
         <source>Note</source>
@@ -2805,7 +2802,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Basemap</source>
-        <translation type="unfinished"/>
+        <translation>Bản đồ nền</translation>
     </message>
     <message>
         <source>Media</source>
@@ -2821,7 +2818,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Description</source>
-        <translation>説明</translation>
+        <translation>Mô tả</translation>
     </message>
     <message>
         <source>Attachments</source>
@@ -2829,7 +2826,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Điểm</translation>
     </message>
     <message>
         <source>Line</source>
@@ -2844,214 +2841,214 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation>データベースの接続情報を入力してください</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>at host</source>
-        <translation>ホスト</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>at service</source>
-        <translation>サービス</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation>オーディオ・レコーダー</translation>
+        <translation>Trình ghi âm</translation>
     </message>
 </context>
 <context>
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation>ジオタグが有効です</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation>ジオタグが無効です</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation>グリッドが有効にされました</translation>
+        <translation>Đã bật lưới</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation>グリッドが無効にされました</translation>
+        <translation>Đã tắt lưới</translation>
     </message>
     <message>
         <source>front</source>
-        <translation>前へ</translation>
+        <translation>camera trước</translation>
     </message>
     <message>
         <source>back</source>
-        <translation>戻る</translation>
+        <translation>camera sau</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation>詳細のスタンプが有効です</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latitude</source>
-        <translation>緯度</translation>
+        <translation>Vĩ độ</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation>経度</translation>
+        <translation>Kinh độ</translation>
     </message>
     <message>
         <source>Altitude</source>
-        <translation>高度</translation>
+        <translation>Độ cao</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>スピード</translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation>向き</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation>詳細のスタンプが無効です</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[timeout] リクエストの終了に時間がかかりすぎたので、再試行してください。</translation>
+        <translation>[hết thời gian chờ] Yêu cầu mất quá nhiều thời gian để hoàn tất, vui lòng thử lại.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation>[aborted] リクエストが中止されました。</translation>
+        <translation>[đã hủy] Yêu cầu đã bị hủy.</translation>
     </message>
     <message>
         <source>Server Error.</source>
-        <translation>サーバーエラー。</translation>
+        <translation>Lỗi máy chủ.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation>ネットワークエラー。</translation>
+        <translation>Lỗi mạng.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>サーバーが見つかりません、サーバーのURLを確認してください</translation>
+        <translation>Không tìm thấy máy chủ, vui lòng kiểm tra URL máy chủ</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation>タイムアウトエラー、再試行してください</translation>
+        <translation>Lỗi hết thời gian chờ, vui lòng thử lại</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation>ユーザー名またはパスワードが間違っています</translation>
+        <translation>Sai tên người dùng hoặc mật khẩu</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation>セッションが切れました</translation>
+        <translation>Phiên đăng nhập đã hết hạn</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>ログインは一時的に利用できません</translation>
+        <translation>Đăng nhập tạm thời không khả dụng</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+        <translation>Không thể tải lên tệp đính kèm được lưu tại `%1`, lý do:
 %2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation>予期しないリダイレクトによりログインエラーが発生しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation>認証プロバイダーが見つかりません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password missing</source>
-        <translation>パスワードがありません</translation>
+        <translation>Thiếu mật khẩu</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>履歴のプッシュ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>読込中…</translation>
+        <translation>Đang tải…</translation>
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation>まだプッシュされた変更はありません</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">ログインできませんでした</translation>
+        <translation type="vanished">Không thể đăng nhập</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation>サインインできませんでした</translation>
+        <translation>Không thể đăng nhập</translation>
     </message>
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation type="vanished">サーバーURL
-（デフォルトのサーバーを使用する場合は空欄にしてください）</translation>
+        <translation type="vanished">URL máy chủ
+(Để trống để sử dụng máy chủ mặc định)</translation>
     </message>
     <message>
         <source>Username or email</source>
-        <translation>ユーザー名またはEメールアドレス</translation>
+        <translation>Tên người dùng hoặc email</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>パスワード</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>サインアウト</translation>
+        <translation>Đăng xuất</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation>サインインしています、お待ちください</translation>
+        <translation>Đang đăng nhập, vui lòng đợi</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>サインイン</translation>
+        <translation>Đăng nhập</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation>新しいユーザーですか？</translation>
+        <translation>Người dùng mới?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>アカウントを登録する</translation>
+        <translation>Đăng ký tài khoản</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">ログアウト</translation>
+        <translation type="vanished">Đăng xuất</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">ログインしています、お待ちください</translation>
+        <translation type="vanished">Đang đăng nhập, vui lòng đợi</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">ログイン</translation>
+        <translation type="vanished">Đăng nhập</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>QGISからデバイスにプロジェクトを転送する最も簡単な方法です！</translation>
+        <translation>Cách dễ nhất để chuyển dự án của bạn từ QGIS sang các thiết bị của bạn!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloudについてもっと知る</translation>
+        <translation>Tìm hiểu thêm về QFieldCloud</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -3059,35 +3056,36 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>or</source>
-        <translation>もしくは</translation>
+        <translation>hoặc</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation>%1 を使ってサインイン</translation>
+        <translation>Đăng nhập bằng %1</translation>
     </message>
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1URL máy chủ
+(Để trống để sử dụng máy chủ mặc định)</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">問題のあるQFieldCloudレイヤーのパッケージング</translation>
+        <translation type="vanished">Đóng gói lớp QFieldCloud có vấn đề</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">一部のレイヤーはQFieldCloud上で正しくパッケージ化されていません。これらのレイヤーは、設定が間違っているか、データソースがQFieldCloudサーバーからアクセスできない可能性があります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation type="vanished">QFieldCloudでプロジェクトのパッケージングに問題が発生しました</translation>
+        <translation type="vanished">QFieldCloud gặp sự cố khi đóng gói dự án của bạn</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation type="vanished">一部のレイヤーはQFieldCloud上で正しくパッケージ化されていません。これらのレイヤーは、設定が間違っているか、データソースがQFieldCloudサーバーからアクセスできない可能性があります。qfield.cloudのサイトで、最新のパッケージングジョブのログを確認してください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
@@ -3106,211 +3104,209 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="vanished">現在のプロジェクトはQFieldCloudに保存されていません。&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">Dự án hiện tại không được lưu trữ trên QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="vanished">QFieldCloudにプロジェクトを保存することで、シームレスな同期、オフライン編集、チームでの管理が可能になります。&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>QFieldCloudについてもっと知る</translation>
+        <translation>Tìm hiểu thêm về QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation type="vanished">QFieldCloudから切り離されました。</translation>
+        <translation type="vanished">Đã ngắt kết nối với cloud.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation type="vanished">QFieldCloudに接続しています。</translation>
+        <translation type="vanished">Đang kết nối tới cloud.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation type="vanished">こんにちは &lt;strong&gt;%1&lt;/strong&gt;さん。</translation>
+        <translation type="vanished">Xin chào &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>このQFieldCloudプロジェクトは、最初に別のクラウドアカウントでダウンロードされたものです。QFieldCloudの機能を使用するには、このプロジェクトの元のアカウントでサインインしてください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation type="vanished">%1% をダウンロードしています…</translation>
+        <translation type="vanished">Đang tải xuống %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
+        <translation type="vanished">QFieldCloud đang chuẩn bị dữ liệu mới nhất cho bạn. Việc này có thể mất một chút thời gian, vui lòng chờ…</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation type="vanished">%1% をアップロードしています…</translation>
+        <translation type="vanished">Đang tải lên %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloudはアップロードされた最新の変更内容を適用しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
+        <translation type="vanished">QFieldCloud đang áp dụng các thay đổi mới nhất đã tải lên. Việc này có thể mất một chút thời gian, vui lòng chờ…</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation type="vanished">サーバーエラーが発生しましたので、再度お試しください。</translation>
+        <translation type="vanished">Đã xảy ra lỗi máy chủ, vui lòng thử lại.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="vanished">ネットワークエラーが発生しましたので、再度お試しください。</translation>
+        <translation type="vanished">Đã xảy ra lỗi mạng, vui lòng thử lại.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>%n 個のローカルの変更があります。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>ローカルな変更はありません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>ローカルに保存されているクラウドプロジェクトは破損しています</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>同期する</translation>
+        <translation>Đồng bộ</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>全ての変更された地物を持つプロジェクト全体を同期させ、全ての更新内容が含まれた最新のプロジェクトをQFieldCloudからダウンロードします。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>変更点をプッシュ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>プロジェクト全体を更新することなく、ローカルの地物や画像のみをクラウドにプッシュすることで、インターネットの帯域幅を節約できます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>ローカルの変更を取り消す</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>プロジェクトのリセット</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>ローカルレイヤで変更されたすべての地物を元に戻します。破棄すると元に戻すことはできません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">ローカルのクラウドレイヤーの変更した地物をすべて元に戻します。それらの変更をリストアすることはできません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>このクラウドプロジェクトのローカルのコピーが破損しています。プロジェクトをリセットすると、クラウド版が再ダウンロードされ、ローカルの変更が削除されますので、必要に応じてそれらを最初にバックアップしておいてください。
-
-プロジェクトの閲覧や使用は可能ですが、変更した内容がクラウドに反映されないため、誤ってデータが失われないようにリセットすることを強くお勧めします。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>たった今最新の同期がされました</translation>
+        <translation>Vừa đồng bộ hóa</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>%1 分前に最後に同期されました</translation>
+        <translation>Đã đồng bộ hóa %1 phút trước</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>最後に同期した時間：%1</translation>
+        <translation>Đã đồng bộ hóa lúc %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>最後に同期した日：%1</translation>
+        <translation>Đã đồng bộ hóa vào %1</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>たった今最後の変更のプッシュがされました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>%1 分前に最後の変更のプッシュがされました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>最後に変更をプッシュした時間：%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>最後に変更をプッシュした日：%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>まだプッシュされた変更はありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n 個の添付ファイルがバックグラウンドでアップロードされています。</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>ローカルの変更を元に戻しますか？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>クラウドプロジェクトのリセット</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>最後の確認です。クラウドプロジェクトをリセットすると、ローカルでの変更がすべて消去されますが、よろしいですか？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>QFieldCloudに接続しています</translation>
+        <translation>Đang kết nối cloud</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>ローカルな変更を元に戻しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>変更を取り消すのに失敗しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>元に戻す変更はありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation>このプロジェクトはクラウド上でプロジェクトファイルが更新されています。ファイルの同期をしてください。</translation>
+        <translation>Dự án này có tệp dự án đã được cập nhật trên cloud; bạn nên đồng bộ hóa.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation>このプロジェクトはクラウド上でプロジェクトファイルが更新されています。ファイルの同期をしてください。</translation>
+        <translation>Dự án này có dữ liệu đã được cập nhật trên cloud; bạn nên đồng bộ hóa.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください</translation>
+        <translation>QFieldCloud đang đóng gói dữ liệu mới nhất cho bạn; việc này có thể mất một chút thời gian, vui lòng chờ</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation>ダウンロード中、 %1% / %2がフェッチされました</translation>
+        <translation>Đang tải xuống, đã lấy %1% trong tổng số %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation>ダウンロード中、 %1% がフェッチされました</translation>
+        <translation>Đang tải xuống, đã lấy %1%</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation>プロジェクトをダウンロードするためにQFieldCloudに連絡する</translation>
+        <translation>Đang liên hệ với QFieldCloud để tải xuống dự án</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>%n分ごとに変更を自動的にプッシュする</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>現在のプロジェクトでは、自動プッシュをオフにすることはできません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>QFieldCloudにプロジェクトを保存することで、シームレスな同期、オフライン編集、チームでの管理が可能になります。&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
@@ -3322,35 +3318,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Đang tải dự án hiện tại lên QFieldCloud.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>Dự án hiện tại không được lưu trữ trên QFieldCloud.</translation>
     </message>
     <message>
         <source>Cloudifying project</source>
-        <translation type="unfinished"/>
+        <translation>Đưa dự án lên cloud</translation>
     </message>
     <message>
         <source>Cloudify!</source>
-        <translation type="unfinished"/>
+        <translation>Đưa lên cloud!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Đang tải lên %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Còn lại %n tệp</numerusform></translation>
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Đã dùng %1 trên %2</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Nâng cấp dung lượng lưu trữ</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
@@ -3365,32 +3361,32 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>パッケージングジョブは `%1` のために失敗して終了しました。%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>`%1` の最新情報の更新に失敗しました: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>最新のパッケージデータの取得に失敗しました。</translation>
+        <translation>Không thể lấy dữ liệu gói mới nhất.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>最新のパッケージデータのレスポンスにエラーがあります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>最新のパッケージデータの構造にエラーがあります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>プロジェクト %1: パッケージ化されたレイヤ `%2` は有効ではありません。エラー・コード %3、エラー・メッセージ: %4</translation>
+        <translation>Dự án %1: Lớp đã đóng gói `%2` không hợp lệ. Mã lỗi %3, thông báo lỗi: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>%1` の一時ファイルを開けませんでした。理由:
+        <translation>Không thể mở tệp tạm thời cho `%1`, lý do:
 %2</translation>
     </message>
     <message>
@@ -3403,71 +3399,71 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
+        <translation>Lỗi mạng. Không thể tải xuống tệp `%1`.</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>プロジェクト `%1`、 ファイル `%2`: %3</translation>
+        <translation>Dự án `%1`, tệp `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation>システムメッセージ: </translation>
+        <translation>Tin nhắn của hệ thống:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation> (QFieldのエラーログを見てください)…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>ジョブの作成は完了しましたが、サーバーの応答に必須のフィールド: id(string) がありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>ジョブのステータスを取得していますが、 `%2` のジョブはまだ起動していません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>ジョブ(%1) ステータスのレスポンスが必要なキー: status(string)をすべて含んでいません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>ジョブ (%1) は失敗した状態で終了しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>プロジェクト(%1) トリガーのレスポンスは、指定されたすべてのキーを含んでいません: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>aborted</source>
-        <translation>中止されました</translation>
+        <translation>đã hủy</translation>
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation>ファイルシステムエラーです。一時フォルダの `%1` への添付ファイルの書き込みに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation>ファイルシステムエラーです。一時フォルダの `%1` で書き込みのための添付ファイルを開くのに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation>ネットワークエラーです。添付ファイル`%1`のダウンロードに失敗しました。</translation>
+        <translation>Lỗi mạng. Không thể tải xuống tệp đính kèm `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation>ファイルシステムエラーです。一部のファイル `%1` の書き込みに失敗しました。</translation>
+        <translation>Lỗi hệ thống tệp. Không thể ghi vào tệp từng phần `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation>ファイルシステムエラーです。一部のファイル `%1` を開くのに失敗しました。</translation>
+        <translation>Lỗi hệ thống tệp. Không thể mở tệp từng phần `%1`.</translation>
     </message>
     <message>
         <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
+        <translation>Đường dẫn cục bộ không tồn tại</translation>
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
@@ -3479,74 +3475,74 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Lỗi mạng. Không thể tải lên tệp `%1`.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Không thể tải lên một hoặc nhiều tệp</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
         <source>Owner</source>
-        <translation>所有者</translation>
+        <translation>Chủ sở hữu</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation>作成日</translation>
+        <translation>Ngày tạo</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation>最新の更新日</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation>このQRコードをスキャンすると、適切なアクセス権を持つユーザーがこのプロジェクトをダウンロードして開くことができます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>同期する</translation>
+        <translation>Đồng bộ</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>変更点をプッシュ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation>QFieldCloudはプロジェクトを適切にパッケージ化しています。</translation>
+        <translation>QFieldCloud đang đóng gói dự án, vui lòng chờ</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation>プロジェクトをダウンロードしています</translation>
+        <translation>Đang tải xuống dự án</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation>プロジェクトをダウンロードしました</translation>
+        <translation>Tải xuống dự án</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>プロジェクト %1 をダウンロードしています</translation>
+        <translation>Đang tải xuống dự án %1</translation>
     </message>
     <message>
         <source>Open project</source>
-        <translation>プロジェクトを開く</translation>
+        <translation>Mở dự án</translation>
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Đang đồng bộ hóa</translation>
     </message>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Đang dùng %1 trên %2</translation>
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Dung lượng lưu trữ</translation>
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Nhân bản dự án</translation>
     </message>
 </context>
 <context>
@@ -3557,7 +3553,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Tiêu chí</translation>
     </message>
     <message>
         <source>Include public projects</source>
@@ -3565,15 +3561,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search</source>
-        <translation>検索</translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>Dự án của %1</translation>
     </message>
     <message>
         <source>My own projects</source>
-        <translation type="unfinished"/>
+        <translation>Dự án của tôi</translation>
     </message>
     <message>
         <source>Title or description contains</source>
@@ -3581,146 +3577,146 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Chủ sở hữu là</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">エクスポートに失敗しました</translation>
+        <translation type="vanished">Xuất thất bại</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">パッケージされている &apos;%1&apos; は無効なレイヤです: &apos;%2&apos;</translation>
+        <translation type="vanished">Lớp đã đóng gói &apos;%1&apos; không hợp lệ: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">&quot;%1&quot; の一時ファイルを開くのに失敗しました。理由:
+        <translation type="vanished">Không thể mở tệp tạm thời cho &quot;%1&quot;, lý do:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">&quot;%1&quot; に保存されている添付ファイルのアップロードに失敗しました。理由:
+        <translation type="vanished">Không thể tải lên tệp đính kèm được lưu tại &quot;%1&quot;, lý do:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">&quot;%1&quot; ファイルのダウンロードに失敗しました。理由:</translation>
+        <translation type="vanished">Không thể tải xuống tệp &quot;%1&quot;, lý do:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">&quot;%1&quot; に保存されているダウンロードしたファイルの書き込みに失敗しました。理由:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>aborted</source>
-        <translation type="vanished">中止されました</translation>
+        <translation type="vanished">đã hủy</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="vanished">プロジェクト(%1) トリガーのレスポンスは、指定されたすべてのキーを含んでいません: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="vanished">ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="vanished">ジョブの作成は完了しましたが、サーバーの応答に必須のフィールド: id(string) がありません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="vanished">ジョブのステータスを取得していますが、 `%2` のジョブはまだ起動していません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="vanished">ジョブのステータスを取得していますが、プロジェクトが削除されています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="vanished">ジョブ(%1) ステータスのレスポンスが必要なキー: status(string)をすべて含んでいません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="vanished">ジョブ (%1) は失敗した状態で終了しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>プロジェクトがスタックしています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="vanished">パッケージングジョブは `%1` のために失敗して終了しました。%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="vanished">`%1` の最新情報の更新に失敗しました: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="vanished">最新のパッケージデータの取得に失敗しました。</translation>
+        <translation type="vanished">Không thể lấy dữ liệu gói mới nhất.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="vanished">最新のパッケージデータのレスポンスにエラーがあります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="vanished">最新のパッケージデータの構造にエラーがあります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="vanished">プロジェクト %1: パッケージ化されたレイヤ `%2` は有効ではありません。エラー・コード %3、エラー・メッセージ: %4</translation>
+        <translation type="vanished">Dự án %1: Lớp đã đóng gói `%2` không hợp lệ. Mã lỗi %3, thông báo lỗi: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="vanished">%1` の一時ファイルを開けませんでした。理由:
+        <translation type="vanished">Không thể mở tệp tạm thời cho `%1`, lý do:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">%1` に保存されている添付ファイルのアップロードに失敗しました。理由:
+        <translation type="vanished">Không thể tải lên tệp đính kèm được lưu tại `%1`, lý do:
 %2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="vanished">ネットワークエラーです。ファイル`%1`のダウンロードに失敗しました。</translation>
+        <translation type="vanished">Lỗi mạng. Không thể tải xuống tệp `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="vanished">ファイルシステムエラーです。一時フォルダの `%1` へのファイルの書き込みに失敗しました。</translation>
+        <translation type="vanished">Lỗi hệ thống tệp. Không thể ghi tệp vào vị trí tạm thời `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="vanished">ファイルシステムエラーです。一時フォルダの `%1` で書き込みのためのファイルを開くのに失敗しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="vanished">プロジェクト `%1`、 ファイル `%2`: %3</translation>
+        <translation type="vanished">Dự án `%1`, tệp `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="vanished">システムメッセージ: </translation>
+        <translation type="vanished">Tin nhắn của hệ thống:</translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation type="vanished"> (QFieldのエラーログを見てください)…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="vanished">ダウンロードしたファイルの一部をデバイスにコピーするのに失敗しました。端末のストレージを確認してください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
+        <translation>Việc tạo dự án yêu cầu phải có tên</translation>
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>Không thể tạo dự án cloud.</translation>
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
@@ -3731,179 +3727,179 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>QFieldCloudプロジェクト</translation>
+        <translation>Dự án QFieldCloud</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>QFieldCloudから切り離されました</translation>
+        <translation>Đã ngắt kết nối với cloud.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>QFieldCloudに接続しています。</translation>
+        <translation>Đang kết nối tới cloud.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>こんにちは &lt;strong&gt;%1&lt;/strong&gt;さん。</translation>
+        <translation>Xin chào &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation type="vanished">マイ・プロジェクト</translation>
+        <translation type="vanished">Dự án của tôi</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation type="vanished">コミュニティ</translation>
+        <translation type="vanished">Cộng đồng</translation>
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation type="vanished">(ローカルで利用可能)</translation>
+        <translation type="vanished">(Có sẵn cục bộ)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation type="vanished">ダウンロード中、 %1% がフェッチされました…</translation>
+        <translation type="vanished">Đang tải xuống, đã lấy %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
+        <translation type="vanished">QFieldCloud đang chuẩn bị dữ liệu mới nhất cho bạn. Việc này có thể mất một chút thời gian, vui lòng chờ…</translation>
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>アップロードしています...</translation>
+        <translation>Đang tải lên ...</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>ダウンロードエラー。</translation>
+        <translation>Lỗi tải xuống.</translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>アップロードエラー。</translation>
+        <translation>Lỗi tải lên.</translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation type="vanished">ローカルで利用可能、クラウドにはありません</translation>
+        <translation type="vanished">Có sẵn cục bộ, thiếu trên cloud</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="vanished">クラウドで利用可能、ローカルにはありません</translation>
+        <translation type="vanished">Có sẵn trên cloud, thiếu cục bộ</translation>
     </message>
     <message>
         <source>Available locally</source>
-        <translation type="vanished">ローカルで利用可能</translation>
+        <translation type="vanished">Có sẵn cục bộ</translation>
     </message>
     <message>
         <source>Has changes. </source>
-        <translation type="vanished">変更があります。</translation>
+        <translation type="vanished">Có thay đổi.</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation type="vanished">プロジェクト %1 をダウンロードしています</translation>
+        <translation type="vanished">Đang tải xuống dự án %1</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation type="vanished">プロジェクトをダウンロード</translation>
+        <translation type="vanished">Tải xuống dự án</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation>プロジェクトを開く</translation>
+        <translation>Mở dự án</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>保存されたプロジェクトを削除する</translation>
+        <translation>Gỡ bỏ dự án đã lưu</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation type="vanished">プロジェクトのダウンロードをキャンセルする</translation>
+        <translation type="vanished">Hủy tải xuống dự án</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="vanished">クラウドプロジェクトの上で長押しすると、追加アクションのメニューが表示されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>プロジェクト一覧の更新</translation>
+        <translation>Làm mới danh sách dự án</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>プロジェクト一覧を更新しています</translation>
+        <translation>Đang làm mới danh sách dự án</translation>
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="vanished">プロジェクトがありません</translation>
+        <translation type="vanished">Không tìm thấy dự án</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation>プロジェクトのアクション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation>QFieldCloudは最新のデータを準備しています。少し時間がかかるかもしれませんが、しばらくお待ちください…</translation>
+        <translation>QFieldCloud đang đóng gói dữ liệu mới nhất cho bạn; việc này có thể mất một chút thời gian, vui lòng chờ</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation>ダウンロード中、 %1% / %2がフェッチされました…</translation>
+        <translation>Đang tải xuống, đã lấy %1% trong tổng số %2</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation>ダウンロード中、 %1% がフェッチされました…</translation>
+        <translation>Đang tải xuống, đã lấy %1%</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation>プロジェクトをダウンロードするためにQFieldCloudに連絡する</translation>
+        <translation>Đang liên hệ với QFieldCloud để tải xuống dự án</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>サインアウト</translation>
+        <translation>Đăng xuất</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>サインイン</translation>
+        <translation>Đăng nhập</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation>無効なプロジェクトを表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View Project Details</source>
-        <translation>プロジェクトの詳細を見る</translation>
+        <translation>Xem chi tiết dự án</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloudプロジェクトの詳細の取得に失敗しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Xem thư mục dự án</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Bạn có chắc muốn gỡ bỏ `%1` không?</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>同期する</translation>
+        <translation>Đồng bộ</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>変更点をプッシュ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
-        <translation>プロジェクト</translation>
+        <translation>Dự án</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
-        <translation type="unfinished"/>
+        <translation>Đang làm mới danh sách dự án...</translation>
     </message>
     <message>
         <source>Searching for projects...</source>
-        <translation type="unfinished"/>
+        <translation>Đang tìm kiếm dự án...</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
-        <translation type="unfinished"/>
+        <translation>Không tìm thấy dự án cloud nào.</translation>
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Để bắt đầu, %1hãy đọc tài liệu%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
@@ -3915,61 +3911,61 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for projects</source>
-        <translation type="unfinished"/>
+        <translation>Tìm kiếm dự án</translation>
     </message>
     <message>
         <source>Clone Project</source>
-        <translation type="unfinished"/>
+        <translation>Nhân bản dự án</translation>
     </message>
     <message>
         <source>Project Cloning</source>
-        <translation type="unfinished"/>
+        <translation>Nhân bản dự án</translation>
     </message>
     <message>
         <source>What name do you want to give to your cloned project?</source>
-        <translation type="unfinished"/>
+        <translation>Bạn muốn đặt tên gì cho dự án được nhân bản?</translation>
     </message>
     <message>
         <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nhân bản dự án thất bại: %1</translation>
     </message>
     <message>
         <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tạo dự án thất bại: %1</translation>
     </message>
     <message>
         <source>Project successfully cloned</source>
-        <translation type="unfinished"/>
+        <translation>Đã nhân bản dự án thành công</translation>
     </message>
     <message>
         <source>Project successfully created</source>
-        <translation type="unfinished"/>
+        <translation>Đã tạo dự án thành công</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Đang tải lên %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Còn lại %n tệp</numerusform></translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>Không thể truy cập máy chủ QFieldCloud</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>Không thể truy cập máy chủ tại %1. Vui lòng kiểm tra kết nối Internet của bạn.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud đang bảo trì</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
@@ -3984,11 +3980,11 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>サーバーエラーが発生しましたので、再度お試しください。</translation>
+        <translation>Đã xảy ra lỗi máy chủ, vui lòng thử lại.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>ネットワークエラーが発生しましたので、再度お試しください。</translation>
+        <translation>Đã xảy ra lỗi mạng, vui lòng thử lại.</translation>
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
@@ -4003,158 +3999,158 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation>終了</translation>
+        <translation>Hoàn tất</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>次</translation>
+        <translation>Tiếp theo</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation>前</translation>
+        <translation>Trước</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation>プロジェクトフォルダ</translation>
+        <translation>Thư mục dự án</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>ローカルプロジェクト&amp;データセット</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Folders</source>
-        <translation>フォルダ</translation>
+        <translation>Thư mục</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation>プロジェクト</translation>
+        <translation>Dự án</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation>データセット</translation>
+        <translation>Bộ dữ liệu</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>お気に入り</translation>
+        <translation>Yêu thích</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation>プロジェクトファイル</translation>
+        <translation>Tệp dự án</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation>ベクターデータセット</translation>
+        <translation>Bộ dữ liệu vector</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation>ラスターデータセット</translation>
+        <translation>Bộ dữ liệu raster</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation>送信...</translation>
+        <translation>Gửi đến ...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation>フォルダの出力先...</translation>
+        <translation>Xuất ra thư mục ...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation>データセットを削除</translation>
+        <translation>Gỡ bỏ bộ dữ liệu</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation>圧縮フォルダの送信先...</translation>
+        <translation>Gửi thư mục nén tới...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="vanished">プロジェクトフォルダを削除</translation>
+        <translation type="vanished">Gỡ bỏ thư mục dự án</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation>プロジェクトをフォルダからインポート</translation>
+        <translation>Nạp dự án từ thư mục</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation>プロジェクトをZIPファイルからインポート</translation>
+        <translation>Nạp dự án từ file ZIP</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation>データセットをインポート</translation>
+        <translation>Nạp bộ dữ liệu</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation>ストレージ管理に関するヘルプ</translation>
+        <translation>Hỗ trợ quản lý lưu trữ</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>パスワード</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <source>Files</source>
-        <translation>ファイル</translation>
+        <translation>Tệp</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Trang chủ</translation>
     </message>
     <message>
         <source>Item Actions</source>
-        <translation>アイテムのアクション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View file</source>
-        <translation type="unfinished"/>
+        <translation>Xem tệp</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
-        <translation>QFieldCloudにプッシュ</translation>
+        <translation>Đẩy lên QFieldCloud</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation>お気に入りに追加</translation>
+        <translation>Thêm vào yêu thích</translation>
     </message>
     <message>
         <source>Remove from favorites</source>
-        <translation>お気に入りから削除</translation>
+        <translation>Xóa khỏi yêu thích</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV server</source>
-        <translation>WebDAVサーバーにフォルダをアップロード</translation>
+        <translation>Tải thư mục lên máy chủ WebDAV</translation>
     </message>
     <message>
         <source>Download folder from WebDAV server</source>
-        <translation>WebDAVサーバーからフォルダをダウンロード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Xóa thư mục</translation>
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Xóa tệp</translation>
     </message>
     <message>
         <source>Import Actions</source>
-        <translation>インポートのアクション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Import URL</source>
-        <translation>URLをインポートする</translation>
+        <translation>Nạp URL</translation>
     </message>
     <message>
         <source>Import WebDAV folder</source>
-        <translation>WebDAVフォルダをインポート</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation>プロジェクトのアクション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Update project from ZIP</source>
-        <translation>ZIPファイルからプロジェクトを更新する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Compress project and send to...</source>
@@ -4162,31 +4158,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload project to WebDAV</source>
-        <translation>プロジェクトをWebDAVにアップロード</translation>
+        <translation>Tải dự án lên WebDAV</translation>
     </message>
     <message>
         <source>Download project from WebDAV</source>
-        <translation>WebDAVからプロジェクトをダウンロード</translation>
+        <translation>Tải dự án xuống từ WebDAV</translation>
     </message>
     <message>
         <source>Upload file(s) to WebDAV</source>
-        <translation>WebDAVへファイルをアップロード</translation>
+        <translation>Tải tệp lên WebDAV</translation>
     </message>
     <message>
         <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloudにファイルをプッシュ</translation>
+        <translation>Đẩy tệp lên QFieldCloud</translation>
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>QFieldCloudにプッシュするファイルを一つ以上選択してください。</translation>
+        <translation>Vui lòng chọn một hoặc nhiều tệp để đẩy lên QFieldCloud.</translation>
     </message>
     <message>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Xóa tệp</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
-        <translation>‘%1’がQFieldCloudにアップロードされてします</translation>
+        <translation>‘%1’ đang được tải lên QFieldCloud</translation>
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
@@ -4194,555 +4190,555 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove File(s)</source>
-        <translation type="unfinished"/>
+        <translation>Gỡ bỏ tệp</translation>
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Bạn có chắc muốn gỡ bỏ %n tệp không?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Đã xóa thành công %n tệp</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Không thể xóa %n tệp</numerusform></translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
-        <translation>プロジェクトまたはデータセットをダウンロードしてインポートするには、次にURLを入力してください:</translation>
+        <translation>Nhập URL bên dưới để tải xuống và nhập dự án hoặc bộ dữ liệu:</translation>
     </message>
     <message>
         <source>Importing WebDAV folder</source>
-        <translation>WebDAVフォルダをインポートしています</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Downloading WebDAV folder</source>
-        <translation>WebDAVフォルダをダウンロードしています</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation>WebDAVフォルダをアップロードしています</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>WebDAV error: </source>
-        <translation>WebDAVエラー: </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>WebDAV upload</source>
-        <translation>WebDAVアップロード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>WebDAV download</source>
-        <translation>WebDAVダウンロード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to upload modified content into &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored remotely, make sure this is what you want to do.</source>
-        <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;へアップロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はリモートで保存されたデータを上書きします。ご注意ください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to download modified content from &lt;b&gt;%1&lt;/b&gt; using user &lt;b&gt;%2&lt;/b&gt;.&lt;br&gt;&lt;br&gt;This operation will overwrite data stored locally, make sure this is what you want to do.</source>
-        <translation>ユーザー &lt;b&gt;%2&lt;/b&gt;として修正したコンテンツを&lt;b&gt;%1&lt;/b&gt;からダウンロードしようとしています。&lt;br&gt;&lt;br&gt;この操作はローカルで保存されたデータを上書きします。ご注意ください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password (leave empty to use remembered)</source>
-        <translation>パスワード（記憶したものを使う場合は空欄にしてください）</translation>
+        <translation>Mật khẩu (để trống để dùng mật khẩu đã ghi nhớ)</translation>
     </message>
     <message>
         <source>Remember password</source>
-        <translation>パスワードを記憶する</translation>
+        <translation>Ghi nhớ mật khẩu</translation>
     </message>
     <message>
         <source>Type the WebDAV details below to import a remote folder:</source>
-        <translation>下にWebDAVの詳細を入力してリモートフォルダをインポート:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>WebDAV server URL</source>
-        <translation>WebDAVサーバーURL</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User and password</source>
-        <translation>ユーザーとパスワード</translation>
+        <translation>Người dùng và mật khẩu</translation>
     </message>
     <message>
         <source>leave empty to use remembered</source>
-        <translation>記憶したものを使う場合は空欄にしてください</translation>
+        <translation>để trống để dùng thông tin đã ghi nhớ</translation>
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation>リモートフォルダを取得しています</translation>
+        <translation>Đang lấy các thư mục từ xa</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation>リモートフォルダを取得</translation>
+        <translation>Lấy các thư mục từ xa</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation>インポートするリモートフォルダを選択:</translation>
+        <translation>Chọn thư mục từ xa để nhập:</translation>
     </message>
     <message>
         <source>root folder</source>
-        <translation>ルートフォルダ</translation>
+        <translation>thư mục gốc</translation>
     </message>
     <message>
         <source>Available locally in ‘%1’</source>
-        <translation>‘%1’でローカル上で利用可能</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation>インポートしたフォルダ名</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>確認</translation>
+        <translation>Xác nhận</translation>
     </message>
     <message>
         <source>You are about to remove a saved WebDAV item, proceed?</source>
-        <translation>保存されたWebDAVのアイテムを削除しようとしています。削除しますか？</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation>測位サービス実行中</translation>
+        <translation>Dịch vụ định vị đang chạy</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation>緯度 %1 | 経度 %2 | 高度 %3 m | 速度 %4 m/s | 方位 %5°</translation>
+        <translation>Vĩ độ %1 | Kinh độ %2 | Độ cao %3 m | Tốc độ %4 m/s | Hướng %5°</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation>測位サービスが停止しました</translation>
+        <translation>Dịch vụ định vị đã dừng</translation>
     </message>
 </context>
 <context>
     <name>QFieldSettings</name>
     <message>
         <source>Show scale bar</source>
-        <translation>縮尺を表示する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Maximized attribute form</source>
-        <translation type="vanished">属性フォームを最大表示する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed scale navigation</source>
-        <translation>同じ縮尺での検索結果表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When fixed scale navigation is active, focusing on a search result will pan to the feature. With fixed scale navigation disabled it will pan and zoom to the feature.</source>
-        <translation>同じ縮尺での検索結果表示を有効にすると、検索結果の地物に同じ縮尺のままで表示します。同機能を無効にすると縮尺を拡大し地物を表示します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>デジタイジング情報を表示する</translation>
+        <translation>Hiển thị thông tin số hóa</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>この機能を有効にすると、新しい地物を追加するときや計測ツールを使用しているときに、緯度・経度のような座標情報が地図キャンバス上にオーバーレイされます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>ブックマークを表示</translation>
+        <translation>Hiển thị dấu trang</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>オンにすると、ユーザーが保存したプロジェクトや現在開いているプロジェクトのブックマークが地図上に表示されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>ネイティブカメラを使用する</translation>
+        <translation>Sử dụng camera gốc</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation type="vanished">オフの場合, QFieldはデバイスのカメラアプリではなく、内部に搭載のカメラ機能を使用します。&lt;br&gt;参考: このオプションをオンにするとカメラアプリを起動してジオタグ写真を撮影するようになります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast editing mode</source>
-        <translation type="vanished">高速編集モード</translation>
+        <translation type="vanished">Chế độ chỉnh sửa nhanh</translation>
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation type="vanished">この機能を有効にすると、地物に有効なジオメトリが入力され、必要な制約が全て満たされると、属性情報がすぐに反映されるようになります。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>アイドリング時に画面を暗くする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">この機能を有効にすると、バッテリーを節約するために、20秒間操作しないと画面の明るさが低下します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>マウスをタッチスクリーンデバイスとして認識する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation type="vanished">無効した場合、マウスはスタイラスペンとして機能します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>匿名化されたメトリクスの送信</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation type="vanished">有効にすると、匿名化されたメトリクスが収集され、送信され、他の利用者のためにQFieldを改善するのに役立ちます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation>一般情報</translation>
+        <translation>Tổng quan</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>測位</translation>
+        <translation>Định vị</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>変数</translation>
+        <translation>Biến</translation>
     </message>
     <message>
         <source>Customize search bar</source>
-        <translation>検索バーのカスタマイズ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User interface language:</source>
-        <translation type="vanished">ユーザーインターフェース言語:</translation>
+        <translation type="vanished">Ngôn ngữ của giao diện người dùng:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation type="vanished">選択した表示言語を適用するには、QFieldを完全にシャットダウンして再起動する必要があります。</translation>
+        <translation type="vanished">Để áp dụng ngôn ngữ giao diện người dùng đã chọn, QField cần tắt hoàn toàn và khởi động lại.</translation>
     </message>
     <message>
         <source>system</source>
-        <translation>システム</translation>
+        <translation>hệ thống</translation>
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>あなたの言語がありませんか、それとも翻訳が不完全ですか？ %1翻訳コミュニティに参加しましょう。%2</translation>
+        <translation>Phát hiện ngôn ngữ bị thiếu hoặc chưa hoàn chỉnh? %1Tham gia cộng đồng dịch thuật.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>使用中の測位デバイス:</translation>
+        <translation>Thiết bị định vị đang sử dụng:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">ペアリングされたデバイスをスキャンしています</translation>
+        <translation type="vanished">Đang quét các thiết bị đã ghép nối</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">スキャンに失敗しました: %1</translation>
+        <translation type="vanished">Quét thất bại: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">スキャン完了</translation>
+        <translation type="vanished">Đã quét xong</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n つのデバイスが見つかりました</numerusform></translation>
+        <translation type="vanished"><numerusform>Đã tìm thấy %n thiết bị</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">スキャンがキャンセルされました。</translation>
+        <translation type="vanished">Hủy quét</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">スキャン</translation>
+        <translation type="vanished">Quét</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">フルサービス検出をする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">デバイスのフルスキャンには時間がかかる場合があります。本当に実行しますか？
-キャンセルして代わりにミニマムなデバイススキャンを行います。</translation>
+        <translation type="vanished">Việc quét đầy đủ thiết bị có thể mất nhiều thời gian hơn. Bạn có chắc muốn thực hiện?
+Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>%1 に接続しました</translation>
+        <translation>Đã kết nối với %1</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">%1 に接続する</translation>
+        <translation type="vanished">Kết nối tới %1</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>%1 に接続しています</translation>
+        <translation>Đang kết nối tới %1</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">デバイスから取得したオルソメトリック高度を使う</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>位置情報を表示する</translation>
+        <translation>Hiển thị thông tin vị trí</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>精度の閾値を設定する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation type="vanished">低精度としての許容範囲 [m]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation type="vanished">高精度としての許容範囲 [m]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation type="vanished">精度の条件を有効にする</translation>
+        <translation type="vanished">Bật yêu cầu độ chính xác</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation>平均化された位置精度を有効にする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="vanished">集められる衛星座標位置の最低数</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation>最低数を超えたら自動的に位置情報の収集を終了します</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation>有効にすると、カーソルが位置にロックされた状態で頂点をデジタイズする場合、収集する最低数から平均化された座標のみを受け取ります。平均化された座標を使ったデジタイジングは、頂点追加ボタンを押し続けることで行われ、ボタンを離すまで座標位置が集められます。精度条件が有効な場合は、その設定が使用されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>アンテナの高さ補正</translation>
+        <translation>Bù chiều cao ăng-ten</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation type="vanished">アンテナの高さ [m]</translation>
+        <translation type="vanished">Chiều cao ăng-ten [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">GNSS受信機から取得したZ値はこの数値によって補正されます。もし1.6という数値が入力された場合、各レコードの値から-1.6m補正されたものが保持されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>高度の補正をスキップする</translation>
+        <translation>Bỏ qua hiệu chỉnh độ cao</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>GNSS受信機によって計算された高度を使用します。 座標系変換によって示唆される可能性のある高度補正は行いません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>使用中の垂直方向のグリッドシフト:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>None</source>
-        <translation>なし</translation>
+        <translation>Không có</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>垂直方向のグリッドシフトは高度の精度を向上させるために使われます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation type="vanished">QField設定</translation>
+        <translation type="vanished">Cài đặt QField</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation>バッテリーを維持するために画面の明るさを暗くするまでの非アクティブ時間（秒）</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>頂点に付けられた計測値（M）:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="vanished">タイムスタンプ（エポックミリ秒）</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>対地速度</translation>
+        <translation>Tốc độ mặt đất</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>方位</translation>
+        <translation>Phương vị</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>水平精度</translation>
+        <translation>Độ chính xác ngang</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>垂直精度</translation>
+        <translation>Độ chính xác đứng</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP（位置精度劣化度）</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP（水平精度劣化度）</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP（垂直精度劣化度）</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation>座標カーソルが現在の位置にロックされている状態で地物をデジタイズするときは、M 寸法であれば、上記で選択した測定タイプがジオメトリに追加されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add</source>
-        <translation>追加</translation>
+        <translation>Thêm</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>編集</translation>
+        <translation>Chỉnh sửa</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>削除</translation>
+        <translation>Gỡ bỏ</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>%1に接続する</translation>
+        <translation>Kết nối tới %1</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation>システムの設定に従う</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light theme</source>
-        <translation>ライト・テーマ</translation>
+        <translation>Giao diện sáng</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation>ダーク・テーマ</translation>
+        <translation>Giao diện tối</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation>小さい</translation>
+        <translation>Nhỏ</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation>普通</translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>大きい</translation>
+        <translation>Lớn</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation>特大</translation>
+        <translation>Rất lớn</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation>デバイスからファイルへのNMEAセンテンスのログを移動</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation>地図キャンバスの描画精度:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Best quality</source>
-        <translation>最高精度</translation>
+        <translation>Chất lượng tốt nhất</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation>やや低い精度</translation>
+        <translation>Chất lượng thấp hơn</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation>最低精度</translation>
+        <translation>Chất lượng thấp nhất</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation>低く設定すると、描画精度と引き換えに、メモリ使用量と描画にかかる時間を削減できます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation>デバイスからのオルソメトリック</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation>ボリュームキーを使ってデジタル化する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation>有効にすると、デジタイズ中にデバイスのボリューム・アップ・キーを押すと頂点が追加され、ボリューム・ダウン・キーを押すと最後に入力した頂点が削除されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation>キャンバスを指でタップして頂点を追加できるようにする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>有効にすると、マップキャンバスを指でタップすると、タップした位置に頂点が追加されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation>有効にすると、マウスは指のように動作します。無効にすると、マウスはスタイラスと同じ動作をします。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation>マップキャンバス</translation>
+        <translation>Khung bản đồ</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation>デジタイズ＆編集</translation>
+        <translation>Số hóa &amp; Chỉnh sửa</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation>ユーザーインターフェース</translation>
+        <translation>Giao diện người dùng</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation>外観:</translation>
+        <translation>Giao diện:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation>フォントサイズ:</translation>
+        <translation>Kích thước phông chữ:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation>言語:</translation>
+        <translation>Ngôn ngữ:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>上級</translation>
+        <translation>Nâng cao</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation>プラグインを管理</translation>
+        <translation>Quản lý plugin</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation>地図の回転を有効にする</translation>
+        <translation>Bật xoay bản đồ</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation>スイッチを入れると、地図を回転させることができます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation>精度の要件を厳守する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation>精度の閾値を有効にすると、ロケーションボタンにバッジが追加され、低精度の場合は &lt;span %1&gt;赤色&lt;/span&gt; に、どちらでもない場合は &lt;span %2&gt;黄色&lt;/span&gt; に、高精度の場合は &lt;span %3&gt;緑色&lt;/span&gt;に変わります。&lt;br&gt;&lt;br&gt;また、低精度の閾値の範囲内で座標カーソルをロックし、頂点の追加制限する精度制限モードを有効にすることもできます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation>表示されている地図キャンバスの周囲にプレビュー コンテンツを描画します</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation>有効にすると、地物が 1 つだけ存在した場合に地物リストをスキップして地物フォームを自動的に開きます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show zoom controls</source>
@@ -4750,11 +4746,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>Tối đa hóa biểu mẫu đối tượng</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>Mở biểu mẫu đối tượng khi xác định một đối tượng duy nhất</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
@@ -4770,7 +4766,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Auto-zoom to identified feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>Tự động thu phóng đến đối tượng đã xác định</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
@@ -4786,11 +4782,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Theo dõi vị trí và hướng la bàn</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Theo dõi vị trí và hướng di chuyển</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
@@ -4802,51 +4798,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>Cài đặt %1</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Mạng</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>Bật proxy</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Loại</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Mặc định hệ thống</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Máy chủ</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>ví dụ proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>ポート</translation>
+        <translation>Cổng</translation>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>ví dụ 8888</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>ユーザー名</translation>
+        <translation>Tên đăng nhập</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Tùy chọn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>パスワード</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
@@ -4854,7 +4850,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>ví dụ localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
@@ -4870,7 +4866,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Thiết bị định vị</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -4894,7 +4890,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Điều chỉnh cao độ</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
@@ -4902,11 +4898,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Ngưỡng độ chính xác kém</translation>
     </message>
     <message>
         <source>m</source>
-        <translation type="unfinished"/>
+        <translation>m</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
@@ -4918,7 +4914,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Chiều cao ăng-ten</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
@@ -4937,142 +4933,142 @@ Cancel to make a minimal device scan instead.</source>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation>描画テンプレートの選択</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Digitizing Logger</source>
-        <translation>デジタイジングロガー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Authentication required</source>
-        <translation>認証が必要です</translation>
+        <translation>Yêu cầu xác thực</translation>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation>QFieldCloudの不明なエラー</translation>
+        <translation>Lỗi QFieldCloud không xác định</translation>
     </message>
     <message>
         <source>Status not ok</source>
-        <translation>ステータスはOKではありません</translation>
+        <translation>Trạng thái không ổn</translation>
     </message>
     <message>
         <source>Empty content</source>
-        <translation>空のコンテンツです</translation>
+        <translation>Nội dung trống</translation>
     </message>
     <message>
         <source>Object not found</source>
-        <translation>オブジェクトが見つかりません</translation>
+        <translation>Không tìm thấy đối tượng</translation>
     </message>
     <message>
         <source>API Error</source>
-        <translation>APIエラー</translation>
+        <translation>Lỗi API</translation>
     </message>
     <message>
         <source>Validation Error</source>
-        <translation>バリデーション・エラー</translation>
+        <translation>Lỗi xác thực dữ liệu</translation>
     </message>
     <message>
         <source>Multiple Projects</source>
-        <translation>複数のプロジェクト</translation>
+        <translation>Nhiều dự án</translation>
     </message>
     <message>
         <source>Invalid delta file</source>
-        <translation>無効なデルタファイル</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation>プロジェクトには有効なQGISプロジェクトファイルが含まれていません</translation>
+        <translation>Dự án không chứa tệp dự án QGIS hợp lệ</translation>
     </message>
     <message>
         <source>Invalid job</source>
-        <translation>無効なジョブ</translation>
+        <translation>Tác vụ không hợp lệ</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation>QGISのエクスポートに失敗しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation>QGISがQGISプロジェクトを開けません</translation>
+        <translation>QGIS không thể mở dự án QGIS</translation>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation>エラーがありデータベースを開けません &lt;b&gt;%1&lt;/b&gt;: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation>データベースに書き込み出来ませんでした %1 (%3) </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position</source>
-        <translation>現在位置</translation>
+        <translation>Vị trí</translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation>マップツールキャプチャー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation>クラウドユーザ情報</translation>
+        <translation>Thông tin người dùng cloud</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation>QFieldが最終化している間、しばらくお待ちください。</translation>
+        <translation>Vui lòng chờ trong khi quá trình cài đặt QField hoàn tất.</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation>平均化</translation>
+        <translation>đã lấy trung bình</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation>重心</translation>
+        <translation>trọng tâm</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation>エラー zip ファイルが存在しません: &apos;%1&apos;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation>エラー zip ファイル名が空です</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation>エラー出力ディレクトリが存在しません: &apos;%1&apos;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation>エラー出力先はディレクトリではありません: &apos;%1&apos;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation>エラー出力ディレクトリが書き込み可能でありません: &apos;%1&apos;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation>ディレクトリ %2 の外部にあるファイル %1 をスキップしました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation>サブディレクトリ %1/%2 の作成に失敗しました</translation>
+        <translation>Không thể tạo thư mục con %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation>%1 に書き込みできませんでした。</translation>
+        <translation>Không thể ghi vào %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation>ファイル読み込みエラー: &apos;%1&apos;</translation>
+        <translation>Lỗi khi đọc tệp: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation>ファイル取得エラー: &apos;%1&apos;</translation>
+        <translation>Lỗi khi lấy tệp: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation>ZIPアーカイブがエラーで開けませんでした: &apos;%1&apos; (エラーコード: %2)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Circle #1: radius</source>
@@ -5088,7 +5084,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Tham số XYZ</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
@@ -5100,19 +5096,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Điểm</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>Khoảng cách</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>Góc</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>Cao độ</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
@@ -5124,46 +5120,46 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Không thể xóa tệp (không được phép): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tệp không tồn tại: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Không thể xóa thư mục: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Không thể xóa tệp: %1 - %2</translation>
     </message>
 </context>
 <context>
     <name>QfActionButton</name>
     <message>
         <source>close</source>
-        <translation>閉じる</translation>
+        <translation>đóng</translation>
     </message>
 </context>
 <context>
@@ -5186,51 +5182,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>January</source>
-        <translation>1月</translation>
+        <translation>Tháng Một</translation>
     </message>
     <message>
         <source>February</source>
-        <translation>2月</translation>
+        <translation>Tháng Hai</translation>
     </message>
     <message>
         <source>March</source>
-        <translation>3月</translation>
+        <translation>Tháng Ba</translation>
     </message>
     <message>
         <source>April</source>
-        <translation>4月</translation>
+        <translation>Tháng Tư</translation>
     </message>
     <message>
         <source>May</source>
-        <translation>5月</translation>
+        <translation>Tháng Năm</translation>
     </message>
     <message>
         <source>June</source>
-        <translation>6月</translation>
+        <translation>Tháng Sáu</translation>
     </message>
     <message>
         <source>July</source>
-        <translation>7月</translation>
+        <translation>Tháng Bảy</translation>
     </message>
     <message>
         <source>August</source>
-        <translation>8月</translation>
+        <translation>Tháng Tám</translation>
     </message>
     <message>
         <source>September</source>
-        <translation>9月</translation>
+        <translation>Tháng Chín</translation>
     </message>
     <message>
         <source>October</source>
-        <translation>10月</translation>
+        <translation>Tháng Mười</translation>
     </message>
     <message>
         <source>November</source>
-        <translation>11月</translation>
+        <translation>Tháng Mười Một</translation>
     </message>
     <message>
         <source>December</source>
-        <translation>12月</translation>
+        <translation>Tháng Mười Hai</translation>
     </message>
 </context>
 <context>
@@ -5244,106 +5240,106 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfDialog</name>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>Đồng ý</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Có</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>いいえ</translation>
+        <translation>Không</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Đóng</translation>
     </message>
 </context>
 <context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Dung lượng lưu trữ</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Nhấn để nâng cấp dung lượng lưu trữ</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Nhấn để quản lý dung lượng lưu trữ</translation>
     </message>
 </context>
 <context>
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>測位</translation>
+        <translation>Định vị</translation>
     </message>
 </context>
 <context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation>検索</translation>
+        <translation>Tìm kiếm</translation>
     </message>
 </context>
 <context>
     <name>QfTimeItem</name>
     <message>
         <source>Hours</source>
-        <translation>時間</translation>
+        <translation>Giờ</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>分</translation>
+        <translation>Phút</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>秒</translation>
+        <translation>Giây</translation>
     </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="vanished">プロジェクトファイル 「%1」は存在しません</translation>
+        <translation type="vanished">Tệp dự án &quot;%1&quot; không tồn tại</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
-        <translation>最近開かれたプロジェクトファイルはありません</translation>
+        <translation>Hiện không có tệp dự án nào được mở</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation type="vanished">フォント %1 をロードできませんでした</translation>
+        <translation type="vanished">Không thể tải phông chữ %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">フォント %1 をロードしています</translation>
+        <translation type="vanished">Đang tải phông chữ %1</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation>プロジェクトプラグイン</translation>
+        <translation>Plugin dự án</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation>フォントをロードできませんでした: %1</translation>
+        <translation>Không thể tải phông chữ: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation>プロジェクトをロードできません。ファイル 「%1」は存在しません</translation>
+        <translation>Không thể tải dự án, tệp &quot;%1&quot; không tồn tại</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation>プロジェクトを読み込めません。ファイル 「%1」は存在しません</translation>
+        <translation>Không thể đọc dự án, tệp &quot;%1&quot; không tồn tại</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation>QFieldを利用して %1 に地図を印刷しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
@@ -5354,68 +5350,68 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsGpsInformation</name>
     <message>
         <source>Simulation mode</source>
-        <translation>シミュレーションモード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation>手動入力モード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Estimated</source>
-        <translation>推定値</translation>
+        <translation>Ước tính</translation>
     </message>
     <message>
         <source>Float RTK</source>
-        <translation>RTKフロート解</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fixed RTK</source>
-        <translation>RTKフィックス解</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PPS</source>
-        <translation>PPS測位</translation>
+        <translation>PPS</translation>
     </message>
     <message>
         <source>DGPS</source>
-        <translation>デファレンシャル測位</translation>
+        <translation>DGPS</translation>
     </message>
     <message>
         <source>Autonomous</source>
-        <translation>単独測位</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid</source>
-        <translation>無効</translation>
+        <translation>Không hợp lệ</translation>
     </message>
     <message>
         <source>Unknown (%1)</source>
-        <translation>不明 (%1)</translation>
+        <translation>Không xác định (%1)</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation> + IMU</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation>描画中</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">マップキャンバスの回転はサポートされていません。 ％1から0にリセットします。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Trống</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5426,61 +5422,61 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation type="vanished">無効な参照レイヤー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation type="vanished">編集を開始できません</translation>
+        <translation type="vanished">Không thể bắt đầu chỉnh sửa</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation type="vanished">地物を削除できません</translation>
+        <translation type="vanished">Không thể xóa đối tượng</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="vanished">レイヤー %1 の変更内容をロールバックできませんでした。</translation>
+        <translation type="vanished">Không thể khôi phục các thay đổi của lớp trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="vanished">レイヤー %1 の変更内容を保存できませんでした。</translation>
+        <translation type="vanished">Không thể xác nhận các thay đổi của lớp trong lớp %1.</translation>
     </message>
 </context>
 <context>
     <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>無効な参照レイヤー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>編集を開始できません</translation>
+        <translation>Không thể bắt đầu chỉnh sửa</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>地物を削除できません</translation>
+        <translation>Không thể xóa đối tượng</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>レイヤー %1 の変更内容をロールバックできませんでした。</translation>
+        <translation>Không thể khôi phục các thay đổi của lớp trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>レイヤー %1 の変更内容を保存できませんでした。</translation>
+        <translation>Không thể xác nhận các thay đổi của lớp trong lớp %1.</translation>
     </message>
 </context>
 <context>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">検索しています…</translation>
+        <translation type="vanished">Tìm kiếm ...</translation>
     </message>
     <message>
         <source>Invalid relation</source>
-        <translation>無効な関係</translation>
+        <translation>Quan hệ không hợp lệ</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Trống</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5491,254 +5487,254 @@ Cancel to make a minimal device scan instead.</source>
     <name>RelationEditorBase</name>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>子地物を追加できません：親地物がすべての制約を満たし、保存できることを確認してください</translation>
+        <translation>Không thể thêm đối tượng con: hãy đảm bảo đối tượng cha đáp ứng tất cả ràng buộc và có thể được lưu</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>レイヤー %1 に子地物を追加します</translation>
+        <translation>Đang thêm đối tượng con trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>子の地物を追加できません：親と子をつなぐ属性値が設定されていません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation>地物のリンクを解除</translation>
+        <translation>Hủy liên kết đối tượng</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>地物を削除</translation>
+        <translation>Xóa đối tượng</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>レイヤー &lt;b&gt;%3&lt;/b&gt; の地物 &lt;b&gt;%1 (%2)&lt;/b&gt;のリンクを解除しますか?&lt;br&gt;&lt;i&gt;(レイヤー &lt;b&gt;%4&lt;/b&gt;のコネクションは削除されます)&lt;/i&gt;</translation>
+        <translation>Có hủy liên kết đối tượng &lt;b&gt;%1 (%2)&lt;/b&gt; của lớp &lt;b&gt;%3&lt;/b&gt; không?&lt;br&gt;&lt;i&gt;(Kết nối sẽ bị xóa trên lớp &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>レイヤー &lt;b&gt;%3&lt;/b&gt; の地物&lt;b&gt;%1 (%2)&lt;/b&gt;を削除しますか？</translation>
+        <translation>Có xóa đối tượng &lt;b&gt;%1 (%2)&lt;/b&gt; trên lớp &lt;b&gt;%3&lt;/b&gt; không?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>参照している地物を削除できませんでした</translation>
+        <translation>Không xóa được đặc trưng tham chiếu</translation>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation>子メニュー</translation>
+        <translation>Menu đối tượng con</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation>地物の属性をコピー</translation>
+        <translation>Sao chép thuộc tính đối tượng</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>地図帳の地物をPDFに印刷</translation>
+        <translation>In đối tượng atlas ra PDF</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>地図帳の地物を印刷</translation>
+        <translation>In đối tượng atlas</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>下のテンプレートを選択</translation>
+        <translation>Chọn mẫu bên dưới</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>印刷しています...</translation>
+        <translation>Đang in ...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>地図帳の地物がPDFに印刷され、プロジェクトフォルダに保存されました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation><numerusform>%n 地物</numerusform></translation>
+        <translation><numerusform>%n đối tượng</numerusform></translation>
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Mở biểu mẫu</translation>
     </message>
 </context>
 <context>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>ジオメトリの再構築ができませんでした</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="vanished">ジオメトリの再構築ができませんでした</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation>不明</translation>
+        <translation>Không xác định</translation>
     </message>
 </context>
 <context>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Không áp dụng</translation>
     </message>
 </context>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation>下のリストからシリアルポートを選択してください：</translation>
+        <translation>Chọn cổng nối tiếp từ danh sách bên dưới:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation>シリアルポートが検出されません。デバイスが接続されたら、リストを更新してください。</translation>
+        <translation>Không phát hiện cổng nối tiếp nào, hãy làm mới danh sách sau khi thiết bị được kết nối.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation>リストを更新</translation>
+        <translation>Làm mới danh sách</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation>シリアルポートの表示名：</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation>シリアルポートのアドレス：</translation>
+        <translation>Địa chỉ cổng nối tiếp:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation>シリアルポートデバイスが見つかりません</translation>
+        <translation>Không thể tìm thấy thiết bị cổng nối tiếp</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation>シリアルポートから読み込もうとするとエラーが返されました。</translation>
+        <translation>Nỗ lực đọc từ cổng nối tiếp trả về lỗi</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation>アクセス許可がないため、接続が拒否された</translation>
+        <translation>Kết nối bị từ chối do không đủ quyền</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation>シリアル・ポート受信エラー (%1)</translation>
+        <translation>Lỗi bộ nhận cổng nối tiếp (%1)</translation>
     </message>
 </context>
 <context>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>地物を分割できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="vanished">地物を分割できませんでした</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">QFieldを順しています。これは一回限りの操作で少し時間がかかる場合があります。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="vanished">アドレス:</translation>
+        <translation type="vanished">Địa chỉ:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="vanished">ポート:</translation>
+        <translation type="vanished">Cổng:</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation>IPアドレス</translation>
+        <translation>Địa chỉ IP</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>ポート</translation>
+        <translation>Cổng</translation>
     </message>
 </context>
 <context>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation type="vanished">接続しています...</translation>
+        <translation type="vanished">Đang kết nối...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation type="vanished">接続しました</translation>
+        <translation type="vanished">Đã kết nối thành công</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="vanished">接続を解除しました</translation>
+        <translation type="vanished">Đã ngắt kết nối</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="vanished">ソケットの状態 %1</translation>
+        <translation type="vanished">Trạng thái chờ %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>リモートホストが見つかりません</translation>
+        <translation>Không tìm thấy máy chủ từ xa</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>ソケットからの読み取りまたは書き込みの試行がエラーを返しました。</translation>
+        <translation>Thao tác đọc hoặc ghi từ socket trả về lỗi</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">リモートホストによって接続が拒否されました</translation>
+        <translation type="vanished">Kết nối bị từ chối bởi máy chủ từ xa</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="vanished">UDP 受信エラー (%1)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>リモートホストによって接続が拒否されました。</translation>
+        <translation>Kết nối bị từ chối bởi máy chủ từ xa</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation>TCP受信エラー (%1)</translation>
+        <translation>Lỗi bộ nhận TCP (%1)</translation>
     </message>
 </context>
 <context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation>時間プロパティ</translation>
+        <translation>Thuộc tính thời gian</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation>時間フィルターを有効にする</translation>
+        <translation>Bật bộ lọc thời gian</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation>テキストをコピー</translation>
+        <translation>Sao chép văn bản</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation>テキストをペースト</translation>
+        <translation>Dán văn bản</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation>コードをスキャン</translation>
+        <translation>Quét mã</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Trống</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5749,22 +5745,22 @@ Cancel to make a minimal device scan instead.</source>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>レイヤー %1 の追跡を開始しました</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
-        <translation>トラッキング</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation>条件設定</translation>
+        <translation>Cài đặt yêu cầu</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation>最小時間条件</translation>
+        <translation>Yêu cầu thời gian</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -5772,11 +5768,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation>有効にすると、最後の頂点と新しい頂点の間の時間が、設定された最小値を満たしたときに、頂点の追加が行われます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation>最小距離条件</translation>
+        <translation>Yêu cầu khoảng cách</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -5784,43 +5780,43 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation>有効にすると、最後の頂点と新しい頂点の間の距離が、設定された最小値を満たしたときに、頂点の追加が行われます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation>センサーデータ条件</translation>
+        <translation>Yêu cầu dữ liệu cảm biến</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation>有効にすると、センサーが新しいデータを取り込んだときに頂点の追加が行われます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation>すべてのアクティブ条件を満たすまで待機する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation>有効にすると、すべてのアクティブな条件が満たされたときにのみ頂点が記録されます。無効にすると、個々の条件のうち一つが満たされたときに、頂点が追加されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General Settings</source>
-        <translation>一般設定</translation>
+        <translation>Cài đặt chung</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation>誤った距離のセーフガード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation>有効にすると、最後の頂点と新しい頂点の間の距離が設定された最大値より大きい場合、頂点の追加は行われません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>頂点に紐づけられた計測値（M）:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation>経過時間（追跡開始からの秒数）</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -5828,39 +5824,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>対地速度</translation>
+        <translation>Tốc độ mặt đất</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>方位</translation>
+        <translation>Phương vị</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>水平精度</translation>
+        <translation>Độ chính xác ngang</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>垂直精度</translation>
+        <translation>Độ chính xác đứng</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP（位置精度劣化度）</translation>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP（水平精度劣化度）</translation>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP（垂直精度劣化度）</translation>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>測定機能を有効にするには、追跡セッションで使用するベクターレイヤーのジオメトリタイプがM次元であることを確認してください。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>追跡を開始する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Track on layer %1 started</source>
@@ -5868,11 +5864,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation>トラッキングをやり直す</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Lớp</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
@@ -5884,15 +5880,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Thời gian tối thiểu</translation>
     </message>
     <message>
         <source>sec</source>
-        <translation type="unfinished"/>
+        <translation>giây</translation>
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Khoảng cách tối thiểu</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
@@ -5903,91 +5899,91 @@ Cancel to make a minimal device scan instead.</source>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="vanished">レイヤー %1 の追跡を開始しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation type="vanished">トラッキングの設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation type="vanished">時間制約の有効化</translation>
+        <translation type="vanished">Kích hoạt ràng buộc thời gian</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation type="vanished">最小時間 [秒]</translation>
+        <translation type="vanished">Thời gian tối thiểu [giây]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation type="vanished">距離制約の有効化</translation>
+        <translation type="vanished">Kích hoạt ràng buộc khoảng cách</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="vanished">最短距離 [%1]</translation>
+        <translation type="vanished">Khoảng cách tối thiểu [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">両方の制約を満たした場合に記録する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">有効にすると、両方の制約を満たしたときにのみ頂点が記録されます。この設定を無効にすると、個々の制約が満たされたときに頂点の追加が行われます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation type="vanished">追跡を開始する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">値が未設定のため追跡を開始できません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="vanished">両方の制約を無効にした場合、頂点の追加は衛星受信機から配信される頻度と同じに行われます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="vanished">頂点に紐づけられた計測値（M）:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="vanished">経過時間（追跡開始からの秒数）</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="vanished">タイムスタンプ（エポックミリ秒）</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="vanished">対地速度</translation>
+        <translation type="vanished">Tốc độ mặt đất</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="vanished">方位</translation>
+        <translation type="vanished">Phương vị</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="vanished">水平精度</translation>
+        <translation type="vanished">Độ chính xác ngang</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="vanished">垂直精度</translation>
+        <translation type="vanished">Độ chính xác đứng</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="vanished">PDOP（位置精度劣化度）</translation>
+        <translation type="vanished">PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="vanished">HDOP（水平精度劣化度）</translation>
+        <translation type="vanished">HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="vanished">VDOP（垂直精度劣化度）</translation>
+        <translation type="vanished">VDOP</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="vanished">測定機能を有効にするには、追跡セッションで使用するベクターレイヤーのジオメトリタイプがM次元であることを確認してください。</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6069,58 +6065,58 @@ Cancel to make a minimal device scan instead.</source>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="vanished">アドレス:</translation>
+        <translation type="vanished">Địa chỉ:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="vanished">ポート:</translation>
+        <translation type="vanished">Cổng:</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation>アドレス</translation>
+        <translation>Địa chỉ</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>ポート</translation>
+        <translation>Cổng</translation>
     </message>
 </context>
 <context>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation type="vanished">接続しています...</translation>
+        <translation type="vanished">Đang kết nối...</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation type="vanished">接続しました</translation>
+        <translation type="vanished">Đã kết nối thành công</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="vanished">接続を解除しました</translation>
+        <translation type="vanished">Đã ngắt kết nối</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="vanished">ソケットの状態 %1</translation>
+        <translation type="vanished">Trạng thái chờ %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>リモートホストが見つかりません</translation>
+        <translation>Không tìm thấy máy chủ từ xa</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>ソケットからの読み取りまたは書き込みの試行がエラーを返しました。</translation>
+        <translation>Thao tác đọc hoặc ghi từ socket trả về lỗi</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="vanished">リモートホストによって接続が拒否されました</translation>
+        <translation type="vanished">Kết nối bị từ chối bởi máy chủ từ xa</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP受信エラー (%1)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>リモートホストによって接続が拒否されました。</translation>
+        <translation>Kết nối bị từ chối bởi máy chủ từ xa</translation>
     </message>
 </context>
 <context>
@@ -6134,52 +6130,52 @@ Cancel to make a minimal device scan instead.</source>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation type="vanished">名前を入力してください</translation>
+        <translation type="vanished">Nhập tên</translation>
     </message>
     <message>
         <source>Enter value</source>
-        <translation>値を入力してください</translation>
+        <translation>Nhập giá trị</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation>新しい変数を追加する</translation>
+        <translation>Thêm biến mới</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation>グローバル変数</translation>
+        <translation>Biến toàn cục</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation>プロジェクト変数</translation>
+        <translation>Biến dự án</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>地物を保存できませんでした!</translation>
+        <translation>Không thể lưu đối tượng!</translation>
     </message>
 </context>
 <context>
     <name>VertexEditorToolbar</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">地物を保存できませんでした!</translation>
+        <translation type="vanished">Không thể lưu đối tượng!</translation>
     </message>
 </context>
 <context>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation>ネットワークエラー (%2)によりファイル %1 のダウンロードに失敗しました</translation>
+        <translation>Không thể tải xuống tệp %1 do lỗi mạng (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation>ネットワークエラー (%2)によりファイル %1 のアップロードに失敗しました</translation>
+        <translation>Không thể tải lên tệp %1 do lỗi mạng (%2)</translation>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Tải lên hoàn tất.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
@@ -6207,7 +6203,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Không có gì để tải lên.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
@@ -6215,7 +6211,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Đã hủy tải lên.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
@@ -6238,116 +6234,117 @@ Cancel to make a minimal device scan instead.</source>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>大変申し訳ございません。下のボタンからコメント、もしくはサポートの依頼をしていただければと思います。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>連絡する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="vanished">QFieldを使ってみて気に入っていただけましたか？</translation>
+        <translation type="vanished">Xin chào, bạn thấy trải nghiệm với QField đến giờ thế nào?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="vanished">ありがとうございます！下のボタンからストアにコメントを残していただけると嬉しいです。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>アプリを評価する</translation>
+        <translation>Đánh giá chúng tôi</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation>匿名化されたメトリクスの収集は無効化されました。設定パネルから再有効化することができます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="vanished">利用者の安定性を高めるため、QFieldでは匿名化されたメトリクスを収集し、送信しています。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I agree</source>
-        <translation>同意する</translation>
+        <translation>Tôi đồng ý</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation>同意しません</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation type="vanished">QFieldCloudプロジェクト</translation>
+        <translation type="vanished">Các dự án QFieldCloud</translation>
     </message>
     <message>
         <source>Open local file</source>
-        <translation type="vanished">ローカルファイルを開く</translation>
+        <translation type="vanished">Mở tệp cục bộ</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>最近使用したプロジェクト</translation>
+        <translation>Các dự án gần đây</translation>
     </message>
     <message>
         <source>Last session</source>
-        <translation>最後のセッション</translation>
+        <translation>Phiên cuối</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">ベースマッププロジェクト</translation>
+        <translation type="vanished">Dự án bản đồ nền</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">ベースマッププロジェクト</translation>
+        <translation type="vanished">Dự án bản đồ nền</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>最近のプロジェクトから削除する</translation>
+        <translation>Xóa khỏi dự án gần đây</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">QFieldにようこそ。初めてこのアプリをご使用になりますか？どうぞ下のリストにあるサンプルプロジェクトをお試しください。</translation>
+        <translation type="vanished">Chào mừng bạn đến với QField. Sử dụng ứng dụng này lần đầu tiên? Hãy thử các dự án mẫu liệt kê trong danh sách dưới đây.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation type="vanished">QFieldへようこそ。</translation>
+        <translation type="vanished">Chào mừng bạn trở lại QField.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation>デフォルトプロジェクト</translation>
+        <translation>Dự án mặc định</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation>ベースマップ</translation>
+        <translation>Bản đồ nền</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation>デフォルトプロジェクト</translation>
+        <translation>Dự án mặc định</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation>個別データセット ベースマップ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation>起動時にデフォルトプロジェクトを読み込む</translation>
+        <translation>Tải dự án mặc định khi khởi động</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation>起動時に最後に開いたプロジェクトを読み込む</translation>
+        <translation>Tải dự án đã mở gần nhất khi khởi động</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation>最近使用したプロジェクトのアクション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation>ありがとうございます！下のボタンからレビューを残していただけると嬉しいです。</translation>
+        <translation>Tuyệt quá! Chúng tôi rất mong bạn nhấn nút bên dưới và để lại đánh giá.</translation>
     </message>
     <message>
         <source>Return to map</source>
-        <translation>地図に戻る</translation>
+        <translation>Quay lại bản đồ</translation>
     </message>
     <message>
         <source>QFieldCloud
 projects</source>
-        <translation type="unfinished"/>
+        <translation>Dự án
+QFieldCloud</translation>
     </message>
     <message>
         <source>Local projects and
@@ -6357,154 +6354,155 @@ projects</source>
     <message>
         <source>Create new
 project</source>
-        <translation type="unfinished"/>
+        <translation>Tạo dự án
+mới</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Xin chào, bạn thấy trải nghiệm với %1 đến giờ thế nào?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Để cải thiện độ ổn định cho mọi người, %1 thu thập và gửi số liệu ẩn danh.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Chào mừng bạn quay lại %1.</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Chào mừng đến với %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Lần đầu sử dụng ứng dụng này? Hãy thử các dự án mẫu được liệt kê bên dưới.</translation>
     </message>
 </context>
 <context>
     <name>angle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>độ</translation>
     </message>
 </context>
 <context>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation>平方度</translation>
+        <translation>độ vuông</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
+        <translation>&lt;không xác định&gt;</translation>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation>平方メートル</translation>
+        <translation>mét vuông</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation>平方キロメートル</translation>
+        <translation>kilômét vuông</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation>平方フィート</translation>
+        <translation>feet vuông</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation>平方ヤード</translation>
+        <translation>yard vuông</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation>平方マイル</translation>
+        <translation>dặm vuông</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation>ヘクタール</translation>
+        <translation>hecta</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation>エーカー</translation>
+        <translation>mẫu Anh</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation>平方海里</translation>
+        <translation>hải lý vuông</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation>平方センチメートル</translation>
+        <translation>xentimét vuông</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation>平方ミリメートル</translation>
+        <translation>milimét vuông</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation>平方インチ</translation>
+        <translation>inch vuông</translation>
     </message>
 </context>
 <context>
     <name>boolean</name>
     <message>
         <source>True</source>
-        <translation>真</translation>
+        <translation>Đúng</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>偽</translation>
+        <translation>Sai</translation>
     </message>
 </context>
 <context>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation>度</translation>
+        <translation>độ</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
+        <translation>&lt;không xác định&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation>メートル</translation>
+        <translation>mét</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation>キロメートル</translation>
+        <translation>kilômét</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation>フィート</translation>
+        <translation>feet</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation>ヤード</translation>
+        <translation>yard</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation>マイル</translation>
+        <translation>dặm</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation>海里</translation>
+        <translation>hải lý</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation>センチメートル</translation>
+        <translation>xentimét</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation>ミリメートル</translation>
+        <translation>milimét</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation>インチ</translation>
+        <translation>inch</translation>
     </message>
 </context>
 <context>
     <name>gallery_relation_editor</name>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation>QFieldCloudのオンデマンド添付ファイルエラー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
@@ -6512,69 +6510,69 @@ project</source>
     </message>
     <message>
         <source>Learn more</source>
-        <translation>詳細はこちら</translation>
+        <translation>Tìm hiểu thêm</translation>
     </message>
 </context>
 <context>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation type="vanished">制約を確認する</translation>
+        <translation type="vanished">Đảm bảo ràng buộc</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="vanished">レイヤー %1 に子地物を追加します</translation>
+        <translation type="vanished">Đang thêm đối tượng con trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="vanished">子地物を追加できません。親の主キーが有効ではありません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="vanished">％3の地物 ％1（％2）のリンクを解除します</translation>
+        <translation type="vanished">Hủy liên kết đối tượng %1 (%2) của %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="vanished">％3の地物 ％1（％2）を削除します</translation>
+        <translation type="vanished">Xóa đối tượng %1 (%2) trên %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="vanished">レイヤー &lt;b&gt;%3&lt;/b&gt; の地物 &lt;b&gt;%1 (%2)&lt;/b&gt;のリンクを解除しますか?&lt;br&gt;&lt;i&gt;(レイヤー &lt;b&gt;%4&lt;/b&gt;のコネクションは削除されます)&lt;/i&gt;</translation>
+        <translation type="vanished">Có hủy liên kết đối tượng &lt;b&gt;%1 (%2)&lt;/b&gt; của lớp &lt;b&gt;%3&lt;/b&gt; không?&lt;br&gt;&lt;i&gt;(Kết nối sẽ bị xóa trên lớp &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="vanished">レイヤー &lt;b&gt;%3&lt;/b&gt; の地物&lt;b&gt;%1 (%2)&lt;/b&gt;を削除しますか？</translation>
+        <translation type="vanished">Có xóa đối tượng &lt;b&gt;%1 (%2)&lt;/b&gt; trên lớp &lt;b&gt;%3&lt;/b&gt; không?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="vanished">参照している地物を削除できませんでした</translation>
+        <translation type="vanished">Không xóa được đặc trưng tham chiếu</translation>
     </message>
 </context>
 <context>
     <name>point</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>vĩ độ</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>kinh độ</translation>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>cao độ</translation>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>tọa độ Đông [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>tọa độ Bắc [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>cao độ [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
@@ -6585,195 +6583,195 @@ project</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>閲覧モード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>レイヤ %1 は編集モードになりました</translation>
+        <translation>Bạn hiện đang ở chế độ số hóa trên lớp %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>編集モード</translation>
+        <translation>Bạn hiện đang ở chế độ số hóa</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>計測モード</translation>
+        <translation>Bạn đang ở chế độ đo</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>経度</translation>
+        <translation>Kinh độ</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>緯度</translation>
+        <translation>Vĩ độ</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>セグメント</translation>
+        <translation>Đoạn</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>周囲長</translation>
+        <translation>Chu vi</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>長さ</translation>
+        <translation>Chiều dài</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>面積</translation>
+        <translation>Diện tích</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>計測ツールを非表示にする</translation>
+        <translation>Đóng công cụ đo</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>編集をやめる</translation>
+        <translation>Dừng chỉnh sửa</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>追加をキャンセルする</translation>
+        <translation>Hủy thêm</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>トポロジー編集をオンにする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>トポロジー編集をオフにする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>フリーハンドでの編集をオンにしました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>フリーハンドでの編集をオフにしました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">座標カーソルが現在位置にロックされるようになりました</translation>
+        <translation type="vanished">Con trỏ tọa độ hiện đã khóa vào vị trí</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>座標カーソルのロックが解除されました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Received position</source>
-        <translation type="vanished">現在地を受信しました</translation>
+        <translation type="vanished">Đã nhận vị trí</translation>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="vanished">現在地を探しています</translation>
+        <translation type="vanished">Đang tìm kiếm vị trí</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">地図上で現在の位置情報を追尾します</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>位置情報を受信しています</translation>
+        <translation>Chờ xác định vị trí</translation>
     </message>
     <message>
         <source>Positioning activated</source>
-        <translation type="vanished">現在位置表示機能が有効になりました</translation>
+        <translation type="vanished">Định vị đã khởi động</translation>
     </message>
     <message>
         <source>Positioning turned off</source>
-        <translation type="vanished">現在位置表示機能が無効になりました</translation>
+        <translation type="vanished">Định vị đã tắt</translation>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">地図上で現在の位置情報を追尾するのを停止しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="vanished">地物を作成できませんでした!</translation>
+        <translation type="vanished">Không thể tạo đối tượng!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">地物を保存できませんでした!</translation>
+        <translation type="vanished">Không thể lưu đối tượng!</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>メインメニュー</translation>
+        <translation>Menu chính</translation>
     </message>
     <message>
         <source>Measure Tool</source>
-        <translation type="vanished">計測ツール</translation>
+        <translation type="vanished">Công cụ đo</translation>
     </message>
     <message>
         <source>Print to PDF</source>
-        <translation type="vanished">PDFを印刷する</translation>
+        <translation type="vanished">In ra PDF</translation>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="vanished">PDFに印刷しています</translation>
+        <translation type="vanished">Đang in ra PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="vanished">ホームスクリーンに行く</translation>
+        <translation type="vanished">Trở về màn hình chính</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="vanished">プロジェクトフォルダを開く</translation>
+        <translation type="vanished">Mở thư mục dự án</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="vanished">プロジェクトを開く</translation>
+        <translation type="vanished">Mở dự án</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>設定</translation>
+        <translation>Cài đặt</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>メッセージログ</translation>
+        <translation>Nhật ký thông báo</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation type="vanished">QFieldについて</translation>
+        <translation type="vanished">Về QField</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation type="vanished">下のテンプレートを選択</translation>
+        <translation type="vanished">Chọn mẫu bên dưới</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>位置情報取得機能を有効にしています</translation>
+        <translation>Khởi động dịch vụ định vị</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
-        <translation type="vanished">QFieldは位置情報表示機能を使用する許可を与えられていません。</translation>
+        <translation type="vanished">QField không được cấp quyền dùng định vị.</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>地図キャンバスオプション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>ブックマークを追加</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>目的地として設定</translation>
+        <translation>Đặt làm điểm đến</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">座標でブックマークを追加</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>無題のブックマーク</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="vanished">目的地として座標を設定</translation>
+        <translation type="vanished">Đặt tọa độ làm điểm đến</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="vanished">座標をコピー</translation>
+        <translation type="vanished">Sao chép tọa độ</translation>
     </message>
     <message>
         <source>X</source>
@@ -6785,239 +6783,239 @@ project</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>座標をクリップボードにコピー</translation>
+        <translation>Tọa độ đã được sao chép vào bộ nhớ đệm</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="vanished">ビュー精度の設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="vanished">0.25m精度</translation>
+        <translation type="vanished">Độ chính xác 0,25m</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="vanished">0.5m精度</translation>
+        <translation type="vanished">Độ chính xác 0,5m</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="vanished">1m精度</translation>
+        <translation type="vanished">Độ chính xác 1m</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="vanished">2.5m精度</translation>
+        <translation type="vanished">Độ chính xác 2,5m</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="vanished">5m精度</translation>
+        <translation type="vanished">Độ chính xác 5m</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="vanished">10m精度</translation>
+        <translation type="vanished">Độ chính xác 10m</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>いつもビュー精度を表示する</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="vanished">現在位置を中央に表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>現在位置でブックマークを追加</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>位置座標をコピー</translation>
+        <translation>Sao chép tọa độ vị trí</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>サインアウト</translation>
+        <translation>Đã đăng xuất</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>サインイン</translation>
+        <translation>Đã đăng nhập</translation>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="vanished">目的地として設定</translation>
+        <translation type="vanished">Đặt làm điểm đến</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>ナビゲーションオプション</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>目的地をクリア</translation>
+        <translation>Xóa đích đến</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="vanished">%1精度</translation>
+        <translation type="vanished">Độ chính xác %1</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="vanished">音声近接フィードバックを有効にする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>位置情報表示オプション</translation>
+        <translation>Tùy chọn định vị</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>位置情報表示を有効にする</translation>
+        <translation>Bật định vị</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>座標情報を表示する</translation>
+        <translation>Hiển thị thông tin vị trí</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>現在位置表示設定</translation>
+        <translation>Cài đặt định vị</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="vanished">現在位置を中央に表示</translation>
+        <translation type="vanished">Căn giữa theo vị trí hiện tại</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">現在位置でブックマークを追加</translation>
+        <translation type="vanished">Thêm dấu trang tại vị trí hiện tại</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="vanished">不明な現在位置</translation>
+        <translation type="vanished">Vị trí hiện tại không xác định</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>マイ・ロケーション</translation>
+        <translation>Vị trí của tôi</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="vanished">現在位置をコピー</translation>
+        <translation type="vanished">Sao chép vị trí hiện tại</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>精度</translation>
+        <translation>Độ chính xác</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Không áp dụng</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>現在位置をクリップボードにコピー</translation>
+        <translation>Vị trí hiện tại được sao chép vào bộ nhớ đệm</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>選択されたジオメトリが属するレイヤに切り替わりました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">マルチジオメトリレイヤーの編集は現在サポートされていません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>%1 を読み込んでいます</translation>
+        <translation>Đang tải %1</translation>
     </message>
     <message>
         <source>Logged out</source>
-        <translation type="vanished">ログアウトしました</translation>
+        <translation type="vanished">Đã thoát</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>接続しています...</translation>
+        <translation>Đang kết nối ...</translation>
     </message>
     <message>
         <source>Logged in</source>
-        <translation type="vanished">ログインしました</translation>
+        <translation type="vanished">Đã đăng nhập</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>プロジェクト %1 のダウンロードに失敗しました</translation>
+        <translation>Không thể tải xuống dự án %1</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>プロジェクト %1 が正常にダウンロードされて開けるようになりました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>変更内容がQFieldCloudにプッシュされませんでした: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>変更内容がQFieldCloudに正常にプッシュされました</translation>
+        <translation>Thay đổi đã được đẩy thành công lên QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>もう一度戻るボタンを押してプロジェクトとアプリを閉じてください。</translation>
+        <translation>Nhấn quay lại lần nữa để đóng dự án và ứng dụng</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="vanished">測位エラー: %1</translation>
+        <translation type="vanished">Lỗi định vị: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>方位角</translation>
+        <translation>Góc phương vị</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>スクリーンをロック</translation>
+        <translation>Khóa màn hình</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="vanished">画像に印刷する</translation>
+        <translation type="vanished">In ra dạng ảnh</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>印刷しています...</translation>
+        <translation>Đang in ...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>印刷</translation>
+        <translation>In</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>測位デバイスエラー: %1</translation>
+        <translation>Lỗi thiết bị định vị: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>地物をコピー</translation>
+        <translation>Nhân bản đối tượng</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>地物をコピーしました</translation>
+        <translation>Nhân bản dữ liệu thành công</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation>スナッピングを有効にしました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation>スナッピングを無効にしました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation>%1°度にスナップがオンになりました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation>共通アングルへのスナップはオフになりました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation>相対角度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more</source>
-        <translation>詳細はこちら</translation>
+        <translation>Tìm hiểu thêm</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation>センサー</translation>
+        <translation>Cảm biến</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation>使用可能なセンサーがありません</translation>
+        <translation>Cảm biến không có sẵn</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -7025,115 +7023,115 @@ project</source>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation>下からセンサーを選択</translation>
+        <translation>Chọn cảm biến dưới đây</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation>センサーエラー: %1</translation>
+        <translation>Lỗi cảm biến: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>センサー &apos;%1&apos;の接続を解除しています...</translation>
+        <translation>Đang ngắt kết nối cảm biến &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>センサー &apos;%1&apos; に接続しています...</translation>
+        <translation>Đang kết nối cảm biến &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation>下からレイヤーを選択</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>レイヤー:</translation>
+        <translation>Lớp:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation>地物:</translation>
+        <translation>Đối tượng:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation>属性フォームを開く</translation>
+        <translation>Mở biểu mẫu đối tượng</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation>地物のコピーは利用できません</translation>
+        <translation>Không thể nhân bản đối tượng</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation>%1をインポートしています</translation>
+        <translation>Đang nhập %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation>URLのインポートに失敗しました</translation>
+        <translation>Nạp URL thất bại</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation>`%1` をアクティブにする許可を与えますか？</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation>選択を覚える</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation>現在位置が &apos;%1&apos; に侵入しました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation>&apos;%1&apos;を抜けた後の外部領域の位置</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation>現在位置が &apos;%1&apos; に入りました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation>現在位置が &apos;%1&apos; から出ました。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation>地図の回転を有効にする</translation>
+        <translation>Bật xoay bản đồ</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation>ダッシュボード</translation>
+        <translation>Bảng điều khiển</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation>このボタンはダッシュボードを開きます。ダッシュボードでは、凡例や地図テーマを操作したり、編集モードを起動してデジタイズを開始することができます。ボタンを長押しすると、メインメニューにすぐにアクセスできます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>測位</translation>
+        <translation>Định vị</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>検索</translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation>検索バーでは、プロジェクト内の地物をすばやく検索したり、入力した緯度経度にジャンプしたりすることができます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation>アルゴリズムの実行をキャンセル</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation>実行中のアルゴリズム操作を終了しようとしています。終了しますか?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation>プロジェクトとアプリを閉じるには画面のロックを解除してください</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation>ボーダーレスモードが有効になっている場合は、左上と右下の角を使ってウィンドウを移動したりサイズを変更したりできます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>閲覧モードに切り替える前に、地物のデジタイジング機能を終了または解除する。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
@@ -7141,95 +7139,95 @@ project</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation>元に戻す</translation>
+        <translation>Hoàn tác</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>やり直す</translation>
+        <translation>Làm lại</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation>収集した位置情報を再生中です、しばらくお待ちください</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation>全てにスナッピングする</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1°</source>
-        <translation>%1°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation>スナッピングの精度</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Narrow</source>
-        <translation>狭い</translation>
+        <translation>Hẹp</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation>普通</translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>大きい</translation>
+        <translation>Lớn</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation>スナッピングの精度が %1 に設定</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation>インポートの確認</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation>プラグインの権限</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlock</source>
-        <translation>解除</translation>
+        <translation>Mở khóa</translation>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation>プロジェクトのプラグイン</translation>
+        <translation>Plugin dự án</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation>プラグインをアクティベートする権限を与えますか？</translation>
+        <translation>Bạn có cấp quyền để kích hoạt plugin không?</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation>地物の作成に失敗しました</translation>
+        <translation>Không thể tạo đối tượng</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>地物の追加をする権限が無効になっているため、地物を作成できませんでした</translation>
+        <translation>Không thể tạo đối tượng vì quyền thêm đối tượng đã bị tắt</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation>地物の保存に失敗しました</translation>
+        <translation>Không thể lưu đối tượng</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation>編集の切り替え</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation>閲覧モードと編集モードを切り替えます。閲覧モードでは、マップとその地物を最適に表示することに重点が置かれており、編集モードでは、地物の作成やジオメトリの編集が可能です。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Measurement</source>
-        <translation>計測</translation>
+        <translation>Đo đạc</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation>測定ツールに切り替えて、地図上の距離と面積を計算します。</translation>
+        <translation>Bật/tắt công cụ đo để tính khoảng cách và diện tích trên bản đồ.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation>構成されたプロジェクトの印刷とアトラスのレイアウトを使用して、地図キャンバスを PDF に出力します。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -7237,43 +7235,43 @@ project</source>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>クラウドプロジェクトを開いたときに、QFieldCloudとの間で変更をプッシュしたり、同期したり、元に戻したりします。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project folder</source>
-        <translation>プロジェクトフォルダ</translation>
+        <translation>Thư mục dự án</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation>プロジェクトフォルダを開くと、プロジェクトファイル、データソース、関連ドキュメントにアクセスできます。プロジェクトリソースの管理、QFieldCloudへのデータの手動アップロード、データセット、添付ファイル、レイアウトの共有に役立ちます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Legend</source>
-        <translation>凡例</translation>
+        <translation>Chú giải</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation>凡例には地図レイヤーが表示され、&lt;b&gt;レイヤーを長押ししてプロパティポップアップを開く&lt;/b&gt;ことで、表示設定と不透明度のプロパティを切り替えることができます。このポップアップでは、レイヤー範囲へのズームやベクターレイヤーに含まれる地物の表示といった追加機能も利用できます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation>地物をコピー</translation>
+        <translation>Sao chép đối tượng</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation>地物を切り取り</translation>
+        <translation>Cắt đối tượng</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation>地物の貼り付けに成功しました</translation>
+        <translation>Đã dán đối tượng thành công</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation>地物をレイヤーに貼り付けるのに失敗しました</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation>レイヤーに貼り付ける</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
@@ -7322,7 +7320,7 @@ to show actions</source>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>このボタンは測位システムを切り替えます。有効にすると、地図の上部に位置マーカーが表示されます。このボタンを長押しすると、その他の機能がある測位メニューが表示されます。</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
@@ -7330,7 +7328,7 @@ to show actions</source>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Dừng tất cả</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
@@ -7342,11 +7340,11 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Đã bật số hóa COGO</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Đã tắt số hóa COGO</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
@@ -7366,23 +7364,23 @@ to show actions</source>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Không thể tải chế độ xem 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Đang tải địa hình...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Đóng chế độ xem 3D</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Giới thiệu về %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Bạn có muốn nhập &lt;b&gt;%1&lt;/b&gt; từ &lt;b&gt;%2&lt;/b&gt; vào %3 không?</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
@@ -7390,7 +7388,7 @@ to show actions</source>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Nâng cấp dung lượng lưu trữ</translation>
     </message>
     <message>
         <source>Plugin Manager</source>
@@ -7398,7 +7396,7 @@ to show actions</source>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>Plugin dự án đã được tải</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
@@ -7430,7 +7428,7 @@ to show actions</source>
     </message>
     <message>
         <source>meters</source>
-        <translation>メートル</translation>
+        <translation>mét</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -7441,35 +7439,35 @@ to show actions</source>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation type="vanished">制約を確認する</translation>
+        <translation type="vanished">Đảm bảo ràng buộc</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="vanished">レイヤー %1 に子地物を追加します</translation>
+        <translation type="vanished">Đang thêm đối tượng con trong lớp %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="vanished">子地物を追加できません。親の主キーが有効ではありません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="vanished">％3の地物 ％1（％2）のリンクを解除します</translation>
+        <translation type="vanished">Hủy liên kết đối tượng %1 (%2) của %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="vanished">％3の地物 ％1（％2）を削除します</translation>
+        <translation type="vanished">Xóa đối tượng %1 (%2) trên %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="vanished">レイヤー &lt;b&gt;%3&lt;/b&gt; の地物 &lt;b&gt;%1 (%2)&lt;/b&gt;のリンクを解除しますか?&lt;br&gt;&lt;i&gt;(レイヤー &lt;b&gt;%4&lt;/b&gt;のコネクションは削除されます)&lt;/i&gt;</translation>
+        <translation type="vanished">Có hủy liên kết đối tượng &lt;b&gt;%1 (%2)&lt;/b&gt; của lớp &lt;b&gt;%3&lt;/b&gt; không?&lt;br&gt;&lt;i&gt;(Kết nối sẽ bị xóa trên lớp &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="vanished">レイヤー &lt;b&gt;%3&lt;/b&gt; の地物&lt;b&gt;%1 (%2)&lt;/b&gt;を削除しますか？</translation>
+        <translation type="vanished">Có xóa đối tượng &lt;b&gt;%1 (%2)&lt;/b&gt; trên lớp &lt;b&gt;%3&lt;/b&gt; không?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="vanished">参照している地物を削除できませんでした</translation>
+        <translation type="vanished">Không xóa được đặc trưng tham chiếu</translation>
     </message>
 </context>
 </TS>
