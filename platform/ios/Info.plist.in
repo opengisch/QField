@@ -128,7 +128,7 @@
     <true/>
 
     <key>UISupportsDocumentBrowser</key>
-    <false/>
+    <true/>
 
     <key>LSSupportsOpeningDocumentsInPlace</key>
     <false/>
