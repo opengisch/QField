@@ -491,6 +491,17 @@ void Theme::setFontScale( qreal scale )
   emit fontScaleChanged();
 }
 
+void Theme::setToolButtonSize( int size )
+{
+  if ( mToolButtonSize == size )
+  {
+    return;
+  }
+
+  mToolButtonSize = size;
+  emit toolButtonSizeChanged();
+}
+
 QFont Theme::makeFont( qreal scaleFactor, bool bold ) const
 {
   QFont font;

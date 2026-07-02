@@ -113,6 +113,8 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QFont titleFont READ titleFont NOTIFY fontScaleChanged )
     Q_PROPERTY( QFont strongTitleFont READ strongTitleFont NOTIFY fontScaleChanged )
 
+    Q_PROPERTY( int toolButtonSize READ toolButtonSize WRITE setToolButtonSize NOTIFY toolButtonSizeChanged )
+
     Q_PROPERTY( int popupScreenEdgeVerticalMargin READ popupScreenEdgeVerticalMargin CONSTANT )
     Q_PROPERTY( int popupScreenEdgeHorizontalMargin READ popupScreenEdgeHorizontalMargin CONSTANT )
     Q_PROPERTY( int menuItemIconlessLeftPadding READ menuItemIconlessLeftPadding CONSTANT )
@@ -302,6 +304,9 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QFont titleFont() const { return makeFont( 1.25, false ); }
     QFont strongTitleFont() const { return makeFont( 1.25, true ); }
 
+    int toolButtonSize() const { return mToolButtonSize; }
+    void setToolButtonSize( int size );
+
     int popupScreenEdgeVerticalMargin() const { return 40; }
     int popupScreenEdgeHorizontalMargin() const { return 20; }
     int menuItemIconlessLeftPadding() const { return 52; }
@@ -334,6 +339,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     void appearanceChanged();
     void darkThemeChanged();
     void fontScaleChanged();
+    void toolButtonSizeChanged();
     void themeDataLoaded();
     void screenPpiChanged();
 
@@ -405,6 +411,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QString mAppearance;
     bool mDarkTheme = false;
     qreal mFontScale = 1.0;
+    int mToolButtonSize = 48;
     qreal mSystemFontPointSize = 14.0;
     qreal mScreenPpi = 160.0;
 };
