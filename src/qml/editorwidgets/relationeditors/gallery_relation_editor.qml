@@ -73,13 +73,14 @@ RelationEditorBase {
     relationAudioRecorderLoader.active = false;
   }
 
-  property var pendingDownloads: ({})
-  property var failedDownloads: ({})
+  signal downloadFinished(string path)
+
+  property list<string> pendingDownloads: []
+  property list<string> failedDownloads: []
   property var fetchedPaths: ({})
-  property int downloadRevision: 0
 
   // ExternalStorage handles one fetch at a time, so requests are queued and dispatched sequentially as each one completes
-  property var fetchQueue: []
+  property list<var> fetchQueue: []
   property string currentFetchKey: ""
 
   function enqueueExternalFetch(relativePath, fetchUrl, authConfigId) {
@@ -99,12 +100,13 @@ RelationEditorBase {
     externalStorage.fetch(next.url, next.authId);
   }
 
-  property var videoQueue: []
+  property list<var> videoQueue: []
   property bool videoQueueBusy: false
 
   Timer {
     id: videoQueueTimer
-    interval: 150
+    interval: 500
+    repeat: false
     onTriggered: {
       while (videoQueue.length > 0) {
         if (videoQueue.shift()()) {
@@ -134,16 +136,20 @@ RelationEditorBase {
     target: dummyTarget
 
     function onDownloadAttachmentFinished(fileName, errorString) {
-      if (relationEditor.pendingDownloads.hasOwnProperty(fileName)) {
-        delete relationEditor.pendingDownloads[fileName];
+      const pendingDownloadsIdx = relationEditor.pendingDownloads.indexOf(fileName);
+      if (pendingDownloadsIdx >= 0) {
         if (errorString !== "") {
-          relationEditor.failedDownloads[fileName] = true;
+          relationEditor.failedDownloads.push(fileName);
           displayToast(qsTr("QFieldCloud on-demand attachment error: ") + errorString, 'error');
         }
-        if (Object.keys(relationEditor.pendingDownloads).length === 0) {
+        let pds = Array.from(relationEditor.pendingDownloads);
+        pds.splice(pendingDownloadsIdx, 1);
+        relationEditor.pendingDownloads = pds;
+        downloadFinished(fileName);
+
+        if (relationEditor.pendingDownloads.length == 0) {
           cloudProjectConnection.target = dummyTarget;
         }
-        relationEditor.downloadRevision++;
       }
     }
   }
@@ -153,21 +159,34 @@ RelationEditorBase {
     type: referencingFeatureListModel.attachmentStorageType
 
     onFetchedContentChanged: {
-      if (fetchedContent === "" || relationEditor.currentFetchKey === "")
+      if (fetchedContent === "" || relationEditor.currentFetchKey === "") {
         return;
-      relationEditor.fetchedPaths[relationEditor.currentFetchKey] = fetchedContent;
-      delete relationEditor.pendingDownloads[relationEditor.currentFetchKey];
+      }
+      const pendingDownloadsIdx = relationEditor.pendingDownloads.indexOf(relationEditor.currentFetchKey);
+      if (pendingDownloadsIdx > -1) {
+        relationEditor.fetchedPaths[relationEditor.currentFetchKey] = fetchedContent;
+        let pds = Array.from(relationEditor.pendingDownloads);
+        pds.splice(pendingDownloadsIdx, 1);
+        relationEditor.pendingDownloads = pds;
+        downloadFinished(relationEditor.currentFetchKey);
+      }
+
       relationEditor.currentFetchKey = "";
-      relationEditor.downloadRevision++;
       relationEditor.processNextFetch();
     }
 
     onLastErrorChanged: {
       if (relationEditor.currentFetchKey !== "") {
-        relationEditor.failedDownloads[relationEditor.currentFetchKey] = true;
-        delete relationEditor.pendingDownloads[relationEditor.currentFetchKey];
+        const pendingDownloadsIdx = relationEditor.pendingDownloads.indexOf(relationEditor.currentFetchKey);
+        if (pendingDownloadsIdx > -1) {
+          relationEditor.failedDownloads.push(relationEditor.currentFetchKey);
+          let pds = Array.from(relationEditor.pendingDownloads);
+          pds.splice(pendingDownloadsIdx, 1);
+          relationEditor.pendingDownloads = pds;
+          downloadFinished(relationEditor.currentFetchKey);
+        }
+
         relationEditor.currentFetchKey = "";
-        relationEditor.downloadRevision++;
         relationEditor.processNextFetch();
       }
       displayToast(lastError, 'error');
@@ -177,7 +196,7 @@ RelationEditorBase {
   AudioAnalyzer {
     id: audioAnalyzer
 
-    property var queue: []
+    property list<var> queue: []
     property string currentProcess: ""
     property var availableBars: ({})
 
@@ -499,26 +518,26 @@ RelationEditorBase {
       }
       return fullPath;
     }
-    if (fetchedPaths.hasOwnProperty(path)) {
+    if (path in fetchedPaths) {
       return fetchedPaths[path];
     }
-    if (pendingDownloads.hasOwnProperty(path) || failedDownloads.hasOwnProperty(path)) {
+    if (pendingDownloads.indexOf(path) >= 0 || failedDownloads.indexOf(path) >= 0) {
       return "";
     }
     // File not found locally; attempt on-demand download
     if (externalStorage.type !== "") {
       const authConfigId = referencingFeatureListModel.attachmentStorageAuthConfigId;
       if (authConfigId !== "" && !AuthUtils.isAuthenticationConfigurationAvailable(authConfigId)) {
-        failedDownloads[path] = true;
+        failedDownloads.push(path);
         mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(appName), "error", qsTr("Learn more"), function () {
           Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
         });
       } else {
-        pendingDownloads[path] = true;
+        pendingDownloads.push(path);
         enqueueExternalFetch(path, referencingFeatureListModel.attachmentStorageUrl + path, authConfigId);
       }
     } else if (cloudProjectsModel && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
-      pendingDownloads[path] = true;
+      pendingDownloads.push(path);
       cloudProjectConnection.target = cloudProjectsModel.currentProject;
       cloudProjectsModel.currentProject.downloadAttachment(path);
     }
@@ -585,21 +604,24 @@ RelationEditorBase {
       width: listView.width
       height: relationEditor.listItemHeight
 
+      property string attachmentPath: model.attachmentPath
       property string attachmentFullPath: ""
       Component.onCompleted: {
-        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        attachmentFullPath = resolveAttachmentPath(attachmentPath);
       }
       Connections {
         target: relationEditor
-        function onDownloadRevisionChanged() {
-          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        function onDownloadFinished(path) {
+          if (attachmentPath === path) {
+            attachmentFullPath = resolveAttachmentPath(attachmentPath);
+          }
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
-      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.hasOwnProperty(model.attachmentPath)
+      readonly property bool attachmentFetching: attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.indexOf(attachmentPath) >= 0
 
       Loader {
         id: listVideoThumbLoader
@@ -879,21 +901,24 @@ RelationEditorBase {
       width: relationEditor.cardSize
       height: relationEditor.cardSize
 
+      property string attachmentPath: model.attachmentPath
       property string attachmentFullPath: ""
       Component.onCompleted: {
-        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        attachmentFullPath = resolveAttachmentPath(attachmentPath);
       }
       Connections {
         target: relationEditor
-        function onDownloadRevisionChanged() {
-          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        function onDownloadFinished(path) {
+          if (attachmentPath === path) {
+            attachmentFullPath = resolveAttachmentPath(attachmentPath);
+          }
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
-      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.hasOwnProperty(model.attachmentPath)
+      readonly property bool attachmentFetching: attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.indexOf(attachmentPath) >= 0
 
       Component.onDestruction: {
         if (cardContainer.videoPlaying && videoThumbLoader.item) {
@@ -923,8 +948,9 @@ RelationEditorBase {
           if (attachmentIsVideo && sourceUrl.toString() !== "") {
             queued = true;
             relationEditor.queueVideoLoad(() => {
-              if (!videoThumbLoader || !videoThumbLoader.queued)
+              if (!videoThumbLoader || !videoThumbLoader.queued) {
                 return false;
+              }
               videoThumbLoader.queued = false;
               videoThumbLoader.active = true;
               return true;
