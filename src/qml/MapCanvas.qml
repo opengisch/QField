@@ -90,16 +90,22 @@ Item {
    * number of times.
    */
   function freeze(id) {
-    mapCanvasWrapper.__freezecount[id] = true;
-    mapCanvasWrapper.freeze = true;
+    const freezeIdx = mapCanvasWrapper.__freezecount.indexOf(id);
+    if (freezeIdx == -1) {
+      mapCanvasWrapper.__freezecount.push(id);
+      mapCanvasWrapper.freeze = true;
+    }
     if (id !== 'follow') {
       mapCanvasWrapper.stopRendering();
     }
   }
 
   function unfreeze(id) {
-    delete mapCanvasWrapper.__freezecount[id];
-    mapCanvasWrapper.freeze = Object.keys(mapCanvasWrapper.__freezecount).length !== 0;
+    const freezeIdx = mapCanvasWrapper.__freezecount.indexOf(id);
+    if (freezeIdx != -1) {
+      mapCanvasWrapper.__freezecount.splice(freezeIdx, 1);
+    }
+    mapCanvasWrapper.freeze = mapCanvasWrapper.__freezecount.length != 0;
   }
 
   function zoomIn(point) {
@@ -233,7 +239,7 @@ Item {
     width: mapArea.width
     height: mapArea.height
 
-    property var __freezecount: ({})
+    property list<string> __freezecount: []
     property int animationDuration: 50
 
     freeze: false
