@@ -73,10 +73,11 @@ RelationEditorBase {
     relationAudioRecorderLoader.active = false;
   }
 
+  signal downloadFinished(string path)
+
   property list<string> pendingDownloads: []
-  property list<string> failedDownloads: ({})
-  property list<string> fetchedPaths: ({})
-  property int downloadRevision: 0
+  property list<string> failedDownloads: []
+  property var fetchedPaths: ({})
 
   // ExternalStorage handles one fetch at a time, so requests are queued and dispatched sequentially as each one completes
   property list<var> fetchQueue: []
@@ -104,7 +105,8 @@ RelationEditorBase {
 
   Timer {
     id: videoQueueTimer
-    interval: 150
+    interval: 500
+    repeat: false
     onTriggered: {
       while (videoQueue.length > 0) {
         if (videoQueue.shift()()) {
@@ -135,18 +137,19 @@ RelationEditorBase {
 
     function onDownloadAttachmentFinished(fileName, errorString) {
       const pendingDownloadsIdx = relationEditor.pendingDownloads.indexOf(fileName);
-      if (pendingDownloadsIdx > -1) {
-        let pds = relationEditor.pendingDownloads;
-        pds.splice(pendingDownloadsIdx, 1);
-        relationEditor.pendingDownloads = pds;
+      if (pendingDownloadsIdx >= 0) {
         if (errorString !== "") {
           relationEditor.failedDownloads.push(fileName);
           displayToast(qsTr("QFieldCloud on-demand attachment error: ") + errorString, 'error');
         }
+        let pds = Array.from(relationEditor.pendingDownloads);
+        pds.splice(pendingDownloadsIdx, 1);
+        relationEditor.pendingDownloads = pds;
+        downloadFinished(fileName);
+
         if (relationEditor.pendingDownloads.length == 0) {
           cloudProjectConnection.target = dummyTarget;
         }
-        relationEditor.downloadRevision++;
       }
     }
   }
@@ -156,31 +159,34 @@ RelationEditorBase {
     type: referencingFeatureListModel.attachmentStorageType
 
     onFetchedContentChanged: {
-      if (fetchedContent === "" || relationEditor.currentFetchKey === "")
+      if (fetchedContent === "" || relationEditor.currentFetchKey === "") {
         return;
-      relationEditor.fetchedPaths.push(fetchedContent);
+      }
       const pendingDownloadsIdx = relationEditor.pendingDownloads.indexOf(relationEditor.currentFetchKey);
       if (pendingDownloadsIdx > -1) {
-        let pds = relationEditor.pendingDownloads;
+        relationEditor.fetchedPaths[relationEditor.currentFetchKey] = fetchedContent;
+        let pds = Array.from(relationEditor.pendingDownloads);
         pds.splice(pendingDownloadsIdx, 1);
         relationEditor.pendingDownloads = pds;
+        downloadFinished(relationEditor.currentFetchKey);
       }
+
       relationEditor.currentFetchKey = "";
-      relationEditor.downloadRevision++;
       relationEditor.processNextFetch();
     }
 
     onLastErrorChanged: {
       if (relationEditor.currentFetchKey !== "") {
-        relationEditor.failedDownloads.push(relationEditor.currentFetchKey);
         const pendingDownloadsIdx = relationEditor.pendingDownloads.indexOf(relationEditor.currentFetchKey);
         if (pendingDownloadsIdx > -1) {
-          let pds = relationEditor.pendingDownloads;
+          relationEditor.failedDownloads.push(relationEditor.currentFetchKey);
+          let pds = Array.from(relationEditor.pendingDownloads);
           pds.splice(pendingDownloadsIdx, 1);
           relationEditor.pendingDownloads = pds;
+          downloadFinished(relationEditor.currentFetchKey);
         }
+
         relationEditor.currentFetchKey = "";
-        relationEditor.downloadRevision++;
         relationEditor.processNextFetch();
       }
       displayToast(lastError, 'error');
@@ -512,8 +518,8 @@ RelationEditorBase {
       }
       return fullPath;
     }
-    if (fetchedPaths.indexOf(path) >= 0) {
-      return fetchedPaths.indexOf(path);
+    if (path in fetchedPaths) {
+      return fetchedPaths[path];
     }
     if (pendingDownloads.indexOf(path) >= 0 || failedDownloads.indexOf(path) >= 0) {
       return "";
@@ -522,7 +528,7 @@ RelationEditorBase {
     if (externalStorage.type !== "") {
       const authConfigId = referencingFeatureListModel.attachmentStorageAuthConfigId;
       if (authConfigId !== "" && !AuthUtils.isAuthenticationConfigurationAvailable(authConfigId)) {
-        failedDownloads[path] = true;
+        failedDownloads.push(path);
         mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(appName), "error", qsTr("Learn more"), function () {
           Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
         });
@@ -598,21 +604,24 @@ RelationEditorBase {
       width: listView.width
       height: relationEditor.listItemHeight
 
+      property string attachmentPath: model.attachmentPath
       property string attachmentFullPath: ""
       Component.onCompleted: {
-        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        attachmentFullPath = resolveAttachmentPath(attachmentPath);
       }
       Connections {
         target: relationEditor
-        function onDownloadRevisionChanged() {
-          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        function onDownloadFinished(path) {
+          if (attachmentPath === path) {
+            attachmentFullPath = resolveAttachmentPath(attachmentPath);
+          }
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
-      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.indexOf(model.attachmentPath) >= 0
+      readonly property bool attachmentFetching: attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.indexOf(attachmentPath) >= 0
 
       Loader {
         id: listVideoThumbLoader
@@ -892,21 +901,24 @@ RelationEditorBase {
       width: relationEditor.cardSize
       height: relationEditor.cardSize
 
+      property string attachmentPath: model.attachmentPath
       property string attachmentFullPath: ""
       Component.onCompleted: {
-        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        attachmentFullPath = resolveAttachmentPath(attachmentPath);
       }
       Connections {
         target: relationEditor
-        function onDownloadRevisionChanged() {
-          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+        function onDownloadFinished(path) {
+          if (attachmentPath === path) {
+            attachmentFullPath = resolveAttachmentPath(attachmentPath);
+          }
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
-      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.indexOf(model.attachmentPath)
+      readonly property bool attachmentFetching: attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.indexOf(attachmentPath) >= 0
 
       Component.onDestruction: {
         if (cardContainer.videoPlaying && videoThumbLoader.item) {
@@ -936,8 +948,9 @@ RelationEditorBase {
           if (attachmentIsVideo && sourceUrl.toString() !== "") {
             queued = true;
             relationEditor.queueVideoLoad(() => {
-              if (!videoThumbLoader || !videoThumbLoader.queued)
+              if (!videoThumbLoader || !videoThumbLoader.queued) {
                 return false;
+              }
               videoThumbLoader.queued = false;
               videoThumbLoader.active = true;
               return true;
