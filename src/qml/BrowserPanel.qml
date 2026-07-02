@@ -31,7 +31,7 @@ QfPopup {
   Page {
     id: browserContainer
     anchors.fill: parent
-    padding: 5
+    padding: 0
 
     header: QfPageHeader {
       id: pageHeader
@@ -41,7 +41,7 @@ QfPopup {
       showApplyButton: false
       showCancelButton: !browserPanel.fullscreen
 
-      busyIndicatorState: browserView && browserView.loading ? "on" : "off"
+      busyIndicatorState: webViewLoader.item && webViewLoader.item.loading ? "on" : "off"
 
       topMargin: browserPanel.fullscreen ? mainWindow.sceneTopMargin : 0
 
@@ -54,14 +54,41 @@ QfPopup {
       }
     }
 
-    Item {
-      id: browserContent
-      anchors {
-        top: parent.top
-        left: parent.left
+    Loader {
+      id: webViewLoader
+      property string browserUrl: browserPanel.url
+
+      anchors.fill: parent
+      active: browserPanel.opened
+      sourceComponent: webViewComponent
+    }
+  }
+
+  Component {
+    id: webViewComponent
+
+    WebView {
+      anchors.fill: parent
+      url: browserPanel.url
+
+      onLoadingChanged: {
+        if (!loading) {
+          anchors.fill = parent;
+          width = parent.width;
+          height = parent.height;
+          opacity = 1;
+        }
       }
-      width: parent.width
-      height: parent.height
+      onCookieAdded: (domain, name) => {
+        browserPanel.browserCookies.push([domain, name]);
+      }
+
+      Component.onCompleted: {
+        if (browserPanel.clearCookiesOnOpen) {
+          deleteAllCookies();
+          clearCookiesOnOpen = false;
+        }
+      }
     }
   }
 
@@ -75,38 +102,14 @@ QfPopup {
 
     // Reset tracked cookies
     browserCookies = [];
-    if (url !== '') {
-      if (browserView === undefined) {
-        // avoid cost of WevView creation until needed
-        browserView = Qt.createQmlObject('import QtWebView
-          WebView {
-            id: browserView
-            anchors { top: parent.top; left: parent.left; right: parent.right; }
-            onLoadingChanged: {
-              if ( !loading ) {
-                anchors.fill = parent; width = parent.width
-                height = parent.height; opacity = 1
-              }
-            }
-            onCookieAdded: (domain, name) => {
-              browserPanel.browserCookies.push([domain, name])
-            }
-          }', browserContent);
-        if (clearCookiesOnOpen) {
-          browserView.deleteAllCookies();
-        }
-      }
-      browserView.anchors.fill = undefined;
-      browserView.url = url;
-      browserView.opacity = 0;
-    }
-    clearCookiesOnOpen = false;
   }
 
   function deleteCookies() {
-    for (const [domain, name] of browserCookies) {
-      browserView.deleteCookie(domain, name);
+    if (webViewLoader.item) {
+      for (const [domain, name] of browserCookies) {
+        webViewLoader.item.deleteCookie(domain, name);
+      }
+      browserCookies = [];
     }
-    browserCookies = [];
   }
 }
