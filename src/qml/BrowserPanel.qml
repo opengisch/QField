@@ -56,7 +56,6 @@ QfPopup {
 
     Loader {
       id: webViewLoader
-      property string browserUrl: browserPanel.url
 
       anchors.fill: parent
       active: browserPanel.opened
@@ -86,7 +85,7 @@ QfPopup {
       Component.onCompleted: {
         if (browserPanel.clearCookiesOnOpen) {
           deleteAllCookies();
-          clearCookiesOnOpen = false;
+          browserPanel.clearCookiesOnOpen = false;
         }
       }
     }
