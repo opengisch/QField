@@ -26,7 +26,7 @@ jobs:
             deployment-target: "10.15"
             target-arch: x86_64
             run-tests: false
-          - os: macos-15
+          - os: blacksmith-6vcpu-macos-15
             triplet: arm64-osx
             deployment-target: "11.0"
             target-arch: arm64
@@ -175,7 +175,7 @@ jobs:
 
   create-dmg:
     name: Create dmg
-    runs-on: macos-15
+    runs-on: blacksmith-6vcpu-macos-15
     needs: build
     steps:
       - name: 🐣 Checkout
@@ -184,6 +184,11 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           brew install create-dmg
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
 
       - name: 📤 Download app
         uses: actions/download-artifact@v8
