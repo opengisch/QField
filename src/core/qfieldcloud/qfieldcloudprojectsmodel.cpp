@@ -858,6 +858,17 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
     emit dataChanged( idx, idx, QVector<int>() << LastLocalPushDeltasRole );
   } );
 
+  connect( project, &QFieldCloudProject::deltaFileWrapperChanged, this, [this] {
+    const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
+    if ( mCurrentProjectId == p->id() )
+    {
+      if ( mLayerObserver )
+      {
+        mLayerObserver->setDeltaFileWrapper( p->deltaFileWrapper() );
+      }
+    }
+  } );
+
   connect( project, &QFieldCloudProject::deltasCountChanged, this, [this] {
     const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
     const QModelIndex idx = findProjectIndex( p->id() );
