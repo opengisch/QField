@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structDrawingStroke" kind="struct" language="C++" prot="public">
+    <compoundname>DrawingStroke</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="structDrawingStroke_1ae0bbc4f3449b33acff7617de5aa3a6fa" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DrawingStroke::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>DrawingStroke::width</qualifiedname>
+        <initializer>= 5.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingcanvas.h" line="33" column="5" bodyfile="src/core/drawingcanvas.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structDrawingStroke_1a46720021602b3f3ed11bf05264145305" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor DrawingStroke::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>DrawingStroke::color</qualifiedname>
+        <initializer>= QColor( 0, 0, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingcanvas.h" line="34" column="5" bodyfile="src/core/drawingcanvas.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structDrawingStroke_1a92d87f43409d8151b964c9abc25f58c1" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor DrawingStroke::fillColor</definition>
+        <argsstring></argsstring>
+        <name>fillColor</name>
+        <qualifiedname>DrawingStroke::fillColor</qualifiedname>
+        <initializer>= QColor( Qt::transparent )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingcanvas.h" line="35" column="5" bodyfile="src/core/drawingcanvas.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structDrawingStroke_1a0a645bbb87f90ce2cf6e6c34a07a946b" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QPointF &gt;</type>
+        <definition>QList&lt; QPointF &gt; DrawingStroke::scenePoints</definition>
+        <argsstring></argsstring>
+        <name>scenePoints</name>
+        <qualifiedname>DrawingStroke::scenePoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingcanvas.h" line="36" column="5" bodyfile="src/core/drawingcanvas.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structDrawingStroke_1ac868327db8b594dcc5aed8e5d551b252" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; QPointF &gt;</type>
+        <definition>QList&lt; QPointF &gt; DrawingStroke::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <qualifiedname>DrawingStroke::points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/drawingcanvas.h" line="37" column="5" bodyfile="src/core/drawingcanvas.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/drawingcanvas.h" line="29" column="1" bodyfile="src/core/drawingcanvas.h" bodystart="30" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structDrawingStroke_1a46720021602b3f3ed11bf05264145305" prot="public" virt="non-virtual"><scope>DrawingStroke</scope><name>color</name></member>
+      <member refid="structDrawingStroke_1a92d87f43409d8151b964c9abc25f58c1" prot="public" virt="non-virtual"><scope>DrawingStroke</scope><name>fillColor</name></member>
+      <member refid="structDrawingStroke_1ac868327db8b594dcc5aed8e5d551b252" prot="public" virt="non-virtual"><scope>DrawingStroke</scope><name>points</name></member>
+      <member refid="structDrawingStroke_1a0a645bbb87f90ce2cf6e6c34a07a946b" prot="public" virt="non-virtual"><scope>DrawingStroke</scope><name>scenePoints</name></member>
+      <member refid="structDrawingStroke_1ae0bbc4f3449b33acff7617de5aa3a6fa" prot="public" virt="non-virtual"><scope>DrawingStroke</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

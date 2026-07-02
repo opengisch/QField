@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfToolButton_8qml" kind="file" language="C++">
+    <compoundname>QfToolButton.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfToolButton" prot="public">Theme::QfToolButton</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>QtQuick.Controls.Material</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>QtQuick.Controls.Material.impl</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">RoundButton<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>id:<sp/>button</highlight></codeline>
+<codeline lineno="12" refid="classTheme_1_1QfToolButton" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>iconSource:<sp/>button.icon.source</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>iconColor:<sp/>button.icon.color</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>statusBadge:<sp/>badge</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>bottomRightIndicatorText:<sp/>&apos;&apos;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>bottomRightIndicatorBgColor:<sp/>Theme.cloudColor</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>property<sp/>string<sp/>bottomRightIndicatorFgColor:<sp/>Theme.light</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>round:<sp/>false</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>roundborder:<sp/>false</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>property<sp/>alias<sp/>bgcolor:<sp/>backgroundRectangle.color</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>property<sp/>color<sp/>borderColor:<sp/>&apos;transparent&apos;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>width:<sp/>48</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>height:<sp/>48</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>implicitWidth:<sp/>width</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>implicitHeight:<sp/>height</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>focusPolicy:<sp/>Qt.NoFocus</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>topInset:<sp/>0</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>bottomInset:<sp/>0</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>leftInset:<sp/>0</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>rightInset:<sp/>0</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>padding:<sp/>10</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>background:<sp/>Rectangle<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>backgroundRectangle</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>implicitWidth:<sp/>100</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>implicitHeight:<sp/>25</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>border.width:<sp/>round<sp/>&amp;&amp;<sp/>roundborder<sp/>?<sp/>height<sp/>/<sp/>6<sp/>:<sp/>1</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>border.color:<sp/>button.borderColor</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>&apos;transparent&apos;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>radius:<sp/>round<sp/>?<sp/>height<sp/>/<sp/>2<sp/>:<sp/>roundborder<sp/>?<sp/>12<sp/>:<sp/>0</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>clip:<sp/>true</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Behavior<sp/>on<sp/>color<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ColorAnimation<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>duration:<sp/>200</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>Ripple<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>id:<sp/>ripple</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>clip:<sp/>true</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>width:<sp/>parent.width</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>height:<sp/>parent.height</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>clipRadius:<sp/>4</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pressed:<sp/>button.down</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>anchor:<sp/>parent</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>active:<sp/>button.down</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>color:<sp/>Theme.darkTheme<sp/>?<sp/>bgcolor<sp/>==<sp/>&quot;#ffffff&quot;<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;#10000000&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;#10ffffff&quot;</highlight><highlight class="normal"><sp/>:<sp/>bgcolor<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;#ffffff&quot;</highlight><highlight class="normal"><sp/>||<sp/>bgcolor<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;#00000000&quot;</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="stringliteral">&quot;#10000000&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;#22ffffff&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>icon.source:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>icon.color:<sp/></highlight><highlight class="stringliteral">&quot;transparent&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>setting<sp/>the<sp/>color<sp/>to<sp/>transparent<sp/>tells<sp/>Qt<sp/>to<sp/>draw<sp/>the<sp/>icon<sp/>using<sp/>the<sp/>original<sp/>source<sp/>color(s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>Material.foreground:<sp/>icon.color</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>font:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.tipFont</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>QfBadge<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>badge</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>alignment:<sp/>QfBadge.Alignment.BottomRight</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>z:<sp/>2</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>width:<sp/>button.width<sp/>/<sp/>2.5</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>height:<sp/>width</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>visible:<sp/>bottomRightIndicatorText</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>bottomRightIndicatorBgColor</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>border.color:<sp/><ref refid="classTheme" kindref="compound">Theme</ref>.mainBackgroundColor</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>border.width:<sp/>2</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>badgeText.color:<sp/>bottomRightIndicatorFgColor</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>badgeText.text:<sp/>bottomRightIndicatorText</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>bottomMargin:<sp/>7</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>rightMargin:<sp/>5</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfToolButton.qml"/>
+  </compounddef>
+</doxygen>

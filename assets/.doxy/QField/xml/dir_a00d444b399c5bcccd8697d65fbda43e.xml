@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a00d444b399c5bcccd8697d65fbda43e" kind="dir">
+    <compoundname>src/qml/cogoparameterwidgets</compoundname>
+    <innerfile refid="angle_8qml">angle.qml</innerfile>
+    <innerfile refid="CogoParameterWidgetBase_8qml">CogoParameterWidgetBase.qml</innerfile>
+    <innerfile refid="cogoparameterwidgets_2distance_8qml">distance.qml</innerfile>
+    <innerfile refid="elevation_8qml">elevation.qml</innerfile>
+    <innerfile refid="cogoparameterwidgets_2enum_8qml">enum.qml</innerfile>
+    <innerfile refid="point_8qml">point.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/cogoparameterwidgets/"/>
+  </compounddef>
+</doxygen>

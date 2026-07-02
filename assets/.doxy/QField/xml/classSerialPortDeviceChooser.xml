@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSerialPortDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>SerialPortDeviceChooser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1a77511d320cc5dc99603bf964109edc21" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var SerialPortDeviceChooser::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>SerialPortDeviceChooser::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="10" column="5" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1a1c0ac5dfc727e99c79721ffa5f17f482" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var SerialPortDeviceChooser::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>SerialPortDeviceChooser::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="11" column="5" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1ae3d5197178a8c8d6d757c8f196bb8aec" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component SerialPortDeviceChooser::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>SerialPortDeviceChooser::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="24" column="14" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1a3b4f9a1563c4bd9f2a3cd8c44b13b7aa" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox SerialPortDeviceChooser::serialPortComboBox</definition>
+        <argsstring></argsstring>
+        <name>serialPortComboBox</name>
+        <qualifiedname>SerialPortDeviceChooser::serialPortComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="25" column="12" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1ac4d6e455f87039c7f5095500273f40d4" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton SerialPortDeviceChooser::refreshButton</definition>
+        <argsstring></argsstring>
+        <name>refreshButton</name>
+        <qualifiedname>SerialPortDeviceChooser::refreshButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="26" column="10" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1abd1c47bbaa8eb59e1b6bb896256958f8" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label SerialPortDeviceChooser::serialPortName</definition>
+        <argsstring></argsstring>
+        <name>serialPortName</name>
+        <qualifiedname>SerialPortDeviceChooser::serialPortName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="27" column="7" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSerialPortDeviceChooser_1a063660177b35d56beb53e055088832c7" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label SerialPortDeviceChooser::serialPortAddress</definition>
+        <argsstring></argsstring>
+        <name>serialPortAddress</name>
+        <qualifiedname>SerialPortDeviceChooser::serialPortAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="28" column="7" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSerialPortDeviceChooser_1a5457885af8e567f872cc5de40fc157a9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string SerialPortDeviceChooser::deviceName</definition>
+        <argsstring></argsstring>
+        <name>deviceName</name>
+        <qualifiedname>SerialPortDeviceChooser::deviceName</qualifiedname>
+        <read>dummyGetter_deviceName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="14" column="1" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSerialPortDeviceChooser_1a853fef0cb3c23771a2b6e9089ce9e68b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string SerialPortDeviceChooser::deviceAddress</definition>
+        <argsstring></argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>SerialPortDeviceChooser::deviceAddress</qualifiedname>
+        <read>dummyGetter_deviceAddress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="16" column="1" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSerialPortDeviceChooser_1a06b83be32eb8b01bbda09edc1f38f182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SerialPortDeviceChooser::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>SerialPortDeviceChooser::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classSerialPortDeviceChooser_1afb95c78a9d5a2d23c2970dd1267fc9d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SerialPortDeviceChooser::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>SerialPortDeviceChooser::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classSerialPortDeviceChooser_1a465b2d8171a1ced9d694a619249b2f01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SerialPortDeviceChooser::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>SerialPortDeviceChooser::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/SerialPortDeviceChooser.qml" line="22" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>SerialPortDeviceChooser</label>
+        <link refid="classSerialPortDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>SerialPortDeviceChooser</label>
+        <link refid="classSerialPortDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/SerialPortDeviceChooser.qml" line="9" column="1" bodyfile="src/qml/SerialPortDeviceChooser.qml" bodystart="9" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classSerialPortDeviceChooser_1a853fef0cb3c23771a2b6e9089ce9e68b" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classSerialPortDeviceChooser_1a5457885af8e567f872cc5de40fc157a9" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>deviceName</name></member>
+      <member refid="classSerialPortDeviceChooser_1a06b83be32eb8b01bbda09edc1f38f182" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classSerialPortDeviceChooser_1a465b2d8171a1ced9d694a619249b2f01" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classSerialPortDeviceChooser_1a1c0ac5dfc727e99c79721ffa5f17f482" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>height</name></member>
+      <member refid="classSerialPortDeviceChooser_1ae3d5197178a8c8d6d757c8f196bb8aec" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>onCompleted</name></member>
+      <member refid="classSerialPortDeviceChooser_1ac4d6e455f87039c7f5095500273f40d4" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>refreshButton</name></member>
+      <member refid="classSerialPortDeviceChooser_1a063660177b35d56beb53e055088832c7" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>serialPortAddress</name></member>
+      <member refid="classSerialPortDeviceChooser_1a3b4f9a1563c4bd9f2a3cd8c44b13b7aa" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>serialPortComboBox</name></member>
+      <member refid="classSerialPortDeviceChooser_1abd1c47bbaa8eb59e1b6bb896256958f8" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>serialPortName</name></member>
+      <member refid="classSerialPortDeviceChooser_1afb95c78a9d5a2d23c2970dd1267fc9d2" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classSerialPortDeviceChooser_1a77511d320cc5dc99603bf964109edc21" prot="private" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

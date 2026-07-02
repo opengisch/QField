@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQuick3DGeometryUtils" kind="class" language="C++" prot="public">
+    <compoundname>Quick3DGeometryUtils</compoundname>
+    <includes refid="quick3dgeometryutils_8h" local="no">quick3dgeometryutils.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQuick3DGeometryUtils_1a24bf4213f184038d17385825e1f3a90a" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int Quick3DGeometryUtils::VERTEX_STRIDE</definition>
+        <argsstring></argsstring>
+        <name>VERTEX_STRIDE</name>
+        <qualifiedname>Quick3DGeometryUtils::VERTEX_STRIDE</qualifiedname>
+        <initializer>= 10 * sizeof( float )</initializer>
+        <briefdescription>
+<para>Byte stride of a single vertex: position(3) + normal(3) + rgba(4) = 10 floats. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="36" column="26" bodyfile="src/core/3d/quick3dgeometryutils.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1a9edd48c7e743f7846b336249c18aab64" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryUtils::updateBounds</definition>
+        <argsstring>(QVector3D &amp;minBound, QVector3D &amp;maxBound, const QVector3D &amp;pos)</argsstring>
+        <name>updateBounds</name>
+        <qualifiedname>Quick3DGeometryUtils::updateBounds</qualifiedname>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>minBound</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>maxBound</declname>
+        </param>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Expands <emphasis>minBound</emphasis> / <emphasis>maxBound</emphasis> to include <emphasis>pos</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="39" column="17" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="22" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1aef9a66524b8d5423c1f44ba9e14ef633" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryUtils::writeVertex</definition>
+        <argsstring>(float *&amp;vptr, const QVector3D &amp;pos, const QVector3D &amp;normal, float r, float g, float b, float a)</argsstring>
+        <name>writeVertex</name>
+        <qualifiedname>Quick3DGeometryUtils::writeVertex</qualifiedname>
+        <param>
+          <type>float *&amp;</type>
+          <declname>vptr</declname>
+        </param>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Writes a single vertex (position + normal + rgba) to <emphasis>vptr</emphasis> and advances the pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="42" column="17" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="32" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1ae1d2ea0c1dcea819588f478a808a5ad1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryUtils::generateTube</definition>
+        <argsstring>(const QVector&lt; QVector3D &gt; &amp;path, int segments, float radius, float r, float g, float b, float a, float *&amp;vptr, quint32 *&amp;iptr, quint32 &amp;vertexOffset, QVector3D &amp;minBound, QVector3D &amp;maxBound)</argsstring>
+        <name>generateTube</name>
+        <qualifiedname>Quick3DGeometryUtils::generateTube</qualifiedname>
+        <param>
+          <type>const QVector&lt; QVector3D &gt; &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>segments</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float *&amp;</type>
+          <declname>vptr</declname>
+        </param>
+        <param>
+          <type>quint32 *&amp;</type>
+          <declname>iptr</declname>
+        </param>
+        <param>
+          <type>quint32 &amp;</type>
+          <declname>vertexOffset</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>minBound</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>maxBound</declname>
+        </param>
+        <briefdescription>
+<para>Extrudes a circular tube of <emphasis>segments</emphasis> sides and given <emphasis>radius</emphasis> along <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="45" column="17" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="46" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1a8b31b4cd7ad3761fbddf0f4c51b485bd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryUtils::generateSphere</definition>
+        <argsstring>(const QVector3D &amp;center, float radius, int stacks, int slices, float r, float g, float b, float a, float *&amp;vptr, quint32 *&amp;iptr, quint32 &amp;vertexOffset, QVector3D &amp;minBound, QVector3D &amp;maxBound)</argsstring>
+        <name>generateSphere</name>
+        <qualifiedname>Quick3DGeometryUtils::generateSphere</qualifiedname>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>stacks</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>slices</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float *&amp;</type>
+          <declname>vptr</declname>
+        </param>
+        <param>
+          <type>quint32 *&amp;</type>
+          <declname>iptr</declname>
+        </param>
+        <param>
+          <type>quint32 &amp;</type>
+          <declname>vertexOffset</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>minBound</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>maxBound</declname>
+        </param>
+        <briefdescription>
+<para>Generates a UV sphere centered at <emphasis>center</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="53" column="17" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="118" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1a347d5876a6f02ad33257a532114c1de4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Quick3DGeometryUtils::sphereVertexCount</definition>
+        <argsstring>(int stacks, int slices)</argsstring>
+        <name>sphereVertexCount</name>
+        <qualifiedname>Quick3DGeometryUtils::sphereVertexCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>stacks</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>slices</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of vertices produced by <ref refid="classQuick3DGeometryUtils_1a8b31b4cd7ad3761fbddf0f4c51b485bd" kindref="member">generateSphere()</ref> for the given subdivisions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="61" column="16" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1a70ccb9787b5dc1053eac29bf7ce77aa8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Quick3DGeometryUtils::sphereIndexCount</definition>
+        <argsstring>(int stacks, int slices)</argsstring>
+        <name>sphereIndexCount</name>
+        <qualifiedname>Quick3DGeometryUtils::sphereIndexCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>stacks</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>slices</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of indices produced by <ref refid="classQuick3DGeometryUtils_1a8b31b4cd7ad3761fbddf0f4c51b485bd" kindref="member">generateSphere()</ref> for the given subdivisions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="64" column="16" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1af3c79d90a72b93c1a4f44dacfecc32fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryUtils::generatePolygonFill</definition>
+        <argsstring>(const QVector&lt; QVector3D &gt; &amp;vertices, float r, float g, float b, float a, float *&amp;vptr, quint32 *&amp;iptr, quint32 &amp;vertexOffset, QVector3D &amp;minBound, QVector3D &amp;maxBound)</argsstring>
+        <name>generatePolygonFill</name>
+        <qualifiedname>Quick3DGeometryUtils::generatePolygonFill</qualifiedname>
+        <param>
+          <type>const QVector&lt; QVector3D &gt; &amp;</type>
+          <declname>vertices</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float *&amp;</type>
+          <declname>vptr</declname>
+        </param>
+        <param>
+          <type>quint32 *&amp;</type>
+          <declname>iptr</declname>
+        </param>
+        <param>
+          <type>quint32 &amp;</type>
+          <declname>vertexOffset</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>minBound</declname>
+        </param>
+        <param>
+          <type>QVector3D &amp;</type>
+          <declname>maxBound</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Triangulates a closed polygon ring on the XZ plane with ear clipping and appends the resulting triangle fan to the buffer. Falls back to a simple fan from vertex 0 when ear clipping cannot make further progress (which keeps degenerate or self-touching rings from leaving uninitialised indices in the buffer). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="73" column="17" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="209" bodyend="311"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classQuick3DGeometryUtils_1a7226fcf2ac886e9202888133ed386a77" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Quick3DGeometryUtils::polygonIsEar</definition>
+        <argsstring>(const QVector&lt; QVector3D &gt; &amp;ring, const QVector&lt; int &gt; &amp;indices, float eps, bool ccw, int prev, int cur, int next)</argsstring>
+        <name>polygonIsEar</name>
+        <qualifiedname>Quick3DGeometryUtils::polygonIsEar</qualifiedname>
+        <param>
+          <type>const QVector&lt; QVector3D &gt; &amp;</type>
+          <declname>ring</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>indices</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ccw</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>prev</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cur</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+<para>Returns true if the triangle ( prev, cur, next ) of <emphasis>indices</emphasis> is an ear of <emphasis>ring</emphasis> on the XZ plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/3d/quick3dgeometryutils.h" line="81" column="17" bodyfile="src/core/3d/quick3dgeometryutils.cpp" bodystart="174" bodyend="207"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Mesh-building helpers shared between the rubberband and feature highlight geometries. Each helper appends to a raw vertex/index buffer using a fixed 10-float vertex layout: position(3) + normal(3) + rgba(4). </para>
+    </detaileddescription>
+    <location file="src/core/3d/quick3dgeometryutils.h" line="32" column="1" bodyfile="src/core/3d/quick3dgeometryutils.h" bodystart="33" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classQuick3DGeometryUtils_1af3c79d90a72b93c1a4f44dacfecc32fa" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>generatePolygonFill</name></member>
+      <member refid="classQuick3DGeometryUtils_1a8b31b4cd7ad3761fbddf0f4c51b485bd" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>generateSphere</name></member>
+      <member refid="classQuick3DGeometryUtils_1ae1d2ea0c1dcea819588f478a808a5ad1" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>generateTube</name></member>
+      <member refid="classQuick3DGeometryUtils_1a7226fcf2ac886e9202888133ed386a77" prot="private" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>polygonIsEar</name></member>
+      <member refid="classQuick3DGeometryUtils_1a70ccb9787b5dc1053eac29bf7ce77aa8" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>sphereIndexCount</name></member>
+      <member refid="classQuick3DGeometryUtils_1a347d5876a6f02ad33257a532114c1de4" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>sphereVertexCount</name></member>
+      <member refid="classQuick3DGeometryUtils_1a9edd48c7e743f7846b336249c18aab64" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>updateBounds</name></member>
+      <member refid="classQuick3DGeometryUtils_1a24bf4213f184038d17385825e1f3a90a" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>VERTEX_STRIDE</name></member>
+      <member refid="classQuick3DGeometryUtils_1aef9a66524b8d5423c1f44ba9e14ef633" prot="public" virt="non-virtual"><scope>Quick3DGeometryUtils</scope><name>writeVertex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

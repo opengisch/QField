@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qgsquickcoordinatetransformer_8cpp" kind="file" language="C++">
+    <compoundname>qgsquickcoordinatetransformer.cpp</compoundname>
+    <includes refid="platformutilities_8h" local="yes">platformutilities.h</includes>
+    <includes refid="qgsquickcoordinatetransformer_8h" local="yes">qgsquickcoordinatetransformer.h</includes>
+    <includes local="no">QFile</includes>
+    <includes local="no">QSettings</includes>
+    <includes local="no">qgslogger.h</includes>
+    <includes local="no">cpl_conv.h</includes>
+    <includes local="no">gdal.h</includes>
+    <includes local="no">ogr_srs_api.h</includes>
+    <includes local="no">proj.h</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>platformutilities.h</label>
+        <link refid="platformutilities_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qgsquick/qgsquickcoordinatetransformer.cpp</label>
+        <link refid="qgsquickcoordinatetransformer_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>qgsquickcoordinatetransformer.h</label>
+        <link refid="qgsquickcoordinatetransformer_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>viewstatus.h</label>
+        <link refid="viewstatus_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>QFile</label>
+      </node>
+      <node id="9">
+        <label>QGeoCoordinate</label>
+      </node>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="6">
+        <label>QPermission</label>
+      </node>
+      <node id="15">
+        <label>QSettings</label>
+      </node>
+      <node id="17">
+        <label>cpl_conv.h</label>
+      </node>
+      <node id="18">
+        <label>gdal.h</label>
+      </node>
+      <node id="19">
+        <label>ogr_srs_api.h</label>
+      </node>
+      <node id="20">
+        <label>proj.h</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="10">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="11">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="12">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="7">
+        <label>qgsfield.h</label>
+      </node>
+      <node id="16">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="13">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>qgsquickcoordinatetransformer.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>--------------------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1.6.2017</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>Copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2017<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>Email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><sp/>matthias<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickcoordinatetransformer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFile&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSettings&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslogger.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cpl_conv.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gdal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ogr_srs_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;proj.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><ref refid="classQgsQuickCoordinateTransformer_1a8abb4afcc01068f52e62d0ae95dbf66a" kindref="member">QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer</ref>(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>mCoordinateTransform.setSourceCrs(<sp/>QgsCoordinateReferenceSystem::fromEpsgId(<sp/>4326<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>mCoordinateVerticalGridTransform.setSourceCrs(<sp/>QgsCoordinateReferenceSystem::fromEpsgId(<sp/>4326<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">QgsPoint<sp/><ref refid="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" kindref="member">QgsQuickCoordinateTransformer::projectedPosition</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="37"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mProjectedPosition;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">QgsPoint<sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">QgsQuickCoordinateTransformer::sourcePosition</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="42"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mSourcePosition;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1ae435e0863eaec99208da771e95f3b965" kindref="member">QgsQuickCoordinateTransformer::setSourcePosition</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;sourcePosition<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r<sp/>=<sp/></highlight><highlight class="keyword">static_cast<sp/>&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>rand()<sp/>)<sp/>/<sp/></highlight><highlight class="keyword">static_cast<sp/>&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>RAND_MAX<sp/>)<sp/>/<sp/>100;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rd<sp/>=<sp/></highlight><highlight class="keyword">static_cast<sp/>&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>rand()<sp/>)<sp/>/<sp/></highlight><highlight class="keyword">static_cast<sp/>&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>RAND_MAX<sp/>)<sp/>/<sp/>100;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rz<sp/>=<sp/></highlight><highlight class="keyword">static_cast<sp/>&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>rand()<sp/>)<sp/>/<sp/></highlight><highlight class="keyword">static_cast<sp/>&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<sp/>RAND_MAX<sp/>)<sp/>*<sp/>100;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref>.setLatitude(<sp/>46.9483<sp/>+<sp/>r<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref>.setLongitude(<sp/>7.44225<sp/>+<sp/>rd<sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref>.setAltitude(<sp/>400<sp/>+<sp/>rz<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mSourcePosition<sp/>==<sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref><sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>mSourcePosition<sp/>=<sp/><ref refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" kindref="member">sourcePosition</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" kindref="member">sourcePositionChanged</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>emit<sp/>sourceCoordinateChanged();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>updatePosition();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">QgsCoordinateReferenceSystem<sp/><ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">QgsQuickCoordinateTransformer::destinationCrs</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="69"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mCoordinateTransform.destinationCrs();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1aff225d016c5d2b4e17fcfb1861999c39" kindref="member">QgsQuickCoordinateTransformer::setDestinationCrs</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;destinationCrs<sp/>)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">destinationCrs</ref><sp/>==<sp/>mCoordinateTransform.destinationCrs()<sp/>)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>mCoordinateTransform.setDestinationCrs(<sp/><ref refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" kindref="member">destinationCrs</ref><sp/>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1adfb6d92017b0cb8c04795e7d791fd2eb" kindref="member">destinationCrsChanged</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>updatePosition();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">QgsCoordinateReferenceSystem<sp/><ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">QgsQuickCoordinateTransformer::sourceCrs</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="84"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mCoordinateTransform.sourceCrs();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1aa2de9e6a954b9d94723d5b43b19728b5" kindref="member">QgsQuickCoordinateTransformer::setSourceCrs</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateReferenceSystem<sp/>&amp;sourceCrs<sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">sourceCrs</ref><sp/>==<sp/>mCoordinateTransform.sourceCrs()<sp/>)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>mCoordinateTransform.setSourceCrs(<sp/><ref refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" kindref="member">sourceCrs</ref><sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1a9878a22575c503fda354cc48f8640f2a" kindref="member">sourceCrsChanged</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>updatePosition();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a69c51b0b2fa5ebf6084c73124087919d" kindref="member">QgsQuickCoordinateTransformer::setTransformContext</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCoordinateTransformContext<sp/>&amp;context<sp/>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mCoordinateTransform.context()<sp/>==<sp/>context<sp/>)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>mCoordinateTransform.setContext(<sp/>context<sp/>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1a3a83cf812a6620052a6be0413454b50b" kindref="member">transformContextChanged</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">QgsCoordinateTransformContext<sp/><ref refid="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" kindref="member">QgsQuickCoordinateTransformer::transformContext</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="109"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mCoordinateTransform.context();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">QgsPoint<sp/>QgsQuickCoordinateTransformer::transformPosition(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;position<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="114"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>processPosition(<sp/>position<sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QgsQuickCoordinateTransformer::updatePosition()</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>mProjectedPosition<sp/>=<sp/>processPosition(<sp/>mSourcePosition<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1a569d1ed7f852f897e1f653b3d7fe6e35" kindref="member">projectedPositionChanged</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal">QgsPoint<sp/>QgsQuickCoordinateTransformer::processPosition(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;position<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="125"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>position.x();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>position.y();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z<sp/>=<sp/>position.z();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>Z<sp/>is<sp/>NaN,<sp/>proj&apos;s<sp/>coordinate<sp/>transformation<sp/>will</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>also<sp/>set<sp/>X<sp/>and<sp/>Y<sp/>to<sp/>NaN.<sp/>But<sp/>we<sp/>also<sp/>want<sp/>to<sp/>get<sp/>projected</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>coords<sp/>if<sp/>we<sp/>do<sp/>not<sp/>have<sp/>any<sp/>Z<sp/>coordinate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>std::isnan(<sp/>z<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>z<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>mCoordinateTransform.transformInPlace(<sp/>x,<sp/>y,<sp/>z<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCsException<sp/>&amp;exp<sp/>)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_UNUSED(<sp/>exp<sp/>)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsDebugMsgLevel(<sp/>exp.what(),<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/>...<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>catch<sp/>any<sp/>other<sp/>errors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsDebugMsgLevel(<sp/></highlight><highlight class="stringliteral">&quot;Transform<sp/>exception<sp/>caught<sp/>-<sp/>possibly<sp/>because<sp/>of<sp/>missing<sp/>gsb<sp/>file.&quot;</highlight><highlight class="normal">,<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mSkipAltitudeTransformation<sp/>)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>z<sp/>=<sp/>position.z();</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mVerticalGridPath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>xVector<sp/>=<sp/>{<sp/>position.x()<sp/>};</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>yVector<sp/>=<sp/>{<sp/>position.y()<sp/>};</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>zVector<sp/>=<sp/>{<sp/>!std::isnan(<sp/>position.z()<sp/>)<sp/>?<sp/>position.z()<sp/>:<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zDummy<sp/>=<sp/>0.0;<sp/></highlight><highlight class="comment">//<sp/>we<sp/>don&apos;t<sp/>want<sp/>to<sp/>manipulate<sp/>the<sp/>elevation<sp/>data<sp/>yet,<sp/>use<sp/>a<sp/>dummy<sp/>z<sp/>value<sp/>to<sp/>transform<sp/>coordinates<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mCoordinateVerticalGridTransform.transformInPlace(<sp/>xVector[0],<sp/>yVector[0],<sp/>zDummy<sp/>);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PJ<sp/>*P<sp/>=<sp/>proj_create(<sp/>PJ_DEFAULT_CTX,<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;+proj=pipeline<sp/>+step<sp/>+proj=unitconvert<sp/>+xy_in=deg<sp/>+xy_out=rad<sp/>+step<sp/>+proj=vgridshift<sp/>+grids=\&quot;%1\&quot;<sp/>+step<sp/>+proj=unitconvert<sp/>+xy_in=rad<sp/>+xy_out=deg&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>mVerticalGridPath<sp/>).toUtf8().constData()<sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proj_trans_generic(<sp/>P,<sp/>PJ_FWD,</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xVector.data(),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>),<sp/>1,</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yVector.data(),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>),<sp/>1,</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zVector.data(),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>),<sp/>1,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>),<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>err<sp/>=<sp/>proj_errno(<sp/>P<sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proj_destroy(<sp/>P<sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>err<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>!std::isinf(<sp/>zVector[0]<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>z<sp/>=<sp/>zVector[0];</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsCsException<sp/>&amp;exp<sp/>)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Q_UNUSED(<sp/>exp<sp/>)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsDebugMsgLevel(<sp/>exp.what(),<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/>...<sp/>)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>catch<sp/>any<sp/>other<sp/>errors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsDebugMsgLevel(<sp/></highlight><highlight class="stringliteral">&quot;Transform<sp/>exception<sp/>caught<sp/>-<sp/>possibly<sp/>because<sp/>of<sp/>missing/incompatible<sp/>grid<sp/>file.&quot;</highlight><highlight class="normal">,<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>QgsPoint<sp/>projectedPoint(<sp/>x,<sp/>y<sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>projectedPoint.addZValue(<sp/>z<sp/>+<sp/>mDeltaZ<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::move(<sp/>projectedPoint<sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">QgsQuickCoordinateTransformer::skipAltitudeTransformation</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="197"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mSkipAltitudeTransformation;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a7f8a2609622503a21806a867d6907627" kindref="member">QgsQuickCoordinateTransformer::setSkipAltitudeTransformation</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>skipAltitudeTransformation<sp/>)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mSkipAltitudeTransformation<sp/>==<sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">skipAltitudeTransformation</ref><sp/>)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>mSkipAltitudeTransformation<sp/>=<sp/><ref refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" kindref="member">skipAltitudeTransformation</ref>;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1ae46a3058b15ae134f350ed7b25eaf7b4" kindref="member">skipAltitudeTransformationChanged</ref>();</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">QGeoCoordinate<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">QgsQuickCoordinateTransformer::sourceCoordinate</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="211"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QGeoCoordinate(<sp/>mSourcePosition.y(),<sp/>mSourcePosition.x(),<sp/>mSourcePosition.z()<sp/>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a893e5b32957725336ec64e8db48657a4" kindref="member">QgsQuickCoordinateTransformer::setSourceCoordinate</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QGeoCoordinate<sp/>&amp;sourceCoordinate<sp/>)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>qgsDoubleNear(<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>.latitude(),<sp/>mSourcePosition.y()<sp/>)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>qgsDoubleNear(<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>.longitude(),<sp/>mSourcePosition.x()<sp/>)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>qgsDoubleNear(<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>.altitude(),<sp/>mSourcePosition.z()<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>mSourcePosition<sp/>=<sp/>QgsPoint(<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>.longitude(),<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>.latitude(),<sp/><ref refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" kindref="member">sourceCoordinate</ref>.altitude()<sp/>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" kindref="member">sourcePositionChanged</ref>();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>emit<sp/>sourceCoordinateChanged();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>updatePosition();</highlight></codeline>
+<codeline lineno="226"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal">qreal<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">QgsQuickCoordinateTransformer::deltaZ</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="229"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mDeltaZ;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1aa9f5b3fec7d2aae7523328af30f20349" kindref="member">QgsQuickCoordinateTransformer::setDeltaZ</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qreal<sp/>&amp;deltaZ<sp/>)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>qgsDoubleNear(<sp/>mDeltaZ,<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>std::isnan(<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaZ<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>mDeltaZ<sp/>=<sp/><ref refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" kindref="member">deltaZ</ref>;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1a56e9c389b2a7847eda19dcd36e682d83" kindref="member">deltaZChanged</ref>();</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal">QString<sp/><ref refid="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" kindref="member">QgsQuickCoordinateTransformer::verticalGrid</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="247"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mVerticalGrid;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQgsQuickCoordinateTransformer_1a82a4116ce97773f566c1e701056ee4bc" kindref="member">QgsQuickCoordinateTransformer::setVerticalGrid</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;grid<sp/>)</highlight></codeline>
+<codeline lineno="252"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mVerticalGrid<sp/>==<sp/>grid<sp/>)</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>mVerticalGrid<sp/>=<sp/>grid;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>mVerticalGridPath.clear();</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mVerticalGrid.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QFile::exists(<sp/>mVerticalGrid<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mVerticalGridPath<sp/>=<sp/>mVerticalGrid;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QStringList<sp/>dataDirs<sp/>=<sp/>PlatformUtilities::instance()-&gt;<ref refid="classPlatformUtilities_1af7ecac1a598bd45b4cf58f105faa792e" kindref="member">appDataDirs</ref>();</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!dataDirs.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;dataDir<sp/>:<sp/>dataDirs<sp/>)</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>verticalGridPath<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1proj/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>dataDir,<sp/>mVerticalGrid<sp/>);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>QFile::exists(<sp/>verticalGridPath<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mVerticalGridPath<sp/>=<sp/>verticalGridPath;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mVerticalGridPath.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GDALDatasetH<sp/>hDataset;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GDALAllRegister();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hDataset<sp/>=<sp/>GDALOpen(<sp/>mVerticalGridPath.toUtf8().constData(),<sp/>GA_ReadOnly<sp/>);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>hDataset<sp/>!=<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OGRSpatialReferenceH<sp/>spatialRef<sp/>=<sp/>GDALGetSpatialRef(<sp/>hDataset<sp/>);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*pszWkt<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QByteArray<sp/>multiLineOption<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;MULTILINE=NO&quot;</highlight><highlight class="normal"><sp/>).toLocal8Bit();</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QByteArray<sp/>formatOption<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;FORMAT=WKT2&quot;</highlight><highlight class="normal"><sp/>).toLocal8Bit();</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>options[]<sp/>=<sp/>{<sp/>multiLineOption.constData(),<sp/>formatOption.constData(),<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OSRExportToWktEx(<sp/>spatialRef,<sp/>&amp;pszWkt,<sp/>options<sp/>);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mCoordinateVerticalGridTransform.setDestinationCrs(<sp/>QgsCoordinateReferenceSystem::fromWkt(<sp/>QString(<sp/>pszWkt<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mCoordinateVerticalGridTransform.setContext(<sp/>mCoordinateTransform.context()<sp/>);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CPLFree(<sp/>pszWkt<sp/>);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Invalid<sp/>grid<sp/>file,<sp/>skip</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mVerticalGridPath.clear();</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GDALClose(<sp/>hDataset<sp/>);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQgsQuickCoordinateTransformer_1afd8e8540536a198cf4419d28b3525b88" kindref="member">verticalGridChanged</ref>();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qgsquick/qgsquickcoordinatetransformer.cpp"/>
+  </compounddef>
+</doxygen>

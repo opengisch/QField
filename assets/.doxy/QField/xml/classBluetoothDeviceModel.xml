@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBluetoothDeviceModel" kind="class" language="C++" prot="public">
+    <compoundname>BluetoothDeviceModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="bluetoothdevicemodel_8h" local="no">bluetoothdevicemodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73" prot="public" static="no" strong="no">
+        <type></type>
+        <name>BluetoothDeviceRoles</name>
+        <qualifiedname>BluetoothDeviceModel::BluetoothDeviceRoles</qualifiedname>
+        <enumvalue id="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73adc76ab12058b6b7e9bd503133d1fdefc" prot="public">
+          <name>DeviceAddressRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73a075c9dcf952605d3ea3219e458f84b7f" prot="public">
+          <name>DeviceNameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73a9d959e2726623aa94c7daa1947b56a1c" prot="public">
+          <name>DeviceClassicSupportRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73a9c120bb151c70e17cf1c3da8d170b477" prot="public">
+          <name>DeviceLowEnergySupportRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73abf3607567a82847cbbeb4a3273513425" prot="public">
+          <name>DeviceLowEnergyByDefaultRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The roles provided by this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="41" column="5" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="enum" id="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ScanningStatus</name>
+        <qualifiedname>BluetoothDeviceModel::ScanningStatus</qualifiedname>
+        <enumvalue id="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5ae2cdbb9652182482d75fd927b608caf0" prot="public">
+          <name>Discovering</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a1d5232dae87ee62d73a54d9f2e035d2d" prot="public">
+          <name>Succeeded</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a0411facae801662f01d03002fb8b0c25" prot="public">
+          <name>Failed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a8aab70e014e1c52b850b5d8d75e28829" prot="public">
+          <name>Canceled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a39eb989ceea2b07b5fb50d010c498c22" prot="public">
+          <name>NoStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The status telling the result of the scanning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="52" column="5" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="53" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBluetoothDeviceModel_1abdbb6ae836bdf97ca701721975e63f01" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" kindref="member">ScanningStatus</ref></type>
+        <definition>ScanningStatus BluetoothDeviceModel::scanningStatus</definition>
+        <argsstring></argsstring>
+        <name>scanningStatus</name>
+        <qualifiedname>BluetoothDeviceModel::scanningStatus</qualifiedname>
+        <read>scanningStatus</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="35" column="5" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBluetoothDeviceModel_1a1ef7cff96059eb8ea9beb09d6aa669e6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype BluetoothDeviceModel::lastDiscoveredCount</definition>
+        <argsstring></argsstring>
+        <name>lastDiscoveredCount</name>
+        <qualifiedname>BluetoothDeviceModel::lastDiscoveredCount</qualifiedname>
+        <read>lastDiscoveredCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="36" column="5" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBluetoothDeviceModel_1a94ad69a99670ecbfd6088fa4461e465f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString BluetoothDeviceModel::lastError</definition>
+        <argsstring></argsstring>
+        <name>lastError</name>
+        <qualifiedname>BluetoothDeviceModel::lastError</qualifiedname>
+        <read>lastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="37" column="5" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1a95c7766fe295a924d2c388317d88a323" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothDeviceModel::mBluetoothPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mBluetoothPermissionChecked</name>
+        <qualifiedname>BluetoothDeviceModel::mBluetoothPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="118" column="10" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1ade907a9dd747c6e3ffaa28fd12ada9bd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothDeviceModel::mLocationPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mLocationPermissionChecked</name>
+        <qualifiedname>BluetoothDeviceModel::mLocationPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="119" column="10" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1a41760502cad2da876e59b333e0529fff" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QBluetoothLocalDevice &gt;</type>
+        <definition>std::unique_ptr&lt;QBluetoothLocalDevice&gt; BluetoothDeviceModel::mLocalDevice</definition>
+        <argsstring></argsstring>
+        <name>mLocalDevice</name>
+        <qualifiedname>BluetoothDeviceModel::mLocalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="121" column="21" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1ad2a18d91dc60a606a546cc4bf6135bdd" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QBluetoothDeviceDiscoveryAgent &gt;</type>
+        <definition>std::unique_ptr&lt;QBluetoothDeviceDiscoveryAgent&gt; BluetoothDeviceModel::mDeviceDiscoveryAgent</definition>
+        <argsstring></argsstring>
+        <name>mDeviceDiscoveryAgent</name>
+        <qualifiedname>BluetoothDeviceModel::mDeviceDiscoveryAgent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="122" column="21" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1adb4696fef40f1cf1e54d87bc7a53e53e" prot="private" static="no" mutable="no">
+        <type>QList&lt; QBluetoothDeviceInfo &gt;</type>
+        <definition>QList&lt;QBluetoothDeviceInfo&gt; BluetoothDeviceModel::mDiscoveredDevices</definition>
+        <argsstring></argsstring>
+        <name>mDiscoveredDevices</name>
+        <qualifiedname>BluetoothDeviceModel::mDiscoveredDevices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="123" column="11" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1a6a191d63adf6e296d51474f3833aa3cf" prot="private" static="no" mutable="no">
+        <type><ref refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" kindref="member">ScanningStatus</ref></type>
+        <definition>ScanningStatus BluetoothDeviceModel::mScanningStatus</definition>
+        <argsstring></argsstring>
+        <name>mScanningStatus</name>
+        <qualifiedname>BluetoothDeviceModel::mScanningStatus</qualifiedname>
+        <initializer>= NoStatus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="124" column="20" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1ac4c2965b23204abba43cbdcc80e73a9d" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype BluetoothDeviceModel::mLastDiscoveredCount</definition>
+        <argsstring></argsstring>
+        <name>mLastDiscoveredCount</name>
+        <qualifiedname>BluetoothDeviceModel::mLastDiscoveredCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="126" column="15" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothDeviceModel_1a03b7d0d8673fc89a8de946d21c6178e3" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString BluetoothDeviceModel::mLastError</definition>
+        <argsstring></argsstring>
+        <name>mLastError</name>
+        <qualifiedname>BluetoothDeviceModel::mLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="127" column="13" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a83cfa131304296fb646396c7d89d57b5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluetoothDeviceModel::BluetoothDeviceModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>BluetoothDeviceModel</name>
+        <qualifiedname>BluetoothDeviceModel::BluetoothDeviceModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="63" column="14" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1afb6215dae7dcaa1ff4b49961924d0759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluetoothDeviceModel::~BluetoothDeviceModel</definition>
+        <argsstring>()</argsstring>
+        <name>~BluetoothDeviceModel</name>
+        <qualifiedname>BluetoothDeviceModel::~BluetoothDeviceModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="64" column="5" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a7ef8441a0205d80155fafad83d492cc3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BluetoothDeviceModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>BluetoothDeviceModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="66" column="9" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a8ef8fb11aa257219cb765e5e119d5ff7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant BluetoothDeviceModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>BluetoothDeviceModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="68" column="14" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="225" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1abf971663304d89e33cd409288b8d52be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; BluetoothDeviceModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>BluetoothDeviceModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="70" column="11" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="264" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1aa532ea9f2c7b6e5ef4302ca06023a146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int BluetoothDeviceModel::addDevice</definition>
+        <argsstring>(const QString &amp;name, const QString &amp;address)</argsstring>
+        <name>addDevice</name>
+        <qualifiedname>BluetoothDeviceModel::addDevice</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a Bluetooth device if not already in the model <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>friendly device name used as identifier in the user interface </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bluetooth address of the device </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns index of the Bluetooth device </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="78" column="21" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="301" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a8820eedcd242936f29ca823d5a195413" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BluetoothDeviceModel::startDeviceDiscovery</definition>
+        <argsstring>()</argsstring>
+        <name>startDeviceDiscovery</name>
+        <qualifiedname>BluetoothDeviceModel::startDeviceDiscovery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts a scan to discover nearby Bluetooth devices, sequentially going through a fast scan then a full, deeper scan for devices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="84" column="22" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="70" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a5bb7d3bbbcc4cd79cd48c44afc83f154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BluetoothDeviceModel::stopDeviceDiscovery</definition>
+        <argsstring>()</argsstring>
+        <name>stopDeviceDiscovery</name>
+        <qualifiedname>BluetoothDeviceModel::stopDeviceDiscovery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops any ongoing scan to discover nearby Bluetooth devices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="89" column="22" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="156" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a5b1f5fe0b1e6d5da043e02b7ea496f4f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int BluetoothDeviceModel::findIndexFromAddress</definition>
+        <argsstring>(const QString &amp;address) const</argsstring>
+        <name>findIndexFromAddress</name>
+        <qualifiedname>BluetoothDeviceModel::findIndexFromAddress</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row index for a given Bluetooth device address </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="94" column="21" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="207" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1abcb21d3f389f7c3963f0189a8317f4d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" kindref="member">ScanningStatus</ref></type>
+        <definition>ScanningStatus BluetoothDeviceModel::scanningStatus</definition>
+        <argsstring>() const</argsstring>
+        <name>scanningStatus</name>
+        <qualifiedname>BluetoothDeviceModel::scanningStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="96" column="20" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1aaf9257d960e88b720ddb028fb35a40fe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype BluetoothDeviceModel::lastDiscoveredCount</definition>
+        <argsstring>() const</argsstring>
+        <name>lastDiscoveredCount</name>
+        <qualifiedname>BluetoothDeviceModel::lastDiscoveredCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="98" column="15" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1ace4b36394997ab766d68901a0931c840" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString BluetoothDeviceModel::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <qualifiedname>BluetoothDeviceModel::lastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="100" column="13" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a2626d047abd9ad4a597d186d5c83276c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString BluetoothDeviceModel::deviceAddress</definition>
+        <argsstring>(const QBluetoothDeviceInfo &amp;info) const</argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>BluetoothDeviceModel::deviceAddress</qualifiedname>
+        <param>
+          <type>const QBluetoothDeviceInfo &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="102" column="13" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="326" bodyend="333"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classBluetoothDeviceModel_1a6df8a461dda3fd75ed2045b0cf7d06e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::scanningStatusChanged</definition>
+        <argsstring>(BluetoothDeviceModel::ScanningStatus scanningStatus)</argsstring>
+        <name>scanningStatusChanged</name>
+        <qualifiedname>BluetoothDeviceModel::scanningStatusChanged</qualifiedname>
+        <param>
+          <type><ref refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" kindref="member">BluetoothDeviceModel::ScanningStatus</ref></type>
+          <declname>scanningStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBluetoothDeviceModel_1a723c534b15d5ad90dc4c928d366ab3b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::lastDiscoveredCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lastDiscoveredCountChanged</name>
+        <qualifiedname>BluetoothDeviceModel::lastDiscoveredCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="107" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBluetoothDeviceModel_1a86bcc334d2d7254485a5ad3063844d6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::lastErrorChanged</definition>
+        <argsstring>(QString lastError)</argsstring>
+        <name>lastErrorChanged</name>
+        <qualifiedname>BluetoothDeviceModel::lastErrorChanged</qualifiedname>
+        <param>
+          <type>QString</type>
+          <declname>lastError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="108" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classBluetoothDeviceModel_1a5c2ae99ff3b19e891e29744d51449198" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::setScanningStatus</definition>
+        <argsstring>(const BluetoothDeviceModel::ScanningStatus scanningStatus)</argsstring>
+        <name>setScanningStatus</name>
+        <qualifiedname>BluetoothDeviceModel::setScanningStatus</qualifiedname>
+        <param>
+          <type>const <ref refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" kindref="member">BluetoothDeviceModel::ScanningStatus</ref></type>
+          <declname>scanningStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="111" column="10" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="277" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothDeviceModel_1abc27dfdd7feec1e550caa0cd7179e465" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::setLastError</definition>
+        <argsstring>(const QString &amp;lastError)</argsstring>
+        <name>setLastError</name>
+        <qualifiedname>BluetoothDeviceModel::setLastError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>lastError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="112" column="10" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="289" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothDeviceModel_1adec8b7c0c573fb2a38df0e23a4579084" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::deviceDiscovered</definition>
+        <argsstring>(const QBluetoothDeviceInfo &amp;info)</argsstring>
+        <name>deviceDiscovered</name>
+        <qualifiedname>BluetoothDeviceModel::deviceDiscovered</qualifiedname>
+        <param>
+          <type>const QBluetoothDeviceInfo &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="113" column="10" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="168" bodyend="205"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBluetoothDeviceModel_1a80056fbd68a41bf0cf3bbbdb621ace32" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothDeviceModel::initiateDiscoveryAgent</definition>
+        <argsstring>()</argsstring>
+        <name>initiateDiscoveryAgent</name>
+        <qualifiedname>BluetoothDeviceModel::initiateDiscoveryAgent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothdevicemodel.h" line="116" column="10" bodyfile="src/core/positioning/bluetoothdevicemodel.cpp" bodystart="37" bodyend="68"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A model that provides all paired bluetooth devices name/address that are accessible over the serial port. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BluetoothDeviceModel</label>
+        <link refid="classBluetoothDeviceModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BluetoothDeviceModel</label>
+        <link refid="classBluetoothDeviceModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/bluetoothdevicemodel.h" line="31" column="1" bodyfile="src/core/positioning/bluetoothdevicemodel.h" bodystart="32" bodyend="128"/>
+    <listofallmembers>
+      <member refid="classBluetoothDeviceModel_1aa532ea9f2c7b6e5ef4302ca06023a146" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>addDevice</name></member>
+      <member refid="classBluetoothDeviceModel_1a83cfa131304296fb646396c7d89d57b5" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>BluetoothDeviceModel</name></member>
+      <member refid="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>BluetoothDeviceRoles</name></member>
+      <member refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a8aab70e014e1c52b850b5d8d75e28829" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>Canceled</name></member>
+      <member refid="classBluetoothDeviceModel_1a8ef8fb11aa257219cb765e5e119d5ff7" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>data</name></member>
+      <member refid="classBluetoothDeviceModel_1a2626d047abd9ad4a597d186d5c83276c" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>deviceAddress</name></member>
+      <member refid="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73adc76ab12058b6b7e9bd503133d1fdefc" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>DeviceAddressRole</name></member>
+      <member refid="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73a9d959e2726623aa94c7daa1947b56a1c" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>DeviceClassicSupportRole</name></member>
+      <member refid="classBluetoothDeviceModel_1adec8b7c0c573fb2a38df0e23a4579084" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>deviceDiscovered</name></member>
+      <member refid="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73abf3607567a82847cbbeb4a3273513425" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>DeviceLowEnergyByDefaultRole</name></member>
+      <member refid="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73a9c120bb151c70e17cf1c3da8d170b477" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>DeviceLowEnergySupportRole</name></member>
+      <member refid="classBluetoothDeviceModel_1a53bf303f242b3c2a62d7c59471e28a73a075c9dcf952605d3ea3219e458f84b7f" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>DeviceNameRole</name></member>
+      <member refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5ae2cdbb9652182482d75fd927b608caf0" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>Discovering</name></member>
+      <member refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a0411facae801662f01d03002fb8b0c25" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>Failed</name></member>
+      <member refid="classBluetoothDeviceModel_1a5b1f5fe0b1e6d5da043e02b7ea496f4f" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>findIndexFromAddress</name></member>
+      <member refid="classBluetoothDeviceModel_1a80056fbd68a41bf0cf3bbbdb621ace32" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>initiateDiscoveryAgent</name></member>
+      <member refid="classBluetoothDeviceModel_1a1ef7cff96059eb8ea9beb09d6aa669e6" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>lastDiscoveredCount</name></member>
+      <member refid="classBluetoothDeviceModel_1aaf9257d960e88b720ddb028fb35a40fe" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>lastDiscoveredCount</name></member>
+      <member refid="classBluetoothDeviceModel_1a723c534b15d5ad90dc4c928d366ab3b9" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>lastDiscoveredCountChanged</name></member>
+      <member refid="classBluetoothDeviceModel_1a94ad69a99670ecbfd6088fa4461e465f" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>lastError</name></member>
+      <member refid="classBluetoothDeviceModel_1ace4b36394997ab766d68901a0931c840" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>lastError</name></member>
+      <member refid="classBluetoothDeviceModel_1a86bcc334d2d7254485a5ad3063844d6e" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>lastErrorChanged</name></member>
+      <member refid="classBluetoothDeviceModel_1a95c7766fe295a924d2c388317d88a323" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mBluetoothPermissionChecked</name></member>
+      <member refid="classBluetoothDeviceModel_1ad2a18d91dc60a606a546cc4bf6135bdd" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mDeviceDiscoveryAgent</name></member>
+      <member refid="classBluetoothDeviceModel_1adb4696fef40f1cf1e54d87bc7a53e53e" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mDiscoveredDevices</name></member>
+      <member refid="classBluetoothDeviceModel_1ac4c2965b23204abba43cbdcc80e73a9d" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mLastDiscoveredCount</name></member>
+      <member refid="classBluetoothDeviceModel_1a03b7d0d8673fc89a8de946d21c6178e3" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mLastError</name></member>
+      <member refid="classBluetoothDeviceModel_1a41760502cad2da876e59b333e0529fff" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mLocalDevice</name></member>
+      <member refid="classBluetoothDeviceModel_1ade907a9dd747c6e3ffaa28fd12ada9bd" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mLocationPermissionChecked</name></member>
+      <member refid="classBluetoothDeviceModel_1a6a191d63adf6e296d51474f3833aa3cf" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>mScanningStatus</name></member>
+      <member refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a39eb989ceea2b07b5fb50d010c498c22" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>NoStatus</name></member>
+      <member refid="classBluetoothDeviceModel_1abf971663304d89e33cd409288b8d52be" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>roleNames</name></member>
+      <member refid="classBluetoothDeviceModel_1a7ef8441a0205d80155fafad83d492cc3" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>rowCount</name></member>
+      <member refid="classBluetoothDeviceModel_1abdbb6ae836bdf97ca701721975e63f01" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>scanningStatus</name></member>
+      <member refid="classBluetoothDeviceModel_1abcb21d3f389f7c3963f0189a8317f4d6" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>scanningStatus</name></member>
+      <member refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>ScanningStatus</name></member>
+      <member refid="classBluetoothDeviceModel_1a6df8a461dda3fd75ed2045b0cf7d06e9" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>scanningStatusChanged</name></member>
+      <member refid="classBluetoothDeviceModel_1abc27dfdd7feec1e550caa0cd7179e465" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>setLastError</name></member>
+      <member refid="classBluetoothDeviceModel_1a5c2ae99ff3b19e891e29744d51449198" prot="private" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>setScanningStatus</name></member>
+      <member refid="classBluetoothDeviceModel_1a8820eedcd242936f29ca823d5a195413" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>startDeviceDiscovery</name></member>
+      <member refid="classBluetoothDeviceModel_1a5bb7d3bbbcc4cd79cd48c44afc83f154" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>stopDeviceDiscovery</name></member>
+      <member refid="classBluetoothDeviceModel_1a5cdfde4fc8e7b21d1a3e846a84d471e5a1d5232dae87ee62d73a54d9f2e035d2d" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>Succeeded</name></member>
+      <member refid="classBluetoothDeviceModel_1afb6215dae7dcaa1ff4b49961924d0759" prot="public" virt="non-virtual"><scope>BluetoothDeviceModel</scope><name>~BluetoothDeviceModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

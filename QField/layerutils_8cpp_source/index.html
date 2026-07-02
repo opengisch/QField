@@ -1,0 +1,1139 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>File layerutils.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-layerutilscpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File layerutils.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../translate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translate a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-layerutilscpp">File layerutils.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_a8053b3d69cfefb2b2e6ec7bf9dd5c1a/"><strong>utils</strong></a> <strong>&gt;</strong> <a href="../layerutils_8cpp/"><strong>layerutils.cpp</strong></a></p>
+<p><a href="../layerutils_8cpp/">Go to the documentation of this file</a></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/***************************************************************************</span>
+<span class="cm">  layerutils.cpp - LayerUtils</span>
+
+<span class="cm"> ---------------------</span>
+<span class="cm"> begin                : 01.03.2021</span>
+<span class="cm"> copyright            : (C) 2020 by Mathieu Pellerin</span>
+<span class="cm"> email                : mathieu@opengis.ch</span>
+<span class="cm"> ***************************************************************************</span>
+<span class="cm"> *                                                                         *</span>
+<span class="cm"> *   This program is free software; you can redistribute it and/or modify  *</span>
+<span class="cm"> *   it under the terms of the GNU General Public License as published by  *</span>
+<span class="cm"> *   the Free Software Foundation; either version 2 of the License, or     *</span>
+<span class="cm"> *   (at your option) any later version.                                   *</span>
+<span class="cm"> *                                                                         *</span>
+<span class="cm"> ***************************************************************************/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;layerutils.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QQmlEngine&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QScopeGuard&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsfillsymbol.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsfillsymbollayer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgshuesaturationfilter.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsjsonutils.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgslabelobstaclesettings.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgslayoutatlas.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgslayoutmanager.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgslinesymbol.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgslinesymbollayer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsmaplayerelevationproperties.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsmarkersymbol.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsmarkersymbollayer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsmemoryproviderutils.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsmessagelog.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgspallabeling.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsprintlayout.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsproject.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsprojectstylesettings.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsrasterlayer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsrasterlayerelevationproperties.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgssinglesymbolrenderer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgssymbol.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgssymbollayer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgstextbuffersettings.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsvectorfilewriter.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsvectorlayer.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsvectorlayerlabeling.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsvectorlayerutils.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgswkbtypes.h&gt;</span>
+
+<span class="n">LayerUtils</span><span class="o">::</span><span class="n">LayerUtils</span><span class="p">(</span><span class="w"> </span><span class="n">QObject</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">QObject</span><span class="p">(</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">setDefaultRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProject</span><span class="w"> </span><span class="o">*</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attachmentField</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">colorField</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasSymbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Qgis</span><span class="o">::</span><span class="n">SymbolType</span><span class="w"> </span><span class="n">symbolType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">SymbolType</span><span class="o">::</span><span class="n">Marker</span><span class="p">;</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">geometryType</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Point</span><span class="p">:</span>
+<span class="w">      </span><span class="n">symbolType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">SymbolType</span><span class="o">::</span><span class="n">Marker</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Line</span><span class="p">:</span>
+<span class="w">      </span><span class="n">symbolType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">SymbolType</span><span class="o">::</span><span class="n">Line</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Polygon</span><span class="p">:</span>
+<span class="w">      </span><span class="n">symbolType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">SymbolType</span><span class="o">::</span><span class="n">Fill</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Null</span><span class="p">:</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">      </span><span class="n">hasSymbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">hasSymbol</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsSymbol</span><span class="w"> </span><span class="o">*</span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">project</span><span class="o">-&gt;</span><span class="n">styleSettings</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">defaultSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">symbolType</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">symbol</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">defaultSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">attachmentField</span><span class="p">,</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsSingleSymbolRenderer</span><span class="w"> </span><span class="o">*</span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsSingleSymbolRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QgsSymbol</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">defaultSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attachmentField</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">colorField</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsSymbol</span><span class="w"> </span><span class="o">*</span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">symbol</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsSymbolLayerList</span><span class="w"> </span><span class="n">symbolLayers</span><span class="p">;</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">geometryType</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Point</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">attachmentField</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">QgsSymbolLayerList</span><span class="w"> </span><span class="n">subSymbolLayers</span><span class="p">;</span>
+<span class="w">        </span><span class="n">QgsRasterMarkerSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">rasterMarkerSymbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsRasterMarkerSymbolLayer</span><span class="p">(</span><span class="w"> </span><span class="n">QString</span><span class="p">(),</span><span class="w"> </span><span class="mf">2.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">rasterMarkerSymbolLayer</span><span class="o">-&gt;</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">rasterMarkerSymbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">Size</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value )&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">rasterMarkerSymbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;with_variable(&#39;attachment&#39;, %1, if(@map_scale &lt; 5000, @project_folder || &#39;/&#39; || @attachment, &#39;&#39;))&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">attachmentField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">subSymbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rasterMarkerSymbolLayer</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">QgsCentroidFillSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">centroidFillSymbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsCentroidFillSymbolLayer</span><span class="p">();</span>
+<span class="w">        </span><span class="n">centroidFillSymbolLayer</span><span class="o">-&gt;</span><span class="n">setClipPoints</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">centroidFillSymbolLayer</span><span class="o">-&gt;</span><span class="n">setSubSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsMarkerSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">subSymbolLayers</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">subSymbolLayers</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">subSymbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">centroidFillSymbolLayer</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">QgsFilledMarkerSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">fillSymbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsFilledMarkerSymbolLayer</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">MarkerShape</span><span class="o">::</span><span class="n">Circle</span><span class="p">,</span><span class="w"> </span><span class="mf">2.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">fillSymbolLayer</span><span class="o">-&gt;</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mf">2.4</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">colorField</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">fillSymbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">StrokeColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">fillSymbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">Size</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;with_variable(&#39;attachment&#39;, %1, if(@map_scale &lt; 5000 and @attachment is not null and @attachment != &#39;&#39;, scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value))&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">attachmentField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">fillSymbolLayer</span><span class="o">-&gt;</span><span class="n">setSubSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsFillSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">subSymbolLayers</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fillSymbolLayer</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">QgsSimpleMarkerSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">symbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsSimpleMarkerSymbolLayer</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">MarkerShape</span><span class="o">::</span><span class="n">Circle</span><span class="p">,</span><span class="w"> </span><span class="mf">2.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">DEFAULT_SCALE_METHOD</span><span class="p">,</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mf">2.4</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setStrokeWidth</span><span class="p">(</span><span class="w"> </span><span class="mf">0.6</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">colorField</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">FillColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;with_variable(&#39;attachment&#39;, %1, if(@map_scale &lt; 5000 and @attachment is not null and @attachment != &#39;&#39;, &#39;255,0,0,0&#39;, if(</span><span class="se">\&quot;</span><span class="s">%2</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%2</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, set_color_part(</span><span class="se">\&quot;</span><span class="s">%2</span><span class="se">\&quot;</span><span class="s">, &#39;alpha&#39;, 100), @value)))&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">attachmentField</span><span class="p">,</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">StrokeColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">FillColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;with_variable(&#39;attachment&#39;, %1, if(@map_scale &lt; 5000 and @attachment is not null and @attachment != &#39;&#39;, &#39;255,0,0,0&#39;, @value)))&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">attachmentField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">Size</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;with_variable(&#39;attachment&#39;, %1, if(@map_scale &lt; 5000 and @attachment is not null and @attachment != &#39;&#39;, scale_linear( @map_scale, 1000, 5000, @value * 5.5, @value ), @value))&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">attachmentField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">symbolLayer</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">QgsSimpleMarkerSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">symbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsSimpleMarkerSymbolLayer</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">MarkerShape</span><span class="o">::</span><span class="n">Circle</span><span class="p">,</span><span class="w"> </span><span class="mf">2.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">DEFAULT_SCALE_METHOD</span><span class="p">,</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setStrokeWidth</span><span class="p">(</span><span class="w"> </span><span class="mf">0.6</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">colorField</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">FillColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, set_color_part(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, &#39;alpha&#39;, 100), @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">StrokeColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">symbolLayer</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsMarkerSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">symbolLayers</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Line</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">QgsSimpleLineSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">symbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsSimpleLineSymbolLayer</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="mf">0.6</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// cppcheck-suppress constVariablePointer</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">colorField</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">StrokeColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">symbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">symbolLayer</span><span class="p">;</span>
+<span class="w">      </span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsLineSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">symbolLayers</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Polygon</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">QgsSimpleFillSymbolLayer</span><span class="w"> </span><span class="o">*</span><span class="n">symbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsSimpleFillSymbolLayer</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">DEFAULT_SIMPLEFILL_STYLE</span><span class="p">,</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">184</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">DEFAULT_SIMPLEFILL_BORDERSTYLE</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// cppcheck-suppress constVariablePointer</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">colorField</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">FillColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, set_color_part(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, &#39;alpha&#39;, 100), @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">symbolLayer</span><span class="o">-&gt;</span><span class="n">setDataDefinedProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayer</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">StrokeColor</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProperty</span><span class="o">::</span><span class="n">fromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;if(</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> is not null and </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s"> != &#39;&#39;, </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">, @value)&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">colorField</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">symbolLayers</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">symbolLayer</span><span class="p">;</span>
+<span class="w">      </span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsFillSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">symbolLayers</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Null</span><span class="p">:</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">symbol</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">setDefaultLabeling</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProject</span><span class="w"> </span><span class="o">*</span><span class="n">project</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsTextFormat</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">project</span><span class="o">-&gt;</span><span class="n">styleSettings</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">defaultTextFormat</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QgsTextFormat</span><span class="p">();</span>
+<span class="w">  </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSizeUnit</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">RenderUnit</span><span class="o">::</span><span class="n">Points</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">textFormat</span><span class="p">.</span><span class="n">buffer</span><span class="p">().</span><span class="n">setEnabled</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">textFormat</span><span class="p">.</span><span class="n">buffer</span><span class="p">().</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">textFormat</span><span class="p">.</span><span class="n">buffer</span><span class="p">().</span><span class="n">setSizeUnit</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">RenderUnit</span><span class="o">::</span><span class="n">Millimeters</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">textFormat</span><span class="p">.</span><span class="n">buffer</span><span class="p">().</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QgsAbstractVectorLayerLabeling</span><span class="w"> </span><span class="o">*</span><span class="n">labeling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">defaultLabeling</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">labeling</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">setLabeling</span><span class="p">(</span><span class="w"> </span><span class="n">labeling</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">setLabelsEnabled</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">geometryType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">GeometryType</span><span class="o">::</span><span class="n">Point</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">QgsAbstractVectorLayerLabeling</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">defaultLabeling</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QgsTextFormat</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsAbstractVectorLayerLabeling</span><span class="w"> </span><span class="o">*</span><span class="n">labeling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">labeling</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">foundFriendlyIdentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">QString</span><span class="w"> </span><span class="n">fieldName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsVectorLayerUtils</span><span class="o">::</span><span class="n">guessFriendlyIdentifierField</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foundFriendlyIdentifier</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">foundFriendlyIdentifier</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">labeling</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsPalLayerSettings</span><span class="w"> </span><span class="n">settings</span><span class="p">;</span>
+<span class="w">  </span><span class="n">settings</span><span class="p">.</span><span class="n">fieldName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldName</span><span class="p">;</span>
+<span class="w">  </span><span class="n">settings</span><span class="p">.</span><span class="n">obstacleSettings</span><span class="p">().</span><span class="n">setIsObstacle</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">geometryType</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Point</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">settings</span><span class="p">.</span><span class="n">placement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LabelPlacement</span><span class="o">::</span><span class="n">OrderedPositionsAroundPoint</span><span class="p">;</span>
+<span class="w">      </span><span class="n">settings</span><span class="p">.</span><span class="n">offsetType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LabelOffsetType</span><span class="o">::</span><span class="n">FromSymbolBounds</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Line</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">settings</span><span class="p">.</span><span class="n">placement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LabelPlacement</span><span class="o">::</span><span class="n">Curved</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Polygon</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">settings</span><span class="p">.</span><span class="n">placement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LabelPlacement</span><span class="o">::</span><span class="n">AroundPoint</span><span class="p">;</span>
+<span class="w">      </span><span class="n">settings</span><span class="p">.</span><span class="n">obstacleSettings</span><span class="p">().</span><span class="n">setType</span><span class="p">(</span><span class="w"> </span><span class="n">QgsLabelObstacleSettings</span><span class="o">::</span><span class="n">ObstacleType</span><span class="o">::</span><span class="n">PolygonBoundary</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">GeometryType</span><span class="o">::</span><span class="no">Null</span><span class="p">:</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">textFormat</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSizeUnit</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">RenderUnit</span><span class="o">::</span><span class="n">Points</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QgsTextBufferSettings</span><span class="w"> </span><span class="n">bufferSettings</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bufferSettings</span><span class="p">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">bufferSettings</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">bufferSettings</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">bufferSettings</span><span class="p">.</span><span class="n">setSizeUnit</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">RenderUnit</span><span class="o">::</span><span class="n">Millimeters</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setBuffer</span><span class="p">(</span><span class="w"> </span><span class="n">bufferSettings</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">settings</span><span class="p">.</span><span class="n">setFormat</span><span class="p">(</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">labeling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsVectorLayerSimpleLabeling</span><span class="p">(</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">labeling</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QgsRasterLayer</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createOnlineElevationLayer</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsRasterLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsRasterLayer</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;interpretation=terrariumterrain&amp;type=xyz&amp;url=https://s3.amazonaws.com/elevation-tiles-prod/terrarium/%7Bz%7D/%7Bx%7D/%7By%7D.png&amp;zmax=15&amp;zmin=0&quot;</span><span class="w"> </span><span class="p">),</span>
+<span class="w">                                              </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;elevation&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;wms&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QgsRasterLayerElevationProperties</span><span class="w"> </span><span class="o">*</span><span class="n">elevationProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QgsRasterLayerElevationProperties</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">elevationProperties</span><span class="o">-&gt;</span><span class="n">setEnabled</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">elevationProperties</span><span class="o">-&gt;</span><span class="n">setProfileSymbology</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">ProfileSurfaceSymbology</span><span class="o">::</span><span class="n">FillBelow</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">elevationProperties</span><span class="o">-&gt;</span><span class="n">profileFillSymbol</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="p">(</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span><span class="w"> </span><span class="mi">130</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createBasemap</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">style</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsRasterLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">style</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;lightgray&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsRasterLayer</span><span class="p">(</span><span class="w"> </span><span class="n">OPENSTREETMAP_URL</span><span class="p">,</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;OpenStreetMap&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QLatin1String</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;wms&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">hueSaturationFilter</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setGrayscaleMode</span><span class="p">(</span><span class="w"> </span><span class="n">QgsHueSaturationFilter</span><span class="o">::</span><span class="n">GrayscaleLightness</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">style</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;darkgray&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsRasterLayer</span><span class="p">(</span><span class="w"> </span><span class="n">OPENSTREETMAP_URL</span><span class="p">,</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;OpenStreetMap&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QLatin1String</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;wms&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">hueSaturationFilter</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setGrayscaleMode</span><span class="p">(</span><span class="w"> </span><span class="n">QgsHueSaturationFilter</span><span class="o">::</span><span class="n">GrayscaleLightness</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">hueSaturationFilter</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setInvertColors</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsRasterLayer</span><span class="p">(</span><span class="w"> </span><span class="n">OPENSTREETMAP_URL</span><span class="p">,</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;OpenStreetMap&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QLatin1String</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;wms&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">isAtlasCoverageLayer</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">QgsProject</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">layoutManager</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsPrintLayout</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">printLayouts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsProject</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">layoutManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">printLayouts</span><span class="p">();</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsPrintLayout</span><span class="w"> </span><span class="o">*</span><span class="n">printLayout</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">printLayouts</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">printLayout</span><span class="o">-&gt;</span><span class="n">atlas</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">printLayout</span><span class="o">-&gt;</span><span class="n">atlas</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">coverageLayer</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">isFeatureAdditionLocked</span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">customProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QFieldSync/is_geometry_locked&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">).</span><span class="n">toBool</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">customProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QFieldSync/is_geometry_locked&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">).</span><span class="n">toBool</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">customProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QFieldSync/is_feature_addition_locked&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">).</span><span class="n">toBool</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">customProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QFieldSync/is_feature_addition_locked&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">).</span><span class="n">toBool</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">selectFeaturesInLayer</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fids</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">SelectBehavior</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">QgsFeatureIds</span><span class="w"> </span><span class="n">qgsFids</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fid</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">fids</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">qgsFids</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fid</span><span class="p">;</span>
+<span class="w">  </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">selectByIds</span><span class="p">(</span><span class="w"> </span><span class="n">qgsFids</span><span class="p">,</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QString</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">fieldType</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsField</span><span class="w"> </span><span class="o">&amp;</span><span class="n">field</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">QVariant</span><span class="p">(</span><span class="w"> </span><span class="n">QMetaType</span><span class="p">(</span><span class="w"> </span><span class="n">field</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">).</span><span class="n">typeName</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">addFeature</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QgsFeature</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">addFeature</span><span class="p">(</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">deleteFeature</span><span class="p">(</span><span class="w"> </span><span class="n">QgsProject</span><span class="w"> </span><span class="o">*</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsFeatureId</span><span class="w"> </span><span class="n">fid</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">flushBuffer</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">project</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot start editing, no layer&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">wasEditing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">editBuffer</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">wasEditing</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">startEditing</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot start editing&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">flushBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flushBuffer</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">wasEditing</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// delete parent and related features</span>
+<span class="w">  </span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">DeleteContext</span><span class="w"> </span><span class="nf">deleteContext</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">deleteFeature</span><span class="p">(</span><span class="w"> </span><span class="n">fid</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">deleteContext</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">flushBuffer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// commit changes</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">commitChanges</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">wasEditing</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">msgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">commitErrors</span><span class="p">().</span><span class="n">join</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot commit deletion of feature %2 in layer </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">. Reason:</span><span class="se">\n</span><span class="s">%3&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">fid</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">msgs</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isSuccess</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// loop and commit referenced layers in reverse</span>
+<span class="w">      </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">constHandledLayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deleteContext</span><span class="p">.</span><span class="n">handledLayers</span><span class="p">();</span>
+
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*&gt;::</span><span class="n">reverse_iterator</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constHandledLayers</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">constHandledLayers</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">vl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">vl</span><span class="o">-&gt;</span><span class="n">commitChanges</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">msgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vl</span><span class="o">-&gt;</span><span class="n">commitErrors</span><span class="p">().</span><span class="n">join</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot commit deletion in layer </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">. Reason:</span><span class="se">\n</span><span class="s">%3&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">msgs</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">          </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot delete feature %1&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">fid</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">isSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">flushBuffer</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isSuccess</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">constHandledLayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deleteContext</span><span class="p">.</span><span class="n">handledLayers</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">vl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">constHandledLayers</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">vl</span><span class="o">-&gt;</span><span class="n">rollBack</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot rollback layer changes in layer %1&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Critical</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">rollBack</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot rollback layer changes in layer %1&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Critical</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">isSuccess</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QgsFeature</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">duplicateFeature</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QgsFeature</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot start editing, no layer&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QgsFeature</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">feature</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot copy invalid feature&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QgsFeature</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">wasEditing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">editBuffer</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">wasEditing</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">startEditing</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot start editing&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QgsFeature</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// When duplicating a feature, insure the source primary ID is correctly set to null (i.e. new feature within the source dataset)</span>
+<span class="w">  </span><span class="n">QString</span><span class="w"> </span><span class="n">sourcePrimaryKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">customProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QFieldSync/sourceDataPrimaryKeys&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">lookupField</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeys</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sourcePrimaryKeysIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">lookupField</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeys</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">at</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeysIndex</span><span class="w"> </span><span class="p">).</span><span class="n">defaultValueDefinition</span><span class="p">().</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">feature</span><span class="p">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeysIndex</span><span class="p">,</span><span class="w"> </span><span class="n">QVariant</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsFeature</span><span class="w"> </span><span class="n">duplicatedFeature</span><span class="p">;</span>
+<span class="w">  </span><span class="n">QMetaObject</span><span class="o">::</span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">featureAdded</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">duplicatedFeature</span><span class="p">](</span><span class="w"> </span><span class="n">QgsFeatureId</span><span class="w"> </span><span class="n">fid</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">duplicatedFeature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">getFeature</span><span class="p">(</span><span class="w"> </span><span class="n">fid</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">sweaper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qScopeGuard</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">connection</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">QgsVectorLayerUtils</span><span class="o">::</span><span class="n">QgsDuplicateFeatureContext</span><span class="w"> </span><span class="n">duplicateFeatureContext</span><span class="p">;</span>
+<span class="w">  </span><span class="n">duplicatedFeature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsVectorLayerUtils</span><span class="o">::</span><span class="n">duplicateFeature</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">feature</span><span class="p">,</span><span class="w"> </span><span class="n">QgsProject</span><span class="o">::</span><span class="n">instance</span><span class="p">(),</span><span class="w"> </span><span class="n">duplicateFeatureContext</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">duplicateFeatureContextLayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duplicateFeatureContext</span><span class="p">.</span><span class="n">layers</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// commit changes</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">commitChanges</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">wasEditing</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">msgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">commitErrors</span><span class="p">().</span><span class="n">join</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">QgsMessageLog</span><span class="o">::</span><span class="n">logMessage</span><span class="p">(</span><span class="w"> </span><span class="n">tr</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Cannot add new feature in layer </span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">. Reason:</span><span class="se">\n</span><span class="s">%2&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="n">msgs</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;QField&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">Warning</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">chl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">duplicateFeatureContextLayers</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">rollBack</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QgsFeature</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// we have to re-apply referenced feature attribute value to take into account value changes form the</span>
+<span class="w">  </span><span class="c1">// data provider (e.g. autogenerated fid)</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsRelation</span><span class="o">&gt;</span><span class="w"> </span><span class="n">relations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsProject</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">relationManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">referencedRelations</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">chl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">duplicateFeatureContextLayers</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QgsFeatureIds</span><span class="w"> </span><span class="n">fids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duplicateFeatureContext</span><span class="p">.</span><span class="n">duplicatedFeatures</span><span class="p">(</span><span class="w"> </span><span class="n">chl</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">relation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">relations</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">relation</span><span class="p">.</span><span class="n">referencingLayer</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">chl</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsRelation</span><span class="o">::</span><span class="n">FieldPair</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fieldPairs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">relation</span><span class="p">.</span><span class="n">fieldPairs</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fieldPair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">fieldPairs</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">fid</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">fids</span><span class="w"> </span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">changeAttributeValue</span><span class="p">(</span><span class="w"> </span><span class="n">fid</span><span class="p">,</span><span class="w"> </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">indexOf</span><span class="p">(</span><span class="w"> </span><span class="n">fieldPair</span><span class="p">.</span><span class="n">referencingField</span><span class="p">()</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">duplicatedFeature</span><span class="p">.</span><span class="n">attribute</span><span class="p">(</span><span class="w"> </span><span class="n">fieldPair</span><span class="p">.</span><span class="n">referencedField</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Insure the source primary ID of a duplicated child feature is correctly set to null (i.e. new feature within the source dataset)</span>
+<span class="w">    </span><span class="n">sourcePrimaryKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">customProperty</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;QFieldSync/sourceDataPrimaryKeys&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">sourcePrimaryKeys</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">lookupField</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeys</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sourcePrimaryKeysIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">lookupField</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeys</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">().</span><span class="n">at</span><span class="p">(</span><span class="w"> </span><span class="n">sourcePrimaryKeysIndex</span><span class="w"> </span><span class="p">).</span><span class="n">defaultValueDefinition</span><span class="p">().</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">fid</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">fids</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">changeAttributeValue</span><span class="p">(</span><span class="w"> </span><span class="n">fid</span><span class="p">,</span><span class="w"> </span><span class="n">sourcePrimaryKeysIndex</span><span class="p">,</span><span class="w"> </span><span class="n">QVariant</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">chl</span><span class="o">-&gt;</span><span class="n">commitChanges</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">duplicatedFeature</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">hasMValue</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">QgsWkbTypes</span><span class="o">::</span><span class="n">hasM</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">wkbType</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QSet</span><span class="o">&lt;</span><span class="n">QVariant</span><span class="o">&gt;</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">uniqueValuesForVectorLayerFieldIndex</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fieldIndex</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QSet</span><span class="o">&lt;</span><span class="n">QVariant</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">uniqueValues</span><span class="p">(</span><span class="w"> </span><span class="n">fieldIndex</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">loadVectorLayer</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">provider</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="p">(</span><span class="w"> </span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QQmlEngine</span><span class="o">::</span><span class="n">setObjectOwnership</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QQmlEngine</span><span class="o">::</span><span class="n">CppOwnership</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QgsRasterLayer</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">loadRasterLayer</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">provider</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsRasterLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsRasterLayer</span><span class="p">(</span><span class="w"> </span><span class="n">uri</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QQmlEngine</span><span class="o">::</span><span class="n">setObjectOwnership</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QQmlEngine</span><span class="o">::</span><span class="n">CppOwnership</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">memoryLayerFromJsonString</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsCoordinateReferenceSystem</span><span class="w"> </span><span class="o">&amp;</span><span class="n">crs</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QgsFields</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsJsonUtils</span><span class="o">::</span><span class="n">stringToFields</span><span class="p">(</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QgsFeatureList</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsJsonUtils</span><span class="o">::</span><span class="n">stringToFeatureList</span><span class="p">(</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">features</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createMemoryLayer</span><span class="p">(</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="p">,</span><span class="w"> </span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">geometry</span><span class="p">().</span><span class="n">wkbType</span><span class="p">(),</span><span class="w"> </span><span class="n">crs</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorDataProvider</span><span class="w"> </span><span class="o">*</span><span class="n">dataProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">dataProvider</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">dataProvider</span><span class="o">-&gt;</span><span class="n">addFeatures</span><span class="p">(</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createMemoryLayer</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsFields</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fields</span><span class="p">,</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">WkbType</span><span class="w"> </span><span class="n">geometryType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsCoordinateReferenceSystem</span><span class="w"> </span><span class="o">&amp;</span><span class="n">crs</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsMemoryProviderUtils</span><span class="o">::</span><span class="n">createMemoryLayer</span><span class="p">(</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">fields</span><span class="p">,</span><span class="w"> </span><span class="n">geometryType</span><span class="p">,</span><span class="w"> </span><span class="n">crs</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QQmlEngine</span><span class="o">::</span><span class="n">setObjectOwnership</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">QQmlEngine</span><span class="o">::</span><span class="n">CppOwnership</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">setDefaultRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">layer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">FeatureIterator</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createFeatureIterator</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">FeatureIterator</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">FeatureIterator</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createFeatureIteratorFromExpression</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">expression</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsFeatureRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsFeatureRequest</span><span class="p">(</span><span class="w"> </span><span class="n">QgsExpression</span><span class="p">(</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">setExpressionContext</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">createExpressionContext</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">FeatureIterator</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">FeatureIterator</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">createFeatureIteratorFromRectangle</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsRectangle</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rectangle</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QgsFeatureRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsFeatureRequest</span><span class="p">(</span><span class="w"> </span><span class="n">rectangle</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">FeatureIterator</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QString</span><span class="w"> </span><span class="n">LayerUtils</span><span class="o">::</span><span class="n">saveVectorLayerAs</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">driverName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">filterExpression</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">filePath</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QFileInfo</span><span class="w"> </span><span class="n">fileInfo</span><span class="p">(</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">finalDriverName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">driverName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">QgsVectorFileWriter</span><span class="o">::</span><span class="n">driverForExtension</span><span class="p">(</span><span class="w"> </span><span class="n">fileInfo</span><span class="p">.</span><span class="n">suffix</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">driverName</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">finalDriverName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">QDir</span><span class="w"> </span><span class="n">dir</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">dir</span><span class="p">.</span><span class="n">mkpath</span><span class="p">(</span><span class="w"> </span><span class="n">fileInfo</span><span class="p">.</span><span class="n">absolutePath</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QStringList</span><span class="w"> </span><span class="n">datasetOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsVectorFileWriter</span><span class="o">::</span><span class="n">defaultDatasetOptions</span><span class="p">(</span><span class="w"> </span><span class="n">finalDriverName</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">finalDriverName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;GPX&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">datasetOptions</span><span class="p">.</span><span class="n">removeAll</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;GPX_USE_EXTENSIONS=NO&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">datasetOptions</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;GPX_USE_EXTENSIONS=YES&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QString</span><span class="w"> </span><span class="n">finalFileName</span><span class="p">;</span>
+<span class="w">  </span><span class="n">QString</span><span class="w"> </span><span class="n">finalLayerName</span><span class="p">;</span>
+<span class="w">  </span><span class="n">QgsVectorFileWriter</span><span class="o">::</span><span class="n">SaveVectorOptions</span><span class="w"> </span><span class="n">saveOptions</span><span class="p">;</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">fileEncoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;UTF8&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">layerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileInfo</span><span class="p">.</span><span class="n">completeBaseName</span><span class="p">();</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">driverName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">finalDriverName</span><span class="p">;</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">datasourceOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datasetOptions</span><span class="p">;</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">layerOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsVectorFileWriter</span><span class="o">::</span><span class="n">defaultLayerOptions</span><span class="p">(</span><span class="w"> </span><span class="n">finalDriverName</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">symbologyExport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">FeatureSymbologyExport</span><span class="o">::</span><span class="n">NoSymbology</span><span class="p">;</span>
+<span class="w">  </span><span class="n">saveOptions</span><span class="p">.</span><span class="n">actionOnExistingFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsVectorFileWriter</span><span class="o">::</span><span class="n">CreateOrOverwriteFile</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">QgsVectorFileWriter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="w"> </span><span class="n">QgsVectorFileWriter</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="w"> </span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">fields</span><span class="p">(),</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">wkbType</span><span class="p">(),</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">crs</span><span class="p">(),</span><span class="w"> </span><span class="n">QgsProject</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">transformContext</span><span class="p">(),</span><span class="w"> </span><span class="n">saveOptions</span><span class="p">,</span><span class="w"> </span><span class="n">QgsFeatureSink</span><span class="o">::</span><span class="n">RegeneratePrimaryKey</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">finalFileName</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">finalLayerName</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">writer</span><span class="o">-&gt;</span><span class="n">hasError</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qInfo</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Vector layer file writer error: %1&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">writer</span><span class="o">-&gt;</span><span class="n">errorMessage</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsFeatureRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">filterExpression</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">setFilterExpression</span><span class="p">(</span><span class="w"> </span><span class="n">filterExpression</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">request</span><span class="p">.</span><span class="n">setExpressionContext</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">createExpressionContext</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsFeatureIterator</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">getFeatures</span><span class="p">(</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QgsFeature</span><span class="w"> </span><span class="n">feature</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">nextFeature</span><span class="p">(</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">writer</span><span class="o">-&gt;</span><span class="n">addFeature</span><span class="p">(</span><span class="w"> </span><span class="n">feature</span><span class="p">,</span><span class="w"> </span><span class="n">QgsFeatureSink</span><span class="o">::</span><span class="n">FastInsert</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">finalFileName</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

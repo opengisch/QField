@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeaturesLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>FeaturesLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="featureslocatorfilter_8h" local="no">featureslocatorfilter.h</includes>
+    <innerclass refid="structFeaturesLocatorFilter_1_1PreparedLayer" prot="public">FeaturesLocatorFilter::PreparedLayer</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>FeaturesLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17a40cfcb89da2869e5bce1380653eaf2b2" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17a6aa085e1a8248ef794b5aa4abf75a999" prot="public">
+          <name>OpenForm</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17a4f32c171feb53c20b3b6a8f97af824df" prot="public">
+          <name>Navigation</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="40" column="5" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="41" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeaturesLocatorFilter_1ac4350f46d209ba2518173b441f990ad3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FeaturesLocatorFilter::mMaxResultsPerLayer</definition>
+        <argsstring></argsstring>
+        <name>mMaxResultsPerLayer</name>
+        <qualifiedname>FeaturesLocatorFilter::mMaxResultsPerLayer</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="74" column="9" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeaturesLocatorFilter_1a1d14c58baa11490443fa30b9ea959b01" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FeaturesLocatorFilter::mMaxTotalResults</definition>
+        <argsstring></argsstring>
+        <name>mMaxTotalResults</name>
+        <qualifiedname>FeaturesLocatorFilter::mMaxTotalResults</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="75" column="9" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeaturesLocatorFilter_1a072db948e0765c5ab73d8bf1284152fe" prot="private" static="no" mutable="no">
+        <type>QList&lt; std::shared_ptr&lt; <ref refid="structFeaturesLocatorFilter_1_1PreparedLayer" kindref="compound">PreparedLayer</ref> &gt; &gt;</type>
+        <definition>QList&lt;std::shared_ptr&lt;PreparedLayer&gt; &gt; FeaturesLocatorFilter::mPreparedLayers</definition>
+        <argsstring></argsstring>
+        <name>mPreparedLayers</name>
+        <qualifiedname>FeaturesLocatorFilter::mPreparedLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="76" column="11" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeaturesLocatorFilter_1aa6746a99fc6b1f8b2eee2bc4222bac9c" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge* FeaturesLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>FeaturesLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="77" column="29" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a1982d9551f3e9a1aefacd08ae14c5dba" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeaturesLocatorFilter::FeaturesLocatorFilter</definition>
+        <argsstring>(LocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>FeaturesLocatorFilter</name>
+        <qualifiedname>FeaturesLocatorFilter::FeaturesLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="60" column="14" bodyfile="src/core/locator/featureslocatorfilter.cpp" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1ace4d6aa5c1a744381152c62b8b544d88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classFeaturesLocatorFilter" kindref="compound">FeaturesLocatorFilter</ref> *</type>
+        <definition>FeaturesLocatorFilter * FeaturesLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>FeaturesLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="61" column="27" bodyfile="src/core/locator/featureslocatorfilter.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a671e5de7fb4bbd2dfcba9a71bce234b6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeaturesLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>FeaturesLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="62" column="13" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1aac2cfabf934a468786ad7c7265c7f042" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeaturesLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>FeaturesLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="63" column="13" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1ade3478d0c1a8e9a9c2d887d5a95f7123" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeaturesLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>FeaturesLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="64" column="13" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a7bc6a17edce7e3146ac74ac8bbee83a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority FeaturesLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>FeaturesLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="65" column="14" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a7698e3a6b8d7bc499d10e6d66c45beac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FeaturesLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>FeaturesLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="66" column="13" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a3a03eb361b1f0e3435057baf3c94d598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList FeaturesLocatorFilter::prepare</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;locatorContext) override</argsstring>
+        <name>prepare</name>
+        <qualifiedname>FeaturesLocatorFilter::prepare</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>locatorContext</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="68" column="17" bodyfile="src/core/locator/featureslocatorfilter.cpp" bodystart="44" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a93514ce3aef68f4011c31ffbde46740a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeaturesLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>FeaturesLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="69" column="10" bodyfile="src/core/locator/featureslocatorfilter.cpp" bodystart="91" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a34cd6667557ad57b5a0b9bfac299732b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeaturesLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>FeaturesLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="70" column="10" bodyfile="src/core/locator/featureslocatorfilter.cpp" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeaturesLocatorFilter_1a11bd2601a56cbcd48fffd57829a0c1b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeaturesLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>FeaturesLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/featureslocatorfilter.h" line="71" column="10" bodyfile="src/core/locator/featureslocatorfilter.cpp" bodystart="139" bodyend="242"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classFeaturesLocatorFilter" kindref="compound">FeaturesLocatorFilter</ref> is a locator filter to search for features across layers in the project. Reimplemented from QGIS code (app). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeaturesLocatorFilter</label>
+        <link refid="classFeaturesLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeaturesLocatorFilter</label>
+        <link refid="classFeaturesLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/featureslocatorfilter.h" line="34" column="1" bodyfile="src/core/locator/featureslocatorfilter.h" bodystart="35" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classFeaturesLocatorFilter_1ace4d6aa5c1a744381152c62b8b544d88" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>clone</name></member>
+      <member refid="classFeaturesLocatorFilter_1ade3478d0c1a8e9a9c2d887d5a95f7123" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>description</name></member>
+      <member refid="classFeaturesLocatorFilter_1aac2cfabf934a468786ad7c7265c7f042" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classFeaturesLocatorFilter_1a1982d9551f3e9a1aefacd08ae14c5dba" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>FeaturesLocatorFilter</name></member>
+      <member refid="classFeaturesLocatorFilter_1a93514ce3aef68f4011c31ffbde46740a" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classFeaturesLocatorFilter_1aa6746a99fc6b1f8b2eee2bc4222bac9c" prot="private" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classFeaturesLocatorFilter_1ac4350f46d209ba2518173b441f990ad3" prot="private" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>mMaxResultsPerLayer</name></member>
+      <member refid="classFeaturesLocatorFilter_1a1d14c58baa11490443fa30b9ea959b01" prot="private" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>mMaxTotalResults</name></member>
+      <member refid="classFeaturesLocatorFilter_1a072db948e0765c5ab73d8bf1284152fe" prot="private" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>mPreparedLayers</name></member>
+      <member refid="classFeaturesLocatorFilter_1a671e5de7fb4bbd2dfcba9a71bce234b6" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>name</name></member>
+      <member refid="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17a4f32c171feb53c20b3b6a8f97af824df" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>Navigation</name></member>
+      <member refid="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17a40cfcb89da2869e5bce1380653eaf2b2" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classFeaturesLocatorFilter_1a30d2d0e2332403dc4890dd692703ce17a6aa085e1a8248ef794b5aa4abf75a999" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>OpenForm</name></member>
+      <member refid="classFeaturesLocatorFilter_1a7698e3a6b8d7bc499d10e6d66c45beac" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classFeaturesLocatorFilter_1a3a03eb361b1f0e3435057baf3c94d598" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>prepare</name></member>
+      <member refid="classFeaturesLocatorFilter_1a7bc6a17edce7e3146ac74ac8bbee83a8" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>priority</name></member>
+      <member refid="classFeaturesLocatorFilter_1a34cd6667557ad57b5a0b9bfac299732b" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classFeaturesLocatorFilter_1a11bd2601a56cbcd48fffd57829a0c1b4" prot="public" virt="non-virtual"><scope>FeaturesLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudProjectFilter" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudProjectFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Pane</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1a6ba7c2e91f9e69d0a025fd95ff2471d6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QFieldCloudProjectFilter::currentUsername</definition>
+        <argsstring></argsstring>
+        <name>currentUsername</name>
+        <qualifiedname>QFieldCloudProjectFilter::currentUsername</qualifiedname>
+        <read>dummyGetter_currentUsername_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="11" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1aaed9e5b1efe72ed4a02bd3f5b6d9658f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectFilter::organizations</definition>
+        <argsstring></argsstring>
+        <name>organizations</name>
+        <qualifiedname>QFieldCloudProjectFilter::organizations</qualifiedname>
+        <read>dummyGetter_organizations_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="13" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1a580e3b53400f396483a1725398f4f962" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudProjectFilter::organizationsFetched</definition>
+        <argsstring></argsstring>
+        <name>organizationsFetched</name>
+        <qualifiedname>QFieldCloudProjectFilter::organizationsFetched</qualifiedname>
+        <read>dummyGetter_organizationsFetched_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="15" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1a55c19d7ccbc051010029aeb7c9f1c1ce" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QFieldCloudProjectFilter::activePreset</definition>
+        <argsstring></argsstring>
+        <name>activePreset</name>
+        <qualifiedname>QFieldCloudProjectFilter::activePreset</qualifiedname>
+        <read>dummyGetter_activePreset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="17" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1a3b6ff7d8d7a7c133a2c5bd80cce436cc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectFilter::presets</definition>
+        <argsstring></argsstring>
+        <name>presets</name>
+        <qualifiedname>QFieldCloudProjectFilter::presets</qualifiedname>
+        <read>dummyGetter_presets_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="20" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1a913a53fc3da74cde8534705a44d1e584" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QFieldCloudProjectFilter::queryString</definition>
+        <argsstring></argsstring>
+        <name>queryString</name>
+        <qualifiedname>QFieldCloudProjectFilter::queryString</qualifiedname>
+        <read>dummyGetter_queryString_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="22" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQFieldCloudProjectFilter_1ad3d292aa9a3600f3c3e114844a3cc606" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudProjectFilter::blockQueryUpdate</definition>
+        <argsstring></argsstring>
+        <name>blockQueryUpdate</name>
+        <qualifiedname>QFieldCloudProjectFilter::blockQueryUpdate</qualifiedname>
+        <read>dummyGetter_blockQueryUpdate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="24" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1a7839d0e321c7ee72f016cf24fc4623fa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectFilter::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QFieldCloudProjectFilter::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="34" column="5" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1a24ddfc99822f7fc5971a6a3980b0603a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectFilter::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QFieldCloudProjectFilter::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="35" column="5" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1ac52ece414a4bd3dbbd7668e308d0749b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QFieldCloudProjectFilter::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QFieldCloudProjectFilter::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="36" column="5" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1a48cf205a5aa9413a3e5e14b5e949aecf" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QFieldCloudProjectFilter::searchTermTextField</definition>
+        <argsstring></argsstring>
+        <name>searchTermTextField</name>
+        <qualifiedname>QFieldCloudProjectFilter::searchTermTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="37" column="13" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1a5ce1933ddd41d03d697502659d846099" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QFieldCloudProjectFilter::ownerComboBox</definition>
+        <argsstring></argsstring>
+        <name>ownerComboBox</name>
+        <qualifiedname>QFieldCloudProjectFilter::ownerComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="38" column="12" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1abad1f4b53be97a81ff2c4b0ceb7b9449" prot="private" static="no" mutable="no">
+        <type>Switch</type>
+        <definition>Switch QFieldCloudProjectFilter::includePublicSwitch</definition>
+        <argsstring></argsstring>
+        <name>includePublicSwitch</name>
+        <qualifiedname>QFieldCloudProjectFilter::includePublicSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="39" column="8" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1a9784f6d783c5b102b6b67f1e258b9232" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QFieldCloudProjectFilter::searchButtonRow</definition>
+        <argsstring></argsstring>
+        <name>searchButtonRow</name>
+        <qualifiedname>QFieldCloudProjectFilter::searchButtonRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="40" column="11" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQFieldCloudProjectFilter_1a56e373182e13d63ac9242bed48d593f3" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QFieldCloudProjectFilter::searchButton</definition>
+        <argsstring></argsstring>
+        <name>searchButton</name>
+        <qualifiedname>QFieldCloudProjectFilter::searchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="41" column="10" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldCloudProjectFilter_1ad9550a09095da6e6616426bf60a39364" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectFilter::applyFilter</definition>
+        <argsstring>()</argsstring>
+        <name>applyFilter</name>
+        <qualifiedname>QFieldCloudProjectFilter::applyFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="9" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQFieldCloudProjectFilter_1a8f672d45067b1e7b49253eb54cb68c17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectFilter::updateQuery</definition>
+        <argsstring>()</argsstring>
+        <name>updateQuery</name>
+        <qualifiedname>QFieldCloudProjectFilter::updateQuery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudProjectFilter_1a7264551f20486722f304fb4969d88362" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectFilter::updateQueryFromString</definition>
+        <argsstring>(query)</argsstring>
+        <name>updateQueryFromString</name>
+        <qualifiedname>QFieldCloudProjectFilter::updateQueryFromString</qualifiedname>
+        <param>
+          <type>query</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudProjectFilter_1a643306b5f81f12568510694abf872dab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectFilter::getQueryParametersFromString</definition>
+        <argsstring>(query)</argsstring>
+        <name>getQueryParametersFromString</name>
+        <qualifiedname>QFieldCloudProjectFilter::getQueryParametersFromString</qualifiedname>
+        <param>
+          <type>query</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQFieldCloudProjectFilter_1a5adcac86ed7845e53a0cff9157a9dfdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudProjectFilter::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QFieldCloudProjectFilter::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudProjectFilter.qml" line="32" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudProjectFilter</label>
+        <link refid="classQFieldCloudProjectFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QFieldCloudProjectFilter</label>
+        <link refid="classQFieldCloudProjectFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldCloudProjectFilter.qml" line="6" column="1" bodyfile="src/qml/QFieldCloudProjectFilter.qml" bodystart="6" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudProjectFilter_1a55c19d7ccbc051010029aeb7c9f1c1ce" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>activePreset</name></member>
+      <member refid="classQFieldCloudProjectFilter_1ad9550a09095da6e6616426bf60a39364" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>applyFilter</name></member>
+      <member refid="classQFieldCloudProjectFilter_1ac52ece414a4bd3dbbd7668e308d0749b" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>background</name></member>
+      <member refid="classQFieldCloudProjectFilter_1ad3d292aa9a3600f3c3e114844a3cc606" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>blockQueryUpdate</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a5adcac86ed7845e53a0cff9157a9dfdf" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>clear</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a6ba7c2e91f9e69d0a025fd95ff2471d6" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>currentUsername</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a643306b5f81f12568510694abf872dab" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>getQueryParametersFromString</name></member>
+      <member refid="classQFieldCloudProjectFilter_1abad1f4b53be97a81ff2c4b0ceb7b9449" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>includePublicSwitch</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a7839d0e321c7ee72f016cf24fc4623fa" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>onVisibleChanged</name></member>
+      <member refid="classQFieldCloudProjectFilter_1aaed9e5b1efe72ed4a02bd3f5b6d9658f" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>organizations</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a580e3b53400f396483a1725398f4f962" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>organizationsFetched</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a5ce1933ddd41d03d697502659d846099" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>ownerComboBox</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a24ddfc99822f7fc5971a6a3980b0603a" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>padding</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a3b6ff7d8d7a7c133a2c5bd80cce436cc" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>presets</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a913a53fc3da74cde8534705a44d1e584" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>queryString</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a56e373182e13d63ac9242bed48d593f3" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>searchButton</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a9784f6d783c5b102b6b67f1e258b9232" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>searchButtonRow</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a48cf205a5aa9413a3e5e14b5e949aecf" prot="private" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>searchTermTextField</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a8f672d45067b1e7b49253eb54cb68c17" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>updateQuery</name></member>
+      <member refid="classQFieldCloudProjectFilter_1a7264551f20486722f304fb4969d88362" prot="public" virt="non-virtual"><scope>QFieldCloudProjectFilter</scope><name>updateQueryFromString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

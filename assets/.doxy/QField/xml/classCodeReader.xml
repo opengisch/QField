@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCodeReader" kind="class" language="C++" prot="public">
+    <compoundname>CodeReader</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPopup" prot="public" virt="non-virtual">Theme::QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCodeReader_1a8327e83e8600edb593479f7917ca5b4d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string CodeReader::decodedString</definition>
+        <argsstring></argsstring>
+        <name>decodedString</name>
+        <qualifiedname>CodeReader::decodedString</qualifiedname>
+        <read>dummyGetter_decodedString_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="19" column="1" bodyfile="src/qml/CodeReader.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCodeReader_1afd6083459727af3354a5bfb64cb5aca8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var CodeReader::barcodeRequestedItem</definition>
+        <argsstring></argsstring>
+        <name>barcodeRequestedItem</name>
+        <qualifiedname>CodeReader::barcodeRequestedItem</qualifiedname>
+        <read>dummyGetter_barcodeRequestedItem_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="21" column="1" bodyfile="src/qml/CodeReader.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCodeReader_1a179c2b7ba53b2ce12ae7dfaf14e93f19" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int CodeReader::popupWidth</definition>
+        <argsstring></argsstring>
+        <name>popupWidth</name>
+        <qualifiedname>CodeReader::popupWidth</qualifiedname>
+        <read>dummyGetter_popupWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="23" column="1" bodyfile="src/qml/CodeReader.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classCodeReader_1a1e35670322a176ac307829decccdc4f2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool CodeReader::openedOnce</definition>
+        <argsstring></argsstring>
+        <name>openedOnce</name>
+        <qualifiedname>CodeReader::openedOnce</qualifiedname>
+        <read>dummyGetter_openedOnce_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="25" column="1" bodyfile="src/qml/CodeReader.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCodeReader_1a83df151964a52eb5f92a9d190f57ca76" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>CodeReader::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="27" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a57fec7c2943c48d6bff0e704db81eb4e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>CodeReader::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="28" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1ab29d221587312e2d27fab031d8378718" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>CodeReader::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="29" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a8de936673d3660eddc1e8607ae4aad68" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>CodeReader::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="30" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1ab265e2f8e79a4ddf7902934f5d0f8f36" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>CodeReader::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="31" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a2b71bd3ad2d09b717f1126fa869badbb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>CodeReader::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="33" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1afee7f3eccb186c6f24c756762ae449d7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::dim</definition>
+        <argsstring></argsstring>
+        <name>dim</name>
+        <qualifiedname>CodeReader::dim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="34" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a31d1b10b5b24578be0841a16c22d4956" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>CodeReader::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="35" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a802a2445f847a9f94faefac778ae3fbc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::onOpened</definition>
+        <argsstring></argsstring>
+        <name>onOpened</name>
+        <qualifiedname>CodeReader::onOpened</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="36" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a802a5fbeb10eb4188c3abfc6d9d8c74a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>CodeReader::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="37" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1af7ef5224cd61581ef0e112af309bdd5a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var CodeReader::onDecodedStringChanged</definition>
+        <argsstring></argsstring>
+        <name>onDecodedStringChanged</name>
+        <qualifiedname>CodeReader::onDecodedStringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="38" column="5" bodyfile="src/qml/CodeReader.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1ae5733bc0f1a7d0f76eba06ab00cad1c1" prot="private" static="no" mutable="no">
+        <type>QfCameraPermission</type>
+        <definition>QfCameraPermission CodeReader::cameraPermission</definition>
+        <argsstring></argsstring>
+        <name>cameraPermission</name>
+        <qualifiedname>CodeReader::cameraPermission</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="39" column="20" bodyfile="src/qml/CodeReader.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a4d8448bbb659eddc71e8bd0dcd6f04d7" prot="private" static="no" mutable="no">
+        <type><ref refid="classSettings" kindref="compound">Settings</ref></type>
+        <definition>Settings CodeReader::settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <qualifiedname>CodeReader::settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="40" column="10" bodyfile="src/qml/CodeReader.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a4784610a6bdc0fbb25b45355d5ff6798" prot="private" static="no" mutable="no">
+        <type><ref refid="classBarcodeDecoder" kindref="compound">BarcodeDecoder</ref></type>
+        <definition>BarcodeDecoder CodeReader::barcodeDecoder</definition>
+        <argsstring></argsstring>
+        <name>barcodeDecoder</name>
+        <qualifiedname>CodeReader::barcodeDecoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="41" column="16" bodyfile="src/qml/CodeReader.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a3e2dcdaf18b6511621f5cb4724c01868" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader CodeReader::nearfieldLoader</definition>
+        <argsstring></argsstring>
+        <name>nearfieldLoader</name>
+        <qualifiedname>CodeReader::nearfieldLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="42" column="8" bodyfile="src/qml/CodeReader.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a807384c2d9bc04e43bcb71ac0131b969" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle CodeReader::visualFeedback</definition>
+        <argsstring></argsstring>
+        <name>visualFeedback</name>
+        <qualifiedname>CodeReader::visualFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="43" column="11" bodyfile="src/qml/CodeReader.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a1f25d5117df1cdf5a08b9f9e3c4d9509" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle CodeReader::nearfieldFeedback</definition>
+        <argsstring></argsstring>
+        <name>nearfieldFeedback</name>
+        <qualifiedname>CodeReader::nearfieldFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="44" column="11" bodyfile="src/qml/CodeReader.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a3e51556284eeb9b72ed10c1a26c926ba" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader CodeReader::cameraLoader</definition>
+        <argsstring></argsstring>
+        <name>cameraLoader</name>
+        <qualifiedname>CodeReader::cameraLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="45" column="8" bodyfile="src/qml/CodeReader.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a8a45436a1f09e565f641e111f7213312" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle CodeReader::decodedFlash</definition>
+        <argsstring></argsstring>
+        <name>decodedFlash</name>
+        <qualifiedname>CodeReader::decodedFlash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="46" column="11" bodyfile="src/qml/CodeReader.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a761df97e3498edba6d1ce6a7fcf63ea0" prot="private" static="no" mutable="no">
+        <type>SequentialAnimation</type>
+        <definition>SequentialAnimation CodeReader::decodedFlashAnimation</definition>
+        <argsstring></argsstring>
+        <name>decodedFlashAnimation</name>
+        <qualifiedname>CodeReader::decodedFlashAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="47" column="21" bodyfile="src/qml/CodeReader.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1aa711fd7b2c4faa3aa7dce98396f6ee31" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape CodeReader::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <qualifiedname>CodeReader::frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="48" column="7" bodyfile="src/qml/CodeReader.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1aa1fbf515b19a5b8334a53fc31c932ac9" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape CodeReader::aim</definition>
+        <argsstring></argsstring>
+        <name>aim</name>
+        <qualifiedname>CodeReader::aim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="49" column="7" bodyfile="src/qml/CodeReader.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a898131993b2b93c38caa95e6c7126e99" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton CodeReader::flashlightButton</definition>
+        <argsstring></argsstring>
+        <name>flashlightButton</name>
+        <qualifiedname>CodeReader::flashlightButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="50" column="14" bodyfile="src/qml/CodeReader.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1ae314d7f687a4959f2483c1f4ca47c1f9" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton CodeReader::cameraButton</definition>
+        <argsstring></argsstring>
+        <name>cameraButton</name>
+        <qualifiedname>CodeReader::cameraButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="51" column="14" bodyfile="src/qml/CodeReader.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a342d298fde8142cc22ebe169c2437129" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton CodeReader::nearfieldButton</definition>
+        <argsstring></argsstring>
+        <name>nearfieldButton</name>
+        <qualifiedname>CodeReader::nearfieldButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="52" column="14" bodyfile="src/qml/CodeReader.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a8cbf0bd6c9cd0102cc738a296799e4fd" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text CodeReader::decodedText</definition>
+        <argsstring></argsstring>
+        <name>decodedText</name>
+        <qualifiedname>CodeReader::decodedText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="53" column="6" bodyfile="src/qml/CodeReader.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCodeReader_1a2b129a2278f3fe19aeacc8ba986a9ed9" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton CodeReader::acceptButton</definition>
+        <argsstring></argsstring>
+        <name>acceptButton</name>
+        <qualifiedname>CodeReader::acceptButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="54" column="14" bodyfile="src/qml/CodeReader.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCodeReader_1acddf984460f749c8b07ed78c82457cfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CodeReader::decoded</definition>
+        <argsstring>(var string)</argsstring>
+        <name>decoded</name>
+        <qualifiedname>CodeReader::decoded</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a QR code or NFC tag has been decoded/received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classCodeReader_1a3cea9fdaf30fa271f5b02a1220bc337d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CodeReader::accepted</definition>
+        <argsstring>(var string)</argsstring>
+        <name>accepted</name>
+        <qualifiedname>CodeReader::accepted</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a QR code or NFC tag has been accepted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/CodeReader.qml" line="17" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CodeReader</label>
+        <link refid="classCodeReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CodeReader</label>
+        <link refid="classCodeReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPopup</label>
+        <link refid="classTheme_1_1QfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/CodeReader.qml" line="12" column="1" bodyfile="src/qml/CodeReader.qml" bodystart="12" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classCodeReader_1a2b129a2278f3fe19aeacc8ba986a9ed9" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>acceptButton</name></member>
+      <member refid="classCodeReader_1a3cea9fdaf30fa271f5b02a1220bc337d" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>accepted</name></member>
+      <member refid="classCodeReader_1aa1fbf515b19a5b8334a53fc31c932ac9" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>aim</name></member>
+      <member refid="classCodeReader_1a4784610a6bdc0fbb25b45355d5ff6798" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>barcodeDecoder</name></member>
+      <member refid="classCodeReader_1afd6083459727af3354a5bfb64cb5aca8" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>barcodeRequestedItem</name></member>
+      <member refid="classCodeReader_1ae314d7f687a4959f2483c1f4ca47c1f9" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>cameraButton</name></member>
+      <member refid="classCodeReader_1a3e51556284eeb9b72ed10c1a26c926ba" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>cameraLoader</name></member>
+      <member refid="classCodeReader_1ae5733bc0f1a7d0f76eba06ab00cad1c1" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>cameraPermission</name></member>
+      <member refid="classCodeReader_1a2b71bd3ad2d09b717f1126fa869badbb" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>closePolicy</name></member>
+      <member refid="classCodeReader_1acddf984460f749c8b07ed78c82457cfd" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>decoded</name></member>
+      <member refid="classCodeReader_1a8a45436a1f09e565f641e111f7213312" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>decodedFlash</name></member>
+      <member refid="classCodeReader_1a761df97e3498edba6d1ce6a7fcf63ea0" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>decodedFlashAnimation</name></member>
+      <member refid="classCodeReader_1a8327e83e8600edb593479f7917ca5b4d" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>decodedString</name></member>
+      <member refid="classCodeReader_1a8cbf0bd6c9cd0102cc738a296799e4fd" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>decodedText</name></member>
+      <member refid="classCodeReader_1afee7f3eccb186c6f24c756762ae449d7" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>dim</name></member>
+      <member refid="classCodeReader_1a898131993b2b93c38caa95e6c7126e99" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>flashlightButton</name></member>
+      <member refid="classCodeReader_1aa711fd7b2c4faa3aa7dce98396f6ee31" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>frame</name></member>
+      <member refid="classCodeReader_1a57fec7c2943c48d6bff0e704db81eb4e" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>height</name></member>
+      <member refid="classCodeReader_1a342d298fde8142cc22ebe169c2437129" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>nearfieldButton</name></member>
+      <member refid="classCodeReader_1a1f25d5117df1cdf5a08b9f9e3c4d9509" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>nearfieldFeedback</name></member>
+      <member refid="classCodeReader_1a3e2dcdaf18b6511621f5cb4724c01868" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>nearfieldLoader</name></member>
+      <member refid="classCodeReader_1a802a5fbeb10eb4188c3abfc6d9d8c74a" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>onAboutToHide</name></member>
+      <member refid="classCodeReader_1a31d1b10b5b24578be0841a16c22d4956" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>onAboutToShow</name></member>
+      <member refid="classCodeReader_1af7ef5224cd61581ef0e112af309bdd5a" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>onDecodedStringChanged</name></member>
+      <member refid="classCodeReader_1a802a2445f847a9f94faefac778ae3fbc" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>onOpened</name></member>
+      <member refid="classCodeReader_1a1e35670322a176ac307829decccdc4f2" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>openedOnce</name></member>
+      <member refid="classCodeReader_1a179c2b7ba53b2ce12ae7dfaf14e93f19" prot="public" virt="non-virtual"><scope>CodeReader</scope><name>popupWidth</name></member>
+      <member refid="classCodeReader_1a4d8448bbb659eddc71e8bd0dcd6f04d7" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>settings</name></member>
+      <member refid="classCodeReader_1a807384c2d9bc04e43bcb71ac0131b969" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>visualFeedback</name></member>
+      <member refid="classCodeReader_1a83df151964a52eb5f92a9d190f57ca76" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>width</name></member>
+      <member refid="classCodeReader_1ab29d221587312e2d27fab031d8378718" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>x</name></member>
+      <member refid="classCodeReader_1a8de936673d3660eddc1e8607ae4aad68" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>y</name></member>
+      <member refid="classCodeReader_1ab265e2f8e79a4ddf7902934f5d0f8f36" prot="private" virt="non-virtual"><scope>CodeReader</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

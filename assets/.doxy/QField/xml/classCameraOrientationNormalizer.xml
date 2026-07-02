@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCameraOrientationNormalizer" kind="class" language="C++" prot="public">
+    <compoundname>CameraOrientationNormalizer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="cameraorientationnormalizer_8h" local="no">cameraorientationnormalizer.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCameraOrientationNormalizer_1a159c7d87e546a3ed1ef5df60f67711e5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int CameraOrientationNormalizer::previewRotation</definition>
+        <argsstring></argsstring>
+        <name>previewRotation</name>
+        <qualifiedname>CameraOrientationNormalizer::previewRotation</qualifiedname>
+        <read>previewRotation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="39" column="5" bodyfile="src/core/cameraorientationnormalizer.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCameraOrientationNormalizer_1ab4d454938e3c97900b5e2c65b0d8d1e9" prot="private" static="no" mutable="no">
+        <type>Qt::ScreenOrientation</type>
+        <definition>Qt::ScreenOrientation CameraOrientationNormalizer::mCurrentOrientation</definition>
+        <argsstring></argsstring>
+        <name>mCurrentOrientation</name>
+        <qualifiedname>CameraOrientationNormalizer::mCurrentOrientation</qualifiedname>
+        <initializer>= Qt::PortraitOrientation</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="70" column="27" bodyfile="src/core/cameraorientationnormalizer.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCameraOrientationNormalizer_1afd4c41faf600f35be67f308f314d3926" prot="private" static="no" mutable="no">
+        <type>Qt::ScreenOrientation</type>
+        <definition>Qt::ScreenOrientation CameraOrientationNormalizer::mCaptureOrientation</definition>
+        <argsstring></argsstring>
+        <name>mCaptureOrientation</name>
+        <qualifiedname>CameraOrientationNormalizer::mCaptureOrientation</qualifiedname>
+        <initializer>= Qt::PortraitOrientation</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="71" column="27" bodyfile="src/core/cameraorientationnormalizer.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCameraOrientationNormalizer_1a907a25d0338c1d85af0d555fbe87d6f3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CameraOrientationNormalizer::mPreviewRotation</definition>
+        <argsstring></argsstring>
+        <name>mPreviewRotation</name>
+        <qualifiedname>CameraOrientationNormalizer::mPreviewRotation</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="72" column="9" bodyfile="src/core/cameraorientationnormalizer.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCameraOrientationNormalizer_1aae1845e73c4f765b40e2264163427d30" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CameraOrientationNormalizer::CameraOrientationNormalizer</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>CameraOrientationNormalizer</name>
+        <qualifiedname>CameraOrientationNormalizer::CameraOrientationNormalizer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="42" column="14" bodyfile="src/core/cameraorientationnormalizer.cpp" bodystart="26" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classCameraOrientationNormalizer_1a7982c1514b9992cf58df6ac906b650f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CameraOrientationNormalizer::previewRotation</definition>
+        <argsstring>() const</argsstring>
+        <name>previewRotation</name>
+        <qualifiedname>CameraOrientationNormalizer::previewRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="44" column="9" bodyfile="src/core/cameraorientationnormalizer.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classCameraOrientationNormalizer_1a25278622459f1b066fc4cd896d51c5e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void CameraOrientationNormalizer::recordCaptureOrientation</definition>
+        <argsstring>()</argsstring>
+        <name>recordCaptureOrientation</name>
+        <qualifiedname>CameraOrientationNormalizer::recordCaptureOrientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Records the current screen orientation. Call at shutter press so that <ref refid="classCameraOrientationNormalizer_1a12025df6606ec5cfb484c46a441ebdab" kindref="member">normalizeImageOrientation()</ref> has a ground-truth reference. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="50" column="22" bodyfile="src/core/cameraorientationnormalizer.cpp" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classCameraOrientationNormalizer_1a12025df6606ec5cfb484c46a441ebdab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool CameraOrientationNormalizer::normalizeImageOrientation</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>normalizeImageOrientation</name>
+        <qualifiedname>CameraOrientationNormalizer::normalizeImageOrientation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ensures the JPEG at <emphasis>path</emphasis> has pixels matching the orientation recorded by <ref refid="classCameraOrientationNormalizer_1a25278622459f1b066fc4cd896d51c5e3" kindref="member">recordCaptureOrientation()</ref>. Rotates the image if pixel dimensions contradict the capture orientation and strips any non-identity EXIF orientation tag.</para>
+<para>Returns false without touching the file when no correction is needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="60" column="22" bodyfile="src/core/cameraorientationnormalizer.cpp" bodystart="48" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCameraOrientationNormalizer_1a529fc57ddf9f3cfcd988df844d05ecf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraOrientationNormalizer::previewRotationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>previewRotationChanged</name>
+        <qualifiedname>CameraOrientationNormalizer::previewRotationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="63" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classCameraOrientationNormalizer_1ac3264d0a011de939e37021de5a09901b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraOrientationNormalizer::handleScreenOrientationChanged</definition>
+        <argsstring>(Qt::ScreenOrientation orientation)</argsstring>
+        <name>handleScreenOrientationChanged</name>
+        <qualifiedname>CameraOrientationNormalizer::handleScreenOrientationChanged</qualifiedname>
+        <param>
+          <type>Qt::ScreenOrientation</type>
+          <declname>orientation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="66" column="10" bodyfile="src/core/cameraorientationnormalizer.cpp" bodystart="92" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCameraOrientationNormalizer_1a2b2f2bf9828be745d18a930ded4be964" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraOrientationNormalizer::updatePreviewRotation</definition>
+        <argsstring>()</argsstring>
+        <name>updatePreviewRotation</name>
+        <qualifiedname>CameraOrientationNormalizer::updatePreviewRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cameraorientationnormalizer.h" line="69" column="10" bodyfile="src/core/cameraorientationnormalizer.cpp" bodystart="103" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Compensates for incorrect camera orientation on iOS and Windows. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>On iOS and Windows, Qt Multimedia&apos;s backend produces an inverted camera preview in landscape mode and writes captured photos with incorrect orientation or bogus EXIF tags (QTBUG-118594).</para>
+<para>This class provides: <emphasis>previewRotation</emphasis> for correcting the live VideoOutput orientation <emphasis><ref refid="classCameraOrientationNormalizer_1a12025df6606ec5cfb484c46a441ebdab" kindref="member">normalizeImageOrientation()</ref></emphasis> for correcting saved JPEG files </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CameraOrientationNormalizer</label>
+        <link refid="classCameraOrientationNormalizer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CameraOrientationNormalizer</label>
+        <link refid="classCameraOrientationNormalizer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/cameraorientationnormalizer.h" line="35" column="1" bodyfile="src/core/cameraorientationnormalizer.h" bodystart="36" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classCameraOrientationNormalizer_1aae1845e73c4f765b40e2264163427d30" prot="public" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>CameraOrientationNormalizer</name></member>
+      <member refid="classCameraOrientationNormalizer_1ac3264d0a011de939e37021de5a09901b" prot="private" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>handleScreenOrientationChanged</name></member>
+      <member refid="classCameraOrientationNormalizer_1afd4c41faf600f35be67f308f314d3926" prot="private" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>mCaptureOrientation</name></member>
+      <member refid="classCameraOrientationNormalizer_1ab4d454938e3c97900b5e2c65b0d8d1e9" prot="private" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>mCurrentOrientation</name></member>
+      <member refid="classCameraOrientationNormalizer_1a907a25d0338c1d85af0d555fbe87d6f3" prot="private" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>mPreviewRotation</name></member>
+      <member refid="classCameraOrientationNormalizer_1a12025df6606ec5cfb484c46a441ebdab" prot="public" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>normalizeImageOrientation</name></member>
+      <member refid="classCameraOrientationNormalizer_1a159c7d87e546a3ed1ef5df60f67711e5" prot="public" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>previewRotation</name></member>
+      <member refid="classCameraOrientationNormalizer_1a7982c1514b9992cf58df6ac906b650f6" prot="public" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>previewRotation</name></member>
+      <member refid="classCameraOrientationNormalizer_1a529fc57ddf9f3cfcd988df844d05ecf3" prot="public" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>previewRotationChanged</name></member>
+      <member refid="classCameraOrientationNormalizer_1a25278622459f1b066fc4cd896d51c5e3" prot="public" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>recordCaptureOrientation</name></member>
+      <member refid="classCameraOrientationNormalizer_1a2b2f2bf9828be745d18a930ded4be964" prot="private" virt="non-virtual"><scope>CameraOrientationNormalizer</scope><name>updatePreviewRotation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCameraPermission" kind="class" language="C++" prot="public">
+    <compoundname>CameraPermission</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classCameraPermission_1ae12a558be4e8e541c405725e863db71a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus CameraPermission::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>CameraPermission::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="30" column="5" bodyfile="src/core/permissions.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCameraPermission_1aaaf41745279ad6155997025f85b6646f" prot="private" static="no" mutable="no">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus CameraPermission::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>CameraPermission::mStatus</qualifiedname>
+        <initializer>= Qt::PermissionStatus::Undetermined</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="52" column="26" bodyfile="src/core/permissions.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCameraPermission_1a1c7636d1d27e72de95cfe670da6299c3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CameraPermission::mStatusChecked</definition>
+        <argsstring></argsstring>
+        <name>mStatusChecked</name>
+        <qualifiedname>CameraPermission::mStatusChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="53" column="10" bodyfile="src/core/permissions.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCameraPermission_1a36cda4f8adcb4285d958a056ebb597bc" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CameraPermission::CameraPermission</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>CameraPermission</name>
+        <qualifiedname>CameraPermission::CameraPermission</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="33" column="14" bodyfile="src/core/permissions.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classCameraPermission_1a6ca7f93f252bc0fc5043c134a78c1cfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus CameraPermission::status</definition>
+        <argsstring>()</argsstring>
+        <name>status</name>
+        <qualifiedname>CameraPermission::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the permission status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="38" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classCameraPermission_1a1ea9780f0341390b5fc50d8e1c84b79e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void CameraPermission::request</definition>
+        <argsstring>()</argsstring>
+        <name>request</name>
+        <qualifiedname>CameraPermission::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests the permission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="43" column="22" bodyfile="src/core/permissions.cpp" bodystart="38" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classCameraPermission_1a9deb583362247124317a3111e3427a51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraPermission::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>CameraPermission::statusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the status has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/permissions.h" line="49" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CameraPermission</label>
+        <link refid="classCameraPermission"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CameraPermission</label>
+        <link refid="classCameraPermission"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/permissions.h" line="26" column="1" bodyfile="src/core/permissions.h" bodystart="27" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classCameraPermission_1a36cda4f8adcb4285d958a056ebb597bc" prot="public" virt="non-virtual"><scope>CameraPermission</scope><name>CameraPermission</name></member>
+      <member refid="classCameraPermission_1aaaf41745279ad6155997025f85b6646f" prot="private" virt="non-virtual"><scope>CameraPermission</scope><name>mStatus</name></member>
+      <member refid="classCameraPermission_1a1c7636d1d27e72de95cfe670da6299c3" prot="private" virt="non-virtual"><scope>CameraPermission</scope><name>mStatusChecked</name></member>
+      <member refid="classCameraPermission_1a1ea9780f0341390b5fc50d8e1c84b79e" prot="public" virt="non-virtual"><scope>CameraPermission</scope><name>request</name></member>
+      <member refid="classCameraPermission_1ae12a558be4e8e541c405725e863db71a" prot="public" virt="non-virtual"><scope>CameraPermission</scope><name>status</name></member>
+      <member refid="classCameraPermission_1a6ca7f93f252bc0fc5043c134a78c1cfa" prot="public" virt="non-virtual"><scope>CameraPermission</scope><name>status</name></member>
+      <member refid="classCameraPermission_1a9deb583362247124317a3111e3427a51" prot="public" virt="non-virtual"><scope>CameraPermission</scope><name>statusChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

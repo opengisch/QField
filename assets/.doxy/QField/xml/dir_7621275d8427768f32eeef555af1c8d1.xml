@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_7621275d8427768f32eeef555af1c8d1" kind="dir">
+    <compoundname>src/qml/editorwidgets</compoundname>
+    <innerdir refid="dir_755943273b0ca8aa2c962f9336c80f06">src/qml/editorwidgets/relationeditors</innerdir>
+    <innerfile refid="Binary_8qml">Binary.qml</innerfile>
+    <innerfile refid="CheckBox_8qml">CheckBox.qml</innerfile>
+    <innerfile refid="Color_8qml">Color.qml</innerfile>
+    <innerfile refid="DateTime_8qml">DateTime.qml</innerfile>
+    <innerfile refid="EditorWidgetBase_8qml">EditorWidgetBase.qml</innerfile>
+    <innerfile refid="ExternalResource_8qml">ExternalResource.qml</innerfile>
+    <innerfile refid="Range_8qml">Range.qml</innerfile>
+    <innerfile refid="RelationEditorBase_8qml">RelationEditorBase.qml</innerfile>
+    <innerfile refid="RelationReference_8qml">RelationReference.qml</innerfile>
+    <innerfile refid="TextEdit_8qml">TextEdit.qml</innerfile>
+    <innerfile refid="UuidGenerator_8qml">UuidGenerator.qml</innerfile>
+    <innerfile refid="ValueMap_8qml">ValueMap.qml</innerfile>
+    <innerfile refid="ValueRelation_8qml">ValueRelation.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/qml/editorwidgets/"/>
+  </compounddef>
+</doxygen>

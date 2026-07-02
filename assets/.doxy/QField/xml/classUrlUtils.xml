@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classUrlUtils" kind="class" language="C++" prot="public">
+    <compoundname>UrlUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classUrlUtils_1ace56ce2d449de3937737a37dae92c02b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UrlUtils::UrlUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>UrlUtils</name>
+        <qualifiedname>UrlUtils::UrlUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="33" column="14" bodyfile="src/core/utils/urlutils.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classUrlUtils_1af9f6794ac0be8261c6b583b1216f220c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool UrlUtils::isRelativeOrFileUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>isRelativeOrFileUrl</name>
+        <qualifiedname>UrlUtils::isRelativeOrFileUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the provided string is a relative <emphasis>url</emphasis> (has no protocol or starts with <computeroutput><ulink url="file://">file://</ulink></computeroutput>). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="38" column="29" bodyfile="src/core/utils/urlutils.cpp" bodystart="30" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classUrlUtils_1af962a208504b4f2e68ad3402db8de7c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QUrl</type>
+        <definition>QUrl UrlUtils::fromString</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>fromString</name>
+        <qualifiedname>UrlUtils::fromString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Returns a URL from a <emphasis>url</emphasis> with logic to handle local paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="41" column="29" bodyfile="src/core/utils/urlutils.cpp" bodystart="38" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classUrlUtils_1a0a36fd984948f227353143f5c62000de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString UrlUtils::toLocalFile</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>toLocalFile</name>
+        <qualifiedname>UrlUtils::toLocalFile</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Returns a URL from a <emphasis>url</emphasis> with logic to presence or absence of <ulink url="file://">file://</ulink>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="44" column="32" bodyfile="src/core/utils/urlutils.cpp" bodystart="48" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classUrlUtils_1acb7739944a461adfb02e8a67e26d4cca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString UrlUtils::urlDetail</definition>
+        <argsstring>(const QString &amp;url, const QString &amp;detail)</argsstring>
+        <name>urlDetail</name>
+        <qualifiedname>UrlUtils::urlDetail</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>detail</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <emphasis>detail</emphasis> from an <emphasis>url</emphasis>. The possible components are:<itemizedlist>
+<listitem><para>&quot;scheme&quot;, e.g. https</para>
+</listitem><listitem><para>&quot;authority&quot;, e.g. qfield.org</para>
+</listitem><listitem><para>&quot;path&quot;, e.g. /my/home.html</para>
+</listitem><listitem><para>&quot;fileName&quot;, e.g. file.zip</para>
+</listitem><listitem><para>&quot;query&quot;, e.g. param=true&amp;other_parem=0 </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="54" column="32" bodyfile="src/core/utils/urlutils.cpp" bodystart="59" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classUrlUtils_1a1abf6b7021dcc7f74a1d6039c4c026a6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap UrlUtils::getActionDetails</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>getActionDetails</name>
+        <qualifiedname>UrlUtils::getActionDetails</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns QField action details extracted from a compatible <emphasis>url</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="59" column="36" bodyfile="src/core/utils/urlutils.cpp" bodystart="86" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classUrlUtils_1a6e712075f573ebf48629e5a2554302ff" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString UrlUtils::createActionUrl</definition>
+        <argsstring>(const QString &amp;scheme, const QString &amp;type, const QVariantMap &amp;details)</argsstring>
+        <name>createActionUrl</name>
+        <qualifiedname>UrlUtils::createActionUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scheme</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>details</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a QField action url string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scheme</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the action scheme, a qfield value will return a &quot;qfield://&quot; scheme an https value will return an &quot;https://qfield.org&quot; scheme and domain name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the action type (local or cloud) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>details</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the action details transformed into URL query parameters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="68" column="32" bodyfile="src/core/utils/urlutils.cpp" bodystart="121" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classUrlUtils_1a6f99eff233266da0ed6874f06f4bea51" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString UrlUtils::createEncodedUrl</definition>
+        <argsstring>(const QVariantMap &amp;parameters)</argsstring>
+        <name>createEncodedUrl</name>
+        <qualifiedname>UrlUtils::createEncodedUrl</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an encoded URL built using parameters&apos; pair of key and value as query items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/urlutils.h" line="74" column="32" bodyfile="src/core/utils/urlutils.cpp" bodystart="146" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>UrlUtils</label>
+        <link refid="classUrlUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>UrlUtils</label>
+        <link refid="classUrlUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/urlutils.h" line="28" column="1" bodyfile="src/core/utils/urlutils.h" bodystart="29" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classUrlUtils_1a6e712075f573ebf48629e5a2554302ff" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>createActionUrl</name></member>
+      <member refid="classUrlUtils_1a6f99eff233266da0ed6874f06f4bea51" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>createEncodedUrl</name></member>
+      <member refid="classUrlUtils_1af962a208504b4f2e68ad3402db8de7c5" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>fromString</name></member>
+      <member refid="classUrlUtils_1a1abf6b7021dcc7f74a1d6039c4c026a6" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>getActionDetails</name></member>
+      <member refid="classUrlUtils_1af9f6794ac0be8261c6b583b1216f220c" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>isRelativeOrFileUrl</name></member>
+      <member refid="classUrlUtils_1a0a36fd984948f227353143f5c62000de" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>toLocalFile</name></member>
+      <member refid="classUrlUtils_1acb7739944a461adfb02e8a67e26d4cca" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>urlDetail</name></member>
+      <member refid="classUrlUtils_1ace56ce2d449de3937737a37dae92c02b" prot="public" virt="non-virtual"><scope>UrlUtils</scope><name>UrlUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

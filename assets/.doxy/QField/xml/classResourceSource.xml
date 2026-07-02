@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classResourceSource" kind="class" language="C++" prot="public">
+    <compoundname>ResourceSource</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <derivedcompoundref refid="classAndroidResourceSource" prot="public" virt="non-virtual">AndroidResourceSource</derivedcompoundref>
+    <derivedcompoundref refid="classIosResourceSource" prot="public" virt="non-virtual">IosResourceSource</derivedcompoundref>
+    <includes refid="resourcesource_8h" local="no">resourcesource.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classResourceSource_1a7abfbcf1a7137e55211145aff9a7247a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ResourceSource::mPrefix</definition>
+        <argsstring></argsstring>
+        <name>mPrefix</name>
+        <qualifiedname>ResourceSource::mPrefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Base directory path for all relative paths. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/resourcesource.h" line="58" column="13" bodyfile="src/core/resourcesource.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classResourceSource_1aca18f6b29a7c9e85184153f76d4e8596" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ResourceSource::mResourceFilePath</definition>
+        <argsstring></argsstring>
+        <name>mResourceFilePath</name>
+        <qualifiedname>ResourceSource::mResourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/resourcesource.h" line="63" column="13" bodyfile="src/core/resourcesource.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classResourceSource_1a619bb525c74553c331566eb13aa458bc" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ResourceSource::ResourceSource</definition>
+        <argsstring>(QObject *parent=nullptr, const QString &amp;prefix=QString(), const QString &amp;resourceFilePath=QString())</argsstring>
+        <name>ResourceSource</name>
+        <qualifiedname>ResourceSource::ResourceSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>resourceFilePath</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new <ref refid="classResourceSource" kindref="compound">ResourceSource</ref> object.</para>
+<para><simplesect kind="note"><para>Subclasses which implement their own file dialog should provide an empty string for <emphasis>resourceFilePath</emphasis> and emit <emphasis>resourceReceived</emphasis> when appropriate. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parent object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project folder. Base directory path for all relative paths. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resourceFilePath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/resourcesource.h" line="38" column="14" bodyfile="src/core/resourcesource.cpp" bodystart="21" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classResourceSource_1a28122c523be31fb01217b8ddbd58a452" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>ResourceSource::~ResourceSource</definition>
+        <argsstring>()</argsstring>
+        <name>~ResourceSource</name>
+        <qualifiedname>ResourceSource::~ResourceSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the <ref refid="classResourceSource" kindref="compound">ResourceSource</ref> object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/resourcesource.h" line="43" column="13" bodyfile="src/core/resourcesource.cpp" bodystart="38" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classResourceSource_1a0d943802115ab0272a9e60a78b5bf8c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ResourceSource::resourceReceived</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>resourceReceived</name>
+        <qualifiedname>ResourceSource::resourceReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emit this signal when a resource really has been received.</para>
+<para><simplesect kind="note"><para>When the constructor received a non-empty <emphasis>resourceFilePath</emphasis>, the signal is emitted in the constructor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/resourcesource.h" line="52" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A resource source object will be created when a new resource is requested from the system. It should be subclassed and filled with platform specific code. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AndroidResourceSource</label>
+        <link refid="classAndroidResourceSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>IosResourceSource</label>
+        <link refid="classIosResourceSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ResourceSource</label>
+        <link refid="classResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>ResourceSource</label>
+        <link refid="classResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/resourcesource.h" line="26" column="1" bodyfile="src/core/resourcesource.h" bodystart="27" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classResourceSource_1a7abfbcf1a7137e55211145aff9a7247a" prot="private" virt="non-virtual"><scope>ResourceSource</scope><name>mPrefix</name></member>
+      <member refid="classResourceSource_1aca18f6b29a7c9e85184153f76d4e8596" prot="private" virt="non-virtual"><scope>ResourceSource</scope><name>mResourceFilePath</name></member>
+      <member refid="classResourceSource_1a0d943802115ab0272a9e60a78b5bf8c0" prot="public" virt="non-virtual"><scope>ResourceSource</scope><name>resourceReceived</name></member>
+      <member refid="classResourceSource_1a619bb525c74553c331566eb13aa458bc" prot="public" virt="non-virtual"><scope>ResourceSource</scope><name>ResourceSource</name></member>
+      <member refid="classResourceSource_1a28122c523be31fb01217b8ddbd58a452" prot="public" virt="virtual"><scope>ResourceSource</scope><name>~ResourceSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

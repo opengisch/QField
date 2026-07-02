@@ -1,0 +1,829 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>File theme.h - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-themeh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File theme.h
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../translate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translate a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-themeh">File theme.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../theme_8h/"><strong>theme.h</strong></a></p>
+<p><a href="../theme_8h/">Go to the documentation of this file</a></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/***************************************************************************</span>
+<span class="cm">  theme.h - Theme</span>
+
+<span class="cm">---------------------</span>
+<span class="cm">begin                : 22.2.2026</span>
+<span class="cm">copyright            : (C) 2026 by Kaustuv Pokharel</span>
+<span class="cm">email                : kaustuv@opengis.ch</span>
+<span class="cm">***************************************************************************</span>
+<span class="cm">*                                                                         *</span>
+<span class="cm">*   This program is free software; you can redistribute it and/or modify  *</span>
+<span class="cm">*   it under the terms of the GNU General Public License as published by  *</span>
+<span class="cm">*   the Free Software Foundation; either version 2 of the License, or     *</span>
+<span class="cm">*   (at your option) any later version.                                   *</span>
+<span class="cm">*                                                                         *</span>
+<span class="cm">***************************************************************************/</span>
+
+<span class="cp">#ifndef THEME_H</span>
+<span class="cp">#define THEME_H</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qfield_core_export.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QColor&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QFont&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QObject&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QVariantMap&gt;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">QFIELD_CORE_EXPORT</span><span class="w"> </span><span class="n">Theme</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">QObject</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Q_OBJECT</span>
+
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">darkTheme</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkTheme</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setDarkTheme</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">darkThemeChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">appearance</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">appearance</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setAppearance</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">appearanceChanged</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Palette tables, exposed for QML code that reads them directly</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="n">darkThemeColors</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkThemeColors</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="n">lightThemeColors</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">lightThemeColors</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setMainColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">mainColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainOverlayColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainOverlayColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setMainOverlayColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">mainOverlayColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainBackgroundColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setMainBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">mainBackgroundColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainBackgroundColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainBackgroundColorSemiOpaque</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setMainBackgroundColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">mainBackgroundColorSemiOpaqueChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainTextColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainTextColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setMainTextColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">mainTextColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainTextDisabledColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainTextDisabledColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setMainTextDisabledColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">mainTextDisabledColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">secondaryTextColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">secondaryTextColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setSecondaryTextColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">secondaryTextColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">controlBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">controlBackgroundColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setControlBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">controlBackgroundColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">controlBackgroundAlternateColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">controlBackgroundAlternateColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setControlBackgroundAlternateColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">controlBackgroundAlternateColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">controlBackgroundDisabledColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">controlBackgroundDisabledColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setControlBackgroundDisabledColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">controlBackgroundDisabledColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">controlBorderColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">controlBorderColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setControlBorderColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">controlBorderColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">buttonColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">buttonColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setButtonColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">buttonColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">buttonBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">buttonBackgroundColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setButtonBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">buttonBackgroundColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">toolButtonColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">toolButtonColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setToolButtonColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">toolButtonColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">toolButtonBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">toolButtonBackgroundColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setToolButtonBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">toolButtonBackgroundColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">toolButtonBackgroundSemiOpaqueColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">toolButtonBackgroundSemiOpaqueColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setToolButtonBackgroundSemiOpaqueColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">toolButtonBackgroundSemiOpaqueColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">scrollBarBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">scrollBarBackgroundColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setScrollBarBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">scrollBarBackgroundColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">groupBoxBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">groupBoxBackgroundColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setGroupBoxBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">groupBoxBackgroundColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">groupBoxSurfaceColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">groupBoxSurfaceColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setGroupBoxSurfaceColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">groupBoxSurfaceColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">goodColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">goodColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setGoodColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">goodColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">warningColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">warningColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setWarningColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">warningColorChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">errorColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">errorColor</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setErrorColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">errorColorChanged</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">mainColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">mainColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">darkRed</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkRed</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">darkGray</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkGray</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">darkGraySemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkGraySemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">gray</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">gray</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">lightGray</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">lightGray</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">lightestGray</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">lightestGray</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">lightestGraySemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">lightestGraySemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">light</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">cloudColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">cloudColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">positionColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">positionColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">positionColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">positionColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">positionBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">positionBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">darkPositionColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkPositionColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">darkPositionColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">darkPositionColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">accuracyBad</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">accuracyBad</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">accuracyTolerated</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">accuracyTolerated</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">accuracyExcellent</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">accuracyExcellent</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">navigationColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">navigationColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">navigationColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">navigationColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">navigationBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">navigationBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">sensorBackgroundColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">sensorBackgroundColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">bookmarkDefault</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">bookmarkDefault</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">bookmarkOrange</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">bookmarkOrange</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">bookmarkRed</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">bookmarkRed</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">bookmarkBlue</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">bookmarkBlue</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">qfieldcloudBlue</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">qfieldcloudBlue</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">vertexColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">vertexColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">vertexColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">vertexColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">vertexSelectedColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">vertexSelectedColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">vertexSelectedColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">vertexSelectedColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">vertexNewColor</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">vertexNewColor</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">vertexNewColorSemiOpaque</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">vertexNewColorSemiOpaque</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="n">processingPreview</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">processingPreview</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">themeDataLoaded</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">qreal</span><span class="w"> </span><span class="n">fontScale</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">fontScale</span><span class="w"> </span><span class="n">WRITE</span><span class="w"> </span><span class="n">setFontScale</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">defaultFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">defaultFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">tinyFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">tinyFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">tipFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">tipFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">resultFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">resultFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">strongFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">strongFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">strongTipFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">strongTipFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">secondaryTitleFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">secondaryTitleFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">titleFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">titleFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="n">QFont</span><span class="w"> </span><span class="n">strongTitleFont</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">strongTitleFont</span><span class="w"> </span><span class="n">NOTIFY</span><span class="w"> </span><span class="n">fontScaleChanged</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">popupScreenEdgeVerticalMargin</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">popupScreenEdgeVerticalMargin</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">popupScreenEdgeHorizontalMargin</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">popupScreenEdgeHorizontalMargin</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">menuItemIconlessLeftPadding</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">menuItemIconlessLeftPadding</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">menuItemLeftPadding</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">menuItemLeftPadding</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Q_PROPERTY</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">menuItemCheckLeftPadding</span><span class="w"> </span><span class="n">READ</span><span class="w"> </span><span class="n">menuItemCheckLeftPadding</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Theme</span><span class="p">(</span><span class="w"> </span><span class="n">QObject</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="nc">BaseAppearance</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">UseSettingsAppearance</span><span class="p">,</span>
+<span class="w">      </span><span class="n">SystemAppearance</span><span class="p">,</span>
+<span class="w">      </span><span class="n">DarkAppearance</span><span class="p">,</span>
+<span class="w">      </span><span class="n">LightAppearance</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="n">Q_ENUM</span><span class="p">(</span><span class="w"> </span><span class="n">BaseAppearance</span><span class="w"> </span><span class="p">)</span>
+
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">applyAppearance</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="o">&amp;</span><span class="n">extraColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QVariantMap</span><span class="p">(),</span><span class="w"> </span><span class="n">BaseAppearance</span><span class="w"> </span><span class="n">baseAppearance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UseSettingsAppearance</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">applyColors</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="o">&amp;</span><span class="n">colors</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">getThemeIcon</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">getThemeVectorIcon</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">colorToHtml</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">toInlineStyles</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="o">&amp;</span><span class="n">styleProperties</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setSystemFontPointSize</span><span class="p">(</span><span class="w"> </span><span class="n">qreal</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Q_INVOKABLE</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setScreenPpi</span><span class="p">(</span><span class="w"> </span><span class="n">qreal</span><span class="w"> </span><span class="n">ppi</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QVariantMap</span><span class="w"> </span><span class="nf">darkThemeColors</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkThemeColors</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QVariantMap</span><span class="w"> </span><span class="nf">lightThemeColors</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mLightThemeColors</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMainColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainOverlayColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainOverlayColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMainOverlayColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMainBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainBackgroundColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainBackgroundColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMainBackgroundColorSemiOpaque</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainTextColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainTextColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMainTextColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainTextDisabledColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainTextDisabledColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMainTextDisabledColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">secondaryTextColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mSecondaryTextColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setSecondaryTextColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">controlBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mControlBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setControlBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">controlBackgroundAlternateColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mControlBackgroundAlternateColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setControlBackgroundAlternateColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">controlBackgroundDisabledColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mControlBackgroundDisabledColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setControlBackgroundDisabledColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">controlBorderColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mControlBorderColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setControlBorderColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">buttonColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mButtonColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setButtonColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">buttonBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mButtonBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setButtonBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">toolButtonColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mToolButtonColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setToolButtonColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">toolButtonBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mToolButtonBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setToolButtonBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">toolButtonBackgroundSemiOpaqueColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mToolButtonBackgroundSemiOpaqueColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setToolButtonBackgroundSemiOpaqueColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">scrollBarBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mScrollBarBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setScrollBarBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">groupBoxBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mGroupBoxBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setGroupBoxBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">groupBoxSurfaceColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mGroupBoxSurfaceColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setGroupBoxSurfaceColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">goodColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mGoodColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setGoodColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">warningColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mWarningColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setWarningColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">errorColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mErrorColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setErrorColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">mainColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mMainColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">darkRed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkRed</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">darkGray</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkGray</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">darkGraySemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkGraySemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">gray</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mGray</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">lightGray</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mLightGray</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">lightestGray</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mLightestGray</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">lightestGraySemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mLightestGraySemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">light</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mLight</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">cloudColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mCloudColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">positionColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mPositionColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">positionColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mPositionColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">positionBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mPositionBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">darkPositionColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkPositionColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">darkPositionColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkPositionColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">accuracyBad</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mAccuracyBad</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">accuracyTolerated</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mAccuracyTolerated</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">accuracyExcellent</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mAccuracyExcellent</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">navigationColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mNavigationColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">navigationColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mNavigationColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">navigationBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mNavigationBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">sensorBackgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mSensorBackgroundColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">bookmarkDefault</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mBookmarkDefault</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">bookmarkOrange</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mBookmarkOrange</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">bookmarkRed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mBookmarkRed</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">bookmarkBlue</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mBookmarkBlue</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">qfieldcloudBlue</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mQfieldcloudBlue</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">vertexColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mVertexColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">vertexColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mVertexColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">vertexSelectedColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mVertexSelectedColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">vertexSelectedColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mVertexSelectedColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">vertexNewColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mVertexNewColor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">vertexNewColorSemiOpaque</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mVertexNewColorSemiOpaque</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="nf">processingPreview</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mProcessingPreview</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">QString</span><span class="w"> </span><span class="nf">appearance</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mAppearance</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAppearance</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">appearance</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">darkTheme</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mDarkTheme</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setDarkTheme</span><span class="p">(</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">dark</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">qreal</span><span class="w"> </span><span class="nf">fontScale</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mFontScale</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setFontScale</span><span class="p">(</span><span class="w"> </span><span class="n">qreal</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">defaultFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">tinyFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">tipFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">0.875</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">resultFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">0.8125</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">strongFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">strongTipFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">0.875</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">secondaryTitleFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">1.125</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">titleFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="nf">strongTitleFont</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">popupScreenEdgeVerticalMargin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">popupScreenEdgeHorizontalMargin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">menuItemIconlessLeftPadding</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">52</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">menuItemLeftPadding</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">menuItemCheckLeftPadding</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nl">signals</span><span class="p">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mainColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mainOverlayColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mainBackgroundColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mainBackgroundColorSemiOpaqueChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mainTextColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">mainTextDisabledColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">secondaryTextColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">controlBackgroundColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">controlBackgroundAlternateColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">controlBackgroundDisabledColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">controlBorderColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buttonColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buttonBackgroundColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">toolButtonColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">toolButtonBackgroundColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">toolButtonBackgroundSemiOpaqueColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">scrollBarBackgroundColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">groupBoxBackgroundColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">groupBoxSurfaceColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">goodColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">warningColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">errorColorChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">appearanceChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">darkThemeChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fontScaleChanged</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">themeDataLoaded</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">screenPpiChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">QFont</span><span class="w"> </span><span class="n">makeFont</span><span class="p">(</span><span class="w"> </span><span class="n">qreal</span><span class="w"> </span><span class="n">scaleFactor</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bold</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">loadFromJson</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">QVariantMap</span><span class="w"> </span><span class="n">mDarkThemeColors</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QVariantMap</span><span class="w"> </span><span class="n">mLightThemeColors</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainOverlayColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainBackgroundColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainTextColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainTextDisabledColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mSecondaryTextColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mControlBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mControlBackgroundAlternateColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mControlBackgroundDisabledColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mControlBorderColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mButtonColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mButtonBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mToolButtonColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mToolButtonBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mToolButtonBackgroundSemiOpaqueColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mScrollBarBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mGroupBoxBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mGroupBoxSurfaceColor</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mMainColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mDarkRed</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mDarkGray</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mDarkGraySemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mGray</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mLightGray</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mLightestGray</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mLightestGraySemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mLight</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mGoodColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mWarningColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mErrorColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mCloudColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mPositionColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mPositionColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mPositionBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mDarkPositionColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mDarkPositionColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mAccuracyBad</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mAccuracyTolerated</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mAccuracyExcellent</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mNavigationColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mNavigationColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mNavigationBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mSensorBackgroundColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mBookmarkDefault</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mBookmarkOrange</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mBookmarkRed</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mBookmarkBlue</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mQfieldcloudBlue</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mVertexColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mVertexColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mVertexSelectedColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mVertexSelectedColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mVertexNewColor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mVertexNewColorSemiOpaque</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QColor</span><span class="w"> </span><span class="n">mProcessingPreview</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">QString</span><span class="w"> </span><span class="n">mAppearance</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">mDarkTheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">qreal</span><span class="w"> </span><span class="n">mFontScale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">qreal</span><span class="w"> </span><span class="n">mSystemFontPointSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">14.0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">qreal</span><span class="w"> </span><span class="n">mScreenPpi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">160.0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// THEME_H</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

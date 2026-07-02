@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfToolButtonPie" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfToolButtonPie</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Menu</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1a6860106b10941c15f26918832bb4ca23" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <qualifiedname>Theme::QfToolButtonPie::scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="12" column="5" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1a425d13854efbe1a7db78e6a61c1fdb8e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::opacity</definition>
+        <argsstring></argsstring>
+        <name>opacity</name>
+        <qualifiedname>Theme::QfToolButtonPie::opacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="13" column="5" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1ad36f533daa2dde7f2f0b1e24958b5ad9" prot="private" static="no" mutable="no">
+        <type>QtObject</type>
+        <definition>QtObject Theme::QfToolButtonPie::internal</definition>
+        <argsstring></argsstring>
+        <name>internal</name>
+        <qualifiedname>Theme::QfToolButtonPie::internal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="35" column="10" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1af8e4fba941b70e31ad89c88545fedd3c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>Theme::QfToolButtonPie::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="36" column="5" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1af65ad2bd39400baaa1867af92aaad6b3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>Theme::QfToolButtonPie::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="37" column="5" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1abf17ee2fa4a3f7aecef762173af4f429" prot="private" static="no" mutable="no">
+        <type>NumberAnimation</type>
+        <definition>NumberAnimation Theme::QfToolButtonPie::progressAnimation</definition>
+        <argsstring></argsstring>
+        <name>progressAnimation</name>
+        <qualifiedname>Theme::QfToolButtonPie::progressAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="38" column="17" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1a1cc1308d583a080b580fd415a92e904d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>Theme::QfToolButtonPie::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="39" column="5" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfToolButtonPie_1af7e733ccbd23b2a85f7cc5fdf5f13965" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>Theme::QfToolButtonPie::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="40" column="5" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1ad58c71481e5383debd0fcb2a4ea29649" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfToolButtonPie::numberOfButtons</definition>
+        <argsstring></argsstring>
+        <name>numberOfButtons</name>
+        <qualifiedname>Theme::QfToolButtonPie::numberOfButtons</qualifiedname>
+        <read>dummyGetter_numberOfButtons_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1ac8b128ee71a3381700903d3629257602" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfToolButtonPie::bandWidth</definition>
+        <argsstring></argsstring>
+        <name>bandWidth</name>
+        <qualifiedname>Theme::QfToolButtonPie::bandWidth</qualifiedname>
+        <read>dummyGetter_bandWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1ad996d4465d401934af8ce550a5ab3723" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfToolButtonPie::openingAngle</definition>
+        <argsstring></argsstring>
+        <name>openingAngle</name>
+        <qualifiedname>Theme::QfToolButtonPie::openingAngle</qualifiedname>
+        <read>dummyGetter_openingAngle_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="21" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1a0fbcabeb556a79ae86b9077088f22c7a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfToolButtonPie::strokeColor</definition>
+        <argsstring></argsstring>
+        <name>strokeColor</name>
+        <qualifiedname>Theme::QfToolButtonPie::strokeColor</qualifiedname>
+        <read>dummyGetter_strokeColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="23" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1a75b9667d35885a719d904e1b81454d19" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfToolButtonPie::linkColor</definition>
+        <argsstring></argsstring>
+        <name>linkColor</name>
+        <qualifiedname>Theme::QfToolButtonPie::linkColor</qualifiedname>
+        <read>dummyGetter_linkColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="25" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1a53f575c79bc6e80bd381842121478905" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Theme::QfToolButtonPie::targetPoint</definition>
+        <argsstring></argsstring>
+        <name>targetPoint</name>
+        <qualifiedname>Theme::QfToolButtonPie::targetPoint</qualifiedname>
+        <read>dummyGetter_targetPoint_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="27" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1ad585bb1bb197a679c7aa46087bd447d6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfToolButtonPie::showConnectionLine</definition>
+        <argsstring></argsstring>
+        <name>showConnectionLine</name>
+        <qualifiedname>Theme::QfToolButtonPie::showConnectionLine</qualifiedname>
+        <read>dummyGetter_showConnectionLine_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="29" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1a73a2bd5e1321168278271e6c27341fd7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Component</type>
+        <definition>Component Theme::QfToolButtonPie::centralActionComponent</definition>
+        <argsstring></argsstring>
+        <name>centralActionComponent</name>
+        <qualifiedname>Theme::QfToolButtonPie::centralActionComponent</qualifiedname>
+        <read>dummyGetter_centralActionComponent_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="31" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfToolButtonPie_1afaf204ff77e3f4d022ee428d6e134d67" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfToolButtonPie::centralActionVisible</definition>
+        <argsstring></argsstring>
+        <name>centralActionVisible</name>
+        <qualifiedname>Theme::QfToolButtonPie::centralActionVisible</qualifiedname>
+        <read>dummyGetter_centralActionVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="33" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Menu</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfToolButtonPie</label>
+        <link refid="classTheme_1_1QfToolButtonPie"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Menu</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfToolButtonPie</label>
+        <link refid="classTheme_1_1QfToolButtonPie"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfToolButtonPie.qml" line="11" column="1" bodyfile="src/qml/imports/Theme/QfToolButtonPie.qml" bodystart="11" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfToolButtonPie_1af8e4fba941b70e31ad89c88545fedd3c" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>background</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1ac8b128ee71a3381700903d3629257602" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>bandWidth</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a73a2bd5e1321168278271e6c27341fd7" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>centralActionComponent</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1afaf204ff77e3f4d022ee428d6e134d67" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>centralActionVisible</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1af65ad2bd39400baaa1867af92aaad6b3" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>contentItem</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1ad36f533daa2dde7f2f0b1e24958b5ad9" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>internal</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a75b9667d35885a719d904e1b81454d19" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>linkColor</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1ad58c71481e5383debd0fcb2a4ea29649" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>numberOfButtons</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1af7e733ccbd23b2a85f7cc5fdf5f13965" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>onAboutToHide</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a1cc1308d583a080b580fd415a92e904d" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>onAboutToShow</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a425d13854efbe1a7db78e6a61c1fdb8e" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>opacity</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1ad996d4465d401934af8ce550a5ab3723" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>openingAngle</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1abf17ee2fa4a3f7aecef762173af4f429" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>progressAnimation</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a6860106b10941c15f26918832bb4ca23" prot="private" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>scale</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1ad585bb1bb197a679c7aa46087bd447d6" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>showConnectionLine</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a0fbcabeb556a79ae86b9077088f22c7a" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>strokeColor</name></member>
+      <member refid="classTheme_1_1QfToolButtonPie_1a53f575c79bc6e80bd381842121478905" prot="public" virt="non-virtual"><scope>Theme::QfToolButtonPie</scope><name>targetPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

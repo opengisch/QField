@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfTimeItem" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfTimeItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfTimeItem_1a496549bbb8288626a14199175c1e7ada" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfTimeItem::hours</definition>
+        <argsstring></argsstring>
+        <name>hours</name>
+        <qualifiedname>Theme::QfTimeItem::hours</qualifiedname>
+        <read>dummyGetter_hours_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="10" column="1" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfTimeItem_1a1d3ea9a264d75f19223ffdc9017203a7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfTimeItem::minutes</definition>
+        <argsstring></argsstring>
+        <name>minutes</name>
+        <qualifiedname>Theme::QfTimeItem::minutes</qualifiedname>
+        <read>dummyGetter_minutes_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="12" column="1" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfTimeItem_1a9b222e4a204b73029befe66e4141a0fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfTimeItem::seconds</definition>
+        <argsstring></argsstring>
+        <name>seconds</name>
+        <qualifiedname>Theme::QfTimeItem::seconds</qualifiedname>
+        <read>dummyGetter_seconds_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="14" column="1" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfTimeItem_1a03e9ee6a17a97fcc0623ffbb9da326e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfTimeItem::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>Theme::QfTimeItem::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="16" column="1" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfTimeItem_1a73d24524345381735a29468a0439ab57" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout Theme::QfTimeItem::timeItemContent</definition>
+        <argsstring></argsstring>
+        <name>timeItemContent</name>
+        <qualifiedname>Theme::QfTimeItem::timeItemContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="18" column="12" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTimeItem_1a0e59d55aced89662f332b2279ec6ccc5" prot="private" static="no" mutable="no">
+        <type>SpinBox</type>
+        <definition>SpinBox Theme::QfTimeItem::hoursSpinBox</definition>
+        <argsstring></argsstring>
+        <name>hoursSpinBox</name>
+        <qualifiedname>Theme::QfTimeItem::hoursSpinBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="19" column="9" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTimeItem_1a05a88fd2468c69fd9b6052aeeb936bab" prot="private" static="no" mutable="no">
+        <type>SpinBox</type>
+        <definition>SpinBox Theme::QfTimeItem::minutesSpinBox</definition>
+        <argsstring></argsstring>
+        <name>minutesSpinBox</name>
+        <qualifiedname>Theme::QfTimeItem::minutesSpinBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="20" column="9" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfTimeItem_1ac2056e00797a46c565ff8e3fc00bfa63" prot="private" static="no" mutable="no">
+        <type>SpinBox</type>
+        <definition>SpinBox Theme::QfTimeItem::secondsSpinBox</definition>
+        <argsstring></argsstring>
+        <name>secondsSpinBox</name>
+        <qualifiedname>Theme::QfTimeItem::secondsSpinBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfTimeItem.qml" line="21" column="9" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfTimeItem</label>
+        <link refid="classTheme_1_1QfTimeItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfTimeItem</label>
+        <link refid="classTheme_1_1QfTimeItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfTimeItem.qml" line="7" column="1" bodyfile="src/qml/imports/Theme/QfTimeItem.qml" bodystart="7" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfTimeItem_1a03e9ee6a17a97fcc0623ffbb9da326e7" prot="public" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>contentHeight</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1a496549bbb8288626a14199175c1e7ada" prot="public" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>hours</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1a0e59d55aced89662f332b2279ec6ccc5" prot="private" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>hoursSpinBox</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1a1d3ea9a264d75f19223ffdc9017203a7" prot="public" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>minutes</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1a05a88fd2468c69fd9b6052aeeb936bab" prot="private" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>minutesSpinBox</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1a9b222e4a204b73029befe66e4141a0fa" prot="public" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>seconds</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1ac2056e00797a46c565ff8e3fc00bfa63" prot="private" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>secondsSpinBox</name></member>
+      <member refid="classTheme_1_1QfTimeItem_1a73d24524345381735a29468a0439ab57" prot="private" virt="non-virtual"><scope>Theme::QfTimeItem</scope><name>timeItemContent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

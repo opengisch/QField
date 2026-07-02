@@ -1,0 +1,758 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkModel" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>BookmarkModel::Roles</qualifiedname>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a41eef85a902f3240da51c511c5fc6e1b" prot="public">
+          <name>BookmarkId</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6ae3ce244e82ae16f43d5b94e9401eed72" prot="public">
+          <name>BookmarkName</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6aca9af1b3e3dcc1b934e144216d7a2736" prot="public">
+          <name>BookmarkGroup</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a79ff31a3cbd1e44943156d86ed9e06f3" prot="public">
+          <name>BookmarkPoint</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a74271f865c6ee943c29ef8ee6e234ebb" prot="public">
+          <name>BookmarkCrs</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a03fe9d34a19166104001e1d8b6028b1c" prot="public">
+          <name>BookmarkUser</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a576f3f744b0a662521e4dd489c6a457f" prot="public">
+          <name>BookmarkSelected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="44" column="5" bodyfile="src/core/bookmarkmodel.h" bodystart="45" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBookmarkModel_1a116c6c4ef42c36f5dcc929f5724bd1ef" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * BookmarkModel::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>BookmarkModel::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="35" column="5" bodyfile="src/core/bookmarkmodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkModel_1a5f60c931f3553b0b8b5cdad86ed3587b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BookmarkModel::hideProjectBookmarks</definition>
+        <argsstring></argsstring>
+        <name>hideProjectBookmarks</name>
+        <qualifiedname>BookmarkModel::hideProjectBookmarks</qualifiedname>
+        <read>hideProjectBookmarks</read>
+        <write>setHideProjectBookmarks</write>
+        <briefdescription>
+<para>When TRUE, project bookmarks are hidden so only user bookmarks (those created in QField) are listed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="38" column="5" bodyfile="src/core/bookmarkmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkModel_1aae8ddf72d0d6982846f3afb372cdc87f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype BookmarkModel::selectedCount</definition>
+        <argsstring></argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>BookmarkModel::selectedCount</qualifiedname>
+        <read>selectedCount</read>
+        <briefdescription>
+<para>Number of currently selected bookmarks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="41" column="5" bodyfile="src/core/bookmarkmodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBookmarkModel_1aa4d7871e9853b5f9b04f10cfc6398111" prot="private" static="no" mutable="no">
+        <type>QObjectUniquePtr&lt; QgsBookmarkManagerModel &gt;</type>
+        <definition>QObjectUniquePtr&lt;QgsBookmarkManagerModel&gt; BookmarkModel::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>BookmarkModel::mModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="111" column="22" bodyfile="src/core/bookmarkmodel.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkModel_1a450b02fd1b9c8304c4eeb64ec4f275a7" prot="private" static="no" mutable="no">
+        <type>QgsBookmarkManager *</type>
+        <definition>QgsBookmarkManager* BookmarkModel::mManager</definition>
+        <argsstring></argsstring>
+        <name>mManager</name>
+        <qualifiedname>BookmarkModel::mManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="112" column="24" bodyfile="src/core/bookmarkmodel.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkModel_1a469995364bddc42c4d721c606737df91" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* BookmarkModel::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>BookmarkModel::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="113" column="25" bodyfile="src/core/bookmarkmodel.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkModel_1a3fb06f90b6faeb74c89e09feeb3a0013" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BookmarkModel::mHideProjectBookmarks</definition>
+        <argsstring></argsstring>
+        <name>mHideProjectBookmarks</name>
+        <qualifiedname>BookmarkModel::mHideProjectBookmarks</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="114" column="10" bodyfile="src/core/bookmarkmodel.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkModel_1a138aa8b5de56aeb6a592a587073179c2" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; BookmarkModel::mSelectedIds</definition>
+        <argsstring></argsstring>
+        <name>mSelectedIds</name>
+        <qualifiedname>BookmarkModel::mSelectedIds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="115" column="10" bodyfile="src/core/bookmarkmodel.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBookmarkModel_1a2b0d1243a4d3949a4f889c37a365e66e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BookmarkModel::BookmarkModel</definition>
+        <argsstring>(QgsBookmarkManager *manager, QgsBookmarkManager *projectManager=nullptr, QObject *parent=nullptr)</argsstring>
+        <name>BookmarkModel</name>
+        <qualifiedname>BookmarkModel::BookmarkModel</qualifiedname>
+        <param>
+          <type>QgsBookmarkManager *</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>QgsBookmarkManager *</type>
+          <declname>projectManager</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="56" column="14" bodyfile="src/core/bookmarkmodel.cpp" bodystart="27" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1ab2709da1bcc35a57e42eef2fc1e635e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant BookmarkModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>BookmarkModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="58" column="14" bodyfile="src/core/bookmarkmodel.cpp" bodystart="39" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1aab599ce733ff00f436c1cc2a7cc09753" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; BookmarkModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>BookmarkModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="60" column="11" bodyfile="src/core/bookmarkmodel.cpp" bodystart="87" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a87fa9c4adf3a7a01642ab832b28ec53c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BookmarkModel::setExtentFromBookmark</definition>
+        <argsstring>(const QModelIndex &amp;index)</argsstring>
+        <name>setExtentFromBookmark</name>
+        <qualifiedname>BookmarkModel::setExtentFromBookmark</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="62" column="22" bodyfile="src/core/bookmarkmodel.cpp" bodystart="110" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1ab9d3fc62156f576422023ccf49f056e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString BookmarkModel::addBookmarkAtPoint</definition>
+        <argsstring>(QgsPoint point, const QString &amp;name=QString(), const QString &amp;group=QString())</argsstring>
+        <name>addBookmarkAtPoint</name>
+        <qualifiedname>BookmarkModel::addBookmarkAtPoint</qualifiedname>
+        <param>
+          <type>QgsPoint</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>group</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="64" column="25" bodyfile="src/core/bookmarkmodel.cpp" bodystart="138" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1aa247242c614a0413c9dbf670cbb6f930" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BookmarkModel::updateBookmarkDetails</definition>
+        <argsstring>(const QString &amp;id, const QString &amp;name, const QString &amp;group)</argsstring>
+        <name>updateBookmarkDetails</name>
+        <qualifiedname>BookmarkModel::updateBookmarkDetails</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="66" column="22" bodyfile="src/core/bookmarkmodel.cpp" bodystart="165" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a1d0eb1fbf53145c4b0dab25c7566a281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BookmarkModel::removeBookmark</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>removeBookmark</name>
+        <qualifiedname>BookmarkModel::removeBookmark</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="68" column="22" bodyfile="src/core/bookmarkmodel.cpp" bodystart="173" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a34880ae06ec9bc0e9fe59e991dd0e97b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint BookmarkModel::getBookmarkPoint</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>getBookmarkPoint</name>
+        <qualifiedname>BookmarkModel::getBookmarkPoint</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="70" column="26" bodyfile="src/core/bookmarkmodel.cpp" bodystart="179" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1aa6022dd678ec541e9c0541c992f206cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem BookmarkModel::getBookmarkCrs</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>getBookmarkCrs</name>
+        <qualifiedname>BookmarkModel::getBookmarkCrs</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="72" column="46" bodyfile="src/core/bookmarkmodel.cpp" bodystart="185" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a1bf6de7b053f6e4a876b6aae784eca86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BookmarkModel::store</definition>
+        <argsstring>()</argsstring>
+        <name>store</name>
+        <qualifiedname>BookmarkModel::store</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="74" column="22" bodyfile="src/core/bookmarkmodel.cpp" bodystart="191" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a0e41e184b9ff65840e7ed27cb4521dec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkModel::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>BookmarkModel::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="76" column="10" bodyfile="src/core/bookmarkmodel.cpp" bodystart="100" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1aa0c33d56472686d3f081f608d317ec4c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * BookmarkModel::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>BookmarkModel::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="78" column="25" bodyfile="src/core/bookmarkmodel.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1ab3ab0e5439f51370fff55ecb4264c5b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BookmarkModel::hideProjectBookmarks</definition>
+        <argsstring>() const</argsstring>
+        <name>hideProjectBookmarks</name>
+        <qualifiedname>BookmarkModel::hideProjectBookmarks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="80" column="10" bodyfile="src/core/bookmarkmodel.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1ad1227c06a698642892e4eab8bd29ef72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkModel::setHideProjectBookmarks</definition>
+        <argsstring>(bool hideProjectBookmarks)</argsstring>
+        <name>setHideProjectBookmarks</name>
+        <qualifiedname>BookmarkModel::setHideProjectBookmarks</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hideProjectBookmarks</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="81" column="10" bodyfile="src/core/bookmarkmodel.cpp" bodystart="212" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1ab17bb751f42668f4bb071a88a0e4f827" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype BookmarkModel::selectedCount</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>BookmarkModel::selectedCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="83" column="15" bodyfile="src/core/bookmarkmodel.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a8cd5ca6d546e0aee2d4874cfa88d5325" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BookmarkModel::toggleSelected</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>toggleSelected</name>
+        <qualifiedname>BookmarkModel::toggleSelected</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Toggles the selection state of the bookmark identified by <emphasis>id</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="86" column="22" bodyfile="src/core/bookmarkmodel.cpp" bodystart="238" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a966d8ffc0e44136f35d9b4cb753de1db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void BookmarkModel::clearSelection</definition>
+        <argsstring>()</argsstring>
+        <name>clearSelection</name>
+        <qualifiedname>BookmarkModel::clearSelection</qualifiedname>
+        <briefdescription>
+<para>Clears the current selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="89" column="22" bodyfile="src/core/bookmarkmodel.cpp" bodystart="264" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1afd67f38d074e20e0e0ade6c46ceb4fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int BookmarkModel::deleteSelected</definition>
+        <argsstring>()</argsstring>
+        <name>deleteSelected</name>
+        <qualifiedname>BookmarkModel::deleteSelected</qualifiedname>
+        <briefdescription>
+<para>Deletes all currently selected bookmarks, persisting once. Returns the number deleted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="92" column="21" bodyfile="src/core/bookmarkmodel.cpp" bodystart="279" bodyend="297"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classBookmarkModel_1aeec97c17b78eaf04aa098c18e83bd9b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkModel::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>BookmarkModel::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBookmarkModel_1a0ef8639648905cea5d50b0131440528d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkModel::hideProjectBookmarksChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hideProjectBookmarksChanged</name>
+        <qualifiedname>BookmarkModel::hideProjectBookmarksChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="96" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBookmarkModel_1a25e25eb409b324bd9e3a60810aa38fc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkModel::selectedCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>selectedCountChanged</name>
+        <qualifiedname>BookmarkModel::selectedCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="97" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classBookmarkModel_1a46cd79ca7ce458cb39acefcbef515846" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkModel::requestJumpToPoint</definition>
+        <argsstring>(const QgsPoint &amp;center, const double &amp;scale=-1.0, bool handleMargins=false) const</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>BookmarkModel::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scale</declname>
+          <defval>-1.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="98" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBookmarkModel_1adbb22f7537c0f6bb1c42f0b437d3539e" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BookmarkModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>BookmarkModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="101" column="10" bodyfile="src/core/bookmarkmodel.cpp" bodystart="229" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a17744659263702ecbe722df3fd05c4fd" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BookmarkModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>BookmarkModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceRight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="102" column="10" bodyfile="src/core/bookmarkmodel.cpp" bodystart="318" bodyend="323"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBookmarkModel_1a69772dd14b1df5d7917632f0b8016d76" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BookmarkModel::isUserBookmark</definition>
+        <argsstring>(int sourceRow) const</argsstring>
+        <name>isUserBookmark</name>
+        <qualifiedname>BookmarkModel::isUserBookmark</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the source row is a user/global bookmark, FALSE if it is a project bookmark. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="106" column="10" bodyfile="src/core/bookmarkmodel.cpp" bodystart="224" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classBookmarkModel_1a100e931403f0f0ebb4915db6a2a71595" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BookmarkModel::groupRank</definition>
+        <argsstring>(const QString &amp;group) const</argsstring>
+        <name>groupRank</name>
+        <qualifiedname>BookmarkModel::groupRank</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+<para>Returns the sort rank for a bookmark group/color (&quot;&quot; first, then orange, red, blue). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/bookmarkmodel.h" line="109" column="9" bodyfile="src/core/bookmarkmodel.cpp" bodystart="299" bodyend="316"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkModel</label>
+        <link refid="classBookmarkModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkModel</label>
+        <link refid="classBookmarkModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/bookmarkmodel.h" line="31" column="1" bodyfile="src/core/bookmarkmodel.h" bodystart="32" bodyend="116"/>
+    <listofallmembers>
+      <member refid="classBookmarkModel_1ab9d3fc62156f576422023ccf49f056e5" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>addBookmarkAtPoint</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a74271f865c6ee943c29ef8ee6e234ebb" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkCrs</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6aca9af1b3e3dcc1b934e144216d7a2736" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkGroup</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a41eef85a902f3240da51c511c5fc6e1b" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkId</name></member>
+      <member refid="classBookmarkModel_1a2b0d1243a4d3949a4f889c37a365e66e" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkModel</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6ae3ce244e82ae16f43d5b94e9401eed72" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkName</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a79ff31a3cbd1e44943156d86ed9e06f3" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkPoint</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a576f3f744b0a662521e4dd489c6a457f" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkSelected</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6a03fe9d34a19166104001e1d8b6028b1c" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>BookmarkUser</name></member>
+      <member refid="classBookmarkModel_1a966d8ffc0e44136f35d9b4cb753de1db" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>clearSelection</name></member>
+      <member refid="classBookmarkModel_1ab2709da1bcc35a57e42eef2fc1e635e0" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>data</name></member>
+      <member refid="classBookmarkModel_1afd67f38d074e20e0e0ade6c46ceb4fe4" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>deleteSelected</name></member>
+      <member refid="classBookmarkModel_1adbb22f7537c0f6bb1c42f0b437d3539e" prot="protected" virt="non-virtual"><scope>BookmarkModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classBookmarkModel_1aa6022dd678ec541e9c0541c992f206cc" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>getBookmarkCrs</name></member>
+      <member refid="classBookmarkModel_1a34880ae06ec9bc0e9fe59e991dd0e97b" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>getBookmarkPoint</name></member>
+      <member refid="classBookmarkModel_1a100e931403f0f0ebb4915db6a2a71595" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>groupRank</name></member>
+      <member refid="classBookmarkModel_1a5f60c931f3553b0b8b5cdad86ed3587b" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>hideProjectBookmarks</name></member>
+      <member refid="classBookmarkModel_1ab3ab0e5439f51370fff55ecb4264c5b1" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>hideProjectBookmarks</name></member>
+      <member refid="classBookmarkModel_1a0ef8639648905cea5d50b0131440528d" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>hideProjectBookmarksChanged</name></member>
+      <member refid="classBookmarkModel_1a69772dd14b1df5d7917632f0b8016d76" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>isUserBookmark</name></member>
+      <member refid="classBookmarkModel_1a17744659263702ecbe722df3fd05c4fd" prot="protected" virt="non-virtual"><scope>BookmarkModel</scope><name>lessThan</name></member>
+      <member refid="classBookmarkModel_1a116c6c4ef42c36f5dcc929f5724bd1ef" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>mapSettings</name></member>
+      <member refid="classBookmarkModel_1aa0c33d56472686d3f081f608d317ec4c" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>mapSettings</name></member>
+      <member refid="classBookmarkModel_1aeec97c17b78eaf04aa098c18e83bd9b9" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>mapSettingsChanged</name></member>
+      <member refid="classBookmarkModel_1a3fb06f90b6faeb74c89e09feeb3a0013" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>mHideProjectBookmarks</name></member>
+      <member refid="classBookmarkModel_1a450b02fd1b9c8304c4eeb64ec4f275a7" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>mManager</name></member>
+      <member refid="classBookmarkModel_1a469995364bddc42c4d721c606737df91" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>mMapSettings</name></member>
+      <member refid="classBookmarkModel_1aa4d7871e9853b5f9b04f10cfc6398111" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>mModel</name></member>
+      <member refid="classBookmarkModel_1a138aa8b5de56aeb6a592a587073179c2" prot="private" virt="non-virtual"><scope>BookmarkModel</scope><name>mSelectedIds</name></member>
+      <member refid="classBookmarkModel_1a1d0eb1fbf53145c4b0dab25c7566a281" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>removeBookmark</name></member>
+      <member refid="classBookmarkModel_1a46cd79ca7ce458cb39acefcbef515846" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>requestJumpToPoint</name></member>
+      <member refid="classBookmarkModel_1aab599ce733ff00f436c1cc2a7cc09753" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>roleNames</name></member>
+      <member refid="classBookmarkModel_1a45e7f1a0977ef02164bd4b3992b055b6" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>Roles</name></member>
+      <member refid="classBookmarkModel_1aae8ddf72d0d6982846f3afb372cdc87f" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>selectedCount</name></member>
+      <member refid="classBookmarkModel_1ab17bb751f42668f4bb071a88a0e4f827" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>selectedCount</name></member>
+      <member refid="classBookmarkModel_1a25e25eb409b324bd9e3a60810aa38fc0" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>selectedCountChanged</name></member>
+      <member refid="classBookmarkModel_1a87fa9c4adf3a7a01642ab832b28ec53c" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>setExtentFromBookmark</name></member>
+      <member refid="classBookmarkModel_1ad1227c06a698642892e4eab8bd29ef72" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>setHideProjectBookmarks</name></member>
+      <member refid="classBookmarkModel_1a0e41e184b9ff65840e7ed27cb4521dec" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>setMapSettings</name></member>
+      <member refid="classBookmarkModel_1a1bf6de7b053f6e4a876b6aae784eca86" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>store</name></member>
+      <member refid="classBookmarkModel_1a8cd5ca6d546e0aee2d4874cfa88d5325" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>toggleSelected</name></member>
+      <member refid="classBookmarkModel_1aa247242c614a0413c9dbf670cbb6f930" prot="public" virt="non-virtual"><scope>BookmarkModel</scope><name>updateBookmarkDetails</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

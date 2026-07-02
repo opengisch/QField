@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfVisibilityFadingRow_8qml" kind="file" language="C++">
+    <compoundname>QfVisibilityFadingRow.qml</compoundname>
+    <innerclass refid="classTheme_1_1QfVisibilityFadingRow" prot="public">Theme::QfVisibilityFadingRow</innerclass>
+    <innernamespace refid="namespaceTheme">Theme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">Row<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>id:<sp/>visibilityFadingRow</highlight></codeline>
+<codeline lineno="9" refid="classTheme_1_1QfVisibilityFadingRow" refkind="compound"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>stateVisible:<sp/>false</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>visible:<sp/>opacity<sp/>&gt;<sp/>0</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>opacity:<sp/>0</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>spacing:<sp/>4</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>states:<sp/>[</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>State<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>when:<sp/>visibilityFadingRow.stateVisible</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PropertyChanges<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target:<sp/>visibilityFadingRow</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>opacity:<sp/>1.0</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>State<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>when:<sp/>!visibilityFadingRow.stateVisible</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PropertyChanges<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target:<sp/>visibilityFadingRow</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>opacity:<sp/>0.0</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>]</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>transitions:<sp/>Transition<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>SequentialAnimation<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NumberAnimation<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target:<sp/>visibilityFadingRow</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>property:<sp/>&quot;opacity&quot;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>duration:<sp/>250</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/imports/Theme/QfVisibilityFadingRow.qml"/>
+  </compounddef>
+</doxygen>

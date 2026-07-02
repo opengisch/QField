@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSnappingUtils" kind="class" language="C++" prot="public">
+    <compoundname>SnappingUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsSnappingUtils</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSnappingUtils_1aac4597350c14ff9e531732d4dcd112ed" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool SnappingUtils::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>SnappingUtils::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="33" column="5" bodyfile="src/core/utils/snappingutils.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSnappingUtils_1a92d80b196fd4692771c2c8a00f9f9234" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * SnappingUtils::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>SnappingUtils::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="34" column="5" bodyfile="src/core/utils/snappingutils.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSnappingUtils_1a2b19819c3cfded2ef9dfbeb47e26ba3f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * SnappingUtils::currentLayer</definition>
+        <argsstring></argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>SnappingUtils::currentLayer</qualifiedname>
+        <read>currentLayer</read>
+        <write>setCurrentLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="35" column="5" bodyfile="src/core/utils/snappingutils.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSnappingUtils_1aee9d50a2734602edd4515166894d99a8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult SnappingUtils::snappingResult</definition>
+        <argsstring></argsstring>
+        <name>snappingResult</name>
+        <qualifiedname>SnappingUtils::snappingResult</qualifiedname>
+        <read>snappingResult</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="36" column="5" bodyfile="src/core/utils/snappingutils.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSnappingUtils_1a652c6c8a943d192faa6071d64d8ed4f5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF SnappingUtils::inputCoordinate</definition>
+        <argsstring></argsstring>
+        <name>inputCoordinate</name>
+        <qualifiedname>SnappingUtils::inputCoordinate</qualifiedname>
+        <read>inputCoordinate</read>
+        <write>setInputCoordinate</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="37" column="5" bodyfile="src/core/utils/snappingutils.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSnappingUtils_1a35f423b03ccb40690374ce88fd194fb6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SnappingUtils::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>SnappingUtils::mEnabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="86" column="10" bodyfile="src/core/utils/snappingutils.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingUtils_1afc12300272b5755263b3aef1a5c804d6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* SnappingUtils::mSettings</definition>
+        <argsstring></argsstring>
+        <name>mSettings</name>
+        <qualifiedname>SnappingUtils::mSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="87" column="25" bodyfile="src/core/utils/snappingutils.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingUtils_1a4a23ed8cff33de421ed28cc79ae5c43c" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* SnappingUtils::mCurrentLayer</definition>
+        <argsstring></argsstring>
+        <name>mCurrentLayer</name>
+        <qualifiedname>SnappingUtils::mCurrentLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="88" column="20" bodyfile="src/core/utils/snappingutils.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingUtils_1a8c5418f56da11907093164c1643ef9dc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SnappingUtils::mIndexLayerCount</definition>
+        <argsstring></argsstring>
+        <name>mIndexLayerCount</name>
+        <qualifiedname>SnappingUtils::mIndexLayerCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="90" column="9" bodyfile="src/core/utils/snappingutils.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingUtils_1a93251a14b46731a190249f8147db9fbe" prot="private" static="no" mutable="no">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult SnappingUtils::mSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>mSnappingResult</name>
+        <qualifiedname>SnappingUtils::mSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="91" column="20" bodyfile="src/core/utils/snappingutils.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingUtils_1a36867106597490600d9b8fefe71a8369" prot="private" static="no" mutable="no">
+        <type>QPointF</type>
+        <definition>QPointF SnappingUtils::mInputCoordinate</definition>
+        <argsstring></argsstring>
+        <name>mInputCoordinate</name>
+        <qualifiedname>SnappingUtils::mInputCoordinate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="92" column="13" bodyfile="src/core/utils/snappingutils.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSnappingUtils_1aa93d25f1280d98bdafce2be86d035384" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SnappingUtils::SnappingUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>SnappingUtils</name>
+        <qualifiedname>SnappingUtils::SnappingUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="40" column="14" bodyfile="src/core/utils/snappingutils.cpp" bodystart="23" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1ac4f22ba3b898a9b725557ee02f8e27e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingUtils::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>SnappingUtils::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="42" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1aa7f9eee3e29789fcef00efe4bcbf5fd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>SnappingUtils::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="43" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="214" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1a654d39664cb7266ed0cfee376d2d5b1c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * SnappingUtils::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>SnappingUtils::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="45" column="25" bodyfile="src/core/utils/snappingutils.cpp" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1a6620b1a4ca589967b7bc7de90da2c325" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *settings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>SnappingUtils::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="46" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="196" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1aabf940106f1973a6e3787e90fae9ee03" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * SnappingUtils::currentLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>currentLayer</name>
+        <qualifiedname>SnappingUtils::currentLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="48" column="20" bodyfile="src/core/utils/snappingutils.cpp" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1accee604fe66af765caefcb99d109f6d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::setCurrentLayer</definition>
+        <argsstring>(QgsVectorLayer *currentLayer)</argsstring>
+        <name>setCurrentLayer</name>
+        <qualifiedname>SnappingUtils::setCurrentLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>currentLayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="49" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="180" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1ac33c52171ff8fbcafabca2557206906d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF SnappingUtils::inputCoordinate</definition>
+        <argsstring>() const</argsstring>
+        <name>inputCoordinate</name>
+        <qualifiedname>SnappingUtils::inputCoordinate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="51" column="13" bodyfile="src/core/utils/snappingutils.cpp" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1a0ef99c14eb304ece109afeae71011314" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::setInputCoordinate</definition>
+        <argsstring>(const QPointF &amp;inputCoordinate)</argsstring>
+        <name>setInputCoordinate</name>
+        <qualifiedname>SnappingUtils::setInputCoordinate</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>inputCoordinate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="52" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="144" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1a839b00c9de6057d05c229a2f1ae4c7b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classSnappingResult" kindref="compound">SnappingResult</ref></type>
+        <definition>SnappingResult SnappingUtils::snappingResult</definition>
+        <argsstring>() const</argsstring>
+        <name>snappingResult</name>
+        <qualifiedname>SnappingUtils::snappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="54" column="20" bodyfile="src/core/utils/snappingutils.cpp" bodystart="156" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classSnappingUtils_1af083291df7e6f901771bb70016e3ed83" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint SnappingUtils::newPoint</definition>
+        <argsstring>(const QgsPoint &amp;snappedPoint, const Qgis::WkbType wkbType)</argsstring>
+        <name>newPoint</name>
+        <qualifiedname>SnappingUtils::newPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>snappedPoint</declname>
+        </param>
+        <param>
+          <type>const Qgis::WkbType</type>
+          <declname>wkbType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="56" column="21" bodyfile="src/core/utils/snappingutils.cpp" bodystart="42" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1a4ebd72da8f91bff2578aea0adcaa33e3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsSnappingConfig</type>
+        <definition>static Q_INVOKABLE QgsSnappingConfig SnappingUtils::emptySnappingConfig</definition>
+        <argsstring>()</argsstring>
+        <name>emptySnappingConfig</name>
+        <qualifiedname>SnappingUtils::emptySnappingConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an empty snapping configuration object <simplesect kind="note"><para>This can be used in QML to avoid errors when a parent object pointer goes undefined </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="62" column="42" bodyfile="src/core/utils/snappingutils.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classSnappingUtils_1a43372612f4d1533ff0806d0eb944ce6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>SnappingUtils::enabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1a42c63999a0e0855b7e80606252dd88a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>SnappingUtils::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1ac09c5bde79351cefb73fd6ee1d9dc566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::currentLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentLayerChanged</name>
+        <qualifiedname>SnappingUtils::currentLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1a48452bd8191a5ad60b701c89f8b0d397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::snappingResultChanged</definition>
+        <argsstring>()</argsstring>
+        <name>snappingResultChanged</name>
+        <qualifiedname>SnappingUtils::snappingResultChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1a9486034c84156467c4fd1c6d2201bdc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::inputCoordinateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>inputCoordinateChanged</name>
+        <qualifiedname>SnappingUtils::inputCoordinateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1a309bb5c9bde1fe0132248e00480a233b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::indexingStarted</definition>
+        <argsstring>(int count)</argsstring>
+        <name>indexingStarted</name>
+        <qualifiedname>SnappingUtils::indexingStarted</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1ac9fa85b001b70fa81823580f4c02a374" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::indexingProgress</definition>
+        <argsstring>(int index)</argsstring>
+        <name>indexingProgress</name>
+        <qualifiedname>SnappingUtils::indexingProgress</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="72" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classSnappingUtils_1a0ae84d479bbac7cdd53e2c5955fa9143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::indexingFinished</definition>
+        <argsstring>()</argsstring>
+        <name>indexingFinished</name>
+        <qualifiedname>SnappingUtils::indexingFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="73" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classSnappingUtils_1a8f9f840f07fe0d90f3ebd04fabff342f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::prepareIndexStarting</definition>
+        <argsstring>(int count) override</argsstring>
+        <name>prepareIndexStarting</name>
+        <qualifiedname>SnappingUtils::prepareIndexStarting</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="76" column="18" bodyfile="src/core/utils/snappingutils.cpp" bodystart="161" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingUtils_1ac55b9f6cf5d2e1405dc931fdddbd3308" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::prepareIndexProgress</definition>
+        <argsstring>(int index) override</argsstring>
+        <name>prepareIndexProgress</name>
+        <qualifiedname>SnappingUtils::prepareIndexProgress</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="77" column="18" bodyfile="src/core/utils/snappingutils.cpp" bodystart="167" bodyend="173"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classSnappingUtils_1a66c634f147b335fa1264be6af2da536a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::onMapSettingsUpdated</definition>
+        <argsstring>()</argsstring>
+        <name>onMapSettingsUpdated</name>
+        <qualifiedname>SnappingUtils::onMapSettingsUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="80" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="slot" id="classSnappingUtils_1a2e06d8406827b7ff94324d6f24a443e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::removeOutdatedLocators</definition>
+        <argsstring>()</argsstring>
+        <name>removeOutdatedLocators</name>
+        <qualifiedname>SnappingUtils::removeOutdatedLocators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="81" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSnappingUtils_1a2a685fe69a3d62c834251525e78eb394" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingUtils::snap</definition>
+        <argsstring>()</argsstring>
+        <name>snap</name>
+        <qualifiedname>SnappingUtils::snap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/snappingutils.h" line="84" column="10" bodyfile="src/core/utils/snappingutils.cpp" bodystart="75" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QgsSnappingUtils</label>
+      </node>
+      <node id="1">
+        <label>SnappingUtils</label>
+        <link refid="classSnappingUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QgsSnappingUtils</label>
+      </node>
+      <node id="1">
+        <label>SnappingUtils</label>
+        <link refid="classSnappingUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/snappingutils.h" line="29" column="1" bodyfile="src/core/utils/snappingutils.h" bodystart="30" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classSnappingUtils_1a2b19819c3cfded2ef9dfbeb47e26ba3f" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>currentLayer</name></member>
+      <member refid="classSnappingUtils_1aabf940106f1973a6e3787e90fae9ee03" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>currentLayer</name></member>
+      <member refid="classSnappingUtils_1ac09c5bde79351cefb73fd6ee1d9dc566" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>currentLayerChanged</name></member>
+      <member refid="classSnappingUtils_1a4ebd72da8f91bff2578aea0adcaa33e3" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>emptySnappingConfig</name></member>
+      <member refid="classSnappingUtils_1aac4597350c14ff9e531732d4dcd112ed" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>enabled</name></member>
+      <member refid="classSnappingUtils_1ac4f22ba3b898a9b725557ee02f8e27e0" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>enabled</name></member>
+      <member refid="classSnappingUtils_1a43372612f4d1533ff0806d0eb944ce6f" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>enabledChanged</name></member>
+      <member refid="classSnappingUtils_1a0ae84d479bbac7cdd53e2c5955fa9143" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>indexingFinished</name></member>
+      <member refid="classSnappingUtils_1ac9fa85b001b70fa81823580f4c02a374" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>indexingProgress</name></member>
+      <member refid="classSnappingUtils_1a309bb5c9bde1fe0132248e00480a233b" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>indexingStarted</name></member>
+      <member refid="classSnappingUtils_1a652c6c8a943d192faa6071d64d8ed4f5" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>inputCoordinate</name></member>
+      <member refid="classSnappingUtils_1ac33c52171ff8fbcafabca2557206906d" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>inputCoordinate</name></member>
+      <member refid="classSnappingUtils_1a9486034c84156467c4fd1c6d2201bdc0" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>inputCoordinateChanged</name></member>
+      <member refid="classSnappingUtils_1a92d80b196fd4692771c2c8a00f9f9234" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>mapSettings</name></member>
+      <member refid="classSnappingUtils_1a654d39664cb7266ed0cfee376d2d5b1c" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>mapSettings</name></member>
+      <member refid="classSnappingUtils_1a42c63999a0e0855b7e80606252dd88a6" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>mapSettingsChanged</name></member>
+      <member refid="classSnappingUtils_1a4a23ed8cff33de421ed28cc79ae5c43c" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>mCurrentLayer</name></member>
+      <member refid="classSnappingUtils_1a35f423b03ccb40690374ce88fd194fb6" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>mEnabled</name></member>
+      <member refid="classSnappingUtils_1a8c5418f56da11907093164c1643ef9dc" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>mIndexLayerCount</name></member>
+      <member refid="classSnappingUtils_1a36867106597490600d9b8fefe71a8369" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>mInputCoordinate</name></member>
+      <member refid="classSnappingUtils_1afc12300272b5755263b3aef1a5c804d6" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>mSettings</name></member>
+      <member refid="classSnappingUtils_1a93251a14b46731a190249f8147db9fbe" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>mSnappingResult</name></member>
+      <member refid="classSnappingUtils_1af083291df7e6f901771bb70016e3ed83" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>newPoint</name></member>
+      <member refid="classSnappingUtils_1a66c634f147b335fa1264be6af2da536a" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>onMapSettingsUpdated</name></member>
+      <member refid="classSnappingUtils_1ac55b9f6cf5d2e1405dc931fdddbd3308" prot="protected" virt="virtual"><scope>SnappingUtils</scope><name>prepareIndexProgress</name></member>
+      <member refid="classSnappingUtils_1a8f9f840f07fe0d90f3ebd04fabff342f" prot="protected" virt="virtual"><scope>SnappingUtils</scope><name>prepareIndexStarting</name></member>
+      <member refid="classSnappingUtils_1a2e06d8406827b7ff94324d6f24a443e1" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>removeOutdatedLocators</name></member>
+      <member refid="classSnappingUtils_1accee604fe66af765caefcb99d109f6d2" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>setCurrentLayer</name></member>
+      <member refid="classSnappingUtils_1aa7f9eee3e29789fcef00efe4bcbf5fd3" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>setEnabled</name></member>
+      <member refid="classSnappingUtils_1a0ef99c14eb304ece109afeae71011314" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>setInputCoordinate</name></member>
+      <member refid="classSnappingUtils_1a6620b1a4ca589967b7bc7de90da2c325" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>setMapSettings</name></member>
+      <member refid="classSnappingUtils_1a2a685fe69a3d62c834251525e78eb394" prot="private" virt="non-virtual"><scope>SnappingUtils</scope><name>snap</name></member>
+      <member refid="classSnappingUtils_1aee9d50a2734602edd4515166894d99a8" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>snappingResult</name></member>
+      <member refid="classSnappingUtils_1a839b00c9de6057d05c229a2f1ae4c7b2" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>snappingResult</name></member>
+      <member refid="classSnappingUtils_1a48452bd8191a5ad60b701c89f8b0d397" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>snappingResultChanged</name></member>
+      <member refid="classSnappingUtils_1aa93d25f1280d98bdafce2be86d035384" prot="public" virt="non-virtual"><scope>SnappingUtils</scope><name>SnappingUtils</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

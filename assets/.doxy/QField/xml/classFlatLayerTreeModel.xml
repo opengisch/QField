@@ -1,0 +1,926 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFlatLayerTreeModel" kind="class" language="C++" prot="public">
+    <compoundname>FlatLayerTreeModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>FlatLayerTreeModel::Roles</qualifiedname>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea05b41090f9cbb1724e154c3654368a19" prot="public">
+          <name>VectorLayerPointer</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea314c53f91012d6f14250dbab1277f24c" prot="public">
+          <name>MapLayerPointer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea7a85a752acff0c42293b20b9f6e4ef75" prot="public">
+          <name>HasSpatialExtent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eae273e1cb1f0a85968550c6242c74673f" prot="public">
+          <name>LegendImage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea4c2c1f68fa5be6155712ddae237b1ab0" prot="public">
+          <name>Type</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea55c92c8635f17ce9b16133f46da52ad5" prot="public">
+          <name>Name</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea6f1a183f3f34bc3d3643148f4cde0cc7" prot="public">
+          <name>Visible</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea1ef5d5634bffe14cde938415e652fdd0" prot="public">
+          <name>Trackable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea97f086a4fedae5e6ad9980c2365672b5" prot="public">
+          <name>InTracking</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ead085e8093a2637a3f268a9d9aea61277" prot="public">
+          <name>ReadOnly</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea4aca89d01f7282189285d14d9a7ec906" prot="public">
+          <name>FeatureAdditionLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaa21682b9e8eea3357459c27edc449fd7" prot="public">
+          <name>AttributeEditingLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea579540dfa8be0121156e2c3dd35daf2b" prot="public">
+          <name>GeometryEditingLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea937b4d32ac25d9c53774d92de2204e0e" prot="public">
+          <name>FeatureDeletionLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea0fca15e096f0fd87b2c4da7ceb2ed9c9" prot="public">
+          <name>TreeLevel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea3701a58f2cc146a076cfa8100566ec4b" prot="public">
+          <name>LayerType</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea5d455fad69c4e702d023b1ae79a2ce1e" prot="public">
+          <name>IsValid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea2fa66ab2d0a28e3d77bc010bcb5a9cfd" prot="public">
+          <name>FeatureCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea15b6aff4e6b54fb2d4209c791bdf7753" prot="public">
+          <name>IsCollapsed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea0877617460948a6a06730bc2d909d9af" prot="public">
+          <name>IsParentCollapsed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea335a40a966b30d8d1a22cacebcfd8e59" prot="public">
+          <name>HasChildren</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaf83550116a6bf29c1bb2de17562cf172" prot="public">
+          <name>CanReloadData</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaaebce17e1258fee6b09676a2292944c7" prot="public">
+          <name>HasLabels</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaf99731897fbc14e5a400286718589421" prot="public">
+          <name>LabelsVisible</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea5229a326e66a509b0388e1d35e40eb8f" prot="public">
+          <name>Opacity</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea5b9d06aefbd39718ebd205d571204c4e" prot="public">
+          <name>FilterExpression</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea8c5b30ecc006dad212de11de43be2286" prot="public">
+          <name>Credits</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eae04976be94d15f71e9c619a13d9625c0" prot="public">
+          <name>SnappingEnabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaf7f322cac1c0885e74578539f9e5986f" prot="public">
+          <name>HasNotes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eafba13d8220bbe9bdd40d2d5c862f1686" prot="public">
+          <name>Notes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eab5365992f30b2cb257c5f10fcc3d3f0d" prot="public">
+          <name>Checkable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="150" column="5" bodyfile="src/core/layertreemodel.h" bodystart="151" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="enum" id="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Types</name>
+        <qualifiedname>FlatLayerTreeModel::Types</qualifiedname>
+        <enumvalue id="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826a97d493938655ce896dfafba9517f6b4d" prot="public">
+          <name>Layer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826a21a5d28500dae0acb95d23c1a8484fa1" prot="public">
+          <name>Group</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826aa457ec61e7617ba378dfdd15bf08025d" prot="public">
+          <name>Image</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826ae8f0ead7e928a0428d2180ea611c01cf" prot="public">
+          <name>Legend</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="186" column="5" bodyfile="src/core/layertreemodel.h" bodystart="187" bodyend="192"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classFlatLayerTreeModel_1add93a150baa599f95e887f79513e8ab9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FlatLayerTreeModel::mapTheme</definition>
+        <argsstring></argsstring>
+        <name>mapTheme</name>
+        <qualifiedname>FlatLayerTreeModel::mapTheme</qualifiedname>
+        <read>mapTheme</read>
+        <write>setMapTheme</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="141" column="5" bodyfile="src/core/layertreemodel.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFlatLayerTreeModel_1acfebb16a3981ed54aa27dcd78e5b3a0c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::hasCollapsibleItems</definition>
+        <argsstring></argsstring>
+        <name>hasCollapsibleItems</name>
+        <qualifiedname>FlatLayerTreeModel::hasCollapsibleItems</qualifiedname>
+        <read>hasCollapsibleItems</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="143" column="5" bodyfile="src/core/layertreemodel.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFlatLayerTreeModel_1a2514ace62c274a03f34e018a07e44d69" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::isCollapsed</definition>
+        <argsstring></argsstring>
+        <name>isCollapsed</name>
+        <qualifiedname>FlatLayerTreeModel::isCollapsed</qualifiedname>
+        <read>isCollapsed</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="144" column="5" bodyfile="src/core/layertreemodel.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFlatLayerTreeModel_1abd7e366e37cc8ac354e98775bf9cfd9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::isTemporal</definition>
+        <argsstring></argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>FlatLayerTreeModel::isTemporal</qualifiedname>
+        <read>isTemporal</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="146" column="5" bodyfile="src/core/layertreemodel.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classFlatLayerTreeModel_1a8cd4803568279c51bbd6cd90ba32be25" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::isFrozen</definition>
+        <argsstring></argsstring>
+        <name>isFrozen</name>
+        <qualifiedname>FlatLayerTreeModel::isFrozen</qualifiedname>
+        <read>isFrozen</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="147" column="5" bodyfile="src/core/layertreemodel.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFlatLayerTreeModel_1a21e0a0cfc8ed19dd16d07275e258ccd6" prot="private" static="no" mutable="no">
+        <type><ref refid="classFlatLayerTreeModelBase" kindref="compound">FlatLayerTreeModelBase</ref> *</type>
+        <definition>FlatLayerTreeModelBase* FlatLayerTreeModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>FlatLayerTreeModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="250" column="28" bodyfile="src/core/layertreemodel.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFlatLayerTreeModel_1ad1d0436954e8a4ec769c3743706448ab" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FlatLayerTreeModel::FlatLayerTreeModel</definition>
+        <argsstring>(QgsLayerTree *layerTree, QgsProject *project, QObject *parent=nullptr)</argsstring>
+        <name>FlatLayerTreeModel</name>
+        <qualifiedname>FlatLayerTreeModel::FlatLayerTreeModel</qualifiedname>
+        <param>
+          <type>QgsLayerTree *</type>
+          <declname>layerTree</declname>
+        </param>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="195" column="14" bodyfile="src/core/layertreemodel.cpp" bodystart="33" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1ac60a68fa3f9f85378e76bcc191983a0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant FlatLayerTreeModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>FlatLayerTreeModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="197" column="26" bodyfile="src/core/layertreemodel.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a2044f2510d3d3dc0776daac1d385c0ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FlatLayerTreeModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>FlatLayerTreeModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="198" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a1b80add473e8ea96d1e53d5cb85f456a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FlatLayerTreeModel::mapTheme</definition>
+        <argsstring>() const</argsstring>
+        <name>mapTheme</name>
+        <qualifiedname>FlatLayerTreeModel::mapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="200" column="13" bodyfile="src/core/layertreemodel.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1afbcfe2e8778dc07f95fde6bae3f42bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::setMapTheme</definition>
+        <argsstring>(const QString &amp;mapTheme)</argsstring>
+        <name>setMapTheme</name>
+        <qualifiedname>FlatLayerTreeModel::setMapTheme</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mapTheme</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="201" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1ad0929fd55d8b59613607d6dc34f93c87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::isTemporal</definition>
+        <argsstring>() const</argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>FlatLayerTreeModel::isTemporal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="203" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a0ee1150350446323ef20bfebe741ddcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModel::updateCurrentMapTheme</definition>
+        <argsstring>()</argsstring>
+        <name>updateCurrentMapTheme</name>
+        <qualifiedname>FlatLayerTreeModel::updateCurrentMapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update map theme as currently used by the model This should be triggered after a project has been loaded </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="207" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1af861f2f0541f60463dabb5ca24e85025" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::isFrozen</definition>
+        <argsstring>() const</argsstring>
+        <name>isFrozen</name>
+        <qualifiedname>FlatLayerTreeModel::isFrozen</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the model is frozen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="210" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a2c97516fea3214e282346f11ca925d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModel::freeze</definition>
+        <argsstring>()</argsstring>
+        <name>freeze</name>
+        <qualifiedname>FlatLayerTreeModel::freeze</qualifiedname>
+        <briefdescription>
+<para>Freezes the model as is, with any source model signals ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="212" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a8acb7ee3afa71adce6cd679fefa4faef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModel::unfreeze</definition>
+        <argsstring>(bool resetModel=false)</argsstring>
+        <name>unfreeze</name>
+        <qualifiedname>FlatLayerTreeModel::unfreeze</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>resetModel</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Unfreezes the model and resume listening to source model signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="214" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1aacb7a4e72d8ef0df35fbdaeaba8b9774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::setLayerInTracking</definition>
+        <argsstring>(QgsLayerTreeLayer *nodeLayer, bool tracking)</argsstring>
+        <name>setLayerInTracking</name>
+        <qualifiedname>FlatLayerTreeModel::setLayerInTracking</qualifiedname>
+        <param>
+          <type>QgsLayerTreeLayer *</type>
+          <declname>nodeLayer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>tracking</declname>
+        </param>
+        <briefdescription>
+<para>Sets the information if the <emphasis>nodeLayer</emphasis> is currently in <emphasis>tracking</emphasis> state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="217" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1aedc8b64270159ae3d1061a7a07449a0f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * FlatLayerTreeModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>FlatLayerTreeModel::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="219" column="16" bodyfile="src/core/layertreemodel.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a11821e558f02522ac197e49b6235af06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLayerTreeModel *</type>
+        <definition>QgsLayerTreeModel * FlatLayerTreeModel::layerTreeModel</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTreeModel</name>
+        <qualifiedname>FlatLayerTreeModel::layerTreeModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="221" column="23" bodyfile="src/core/layertreemodel.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a4536c2ac410ff67c68f15b9b4f7826d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLayerTree *</type>
+        <definition>QgsLayerTree * FlatLayerTreeModel::layerTree</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTree</name>
+        <qualifiedname>FlatLayerTreeModel::layerTree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="223" column="18" bodyfile="src/core/layertreemodel.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a2a5a8ba954d1eae2126df6020c502216" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>QgsRectangle FlatLayerTreeModel::nodeExtent</definition>
+        <argsstring>(const QModelIndex &amp;index, QgsQuickMapSettings *mapSettings, const float buffer=0.02)</argsstring>
+        <name>nodeExtent</name>
+        <qualifiedname>FlatLayerTreeModel::nodeExtent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>buffer</declname>
+          <defval>0.02</defval>
+        </param>
+        <briefdescription>
+<para>Calculate layer tree node extent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="226" column="30" bodyfile="src/core/layertreemodel.cpp" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a730027990097b793164867a137806ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FlatLayerTreeModel::setAllCollapsed</definition>
+        <argsstring>(bool collapsed)</argsstring>
+        <name>setAllCollapsed</name>
+        <qualifiedname>FlatLayerTreeModel::setAllCollapsed</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>collapsed</declname>
+        </param>
+        <briefdescription>
+<para>Collapses or expands all collapsible items in the layer tree. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="229" column="22" bodyfile="src/core/layertreemodel.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1aea2620f05d39bbab82e6136d23a563c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::hasCollapsibleItems</definition>
+        <argsstring>() const</argsstring>
+        <name>hasCollapsibleItems</name>
+        <qualifiedname>FlatLayerTreeModel::hasCollapsibleItems</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the layer tree has at least one collapsible item. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="232" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a6aa7972d5817009c10f6b2733f8b5854" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::isCollapsed</definition>
+        <argsstring>() const</argsstring>
+        <name>isCollapsed</name>
+        <qualifiedname>FlatLayerTreeModel::isCollapsed</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if all collapsible items are currently collapsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="235" column="10" bodyfile="src/core/layertreemodel.cpp" bodystart="131" bodyend="134"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1a75051ba750de5bfe1f285197e765a3c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::layersAdded</definition>
+        <argsstring>()</argsstring>
+        <name>layersAdded</name>
+        <qualifiedname>FlatLayerTreeModel::layersAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="238" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1a15532e5000837b8df08d01626ddef8d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::layersRemoved</definition>
+        <argsstring>()</argsstring>
+        <name>layersRemoved</name>
+        <qualifiedname>FlatLayerTreeModel::layersRemoved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="239" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1ac70bc5f8b63bf3e95b07bbb19e057b84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::mapThemeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapThemeChanged</name>
+        <qualifiedname>FlatLayerTreeModel::mapThemeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="240" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1a7bfd29c19fd366543b58d14618383c31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::hasCollapsibleItemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasCollapsibleItemsChanged</name>
+        <qualifiedname>FlatLayerTreeModel::hasCollapsibleItemsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="241" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1aef8d3cee9740d03c73560c8a4e3d15be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::isCollapsedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isCollapsedChanged</name>
+        <qualifiedname>FlatLayerTreeModel::isCollapsedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="242" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1a968d00bdcbe4dfbdcc2fe09947e1cb3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::isTemporalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isTemporalChanged</name>
+        <qualifiedname>FlatLayerTreeModel::isTemporalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="243" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classFlatLayerTreeModel_1afd0c41fc4bcffa3194ba9bf9a3f1d9b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FlatLayerTreeModel::isFrozenChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFrozenChanged</name>
+        <qualifiedname>FlatLayerTreeModel::isFrozenChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="244" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classFlatLayerTreeModel_1a005ee792cb6280c28bb4a8de5c417096" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool FlatLayerTreeModel::filterAcceptsRow</definition>
+        <argsstring>(int source_row, const QModelIndex &amp;source_parent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>FlatLayerTreeModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>source_row</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>source_parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/layertreemodel.h" line="247" column="18" bodyfile="src/core/layertreemodel.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FlatLayerTreeModel</label>
+        <link refid="classFlatLayerTreeModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FlatLayerTreeModel</label>
+        <link refid="classFlatLayerTreeModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/layertreemodel.h" line="137" column="1" bodyfile="src/core/layertreemodel.h" bodystart="138" bodyend="251"/>
+    <listofallmembers>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaa21682b9e8eea3357459c27edc449fd7" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>AttributeEditingLocked</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaf83550116a6bf29c1bb2de17562cf172" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>CanReloadData</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eab5365992f30b2cb257c5f10fcc3d3f0d" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Checkable</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea8c5b30ecc006dad212de11de43be2286" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Credits</name></member>
+      <member refid="classFlatLayerTreeModel_1ac60a68fa3f9f85378e76bcc191983a0d" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>data</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea4aca89d01f7282189285d14d9a7ec906" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>FeatureAdditionLocked</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea2fa66ab2d0a28e3d77bc010bcb5a9cfd" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>FeatureCount</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea937b4d32ac25d9c53774d92de2204e0e" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>FeatureDeletionLocked</name></member>
+      <member refid="classFlatLayerTreeModel_1a005ee792cb6280c28bb4a8de5c417096" prot="protected" virt="virtual"><scope>FlatLayerTreeModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea5b9d06aefbd39718ebd205d571204c4e" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>FilterExpression</name></member>
+      <member refid="classFlatLayerTreeModel_1ad1d0436954e8a4ec769c3743706448ab" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>FlatLayerTreeModel</name></member>
+      <member refid="classFlatLayerTreeModel_1a2c97516fea3214e282346f11ca925d8f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>freeze</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea579540dfa8be0121156e2c3dd35daf2b" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>GeometryEditingLocked</name></member>
+      <member refid="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826a21a5d28500dae0acb95d23c1a8484fa1" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Group</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea335a40a966b30d8d1a22cacebcfd8e59" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>HasChildren</name></member>
+      <member refid="classFlatLayerTreeModel_1acfebb16a3981ed54aa27dcd78e5b3a0c" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>hasCollapsibleItems</name></member>
+      <member refid="classFlatLayerTreeModel_1aea2620f05d39bbab82e6136d23a563c3" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>hasCollapsibleItems</name></member>
+      <member refid="classFlatLayerTreeModel_1a7bfd29c19fd366543b58d14618383c31" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>hasCollapsibleItemsChanged</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaaebce17e1258fee6b09676a2292944c7" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>HasLabels</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaf7f322cac1c0885e74578539f9e5986f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>HasNotes</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea7a85a752acff0c42293b20b9f6e4ef75" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>HasSpatialExtent</name></member>
+      <member refid="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826aa457ec61e7617ba378dfdd15bf08025d" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Image</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea97f086a4fedae5e6ad9980c2365672b5" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>InTracking</name></member>
+      <member refid="classFlatLayerTreeModel_1a2514ace62c274a03f34e018a07e44d69" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isCollapsed</name></member>
+      <member refid="classFlatLayerTreeModel_1a6aa7972d5817009c10f6b2733f8b5854" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isCollapsed</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea15b6aff4e6b54fb2d4209c791bdf7753" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>IsCollapsed</name></member>
+      <member refid="classFlatLayerTreeModel_1aef8d3cee9740d03c73560c8a4e3d15be" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isCollapsedChanged</name></member>
+      <member refid="classFlatLayerTreeModel_1a8cd4803568279c51bbd6cd90ba32be25" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isFrozen</name></member>
+      <member refid="classFlatLayerTreeModel_1af861f2f0541f60463dabb5ca24e85025" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isFrozen</name></member>
+      <member refid="classFlatLayerTreeModel_1afd0c41fc4bcffa3194ba9bf9a3f1d9b2" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isFrozenChanged</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea0877617460948a6a06730bc2d909d9af" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>IsParentCollapsed</name></member>
+      <member refid="classFlatLayerTreeModel_1abd7e366e37cc8ac354e98775bf9cfd9e" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isTemporal</name></member>
+      <member refid="classFlatLayerTreeModel_1ad0929fd55d8b59613607d6dc34f93c87" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isTemporal</name></member>
+      <member refid="classFlatLayerTreeModel_1a968d00bdcbe4dfbdcc2fe09947e1cb3e" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>isTemporalChanged</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea5d455fad69c4e702d023b1ae79a2ce1e" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>IsValid</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eaf99731897fbc14e5a400286718589421" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>LabelsVisible</name></member>
+      <member refid="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826a97d493938655ce896dfafba9517f6b4d" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Layer</name></member>
+      <member refid="classFlatLayerTreeModel_1a75051ba750de5bfe1f285197e765a3c4" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>layersAdded</name></member>
+      <member refid="classFlatLayerTreeModel_1a15532e5000837b8df08d01626ddef8d8" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>layersRemoved</name></member>
+      <member refid="classFlatLayerTreeModel_1a4536c2ac410ff67c68f15b9b4f7826d3" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>layerTree</name></member>
+      <member refid="classFlatLayerTreeModel_1a11821e558f02522ac197e49b6235af06" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>layerTreeModel</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea3701a58f2cc146a076cfa8100566ec4b" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>LayerType</name></member>
+      <member refid="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826ae8f0ead7e928a0428d2180ea611c01cf" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Legend</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eae273e1cb1f0a85968550c6242c74673f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>LegendImage</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea314c53f91012d6f14250dbab1277f24c" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>MapLayerPointer</name></member>
+      <member refid="classFlatLayerTreeModel_1add93a150baa599f95e887f79513e8ab9" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>mapTheme</name></member>
+      <member refid="classFlatLayerTreeModel_1a1b80add473e8ea96d1e53d5cb85f456a" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>mapTheme</name></member>
+      <member refid="classFlatLayerTreeModel_1ac70bc5f8b63bf3e95b07bbb19e057b84" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>mapThemeChanged</name></member>
+      <member refid="classFlatLayerTreeModel_1a21e0a0cfc8ed19dd16d07275e258ccd6" prot="private" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>mSourceModel</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea55c92c8635f17ce9b16133f46da52ad5" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Name</name></member>
+      <member refid="classFlatLayerTreeModel_1a2a5a8ba954d1eae2126df6020c502216" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>nodeExtent</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eafba13d8220bbe9bdd40d2d5c862f1686" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Notes</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea5229a326e66a509b0388e1d35e40eb8f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Opacity</name></member>
+      <member refid="classFlatLayerTreeModel_1aedc8b64270159ae3d1061a7a07449a0f" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>project</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ead085e8093a2637a3f268a9d9aea61277" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>ReadOnly</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9e" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Roles</name></member>
+      <member refid="classFlatLayerTreeModel_1a730027990097b793164867a137806ff1" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>setAllCollapsed</name></member>
+      <member refid="classFlatLayerTreeModel_1a2044f2510d3d3dc0776daac1d385c0ee" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>setData</name></member>
+      <member refid="classFlatLayerTreeModel_1aacb7a4e72d8ef0df35fbdaeaba8b9774" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>setLayerInTracking</name></member>
+      <member refid="classFlatLayerTreeModel_1afbcfe2e8778dc07f95fde6bae3f42bf9" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>setMapTheme</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9eae04976be94d15f71e9c619a13d9625c0" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>SnappingEnabled</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea1ef5d5634bffe14cde938415e652fdd0" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Trackable</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea0fca15e096f0fd87b2c4da7ceb2ed9c9" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>TreeLevel</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea4c2c1f68fa5be6155712ddae237b1ab0" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Type</name></member>
+      <member refid="classFlatLayerTreeModel_1a7184266ad9db2d258991a7d53a5df826" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Types</name></member>
+      <member refid="classFlatLayerTreeModel_1a8acb7ee3afa71adce6cd679fefa4faef" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>unfreeze</name></member>
+      <member refid="classFlatLayerTreeModel_1a0ee1150350446323ef20bfebe741ddcf" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>updateCurrentMapTheme</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea05b41090f9cbb1724e154c3654368a19" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>VectorLayerPointer</name></member>
+      <member refid="classFlatLayerTreeModel_1ab43e3a871e1c095d22d4855866e96f9ea6f1a183f3f34bc3d3643148f4cde0cc7" prot="public" virt="non-virtual"><scope>FlatLayerTreeModel</scope><name>Visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

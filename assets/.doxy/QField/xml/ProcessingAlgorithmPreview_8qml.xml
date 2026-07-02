@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ProcessingAlgorithmPreview_8qml" kind="file" language="C++">
+    <compoundname>ProcessingAlgorithmPreview.qml</compoundname>
+    <innerclass refid="classProcessingAlgorithmPreview" prot="public">ProcessingAlgorithmPreview</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qgis</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>Theme</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">Repeater<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>id:<sp/>processingAlgorithmPreview</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>property<sp/>ProcessingAlgorithm<sp/>algorithm</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>property<sp/>MapSettings<sp/>mapSettings</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>property<sp/>color<sp/>color:<sp/>Theme.processingPreview</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>model:<sp/>algorithm.previewGeometries</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>delegate:<sp/>GeometryRenderer<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>mapSettings:<sp/>processingAlgorithmPreview.mapSettings</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>geometryWrapper.qgsGeometry:<sp/>modelData</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>geometryWrapper.crs:<sp/>processingAlgorithmPreview.algorithm.inPlaceLayer.crs</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>color:<sp/>processingAlgorithmPreview.color</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>z:<sp/>1</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/ProcessingAlgorithmPreview.qml"/>
+  </compounddef>
+</doxygen>
