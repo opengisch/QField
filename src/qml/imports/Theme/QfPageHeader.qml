@@ -54,7 +54,7 @@ ToolBar {
       anchors.left: parent.left
       width: parent.width
       height: 6
-      value: 50
+      value: 0
       indeterminate: value === 0 ? true : false
 
       state: "off"
