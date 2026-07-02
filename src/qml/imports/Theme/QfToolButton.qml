@@ -21,8 +21,8 @@ RoundButton {
   property alias bgcolor: backgroundRectangle.color
   property color borderColor: 'transparent'
 
-  width: 48
-  height: 48
+  width: Theme.toolButtonSize
+  height: Theme.toolButtonSize
   implicitWidth: width
   implicitHeight: height
   focusPolicy: Qt.NoFocus

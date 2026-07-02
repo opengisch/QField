@@ -507,8 +507,8 @@ Page {
                 }
 
                 Item {
-                  width: 48
-                  height: 48
+                  width: Theme.toolButtonSize
+                  height: Theme.toolButtonSize
                   anchors.verticalCenter: line.verticalCenter
 
                   QfToolButton {
@@ -532,8 +532,8 @@ Page {
                     id: menuButton
                     round: true
                     opacity: 0.5
-                    width: 48
-                    height: 48
+                    width: Theme.toolButtonSize
+                    height: Theme.toolButtonSize
                     visible: LocalPath !== ''
 
                     bgcolor: "transparent"
@@ -575,7 +575,7 @@ Page {
               property Item pressedItem
               propagateComposedEvents: false
               anchors.fill: parent
-              anchors.rightMargin: 48
+              anchors.rightMargin: Theme.toolButtonSize
               onClicked: mouse => {
                 var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
                 if (item) {

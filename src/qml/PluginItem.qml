@@ -66,7 +66,7 @@ Rectangle {
     QfToolButton {
       id: configureEnabledPlugin
       enabled: Configurable
-      Layout.preferredWidth: enabled ? 48 : 0
+      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
 
       iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
       iconColor: Theme.mainTextColor
@@ -79,7 +79,7 @@ Rectangle {
     QfToolButton {
       id: updatePlugin
       enabled: InstalledLocally && AvailableUpdate
-      Layout.preferredWidth: enabled ? 48 : 0
+      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
 
       iconSource: Theme.getThemeVectorIcon("ic_update_white_24dp")
       iconColor: Theme.mainColor
@@ -92,7 +92,7 @@ Rectangle {
     QfToolButton {
       id: downloadPlugin
       enabled: !InstalledLocally && !itemDownloading
-      Layout.preferredWidth: enabled ? 48 : 0
+      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
       visible: enabled
       iconSource: Theme.getThemeVectorIcon('ic_download_white_24dp')
       iconColor: Theme.mainColor

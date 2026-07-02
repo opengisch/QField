@@ -132,8 +132,8 @@ RelationEditorBase {
             id: featureImage
             source: ImagePath ? UrlUtils.fromString(ImagePath) : Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
             anchors.verticalCenter: parent.verticalCenter
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
             fillMode: Image.PreserveAspectFit
             mipmap: true
             visible: !!ImagePath
@@ -156,8 +156,8 @@ RelationEditorBase {
           QfToolButton {
             id: viewButton
             anchors.verticalCenter: parent.verticalCenter
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
 
             round: false
             iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
@@ -173,8 +173,8 @@ RelationEditorBase {
             id: moveDownButton
             anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? 48 : 0
-            height: 48
+            width: visible ? Theme.toolButtonSize : 0
+            height: Theme.toolButtonSize
             opacity: (index === listView.count - 1) ? 0.3 : 1
 
             round: false
@@ -194,8 +194,8 @@ RelationEditorBase {
             id: moveUpButton
             anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? 48 : 0
-            height: 48
+            width: visible ? Theme.toolButtonSize : 0
+            height: Theme.toolButtonSize
             opacity: (index === 0) ? 0.3 : 1
 
             round: false
@@ -214,8 +214,8 @@ RelationEditorBase {
           QfToolButton {
             id: menuButton
             anchors.verticalCenter: parent.verticalCenter
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
 
             round: false
             iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")

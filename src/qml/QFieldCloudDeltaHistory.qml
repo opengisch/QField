@@ -35,7 +35,7 @@ QfPopup {
     padding: 5
     header: ToolBar {
       id: toolBar
-      height: 48
+      height: Theme.toolButtonSize
 
       topPadding: 0
       leftPadding: 0
@@ -48,8 +48,8 @@ QfPopup {
 
       Label {
         anchors.centerIn: parent
-        leftPadding: 48
-        rightPadding: 48
+        leftPadding: Theme.toolButtonSize
+        rightPadding: Theme.toolButtonSize
         width: parent.width - 20
         text: !!model ? qsTr("Push History") : qsTr("Loading…")
         font: Theme.strongFont

@@ -348,7 +348,7 @@ Page {
         MouseArea {
           property Item pressedItem
           anchors.fill: parent
-          anchors.rightMargin: 48
+          anchors.rightMargin: Theme.toolButtonSize
           onClicked: mouse => {
             const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
             if (item && localFilesModel.inSelectionMode) {
@@ -1702,7 +1702,7 @@ Page {
               MouseArea {
                 enabled: !lineDialog.isImported
                 anchors.fill: parent
-                anchors.rightMargin: 48
+                anchors.rightMargin: Theme.toolButtonSize
                 onClicked: mouse => {
                   importWebdavPathInput.currentIndex = index;
                   importWebdavImportedFolderName.text = (lineDialog.label !== "" ? lineDialog.label : qsTr("root folder")) + " - " + webdavConnectionLoader.item.username;

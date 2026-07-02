@@ -153,8 +153,8 @@ EditorWidgetBase {
     QfToolButton {
       id: searchButton
 
-      Layout.preferredWidth: enabled ? 48 : 0
-      Layout.preferredHeight: 48
+      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
+      Layout.preferredHeight: Theme.toolButtonSize
 
       bgcolor: "transparent"
       iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")

@@ -555,8 +555,8 @@ Page {
 
               QfToolButton {
                 id: showSearchBarSettings
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
+                Layout.preferredWidth: Theme.toolButtonSize
+                Layout.preferredHeight: Theme.toolButtonSize
                 Layout.alignment: Qt.AlignVCenter
                 clip: true
 
@@ -585,8 +585,8 @@ Page {
 
               QfToolButton {
                 id: showPluginManagerSettings
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
+                Layout.preferredWidth: Theme.toolButtonSize
+                Layout.preferredHeight: Theme.toolButtonSize
                 Layout.alignment: Qt.AlignVCenter
                 clip: true
 
@@ -1424,8 +1424,8 @@ Page {
 
                 QfToolButton {
                   id: showNtripSettings
-                  Layout.preferredWidth: 48
-                  Layout.preferredHeight: 48
+                  Layout.preferredWidth: Theme.toolButtonSize
+                  Layout.preferredHeight: Theme.toolButtonSize
                   Layout.alignment: Qt.AlignVCenter
 
                   iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")

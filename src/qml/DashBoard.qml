@@ -120,7 +120,7 @@ Drawer {
         Row {
           id: buttonsRow
           objectName: "dashboardActionsToolbar"
-          height: 48
+          height: Theme.toolButtonSize
           spacing: 1
 
           QfToolButton {
@@ -525,13 +525,13 @@ Drawer {
 
   Rectangle {
     id: bottomRow
-    height: 48 + mainWindow.sceneBottomMargin
+    height: Theme.toolButtonSize + mainWindow.sceneBottomMargin
     width: parent.width
     anchors.bottom: parent.bottom
     color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
 
     Item {
-      height: 48
+      height: Theme.toolButtonSize
       anchors.bottom: parent.bottom
       anchors.bottomMargin: mainWindow.sceneBottomMargin
       anchors.left: parent.left
@@ -553,7 +553,7 @@ Drawer {
         id: modeSwitch
         objectName: "modeSwitch"
         width: 56 + 36
-        height: 48
+        height: Theme.toolButtonSize
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         indicator: Rectangle {

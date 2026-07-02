@@ -2224,7 +2224,7 @@ ApplicationWindow {
 
       anchors.right: locatorItem.right
       anchors.top: locatorItem.top
-      anchors.topMargin: 48 + 4
+      anchors.topMargin: Theme.toolButtonSize + 4
       spacing: 4
     }
 
@@ -2422,7 +2422,6 @@ ApplicationWindow {
       QfToolButtonDrawer {
         objectName: "digitizingDrawer"
         name: "digitizingDrawer"
-        size: 48
         round: true
         bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
@@ -2859,7 +2858,6 @@ ApplicationWindow {
 
       QfToolButtonDrawer {
         name: "3dDrawer"
-        size: 48
         round: true
         collapsed: false
         bgcolor: Theme.toolButtonBackgroundColor

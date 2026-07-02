@@ -120,12 +120,12 @@ QfPopup {
 
       background: Rectangle {
         color: "transparent"
-        height: 48
+        height: Theme.toolButtonSize
       }
 
       RowLayout {
         width: parent.width
-        height: 48
+        height: Theme.toolButtonSize
 
         Label {
           Layout.leftMargin: 58

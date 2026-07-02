@@ -258,8 +258,8 @@ QfPopup {
             iconSource: Theme.getThemeVectorIcon("refresh_24dp")
             iconColor: Theme.mainTextColor
             bgcolor: "transparent"
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
+            Layout.preferredWidth: Theme.toolButtonSize
+            Layout.preferredHeight: Theme.toolButtonSize
             padding: 0
 
             onClicked: {
@@ -334,7 +334,7 @@ QfPopup {
 
           QfSwitch {
             id: ntripForwardNmeaSentencesSwitch
-            Layout.preferredWidth: 48
+            Layout.preferredWidth: Theme.toolButtonSize
           }
         }
       }

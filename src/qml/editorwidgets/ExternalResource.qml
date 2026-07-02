@@ -591,8 +591,8 @@ EditorWidgetBase {
 
   QfToolButton {
     id: cameraButton
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
 
     // QField has historically handled no viewer type as image, let's carry that on
     visible: documentViewer == ExternalResource.DocumentImage && isEnabled
@@ -609,8 +609,8 @@ EditorWidgetBase {
 
   QfToolButton {
     id: cameraVideoButton
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
 
     visible: documentViewer == ExternalResource.DocumentVideo && isEnabled
 
@@ -626,8 +626,8 @@ EditorWidgetBase {
 
   QfToolButton {
     id: microphoneButton
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
 
     visible: documentViewer == ExternalResource.DocumentAudio && isEnabled
 
@@ -643,8 +643,8 @@ EditorWidgetBase {
 
   QfToolButton {
     id: fileButton
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
 
     visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == ExternalResource.DocumentFile && isEnabled
 

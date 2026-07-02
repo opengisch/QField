@@ -177,7 +177,7 @@ EditorWidgetBase {
 
     QfToolButton {
       id: todayButton
-      width: enabled ? 48 : 0
+      width: enabled ? Theme.toolButtonSize : 0
       visible: enabled
 
       iconSource: Theme.getThemeVectorIcon("ic_calendar_today_black_24dp")

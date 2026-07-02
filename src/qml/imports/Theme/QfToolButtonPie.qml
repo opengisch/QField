@@ -13,7 +13,7 @@ Menu {
 
   readonly property int numberOfButtons: menuItemsView.count
 
-  property int bandWidth: 48
+  property int bandWidth: Theme.toolButtonSize
   property real openingAngle: 0
 
   property alias strokeColor: shapePath.strokeColor

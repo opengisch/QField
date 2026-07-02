@@ -71,7 +71,7 @@ Rectangle {
   anchors.topMargin: 5
   anchors.left: parent.left
   anchors.right: parent.right
-  height: toolBar.topMargin + 58
+  height: toolBar.topMargin + Theme.toolButtonSize + 10
   color: Theme.mainBackgroundColor
   clip: true
 
@@ -118,7 +118,7 @@ Rectangle {
       anchors.top: parent.top
       anchors.leftMargin: 0 + balancedMargin + toolBar.leftMargin
       anchors.rightMargin: 0 + balancedMargin + toolBar.rightMargin
-      height: 48
+      height: Theme.toolButtonSize
 
       text: {
         if (model && selection && selection.focusedItem > -1 && (toolBar.state === 'Navigation' || toolBar.state === 'Edit')) {
@@ -183,8 +183,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.state === "Navigation"
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
@@ -217,8 +217,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: enabled
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: toolBar.state === "Navigation" ? Theme.getThemeVectorIcon("ic_chevron_left_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
@@ -251,8 +251,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.state === "Edit" || toolBar.state === "ProcessingLaunch"
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
@@ -289,8 +289,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: !qfieldSettings.autoSave && toolBar.state === "Edit"
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
@@ -322,8 +322,8 @@ Rectangle {
     iconSource: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
     iconColor: Theme.mainTextColor
 
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     onClicked: {
@@ -357,8 +357,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
@@ -400,8 +400,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.state !== "Edit" && toolBar.state !== "Processing" && toolBar.state !== "ProcessingLaunch"
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
@@ -430,8 +430,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.multiSelection && toolBar.model && (toolBar.state === "Processing" || toolBar.state === "ProcessingLaunch" || toolBar.state === "Indication")
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
@@ -455,9 +455,9 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin + 5
 
-    width: (toolBar.state === "Indication" && toolBar.multiSelection && toolBar.model ? 48 : 0)
+    width: (toolBar.state === "Indication" && toolBar.multiSelection && toolBar.model ? Theme.toolButtonSize : 0)
     visible: width > 0
-    height: 48
+    height: Theme.toolButtonSize
     verticalAlignment: Text.AlignVCenter
     font: Theme.strongFont
     color: Theme.mainTextColor
@@ -475,8 +475,8 @@ Rectangle {
     anchors.topMargin: toolBar.topMargin + 5
 
     visible: toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
-    width: visible ? 48 : 0
-    height: 48
+    width: visible ? Theme.toolButtonSize : 0
+    height: Theme.toolButtonSize
     clip: true
 
     iconSource: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
@@ -628,15 +628,15 @@ Rectangle {
       leftPadding: 2
       rightPadding: 2
       spacing: 2
-      height: 48
+      height: Theme.toolButtonSize
       clip: true
 
       property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
+        height: Theme.toolButtonSize
+        width: Theme.toolButtonSize
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_cut_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -654,8 +654,8 @@ Rectangle {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
+        height: Theme.toolButtonSize
+        width: Theme.toolButtonSize
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -669,8 +669,8 @@ Rectangle {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
+        height: Theme.toolButtonSize
+        width: Theme.toolButtonSize
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_paste_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -690,8 +690,8 @@ Rectangle {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
+        height: Theme.toolButtonSize
+        width: Theme.toolButtonSize
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
@@ -706,8 +706,8 @@ Rectangle {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        height: 48
-        width: 48
+        height: Theme.toolButtonSize
+        width: Theme.toolButtonSize
         round: true
         iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
         iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor

@@ -31,7 +31,7 @@ ToolBar {
   signal remove
   signal openMenu
 
-  height: topMargin + 48
+  height: topMargin + Theme.toolButtonSize
 
   topPadding: 0
   leftPadding: 0
@@ -147,8 +147,8 @@ ToolBar {
 
     Label {
       id: titleLabel
-      leftPadding: !showApplyButton && (showCancelButton || showRemoveButton) ? 48 : 0
-      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showRemoveButton && !showMenuButton ? 48 : 0
+      leftPadding: !showApplyButton && (showCancelButton || showRemoveButton) ? Theme.toolButtonSize : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showRemoveButton && !showMenuButton ? Theme.toolButtonSize : 0
       font: Theme.strongTitleFont
       color: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
       elide: Label.ElideRight

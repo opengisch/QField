@@ -40,7 +40,7 @@ Item {
       }
       PropertyChanges {
         target: searchFieldRect
-        width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin - 62
+        width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin - (Theme.toolButtonSize + 14)
       }
       PropertyChanges {
         target: codeReaderButton
@@ -71,7 +71,7 @@ Item {
       }
       PropertyChanges {
         target: searchFieldRect
-        width: 48
+        width: Theme.toolButtonSize
       }
       PropertyChanges {
         target: searchFieldRect
@@ -199,9 +199,9 @@ Item {
     z: 10
     anchors.top: parent.top
     anchors.right: parent.right
-    width: 48
-    height: 48
-    radius: 24
+    width: Theme.toolButtonSize
+    height: Theme.toolButtonSize
+    radius: height / 2
     color: Theme.controlBackgroundColor
     visible: false
 
@@ -209,7 +209,7 @@ Item {
       id: searchField
       focus: locatorItem.state == "on" ? true : false
       width: parent.width - busyIndicator.width - 76
-      height: 48
+      height: Theme.toolButtonSize
       anchors.top: parent.top
       anchors.left: parent.left
       anchors.verticalCenter: searchFieldRect.verticalCenter
@@ -222,8 +222,8 @@ Item {
       selectByMouse: true
       verticalAlignment: TextInput.AlignVCenter
       background: Rectangle {
-        height: 48
-        radius: 24
+        height: Theme.toolButtonSize
+        radius: height / 2
         color: "transparent"
       }
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
@@ -327,10 +327,10 @@ Item {
     id: resultsBox
     z: 1
     width: searchFieldRect.width - 24
-    height: searchFieldRect.visible && resultsList.count > 0 ? resultsList.height + 24 : 0
+    height: searchFieldRect.visible && resultsList.count > 0 ? resultsList.height + searchFieldRect.height / 2 : 0
     anchors.top: searchFieldRect.top
     anchors.left: searchFieldRect.left
-    anchors.topMargin: 24
+    anchors.topMargin: searchFieldRect.height / 2
     color: Theme.mainBackgroundColor
     visible: searchFieldRect.visible && resultsList.count > 0
     clip: true
@@ -346,7 +346,7 @@ Item {
       id: resultsList
       z: 2
       anchors.top: resultsBox.top
-      anchors.topMargin: 24
+      anchors.topMargin: searchFieldRect.height / 2
       model: searchField.displayText !== '' ? locatorBridge.proxyModel() : showAvailableSearchDescription ? locatorFilters : []
       width: parent.width
       height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0

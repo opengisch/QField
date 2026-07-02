@@ -37,7 +37,7 @@ Item {
   }
 
   width: content.contentWidth + cogoOperationsContainer.spacing * 2
-  height: 48
+  height: Theme.toolButtonSize
   enabled: false
   visible: enabled
 
@@ -60,14 +60,14 @@ Item {
     focusPolicy: Qt.NoFocus
 
     contentItem: Rectangle {
-      radius: 48 / 2
+      radius: Theme.toolButtonSize / 2
       color: Theme.toolButtonBackgroundSemiOpaqueColor
       clip: true
 
       ListView {
         id: content
         width: content.contentWidth
-        height: 46
+        height: Theme.toolButtonSize - 2
         x: 4
         y: 4
         model: cogoOperationsContainer.contentModel

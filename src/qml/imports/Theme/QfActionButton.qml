@@ -14,7 +14,7 @@ ToolButton {
   property string toolText: qsTr("close")
   property alias innerActionIcon: innerAction
 
-  height: 48
+  height: Theme.toolButtonSize
   width: height + (buttonText.visible ? buttonText.width + 24 : 0) + (innerAction.visible ? 32 : 0)
   clip: true
 
@@ -26,15 +26,15 @@ ToolButton {
 
   background: Rectangle {
     width: parent.width
-    height: 48
+    height: Theme.toolButtonSize
     color: Theme.toolButtonBackgroundSemiOpaqueColor
     radius: height / 2
 
     QfToolButton {
       anchors.left: parent.left
       anchors.top: parent.top
-      width: 48
-      height: 48
+      width: Theme.toolButtonSize
+      height: Theme.toolButtonSize
       enabled: false
       round: true
       iconSource: button.toolImage
@@ -46,7 +46,7 @@ ToolButton {
       id: ripple
       clip: true
       width: parent.width
-      height: 48
+      height: Theme.toolButtonSize
       clipRadius: 4
       pressed: button.down
       anchor: parent
@@ -57,7 +57,7 @@ ToolButton {
 
   contentItem: Row {
     anchors.left: parent.left
-    anchors.leftMargin: 48 + 8
+    anchors.leftMargin: Theme.toolButtonSize + 8
     spacing: 8
     padding: 0
     visible: button.toolText !== ""
