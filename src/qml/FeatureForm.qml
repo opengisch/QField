@@ -158,6 +158,10 @@ Page {
           verticalAlignment: Text.AlignVCenter
         }
       }
+
+      onCurrentIndexChanged: if (swipeView.currentIndex != tabRow.currentIndex) {
+        swipeView.currentIndex = tabRow.currentIndex;
+      }
     }
 
     /**
@@ -168,7 +172,9 @@ Page {
       Layout.fillWidth: true
       Layout.fillHeight: true
       currentIndex: tabRow.currentIndex
-      onCurrentIndexChanged: tabRow.currentIndex = swipeView.currentIndex
+      onCurrentIndexChanged: if (tabRow.currentIndex != swipeView.currentIndex) {
+        tabRow.currentIndex = swipeView.currentIndex;
+      }
       clip: true
 
       Repeater {
