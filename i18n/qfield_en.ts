@@ -6381,21 +6381,6 @@ project</source>
     </message>
 </context>
 <context>
-    <name>gallery_relation_editor</name>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
