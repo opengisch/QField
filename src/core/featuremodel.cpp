@@ -171,6 +171,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
     if ( sRememberings->contains( mLayer ) )
     {
       mFeature = sRememberings->value( mLayer ).rememberedFeature;
+      mFeature.setId( FID_NULL );
     }
     else
     {
