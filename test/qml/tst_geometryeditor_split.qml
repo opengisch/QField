@@ -11,17 +11,21 @@ TestCase {
   name: "GeometryEditorSplit"
 
   property var testLayer: null
+  property var lineLayer: null
   property string lastToastType: ""
   readonly property string squareJson: '{"type":"FeatureCollection","features":[{"type":"Feature","id":0,"geometry":{"type":"Polygon","coordinates":[[[0,0],[10,0],[10,10],[0,10],[0,0]]]},"properties":{}}]}'
+  readonly property string lineJson: '{"type":"FeatureCollection","features":[{"type":"Feature","id":0,"geometry":{"type":"LineString","coordinates":[[0,5],[10,5]]},"properties":{}}]}'
 
   function init() {
     lastToastType = "";
     testLayer = LayerUtils.memoryLayerFromJsonString("split_test", squareJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
+    lineLayer = LayerUtils.memoryLayerFromJsonString("split_line_test", lineJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
   }
 
   function cleanup() {
     splitTool.cancel();
     testLayer = null;
+    lineLayer = null;
   }
 
   // set up the feature model on the memory layer and
@@ -30,6 +34,14 @@ TestCase {
     featureModel.currentLayer = testLayer;
     featureModel.feature = testLayer.getFeature(1);
     rubberband.vectorLayer = testLayer;
+    splitTool.init(featureModel, mapSettingsItem, rubberband, null);
+    return featureModel;
+  }
+
+  function initSplitOnLine() {
+    featureModel.currentLayer = lineLayer;
+    featureModel.feature = lineLayer.getFeature(1);
+    rubberband.vectorLayer = lineLayer;
     splitTool.init(featureModel, mapSettingsItem, rubberband, null);
     return featureModel;
   }
@@ -120,6 +132,22 @@ TestCase {
 
     // the split commits a new feature, so the layer reports one features-added commit
     compare(committedFeaturesAddedSpy.count, 1);
+  }
+
+  function test_splitLineProducesExpectedGeometries() {
+    initSplitOnLine();
+    const tb = toolbar();
+
+    // a vertical line crossing the horizontal line feature at x=5
+    addToolVertex(tb, 5, 4);
+    addToolVertex(tb, 5, 6);
+
+    tb.confirm();
+
+    // the line is cut at x=5: the original feature keeps the left segment and a
+    // new feature holds the right segment
+    compare(lineLayer.getFeature(1).geometry.asWkt(2), "LineString (0 5, 5 5)");
+    compare(lineLayer.getFeature(2).geometry.asWkt(2), "LineString (5 5, 10 5)");
   }
 
   function test_confirmWithInvalidLineToasts() {
