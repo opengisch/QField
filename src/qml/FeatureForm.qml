@@ -61,7 +61,7 @@ Page {
 
   function resetTabs() {
     tabRow.currentIndex = 0;
-    contentRepeater.itemAt(0).contentY = 0;
+    contentRepeater.itemAt(0).children[0].contentY = 0;
   }
 
   clip: true
@@ -174,41 +174,54 @@ Page {
         // One page per tab in tabbed forms, 1 page in auto forms
         model: form.model.hasTabs ? form.model : 1
 
-        Flickable {
-          id: contentView
+        Loader {
+          id: contentLoader
 
-          property int contentIndex: index
-
-          width: form.width - form.leftMargin - form.rightMargin
-          contentWidth: content.width
-          contentHeight: content.height
-          bottomMargin: form.bottomMargin + (form.model.isWizard ? wizardNavigationContainer.height : 0)
-          clip: true
-          ScrollBar.vertical: QfScrollBar {}
-          boundsBehavior: Flickable.StopAtBounds
-
-          Rectangle {
-            anchors.fill: parent
-            color: Theme.mainBackgroundColor
+          property bool activeNeeded: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
+          onActiveNeededChanged: {
+            if (!active) {
+              active = true;
+            }
           }
+          active: false
+          asynchronous: true
 
-          Flow {
-            id: content
+          sourceComponent: Flickable {
+            id: contentView
+
+            property int contentIndex: index
+
             width: form.width - form.leftMargin - form.rightMargin
-            bottomPadding: 10
+            contentWidth: content.width
+            contentHeight: content.height
+            bottomMargin: form.bottomMargin + (form.model.isWizard ? wizardNavigationContainer.height : 0)
+            clip: true
+            ScrollBar.vertical: QfScrollBar {}
+            boundsBehavior: Flickable.StopAtBounds
 
-            SubModel {
-              id: contentModel
-              model: form.model
-              rootIndex: form.model.index(form.model.hasTabs ? contentIndex : -1, 0)
+            Rectangle {
+              anchors.fill: parent
+              color: Theme.mainBackgroundColor
             }
 
-            Repeater {
-              // Note: digitizing a child geometry will temporarily hide the feature form,
-              // we need to preserve items so signal connections are kept alive
-              model: form.model.hasTabs ? contentModel : form.model
-              objectName: "fieldRepeater"
-              delegate: fieldItem
+            Flow {
+              id: content
+              width: form.width - form.leftMargin - form.rightMargin
+              bottomPadding: 10
+
+              SubModel {
+                id: contentModel
+                model: form.model
+                rootIndex: form.model.index(form.model.hasTabs ? contentIndex : -1, 0)
+              }
+
+              Repeater {
+                // Note: digitizing a child geometry will temporarily hide the feature form,
+                // we need to preserve items so signal connections are kept alive
+                model: form.model.hasTabs ? contentModel : form.model
+                objectName: "fieldRepeater"
+                delegate: fieldItem
+              }
             }
           }
         }
@@ -560,7 +573,7 @@ Page {
 
     Item {
       width: parent && parent.width > 0 ? parent.width / ColumnCount > 190 ? parent.width / ColumnCount : parent.width : form.width
-      height: fieldGroupTitle.height + fieldContent.childrenRect.height
+      height: fieldGroupTitle.height + fieldGroupTitle.height + containerLoader.height + fieldContainer.height
 
       Rectangle {
         id: fieldGroupBackground
@@ -609,6 +622,8 @@ Page {
         }
 
         Loader {
+          id: containerLoader
+
           property string containerName: Name || ''
           property string containerCode: EditorWidgetCode || ''
           property var containerGroupIndex: GroupIndex
