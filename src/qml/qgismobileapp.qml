@@ -1038,8 +1038,8 @@ ApplicationWindow {
           canvasMenuFeatureListInstantiator.active = true;
         } else {
           if (qfieldSettings.autoOpenFormSingleIdentify && !featureListForm.multiSelection && featureListForm.model.count === 1) {
-            featureListForm.selection.focusedItem = 0;
             featureListForm.state = "FeatureForm";
+            featureListForm.selection.focusedItem = 0;
           }
           if (qfieldSettings.autoZoomToIdentifiedFeature && featureListForm.model.count > 0) {
             featureListForm.extentController.zoomToAllFeatures();
