@@ -74,6 +74,6 @@ Item {
 
   FileDialog {
     id: fileDialog
-    onAccepted: filePath.text = selectedFile
+    onAccepted: filePath.text = UrlUtils.toLocalFile(selectedFile)
   }
 }
