@@ -23,15 +23,15 @@
     </message>
     <message>
         <source>Powered by QField</source>
-        <translation type="unfinished"/>
+        <translation>Desenvolvido com QField</translation>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 diretório do aplicativo</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 diretório do aplicativo</translation>
     </message>
 </context>
 <context>
@@ -284,19 +284,19 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Usar Bluetooth Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
+        <translation>Configuração do dispositivo Bluetooth:</translation>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth Clássico (BT)</translation>
     </message>
 </context>
 <context>
@@ -373,47 +373,47 @@ Cancele para fazer uma verificação mínima.</translation>
     <name>BookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Marcadores</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu da Lista de Marcadores</translation>
     </message>
     <message>
         <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
+        <translation>Alternar (ativar/desativar) Seleção de Marcadores</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Excluir marcador(es) selecionado(s)</translation>
     </message>
     <message>
         <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Excluir Marcador(es)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Quer mesmo excluir os %n favoritos selecionados?</numerusform><numerusform>Quer mesmo excluir os %n favoritos selecionados?</numerusform><numerusform>Quer mesmo excluir o(s) %n marcador(es) selecionado(s)?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Excluí %n marcador(es)</numerusform><numerusform>Excluí %n marcador(es)</numerusform><numerusform>Excluí %n marcador(es)</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"/>
+        <translation>Laranja</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>Vermelho</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"/>
+        <translation>Azul</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"/>
+        <translation>Verde</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -421,7 +421,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
+        <translation>Ainda não há marcadores</translation>
     </message>
 </context>
 <context>
@@ -681,7 +681,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Informações do projeto</translation>
     </message>
 </context>
 <context>
@@ -933,7 +933,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>O ID da configuração de autenticação do armazenamento externo está ausente. Certifique-se de que ele foi importado para %1</translation>
     </message>
 </context>
 <context>
@@ -1446,14 +1446,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP</translation>
     </message>
 </context>
 <context>
     <name>InformationPopup</name>
     <message>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Autor</translation>
     </message>
 </context>
 <context>
@@ -2416,7 +2416,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2545,7 +2545,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Host</translation>
     </message>
     <message>
         <source>Port</source>
@@ -2593,7 +2593,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
 </context>
 <context>
@@ -4220,7 +4220,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Uploading WebDAV folder</source>
-        <translation type="unfinished"/>
+        <translation>Enviando pasta WebDAV</translation>
     </message>
     <message>
         <source>WebDAV error: </source>
@@ -4820,11 +4820,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Host</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>ex.: proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -4832,7 +4832,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>ex.: 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -6509,7 +6509,7 @@ project</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>O ID da configuração de autenticação do armazenamento externo está ausente. Certifique-se de que ele foi importado para %1</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -7436,7 +7436,7 @@ para mostrar as ações</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Marcadores</translation>
     </message>
 </context>
 <context>
