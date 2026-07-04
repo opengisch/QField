@@ -112,13 +112,7 @@ RelationEditorBase {
           bgcolor: 'transparent'
 
           onClicked: {
-            ensureEmbeddedFormLoaded();
-            embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-            embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
-            embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
-            embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
-            embeddedPopup.feature = nmRelationId ? model.nmReferencedFeature : model.referencingFeature;
-            embeddedPopup.open();
+            showViewFeaturePopup(nmRelationId ? model.nmReferencedFeature : model.referencingFeature);
           }
         }
 

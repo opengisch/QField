@@ -290,13 +290,7 @@ EditorWidgetBase {
 
       text: qsTr("Open Form")
       onTriggered: {
-        ensureEmbeddedFormLoaded();
-        embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-        embeddedPopup.currentLayer = nmRelationId ? relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer;
-        embeddedPopup.linkedRelation = relationEditorModel.relation;
-        embeddedPopup.linkedParentFeature = relationEditorModel.feature;
-        embeddedPopup.feature = nmRelationId ? childMenu.entryNmReferencedFeature : childMenu.entryReferencingFeature;
-        embeddedPopup.open();
+        showViewFeaturePopup(nmRelationId ? childMenu.entryNmReferencedFeature : childMenu.entryReferencingFeature);
       }
     }
 
@@ -457,6 +451,20 @@ EditorWidgetBase {
 
   function requestedGeometryReceived(geometry) {
     showAddFeaturePopup(geometry);
+  }
+
+  function showViewFeaturePopup(feature) {
+    ensureEmbeddedFormLoaded();
+    embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+    embeddedPopup.currentLayer = nmRelationId ? relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer;
+    embeddedPopup.linkedParentFeature = relationEditorModel.feature;
+    embeddedPopup.linkedRelation = relationEditorModel.relation;
+    embeddedPopup.linkedRelationOrderingField = relationEditorModel.orderingField !== undefined ? relationEditorModel.orderingField : "";
+    embeddedPopup.feature = feature;
+    embeddedPopup.open();
+    if (isEnabled) {
+      embeddedPopup.attributeFormModel.applyParentDefaultValues();
+    }
   }
 
   function showAddFeaturePopup(geometry) {
