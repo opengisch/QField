@@ -152,6 +152,7 @@ TestCase {
     coordinateTransformer.verticalGrid = '';
     // wait a few seconds so positioning can catch some NMEA strings
     wait(2500);
+    compare(positioning.deviceSocketState, QAbstractSocket.ConnectedState);
     compare(Math.floor(positioning.positionInformation.latitude), 46);
     compare(Math.floor(positioning.positionInformation.longitude), 9);
     compare(Math.floor(positioning.positionInformation.elevation / 10), 110);
@@ -166,9 +167,10 @@ TestCase {
     coordinateTransformer.verticalGrid = '';
 
     // wait a few seconds so positioning can catch some NMEA strings
+    wait(1000);
+    compare(positioning.deviceSocketState, QAbstractSocket.BoundState);
     let compared = false;
     for (let i = 0; i < 10; i++) {
-      wait(500);
       if (positioning.positionInformation.qualityDescription === "Float RTK + IMU") {
         compare(positioning.positionInformation.qualityDescription, "Float RTK + IMU");
         compare(positioning.positionInformation.imuCorrection, true);
@@ -179,6 +181,7 @@ TestCase {
         compared = true;
         break;
       }
+      wait(500);
     }
     compare(compared, true);
   }
