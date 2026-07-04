@@ -7,12 +7,13 @@ import Theme
 import ".."
 
 EditorWidgetBase {
-  id: relationReferenceEditorWidgetBase
-  height: childrenRect.height
+  id: relationReferenceEditorWidget
+
   anchors {
     left: parent.left
     right: parent.right
   }
+  height: Math.max(48, relationReference.height) + 4
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
   property var _rel: RelationUtils.resolveReferencingRelation(qgisProject, currentLayer, field.name, config['Relation'])
@@ -40,10 +41,10 @@ EditorWidgetBase {
   }
 
   RowLayout {
+    id: relationReferenceEditorWidgetLayout
     anchors {
       left: parent.left
       right: parent.right
-      top: parent.top
     }
     spacing: 5
 
@@ -58,7 +59,7 @@ EditorWidgetBase {
       relation: _rel
 
       onRequestJumpToPoint: function (center, scale, handleMargins) {
-        relationReferenceEditorWidgetBase.requestJumpToPoint(center, scale, handleMargins);
+        relationReferenceEditorWidget.requestJumpToPoint(center, scale, handleMargins);
       }
     }
 
@@ -67,6 +68,7 @@ EditorWidgetBase {
 
       property bool isVisible: listModel.currentLayer !== undefined && listModel.currentLayer !== null && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Unknown && listModel.currentLayer.geometryType() !== Qgis.GeometryType.Null
 
+      Layout.alignment: Qt.AlignTop
       visible: isVisible
       enabled: relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
       width: isVisible && enabled ? 48 : 0
@@ -91,8 +93,8 @@ EditorWidgetBase {
     QfToolButton {
       id: openFormButton
 
+      Layout.alignment: Qt.AlignTop
       enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-
       width: enabled ? 48 : 0
       height: 48
 
