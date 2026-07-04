@@ -192,7 +192,7 @@ Page {
             }
           }
           active: false
-          asynchronous: true
+          asynchronous: false
 
           sourceComponent: Flickable {
             id: contentView
