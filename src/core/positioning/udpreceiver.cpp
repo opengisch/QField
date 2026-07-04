@@ -128,6 +128,8 @@ void UdpReceiver::handleStateChanged( QAbstractSocket::SocketState state )
     case QAbstractSocket::ListeningState:
       break;
   }
+
+  setSocketState( state );
 }
 
 void UdpReceiver::handleError( QAbstractSocket::SocketError error )
