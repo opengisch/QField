@@ -567,6 +567,7 @@ Item {
 
       Layout.preferredWidth: enabled ? 48 : 0
       Layout.preferredHeight: 48
+      Layout.alignment: Qt.AlignTop
 
       bgcolor: "transparent"
       iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
@@ -585,6 +586,7 @@ Item {
 
       Layout.preferredWidth: comboBox.enabled ? 48 : 0
       Layout.preferredHeight: 48
+      Layout.alignment: Qt.AlignTop
 
       bgcolor: "transparent"
       opacity: enabled ? 1 : 0.3
