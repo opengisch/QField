@@ -311,9 +311,11 @@ void AttributeFormModelBase::applyParentDefaultValues()
       if ( !fields.at( fidx ).defaultValueDefinition().isValid() || ( !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() && !featureIsNew ) )
         continue;
 
-      if ( fields.at( fidx ).defaultValueDefinition().expression().indexOf( "@current_parent_" ) > -1 )
+      QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
+      const QSet<QString> referencedFunctions = exp.referencedFunctions();
+      const QSet<QString> referencedVariables = exp.referencedVariables();
+      if ( referencedFunctions.contains( QStringLiteral( "current_parent_value" ) ) || referencedVariables.contains( QStringLiteral( "current_parent_feature" ) ) || referencedVariables.contains( QStringLiteral( "current_parent_geometry" ) ) )
       {
-        QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
         exp.prepare( &mExpressionContext );
         const QVariant defaultValue = exp.evaluate( &mExpressionContext );
         const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, FeatureModel::AttributeValue );

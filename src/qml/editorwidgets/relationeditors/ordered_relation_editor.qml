@@ -165,14 +165,7 @@ RelationEditorBase {
             bgcolor: 'transparent'
 
             onClicked: {
-              ensureEmbeddedFormLoaded();
-              embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-              embeddedPopup.currentLayer = orderedRelationModel.relation.referencingLayer;
-              embeddedPopup.linkedRelation = orderedRelationModel.relation;
-              embeddedPopup.linkedRelationOrderingField = orderedRelationModel.orderingField;
-              embeddedPopup.linkedParentFeature = orderedRelationModel.feature;
-              embeddedPopup.feature = model.referencingFeature;
-              embeddedPopup.open();
+              showViewFeaturePopup(model.referencingFeature);
             }
           }
 
