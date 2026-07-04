@@ -489,13 +489,7 @@ RelationEditorBase {
 
   function openFeatureForm(feature, nmFeature) {
     stopAllMedia();
-    ensureEmbeddedFormLoaded();
-    embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
-    embeddedPopup.currentLayer = nmRelationId ? referencingFeatureListModel.nmRelation.referencedLayer : referencingFeatureListModel.relation.referencingLayer;
-    embeddedPopup.linkedRelation = referencingFeatureListModel.relation;
-    embeddedPopup.linkedParentFeature = referencingFeatureListModel.feature;
-    embeddedPopup.feature = nmRelationId ? nmFeature : feature;
-    embeddedPopup.open();
+    showViewFeaturePopup(nmRelationId ? nmFeature : feature);
   }
 
   function resolveAttachmentPath(path) {
