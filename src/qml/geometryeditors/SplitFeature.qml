@@ -31,6 +31,7 @@ GeometryEditorBase {
 
   DigitizingToolbar {
     id: drawLineToolbar
+    objectName: "splitDigitizingToolbar"
     showConfirmButton: true
     screenHovering: splitFeatureToolbar.screenHovering
 
