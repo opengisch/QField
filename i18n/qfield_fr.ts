@@ -372,73 +372,73 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Repères</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de la liste des repères</translation>
     </message>
     <message>
         <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
+        <translation>Activer/désactiver la sélection des repères</translation>
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer le(s) repère(s) sélectionné(s)</translation>
     </message>
     <message>
         <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer le(s) repère(s)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Tu veux vraiment supprimer le(s) signet(s) %n sélectionné(s) ?</numerusform><numerusform>Tu veux vraiment supprimer le(s) signet(s) %n sélectionné(s) ?</numerusform><numerusform>Supprimer vraiment le(s) repère(s) %n sélectionné(s) ?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n signet(s) supprimé(s)</numerusform><numerusform>%n signet(s) supprimé(s)</numerusform><numerusform>%n repère(s) supprimé(s)</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"/>
+        <translation>Orange</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>Rouge</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"/>
+        <translation>Bleu</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"/>
+        <translation>Vert</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Signet sans nom</translation>
+        <translation>Repère sans nom</translation>
     </message>
     <message>
         <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
+        <translation>Pas encore de repères</translation>
     </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>Signets spatiaux</translation>
+        <translation>Repères spatiaux</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Renvoie une liste d&apos;utilisateurs avec les signets de leurs projets actuellement ouverts.</translation>
+        <translation>Renvoie une liste d&apos;utilisateurs avec les repères de leurs projets actuellement ouverts.</translation>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>Propriétés du Signet</translation>
+        <translation>Propriétés du repère</translation>
     </message>
     <message>
         <source>Name</source>
@@ -450,7 +450,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="vanished">Copier les détails du signet</translation>
+        <translation type="vanished">Copier les détails du repère</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -470,15 +470,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Détails du signet copiés dans le presse-papiers</translation>
+        <translation>Détails du repère copiés dans le presse-papiers</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Supprimer le signet</translation>
+        <translation>Supprimer le repère</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Vous êtes sur le point de supprimer un signet, continuer ?</translation>
+        <translation>Vous êtes sur le point de supprimer un repère, continuer ?</translation>
     </message>
     <message>
         <source>Description</source>
@@ -493,11 +493,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>Signet : %1</translation>
+        <translation>Repère: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>Les signets du projet ne peuvent être édités</translation>
+        <translation>Les repères du projet ne peuvent être édités</translation>
     </message>
 </context>
 <context>
@@ -1737,7 +1737,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="vanished">Renvoie la liste des signets dont les noms correspondent</translation>
+        <translation type="vanished">Renvoie la liste des repères dont les noms correspondent</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
@@ -4345,11 +4345,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Show bookmarks</source>
-        <translation>Afficher les signets</translation>
+        <translation>Afficher les repères</translation>
     </message>
     <message>
         <source>When switched on, user&apos;s saved and currently opened project bookmarks will be displayed on the map.</source>
-        <translation>Si activé, les signets de projet enregistrés et actuellement ouverts par l&apos;utilisateur seront affichés sur la carte.</translation>
+        <translation>Si activé, les repères de projet enregistrés et actuellement ouverts par l&apos;utilisateur seront affichés sur la carte.</translation>
     </message>
     <message>
         <source>Use native camera</source>
@@ -6757,7 +6757,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Ajouter un marque-page</translation>
+        <translation>Ajouter un repère</translation>
     </message>
     <message>
         <source>Set as Destination</source>
@@ -6765,11 +6765,11 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="vanished">Ajouter un Signet aux Coordonnées</translation>
+        <translation type="vanished">Ajouter un repère aux Coordonnées</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Signet sans nom</translation>
+        <translation>Repère sans nom</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -6829,7 +6829,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Ajouter un signet à l&apos;emplacement</translation>
+        <translation>Ajouter un repère à l&apos;emplacement</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
@@ -6885,7 +6885,7 @@ pour utiliser la géolocalisation</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="vanished">Ajouter un Signet à la Position Actuelle</translation>
+        <translation type="vanished">Ajouter un repère à la Position Actuelle</translation>
     </message>
     <message>
         <source>Current location unknown</source>
@@ -7440,7 +7440,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Repères</translation>
     </message>
 </context>
 <context>
