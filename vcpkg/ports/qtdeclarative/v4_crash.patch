@@ -1,0 +1,109 @@
+From 624e90bb5e89837d4b759b43e2120b059d98a41e Mon Sep 17 00:00:00 2001
+From: Fabian Kosmale <fabian.kosmale@qt.io>
+Date: Wed, 1 Jul 2026 17:02:32 +0200
+Subject: [PATCH] InternalClass: Fix index invalidation when cleaning up
+ transitions
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+InternalClass::changeMember first tries to find an existing entry, and
+assigns its  index and setterIndex to the "entry" out parameter. That
+index is normally stable.
+However, this is not the case if cleanInternalClass is called, and we
+remove redundant transitions. In that case, an index might change if a
+property was first there, then deleted an later re-added: The re-added
+property would (before cleanup) have a higher index, but after the
+rebuild the indices occupidied by added-then-deleted properties are
+gone.
+Consequently, we would access stale data, potentially triggering
+crashes.
+
+Fix that by detecting whether we triggered invalidation. If it happened,
+and we need an entry, we refetch it.
+
+Fixes: QTBUG-147153
+Pick-to: 6.12 6.11 6.8
+Change-Id: I75e6f821f6ba77a6ec60bfcd599069e1f2007066
+Reviewed-by: Olivier De Cannière <olivier.decanniere@qt.io>
+Reviewed-by: Sami Shalayel <sami.shalayel@qt.io>
+---
+ src/qml/jsruntime/qv4internalclass.cpp     | 14 +++++++++-
+ tests/auto/qml/qjsengine/tst_qjsengine.cpp | 32 ++++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 1 deletion(-)
+
+diff --git a/src/qml/jsruntime/qv4internalclass.cpp b/src/qml/jsruntime/qv4internalclass.cpp
+index 05d4e074599..8fb44fef56f 100644
+--- a/src/qml/jsruntime/qv4internalclass.cpp
++++ b/src/qml/jsruntime/qv4internalclass.cpp
+@@ -467,7 +467,19 @@ Heap::InternalClass *InternalClass::changeMember(
+     t.lookup = newClass;
+     Q_ASSERT(t.lookup);
+ 
+-    return cleanInternalClass(newClass);
++    Heap::InternalClass *cleanedIC = cleanInternalClass(newClass);
++    // cleanInternalClass might have invalidated the index
++    if (newClass == cleanedIC)
++        return cleanedIC; // IC stayed as is, no index invalidation
++    // in that case, we refetch the entry if needed
++    if (entry) {
++        auto updatedEntry = cleanedIC->findEntry(identifier);
++        Q_ASSERT(updatedEntry); // cleanup must not remove the entry
++        entry->index = updatedEntry->index;
++        entry->setterIndex = updatedEntry->setterIndex;
++        // entry->attributes is still valid, doesn't depend on the IC
++    }
++    return cleanedIC;
+ }
+ 
+ Heap::InternalClass *InternalClass::changePrototypeImpl(Heap::Object *proto)
+diff --git a/tests/auto/qml/qjsengine/tst_qjsengine.cpp b/tests/auto/qml/qjsengine/tst_qjsengine.cpp
+index dd03fc64eb9..f7355053f7a 100644
+--- a/tests/auto/qml/qjsengine/tst_qjsengine.cpp
++++ b/tests/auto/qml/qjsengine/tst_qjsengine.cpp
+@@ -357,6 +357,7 @@ private slots:
+ 
+     void evalInGlobalContext();
+     void truncateArrayData();
++    void rebuildInternalClassIndexOnResurrectedMember();
+ 
+ public:
+     Q_INVOKABLE QJSValue throwingCppMethod1();
+@@ -6975,6 +6976,37 @@ void tst_QJSEngine::truncateArrayData()
+     QCOMPARE(spy.count(), 1);
+ }
+ 
++void tst_QJSEngine::rebuildInternalClassIndexOnResurrectedMember()
++{
++    // the tests depends on InternalClass::MaxRedundantTransitions being 255
++    // it tests that we correctly handle property indices when cleanInternalClass
++    // rebuilds the hierarchy
++    QJSEngine engine;
++    QJSValue result = engine.evaluate(QStringLiteral(R"(
++        (function() {
++            var o = {};
++            var COUNT = 256;
++            for (var i = 0; i < COUNT; i++)
++                o["k" + i] = i;
++
++            // Delete 254 distinct keys. Each delete adds one redundant
++            // transition, bringing the count to just below the rebuild
++            // threshold. Only the last two keys stay alive,
++            // so the rebuilt class is small enough to have no
++            // out-of-line member data at all.
++            for (var i = 0; i < 254; i++)
++                delete o["k" + i];
++
++            // Re-add a just-deleted, high-index key; triggers the rebuild
++            o["k253"] = 42;
++
++            return o["k253"] + "," + o["k254"] + "," + o["k255"];
++        })()
++    )")); // should not crash
++    QVERIFY2(!result.isError(), qPrintable(result.toString()));
++    QCOMPARE(result.toString(), QStringLiteral("42,254,255"));
++}
++
+ QTEST_MAIN(tst_QJSEngine)
+ 
+ #include "tst_qjsengine.moc"
