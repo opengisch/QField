@@ -77,6 +77,10 @@ QfPopup {
 
     anchors.fill: parent
 
+    onCreated: {
+      digitizingToolbar.digitizingLogger.writeCoordinates();
+    }
+
     onConfirmed: {
       form.resetTabs();
       formPopup.featureSaved(formFeatureModel.feature.id);
@@ -107,13 +111,14 @@ QfPopup {
     if (form.state === "ReadOnly") {
       return;
     }
+
     if (!form.isSaved) {
       form.confirm();
-      digitizingToolbar.digitizingLogger.writeCoordinates();
     } else {
       form.isSaved = false;
-      digitizingToolbar.digitizingLogger.clearCoordinates();
     }
+
+    digitizingToolbar.digitizingLogger.clearCoordinates();
   }
 
   function applyGeometry(geometry) {
