@@ -91,6 +91,9 @@ class BookmarkModel : public QSortFilterProxyModel
     //! Deletes all currently selected bookmarks, persisting once. Returns the number deleted.
     Q_INVOKABLE int deleteSelected();
 
+    //! Exports user bookmarks to a temporary GeoPackage and sends it via the platform's native sharing. When \a selectedOnly is TRUE, only selected bookmarks are exported.
+    Q_INVOKABLE bool exportBookmarks( bool selectedOnly );
+
   signals:
     void mapSettingsChanged();
     void hideProjectBookmarksChanged();
