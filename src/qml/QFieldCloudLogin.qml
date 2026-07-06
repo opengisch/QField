@@ -261,6 +261,29 @@ Item {
     }
 
     Text {
+      id: cloudAccountSettingsLabel
+      Layout.fillWidth: true
+      Layout.topMargin: 16
+      text: qsTr('Visit the %1settings page%2 to manage your account.').arg('<a href="' + cloudConnection.defaultUrl + '/settings/' + cloudConnection.username + '">').arg('</a>')
+      horizontalAlignment: Text.AlignHCenter
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+      textFormat: Text.RichText
+      wrapMode: Text.WordWrap
+      visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.url === cloudConnection.defaultUrl
+
+      onLinkActivated: link => {
+        if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
+          browserPopup.url = link;
+          browserPopup.fullscreen = true;
+          browserPopup.open();
+        } else {
+          Qt.openUrlExternally(link);
+        }
+      }
+    }
+
+    Text {
       id: cloudRegisterLabel
       Layout.fillWidth: true
       Layout.topMargin: 16
@@ -270,7 +293,7 @@ Item {
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
+      visible: cloudConnection.status === QFieldCloudConnection.Connected && cloudConnection.serverInformation.signupUrl !== ''
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
@@ -292,6 +315,7 @@ Item {
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
 
       onLinkActivated: link => {
         Qt.openUrlExternally(link);
