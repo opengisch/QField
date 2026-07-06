@@ -7,60 +7,69 @@ import QtQuick.Controls
 Pane {
   id: paneDrawer
 
-  property bool isVertical: parent.width < parent.height || parent.width < 300
+  //! TRUE when the pane is laid out vertically (portrait or narrow), driving the drag axis and resize animation direction
+  readonly property bool isVertical: parent.width < parent.height || parent.width < 300
+  //! When TRUE the pane expands to fill the whole available area
   property bool fullScreenView: false
+  //! TRUE while the header is being dragged to resize the pane
   property bool isDragging: false
-  property real dragHeightAdjustment: 0
-  property real dragWidthAdjustment: 0
-  property real lastWidth
-  property real lastHeight
 
-  // When TRUE the pane is laid out at its resting size, when FALSE it collapses to zero
+  //! When TRUE the pane is laid out at its resting size, when FALSE it collapses to zero
   property bool contentVisible: false
-  // Content driven minimum height the pane snaps to at rest, clamped to half the available height
+  //! Content driven minimum height the pane snaps to at rest, clamped to half the available height
   property real minContentHeight: 0
-  // When TRUE the resting height ignores a minContentHeight and uses the default minimum
+  //! When TRUE the resting height ignores a minContentHeight and uses the default minimum
   property bool useDefaultMinHeight: false
-  // Height of the header, used to compute the collapse threshold
+  //! Height of the header, used to compute the collapse threshold
   property real headerHeight: 0
-  // Key passed to mapCanvasMap freeze/unfreeze so concurrent panes does not clear each other
+  //! Key passed to mapCanvasMap freeze/unfreeze so concurrent panes does not clear each other
   property string freezeKey
-  // Emitted when a drag releases below the minimum size without entering fullscreen
+  //! Emitted when a drag releases below the minimum size without entering fullscreen
   signal collapsed
+
+  //! Internal state driving the resize math, kept out of the public interface
+  QtObject {
+    id: props
+
+    property real dragHeightAdjustment: 0
+    property real dragWidthAdjustment: 0
+    property real lastWidth
+    property real lastHeight
+  }
 
   width: {
     if (contentVisible) {
-      if (dragWidthAdjustment != 0) {
-        return lastWidth - dragWidthAdjustment;
+      if (props.dragWidthAdjustment != 0) {
+        return props.lastWidth - props.dragWidthAdjustment;
       } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
-        lastWidth = parent.width;
+        props.lastWidth = parent.width;
         return parent.width;
       } else {
         const newWidth = Math.min(Math.max(200, parent.width / 2.25), parent.width);
-        lastWidth = newWidth;
+        props.lastWidth = newWidth;
         return newWidth;
       }
     } else {
-      lastWidth = 0;
+      props.lastWidth = 0;
       return 0;
     }
   }
 
   height: {
     if (contentVisible) {
-      if (dragHeightAdjustment != 0) {
-        return Math.min(lastHeight - dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
+      if (props.dragHeightAdjustment != 0) {
+        return Math.min(props.lastHeight - props.dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
       } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
-        lastHeight = parent.height;
+        props.lastHeight = parent.height;
         return parent.height;
       } else {
         const defaultMin = Math.min(Math.max(200, parent.height / 2), parent.height);
         const newHeight = useDefaultMinHeight ? defaultMin : Math.min(minContentHeight, defaultMin);
-        lastHeight = newHeight;
+        props.lastHeight = newHeight;
         return newHeight;
       }
     } else {
-      lastHeight = 0;
+      props.lastHeight = 0;
       return 0;
     }
   }
@@ -81,9 +90,9 @@ Pane {
   function statusIndicatorDragged(deltaX, deltaY) {
     fullScreenView = false;
     if (isVertical) {
-      dragHeightAdjustment += deltaY;
+      props.dragHeightAdjustment += deltaY;
     } else {
-      dragWidthAdjustment += deltaX;
+      props.dragWidthAdjustment += deltaX;
     }
   }
 
@@ -97,7 +106,7 @@ Pane {
         } else {
           paneDrawer.collapsed();
         }
-      } else if (dragHeightAdjustment < -parent.height * 0.2) {
+      } else if (props.dragHeightAdjustment < -parent.height * 0.2) {
         fullScreenView = true;
       }
     } else {
@@ -107,12 +116,12 @@ Pane {
         } else {
           paneDrawer.collapsed();
         }
-      } else if (dragWidthAdjustment < -parent.width * 0.2) {
+      } else if (props.dragWidthAdjustment < -parent.width * 0.2) {
         fullScreenView = true;
       }
     }
-    dragHeightAdjustment = 0;
-    dragWidthAdjustment = 0;
+    props.dragHeightAdjustment = 0;
+    props.dragWidthAdjustment = 0;
   }
 
   Behavior on width {
