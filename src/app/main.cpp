@@ -114,7 +114,6 @@ void initAuthManager( QgsAuthManager *authManager )
 int main( int argc, char **argv )
 {
   qputenv( "QT_ANDROID_DISABLE_ACCESSIBILITY", "1" );
-  qputenv( "QV4_FORCE_INTERPRETER", "1" );
 
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
