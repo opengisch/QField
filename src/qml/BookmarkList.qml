@@ -433,7 +433,7 @@ QfPaneDrawer {
   function hide() {
     props.isVisible = false;
     focus = false;
-    fullScreenView = false;
+    isFullscreen = false;
     bookmarkList.setMultiSelection(false);
     if (bookmarkList.model) {
       bookmarkList.model.clearSelection();

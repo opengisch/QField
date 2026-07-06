@@ -10,7 +10,7 @@ Pane {
   //! TRUE when the pane is laid out vertically (portrait or narrow), driving the drag axis and resize animation direction
   readonly property bool isVertical: parent.width < parent.height || parent.width < 300
   //! When TRUE the pane expands to fill the whole available area
-  property bool fullScreenView: false
+  property bool isFullscreen: false
   //! TRUE while the header is being dragged to resize the pane
   property bool isDragging: false
 
@@ -41,7 +41,7 @@ Pane {
     if (contentVisible) {
       if (props.dragWidthAdjustment != 0) {
         return props.lastWidth - props.dragWidthAdjustment;
-      } else if (fullScreenView || parent.width <= parent.height || width >= 0.95 * parent.width) {
+      } else if (isFullscreen || parent.width <= parent.height || width >= 0.95 * parent.width) {
         props.lastWidth = parent.width;
         return parent.width;
       } else {
@@ -59,7 +59,7 @@ Pane {
     if (contentVisible) {
       if (props.dragHeightAdjustment != 0) {
         return Math.min(props.lastHeight - props.dragHeightAdjustment, parent.height - mainWindow.sceneTopMargin);
-      } else if (fullScreenView || parent.width > parent.height || height >= 0.95 * parent.height) {
+      } else if (isFullscreen || parent.width > parent.height || height >= 0.95 * parent.height) {
         props.lastHeight = parent.height;
         return parent.height;
       } else {
@@ -88,7 +88,7 @@ Pane {
   }
 
   function statusIndicatorDragged(deltaX, deltaY) {
-    fullScreenView = false;
+    isFullscreen = false;
     if (isVertical) {
       props.dragHeightAdjustment += deltaY;
     } else {
@@ -101,23 +101,23 @@ Pane {
     if (isVertical) {
       const minHeight = headerHeight + 48 + 30;
       if (paneDrawer.height < minHeight) {
-        if (fullScreenView) {
-          fullScreenView = false;
+        if (isFullscreen) {
+          isFullscreen = false;
         } else {
           paneDrawer.collapsed();
         }
       } else if (props.dragHeightAdjustment < -parent.height * 0.2) {
-        fullScreenView = true;
+        isFullscreen = true;
       }
     } else {
       if (paneDrawer.width < paneDrawer.parent.width * 0.3) {
-        if (fullScreenView) {
-          fullScreenView = false;
+        if (isFullscreen) {
+          isFullscreen = false;
         } else {
           paneDrawer.collapsed();
         }
       } else if (props.dragWidthAdjustment < -parent.width * 0.2) {
-        fullScreenView = true;
+        isFullscreen = true;
       }
     }
     props.dragHeightAdjustment = 0;
