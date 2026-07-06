@@ -82,7 +82,7 @@ jobs:
           cmakeVersion: 3.31.6
 
       - name: 🐍 Setup Python
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v6.3.0
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           python-version: '3.11'
