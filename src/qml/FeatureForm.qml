@@ -20,6 +20,8 @@ Page {
   signal cancelled
   signal temporaryStored
   signal valueChanged(var field, var oldValue, var newValue)
+  signal created
+  signal saved
   signal aboutToSave
 
   signal toolbarDragged(var deltaX, var deltaY)
@@ -907,6 +909,9 @@ Page {
       if (!model.featureModel.featureAdditionLocked) {
         isSuccess = model.create();
         featureCreated = isSuccess;
+        if (isSuccess) {
+          created();
+        }
       } else {
         isSuccess = false;
         errorPushed = true;
@@ -914,6 +919,9 @@ Page {
       }
     } else {
       isSuccess = model.save();
+      if (isSuccess) {
+        saved();
+      }
     }
     master.ignoreChanges = false;
     if (!isSuccess && !errorPushed) {
