@@ -213,10 +213,10 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     void updateModel();
     void gathererThreadFinished();
 
-    void referencingLayerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues );
-    void referencingLayerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries );
-    void referencingLayerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures );
-    void referencingLayerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds );
+    void layerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues );
+    void layerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries );
+    void layerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures );
+    void layerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds );
 
   private:
     struct Entry
