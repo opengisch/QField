@@ -213,6 +213,23 @@ QfPaneDrawer {
     }
 
     MenuItem {
+      text: bookmarkList.multiSelection ? qsTr('Export Selected Bookmark(s)') : qsTr('Export All Bookmarks')
+      icon.source: Theme.getThemeVectorIcon("ic_download_white_24dp")
+      enabled: !bookmarkList.multiSelection || (bookmarkList.model && bookmarkList.model.selectedCount > 0)
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        bookmarkListMenu.close();
+        if (bookmarkList.model.exportBookmarks(bookmarkList.multiSelection)) {
+          displayToast(qsTr("Bookmarks exported"));
+        }
+      }
+    }
+
+    MenuItem {
       id: deleteSelectedBookmarksBtn
       text: qsTr('Delete Selected Bookmark(s)')
       icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")

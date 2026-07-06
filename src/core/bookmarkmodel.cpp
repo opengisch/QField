@@ -16,11 +16,15 @@
  ***************************************************************************/
 
 #include "bookmarkmodel.h"
+#include "layerutils.h"
+#include "platformutilities.h"
 
 #include <qgsapplication.h>
 #include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
+#include <qgsmemoryproviderutils.h>
 #include <qgsproject.h>
+#include <qgsvectorlayer.h>
 
 #include <algorithm>
 
@@ -294,6 +298,64 @@ int BookmarkModel::deleteSelected()
   emit selectedCountChanged();
 
   return deleted;
+}
+
+bool BookmarkModel::exportBookmarks( bool selectedOnly )
+{
+  QgsFields fields;
+  fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
+  fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
+
+  const QgsCoordinateReferenceSystem exportCrs( QStringLiteral( "EPSG:4326" ) );
+  std::unique_ptr<QgsVectorLayer> layer( QgsMemoryProviderUtils::createMemoryLayer( QStringLiteral( "bookmarks" ), fields, Qgis::WkbType::Point, exportCrs ) );
+
+  QgsFeatureList features;
+  const QList<QgsBookmark> bookmarks = mManager->bookmarks();
+  for ( const QgsBookmark &bookmark : bookmarks )
+  {
+    if ( selectedOnly && !mSelectedIds.contains( bookmark.id() ) )
+    {
+      continue;
+    }
+
+    const QgsReferencedRectangle extent = bookmark.extent();
+    QgsPointXY center = extent.center();
+    if ( extent.crs() != exportCrs )
+    {
+      QgsCoordinateTransform transform( extent.crs(), exportCrs, QgsProject::instance()->transformContext() );
+      try
+      {
+        center = transform.transform( center );
+      }
+      catch ( const QgsException & )
+      {
+        continue;
+      }
+    }
+
+    QgsFeature feature( layer->fields() );
+    feature.setGeometry( QgsGeometry::fromPointXY( center ) );
+    feature.setAttribute( QStringLiteral( "title" ), bookmark.name() );
+    feature.setAttribute( QStringLiteral( "color" ), bookmark.group() );
+    features << feature;
+  }
+
+  if ( features.isEmpty() )
+  {
+    return false;
+  }
+
+  layer->dataProvider()->addFeatures( features );
+
+  const QString filePath = QStringLiteral( "%1/bookmarks_%2.gpkg" ).arg( QDir::tempPath(), QString::number( QDateTime::currentMSecsSinceEpoch() ) );
+  const QString exportedPath = LayerUtils::saveVectorLayerAs( layer.get(), filePath );
+  if ( exportedPath.isEmpty() )
+  {
+    return false;
+  }
+
+  PlatformUtilities::instance()->sendDatasetTo( exportedPath );
+  return true;
 }
 
 int BookmarkModel::groupRank( const QString &group ) const
