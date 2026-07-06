@@ -49,7 +49,7 @@ QfPaneDrawer {
   property bool allowDelete
 
   property bool multiSelection: false
-  fullScreenView: qfieldSettings.fullScreenIdentifyView
+  isFullscreen: qfieldSettings.fullScreenIdentifyView
 
   property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
 
@@ -790,7 +790,7 @@ QfPaneDrawer {
   function hide() {
     props.isVisible = false;
     focus = false;
-    fullScreenView = qfieldSettings.fullScreenIdentifyView;
+    isFullscreen = qfieldSettings.fullScreenIdentifyView;
     if (!featureFormList.canvasOperationRequested) {
       featureFormList.multiSelection = false;
       featureForm.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
