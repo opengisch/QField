@@ -123,23 +123,33 @@ QgsFeature ReferencingFeatureListModelBase::feature() const
 
 void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
-  if ( mRelation.isValid() && mRelation.referencingLayer() )
+  if ( mRelation.isValid() )
   {
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedAttributeValuesChanges );
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedGeometriesChanges );
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesAdded );
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesRemoved );
+    // Parent layer
+    disconnect( mRelation.referencedLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    disconnect( mRelation.referencedLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+
+    // Child layer
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesAdded );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesRemoved );
   }
 
   mRelation = relation;
   emit relationChanged();
 
-  if ( mRelation.isValid() && mRelation.referencingLayer() )
+  if ( mRelation.isValid() )
   {
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedAttributeValuesChanges );
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::referencingLayerCommittedGeometriesChanges );
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesAdded );
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesRemoved );
+    // Parent layer
+    connect( mRelation.referencedLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    connect( mRelation.referencedLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+
+    // Child layer
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesAdded );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesRemoved );
   }
 
   mLastGathererFeaturesFilter.clear();
@@ -236,30 +246,53 @@ void ReferencingFeatureListModelBase::gathererThreadFinished()
   emit isLoadingChanged();
 }
 
-void ReferencingFeatureListModelBase::referencingLayerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues )
+void ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues )
 {
   const QList<QgsFeatureId> featureIds = changedAttributesValues.keys();
-  if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
+  if ( mRelation.referencingLayerId() == layerId )
   {
-    QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
+    {
+      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    }
+  }
+  else if ( mRelation.referencedLayerId() == layerId )
+  {
+    if ( featureIds.contains( mFeature.id() ) )
+    {
+      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    }
   }
 }
 
-void ReferencingFeatureListModelBase::referencingLayerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries )
+void ReferencingFeatureListModelBase::layerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries )
 {
   const QList<QgsFeatureId> featureIds = changedGeometries.keys();
-  if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
+  if ( mRelation.referencingLayerId() == layerId )
+  {
+    if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
+    {
+      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    }
+  }
+  else if ( mRelation.referencedLayerId() == layerId )
+  {
+    if ( featureIds.contains( mFeature.id() ) )
+    {
+      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    }
+  }
+}
+
+void ReferencingFeatureListModelBase::layerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures )
+{
+  if ( mRelation.referencingLayerId() == layerId )
   {
     QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
   }
 }
 
-void ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures )
-{
-  QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
-}
-
-void ReferencingFeatureListModelBase::referencingLayerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
+void ReferencingFeatureListModelBase::layerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
 {
   if ( std::any_of( mEntries.begin(), mEntries.end(), [&deletedFeatureIds]( const Entry &entry ) { return deletedFeatureIds.contains( entry.referencingFeature.id() ); } ) )
   {
@@ -458,7 +491,7 @@ bool ReferencingFeatureListModelBase::checkParentPrimaries()
       {
         if ( mFeature.attribute( fieldPair.second ) == mRelation.referencedLayer()->dataProvider()->defaultValueClause( mFeature.fieldNameIndex( fieldPair.second ) ) )
         {
-          // Insure that the child feature layer's lnked attribute supports NULL values,
+          // Insure that the child feature layer's linked attribute supports NULL values,
           // used until we can replace with the provider-set value upon parent feature creation
           if ( mRelation.referencingLayer()->fields().field( fieldPair.first ).constraints().constraints() & QgsFieldConstraints::ConstraintNotNull )
           {
