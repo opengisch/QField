@@ -126,6 +126,10 @@ Drawer {
 
     state: "Add"
 
+    onCreated: {
+      digitizingToolbar.digitizingLogger.writeCoordinates();
+    }
+
     onConfirmed: {
       displayToast(qsTr("Changes saved"));
       //close drawer if still open
@@ -135,7 +139,6 @@ Drawer {
       } else {
         overlayFeatureForm.isSaved = false; //reset
       }
-      digitizingToolbar.digitizingLogger.writeCoordinates();
       resetTabs();
     }
 
