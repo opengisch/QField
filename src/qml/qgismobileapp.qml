@@ -2436,8 +2436,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: cogoButton
-          width: 40
-          height: 40
+          width: Theme.toolButtonSize * 5 / 6
+          height: Theme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: digitizingToolbar.cogoEnabled ? "On" : "Off"
@@ -2473,8 +2473,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: snappingButton
-          width: 40
-          height: 40
+          width: Theme.toolButtonSize * 5 / 6
+          height: Theme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
@@ -2513,8 +2513,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: topologyButton
-          width: 40
-          height: 40
+          width: Theme.toolButtonSize * 5 / 6
+          height: Theme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
@@ -2550,8 +2550,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: freehandButton
-          width: visible ? 40 : 0
-          height: visible ? 40 : 0
+          width: visible ? Theme.toolButtonSize * 5 / 6 : 0
+          height: visible ? Theme.toolButtonSize * 5 / 6 : 0
           padding: 2
           round: true
           visible: hoverHandler.hasBeenHovered && !(positionSource.active && coordinateLocator.positionLocked) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
@@ -2598,8 +2598,8 @@ ApplicationWindow {
         QfToolButton {
           id: snapToCommonAngleButton
 
-          width: visible ? 40 : 0
-          height: visible ? 40 : 0
+          width: visible ? Theme.toolButtonSize * 5 / 6 : 0
+          height: visible ? Theme.toolButtonSize * 5 / 6 : 0
           round: true
           visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
           iconSource: Theme.getThemeVectorIcon("ic_common_angle_white_24dp")
