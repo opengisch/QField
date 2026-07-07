@@ -351,14 +351,12 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
   }
 
   const QString directory = QFileDialog::getExistingDirectory( nullptr, tr( "Select Destination Folder" ) );
-  if ( directory.isEmpty() )
+  if ( !directory.isEmpty() )
   {
-    QFile::remove( tempZipPath );
-    return;
+    const QString destination = QStringLiteral( "%1/%2" ).arg( directory, QFileInfo( tempZipPath ).fileName() );
+    QFile::copy( tempZipPath, destination );
   }
 
-  const QString destination = QStringLiteral( "%1/%2" ).arg( directory, QFileInfo( tempZipPath ).fileName() );
-  QFile::copy( tempZipPath, destination );
   QFile::remove( tempZipPath );
 }
 
