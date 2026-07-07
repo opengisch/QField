@@ -15,6 +15,8 @@ QfPaneDrawer {
   property alias model: bookmarksList.model
   property bool multiSelection: false
 
+  signal requestBookmarkProperties(string bookmarkId, string bookmarkName, string bookmarkGroup)
+
   contentVisible: props.isVisible
   freezeKey: 'bookmarkresize'
   headerHeight: bookmarkListToolBar.height
@@ -371,9 +373,30 @@ QfPaneDrawer {
         wrapMode: Text.WordWrap
       }
 
+      QfToolButton {
+        id: bookmarkPropertiesButton
+        anchors {
+          right: parent.right
+          rightMargin: 5
+          verticalCenter: parent.verticalCenter
+        }
+        width: 48
+        height: 48
+        visible: bookmarkList.multiSelection && BookmarkUser
+        round: false
+        iconSource: Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp')
+        iconColor: Theme.mainTextColor
+        bgcolor: 'transparent'
+
+        onClicked: {
+          bookmarkList.requestBookmarkProperties(BookmarkId, BookmarkName, BookmarkGroup === 'green' ? '' : BookmarkGroup);
+        }
+      }
+
       MouseArea {
         id: mouseArea
         anchors.fill: parent
+        anchors.rightMargin: bookmarkPropertiesButton.visible ? bookmarkPropertiesButton.width : 0
 
         onClicked: {
           if (bookmarkList.multiSelection) {
