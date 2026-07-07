@@ -567,6 +567,8 @@ QString LayerUtils::guessFriendlyHeightField( QgsVectorLayer *layer )
   static const QStringList sCandidates {
     QStringLiteral( "extrusion" ),
     QStringLiteral( "height" ),
+    QStringLiteral( "hauteur" ), // French (height)
+    QStringLiteral( "hoehe" ),   // German (height)
   };
 
   QString bestPartialMatch;
