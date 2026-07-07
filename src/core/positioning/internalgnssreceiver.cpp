@@ -218,18 +218,51 @@ void InternalGnssReceiver::handleSatellitesInViewUpdated( const QList<QGeoSatell
 
 void InternalGnssReceiver::handleError( QGeoPositionInfoSource::Error positioningError )
 {
-  qDebug() << positioningError;
+  switch ( positioningError )
+  {
+    case QGeoPositionInfoSource::AccessError:
+    case QGeoPositionInfoSource::ClosedError:
+    {
+      qDebug() << positioningError;
+      break;
+    }
+
+    case QGeoPositionInfoSource::UnknownSourceError:
+    case QGeoPositionInfoSource::UpdateTimeoutError:
+    case QGeoPositionInfoSource::NoError:
+    {
+      break;
+    }
+  }
+
   return;
 }
 
 void InternalGnssReceiver::handleSatelliteError( QGeoSatelliteInfoSource::Error satelliteError )
 {
-  qDebug() << satelliteError;
-  if ( satelliteError == QGeoSatelliteInfoSource::ClosedError )
+  switch ( satelliteError )
   {
-    mSatelliteInformationValid = false;
-    mSatellitesID.clear();
-    mSatellitesInfo.clear();
+    case QGeoSatelliteInfoSource::AccessError:
+    {
+      qDebug() << satelliteError;
+      break;
+    }
+
+    case QGeoSatelliteInfoSource::ClosedError:
+    {
+      qDebug() << satelliteError;
+      mSatelliteInformationValid = false;
+      mSatellitesID.clear();
+      mSatellitesInfo.clear();
+    }
+
+    case QGeoSatelliteInfoSource::UnknownSourceError:
+    case QGeoSatelliteInfoSource::UpdateTimeoutError:
+    case QGeoSatelliteInfoSource::NoError:
+    {
+      break;
+    }
   }
+
   return;
 }
