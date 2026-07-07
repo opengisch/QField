@@ -133,7 +133,8 @@ EditorWidgetBase {
       }
       onPressAndHold: {
         changeValueTimer.increase = false;
-        changeValueTimer.interval = 300;
+        changeValueTimer.interval = changeValueTimer.initialInterval;
+        changeValueTimer.triggered();
         changeValueTimer.restart();
       }
       onReleased: {
@@ -164,7 +165,8 @@ EditorWidgetBase {
       }
       onPressAndHold: {
         changeValueTimer.increase = true;
-        changeValueTimer.interval = 300;
+        changeValueTimer.interval = changeValueTimer.initialInterval;
+        changeValueTimer.triggered();
         changeValueTimer.restart();
       }
       onReleased: {
@@ -178,7 +180,8 @@ EditorWidgetBase {
 
   Timer {
     id: changeValueTimer
-    interval: 300
+    property int initialInterval: 500
+    interval: initialInterval
     repeat: true
 
     property bool increase: true
