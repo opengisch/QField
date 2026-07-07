@@ -292,13 +292,25 @@ QfPaneDrawer {
     height: parent.height - bookmarkListToolBar.height
     ScrollBar.vertical: QfScrollBar {}
 
-    section.property: "BookmarkGroup"
+    section.property: "BookmarkSection"
     section.labelPositioning: ViewSection.InlineLabels
     section.delegate: Component {
       Rectangle {
         width: parent.width
         height: 30
-        color: Theme.controlBorderColor
+        color: {
+          switch (section) {
+          case "orange":
+            return Theme.bookmarkOrange;
+          case "red":
+            return Theme.bookmarkRed;
+          case "blue":
+            return Theme.bookmarkBlue;
+          case "project":
+            return Theme.controlBorderColor;
+          }
+          return Theme.bookmarkDefault;
+        }
 
         Text {
           anchors {
@@ -307,7 +319,7 @@ QfPaneDrawer {
           }
           font.bold: true
           font.pointSize: Theme.resultFont.pointSize
-          color: Theme.mainTextColor
+          color: section === "project" ? Theme.mainTextColor : "white"
           text: {
             switch (section) {
             case "orange":
@@ -316,6 +328,8 @@ QfPaneDrawer {
               return qsTr("Red");
             case "blue":
               return qsTr("Blue");
+            case "project":
+              return qsTr("Project bookmarks");
             }
             return qsTr("Green");
           }
