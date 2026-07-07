@@ -718,17 +718,37 @@ Page {
     x: parent.width - width - 8
 
     MenuItem {
-      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
+      text: cloudConnection.status === QFieldCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
       font: Theme.defaultFont
       height: 48
       leftPadding: Theme.menuItemLeftPadding
-      icon.source: cloudConnection.status == QFieldCloudConnection.LoggedIn ? Theme.getThemeVectorIcon('ic_logout_24dp') : Theme.getThemeVectorIcon('ic_login_24dp')
-      enabled: cloudConnection.state != QFieldCloudConnection.Busy
+      icon.source: cloudConnection.status === QFieldCloudConnection.LoggedIn ? Theme.getThemeVectorIcon('ic_logout_24dp') : Theme.getThemeVectorIcon('ic_login_24dp')
+      enabled: cloudConnection.state !== QFieldCloudConnection.Busy
       onTriggered: {
-        if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
           cloudConnection.logout();
         } else {
           prepareCloudScreen();
+        }
+      }
+    }
+
+    MenuItem {
+      text: qsTr('Settings page')
+      font: Theme.defaultFont
+      visible: cloudConnection.url === cloudConnection.defaultUrl
+      height: cloudConnection.url === cloudConnection.defaultUrl ? 48 : 0
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon('ic_tune_white_24dp')
+      enabled: cloudConnection.state !== QFieldCloudConnection.Busy && cloudConnection.status === QFieldCloudConnection.LoggedIn
+      onTriggered: {
+        const link = cloudConnection.defaultUrl + '/settings/' + cloudConnection.username;
+        if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
+          browserPopup.url = link;
+          browserPopup.fullscreen = true;
+          browserPopup.open();
+        } else {
+          Qt.openUrlExternally(link);
         }
       }
     }
