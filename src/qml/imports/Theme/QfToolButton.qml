@@ -64,6 +64,8 @@ RoundButton {
 
   icon.source: ""
   icon.color: "transparent" // setting the color to transparent tells Qt to draw the icon using the original source color(s)
+  icon.width: Math.min(width, height) / 2
+  icon.height: Math.min(width, height) / 2
 
   Material.foreground: icon.color
   font: Theme.tipFont
