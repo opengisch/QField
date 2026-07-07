@@ -190,7 +190,14 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
   int orderingFieldIdx = referencingLayer->fields().indexFromName( mOrderingField );
 
   if ( orderingFieldIdx == -1 )
+  {
     return false;
+  }
+
+  if ( !referencingLayer->startEditing() )
+  {
+    return false;
+  }
 
   // first try to update the ordering the of the related features
   bool isSuccess = false;
@@ -225,6 +232,11 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
 
     // increment the absolute value of the ordering for the next element
     ordering++;
+  }
+
+  if ( !referencingLayer->commitChanges() )
+  {
+    return false;
   }
 
   return true;

@@ -14,6 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "layerutils.h"
 #include "referencingfeaturelistmodel.h"
 
 #include <QTimer>
@@ -323,37 +324,14 @@ bool ReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFea
     return false;
   }
 
-  if ( !referencingLayer->startEditing() )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Critical );
-    return false;
-  }
-
   if ( !beforeDeleteFeature( referencingLayer, referencingFeatureId ) )
   {
     return false;
   }
 
-  if ( !referencingLayer->deleteFeature( referencingFeatureId ) )
+  if ( !LayerUtils::deleteFeature( QgsProject::instance(), referencingLayer, referencingFeatureId, true ) )
   {
     QgsMessageLog::logMessage( tr( "Cannot delete feature" ), "QField", Qgis::Critical );
-
-    if ( !referencingLayer->rollBack() )
-    {
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
-    }
-
-    return false;
-  }
-
-  if ( !referencingLayer->commitChanges() )
-  {
-    QgsMessageLog::logMessage( tr( "Cannot commit layer changes in layer %1." ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
-
-    if ( !referencingLayer->rollBack() )
-    {
-      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( referencingLayer->name() ), "QField", Qgis::Critical );
-    }
 
     return false;
   }
