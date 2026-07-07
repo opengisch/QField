@@ -288,7 +288,7 @@ QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
   roleNames[MultiFeatureListModel::ConditionalFontStrikeOutRole] = "conditionalFontStrikeOut";
   roleNames[MultiFeatureListModel::ConditionalFontItalicRole] = "conditionalFontItalic";
   roleNames[MultiFeatureListModel::ConditionalFontBoldRole] = "conditionalFontBold";
-  roleNames[MultiFeatureListModel::ExtrusionHeightRole] = "extrusionHeight";
+  roleNames[MultiFeatureListModel::ExtrusionRole] = "extrusion";
 
   return roleNames;
 }
@@ -468,7 +468,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return false;
       break;
 
-    case MultiFeatureListModel::ExtrusionHeightRole:
+    case MultiFeatureListModel::ExtrusionRole:
     {
       if ( vlayer )
       {

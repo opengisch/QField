@@ -70,7 +70,7 @@ class QFIELD_CORE_EXPORT Quick3DGeometryUtils
      * keeps degenerate or self-touching rings from leaving uninitialised
      * indices in the buffer).
      *
-     * When \a extrusionHeight is non-zero every fill vertex is shifted upward
+     * When \a extrusion is non-zero every fill vertex is shifted upward
      * by that amount so the fill becomes a roof cap on top of extruded walls.
      */
     static void generatePolygonFill( const QVector<QVector3D> &vertices,
@@ -78,15 +78,15 @@ class QFIELD_CORE_EXPORT Quick3DGeometryUtils
                                      float *&vptr, quint32 *&iptr,
                                      quint32 &vertexOffset,
                                      QVector3D &minBound, QVector3D &maxBound,
-                                     float extrusionHeight = 0.0f );
+                                     float extrusion = 0.0f );
 
     /**
      * Generates vertical wall quads for each edge of a closed polygon ring,
-     * extruding from the base vertices upward by \a extrusionHeight scene units.
+     * extruding from the base vertices upward by \a extrusion scene units.
      * Each edge produces 4 vertices and 2 triangles (6 indices).
      */
     static void generatePolygonWalls( const QVector<QVector3D> &vertices,
-                                      float extrusionHeight,
+                                      float extrusion,
                                       float r, float g, float b, float a,
                                       float *&vptr, quint32 *&iptr,
                                       quint32 &vertexOffset,

@@ -161,17 +161,17 @@ void Quick3DGeometry::setAltitudeClamping( AltitudeClamping clamping )
   updateGeometry();
 }
 
-void Quick3DGeometry::setExtrusionHeight( float height )
+void Quick3DGeometry::setExtrusion( float extrusion )
 {
-  height = std::max( 0.0f, height );
-  if ( qFuzzyCompare( mExtrusionHeight, height ) )
+  extrusion = std::max( 0.0f, extrusion );
+  if ( qFuzzyCompare( mExtrusion, extrusion ) )
   {
     return;
   }
 
-  mExtrusionHeight = height;
+  mExtrusion = extrusion;
   mDirty = true;
-  emit extrusionHeightChanged();
+  emit extrusionChanged();
   updateGeometry();
 }
 
@@ -440,7 +440,7 @@ void Quick3DGeometry::updateGeometry()
       }
       totalFillVertices += ringSize;
       totalFillIndices += ( ringSize - 2 ) * 3;
-      if ( mExtrusionHeight > 0.0f )
+      if ( mExtrusion > 0.0f )
       {
         totalFillVertices += Quick3DGeometryUtils::polygonWallsVertexCount( ringSize );
         totalFillIndices += Quick3DGeometryUtils::polygonWallsIndexCount( ringSize );
@@ -484,12 +484,12 @@ void Quick3DGeometry::updateGeometry()
     {
       if ( path.size() >= 3 )
       {
-        if ( mExtrusionHeight > 0.0f )
+        if ( mExtrusion > 0.0f )
         {
-          Quick3DGeometryUtils::generatePolygonWalls( path, mExtrusionHeight, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+          Quick3DGeometryUtils::generatePolygonWalls( path, mExtrusion, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
         }
-        const float capAlpha = mExtrusionHeight > 0.0f ? a : fillAlpha;
-        Quick3DGeometryUtils::generatePolygonFill( path, r, g, b, capAlpha, vptr, iptr, vertexOffset, minBound, maxBound, mExtrusionHeight );
+        const float capAlpha = mExtrusion > 0.0f ? a : fillAlpha;
+        Quick3DGeometryUtils::generatePolygonFill( path, r, g, b, capAlpha, vptr, iptr, vertexOffset, minBound, maxBound, mExtrusion );
       }
     }
   }

@@ -207,7 +207,7 @@ bool Quick3DGeometryUtils::polygonIsEar( const QVector<QVector3D> &ring, const Q
 }
 
 void Quick3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &vertices,
-                                                 float extrusionHeight,
+                                                 float extrusion,
                                                  float r, float g, float b, float a,
                                                  float *&vptr, quint32 *&iptr,
                                                  quint32 &vertexOffset,
@@ -229,8 +229,8 @@ void Quick3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &verti
   {
     const QVector3D &edgeStart = ring[i];
     const QVector3D &edgeEnd = ring[( i + 1 ) % n];
-    const QVector3D edgeStartTop = edgeStart + QVector3D( 0, extrusionHeight, 0 );
-    const QVector3D edgeEndTop = edgeEnd + QVector3D( 0, extrusionHeight, 0 );
+    const QVector3D edgeStartTop = edgeStart + QVector3D( 0, extrusion, 0 );
+    const QVector3D edgeEndTop = edgeEnd + QVector3D( 0, extrusion, 0 );
 
     const float dx = edgeEnd.x() - edgeStart.x();
     const float dz = edgeEnd.z() - edgeStart.z();
@@ -263,7 +263,7 @@ void Quick3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertic
                                                 float *&vptr, quint32 *&iptr,
                                                 quint32 &vertexOffset,
                                                 QVector3D &minBound, QVector3D &maxBound,
-                                                float extrusionHeight )
+                                                float extrusion )
 {
   QVector<QVector3D> ring = vertices;
   if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
@@ -279,7 +279,7 @@ void Quick3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertic
 
   const quint32 baseVertex = vertexOffset;
   const QVector3D upNormal( 0.0f, 1.0f, 0.0f );
-  const QVector3D lift( 0.0f, extrusionHeight, 0.0f );
+  const QVector3D lift( 0.0f, extrusion, 0.0f );
 
   for ( int i = 0; i < n; ++i )
   {
