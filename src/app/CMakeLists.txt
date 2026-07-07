@@ -204,6 +204,7 @@ if(IOS)
   # _beta
 
   include("${CMAKE_SOURCE_DIR}/cmake/AddQtIosApp.cmake")
+
   add_qt_ios_app(
     qfield
     NAME "QField"
@@ -226,4 +227,8 @@ if(IOS)
     IPA
     UPLOAD_SYMBOL
     VERBOSE)
+
+  set_target_properties(
+    qfield PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
+                      "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements")
 endif()
