@@ -35,8 +35,8 @@ BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *p
 {
   setSourceModel( mModel.get() );
 
-  // Bookmarks are always grouped by color so the list can render color sections.
-  setSortRole( BookmarkModel::BookmarkGroup );
+  // Bookmarks are always grouped by section so the list can render color sections.
+  setSortRole( BookmarkModel::BookmarkSection );
   sort( 0 );
 }
 
@@ -83,6 +83,16 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
       const QString id = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) ).toString();
       return mSelectedIds.contains( id );
     }
+
+    case BookmarkModel::BookmarkSection:
+    {
+      if ( !isUserBookmark( sourceIndex.row() ) )
+      {
+        return QStringLiteral( "project" );
+      }
+      const QString group = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
+      return group.isEmpty() ? QStringLiteral( "green" ) : group;
+    }
   }
 
   return QVariant();
@@ -98,6 +108,7 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
   roleNames[BookmarkModel::BookmarkCrs] = "BookmarkCrs";
   roleNames[BookmarkModel::BookmarkUser] = "BookmarkUser";
   roleNames[BookmarkModel::BookmarkSelected] = "BookmarkSelected";
+  roleNames[BookmarkModel::BookmarkSection] = "BookmarkSection";
   return roleNames;
 }
 
@@ -379,7 +390,15 @@ int BookmarkModel::groupRank( const QString &group ) const
 
 bool BookmarkModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
-  const QString leftGroup = mModel->data( sourceLeft, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
-  const QString rightGroup = mModel->data( sourceRight, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
-  return groupRank( leftGroup ) < groupRank( rightGroup );
+  // Project bookmarks form their own section, listed before the user bookmark color groups.
+  const int leftRank = isUserBookmark( sourceLeft.row() ) ? groupRank( mModel->data( sourceLeft, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString() ) : -1;
+  const int rightRank = isUserBookmark( sourceRight.row() ) ? groupRank( mModel->data( sourceRight, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString() ) : -1;
+
+  if ( leftRank != rightRank )
+  {
+    return leftRank < rightRank;
+  }
+
+  // Within a section, preserve creation order (source row order).
+  return sourceLeft.row() < sourceRight.row();
 }
