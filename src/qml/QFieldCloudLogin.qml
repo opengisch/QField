@@ -293,7 +293,7 @@ Item {
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.Connected && cloudConnection.serverInformation.signupUrl !== ''
+      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
