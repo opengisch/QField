@@ -554,11 +554,15 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
 QString LayerUtils::guessFriendlyHeightField( QgsVectorLayer *layer )
 {
   if ( !layer )
+  {
     return QString();
+  }
 
   const QgsFields fields = layer->fields();
   if ( fields.isEmpty() )
+  {
     return QString();
+  }
 
   static const QStringList sCandidates {
     QStringLiteral( "extrusion" ),

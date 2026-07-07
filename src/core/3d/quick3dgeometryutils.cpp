@@ -215,11 +215,15 @@ void Quick3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &verti
 {
   QVector<QVector3D> ring = vertices;
   if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
+  {
     ring.removeLast();
+  }
 
   const int n = ring.size();
   if ( n < 2 )
+  {
     return;
+  }
 
   for ( int i = 0; i < n; ++i )
   {

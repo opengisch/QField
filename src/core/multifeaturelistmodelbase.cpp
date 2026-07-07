@@ -470,9 +470,14 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
 
     case MultiFeatureListModel::ExtrusionHeightRole:
     {
-      const QString heightField = LayerUtils::guessFriendlyHeightField( vlayer );
-      if ( !heightField.isEmpty() )
-        return feature->second.attribute( heightField ).toDouble();
+      if ( vlayer )
+      {
+        const QString heightField = LayerUtils::guessFriendlyHeightField( vlayer );
+        if ( !heightField.isEmpty() )
+        {
+          return feature->second.attribute( heightField ).toDouble();
+        }
+      }
       return 0.0;
     }
   }
