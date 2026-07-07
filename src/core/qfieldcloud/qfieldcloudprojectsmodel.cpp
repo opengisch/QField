@@ -638,6 +638,11 @@ void QFieldCloudProjectsModel::projectListReceived()
     {
       mCurrentProject = findProject( mCurrentProjectId );
       emit currentProjectChanged();
+
+      if ( mLayerObserver )
+      {
+        mLayerObserver->setDeltaFileWrapper( mCurrentProject ? mCurrentProject->deltaFileWrapper() : nullptr );
+      }
     }
 
     mIsRefreshing = false;
