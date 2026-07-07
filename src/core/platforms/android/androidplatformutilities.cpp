@@ -644,8 +644,8 @@ bool AndroidPlatformUtilities::checkAndAcquirePermissions( QStringList permissio
   {
     for ( const QString &permission : permissions )
     {
-      auto r = QtAndroidPrivate::requestPermission( permission ).result();
-      if ( r == QtAndroidPrivate::Denied )
+      auto results = QtAndroidPrivate::requestPermission( permission ).results();
+      if ( results.isEmpty() || results.at( 0 ) == QtAndroidPrivate::Denied )
       {
         if ( !forceAsk )
         {
