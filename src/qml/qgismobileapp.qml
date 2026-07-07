@@ -4659,6 +4659,13 @@ ApplicationWindow {
       bottom: parent.bottom
     }
 
+    onRequestBookmarkProperties: (bookmarkId, bookmarkName, bookmarkGroup) => {
+      bookmarkProperties.bookmarkId = bookmarkId;
+      bookmarkProperties.bookmarkName = bookmarkName;
+      bookmarkProperties.bookmarkGroup = bookmarkGroup;
+      bookmarkProperties.open();
+    }
+
     onStateChanged: {
       if (state !== "Hidden" && featureListForm.visible) {
         featureListForm.hide();
