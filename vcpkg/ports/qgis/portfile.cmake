@@ -27,6 +27,7 @@ file(REMOVE ${SOURCE_PATH}/cmake/FindIconv.cmake)
 
 vcpkg_find_acquire_program(FLEX)
 vcpkg_find_acquire_program(BISON)
+vcpkg_find_acquire_program(PYTHON3)
 
 list(APPEND QGIS_OPTIONS "-DENABLE_TESTS:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_QTWEBENGINE:BOOL=OFF")
@@ -41,7 +42,7 @@ list(APPEND QGIS_OPTIONS "-DWITH_PYTHON:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_INTERNAL_POLY2TRI:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DWITH_INTERNAL_MESHOPTIMIZER:BOOL=OFF")
 list(APPEND QGIS_OPTIONS "-DPREFER_INTERNAL_LIBS:BOOL=OFF")
-
+list(APPEND QGIS_OPTIONS "-DPython_EXECUTABLE=${PYTHON3}")
 list(APPEND QGIS_OPTIONS "-DBISON_EXECUTABLE=${BISON}")
 list(APPEND QGIS_OPTIONS "-DFLEX_EXECUTABLE=${FLEX}")
 # By default QGIS installs includes into "include" on Windows and into "include/qgis" everywhere else
