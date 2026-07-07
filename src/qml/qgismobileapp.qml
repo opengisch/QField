@@ -1322,7 +1322,9 @@ ApplicationWindow {
           bgcolor: Theme.toolButtonBackgroundColor
 
           QfBadge {
-            width: 16
+            width: identifyFeaturesButton.width / 2.5
+            topMargin: identifyFeaturesButton.width / 20
+            rightMargin: identifyFeaturesButton.width / 20
             color: Theme.toolButtonColor
             border.width: 1
             border.color: Theme.toolButtonColor
@@ -2356,6 +2358,9 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
+          width: menuButton.width / 4
+          topMargin: menuButton.width / 24
+          rightMargin: menuButton.width / 24
           visible: showSync || showPush
           color: showSync ? Theme.mainColor : Theme.cloudColor
           enableGradient: showSync && showPush
@@ -3169,6 +3174,9 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
+          width: gnssButton.width / 4
+          topMargin: gnssButton.width / 24
+          rightMargin: gnssButton.width / 24
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != GnssPositionInformation.AccuracyUndetermined
           color: {
             if (!positionSource.positionInformation || !positionSource.positionInformation.haccValid)

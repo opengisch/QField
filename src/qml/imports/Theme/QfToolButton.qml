@@ -80,12 +80,12 @@ RoundButton {
     visible: bottomRightIndicatorText
     color: bottomRightIndicatorBgColor
     border.color: Theme.mainBackgroundColor
-    border.width: 2
+    border.width: Math.max(1, button.width / 24)
 
     badgeText.color: bottomRightIndicatorFgColor
     badgeText.text: bottomRightIndicatorText
 
-    bottomMargin: 7
-    rightMargin: 5
+    bottomMargin: button.width * 0.15
+    rightMargin: button.width * 0.1
   }
 }
