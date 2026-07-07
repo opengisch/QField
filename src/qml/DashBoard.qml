@@ -541,7 +541,8 @@ Drawer {
       MenuItem {
         id: homeButton
         width: parent.width - modeSwitch.width
-        height: 48
+        height: parent.height
+        anchors.verticalCenter: parent.verticalCenter
         icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
         font: Theme.defaultFont
         text: qsTr("Return home")
@@ -552,23 +553,24 @@ Drawer {
       QfSwitch {
         id: modeSwitch
         objectName: "modeSwitch"
-        width: 56 + 36
         height: Theme.toolButtonSize
+        width: height * 1.9
+        leftPadding: height / 3
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         indicator: Rectangle {
-          implicitHeight: 36
-          implicitWidth: 36 * 2
+          implicitHeight: modeSwitch.height * 0.75
+          implicitWidth: modeSwitch.height * 1.5
           x: modeSwitch.leftPadding
-          radius: 4
+          radius: modeSwitch.height / 12
           color: "#24212121"
           border.color: "#14FFFFFF"
           anchors.verticalCenter: parent.verticalCenter
           Image {
-            width: 28
-            height: 28
+            width: modeSwitch.height * 0.58
+            height: width
             anchors.left: parent.left
-            anchors.leftMargin: 4
+            anchors.leftMargin: modeSwitch.height / 12
             anchors.verticalCenter: parent.verticalCenter
             source: Theme.getThemeVectorIcon('ic_map_white_24dp')
             sourceSize.width: parent.height * screen.devicePixelRatio
@@ -576,10 +578,10 @@ Drawer {
             opacity: 0.6
           }
           Image {
-            width: 28
-            height: 28
+            width: modeSwitch.height * 0.58
+            height: width
             anchors.right: parent.right
-            anchors.rightMargin: 4
+            anchors.rightMargin: modeSwitch.height / 12
             anchors.verticalCenter: parent.verticalCenter
             source: Theme.getThemeVectorIcon('ic_create_white_24dp')
             sourceSize.width: parent.height * screen.devicePixelRatio
@@ -588,14 +590,14 @@ Drawer {
           }
           Rectangle {
             x: modeSwitch.checked ? parent.width - width : 0
-            width: 36
-            height: 36
-            radius: 4
+            width: modeSwitch.height * 0.75
+            height: width
+            radius: modeSwitch.height / 12
             color: projectInfo.insertRights ? Theme.mainColor : Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
             border.color: Theme.mainOverlayColor
             Image {
-              width: 28
-              height: 28
+              width: modeSwitch.height * 0.58
+              height: width
               anchors.centerIn: parent
               source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
               sourceSize.width: parent.height * screen.devicePixelRatio
