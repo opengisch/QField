@@ -22,6 +22,7 @@ QfPopup {
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeHorizontalMargin : mainWindow.height - Theme.popupScreenEdgeVerticalMargin
   property bool openedOnce: false
+  property var imageResourceSource: undefined
 
   width: popupWidth
   height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + acceptButton.height)
@@ -59,6 +60,20 @@ QfPopup {
     if (decodedString != "") {
       decoded(decodedString);
     }
+  }
+
+  function pickImage() {
+    imageResourceSource = platformUtilities.getGalleryPicture(platformUtilities.systemLocalDataLocation() + '/', 'codereader.{extension}', codeReader);
+    imageResourceSource.resourceReceived.connect(codeReader.decodeImageResource);
+  }
+
+  function decodeImageResource(path) {
+    const filePath = platformUtilities.systemLocalDataLocation() + '/' + path;
+    if (!barcodeDecoder.decodeImageFile(filePath)) {
+      displayToast(qsTr('No readable code found in the selected image'));
+    }
+    platformUtilities.rmFile(filePath);
+    imageResourceSource = undefined;
   }
 
   QfCameraPermission {
@@ -397,9 +412,10 @@ QfPopup {
 
         QfToolButton {
           id: flashlightButton
-          anchors.bottom: parent.bottom
-          anchors.bottomMargin: 20
+          anchors.bottom: buttonsRow.top
+          anchors.bottomMargin: 10
           anchors.horizontalCenter: parent.horizontalCenter
+          width: buttonsRow.width
           round: true
           iconSource: Theme.getThemeVectorIcon('ic_flashlight_white_48dp')
           iconColor: Theme.toolButtonColor
@@ -435,75 +451,87 @@ QfPopup {
           }
         }
 
-        QfToolButton {
-          id: cameraButton
+        Row {
+          id: buttonsRow
           anchors.bottom: parent.bottom
           anchors.bottomMargin: 20
-          anchors.right: flashlightButton.left
-          anchors.rightMargin: 10
-          round: true
-          iconSource: Theme.getThemeVectorIcon('ic_qr_code_black_24dp')
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          anchors.horizontalCenter: parent.horizontalCenter
+          spacing: 10
 
-          visible: withNfc
-          state: settings.cameraActive ? "On" : "Off"
-          states: [
-            State {
-              name: "Off"
-              PropertyChanges {
-                target: cameraButton
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          QfToolButton {
+            id: cameraButton
+            round: true
+            iconSource: Theme.getThemeVectorIcon('ic_qr_code_black_24dp')
+            iconColor: Theme.toolButtonColor
+            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+            visible: withNfc
+            state: settings.cameraActive ? "On" : "Off"
+            states: [
+              State {
+                name: "Off"
+                PropertyChanges {
+                  target: cameraButton
+                  bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                }
+              },
+              State {
+                name: "On"
+                PropertyChanges {
+                  target: cameraButton
+                  iconColor: Theme.mainColor
+                  bgcolor: Theme.toolButtonBackgroundColor
+                }
               }
-            },
-            State {
-              name: "On"
-              PropertyChanges {
-                target: cameraButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
-              }
+            ]
+
+            onClicked: {
+              settings.cameraActive = !settings.cameraActive;
             }
-          ]
-
-          onClicked: {
-            settings.cameraActive = !settings.cameraActive;
           }
-        }
 
-        QfToolButton {
-          id: nearfieldButton
-          anchors.bottom: parent.bottom
-          anchors.bottomMargin: 20
-          anchors.left: flashlightButton.right
-          anchors.leftMargin: 10
-          round: true
-          iconSource: Theme.getThemeVectorIcon('ic_nfc_code_black_24dp')
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          QfToolButton {
+            id: imageButton
+            round: true
+            iconSource: Theme.getThemeVectorIcon('ic_gallery_black_24dp')
+            iconColor: Theme.toolButtonColor
+            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
 
-          visible: withNfc
-          state: settings.nearfieldActive ? "On" : "Off"
-          states: [
-            State {
-              name: "Off"
-              PropertyChanges {
-                target: nearfieldButton
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-              }
-            },
-            State {
-              name: "On"
-              PropertyChanges {
-                target: nearfieldButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
-              }
+            onClicked: {
+              codeReader.pickImage();
             }
-          ]
+          }
 
-          onClicked: {
-            settings.nearfieldActive = !settings.nearfieldActive;
+          QfToolButton {
+            id: nearfieldButton
+            round: true
+            iconSource: Theme.getThemeVectorIcon('ic_nfc_code_black_24dp')
+            iconColor: Theme.toolButtonColor
+            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+
+            visible: withNfc
+            state: settings.nearfieldActive ? "On" : "Off"
+            states: [
+              State {
+                name: "Off"
+                PropertyChanges {
+                  target: nearfieldButton
+                  bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                }
+              },
+              State {
+                name: "On"
+                PropertyChanges {
+                  target: nearfieldButton
+                  iconColor: Theme.mainColor
+                  bgcolor: Theme.toolButtonBackgroundColor
+                }
+              }
+            ]
+
+            onClicked: {
+              settings.nearfieldActive = !settings.nearfieldActive;
+            }
           }
         }
       }
