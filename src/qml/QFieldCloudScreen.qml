@@ -581,7 +581,7 @@ Page {
                 if (item) {
                   if (item.projectLocalPath !== '') {
                     qfieldCloudScreen.visible = false;
-                    iface.loadFile(item.projectLocalPath);
+                    iface.loadFile(item.projectLocalPath, item.projectName);
                   } else {
                     projectDetails.cloudProject = cloudProjectsModel.findProject(item.projectId);
                     projectsSwipeView.currentIndex = 1;
@@ -798,7 +798,7 @@ Page {
       onTriggered: {
         if (projectActions.projectLocalPath != '') {
           qfieldCloudScreen.visible = false;
-          iface.loadFile(projectActions.projectLocalPath);
+          iface.loadFile(projectActions.projectLocalPath, projectActions.projectName);
         }
       }
     }
