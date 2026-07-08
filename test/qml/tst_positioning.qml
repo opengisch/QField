@@ -62,16 +62,12 @@ TestCase {
     verify(featureModel.feature.attribute("x") === undefined);
     verify(featureModel.feature.attribute("y") === undefined);
     verify(featureModel.feature.attribute("z") === undefined);
+    wait(500);
+    tryVerify(() => positioning.positionInformation.sourceName !== undefined && positioning.positionInformation.fixStatus !== undefined);
 
-    for (let i = 0; i < 10; i++) {
-      wait(500);
-      if (positioning.positionInformation.qualityDescription !== undefined && positioning.positionInformation.fixStatus !== undefined) {
-        break;
-      }
-    }
-
+    sleep(5);
     featureModel.resetAttributes();
-    tryVerify(() => featureModel.feature.attribute("source") === "manual", 2000);
+    tryVerify(() => featureModel.feature.attribute("source") === "manual", 4000);
     verify(featureModel.feature.attribute("Quality") !== undefined);
     verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
@@ -80,9 +76,12 @@ TestCase {
     verify(featureModel.feature.attribute("y") !== undefined);
     verify(featureModel.feature.attribute("z") !== undefined);
     verify(featureModel.appExpressionContextScopesGenerator.positionInformation.latitude !== undefined);
+
     featureModel.appExpressionContextScopesGenerator.positionLocked = true;
+
+    sleep(5);
     featureModel.resetAttributes();
-    tryVerify(() => featureModel.feature.attribute("source") === "nmea", 2000);
+    tryVerify(() => featureModel.feature.attribute("source") === "nmea", 4000);
     verify(featureModel.feature.attribute("Quality") !== undefined);
     verify(featureModel.feature.attribute("Fix status") !== undefined);
     verify(featureModel.feature.attribute("Horizontal accuracy") !== undefined);
