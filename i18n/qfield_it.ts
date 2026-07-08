@@ -3074,6 +3074,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
 (Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3951,6 +3955,10 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings page</source>
         <translation type="unfinished"/>
     </message>
 </context>

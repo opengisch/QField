@@ -3077,6 +3077,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>%1сервер URL
 (Залиште порожнім, щоб використовувати сервер за замовчуванням)</translation>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3951,6 +3955,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Project successfully created</source>
         <translation>Проект успішно створено</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

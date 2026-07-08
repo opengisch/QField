@@ -3071,6 +3071,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>%1服务器URL
 (留空使用默认服务器)</translation>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>请访问%1设置页面%2以管理您的账户。</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3945,6 +3949,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Project successfully created</source>
         <translation>工程创建成功</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>设置页面</translation>
     </message>
 </context>
 <context>

@@ -3071,6 +3071,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>%1Szerver URL
 (Alapértelmezett szerver esetén hagyd üresen)</translation>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3941,6 +3945,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Project successfully created</source>
         <translation>Sikerült létrehozni a projektet</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

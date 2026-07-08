@@ -3073,6 +3073,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <translation>URL du serveur %1
 (Laisser vide pour utiliser le serveur par défaut)</translation>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>Visite la %1page des paramètres%2 pour gérer ton compte.</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3945,6 +3949,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Project successfully created</source>
         <translation>Projet créé avec succès</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>Page des paramètres</translation>
     </message>
 </context>
 <context>

@@ -2616,7 +2616,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Dźwiękowe sygnały dotyczące odległości</translation>
     </message>
     <message>
         <source>Rotate view</source>
@@ -3076,6 +3076,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
 (Leave empty to use the default server)</source>
         <translation>%1Server URL
 (Pozostaw puste, aby użyć domyślnego serwera)</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation>Wejdź na %1stronę ustawień%2, żeby zarządzać swoim kontem.</translation>
     </message>
 </context>
 <context>
@@ -3951,6 +3955,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Project successfully created</source>
         <translation>Projekt utworzono pomyślnie</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation>Strona ustawień</translation>
     </message>
 </context>
 <context>

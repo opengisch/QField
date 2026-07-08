@@ -3074,6 +3074,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
 (Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3947,6 +3951,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings page</source>
         <translation type="unfinished"/>
     </message>
 </context>

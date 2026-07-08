@@ -3075,6 +3075,10 @@ Dôvod:
 (Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3948,6 +3952,10 @@ Tento projekt môžete naďalej prezerať a používať, avšak dôrazne odporú
     </message>
     <message>
         <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings page</source>
         <translation type="unfinished"/>
     </message>
 </context>

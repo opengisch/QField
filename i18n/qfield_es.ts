@@ -3075,6 +3075,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <translation>%1URL del servidor
 (Déjalo en blanco para utilizar el servidor predeterminado)</translation>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3947,6 +3951,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Project successfully created</source>
         <translation>El proyecto se ha creado correctamente</translation>
+    </message>
+    <message>
+        <source>Settings page</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

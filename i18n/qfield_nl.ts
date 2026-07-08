@@ -3072,6 +3072,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 (Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3945,6 +3949,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings page</source>
         <translation type="unfinished"/>
     </message>
 </context>

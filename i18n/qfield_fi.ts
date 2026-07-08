@@ -3072,6 +3072,10 @@ syy: %2</translation>
 (Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
@@ -3947,6 +3951,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings page</source>
         <translation type="unfinished"/>
     </message>
 </context>

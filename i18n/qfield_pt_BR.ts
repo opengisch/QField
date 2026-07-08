@@ -1153,7 +1153,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n feição(ões) mesclada(s) com sucesso</numerusform><numerusform>%n feição(ões) mesclada(s) com sucesso</numerusform><numerusform>%n feição(ões) mesclada(s) com sucesso</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
@@ -2025,19 +2025,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>NtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Resposta inesperada do servidor NTRIP</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>Desconectado antes de receber a tabela de fontes</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum ponto de montagem encontrado na tabela de fontes do NTRIP</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>rro ao obter a tabela de fontes do NTRIP:</translation>
     </message>
 </context>
 <context>
@@ -2162,11 +2162,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar arquivo ZIP</translation>
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>Arquivos ZIP (*.zip)</translation>
     </message>
 </context>
 <context>
@@ -2263,11 +2263,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>Ainda não há complementos instalados. Acesse a guia %1Complementos disponíveis%3 para instalar um agora mesmo. %2Para mais informações, consulte a documentação%3.</translation>
     </message>
     <message>
         <source>The currently opened project has loaded a project plugin</source>
-        <translation type="unfinished"/>
+        <translation>O projeto atualmente aberto carregou um complemento de projeto.</translation>
     </message>
     <message>
         <source>Deny permission</source>
@@ -2392,7 +2392,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
@@ -2467,11 +2467,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -2541,7 +2541,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do NTRIP</translation>
     </message>
     <message>
         <source>Host</source>
@@ -2553,15 +2553,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation> 
+Protocolo</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>Revisão 1 do NTRIP</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>Revisão 2 do NTRIP</translation>
     </message>
     <message>
         <source>Username</source>
@@ -2573,23 +2574,25 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Ponto de montagem</translation>
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation> 
+Identificador:</translation>
     </message>
     <message>
         <source>Data format:</source>
-        <translation type="unfinished"/>
+        <translation>Formato dos dados:</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished"/>
+        <translation>Distância:</translation>
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation> 
+Enviar posição ao servidor NTRIP</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
@@ -2608,27 +2611,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Feedback sonoro de proximidade</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Rotacionar visualização</translation>
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Fonte da rotação</translation>
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation> 
+Bússola</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation> 
+Movimento</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Precisão</translation>
     </message>
 </context>
 <context>
@@ -2760,15 +2765,16 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>O QFieldCloud permite sincronizar e consolidar os dados coletados pela sua equipe no %1. Desde pequenos projetos individuais até grandes campanhas de coleta de dados.</translation>
     </message>
     <message>
         <source>Automatically push changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Enviar alterações automaticamente em intervalos regulares</translation>
     </message>
     <message>
         <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
+        <translation> 
+Permitir anotações em linhas e polígonos</translation>
     </message>
 </context>
 <context>
@@ -2815,7 +2821,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Anexos das anotações</translation>
     </message>
     <message>
         <source>Description</source>
@@ -2823,7 +2829,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation> 
+Anexos</translation>
     </message>
     <message>
         <source>Point</source>
@@ -2846,7 +2853,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>No servidor</translation>
     </message>
     <message>
         <source>at service</source>
@@ -3066,7 +3073,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1URL do servidor (deixe em branco para usar o servidor padrão)</translation>
+    </message>
+    <message>
+        <source>Visit the %1settings page%2 to manage your account.</source>
+        <translation> account.
+Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     </message>
 </context>
 <context>
@@ -3089,11 +3101,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="unfinished"/>
+        <translation>Algumas camadas não foram empacotadas corretamente. Elas podem estar configuradas incorretamente ou sua fonte de dados não está acessível a partir do servidor do QFieldCloud</translation>
     </message>
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
-        <translation type="unfinished"/>
+        <translation>Consulte os detalhes abaixo e os registros mais recentes da tarefa de empacotamento no site do QFieldCloud</translation>
     </message>
 </context>
 <context>
@@ -3332,7 +3344,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Cloudify!</source>
-        <translation type="unfinished"/>
+        <translation>sicronizar para a nuvem!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3344,19 +3356,19 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Utilizados %1 de %2</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation> Upgrade do armazenamento </translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível empacotar o projeto %1 porque o armazenamento disponível está cheio. </translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível empacotar o projeto %1 porque o armazenamento disponível do proprietário do projeto está cheio.</translation>
     </message>
 </context>
 <context>
@@ -3536,30 +3548,30 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Usando %1 de %2</translation>
     </message>
     <message>
         <source>Storage size</source>
-        <translation type="unfinished"/>
+        <translation>Espaço de armazenamento</translation>
     </message>
     <message>
         <source>Clone project</source>
-        <translation type="unfinished"/>
+        <translation>Criar cópia do projeto</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Filtros predefinidos</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Critérios</translation>
     </message>
     <message>
         <source>Include public projects</source>
-        <translation type="unfinished"/>
+        <translation> Incluir projetos públicos</translation>
     </message>
     <message>
         <source>Search</source>
@@ -3567,7 +3579,7 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>%1&apos;s projects</source>
-        <translation type="unfinished"/>
+        <translation>Projetos de %1&apos;s</translation>
     </message>
     <message>
         <source>My own projects</source>
@@ -3941,6 +3953,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Project successfully created</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings page</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7392,7 +7408,7 @@ para mostrar as ações</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation> Upgrade do armazenamento </translation>
     </message>
     <message>
         <source>Plugin Manager</source>
@@ -7404,11 +7420,11 @@ para mostrar as ações</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível empacotar o projeto %1 porque o armazenamento disponível está cheio. </translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível empacotar o projeto %1 porque o armazenamento disponível do proprietário do projeto está cheio.</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
