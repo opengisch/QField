@@ -54,7 +54,7 @@ TestCase {
   property var passwordField: connectionSettings.children[5]
   property var showPasswordButton: passwordField.children[1]
   property var availableProvidersRepeater: connectionSettings.children[9]
-  property var cloudRegisterLabel: connectionSettings.children[10]
+  property var cloudRegisterLabel: connectionSettings.children[11]
 
   SignalSpy {
     id: loginFailedSpy
