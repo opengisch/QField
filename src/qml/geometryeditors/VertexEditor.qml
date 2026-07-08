@@ -71,6 +71,7 @@ GeometryEditorBase {
 
   QfToolButton {
     id: cancelButton
+    objectName: "vertexEditorCancelButton"
     iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
     round: true
     visible: featureModel && featureModel.vertexModel.dirty && !qfieldSettings.autoSave
@@ -84,6 +85,7 @@ GeometryEditorBase {
 
   QfToolButton {
     id: applyButton
+    objectName: "vertexEditorApplyButton"
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     iconColor: Theme.toolButtonColor
     round: true
@@ -102,6 +104,7 @@ GeometryEditorBase {
 
   QfToolButton {
     id: removeVertexButton
+    objectName: "vertexEditorRemoveVertexButton"
     iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
     iconColor: Theme.toolButtonColor
     round: true
