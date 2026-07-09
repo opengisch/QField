@@ -249,6 +249,88 @@ QfPaneDrawer {
     }
   }
 
+  QfMenu {
+    id: itemMenu
+    title: qsTr("Bookmark Actions")
+
+    property string itemId: ''
+    property string itemName: ''
+    property string itemGroup: ''
+
+    topMargin: mainWindow.sceneTopMargin
+    bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      text: qsTr("Edit Bookmark")
+      icon.source: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        bookmarkList.requestBookmarkProperties(itemMenu.itemId, itemMenu.itemName, itemMenu.itemGroup);
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Copy Bookmark Details")
+      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        const point = bookmarkList.model.getBookmarkPoint(itemMenu.itemId);
+        const crs = bookmarkList.model.getBookmarkCrs(itemMenu.itemId);
+        const coordinates = StringUtils.pointInformation(point, crs);
+        platformUtilities.copyTextToClipboard(itemMenu.itemName + '\n' + coordinates);
+        displayToast(qsTr('Bookmark details copied to clipboard'));
+      }
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
+
+    MenuItem {
+      text: qsTr("Delete Bookmark")
+      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        removeBookmarkDialog.open();
+      }
+    }
+  }
+
+  QfDialog {
+    id: removeBookmarkDialog
+    parent: mainWindow.contentItem
+
+    title: qsTr("Remove bookmark")
+    Label {
+      width: mainWindow.width - 60
+      wrapMode: Text.WordWrap
+      font: Theme.defaultFont
+      color: Theme.mainTextColor
+      text: qsTr("You are about to remove a bookmark, proceed?")
+    }
+
+    onAccepted: {
+      bookmarkList.model.removeBookmark(itemMenu.itemId);
+      bookmarkList.focus = true;
+    }
+
+    onRejected: {
+      bookmarkList.focus = true;
+    }
+  }
+
   QfDialog {
     id: deleteBookmarksDialog
     parent: mainWindow.contentItem
@@ -298,19 +380,7 @@ QfPaneDrawer {
       Rectangle {
         width: parent.width
         height: 30
-        color: {
-          switch (section) {
-          case "orange":
-            return Theme.bookmarkOrange;
-          case "red":
-            return Theme.bookmarkRed;
-          case "blue":
-            return Theme.bookmarkBlue;
-          case "project":
-            return Theme.controlBorderColor;
-          }
-          return Theme.bookmarkDefault;
-        }
+        color: Theme.controlBorderColor
 
         Text {
           anchors {
@@ -319,7 +389,7 @@ QfPaneDrawer {
           }
           font.bold: true
           font.pointSize: Theme.resultFont.pointSize
-          color: section === "project" ? Theme.mainTextColor : "white"
+          color: Theme.mainTextColor
           text: {
             switch (section) {
             case "orange":
@@ -388,7 +458,7 @@ QfPaneDrawer {
       }
 
       QfToolButton {
-        id: bookmarkPropertiesButton
+        id: itemMenuButton
         anchors {
           right: parent.right
           rightMargin: 5
@@ -396,21 +466,27 @@ QfPaneDrawer {
         }
         width: 48
         height: 48
-        visible: bookmarkList.multiSelection && BookmarkUser
-        round: false
-        iconSource: Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp')
+        visible: !bookmarkList.multiSelection && BookmarkUser
+        round: true
+        opacity: 0.5
+        bgcolor: "transparent"
+        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
         iconColor: Theme.mainTextColor
-        bgcolor: 'transparent'
 
         onClicked: {
-          bookmarkList.requestBookmarkProperties(BookmarkId, BookmarkName, BookmarkGroup === 'green' ? '' : BookmarkGroup);
+          const gc = mapToItem(bookmarkList, 0, 0);
+          itemMenu.itemId = BookmarkId;
+          itemMenu.itemName = BookmarkName;
+          // BookmarkGroup surfaces empty groups as "green"; restore empty so edits don't persist a color onto an ungrouped bookmark.
+          itemMenu.itemGroup = BookmarkGroup === 'green' ? '' : BookmarkGroup;
+          itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
         }
       }
 
       MouseArea {
         id: mouseArea
         anchors.fill: parent
-        anchors.rightMargin: bookmarkPropertiesButton.visible ? bookmarkPropertiesButton.width : 0
+        anchors.rightMargin: itemMenuButton.visible ? itemMenuButton.width : 0
 
         onClicked: {
           if (bookmarkList.multiSelection) {
