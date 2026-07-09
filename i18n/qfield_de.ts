@@ -5461,7 +5461,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kann nicht mit dem Bearbeiten beginnen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5469,11 +5469,11 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Kann Änderungen im Layer %1 nicht rückgängig machen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Kann Änderungen im Layer %1 nicht übergeben.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

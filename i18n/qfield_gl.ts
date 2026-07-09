@@ -5463,7 +5463,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Non se pode iniciar a edición</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5471,11 +5471,11 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Non se poden reverter os cambios da capa na capa %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Non se poden remitir os cambios da capa á capa %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

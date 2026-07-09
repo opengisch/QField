@@ -5465,7 +5465,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Неуспешно започване на редакция</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5473,11 +5473,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Неуспешна отмяна на промените в слоя %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Неуспешно запазване на промените в слоя %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

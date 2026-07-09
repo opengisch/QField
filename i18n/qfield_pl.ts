@@ -5468,7 +5468,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nie można rozpocząć edycji</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5476,11 +5476,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Nie można cofnąć zmian w warstwie % 1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Nie można zatwierdzić zmian warstwy na warstwie %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5463,7 +5463,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kan niet beginnen met bewerken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5471,11 +5471,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Kan geen laagwijzigingen vastleggen in laag %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5465,7 +5465,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ei voida aloittaa muokkausta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5473,11 +5473,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Ei voida palauttaa tason muutoksia tasolla %1. </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Ei voida kommitoida tason muutoksia tasolla %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5466,7 +5466,7 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nelze zahájit úpravy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5474,11 +5474,11 @@ Zrušte pro jen minimální skenování zařízení. </translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Ve vrstvě %1 nelze vrátit zpět změny vrstvy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Ve vrstvě %1 nelze provést změny vrstev.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

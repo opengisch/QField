@@ -5459,7 +5459,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>திருத்தத் தொடங்க முடியவில்லை</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5467,11 +5467,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>அடுக்கு% 1ல் உள்ள அடுக்கு மாற்றங்களை திரும்பப் பெற முடியாது</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>அடுக்கு% 1 இல் அடுக்கு மாற்றங்களைச் செய்ய முடியாது.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

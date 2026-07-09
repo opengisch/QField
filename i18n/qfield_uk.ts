@@ -5468,7 +5468,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Не вдалось розпочати редагування</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5476,11 +5476,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Неможливо відкати зміни шару в шарі %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Неможливо зафіксувати зміни шару в шарі %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

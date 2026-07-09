@@ -5469,7 +5469,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Non è possibile iniziare a modificare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5477,11 +5477,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Impossibile ripristinare le modifiche nel layer %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Impossibile eseguire le modifiche nel layer %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

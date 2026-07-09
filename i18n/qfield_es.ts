@@ -5465,7 +5465,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>No se puede empezar a editar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5473,11 +5473,11 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>No se pueden volver atrás los cambios en la capa %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>No se pueden registrar los cambios en la capa %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

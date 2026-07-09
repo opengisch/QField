@@ -5458,7 +5458,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Güncellemeye başlanamadı.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5466,11 +5466,11 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>%1 katmanındaki değişiklikler geri alınamaz</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>%1 katmanındaki değişiklikler katmana işlenemez.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

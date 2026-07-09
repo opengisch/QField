@@ -5461,7 +5461,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5469,11 +5469,11 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Cannot rollback layer changes in layer %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Cannot commit layer changes in layer %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

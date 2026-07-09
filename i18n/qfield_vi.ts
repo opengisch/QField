@@ -5457,7 +5457,7 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Không thể bắt đầu chỉnh sửa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5465,11 +5465,11 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Không thể khôi phục các thay đổi của lớp trong lớp %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Không thể xác nhận các thay đổi của lớp trong lớp %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

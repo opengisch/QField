@@ -5445,7 +5445,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5453,11 +5453,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>ບໍ່ສາມາດເຮັດການປ່ຽນຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

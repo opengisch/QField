@@ -5460,7 +5460,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Szerkesztés elindítása nem sikerült</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5468,11 +5468,11 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Nem tudom visszavonni a %1 rétegen végrehajtott módosításokat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Nem tudom tárolni %1 réteg végrehajtott módosításokat.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

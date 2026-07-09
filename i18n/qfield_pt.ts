@@ -5465,7 +5465,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Não é possível iniciar a edição</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5473,11 +5473,11 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Não é possível retroceder as alterações na camada %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Não é possível confirmar alterações na camada %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

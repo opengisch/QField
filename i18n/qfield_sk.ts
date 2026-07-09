@@ -5466,7 +5466,7 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Editácia nie je možná</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5474,11 +5474,11 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Zmeny vo vrstve %1 nie je možné vrátiť späť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Vo vrstve %1 nejde spraviť zmeny.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5467,7 +5467,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nu se poate începe editarea</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot delete feature</source>
@@ -5475,11 +5475,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Nu se pot anula modificările din stratul %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Nu se pot efectua modificări în stratul %1.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
