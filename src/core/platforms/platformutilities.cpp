@@ -32,6 +32,7 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDir>
+#include <QDirIterator>
 #include <QFileDialog>
 #include <QMargins>
 #include <QMessageBox>
@@ -41,6 +42,8 @@
 #include <QTimer>
 #include <QUrl>
 #include <QtGui/qpa/qplatformwindow.h>
+#include <qgsfileutils.h>
+#include <qgsziputils.h>
 
 #if defined( Q_OS_ANDROID )
 #include "androidplatformutilities.h"
@@ -58,7 +61,7 @@ PlatformUtilities::~PlatformUtilities()
 
 PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | FilePicker | NativeLocalDataPicker | UpdateProjectFromArchive;
+  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | CustomSend | FilePicker | NativeLocalDataPicker | UpdateProjectFromArchive;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -310,12 +313,51 @@ void PlatformUtilities::exportDatasetTo( const QString &path ) const
 
 void PlatformUtilities::sendDatasetTo( const QString &path ) const
 {
-  Q_UNUSED( path )
+  const QString directory = QFileDialog::getExistingDirectory( nullptr, tr( "Select Destination Folder" ) );
+  if ( directory.isEmpty() )
+  {
+    return;
+  }
+
+  QStringList paths = QStringList() << path;
+  const QSet<QString> files = QgsFileUtils::sidecarFilesForPath( path );
+  for ( const QString &file : files )
+  {
+    paths << file;
+  }
+
+  for ( const QString &file : std::as_const( paths ) )
+  {
+    const QString destination = QStringLiteral( "%1/%2" ).arg( directory, QFileInfo( file ).fileName() );
+    QFile::copy( file, destination );
+  }
 }
 
 void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 {
-  Q_UNUSED( path )
+  const QString tempZipPath = QStringLiteral( "%1/%2.zip" ).arg( QDir::tempPath(), QFileInfo( path ).fileName() );
+  QFile::remove( tempZipPath );
+
+  QStringList files;
+  QDirIterator it( path, QDir::Files, QDirIterator::Subdirectories );
+  while ( it.hasNext() )
+  {
+    files << it.next();
+  }
+
+  if ( files.isEmpty() || !QgsZipUtils::zip( tempZipPath, files ) )
+  {
+    return;
+  }
+
+  const QString directory = QFileDialog::getExistingDirectory( nullptr, tr( "Select Destination Folder" ) );
+  if ( !directory.isEmpty() )
+  {
+    const QString destination = QStringLiteral( "%1/%2" ).arg( directory, QFileInfo( tempZipPath ).fileName() );
+    QFile::copy( tempZipPath, destination );
+  }
+
+  QFile::remove( tempZipPath );
 }
 
 void PlatformUtilities::removeDataset( const QString &path ) const
