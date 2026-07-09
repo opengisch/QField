@@ -340,6 +340,17 @@ TestCase {
     const invalidDatetimeValue = new Date("-");
     const date = dateTime.convertValueToDate(invalidDatetimeValue);
     verify(!isNaN(date.getTime()));
+
+    dateTime.isEnabled = true;
+    dateTime.fieldIsDate = false;
+    dateTime.fieldIsDateTime = false;
+    dateTime.fieldIsTime = false;
+    dateTime.config = {
+      "display_format": "HH:mm",
+      "calendar_popup": true
+    };
+    dateTime.value = "13:50";
+    compare(label.text, "13:50");
   }
 
   /**
