@@ -68,7 +68,7 @@ EditorWidgetBase {
           try {
             return Qt.formatDateTime(value, displayFormat);
           } catch (e) {
-            return qsTr('(no date)');
+            return value;
           }
         }
         return Qt.formatDateTime(date, displayFormat);
@@ -207,18 +207,22 @@ EditorWidgetBase {
     showTimePicker: {
       if (main.fieldIsDateTime || main.fieldIsTime) {
         return true;
-      } else if (main.fieldIsString && !!config['field_format_overwrite'] && (config['field_format'].includes("HH:mm") || !!config['field_iso_format'])) {
-        return true;
       }
-      return false;
+      if (main.fieldIsString && !!config['field_format_overwrite']) {
+        return config['field_format'].includes("HH") || !!config['field_iso_format'];
+      }
+      return config['display_format'].includes("HH");
     }
     showDatePicker: {
-      if (main.fieldIsTime) {
-        return false;
-      } else if (main.fieldIsString && !!config['field_format_overwrite'] && !config['field_format'].includes("yyyy-MM") && !config['field_format'].includes("yyyy.MM") && !config['field_iso_format']) {
+      if (main.fieldIsDateTime || main.fieldIsDate) {
+        return true;
+      } else if (main.fieldIsTime) {
         return false;
       }
-      return true;
+      if (main.fieldIsString && !!config['field_format_overwrite']) {
+        return config['field_format'].includes("yy") || config['field_format'].includes("yy") || !!config['field_iso_format'];
+      }
+      return config['display_format'].includes("yy");
     }
 
     onDateTimePicked: date => {
