@@ -62,8 +62,11 @@ QfPopup {
     }
   }
 
+  property bool pickingImage: false
+
   function pickImage() {
-    imageResourceSource = platformUtilities.getGalleryPicture(platformUtilities.systemLocalDataLocation() + '/', 'codereader.{extension}', codeReader);
+    pickingImage = true;
+    imageResourceSource = platformUtilities.getGalleryPicture(platformUtilities.systemLocalDataLocation() + '/', 'codereader.{extension}', codeReader.contentItem);
     imageResourceSource.resourceReceived.connect(codeReader.decodeImageResource);
   }
 
@@ -74,6 +77,7 @@ QfPopup {
     }
     platformUtilities.rmFile(filePath);
     imageResourceSource = undefined;
+    pickingImage = false;
   }
 
   QfCameraPermission {
@@ -224,7 +228,7 @@ QfPopup {
               CaptureSession {
                 id: captureSession
                 camera: Camera {
-                  active: codeReader.visible && settings.cameraActive
+                  active: codeReader.visible && settings.cameraActive && !codeReader.pickingImage
                   flashMode: Camera.FlashOff
                 }
                 videoOutput: videoOutput

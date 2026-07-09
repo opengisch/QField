@@ -16,6 +16,7 @@
 
 #include "barcodedecoder.h"
 
+#include <QImageReader>
 #include <QVideoFrame>
 
 #include <ZXing/ReadBarcode.h>
@@ -129,12 +130,10 @@ bool BarcodeDecoder::decodeImage( const QImage &image )
 
 bool BarcodeDecoder::decodeImageFile( const QString &path )
 {
-  if ( mDecodingThread )
-  {
-    return false;
-  }
+  QImageReader reader( path );
+  reader.setDecideFormatFromContent( true );
 
-  QImage image( path );
+  QImage image = reader.read();
   if ( image.isNull() )
   {
     return false;
