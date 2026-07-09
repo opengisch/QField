@@ -76,6 +76,7 @@ Drawer {
    */
   onOpened: {
     isAdding = true;
+    overlayFeatureForm.forceActiveFocus();
   }
 
   onClosed: {
@@ -204,8 +205,7 @@ Drawer {
         if (overlayFeatureForm.model.constraintsHardValid || qfieldSettings.autoSave) {
           overlayFeatureFormDrawer.close();
         } else {
-          //block closing to fix constraints or cancel with button
-          displayToast(qsTr("Hard constraints not satisfied"), 'error');
+          overlayFeatureForm.requestCancel();
         }
         event.accepted = true;
       }
