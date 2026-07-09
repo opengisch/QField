@@ -49,6 +49,11 @@ QfPaneDrawer {
   property bool allowDelete
 
   property bool multiSelection: false
+
+  function isFormOpenedFromSingleIdentify() {
+    return qfieldSettings.autoOpenFormSingleIdentify && !multiSelection && model.count === 1;
+  }
+
   isFullscreen: qfieldSettings.fullScreenIdentifyView
 
   property bool canvasOperationRequested: digitizingToolbar.geometryRequested || moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
@@ -501,7 +506,7 @@ QfPaneDrawer {
 
     onBackClicked: {
       featureFormList.focus = true;
-      if (featureFormList.state !== "FeatureList") {
+      if (featureFormList.state !== "FeatureList" && !featureFormList.isFormOpenedFromSingleIdentify()) {
         featureFormList.state = "FeatureList";
       } else {
         featureFormList.state = "Hidden";
@@ -711,6 +716,8 @@ QfPaneDrawer {
       if (state != "FeatureList") {
         if (featureListToolBar.state === "Edit") {
           featureForm.requestCancel();
+        } else if (isFormOpenedFromSingleIdentify()) {
+          state = "Hidden";
         } else {
           state = "FeatureList";
         }
