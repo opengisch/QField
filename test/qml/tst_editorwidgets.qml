@@ -318,13 +318,37 @@ TestCase {
   function test_01_dateTime() {
     const label = dateTime.children[0].children[0];
     compare(label.text, "2022-01-01");
-    const testTimes = ["2023-01-01", "2023-01-01 23:33:56"];
+
     const displayFormats = ["yyyy-MM-dd", "yyyy-MM.dd", "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "HH:mm"];
     const results = ["2023-01-01", "2023-01.01", "2023-01-01 00:00:00", "00:00:00", "00:00", "2023-01-01", "2023-01.01", "2023-01-01 23:33:56", "23:33:56", "23:33"];
+
+    let testTimes = ["2023-01-01", "2023-01-01 23:33:56"];
     let resultIdx = 0;
     for (let time of testTimes) {
       for (let format of displayFormats) {
+        dateTime.isDateTimeType = false;
         dateTime.fieldIsDate = false;
+        dateTime.fieldIsDateTime = false;
+        dateTime.fieldIsTime = false;
+        dateTime.config = {
+          "display_format": format,
+          "calendar_popup": true,
+          "field_format": "yyyy-MM-dd",
+          "allow_null": false
+        };
+        dateTime.value = time;
+        compare(label.text, results[resultIdx++]);
+      }
+    }
+
+    testTimes = [new Date("2023-01-01 00:00:00"), new Date("2023-01-01 23:33:56")];
+    resultIdx = 0;
+    for (let time of testTimes) {
+      for (let format of displayFormats) {
+        dateTime.isDateTimeType = true;
+        dateTime.fieldIsDateTime = true;
+        dateTime.fieldIsDateTime = false;
+        dateTime.fieldIsTime = false;
         dateTime.config = {
           "display_format": format,
           "calendar_popup": true,
@@ -342,6 +366,7 @@ TestCase {
     verify(!isNaN(date.getTime()));
 
     dateTime.isEnabled = true;
+    dateTime.isDateTimeType = false;
     dateTime.fieldIsDate = false;
     dateTime.fieldIsDateTime = false;
     dateTime.fieldIsTime = false;
