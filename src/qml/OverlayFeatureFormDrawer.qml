@@ -76,7 +76,6 @@ Drawer {
    */
   onOpened: {
     isAdding = true;
-    overlayFeatureForm.forceActiveFocus();
   }
 
   onClosed: {
