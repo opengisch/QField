@@ -822,7 +822,7 @@ Popup {
       if (error !== '') {
         displayToast(error, 'error');
       }
-      iface.loadFile(cloudProjectCreationConnection.target.localPath);
+      iface.loadFile(cloudProjectCreationConnection.target.localPath, cloudProjectCreationConnection.target.name);
       cloudProjectCreationConnection.target = null;
       popup.close();
     }
