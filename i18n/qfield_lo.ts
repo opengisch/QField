@@ -2072,10 +2072,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Constraints not valid</source>
         <translation type="vanished">ຂໍ້ຈໍາກັດບໍ່ຖືກຕ້ອງ</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>ເງື່ອນໄຂທີ່ຈຳເປັນບໍ່ໄດ້ຮັບການຕອບສະໜອງ</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2161,6 +2157,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

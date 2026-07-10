@@ -2085,10 +2085,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Constraints not valid</source>
         <translation type="vanished">Обмеження недійсні</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Жорсткі обмеження не були виконані</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2175,6 +2171,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>ZIP Archives (*.zip)</source>
         <translation>ZIP-архіви (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

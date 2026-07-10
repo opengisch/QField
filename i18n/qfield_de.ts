@@ -2080,10 +2080,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Constraints not valid</source>
         <translation type="vanished">Bedingung ungültig</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Harte Bedingungen wurden nicht erfüllt</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2170,6 +2166,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>ZIP Archives (*.zip)</source>
         <translation>ZIP Archive (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

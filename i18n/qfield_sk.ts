@@ -2084,10 +2084,6 @@ Dôvod:
         <source>Constraints not valid</source>
         <translation type="vanished">Obmedzenia sú neplatné</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2173,6 +2169,10 @@ Dôvod:
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

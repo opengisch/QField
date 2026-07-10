@@ -2082,10 +2082,6 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>Constraints not valid</source>
         <translation type="vanished">Contraintes non respectées</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Contraintes renforcées non respectées</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2172,6 +2168,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>ZIP Archives (*.zip)</source>
         <translation>Archives ZIP (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

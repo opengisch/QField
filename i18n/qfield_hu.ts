@@ -2080,10 +2080,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Constraints not valid</source>
         <translation type="vanished">Hibás korlátozás</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>A szigorú korlátozások nem teljesültek</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2169,6 +2165,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

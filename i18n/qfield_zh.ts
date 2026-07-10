@@ -2079,10 +2079,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Constraints not valid</source>
         <translation type="vanished">约束无效</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>硬约束未满足</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2169,6 +2165,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>ZIP Archives (*.zip)</source>
         <translation>ZIP档案文件 (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation>选择目标文件夹</translation>
     </message>
 </context>
 <context>

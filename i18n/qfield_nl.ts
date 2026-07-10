@@ -2081,10 +2081,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Constraints not valid</source>
         <translation type="vanished">Ongeldige voorwaarden</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2170,6 +2166,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

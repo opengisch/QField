@@ -2083,10 +2083,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>Constraints not valid</source>
         <translation type="vanished">Ograničenja nevažeča</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2172,6 +2168,10 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2083,10 +2083,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Constraints not valid</source>
         <translation type="vanished">Restricciones no válidas</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Restricciones duras no satisfechas</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2173,6 +2169,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>ZIP Archives (*.zip)</source>
         <translation>Archivos ZIP (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2085,10 +2085,6 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Constraints not valid</source>
         <translation type="vanished">Nieprawidłowe ograniczenia</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Twarde ograniczenia nie zostały spełnione</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2175,6 +2171,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>ZIP Archives (*.zip)</source>
         <translation>Archiwa ZIP (*.zip)</translation>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2081,10 +2081,6 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <source>Constraints not valid</source>
         <translation type="vanished">Ehdot eiv채t kelpaa</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Kovia rajoitteita ei t채ytetty</translation>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2170,6 +2166,10 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>

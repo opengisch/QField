@@ -2083,10 +2083,6 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
         <source>Constraints not valid</source>
         <translation type="vanished">Vincoli non validi</translation>
     </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
@@ -2172,6 +2168,10 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>
