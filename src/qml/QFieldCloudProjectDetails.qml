@@ -377,7 +377,7 @@ ColumnLayout {
     onClicked: {
       if (cloudProject != undefined) {
         qfieldCloudScreen.visible = false;
-        iface.loadFile(cloudProject.localPath);
+        iface.loadFile(cloudProject.localPath, cloudProject.name);
       }
       projectsSwipeView.currentIndex = 0;
       cloudProject = undefined;
