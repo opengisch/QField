@@ -215,7 +215,7 @@ QfPaneDrawer {
     }
 
     MenuItem {
-      text: bookmarkList.multiSelection ? qsTr('Export Selected Bookmark(s)') : qsTr('Export All Bookmarks')
+      text: bookmarkList.multiSelection ? qsTr('Export Selected Bookmark(s)') : qsTr('Export All User Bookmarks')
       icon.source: Theme.getThemeVectorIcon("ic_download_white_24dp")
       enabled: !bookmarkList.multiSelection || (bookmarkList.model && bookmarkList.model.selectedCount > 0)
 

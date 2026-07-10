@@ -213,9 +213,9 @@ QfPopup {
           bgcolor: "transparent"
 
           onClicked: {
-            var point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId);
-            var crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
-            var coordinates = StringUtils.pointInformation(point, crs);
+            const point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId);
+            const crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
+            const coordinates = StringUtils.pointInformation(point, crs);
             platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates);
             displayToast(qsTr('Bookmark details copied to clipboard'));
           }
