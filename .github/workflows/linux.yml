@@ -210,9 +210,6 @@ jobs:
           QFIELDCLOUD_URL: https://localhost:8443
           QFIELDCLOUD_USERNAME: admin
           QFIELDCLOUD_PASSWORD: admin123
-          QFIELDCLOUD_REMOTE_URL: ${{ secrets.QFIELDCLOUD_TEST_SERVER_URL }}
-          QFIELDCLOUD_REMOTE_USERNAME: ${{ secrets.QFIELDCLOUD_TEST_USERNAME }}
-          QFIELDCLOUD_REMOTE_PASSWORD: ${{ secrets.QFIELDCLOUD_TEST_PASSWORD }}
         run: |
           pip install -r "${{ github.workspace }}/test/spix/requirements.txt"
           docker compose -f "${{ github.workspace }}/test/docker-compose.yaml" up -d
@@ -238,9 +235,6 @@ jobs:
           export QFIELDCLOUD_URL="${QFIELDCLOUD_URL}"
           export QFIELDCLOUD_USERNAME="${QFIELDCLOUD_USERNAME}"
           export QFIELDCLOUD_PASSWORD="${QFIELDCLOUD_PASSWORD}"
-          export QFIELDCLOUD_REMOTE_URL="${QFIELDCLOUD_REMOTE_URL}"
-          export QFIELDCLOUD_REMOTE_USERNAME="${QFIELDCLOUD_REMOTE_USERNAME}"
-          export QFIELDCLOUD_REMOTE_PASSWORD="${QFIELDCLOUD_REMOTE_PASSWORD}"
           xvfb-run --server-args="-screen 0 640x480x24" ctest --repeat until-pass:3 --output-on-failure -C ${{ env.BUILD_TYPE }}
 
       - name: Docker cleanup
