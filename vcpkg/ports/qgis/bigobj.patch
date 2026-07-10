@@ -1,0 +1,22 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 631274d..74ab83a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1168,6 +1168,17 @@ if (ENABLE_UNITY_BUILDS)
+   endif()
+ endif()
+ 
++# Debug builds emit a COMDAT section per inline function, which pushes large
++# translation units (notably src/core/qgis.cpp) past the 65535-section limit of
++# the COFF object format: "error C1128: number of sections exceeded object file
++# format limit". Upstream only tags a handful of files with /bigobj via
++# set_source_files_properties, and that list is tuned against Release builds.
++# Enable it for every MSVC translation unit instead: /bigobj only raises the
++# section limit, it has no runtime cost and does not change the emitted code.
++if(MSVC)
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
++endif()
++
+ 
+ #############################################################
+ # Python
