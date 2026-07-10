@@ -86,7 +86,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      *          this includes local qfieldcloud data or sample projects.
      *          A \a subDir is appended to the path.
      */
-    virtual QString systemLocalDataLocation( const QString &subDir = QString() ) const;
+    Q_INVOKABLE virtual QString systemLocalDataLocation( const QString &subDir = QString() ) const;
 
     /**
      * Returns TRUE is a project file has been provided and should be opened at launch.

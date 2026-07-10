@@ -48,8 +48,15 @@ class BarcodeDecoder : public QObject
 
     /**
      * Scans a provided \a image for barcodes and if present sets the decoded string value.
+     * Returns TRUE when a barcode was decoded.
      */
-    void decodeImage( const QImage &image );
+    bool decodeImage( const QImage &image );
+
+    /**
+     * Scans an image found at a given \a path for barcodes and if present sets the decoded
+     * string value. Returns TRUE when a barcode was decoded.
+     */
+    Q_INVOKABLE bool decodeImageFile( const QString &path );
 
     QVideoSink *videoSink() const;
     void setVideoSink( QVideoSink *sink );

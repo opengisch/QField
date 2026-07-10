@@ -16,6 +16,7 @@
 
 #include "barcodedecoder.h"
 
+#include <QImageReader>
 #include <QVideoFrame>
 
 #include <ZXing/ReadBarcode.h>
@@ -60,7 +61,7 @@ void BarcodeDecoder::clearDecodedString()
   emit decodedStringChanged();
 }
 
-void BarcodeDecoder::decodeImage( const QImage &image )
+bool BarcodeDecoder::decodeImage( const QImage &image )
 {
   auto imageFormatFromQImage = []( const QImage &img ) {
     switch ( img.format() )
@@ -119,11 +120,33 @@ void BarcodeDecoder::decodeImage( const QImage &image )
       {
         mDecodedString = resultText;
         emit decodedStringChanged();
+        return true;
       }
     }
   }
 
-  return;
+  return false;
+}
+
+bool BarcodeDecoder::decodeImageFile( const QString &path )
+{
+  QImageReader reader( path );
+  reader.setDecideFormatFromContent( true );
+
+  QImage image = reader.read();
+  if ( image.isNull() )
+  {
+    return false;
+  }
+
+  if ( image.format() != QImage::Format_ARGB32 )
+  {
+    image = image.convertToFormat( QImage::Format_ARGB32 );
+  }
+
+  clearDecodedString();
+
+  return decodeImage( image );
 }
 
 QVideoSink *BarcodeDecoder::videoSink() const
