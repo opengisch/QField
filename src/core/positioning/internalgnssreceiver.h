@@ -57,6 +57,9 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     QList<int> mSatellitesID;
     QList<QgsSatelliteInfo> mSatellitesInfo;
     bool mSatelliteInformationValid = true;
+
+    QDateTime mPreconnectSatellitePositionTimestamp;
+    bool mSatellitePositionReceived = false;
 };
 
 #endif // INTERNALGNSSRECEIVER_H
