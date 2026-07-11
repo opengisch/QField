@@ -143,7 +143,8 @@ ProcessingParameterWidgetBase {
       }
       onPressAndHold: {
         changeValueTimer.increase = false;
-        changeValueTimer.interval = 700;
+        changeValueTimer.interval = changeValueTimer.initialInterval;
+        changeValueTimer.triggered();
         changeValueTimer.restart();
       }
       onReleased: {
@@ -174,7 +175,8 @@ ProcessingParameterWidgetBase {
       }
       onPressAndHold: {
         changeValueTimer.increase = true;
-        changeValueTimer.interval = 700;
+        changeValueTimer.interval = changeValueTimer.initialInterval;
+        changeValueTimer.triggered();
         changeValueTimer.restart();
       }
       onReleased: {
@@ -188,7 +190,8 @@ ProcessingParameterWidgetBase {
 
   Timer {
     id: changeValueTimer
-    interval: 700
+    property int initialInterval: 500
+    interval: initialInterval
     repeat: true
 
     property bool increase: true
