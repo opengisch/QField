@@ -544,6 +544,8 @@ Drawer {
         height: parent.height
         anchors.verticalCenter: parent.verticalCenter
         icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
+        icon.width: Theme.toolButtonSize / 2
+        icon.height: Theme.toolButtonSize / 2
         font: Theme.defaultFont
         text: qsTr("Return home")
 
