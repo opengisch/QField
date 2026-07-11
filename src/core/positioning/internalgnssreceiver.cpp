@@ -25,7 +25,7 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
 {
   if ( mGeoPositionSource )
   {
-    mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::SatellitePositioningMethods );
+    mGeoPositionSource->setPreferredPositioningMethods( QGeoPositionInfoSource::AllPositioningMethods );
     mGeoPositionSource->setUpdateInterval( 1000 );
 
     connect( mGeoPositionSource.get(), &QGeoPositionInfoSource::positionUpdated, this, &InternalGnssReceiver::handlePositionUpdated );
@@ -70,6 +70,11 @@ void InternalGnssReceiver::handleConnectDevice()
 {
   if ( mGeoPositionSource )
   {
+    // Capture previous satellite position capture to keep track of _new_ satellite position for this session
+    mSatellitePositionReceived = false;
+    const QGeoPositionInfo satellitePosition = mGeoPositionSource->lastKnownPosition( true );
+    mPreconnectSatellitePositionTimestamp = satellitePosition.isValid() ? satellitePosition.timestamp() : QDateTime();
+
     mGeoPositionSource->startUpdates();
     mActive = true;
   }
@@ -81,7 +86,19 @@ void InternalGnssReceiver::handleConnectDevice()
 
 void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positionInfo )
 {
-  if ( mLastGnssPositionValid && !positionInfo.coordinate().isValid() )
+  const QGeoPositionInfo satellitePosition = mGeoPositionSource ? mGeoPositionSource->lastKnownPosition( true ) : QGeoPositionInfo();
+  if ( !mSatellitePositionReceived )
+  {
+    if ( satellitePosition.isValid()
+         && ( mPreconnectSatellitePositionTimestamp.isNull() || satellitePosition.timestamp() > mPreconnectSatellitePositionTimestamp ) )
+    {
+      // Fresh satellite fix received during this session
+      mSatellitePositionReceived = true;
+    }
+  }
+
+  const QGeoPositionInfo pickedPositionInfo = mSatellitePositionReceived ? satellitePosition : positionInfo;
+  if ( mLastGnssPositionValid && !pickedPositionInfo.coordinate().isValid() )
   {
     return;
   }
@@ -89,15 +106,15 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
   bool updatePositionInformation = false;
 
   double latitude = mLastGnssPositionInformation.latitude();
-  if ( !qgsDoubleNear( positionInfo.coordinate().latitude(), latitude ) )
+  if ( !qgsDoubleNear( pickedPositionInfo.coordinate().latitude(), latitude ) )
   {
-    latitude = positionInfo.coordinate().latitude();
+    latitude = pickedPositionInfo.coordinate().latitude();
     updatePositionInformation = true;
   }
-  double longitude = mLastGnssPositionInformation.latitude();
-  if ( !qgsDoubleNear( positionInfo.coordinate().longitude(), longitude ) )
+  double longitude = mLastGnssPositionInformation.longitude();
+  if ( !qgsDoubleNear( pickedPositionInfo.coordinate().longitude(), longitude ) )
   {
-    longitude = positionInfo.coordinate().longitude();
+    longitude = pickedPositionInfo.coordinate().longitude();
     updatePositionInformation = true;
   }
 
@@ -108,9 +125,9 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
   }
 
   double elevation = mLastGnssPositionInformation.elevation();
-  if ( !qgsDoubleNear( positionInfo.coordinate().altitude(), elevation ) )
+  if ( !qgsDoubleNear( pickedPositionInfo.coordinate().altitude(), elevation ) )
   {
-    elevation = positionInfo.coordinate().altitude() - antennaHeight;
+    elevation = pickedPositionInfo.coordinate().altitude() - antennaHeight;
     updatePositionInformation = true;
   }
 
@@ -120,11 +137,11 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
    * have to skip updating those until the next time they are present in an update.
    */
   std::function<double( QGeoPositionInfo::Attribute, double )> updateAttribute =
-    [&positionInfo, &updatePositionInformation]( QGeoPositionInfo::Attribute attribute, double value ) -> double {
-    if ( positionInfo.hasAttribute( attribute ) && !qgsDoubleNear( positionInfo.attribute( attribute ), value ) )
+    [&pickedPositionInfo, &updatePositionInformation]( QGeoPositionInfo::Attribute attribute, double value ) -> double {
+    if ( pickedPositionInfo.hasAttribute( attribute ) && !qgsDoubleNear( pickedPositionInfo.attribute( attribute ), value ) )
     {
       updatePositionInformation = true;
-      return positionInfo.attribute( attribute );
+      return pickedPositionInfo.attribute( attribute );
     }
     return value;
   };
@@ -145,7 +162,7 @@ void InternalGnssReceiver::handlePositionUpdated( const QGeoPositionInfo &positi
                                                             mSatellitesInfo, 0, 0, 0,
                                                             hacc,
                                                             vacc,
-                                                            positionInfo.timestamp(),
+                                                            pickedPositionInfo.timestamp(),
                                                             QChar(), 0, -1, static_cast<int>( mSatellitesID.size() ), QChar( 'A' ), mSatellitesID, mSatelliteInformationValid,
                                                             verticalSpeed,
                                                             magneticVariation,
