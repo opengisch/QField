@@ -277,9 +277,9 @@ TestCase {
     wait(500);
     const toolbar = Utils.findChildren(featureForm, "toolbar");
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
-    const itemLoader = fieldItem.itemAt(0).children[2].children[0];
-    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName);
-    compare(itemLoader.containerName, "Number of Boxes");
+    const fieldLabel = fieldItem.itemAt(0).children[0].children[0].text;
+    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldLabel);
+    compare(fieldLabel, "Number of Boxes");
     compare(attributeEditorLoader.isEditable, true);
     compare(attributeEditorLoader.isEnabled, false);
     compare(attributeEditorLoader.isEditing, false);
@@ -313,10 +313,10 @@ TestCase {
     wait(100);
 
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
-    const rangeItemLoader = fieldItem.itemAt(0).children[2].children[0];
-    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + rangeItemLoader.containerName);
+    const rangeItemLabel = fieldItem.itemAt(0).children[0].children[0].text;
+    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + rangeItemLabel);
 
-    compare(rangeItemLoader.containerName, "Number of Boxes");
+    compare(rangeItemLabel, "Number of Boxes");
     compare(attributeEditorLoader.value, 7, "Initial value should be 7");
 
     // Test setting a valid value
@@ -355,10 +355,10 @@ TestCase {
     wait(100);
 
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
-    const regionItemLoader = fieldItem.itemAt(1).children[2].children[0];
-    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + regionItemLoader.containerName);
+    const regionItemLabel = fieldItem.itemAt(1).children[0].children[0].text;
+    const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + regionItemLabel);
 
-    compare(regionItemLoader.containerName, "Region");
+    compare(regionItemLabel, "Region");
 
     // Verify initial empty string (server-side fill scenario)
     compare(attributeEditorLoader.value, '', "Region should start as empty string");
@@ -401,7 +401,7 @@ TestCase {
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
 
     // Test Range widget
-    const rangeLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(0).children[2].children[0].containerName);
+    const rangeLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(0).children[0].children[0].text);
     compare(rangeLoader.widget, "Range");
 
     const initialRangeValue = rangeLoader.value;
@@ -414,7 +414,7 @@ TestCase {
     wait(50);
 
     // Test TextEdit widget
-    const textEditLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(3).children[2].children[0].containerName);
+    const textEditLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(3).children[0].children[0].text);
     compare(textEditLoader.widget, "TextEdit");
 
     const initialTextValue = textEditLoader.value;
@@ -438,7 +438,7 @@ TestCase {
     wait(50);
 
     // Test ValueMap widget
-    const valueMapLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[2].children[0].containerName);
+    const valueMapLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[0].children[0].text);
     compare(valueMapLoader.widget, "ValueMap");
 
     const initialValueMapValue = valueMapLoader.value;
@@ -465,7 +465,7 @@ TestCase {
     wait(100);
 
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
-    const regionLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[2].children[0].containerName);
+    const regionLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[0].children[0].text);
 
     // Region starts as empty string
     compare(regionLoader.value, "");
@@ -527,14 +527,19 @@ TestCase {
    */
   function compareFeatureFormWithExpectedResults(expectedModel) {
     const fieldItem = Utils.findChildren(featureForm, "fieldRepeater");
+    console.log(fieldItem);
+    console.log(fieldItem.count);
     for (var j = 0; j < fieldItem.count; ++j) {
-      const itemLoader = fieldItem.itemAt(j).children[2].children[0];
-      const fieldContainer = fieldItem.itemAt(j).children[2].children[1];
+      console.log(j);
+      console.log(fieldItem.itemAt(j));
+      console.log(fieldItem.itemAt(j).children[0].children);
+
+      const fieldContainer = fieldItem.itemAt(j).children[0];
       const fieldLabel = fieldContainer.children[0].text;
-      const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + itemLoader.containerName);
+      const attributeEditorLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldLabel);
       const attributeConfig = attributeEditorLoader.config;
-      const initialValue = attributeEditorLoader.currentFeature.attribute(itemLoader.containerName);
-      compare(itemLoader.containerName, expectedModel[j].containerName);
+      const initialValue = attributeEditorLoader.currentFeature.attribute(fieldLabel);
+
       compare(fieldLabel, expectedModel[j].containerName);
       compare(attributeEditorLoader.widget, expectedModel[j].widgetType);
       compare(attributeEditorLoader.source, expectedModel[j].source);
