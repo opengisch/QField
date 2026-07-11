@@ -423,6 +423,50 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>No bookmarks yet</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Detalles do marcador copiados ó portapapeis</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Eliminar marcador</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Estás a piques de eliminar o marcador, continuar?</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -643,6 +687,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     <message>
         <source>Center your device on a code</source>
         <translation>Centrar o dispositivo nun código</translation>
+    </message>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

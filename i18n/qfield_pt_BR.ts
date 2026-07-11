@@ -423,6 +423,50 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>No bookmarks yet</source>
         <translation>Ainda não há marcadores</translation>
     </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Detalhes do marcador copiados para área de transferência</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Remover marcador</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Está prestes a remover o marcador, proceder?</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -643,6 +687,10 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Center your device on a code</source>
         <translation>Centralize seu dispositivo em um código</translation>
+    </message>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

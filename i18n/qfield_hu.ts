@@ -423,6 +423,50 @@ Szakítsd meg a minimális eszközkereséshez.</translation>
         <source>No bookmarks yet</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Könyvjelző részletek a vágólapra másolva</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Könyvjelző eltávolítása</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Éppen törlöd a könyvjelzőt, folytatod?</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -643,6 +687,10 @@ Szakítsd meg a minimális eszközkereséshez.</translation>
     <message>
         <source>Center your device on a code</source>
         <translation>Nézzen a készüléked a kódra</translation>
+    </message>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

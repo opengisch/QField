@@ -422,6 +422,50 @@ Cancel to make a minimal device scan instead.</source>
         <source>No bookmarks yet</source>
         <translation>Pas encore de repères</translation>
     </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Détails du repère copiés dans le presse-papiers</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Supprimer le repère</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Vous êtes sur le point de supprimer un repère, continuer ?</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -642,6 +686,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Center your device on a code</source>
         <translation>Centrer votre appareil sur un code</translation>
+    </message>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

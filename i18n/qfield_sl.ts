@@ -422,6 +422,50 @@ Cancel to make a minimal device scan instead.</source>
         <source>No bookmarks yet</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Podrobnosti zaznamka so kopirane v odložišče</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Odstrani zaznamek</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Odstranil boš zaznamek. Želiš nadaljevati?</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -642,6 +686,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Center your device on a code</source>
         <translation>Usmerite svojo napravo na kodo</translation>
+    </message>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

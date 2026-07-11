@@ -1,22 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="done_unpacking_msg">S\'ha finalitzat el procés, es pot utilitzar QGIS. </string>
-    <string name="unpacking_title">QField s\'està enllestint</string>
+    <string name="unpacking_title">QField s\'està preparant</string>
     <string name="unpacking_msg">Aquesta operació puntual pot trigar una mica</string>
     <string name="unpacking_msg_following">Ja gairebé ho tenim, estigueu a punt!</string>
     <string name="use_internal_storage">Utilitza l\'emmagatzematge intern</string>
     <string name="external_storage_unavailable">S\'estan desempaquetant les dades després de la instal·lació. Aquest procés pot tardar una mica. </string>
-    <string name="noexternalstorage_dialog">Sembla que l\'emmagatzematge extern (/sdcard) no està disponible. Això passa quan es connecta el dispositiu a un PC via USB.\nQGIS pot executar-se des d\'un espai d\'emmagatzematge intern però no és recomanable degut a que podria tenir poc espai.\nIt us suggerim CANCEL·LAR, desconnectar el cable USB i reiniciar QGIS.</string>
+    <string name="noexternalstorage_dialog">Sembla que l\'emmagatzematge extern (/sdcard) no està disponible. Això passa quan es connecta el dispositiu a un PC via USB.\nQGIS pot executar-se des d\'un espai d\'emmagatzematge intern però no és recomanable degut a que podria ser massa petit.\nIt us suggerim CANCEL·LAR, desconnectar el cable USB i reiniciar QGIS.</string>
     <string name="primary_storage">Emmagatzematge intern</string>
     <string name="secondary_storage">Directori de fitxers QField</string>
     <string name="secondary_storage_extra">Directori de fitxers addicionals</string>
     <string name="secondary_storage_read_only">Emmagatzematge extern (només lectura)</string>
     <string name="inaccessible">inaccessible</string>
     <string name="loading">Carregant</string>
-    <string name="select_project">Seleccioneu un projecte QGIS o una base de dades</string>
+    <string name="select_project">Seleccioneu un projecte de QGIS o un conjunt de dades</string>
     <string name="recent_projects">Projectes recents i conjunts de dades</string>
     <string name="rate_title">Valora QField</string>
-    <string name="rate_message">Si t\'agrada utilitzar QField, dedica un moment a valorar-lo. Gràcies per el teu suport!</string>
+    <string name="rate_message">Si t\'agrada utilitzar QField, dedica un moment a valorar-lo. Gràcies pel teu suport!</string>
     <string name="rate_now">Valora</string>
     <string name="remind_later">Recorda\'m-ho més tard</string>
     <string name="no_thanks">No, gràcies!</string>
@@ -27,7 +27,7 @@
     <string name="added_to_favorites">Afegit als preferits</string>
     <string name="removed_from_favorites">Eliminat dels preferits</string>
     <string name="external_files_title">Nota important</string>
-    <string name="external_files_message"><![CDATA[El directori de fitxers de QField es pot utilitzar per copiar fitxers i projectes al dispositiu mitjançant un cable USB. Podeu veure la ruta absoluta del directori a la barra de capçalera. Tingueu en compte que el contingut d\'aquest directori s\'eliminarà si desinstal·leu QField del dispositiu.]]></string>
+    <string name="external_files_message"><![CDATA[El directori de fitxers de QField es pot utilitzar per copiar fitxers i projectes al dispositiu mitjançant un cable USB. Pots veure la ruta absoluta del directori a la barra d\'encapçalament. <br/><br/>Tingues en compte que el contingut d\'aquest directori <i>s\'eliminarà</i> si desinstal·les QField del dispositiu.]]></string>
     <string name="external_files_ok">D\'acord</string>
     <string name="grant_permission">Accés a tots els fitxers</string>
     <string name="grant_all_files_permission"><![CDATA[QField necessita permisos d\'accés a tots els fitxers per poder obrir projectes i conjunts de dades locals, així com per admetre quadrícules de projecció, fonts i mapes base personalitzats. Tot i que no és obligatori, <i>es recomana permetre l\'accés</i>. <br/><br/>A la pantalla següent, seleccioneu <b>QField</b> i seleccioneu l\'opció <b>Permet l\'accés a tots els fitxers</b>.]]></string>
@@ -35,7 +35,7 @@
     <string name="deny_always">Denegar permanentment</string>
     <string name="deny_once">Denegar una vegada</string>
     <string name="import_error">Error d\'importació</string>
-    <string name="import_dataset_error">No s\'ha pogut importar correctament el(s) conjunt(s) de dades seleccionat(s).</string>
+    <string name="import_dataset_error">No s\'ha pogut importar correctament el(s) conjunt de dades seleccionat.</string>
     <string name="import_project_archive_error">L\'arxiu del projecte seleccionat no s\'ha importat correctament.</string>
     <string name="import_project_folder_error">La carpeta del projecte seleccionada no s\'ha importat correctament.</string>
     <string name="import_overwrite_title">Avís d\'importació</string>
@@ -56,7 +56,7 @@
     <string name="storage_information_view">Mostra\'m la documentació</string>
     <string name="storage_information_dismiss">Ho llegiré més tard</string>
     <string name="import_project_wait">Si us plau, espereu mentre QField importa el projecte.</string>
-    <string name="import_dataset_wait">Si us plau, espereu mentre QField importa el(s) conjunt(s) de dades.</string>
+    <string name="import_dataset_wait">Si us plau, espereu mentre QField importa el(s) conjunt de dades.</string>
     <string name="update_project_wait">Espereu mentre QField actualitza el projecte local</string>
     <string name="upload_pending_attachments">Ara mateix s\'està carregant fitxers adjunts a QFieldCloud</string>
     <string name="operation_unsupported">Operació no admesa</string>

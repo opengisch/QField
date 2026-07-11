@@ -423,6 +423,50 @@ Cancel to make a minimal device scan instead.</source>
         <source>No bookmarks yet</source>
         <translation>尚无书签</translation>
     </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>书签详细信息复制到剪贴板</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>移除书签</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>将移除书签，是否继续？</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
@@ -643,6 +687,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Center your device on a code</source>
         <translation>请将设备对准条码</translation>
+    </message>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation>在所选图像中未找到可读代码</translation>
     </message>
 </context>
 <context>
