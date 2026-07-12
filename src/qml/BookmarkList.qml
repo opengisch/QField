@@ -387,8 +387,7 @@ QfPaneDrawer {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
           }
-          font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
+          font: Theme.strongResultFont
           color: Theme.mainTextColor
           text: {
             switch (section) {

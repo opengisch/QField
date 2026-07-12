@@ -501,7 +501,7 @@ Drawer {
           icon.source: legend.model.isCollapsed ? Theme.getThemeVectorIcon('ic_expand_all_24dp') : Theme.getThemeVectorIcon('ic_collapse_all_24dp')
           icon.width: 14
           icon.height: 14
-          font.pointSize: 8
+          font.pointSize: Theme.tinyFont.pointSize - 2
 
           onClicked: {
             legend.model.setAllCollapsed(!legend.model.isCollapsed);

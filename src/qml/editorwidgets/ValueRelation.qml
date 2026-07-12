@@ -263,8 +263,7 @@ EditorWidgetBase {
                   id: groupFieldValueText
                   width: parent.width
                   text: groupFieldValue ? groupFieldValue : ""
-                  font.bold: true
-                  font.pointSize: Theme.resultFont.pointSize
+                  font: Theme.strongResultFont
                   color: Theme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   anchors.verticalCenter: parent.verticalCenter
