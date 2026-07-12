@@ -255,7 +255,7 @@ QfPaneDrawer {
             verticalCenter: parent.verticalCenter
           }
           font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
+          font.pointSize: Theme.resultFont
           color: Theme.mainTextColor
           text: section
         }
@@ -300,7 +300,6 @@ QfPaneDrawer {
           right: parent.right
           verticalCenter: parent.verticalCenter
         }
-        font.bold: true
         font.pointSize: Theme.resultFont.pointSize
         font.italic: conditionalFontItalic
         font.underline: conditionalFontUnderline

@@ -297,7 +297,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QFont defaultFont() const { return makeFont( 1.0, false ); }
     QFont tinyFont() const { return makeFont( 0.75, false ); }
     QFont tipFont() const { return makeFont( 0.875, false ); }
-    QFont resultFont() const { return makeFont( 0.8125, false ); }
+    QFont resultFont() const { return makeFont( 0.9, false ); }
     QFont strongFont() const { return makeFont( 1.0, true ); }
     QFont strongTipFont() const { return makeFont( 0.875, true ); }
     QFont secondaryTitleFont() const { return makeFont( 1.125, false ); }

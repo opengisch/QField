@@ -838,7 +838,7 @@ RelationEditorBase {
             width: listRow.width - listThumbnail.width - listFormButton.width - listMenuButton.width - listRow.spacing * 2
             text: model.displayString
             color: Theme.mainTextColor
-            font: Theme.defaultFont
+            font: Theme.resultFont
             elide: Text.ElideRight
             wrapMode: Text.WordWrap
             maximumLineCount: 2
@@ -1212,7 +1212,7 @@ RelationEditorBase {
               id: cardSuffixText
               anchors.centerIn: parent
               text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
-              font.pointSize: Theme.tinyFont.pointSize
+              font.pointSize: Theme.tinyFont
               font.weight: Font.Bold
               color: Theme.mainTextColor
               opacity: 0.6
@@ -1289,8 +1289,7 @@ RelationEditorBase {
 
             text: model.displayString
             color: Theme.mainTextColor
-            font.pointSize: Theme.tipFont.pointSize
-            font.weight: Font.Medium
+            font: Theme.tipFont
             elide: Text.ElideRight
           }
 

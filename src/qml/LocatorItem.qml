@@ -395,8 +395,7 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: Name + ' (' + Prefix + ')' + (Prefix === 'f' && dashBoard.activeLayer ? ' — ' + dashBoard.activeLayer.name : '')
-            font.bold: false
-            font.pointSize: Theme.resultFont.pointSize
+            font: Theme.resultFont
             color: Theme.mainTextColor
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignLeft
@@ -409,8 +408,7 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: Description || ''
-            font.bold: false
-            font.pointSize: Theme.resultFont.pointSize
+            font: Theme.resultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignLeft
@@ -482,7 +480,7 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
-            font.bold: false
+            font.bold: isFilterName || isGroup
             font.pointSize: Theme.resultFont.pointSize
             color: isFilterName ? Theme.mainOverlayColor : Theme.mainTextColor
             elide: Text.ElideRight
@@ -497,8 +495,7 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: locatorBridge.getLocatorModelDescription(index)
-            font.bold: false
-            font.pointSize: Theme.resultFont.pointSize
+            font: Theme.resultFont
             color: Theme.secondaryTextColor
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignLeft

@@ -450,8 +450,7 @@ QfPaneDrawer {
           right: parent.right
           verticalCenter: parent.verticalCenter
         }
-        font.bold: true
-        font.pointSize: Theme.resultFont.pointSize
+        font: Theme.resultFont
         color: Theme.mainTextColor
         text: BookmarkName !== '' ? BookmarkName : qsTr("Untitled bookmark")
         wrapMode: Text.WordWrap

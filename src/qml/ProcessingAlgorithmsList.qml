@@ -134,8 +134,7 @@ Item {
             verticalCenter: parent.verticalCenter
           }
           width: parent.width - favoriteButton.width - 10
-          font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
+          font: Theme.resultFont
           color: Theme.mainTextColor
           text: AlgorithmName
         }
