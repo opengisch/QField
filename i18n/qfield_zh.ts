@@ -425,27 +425,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>导出所选书签</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>导出所有用户书签</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>书签已导出</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
+        <translation>书签动作</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>编辑书签</translation>
     </message>
     <message>
         <source>Copy Bookmark Details</source>
-        <translation type="unfinished"/>
+        <translation>复制书签详细信息</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -453,7 +453,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Delete Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>删除书签</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -465,7 +465,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>工程书签</translation>
     </message>
 </context>
 <context>
