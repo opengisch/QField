@@ -300,6 +300,7 @@ QfPaneDrawer {
           verticalCenter: parent.verticalCenter
         }
         font.pointSize: Theme.resultFont.pointSize
+        font.bold: conditionalFontBold
         font.italic: conditionalFontItalic
         font.underline: conditionalFontUnderline
         font.strikeout: conditionalFontStrikeOut

@@ -287,6 +287,7 @@ QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
   roleNames[MultiFeatureListModel::ConditionalFontUnderlineRole] = "conditionalFontUnderline";
   roleNames[MultiFeatureListModel::ConditionalFontStrikeOutRole] = "conditionalFontStrikeOut";
   roleNames[MultiFeatureListModel::ConditionalFontItalicRole] = "conditionalFontItalic";
+  roleNames[MultiFeatureListModel::ConditionalFontBoldRole] = "conditionalFontBold";
 
   return roleNames;
 }
@@ -412,6 +413,19 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       }
 
       return QVariant();
+      break;
+
+    case MultiFeatureListModel::ConditionalFontBoldRole:
+      if ( vlayer )
+      {
+        const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
+        if ( mFeaturesConditionalStyle.contains( featureUniqueKey ) )
+        {
+          return mFeaturesConditionalStyle[featureUniqueKey].font().bold();
+        }
+      }
+
+      return false;
       break;
 
     case MultiFeatureListModel::ConditionalFontItalicRole:
@@ -1068,6 +1082,7 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
       {
         rolesChanged << MultiFeatureListModel::ConditionalBackgroundColorRole
                      << MultiFeatureListModel::ConditionalTextColorRole
+                     << MultiFeatureListModel::ConditionalFontBoldRole
                      << MultiFeatureListModel::ConditionalFontItalicRole
                      << MultiFeatureListModel::ConditionalFontUnderlineRole
                      << MultiFeatureListModel::ConditionalFontStrikeOutRole;
@@ -1117,6 +1132,7 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
       {
         rolesChanged << MultiFeatureListModel::ConditionalBackgroundColorRole
                      << MultiFeatureListModel::ConditionalTextColorRole
+                     << MultiFeatureListModel::ConditionalFontBoldRole
                      << MultiFeatureListModel::ConditionalFontItalicRole
                      << MultiFeatureListModel::ConditionalFontUnderlineRole
                      << MultiFeatureListModel::ConditionalFontStrikeOutRole;
