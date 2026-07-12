@@ -20,7 +20,7 @@ QfPaneDrawer {
   contentVisible: props.isVisible
   freezeKey: 'bookmarkresize'
   headerHeight: bookmarkListToolBar.height
-  minContentHeight: bookmarkListToolBar.height + (bookmarksList.contentHeight + bookmarksList.anchors.bottomMargin) + 25
+  minContentHeight: bookmarkListToolBar.height + (bookmarksList.count === 0 ? zeroBookmarksLabel.height : bookmarksList.contentHeight) + bookmarksList.anchors.bottomMargin + 25
 
   onCollapsed: bookmarkList.hide()
 
@@ -51,8 +51,8 @@ QfPaneDrawer {
     color: Theme.mainBackgroundColor
     clip: true
 
-    property double topMargin: bookmarkList.y == 0 ? mainWindow.sceneTopMargin : 0.0
-    property double leftMargin: bookmarkList.x == 0 ? mainWindow.sceneLeftMargin : 0.0
+    property double topMargin: bookmarkList.y === 0 ? mainWindow.sceneTopMargin : 0.0
+    property double leftMargin: bookmarkList.x === 0 ? mainWindow.sceneLeftMargin : 0.0
     property double rightMargin: mainWindow.sceneRightMargin
 
     Rectangle {
@@ -366,7 +366,7 @@ QfPaneDrawer {
     clip: true
     anchors.top: bookmarkListToolBar.bottom
     anchors.left: parent.left
-    anchors.leftMargin: bookmarkList.x == 0 ? mainWindow.sceneLeftMargin : 0
+    anchors.leftMargin: bookmarkList.x === 0 ? mainWindow.sceneLeftMargin : 0
     anchors.right: parent.right
     anchors.rightMargin: mainWindow.sceneRightMargin
     anchors.bottom: parent.bottom
@@ -515,8 +515,11 @@ QfPaneDrawer {
     }
 
     Label {
+      id: zeroBookmarksLabel
       anchors.centerIn: parent
       width: parent.width - 40
+      topPadding: 10
+      bottomPadding: 20
       visible: bookmarksList.count === 0
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
