@@ -484,7 +484,7 @@ Item {
             font.pointSize: Theme.resultFont.pointSize
             color: isFilterName ? Theme.mainOverlayColor : Theme.mainTextColor
             elide: Text.ElideRight
-            horizontalAlignment: isGroup ? Text.AlignHCenter : Text.AlignLeft
+            horizontalAlignment: isFilterName || isGroup ? Text.AlignHCenter : Text.AlignLeft
           }
 
           Text {
