@@ -493,7 +493,6 @@ QfPaneDrawer {
             bookmarkList.model.toggleSelected(BookmarkId);
           } else {
             bookmarkList.model.setExtentFromBookmark(bookmarkList.model.index(index, 0));
-            bookmarkList.hide();
           }
         }
 
