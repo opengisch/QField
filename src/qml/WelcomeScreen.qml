@@ -569,7 +569,7 @@ Page {
             Layout.fillWidth: true
             Layout.topMargin: 18
             visible: table.count > 0
-            text: qsTr("Recent Projects")
+            text: qsTr("Recently Opened")
             font.pointSize: Theme.tipFont.pointSize
             font.bold: true
             color: Theme.mainTextColor
@@ -733,7 +733,7 @@ Page {
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.defaultProject
 
-                  text: qsTr("Default Project")
+                  text: qsTr("Default project")
                   onTriggered: {
                     registry.defaultProject = recentProjectActions.recentProjectPath === registry.defaultProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -750,7 +750,7 @@ Page {
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
-                  text: qsTr("Individual Datasets Base Map")
+                  text: qsTr("Individual datasets base map")
                   onTriggered: {
                     registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -770,7 +770,7 @@ Page {
                   height: visible ? 48 : 0
                   leftPadding: Theme.menuItemIconlessLeftPadding
 
-                  text: qsTr("Remove from Recent Projects")
+                  text: qsTr("Remove from recently opened")
                   onTriggered: {
                     model.removeRecentProject(recentProjectActions.recentProjectPath);
                     model.reloadModel();
