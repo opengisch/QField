@@ -42,7 +42,7 @@ EditorWidgetBase {
 
   Label {
     id: checkValue
-    height: Math.max(48, fontMetrics.height + 20)
+    height: Math.max(Theme.toolButtonSize, fontMetrics.height + 20)
     anchors {
       left: parent.left
       right: checkBox.left

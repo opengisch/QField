@@ -325,8 +325,8 @@ RelationEditorBase {
 
   headerActions: [
     QfToolButton {
-      width: 48
-      height: 48
+      width: Theme.toolButtonSize
+      height: Theme.toolButtonSize
       enabled: isEnabled
       visible: isEnabled
 
@@ -847,8 +847,8 @@ RelationEditorBase {
           QfToolButton {
             id: listFormButton
             anchors.verticalCenter: parent.verticalCenter
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
             round: false
             iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
             iconColor: Theme.mainTextColor
@@ -860,8 +860,8 @@ RelationEditorBase {
           QfToolButton {
             id: listMenuButton
             anchors.verticalCenter: parent.verticalCenter
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
             round: false
             iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
             iconColor: Theme.mainTextColor
@@ -1164,8 +1164,8 @@ RelationEditorBase {
 
           Rectangle {
             anchors.centerIn: parent
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
             radius: width / 2
             color: cardContainer.overlayColor
             border.width: 0.5
@@ -1299,8 +1299,8 @@ RelationEditorBase {
             anchors.right: parent.right
             anchors.rightMargin: 2
             anchors.verticalCenter: parent.verticalCenter
-            width: 48
-            height: 48
+            width: Theme.toolButtonSize
+            height: Theme.toolButtonSize
 
             round: false
             iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")

@@ -175,8 +175,8 @@ Popup {
         QfToolButton {
           property color colorValue: modelData[0]
 
-          width: 48
-          height: 48
+          width: Theme.toolButtonSize
+          height: Theme.toolButtonSize
           round: true
           borderColor: modelData[1]
           scale: settings.strokeColor == colorValue ? 1 : 0.66

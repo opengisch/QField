@@ -21,8 +21,8 @@ RoundButton {
   property alias bgcolor: backgroundRectangle.color
   property color borderColor: 'transparent'
 
-  width: 48
-  height: 48
+  width: Theme.toolButtonSize
+  height: Theme.toolButtonSize
   implicitWidth: width
   implicitHeight: height
   focusPolicy: Qt.NoFocus
@@ -64,6 +64,8 @@ RoundButton {
 
   icon.source: ""
   icon.color: "transparent" // setting the color to transparent tells Qt to draw the icon using the original source color(s)
+  icon.width: Math.min(width, height) / 2
+  icon.height: Math.min(width, height) / 2
 
   Material.foreground: icon.color
   font: Theme.tipFont
@@ -78,12 +80,12 @@ RoundButton {
     visible: bottomRightIndicatorText
     color: bottomRightIndicatorBgColor
     border.color: Theme.mainBackgroundColor
-    border.width: 2
+    border.width: Math.max(1, button.width / 24)
 
     badgeText.color: bottomRightIndicatorFgColor
     badgeText.text: bottomRightIndicatorText
 
-    bottomMargin: 7
-    rightMargin: 5
+    bottomMargin: button.width * 0.15
+    rightMargin: button.width * 0.1
   }
 }

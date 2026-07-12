@@ -892,7 +892,7 @@ Page {
 
           visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item && attributeEditorLoader.item.hasMenu
           enabled: visible
-          width: visible ? 48 : 0
+          width: visible ? Theme.toolButtonSize : 0
 
           iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
           iconColor: Theme.mainTextColor
@@ -906,7 +906,7 @@ Page {
         QfToolButton {
           id: rememberButton
           visible: !!CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
-          width: visible ? 48 : 0
+          width: visible ? Theme.toolButtonSize : 0
 
           iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
           iconColor: RememberValue ? Theme.mainColor : Theme.mainTextColor
@@ -1044,7 +1044,7 @@ Page {
     rightPadding: 0
     bottomPadding: 0
 
-    height: visible ? form.topMargin + 58 : 0
+    height: visible ? form.topMargin + Theme.toolButtonSize + 10 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
@@ -1077,8 +1077,8 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
         visible: isVisible
-        width: 48
-        height: 48
+        width: Theme.toolButtonSize
+        height: Theme.toolButtonSize
         clip: true
 
         iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
@@ -1105,8 +1105,8 @@ Page {
 
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: (!saveButton.isVisible ? 48 : 0) + (!setupOnly && form.model.hasRemembrance ? 48 : 0)
-        Layout.rightMargin: !setupOnly ? 0 : 48
+        Layout.leftMargin: (!saveButton.isVisible ? Theme.toolButtonSize : 0) + (!setupOnly && form.model.hasRemembrance ? Theme.toolButtonSize : 0)
+        Layout.rightMargin: !setupOnly ? 0 : Theme.toolButtonSize
         objectName: "titleLabel"
 
         font: Theme.strongFont
@@ -1169,8 +1169,8 @@ Page {
         property bool isVisible: !setupOnly
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
-        width: 48
-        height: 48
+        width: Theme.toolButtonSize
+        height: Theme.toolButtonSize
         clip: true
         visible: isVisible
 
@@ -1194,8 +1194,8 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: 48
-        height: 48
+        width: Theme.toolButtonSize
+        height: Theme.toolButtonSize
         clip: true
         visible: isVisible
 

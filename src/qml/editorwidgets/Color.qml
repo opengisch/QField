@@ -7,7 +7,7 @@ import Theme
 EditorWidgetBase {
   id: colorControl
 
-  property double desiredHeight: 48
+  property double desiredHeight: Theme.toolButtonSize
 
   height: desiredHeight
 
@@ -38,22 +38,22 @@ EditorWidgetBase {
     RowLayout {
       id: currentColorView
       width: colorControl.width
-      height: 48
+      height: Theme.toolButtonSize
       spacing: 5
 
       Rectangle {
         id: colorArea
         Layout.fillWidth: true
-        Layout.preferredHeight: 48
-        height: 48
+        Layout.preferredHeight: Theme.toolButtonSize
+        height: Theme.toolButtonSize
         radius: height / 2
 
         color: value == null ? "transparent" : value
 
         QfToolButton {
           anchors.right: parent.right
-          width: 48
-          height: 48
+          width: Theme.toolButtonSize
+          height: Theme.toolButtonSize
           visible: isEnabled
           enabled: false
           iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
@@ -75,12 +75,12 @@ EditorWidgetBase {
     RowLayout {
       id: selectColorView
       width: colorControl.width
-      height: 48
+      height: Theme.toolButtonSize
       spacing: 5
 
       ListView {
         Layout.fillWidth: true
-        Layout.preferredHeight: 48
+        Layout.preferredHeight: Theme.toolButtonSize
         orientation: ListView.Horizontal
         spacing: 10
         model: ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00"]
@@ -88,8 +88,8 @@ EditorWidgetBase {
         clip: true
 
         delegate: QfToolButton {
-          Layout.preferredWidth: 48
-          Layout.preferredHeight: 48
+          Layout.preferredWidth: Theme.toolButtonSize
+          Layout.preferredHeight: Theme.toolButtonSize
           bgcolor: modelData
           round: true
 

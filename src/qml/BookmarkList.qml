@@ -47,7 +47,7 @@ QfPaneDrawer {
     anchors.topMargin: topMargin
     anchors.left: parent.left
     anchors.right: parent.right
-    height: topMargin + 58
+    height: topMargin + Theme.toolButtonSize + 10
     color: Theme.mainBackgroundColor
     clip: true
 
@@ -81,7 +81,7 @@ QfPaneDrawer {
         anchors.top: parent.top
         anchors.leftMargin: balancedMargin + bookmarkListToolBar.leftMargin
         anchors.rightMargin: balancedMargin + bookmarkListToolBar.rightMargin
-        height: 48
+        height: Theme.toolButtonSize
 
         font: Theme.strongFont
         color: Theme.mainTextColor
@@ -130,8 +130,8 @@ QfPaneDrawer {
       anchors.leftMargin: bookmarkListToolBar.leftMargin
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 5
-      width: 48
-      height: 48
+      width: Theme.toolButtonSize
+      height: Theme.toolButtonSize
       clip: true
       iconSource: bookmarkList.multiSelection ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
       iconColor: Theme.mainTextColor
@@ -153,9 +153,9 @@ QfPaneDrawer {
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 5
 
-      width: (bookmarkList.multiSelection && bookmarkList.model ? 48 : 0)
+      width: (bookmarkList.multiSelection && bookmarkList.model ? Theme.toolButtonSize : 0)
       visible: width > 0
-      height: 48
+      height: Theme.toolButtonSize
       verticalAlignment: Text.AlignVCenter
       font: Theme.strongFont
       color: Theme.mainTextColor
@@ -172,8 +172,8 @@ QfPaneDrawer {
       anchors.rightMargin: bookmarkListToolBar.rightMargin
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 5
-      width: 48
-      height: 48
+      width: Theme.toolButtonSize
+      height: Theme.toolButtonSize
       clip: true
 
       iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
@@ -464,8 +464,8 @@ QfPaneDrawer {
           rightMargin: 5
           verticalCenter: parent.verticalCenter
         }
-        width: 48
-        height: 48
+        width: Theme.toolButtonSize
+        height: Theme.toolButtonSize
         visible: !bookmarkList.multiSelection && BookmarkUser
         round: true
         opacity: 0.5

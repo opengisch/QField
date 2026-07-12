@@ -49,8 +49,8 @@ Item {
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       }
       QfToolButton {
-        width: 48
-        height: 48
+        width: Theme.toolButtonSize
+        height: Theme.toolButtonSize
 
         iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
         iconColor: Theme.mainTextColor

@@ -1322,7 +1322,9 @@ ApplicationWindow {
           bgcolor: Theme.toolButtonBackgroundColor
 
           QfBadge {
-            width: 16
+            width: identifyFeaturesButton.width / 2.5
+            topMargin: identifyFeaturesButton.width / 20
+            rightMargin: identifyFeaturesButton.width / 20
             color: Theme.toolButtonColor
             border.width: 1
             border.color: Theme.toolButtonColor
@@ -2224,7 +2226,7 @@ ApplicationWindow {
 
       anchors.right: locatorItem.right
       anchors.top: locatorItem.top
-      anchors.topMargin: 48 + 4
+      anchors.topMargin: Theme.toolButtonSize + 4
       spacing: 4
     }
 
@@ -2356,6 +2358,9 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
+          width: menuButton.width / 4
+          topMargin: menuButton.width / 24
+          rightMargin: menuButton.width / 24
           visible: showSync || showPush
           color: showSync ? Theme.mainColor : Theme.cloudColor
           enableGradient: showSync && showPush
@@ -2422,7 +2427,6 @@ ApplicationWindow {
       QfToolButtonDrawer {
         objectName: "digitizingDrawer"
         name: "digitizingDrawer"
-        size: 48
         round: true
         bgcolor: Theme.toolButtonBackgroundColor
         iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
@@ -2432,8 +2436,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: cogoButton
-          width: 40
-          height: 40
+          width: Theme.toolButtonSize * 5 / 6
+          height: Theme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: digitizingToolbar.cogoEnabled ? "On" : "Off"
@@ -2469,8 +2473,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: snappingButton
-          width: 40
-          height: 40
+          width: Theme.toolButtonSize * 5 / 6
+          height: Theme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
@@ -2509,8 +2513,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: topologyButton
-          width: 40
-          height: 40
+          width: Theme.toolButtonSize * 5 / 6
+          height: Theme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
@@ -2546,8 +2550,8 @@ ApplicationWindow {
 
         QfToolButton {
           id: freehandButton
-          width: visible ? 40 : 0
-          height: visible ? 40 : 0
+          width: visible ? Theme.toolButtonSize * 5 / 6 : 0
+          height: visible ? Theme.toolButtonSize * 5 / 6 : 0
           padding: 2
           round: true
           visible: hoverHandler.hasBeenHovered && !(positionSource.active && coordinateLocator.positionLocked) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
@@ -2594,8 +2598,8 @@ ApplicationWindow {
         QfToolButton {
           id: snapToCommonAngleButton
 
-          width: visible ? 40 : 0
-          height: visible ? 40 : 0
+          width: visible ? Theme.toolButtonSize * 5 / 6 : 0
+          height: visible ? Theme.toolButtonSize * 5 / 6 : 0
           round: true
           visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
           iconSource: Theme.getThemeVectorIcon("ic_common_angle_white_24dp")
@@ -2859,7 +2863,6 @@ ApplicationWindow {
 
       QfToolButtonDrawer {
         name: "3dDrawer"
-        size: 48
         round: true
         collapsed: false
         bgcolor: Theme.toolButtonBackgroundColor
@@ -3171,6 +3174,9 @@ ApplicationWindow {
 
         QfBadge {
           alignment: QfBadge.Alignment.TopRight
+          width: gnssButton.width / 4
+          topMargin: gnssButton.width / 24
+          rightMargin: gnssButton.width / 24
           visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != GnssPositionInformation.AccuracyUndetermined
           color: {
             if (!positionSource.positionInformation || !positionSource.positionInformation.haccValid)

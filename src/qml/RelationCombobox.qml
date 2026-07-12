@@ -565,8 +565,8 @@ Item {
       id: searchButton
       objectName: "openSearchFeaturePopupButton"
 
-      Layout.preferredWidth: enabled ? 48 : 0
-      Layout.preferredHeight: 48
+      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
+      Layout.preferredHeight: Theme.toolButtonSize
       Layout.alignment: Qt.AlignTop
 
       bgcolor: "transparent"
@@ -584,8 +584,8 @@ Item {
       id: addFeatureButton
       objectName: "addFeatureButton"
 
-      Layout.preferredWidth: comboBox.enabled ? 48 : 0
-      Layout.preferredHeight: 48
+      Layout.preferredWidth: comboBox.enabled ? Theme.toolButtonSize : 0
+      Layout.preferredHeight: Theme.toolButtonSize
       Layout.alignment: Qt.AlignTop
 
       bgcolor: "transparent"

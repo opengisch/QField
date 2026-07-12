@@ -98,7 +98,7 @@ QfPopup {
           }
 
           Layout.fillWidth: true
-          height: 48
+          height: Theme.toolButtonSize
 
           clip: true
           interactive: false
@@ -107,14 +107,14 @@ QfPopup {
           RowLayout {
             id: currentColorView
             width: colorContainer.width
-            height: 48
+            height: Theme.toolButtonSize
             spacing: 5
 
             Rectangle {
               id: colorArea
               Layout.fillWidth: true
-              Layout.preferredHeight: 48
-              height: 48
+              Layout.preferredHeight: Theme.toolButtonSize
+              height: Theme.toolButtonSize
               radius: height / 2
 
               color: {
@@ -142,8 +142,8 @@ QfPopup {
                 id: colorPicker
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                width: 48
-                height: 48
+                width: Theme.toolButtonSize
+                height: Theme.toolButtonSize
                 visible: true
                 enabled: false
                 iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
@@ -165,12 +165,12 @@ QfPopup {
           RowLayout {
             id: selectColorView
             width: colorContainer.width
-            height: 48
+            height: Theme.toolButtonSize
             spacing: 5
 
             ListView {
               Layout.fillWidth: true
-              Layout.preferredHeight: 48
+              Layout.preferredHeight: Theme.toolButtonSize
               orientation: ListView.Horizontal
               spacing: 10
               model: ["", "orange", "red", "blue"]
@@ -178,8 +178,8 @@ QfPopup {
               clip: true
 
               delegate: QfToolButton {
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
+                Layout.preferredWidth: Theme.toolButtonSize
+                Layout.preferredHeight: Theme.toolButtonSize
                 bgcolor: {
                   switch (modelData) {
                   case "orange":
@@ -206,8 +206,8 @@ QfPopup {
         }
 
         QfToolButton {
-          height: 48
-          width: 48
+          height: Theme.toolButtonSize
+          width: Theme.toolButtonSize
           iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
           iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
           bgcolor: "transparent"

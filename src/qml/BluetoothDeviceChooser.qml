@@ -163,7 +163,7 @@ Item {
 
       QfSwitch {
         id: preferBLESwitch
-        Layout.preferredWidth: 48
+        Layout.preferredWidth: Theme.toolButtonSize
         Layout.alignment: Qt.AlignVCenter
         visible: Qt.platform.os !== "ios" && deviceClassicSupport
         checked: false

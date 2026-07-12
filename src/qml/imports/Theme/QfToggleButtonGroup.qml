@@ -34,7 +34,7 @@ Item {
   /**
    * Minimum width for buttons to handle empty text gracefully
    */
-  property real buttonMininumWidth: 48
+  property real buttonMininumWidth: Theme.toolButtonSize
 
   /**
    * Spacing between buttons

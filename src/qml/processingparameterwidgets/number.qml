@@ -52,8 +52,8 @@ ProcessingParameterWidgetBase {
 
     QfToolButton {
       id: decreaseButton
-      width: enabled ? 48 : 0
-      height: 48
+      width: enabled ? Theme.toolButtonSize : 0
+      height: Theme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
@@ -84,8 +84,8 @@ ProcessingParameterWidgetBase {
 
     QfToolButton {
       id: increaseButton
-      width: enabled ? 48 : 0
-      height: 48
+      width: enabled ? Theme.toolButtonSize : 0
+      height: Theme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 

@@ -156,7 +156,7 @@ Item {
             right: parent.right
             verticalCenter: parent.verticalCenter
           }
-          width: 48
+          width: Theme.toolButtonSize
 
           iconSource: Theme.getThemeVectorIcon("ic_star_white_24dp")
           iconColor: AlgorithmFavorite ? Theme.mainColor : Theme.mainTextColor

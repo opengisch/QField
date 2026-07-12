@@ -14,7 +14,7 @@ EditorWidgetBase {
   property alias footer: footer
   property alias headerEntry: headerEntry
 
-  property int itemHeight: 48
+  property int itemHeight: Theme.toolButtonSize
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false

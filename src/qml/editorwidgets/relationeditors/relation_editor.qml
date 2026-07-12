@@ -103,8 +103,8 @@ RelationEditorBase {
         QfToolButton {
           id: viewButton
           anchors.verticalCenter: parent.verticalCenter
-          width: 48
-          height: 48
+          width: Theme.toolButtonSize
+          height: Theme.toolButtonSize
 
           round: false
           iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
@@ -119,8 +119,8 @@ RelationEditorBase {
         QfToolButton {
           id: menuButton
           anchors.verticalCenter: parent.verticalCenter
-          width: 48
-          height: 48
+          width: Theme.toolButtonSize
+          height: Theme.toolButtonSize
 
           round: false
           iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")

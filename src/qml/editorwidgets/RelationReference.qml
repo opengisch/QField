@@ -71,8 +71,8 @@ EditorWidgetBase {
       Layout.alignment: Qt.AlignTop
       visible: isVisible
       enabled: relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-      width: isVisible && enabled ? 48 : 0
-      height: 48
+      width: isVisible && enabled ? Theme.toolButtonSize : 0
+      height: Theme.toolButtonSize
 
       iconSource: Theme.getThemeVectorIcon("ic_view_black_24dp")
       iconColor: Theme.mainTextColor
@@ -95,8 +95,8 @@ EditorWidgetBase {
 
       Layout.alignment: Qt.AlignTop
       enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-      width: enabled ? 48 : 0
-      height: 48
+      width: enabled ? Theme.toolButtonSize : 0
+      height: Theme.toolButtonSize
 
       iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
       iconColor: Theme.mainTextColor
