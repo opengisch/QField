@@ -87,7 +87,7 @@ Page {
         Layout.bottomMargin: 24
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 
-        Layout.maximumWidth: Math.min(parent.width, welcomeScreenLogo.imageSize + welcomeScreenTitleMetrics.advanceWidth(welcomeScreenTitle.text) + spacing)
+        Layout.maximumWidth: Math.min(parent.width, welcomeScreenLogo.imageSize + welcomeScreenTitleMetrics.advanceWidth(welcomeScreenTitle.text) + spacing + 5)
 
         ImageDial {
           id: welcomeScreenLogo
