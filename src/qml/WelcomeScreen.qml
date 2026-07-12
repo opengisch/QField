@@ -52,7 +52,7 @@ Page {
   ScrollView {
     topPadding: Math.max(mainWindow.sceneTopMargin + 58, (mainWindow.height - welcomeLayout.height) / 2 - 50)
     leftPadding: mainWindow.sceneLeftMargin
-    rightPadding: mainWindow.sceneRighMargin
+    rightPadding: mainWindow.sceneRightMargin
     bottomPadding: mainWindow.sceneBottomMargin
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical: QfScrollBar {
