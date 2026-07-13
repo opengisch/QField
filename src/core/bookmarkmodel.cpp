@@ -16,14 +16,13 @@
  ***************************************************************************/
 
 #include "bookmarkmodel.h"
-#include "layerutils.h"
 #include "platformutilities.h"
 
 #include <qgsapplication.h>
 #include <qgscoordinatetransform.h>
 #include <qgsgeometry.h>
-#include <qgsmemoryproviderutils.h>
 #include <qgsproject.h>
+#include <qgsvectorfilewriter.h>
 #include <qgsvectorlayer.h>
 
 #include <algorithm>
@@ -318,9 +317,20 @@ bool BookmarkModel::exportBookmarks( bool selectedOnly )
   fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
 
   const QgsCoordinateReferenceSystem exportCrs( QStringLiteral( "EPSG:4326" ) );
-  std::unique_ptr<QgsVectorLayer> layer( QgsMemoryProviderUtils::createMemoryLayer( QStringLiteral( "bookmarks" ), fields, Qgis::WkbType::Point, exportCrs ) );
 
-  QgsFeatureList features;
+  const QString filePath = QStringLiteral( "%1/qfield_bookmarks_%2.gpkg" )
+                             .arg( QDir::tempPath(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+
+  QgsVectorFileWriter::SaveVectorOptions writerOptions;
+  writerOptions.layerName = QStringLiteral( "bookmarks" );
+  std::unique_ptr<QgsVectorFileWriter> writer( QgsVectorFileWriter::create( filePath, fields, Qgis::WkbType::Polygon, exportCrs, QgsProject::instance()->transformContext(), writerOptions ) );
+
+  if ( writer->hasError() != QgsVectorFileWriter::NoError )
+  {
+    return false;
+  }
+
+  bool hasFeatures = false;
   const QList<QgsBookmark> bookmarks = mManager->bookmarks();
   for ( const QgsBookmark &bookmark : bookmarks )
   {
@@ -330,13 +340,13 @@ bool BookmarkModel::exportBookmarks( bool selectedOnly )
     }
 
     const QgsReferencedRectangle extent = bookmark.extent();
-    QgsPointXY center = extent.center();
+    QgsRectangle exportRect = extent;
     if ( extent.crs() != exportCrs )
     {
       QgsCoordinateTransform transform( extent.crs(), exportCrs, QgsProject::instance()->transformContext() );
       try
       {
-        center = transform.transform( center );
+        exportRect = transform.transformBoundingBox( extent );
       }
       catch ( const QgsException & )
       {
@@ -344,28 +354,25 @@ bool BookmarkModel::exportBookmarks( bool selectedOnly )
       }
     }
 
-    QgsFeature feature( layer->fields() );
-    feature.setGeometry( QgsGeometry::fromPointXY( center ) );
+    QgsFeature feature( fields );
+    feature.setGeometry( QgsGeometry::fromRect( exportRect ) );
     feature.setAttribute( QStringLiteral( "title" ), bookmark.name() );
     feature.setAttribute( QStringLiteral( "color" ), bookmark.group() );
-    features << feature;
+
+    if ( writer->addFeature( feature ) )
+    {
+      hasFeatures = true;
+    }
   }
 
-  if ( features.isEmpty() )
+  writer.reset(); // flush and close the GeoPackage before handing off the path
+
+  if ( !hasFeatures )
   {
     return false;
   }
 
-  layer->dataProvider()->addFeatures( features );
-
-  const QString filePath = QStringLiteral( "%1/bookmarks_%2.gpkg" ).arg( QDir::tempPath(), QString::number( QDateTime::currentMSecsSinceEpoch() ) );
-  const QString exportedPath = LayerUtils::saveVectorLayerAs( layer.get(), filePath );
-  if ( exportedPath.isEmpty() )
-  {
-    return false;
-  }
-
-  PlatformUtilities::instance()->sendDatasetTo( exportedPath );
+  PlatformUtilities::instance()->sendDatasetTo( filePath );
   return true;
 }
 
