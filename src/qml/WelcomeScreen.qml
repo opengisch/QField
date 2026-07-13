@@ -50,10 +50,10 @@ Page {
   }
 
   ScrollView {
-    padding: 0
-    topPadding: Math.max(0, Math.min(80, (mainWindow.height - welcomeGrid.height) / 2 - 45))
+    topPadding: Math.max(mainWindow.sceneTopMargin + 58, (mainWindow.height - welcomeLayout.height) / 2 - 50)
     leftPadding: mainWindow.sceneLeftMargin
-    rightPadding: mainWindow.sceneRighMargin
+    rightPadding: mainWindow.sceneRightMargin
+    bottomPadding: mainWindow.sceneBottomMargin
     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
     ScrollBar.vertical: QfScrollBar {
       opacity: active
@@ -66,50 +66,77 @@ Page {
         }
       }
     }
-    contentItem: welcomeGrid
-    contentWidth: welcomeGrid.width
-    contentHeight: welcomeGrid.height
+
+    contentItem: welcomeLayout
+    contentWidth: welcomeLayout.width
+    contentHeight: welcomeLayout.height
     anchors.fill: parent
     clip: true
 
-    GridLayout {
-      id: welcomeGrid
-      columns: 1
-      rowSpacing: 4
+    ColumnLayout {
+      id: welcomeLayout
+      spacing: 4
 
       width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin
 
-      ImageDial {
-        id: imageDialLogo
-
-        property real pressedValue: -1
+      RowLayout {
+        spacing: welcomeScreenLogo.imageSize / 4
 
         Layout.margins: 6
-        Layout.topMargin: 14 + mainWindow.sceneTopMargin
-        Layout.bottomMargin: 6
+        Layout.topMargin: 0
+        Layout.bottomMargin: 24
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(138, mainWindow.height / 8)
-        Layout.preferredHeight: Math.min(138, mainWindow.height / 8)
 
-        source: "qrc:/images/app_logo.svg"
-        rotationOffset: 220
-        value: 1
+        Layout.maximumWidth: Math.min(parent.width, welcomeScreenLogo.imageSize + welcomeScreenTitleMetrics.advanceWidth(welcomeScreenTitle.text) + spacing + 5)
 
-        onPressedChanged: {
-          if (pressed) {
-            pressedValue = -1;
-          } else {
-            if (pressedValue == -1 || Math.abs(value - pressedValue) < 0.05) {
-              welcomeScreen.showAbout();
+        ImageDial {
+          id: welcomeScreenLogo
+          objectName: "welcomeScreenLogo"
+
+          property real imageSize: Math.min(48, mainWindow.width / 6)
+          property real pressedValue: -1
+
+          Layout.preferredWidth: imageSize
+          Layout.preferredHeight: imageSize
+
+          source: "qrc:/images/app_logo.svg"
+          rotationOffset: 220
+          value: 1
+
+          onPressedChanged: {
+            if (pressed) {
+              pressedValue = -1;
+            } else {
+              if (pressedValue == -1 || Math.abs(value - pressedValue) < 0.05) {
+                welcomeScreen.showAbout();
+              }
+              pressedValue = -1;
             }
-            pressedValue = -1;
+          }
+
+          onValueChanged: {
+            if (pressed && pressedValue == -1) {
+              pressedValue = value;
+            }
           }
         }
 
-        onValueChanged: {
-          if (pressed && pressedValue == -1) {
-            pressedValue = value;
-          }
+        Text {
+          id: welcomeScreenTitle
+          objectName: "welcomeScreenTitle"
+
+          Layout.fillWidth: true
+
+          font.pointSize: welcomeScreenLogo.imageSize * 0.5
+          font.bold: true
+          color: Theme.mainTextColor
+          text: appName
+          wrapMode: Text.WordWrap
+        }
+
+        FontMetrics {
+          id: welcomeScreenTitleMetrics
+          font: welcomeScreenTitle.font
         }
       }
 
@@ -121,7 +148,7 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, welcomeGrid.width - 30)
+        Layout.preferredWidth: Math.min(410, welcomeLayout.width - 30)
         Layout.preferredHeight: Math.max(ohno.childrenRect.height, intro.childrenRect.height, ohyeah.childrenRect.height)
         clip: true
 
@@ -328,7 +355,7 @@ Page {
         Layout.topMargin: 10
         Layout.bottomMargin: 10
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-        Layout.preferredWidth: Math.min(410, welcomeGrid.width - 20)
+        Layout.preferredWidth: Math.min(410, welcomeLayout.width - 20)
         Layout.preferredHeight: Math.max(collectionOhno.childrenRect.height, collectionIntro.childrenRect.height)
         clip: true
 
@@ -451,11 +478,11 @@ Page {
 
       Text {
         id: welcomeText
-        visible: !feedbackView.visible
+        visible: !feedbackView.visible && text !== ""
         Layout.leftMargin: 6
         Layout.rightMargin: 6
         Layout.topMargin: 2
-        Layout.bottomMargin: 8
+        Layout.bottomMargin: 10
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         text: ""
@@ -468,7 +495,7 @@ Page {
       Rectangle {
         Layout.leftMargin: 6
         Layout.rightMargin: 6
-        Layout.topMargin: 2
+        Layout.topMargin: 8
         Layout.bottomMargin: 8
         Layout.fillWidth: true
         Layout.maximumWidth: 410
@@ -539,15 +566,15 @@ Page {
 
           Text {
             id: recentText
+            Layout.fillWidth: true
+            Layout.topMargin: 18
             visible: table.count > 0
-            text: qsTr("Recent Projects")
+            text: qsTr("Recently Opened")
             font.pointSize: Theme.tipFont.pointSize
             font.bold: true
             color: Theme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
-            Layout.fillWidth: true
-            Layout.topMargin: 10
           }
 
           Rectangle {
@@ -706,7 +733,7 @@ Page {
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.defaultProject
 
-                  text: qsTr("Default Project")
+                  text: qsTr("Default project")
                   onTriggered: {
                     registry.defaultProject = recentProjectActions.recentProjectPath === registry.defaultProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -723,7 +750,7 @@ Page {
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
-                  text: qsTr("Individual Datasets Base Map")
+                  text: qsTr("Individual datasets base map")
                   onTriggered: {
                     registry.baseMapProject = recentProjectActions.recentProjectPath === registry.baseMapProject ? '' : recentProjectActions.recentProjectPath;
                   }
@@ -743,7 +770,7 @@ Page {
                   height: visible ? 48 : 0
                   leftPadding: Theme.menuItemIconlessLeftPadding
 
-                  text: qsTr("Remove from Recent Projects")
+                  text: qsTr("Remove from recently opened")
                   onTriggered: {
                     model.removeRecentProject(recentProjectActions.recentProjectPath);
                     model.reloadModel();
@@ -849,7 +876,7 @@ Page {
   Rectangle {
     anchors.fill: parent
     color: "#00000000"
-    visible: imageDialLogo.value < 0.1
+    visible: welcomeScreenLogo.value < 0.1
 
     MouseArea {
       id: mouseArea
@@ -876,12 +903,12 @@ Page {
 
     ParticleSystem {
       id: particles
-      running: imageDialLogo.value < 0.1
+      running: welcomeScreenLogo.value < 0.1
     }
 
     ParticleSystem {
       id: unicorns
-      running: imageDialLogo.value < 0.1
+      running: welcomeScreenLogo.value < 0.1
     }
 
     ImageParticle {
@@ -954,11 +981,11 @@ Page {
       } else {
         var firstRun = !settings.valueBool("/QField/FirstRunDone", false);
         if (firstRun) {
-          welcomeText.text = qsTr("Welcome to %1.").arg(appName) + (table.count > 0 ? qsTr("First time using this application? Try the sample projects listed below.") : "");
+          welcomeText.text = table.count > 0 ? qsTr("First time using this application? Try the sample projects listed below.") : "";
           settings.setValue("/QField/FirstRunDone", true);
           settings.setValue("/QField/showMapCanvasGuide", true);
         } else {
-          welcomeText.text = qsTr("Welcome back to %1.").arg(appName);
+          welcomeText.text = "";
         }
       }
     }
