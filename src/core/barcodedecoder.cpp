@@ -130,6 +130,11 @@ bool BarcodeDecoder::decodeImage( const QImage &image )
 
 bool BarcodeDecoder::decodeImageFile( const QString &path )
 {
+  if ( mDecodingThread )
+  {
+    mDecodingThread->wait();
+  }
+
   QImageReader reader( path );
   reader.setDecideFormatFromContent( true );
 

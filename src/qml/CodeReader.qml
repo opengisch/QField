@@ -62,10 +62,7 @@ QfPopup {
     }
   }
 
-  property bool pickingImage: false
-
   function pickImage() {
-    pickingImage = true;
     imageResourceSource = platformUtilities.getGalleryPicture(platformUtilities.systemLocalDataLocation() + '/', 'codereader.{extension}', codeReader.contentItem);
     imageResourceSource.resourceReceived.connect(codeReader.decodeImageResource);
   }
@@ -77,7 +74,6 @@ QfPopup {
     }
     platformUtilities.rmFile(filePath);
     imageResourceSource = undefined;
-    pickingImage = false;
   }
 
   QfCameraPermission {
@@ -228,7 +224,7 @@ QfPopup {
               CaptureSession {
                 id: captureSession
                 camera: Camera {
-                  active: codeReader.visible && settings.cameraActive && !codeReader.pickingImage
+                  active: codeReader.visible && settings.cameraActive
                   flashMode: Camera.FlashOff
                 }
                 videoOutput: videoOutput
