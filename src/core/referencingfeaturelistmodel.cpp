@@ -635,3 +635,8 @@ void ReferencingFeatureListModel::setSortOrder( Qt::SortOrder sortOrder )
 
   sort( 0, mSortOrder );
 }
+
+bool ReferencingFeatureListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
+{
+  return Qt::AscendingOrder ? left.row() > right.row() : left.row() < right.row();
+}
