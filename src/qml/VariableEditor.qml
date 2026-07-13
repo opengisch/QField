@@ -56,8 +56,7 @@ ColumnLayout {
               horizontalCenter: parent.horizontalCenter
               verticalCenter: parent.verticalCenter
             }
-            font.bold: true
-            font.pointSize: Theme.resultFont.pointSize
+            font: Theme.strongResultFont
             color: Theme.mainTextColor
             text: section == "GlobalScope" ? qsTr("Global variables") : qsTr("Project variables")
           }

@@ -93,7 +93,7 @@ RelationEditorBase {
           width: parent.width - viewButton.width - menuButton.width
           topPadding: 5
           bottomPadding: 5
-          font: Theme.defaultFont
+          font: Theme.resultFont
           color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
           elide: Text.ElideRight
           wrapMode: Text.WordWrap

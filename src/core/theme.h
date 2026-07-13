@@ -109,6 +109,7 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     Q_PROPERTY( QFont resultFont READ resultFont NOTIFY fontScaleChanged )
     Q_PROPERTY( QFont strongFont READ strongFont NOTIFY fontScaleChanged )
     Q_PROPERTY( QFont strongTipFont READ strongTipFont NOTIFY fontScaleChanged )
+    Q_PROPERTY( QFont strongResultFont READ strongResultFont NOTIFY fontScaleChanged )
     Q_PROPERTY( QFont secondaryTitleFont READ secondaryTitleFont NOTIFY fontScaleChanged )
     Q_PROPERTY( QFont titleFont READ titleFont NOTIFY fontScaleChanged )
     Q_PROPERTY( QFont strongTitleFont READ strongTitleFont NOTIFY fontScaleChanged )
@@ -297,9 +298,10 @@ class QFIELD_CORE_EXPORT Theme final : public QObject
     QFont defaultFont() const { return makeFont( 1.0, false ); }
     QFont tinyFont() const { return makeFont( 0.75, false ); }
     QFont tipFont() const { return makeFont( 0.875, false ); }
-    QFont resultFont() const { return makeFont( 0.8125, false ); }
+    QFont resultFont() const { return makeFont( 0.9, false ); }
     QFont strongFont() const { return makeFont( 1.0, true ); }
     QFont strongTipFont() const { return makeFont( 0.875, true ); }
+    QFont strongResultFont() const { return makeFont( 0.9, true ); }
     QFont secondaryTitleFont() const { return makeFont( 1.125, false ); }
     QFont titleFont() const { return makeFont( 1.25, false ); }
     QFont strongTitleFont() const { return makeFont( 1.25, true ); }

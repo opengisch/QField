@@ -98,8 +98,7 @@ Item {
               horizontalCenter: parent.horizontalCenter
               verticalCenter: parent.verticalCenter
             }
-            font.bold: true
-            font.pointSize: Theme.resultFont.pointSize
+            font: Theme.strongResultFont
             color: Theme.mainTextColor
             text: section
           }
@@ -134,8 +133,7 @@ Item {
             verticalCenter: parent.verticalCenter
           }
           width: parent.width - favoriteButton.width - 10
-          font.bold: true
-          font.pointSize: Theme.resultFont.pointSize
+          font: Theme.resultFont
           color: Theme.mainTextColor
           text: AlgorithmName
         }

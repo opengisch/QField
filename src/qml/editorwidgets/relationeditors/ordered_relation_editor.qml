@@ -146,7 +146,7 @@ RelationEditorBase {
             topPadding: 5
             bottomPadding: 5
             leftPadding: featureImage.visible ? 5 : 0
-            font: Theme.defaultFont
+            font: Theme.resultFont
             color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
             elide: Text.ElideRight
             wrapMode: Text.WordWrap

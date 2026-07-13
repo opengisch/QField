@@ -59,6 +59,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
       EditGeometryRole,
       ConditionalTextColorRole,
       ConditionalBackgroundColorRole,
+      ConditionalFontBoldRole,
       ConditionalFontItalicRole,
       ConditionalFontUnderlineRole,
       ConditionalFontStrikeOutRole,
