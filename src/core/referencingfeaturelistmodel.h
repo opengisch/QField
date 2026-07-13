@@ -427,6 +427,9 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      */
     void setSortOrder( Qt::SortOrder sortOrder );
 
+  protected:
+    bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
+
   signals:
     void attributeFormModelChanged();
     void featureChanged();
@@ -470,7 +473,17 @@ class FeatureGatherer : public QThread
           }
         }
       }
+
       mRequest = relation.getRelatedFeaturesRequest( feature );
+      QgsAttributeTableConfig config = relation.referencingLayer()->attributeTableConfig();
+      if ( !config.sortExpression().isEmpty() )
+      {
+        mRequest.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
+      }
+      else if ( !relation.referencingLayer()->displayExpression().isEmpty() )
+      {
+        mRequest.addOrderBy( relation.referencingLayer()->displayExpression() );
+      }
 
       mContext = relation.referencingLayer()->createExpressionContext();
       mDisplayExpression = relation.referencingLayer()->displayExpression();
