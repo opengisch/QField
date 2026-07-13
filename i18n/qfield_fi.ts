@@ -6342,7 +6342,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Viimeisimmät projektit</translation>
+        <translation type="vanished">Viimeisimmät projektit</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6358,7 +6358,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Poista viimeisimmistä projekteista</translation>
+        <translation type="vanished">Poista viimeisimmistä projekteista</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6375,14 +6375,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>Base map</source>
         <translation>Peruskartta</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Oletusprojekti</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Yksittäisten tietojoukkojen peruskartta</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6428,16 +6420,20 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>Tervetuloa takaisin %1iin.</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>Tervetuloa %1iin.</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Käytätkö sovellusta ensimmäistä kertaa? Kokeile alla listattuja esimerkkiprojekteja.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

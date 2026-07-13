@@ -6344,7 +6344,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Proiecte Recente</translation>
+        <translation type="vanished">Proiecte Recente</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6360,7 +6360,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Elimină din Proiectele Recente</translation>
+        <translation type="vanished">Elimină din Proiectele Recente</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6376,14 +6376,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6430,15 +6422,19 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
         <translation type="unfinished"/>
     </message>
 </context>

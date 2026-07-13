@@ -6218,7 +6218,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Recent Projects</translation>
+        <translation type="vanished">Recent Projects</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6234,7 +6234,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Remove from Recent Projects</translation>
+        <translation type="vanished">Remove from Recent Projects</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6250,14 +6250,6 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6304,15 +6296,19 @@ project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

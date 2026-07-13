@@ -6344,7 +6344,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Projetos Recentes</translation>
+        <translation type="vanished">Projetos Recentes</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6360,7 +6360,7 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Remover de Projetos Recentes</translation>
+        <translation type="vanished">Remover de Projetos Recentes</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6377,14 +6377,6 @@ Cancele para fazer uma verificação mínima.</translation>
     <message>
         <source>Base map</source>
         <translation>Mapa base</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Projeto padrão</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Conjunto de dados individuais de mapas base</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6431,15 +6423,19 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>Bem-vindo de volta ao %1</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>Bem-vindo ao %1</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
         <translation type="unfinished"/>
     </message>
 </context>

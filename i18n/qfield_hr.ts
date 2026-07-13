@@ -6338,7 +6338,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Nedavni projekti</translation>
+        <translation type="vanished">Nedavni projekti</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6354,7 +6354,7 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Ukloni iz nedavnih projekata</translation>
+        <translation type="vanished">Ukloni iz nedavnih projekata</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6371,14 +6371,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     <message>
         <source>Base map</source>
         <translation>Osnovna karta</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Zadani projekt</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Osnovna karta pojedinačnih izvora podataka</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6424,15 +6416,19 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
         <translation type="unfinished"/>
     </message>
 </context>

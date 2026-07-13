@@ -424,27 +424,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Exporter le(s) repère(s) sélectionné(s)</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Exporter tous les reperes de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
+        <translation>Reperes exportés</translation>
     </message>
     <message>
         <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
+        <translation>Repères Actions</translation>
     </message>
     <message>
         <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Modifier le repère</translation>
     </message>
     <message>
         <source>Copy Bookmark Details</source>
-        <translation type="unfinished"/>
+        <translation>Copier les détails du repère</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
@@ -452,7 +452,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Delete Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer le repère</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
@@ -464,7 +464,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Repères du projet</translation>
     </message>
 </context>
 <context>
@@ -689,7 +689,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No readable code found in the selected image</source>
-        <translation type="unfinished"/>
+        <translation>Aucun code lisible n&apos;a été détecté dans l&apos;image sélectionnée</translation>
     </message>
 </context>
 <context>
@@ -2219,7 +2219,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionne le dossier de destination</translation>
     </message>
 </context>
 <context>
@@ -6338,7 +6338,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Projets récents</translation>
+        <translation type="vanished">Projets récents</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6354,7 +6354,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Enlever de la liste des projets récents</translation>
+        <translation type="vanished">Enlever de la liste des projets récents</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6371,14 +6371,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Base map</source>
         <translation>Fond the carte</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Projet par défaut</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Fond de Carte pour Jeux de Données</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6427,16 +6419,20 @@ projet</translation>
         <translation>Afin d&apos;améliorer la stabilité pour tout le monde, %1 recueille et envoie des données métriques anonymisées.</translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>Ravis de vous revoir sur %1.</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>Bienvenue à %1.</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>C&apos;est la première fois que vous utilisez cette application ? Essayez les exemples de projets listés ci-dessous.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

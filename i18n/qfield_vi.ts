@@ -6334,7 +6334,7 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Các dự án gần đây</translation>
+        <translation type="vanished">Các dự án gần đây</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6350,7 +6350,7 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Xóa khỏi dự án gần đây</translation>
+        <translation type="vanished">Xóa khỏi dự án gần đây</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6367,14 +6367,6 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
     <message>
         <source>Base map</source>
         <translation>Bản đồ nền</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Dự án mặc định</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6422,16 +6414,20 @@ mới</translation>
         <translation>Để cải thiện độ ổn định cho mọi người, %1 thu thập và gửi số liệu ẩn danh.</translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>Chào mừng bạn quay lại %1.</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>Chào mừng đến với %1.</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Lần đầu sử dụng ứng dụng này? Hãy thử các dự án mẫu được liệt kê bên dưới.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -6338,7 +6338,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Zuletzt geöffnete Projekte</translation>
+        <translation type="vanished">Zuletzt geöffnete Projekte</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6354,7 +6354,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Aus Liste der kürzlich geöffneten Projekte löschen</translation>
+        <translation type="vanished">Aus Liste der kürzlich geöffneten Projekte löschen</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6371,14 +6371,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Base map</source>
         <translation>Hintergrundkarte</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Standardprojekt</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Hintergrundkarte für individuelle Datensets</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6427,16 +6419,20 @@ erstellen</translation>
         <translation>Um die Stabilität für alle zu verbessern, sammelt und sendet %1 anonymisierte Nutzungsdaten.</translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>Willkommen zurück in %1.</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>Willkommen bei %1.</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Nutzt du diese Anwendung das erste mal? Probiere eins der Beispielprojekte unten in der Liste.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

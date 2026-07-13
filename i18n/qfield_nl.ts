@@ -6340,7 +6340,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Recente Projecten</translation>
+        <translation type="vanished">Recente Projecten</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6356,7 +6356,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Verwijderen uit recente projecten</translation>
+        <translation type="vanished">Verwijderen uit recente projecten</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6373,14 +6373,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Base map</source>
         <translation>Achtergrondkaart</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Standaard Project</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Individuele Datasets Achtergondkaart</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6429,16 +6421,20 @@ project</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Gebruik je deze applicatie voor het eerst? Probeer de voorbeeldprojecten uit die in de onderstaande lijst staan.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

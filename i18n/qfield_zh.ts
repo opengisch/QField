@@ -6339,7 +6339,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>最近文件列表</translation>
+        <translation type="vanished">最近文件列表</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6355,7 +6355,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>从最近文件列表中移除</translation>
+        <translation type="vanished">从最近文件列表中移除</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6372,14 +6372,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Base map</source>
         <translation>底图</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>默认工程</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>单数据集底图</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6428,16 +6420,20 @@ project</source>
         <translation>为了提高稳定性，%1将收集并发送匿名测评数据。</translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>欢迎使用%1</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>欢迎来到%1。</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>是首次使用本应用程序吗？请试试下面的示例工程。</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

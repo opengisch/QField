@@ -6336,7 +6336,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>அண்மைக் கால திட்டங்கள்</translation>
+        <translation type="vanished">அண்மைக் கால திட்டங்கள்</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6352,7 +6352,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>அண்மைக் கால திட்டங்களிலிருந்து அகற்று</translation>
+        <translation type="vanished">அண்மைக் கால திட்டங்களிலிருந்து அகற்று</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6369,14 +6369,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Base map</source>
         <translation>அடிப்படை வரைபடம்</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>இயல்புநிலை திட்டம்</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>தனிப்பட்ட தரவுத்தொகுப்புகளின் அடிப்படை வரைபடம்</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6425,16 +6417,20 @@ project</source>
         <translation>அனைவருக்கும் நிலைத்தன்மையை மேம்படுத்த, %1 பெயர் குறிப்பிடப்படாதது அளவீடுகளைச் சேகரித்து அனுப்புகிறது.</translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>இந்தப் பயன்பாட்டை முதல் முறையாகப் பயன்படுத்துகிறீர்களா? கீழே பட்டியலிடப்பட்டுள்ள மாதிரி திட்டங்களை முயற்சிக்கவும்.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

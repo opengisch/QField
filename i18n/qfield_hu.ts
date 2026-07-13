@@ -6337,7 +6337,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Korábbi projektek</translation>
+        <translation type="vanished">Korábbi projektek</translation>
     </message>
     <message>
         <source>Last session</source>
@@ -6353,7 +6353,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Eltávolítás a legutóbbi projektekből</translation>
+        <translation type="vanished">Eltávolítás a legutóbbi projektekből</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
@@ -6370,14 +6370,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <message>
         <source>Base map</source>
         <translation>Alaptérkép</translation>
-    </message>
-    <message>
-        <source>Default Project</source>
-        <translation>Alapértelmezett projekt</translation>
-    </message>
-    <message>
-        <source>Individual Datasets Base Map</source>
-        <translation>Egyéni alaptérkép adathalmazok</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
@@ -6426,16 +6418,20 @@ készítése</translation>
         <translation>A %1 névtelen mérőszámokat gyűjt és küld a stabilitás javítása érdekében.</translation>
     </message>
     <message>
-        <source>Welcome back to %1.</source>
-        <translation>Üdvözöl újra a %1.</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>Üdvözöl a %1.</translation>
-    </message>
-    <message>
         <source>First time using this application? Try the sample projects listed below.</source>
         <translation>Először használod az applikációt? Próbáld ki az alábbi mintaprojekteket.</translation>
+    </message>
+    <message>
+        <source>Recently Opened</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Individual datasets base map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove from recently opened</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
