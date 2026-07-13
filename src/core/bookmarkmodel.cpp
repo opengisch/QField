@@ -365,12 +365,12 @@ bool BookmarkModel::exportBookmarks( bool selectedOnly )
     }
   }
 
+  writer.reset(); // flush and close the GeoPackage before handing off the path
+
   if ( !hasFeatures )
   {
     return false;
   }
-
-  writer.reset(); // flush and close the GeoPackage before handing off the path
 
   PlatformUtilities::instance()->sendDatasetTo( filePath );
   return true;

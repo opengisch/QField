@@ -3783,20 +3783,6 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Plugin Manager")
-
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_plugin_black_24dp")
-      height: 48
-      leftPadding: Theme.menuItemLeftPadding
-
-      onTriggered: {
-        dashBoard.close();
-        pluginManagerSettings.open();
-      }
-    }
-
-    MenuItem {
       text: qsTr("Bookmarks")
 
       font: Theme.defaultFont
@@ -3809,6 +3795,20 @@ ApplicationWindow {
         dashBoard.close();
         bookmarkList.show();
         highlighted = false;
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Plugin Manager")
+
+      font: Theme.defaultFont
+      icon.source: Theme.getThemeVectorIcon("ic_plugin_black_24dp")
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        dashBoard.close();
+        pluginManagerSettings.open();
       }
     }
 
