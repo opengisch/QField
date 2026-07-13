@@ -39,6 +39,7 @@
 #include <qgsrasterlayer.h>
 #include <qgsrasterlayerelevationproperties.h>
 #include <qgssinglesymbolrenderer.h>
+#include <qgsstringutils.h>
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
 #include <qgstextbuffersettings.h>
@@ -568,10 +569,9 @@ QString LayerUtils::guessFriendlyHeightField( QgsVectorLayer *layer )
     QStringLiteral( "extrusion" ),
     QStringLiteral( "height" ),
     QStringLiteral( "hauteur" ), // French (height)
-    QStringLiteral( "hoehe" ),   // German (height)
+    QStringLiteral( "hohe" ),    // German (height)
   };
 
-  QString bestPartialMatch;
   for ( const QString &candidate : sCandidates )
   {
     for ( const QgsField &field : fields )
@@ -582,18 +582,14 @@ QString LayerUtils::guessFriendlyHeightField( QgsVectorLayer *layer )
       }
 
       const QString fieldName = field.name();
-      if ( fieldName.compare( candidate, Qt::CaseInsensitive ) == 0 )
+      if ( QgsStringUtils::unaccent( fieldName ).contains( candidate, Qt::CaseInsensitive ) )
       {
         return fieldName;
-      }
-      if ( bestPartialMatch.isEmpty() && fieldName.contains( candidate, Qt::CaseInsensitive ) )
-      {
-        bestPartialMatch = fieldName;
       }
     }
   }
 
-  return bestPartialMatch;
+  return QString();
 }
 
 QSet<QVariant> LayerUtils::uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex )
