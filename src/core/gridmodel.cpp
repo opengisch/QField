@@ -449,11 +449,11 @@ void GridModel::update()
       {
         if ( currentLine.intersects( topBorder, &intersectionPoint ) )
         {
-          mAnnotations << QVariant::fromValue( GridAnnotation( GridAnnotation::Top, intersectionPoint, xPos ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Top, intersectionPoint, xPos );
         }
         if ( currentLine.intersects( bottomBorder, &intersectionPoint ) )
         {
-          mAnnotations << QVariant::fromValue( GridAnnotation( GridAnnotation::Bottom, intersectionPoint, xPos ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Bottom, intersectionPoint, xPos );
         }
       }
 
@@ -478,11 +478,11 @@ void GridModel::update()
       {
         if ( currentLine.intersects( leftBorder, &intersectionPoint ) )
         {
-          mAnnotations << QVariant::fromValue( GridAnnotation( GridAnnotation::Left, intersectionPoint, yPos ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Left, intersectionPoint, yPos );
         }
         if ( currentLine.intersects( rightBorder, &intersectionPoint ) )
         {
-          mAnnotations << QVariant::fromValue( GridAnnotation( GridAnnotation::Right, intersectionPoint, yPos ) );
+          mAnnotations << GridAnnotation( GridAnnotation::Right, intersectionPoint, yPos );
         }
       }
 
