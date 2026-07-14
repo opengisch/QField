@@ -6424,15 +6424,15 @@ projet</translation>
     </message>
     <message>
         <source>Recently Opened</source>
-        <translation type="unfinished"/>
+        <translation>Ouvert récemment</translation>
     </message>
     <message>
         <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
+        <translation>Carte de base de données individuelle</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer des fichiers récemment ouverts</translation>
     </message>
 </context>
 <context>

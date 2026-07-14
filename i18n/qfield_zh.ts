@@ -6425,15 +6425,15 @@ project</source>
     </message>
     <message>
         <source>Recently Opened</source>
-        <translation type="unfinished"/>
+        <translation>最近打开文件</translation>
     </message>
     <message>
         <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
+        <translation>单数据集底图</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
+        <translation>从最近打开文件列表中移除</translation>
     </message>
 </context>
 <context>
