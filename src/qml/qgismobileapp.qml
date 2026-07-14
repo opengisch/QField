@@ -995,6 +995,18 @@ ApplicationWindow {
           return;
         }
         if (type === "touch") {
+          const positionLocked = positionSource.active && coordinateLocator.positionLocked;
+          if (qfieldSettings.fingerTapDigitizing && !digitizingToolbar.cogoEnabled && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure")) {
+            if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
+              coordinateLocator.sourceLocation = point;
+              if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
+                digitizingToolbar.confirm();
+              } else {
+                digitizingToolbar.addVertex();
+              }
+              return;
+            }
+          }
           mapCanvasWrapper.zoomByFactor(Qt.point(point.x, point.y), 0.8);
         }
       }
