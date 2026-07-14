@@ -606,26 +606,39 @@ ApplicationWindow {
       id: hoverHandler
       enabled: !digitizingToolbar.rubberbandModel || !digitizingToolbar.rubberbandModel.frozen
       acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchPad | PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+
       grabPermissions: PointerHandler.TakeOverForbidden
 
       property bool hasBeenHovered: false
       property bool skipHover: false
+
+      function pointOverFloatingComponent(pt) {
+        return pointHandler.pointInItem(pt, digitizingToolbar) || pointHandler.pointInItem(pt, digitizingToolbarContainer) || pointHandler.pointInItem(pt, geometryEditorsToolbar) || pointHandler.pointInItem(pt, zoomToolbar) || pointHandler.pointInItem(pt, mainToolbar) || pointHandler.pointInItem(pt, mainMenuBar) || pointHandler.pointInItem(pt, locationToolbar) || pointHandler.pointInItem(pt, locatorItem) || pointHandler.pointInItem(pt, elevationProfileButton) || (informationDrawer.cogoOperationSettings.visible && pointHandler.pointInItem(pt, informationDrawer.cogoOperationSettings)) || (featureListForm.visible && pointHandler.pointInItem(pt, featureListForm)) || overlayFeatureFormDrawer.opened;
+      }
 
       onPointChanged: {
         if (skipHover || !mapCanvasMap.hovered) {
           return;
         }
 
-        // when hovering various toolbars, reset coordinate locator position for nicer UX
+        // Park the crosshair at the last digitized vertex when hovering the digitizing / geometry-editor toolbars
         if (!freehandHandler.active && (pointHandler.pointInItem(point.position, digitizingToolbar) || pointHandler.pointInItem(point.position, elevationProfileButton))) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(digitizingToolbar.rubberbandModel.lastCoordinate);
-        } else if (!freehandHandler.active && pointHandler.pointInItem(point.position, geometryEditorsToolbar)) {
+          return;
+        }
+        if (!freehandHandler.active && pointHandler.pointInItem(point.position, geometryEditorsToolbar)) {
           coordinateLocator.sourceLocation = mapCanvas.mapSettings.coordinateToScreen(geometryEditorsToolbar.editorRubberbandModel.lastCoordinate);
-        } else if (!freehandHandler.active) {
-          // after a click, it seems that the position is sent once at 0,0 => weird)
-          if (point.position !== Qt.point(0, 0)) {
-            coordinateLocator.sourceLocation = point.position;
-          }
+          return;
+        }
+
+        // Over any other floating component, do not move the crosshair at all
+        // freeze it wherever it last was on the map.
+        if (pointOverFloatingComponent(point.position)) {
+          return;
+        }
+
+        if (!freehandHandler.active && point.position !== Qt.point(0, 0)) {
+          coordinateLocator.sourceLocation = point.position;
         }
       }
 
