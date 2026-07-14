@@ -366,6 +366,7 @@ void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex
   }
 
   geom = geom.smooth();
+  geom = geom.makeValid();
 
   const QgsLineString *smoothed = qgsgeometry_cast<const QgsLineString *>( geom.constGet() );
   if ( !smoothed || smoothed->numPoints() < 2 )

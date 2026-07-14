@@ -56,6 +56,8 @@ void LinePolygonShape::createPolylines()
   if ( mGeometry && !geometry.isEmpty() && geometry.type() != Qgis::GeometryType::Point )
   {
     geometry = geometry.simplify( mMapSettings->mapUnitsPerPoint() );
+    geometry = geometry.makeValid();
+
     geomType = geometry.type();
     switch ( geomType )
     {
