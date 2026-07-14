@@ -64,9 +64,7 @@ class TrackingModel : public QAbstractItemModel
     //! Returns TRUE if the \a featureId is attached to a vector \a layer tracking session.
     Q_INVOKABLE bool featureInTracking( QgsVectorLayer *layer, QgsFeatureId featureId );
     //! Returns TRUE if the list of \a features is attached to a vector \a layer tracking session.
-    Q_INVOKABLE bool featuresInTracking( QgsVectorLayer *layer, const QVariantList &features );
-    //! Returns TRUE if the list of \a features is attached to a vector \a layer tracking session.
-    bool featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features );
+    Q_INVOKABLE bool featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features );
     //! Returns TRUE if the vector \a layer has a tracking session.
     Q_INVOKABLE bool layerInTracking( QgsVectorLayer *layer ) const;
     //! Returns TRUE if the vector \a layer has an active tracking session.

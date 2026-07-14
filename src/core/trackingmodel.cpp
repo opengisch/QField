@@ -102,22 +102,6 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
   return false;
 }
 
-bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QVariantList &features )
-{
-  QList<QgsFeature> featuresList;
-
-  featuresList.reserve( features.size() );
-  for ( const QVariant &variant : features )
-  {
-    if ( variant.canConvert<QgsFeature>() )
-    {
-      featuresList.append( variant.value<QgsFeature>() );
-    }
-  }
-
-  return featuresInTracking( layer, featuresList );
-}
-
 bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features )
 {
   auto it = trackerIterator( layer );
