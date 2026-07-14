@@ -305,18 +305,9 @@ bool QFieldCloudConnection::isFetchingAvailableProviders() const
   return mIsFetchingAvailableProviders;
 }
 
-QVariantList QFieldCloudConnection::availableProviders() const
+QList<AuthenticationProvider> QFieldCloudConnection::availableProviders() const
 {
-  const QList<AuthenticationProvider> providers = mAvailableProviders.values();
-  QVariantList providersVariant;
-  providersVariant.reserve( providers.size() );
-
-  for ( const AuthenticationProvider &provider : providers )
-  {
-    providersVariant.append( QVariant::fromValue( provider ) );
-  }
-
-  return providersVariant;
+  return mAvailableProviders.values();
 }
 
 void QFieldCloudConnection::getServerInformation()

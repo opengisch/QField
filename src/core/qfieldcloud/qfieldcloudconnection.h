@@ -83,7 +83,7 @@ class QFieldCloudConnection : public QObject
 
     Q_PROPERTY( CloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
 
-    Q_PROPERTY( QVariantList availableProviders READ availableProviders NOTIFY availableProvidersChanged )
+    Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
 
     Q_PROPERTY( CloudServerInformation serverInformation READ serverInformation NOTIFY serverInformationChanged )
@@ -175,7 +175,7 @@ class QFieldCloudConnection : public QObject
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getServerInformation();
-    QVariantList availableProviders() const;
+    QList<AuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
     CloudServerInformation serverInformation() const { return mServerInformation; }
