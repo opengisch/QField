@@ -19,6 +19,7 @@ set(QFIELD_GUI_QML_FILES
     QfCogoOperations.qml
     QfCollapsibleMessage.qml
     QfComboBox.qml
+    QfCompassDial.qml
     QfConfirmationToolbar.qml
     QfContainerCard.qml
     QfDialog.qml
