@@ -219,21 +219,6 @@ QList<QgsFeature> MultiFeatureListModel::selectedFeatures()
   return mSourceModel->selectedFeatures();
 }
 
-QVariantList MultiFeatureListModel::selectedFeaturesVariant()
-{
-  QVariantList featuresVariant;
-  const QList<QgsFeature> features = mSourceModel->selectedFeatures();
-
-  featuresVariant.reserve( features.size() );
-  for ( const QgsFeature &feature : features )
-  {
-    // Pack the custom QgsFeature object into a QVariant safely
-    featuresVariant.append( QVariant::fromValue( feature ) );
-  }
-
-  return featuresVariant;
-}
-
 QgsVectorLayer *MultiFeatureListModel::selectedLayer()
 {
   return mFilterLayer.data();

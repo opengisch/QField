@@ -38,7 +38,7 @@ class LinePolygonShape : public QQuickItem
     Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
     //! List of polylines representing the geometry
-    Q_PROPERTY( QVariantList polylines READ polylines NOTIFY polylinesChanged )
+    Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
     //! The geometry type associated to the polylines
     Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
@@ -58,7 +58,7 @@ class LinePolygonShape : public QQuickItem
     void setLineWidth( float width );
 
     //! \copydoc polylines
-    QVariantList polylines() const { return mPolylines; }
+    QList<QPolygonF> polylines() const { return mPolylines; }
 
     //! \copydoc polylinesType
     Qgis::GeometryType polylinesType() const { return mPolylinesType; }
@@ -91,7 +91,7 @@ class LinePolygonShape : public QQuickItem
     QgsGeometryWrapper *mGeometry = nullptr;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
-    QVariantList mPolylines;
+    QList<QPolygonF> mPolylines;
     Qgis::GeometryType mPolylinesType = Qgis::GeometryType::Null;
 };
 

@@ -45,10 +45,10 @@ class ProcessingAlgorithm : public QObject
 
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
     Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
-    Q_PROPERTY( QVariantList inPlaceFeatures READ inPlaceFeaturesVariant WRITE setInPlaceFeaturesVariant NOTIFY inPlaceFeaturesChanged )
+    Q_PROPERTY( QList<QgsFeature> inPlaceFeatures READ inPlaceFeatures WRITE setInPlaceFeatures NOTIFY inPlaceFeaturesChanged )
 
     Q_PROPERTY( bool preview READ preview WRITE setPreview NOTIFY previewChanged )
-    Q_PROPERTY( QVariantList previewGeometries READ previewGeometries NOTIFY previewGeometriesChanged )
+    Q_PROPERTY( QList<QgsGeometry> previewGeometries READ previewGeometries NOTIFY previewGeometriesChanged )
 
   public:
     explicit ProcessingAlgorithm( QObject *parent = nullptr );
@@ -99,16 +99,6 @@ class ProcessingAlgorithm : public QObject
     void setInPlaceFeatures( const QList<QgsFeature> &features );
 
     /**
-     * Returns the vector \a layer for in-place algorithm filter as a QVariantList.
-     */
-    QVariantList inPlaceFeaturesVariant() const;
-
-    /**
-     * Sets the vector \a layer for in-place algorithm filter from a QVariantList.
-     */
-    void setInPlaceFeaturesVariant( const QVariantList &features );
-
-    /**
      * Returns the algorithm parameters as a map of parameter names as keys and values.
      */
     QVariantMap parameters() const { return mAlgorithmParameters; }
@@ -133,7 +123,7 @@ class ProcessingAlgorithm : public QObject
     /**
      * Returns a list of geometries previewing the algorithm result using current parameters.
      */
-    QVariantList previewGeometries() const { return mPreviewGeometries; }
+    QList<QgsGeometry> previewGeometries() const { return mPreviewGeometries; }
 
     /**
      * Executes the algorithm.
@@ -180,7 +170,7 @@ class ProcessingAlgorithm : public QObject
     QList<QgsFeature> mInPlaceFeatures;
 
     bool mPreview = false;
-    QVariantList mPreviewGeometries;
+    QList<QgsGeometry> mPreviewGeometries;
 };
 
 #endif // PROCESSINGALGORITHM
