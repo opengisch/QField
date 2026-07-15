@@ -133,6 +133,7 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
     disconnect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
     disconnect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
     disconnect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
+    disconnect( mCurrentLayer, &QgsVectorLayer::dataChanged, this, &FeatureListModel::reloadLayer );
   }
 
   mCurrentLayer = currentLayer;
@@ -142,6 +143,7 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
     connect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
     connect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
     connect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
+    connect( mCurrentLayer, &QgsVectorLayer::dataChanged, this, &FeatureListModel::reloadLayer );
   }
 
   reloadLayer();
