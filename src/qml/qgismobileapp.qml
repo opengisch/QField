@@ -995,8 +995,8 @@ ApplicationWindow {
           return;
         }
         if (type === "touch") {
-          const positionLocked = positionSource.active && coordinateLocator.positionLocked;
           if (qfieldSettings.fingerTapDigitizing && !digitizingToolbar.cogoEnabled && ((stateMachine.state === "digitize" && digitizingFeature.currentLayer && digitizingToolbar.digitizingAllowed) || stateMachine.state === "measure")) {
+            const positionLocked = positionSource.active && coordinateLocator.positionLocked;
             if (!positionLocked && (!featureListForm.visible || digitizingToolbar.geometryRequested)) {
               coordinateLocator.sourceLocation = point;
               if (Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Point || Number(currentRubberband.model.geometryType) === Qgis.GeometryType.Null) {
