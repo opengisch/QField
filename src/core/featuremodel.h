@@ -35,7 +35,7 @@ class FeatureModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY( FeatureModel::ModelModes modelMode READ modelMode WRITE setModelMode NOTIFY modelModeChanged )
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
-    Q_PROPERTY( QVariantList features READ featuresVariant WRITE setFeaturesVariant NOTIFY featuresChanged )
+    Q_PROPERTY( QList<QgsFeature> features READ features WRITE setFeatures NOTIFY featuresChanged )
     Q_PROPERTY( QgsFeature linkedParentFeature READ linkedParentFeature WRITE setLinkedParentFeature NOTIFY linkedParentFeatureChanged )
     Q_PROPERTY( QgsRelation linkedRelation READ linkedRelation WRITE setLinkedRelation NOTIFY linkedRelationChanged )
     Q_PROPERTY( QString linkedRelationOrderingField READ linkedRelationOrderingField WRITE setLinkedRelationOrderingField NOTIFY linkedRelationOrderingFieldChanged )
@@ -84,16 +84,9 @@ class FeatureModel : public QAbstractListModel
 
     void setFeature( const QgsFeature &feature );
 
-    /**
-     * Return the feature wrapped in a QVariant for passing it around in QML
-     */
     QgsFeature feature() const;
 
     void setFeatures( const QList<QgsFeature> &features );
-
-    QVariantList featuresVariant() const;
-
-    void setFeaturesVariant( const QVariantList &features );
 
     /**
      * Return the features list for passing it around in QML
