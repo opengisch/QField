@@ -612,8 +612,8 @@ ApplicationWindow {
       property bool hasBeenHovered: false
       property bool skipHover: false
 
-      function pointOverFloatingComponent(pt) {
-        return pointHandler.pointInItem(pt, digitizingToolbar) || pointHandler.pointInItem(pt, digitizingToolbarContainer) || pointHandler.pointInItem(pt, geometryEditorsToolbar) || pointHandler.pointInItem(pt, zoomToolbar) || pointHandler.pointInItem(pt, mainToolbar) || pointHandler.pointInItem(pt, mainMenuBar) || pointHandler.pointInItem(pt, locationToolbar) || pointHandler.pointInItem(pt, locatorItem) || pointHandler.pointInItem(pt, elevationProfileButton) || (informationDrawer.cogoOperationSettings.visible && pointHandler.pointInItem(pt, informationDrawer.cogoOperationSettings)) || (featureListForm.visible && pointHandler.pointInItem(pt, featureListForm)) || overlayFeatureFormDrawer.opened;
+      function isPointOverFloatingComponents(pt) {
+        return pointHandler.pointInItem(pt, digitizingToolbarContainer) || pointHandler.pointInItem(pt, zoomToolbar) || pointHandler.pointInItem(pt, mainToolbar) || pointHandler.pointInItem(pt, mainMenuBar) || pointHandler.pointInItem(pt, locationToolbar) || pointHandler.pointInItem(pt, locatorItem) || (informationDrawer.cogoOperationSettings.visible && pointHandler.pointInItem(pt, informationDrawer.cogoOperationSettings)) || (featureListForm.visible && pointHandler.pointInItem(pt, featureListForm)) || overlayFeatureFormDrawer.opened;
       }
 
       onPointChanged: {
@@ -633,7 +633,7 @@ ApplicationWindow {
 
         // Over any other floating component, do not move the crosshair at all
         // freeze it wherever it last was on the map.
-        if (pointOverFloatingComponent(point.position)) {
+        if (isPointOverFloatingComponents(point.position)) {
           return;
         }
 
