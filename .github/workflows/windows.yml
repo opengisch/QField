@@ -161,16 +161,22 @@ jobs:
           cd "${{ env.CMAKE_BUILD_DIR }}"
           ctest --output-on-failure -C ${{ env.BUILD_TYPE }} -E qmltest
 
+      - name: Install WiX
+        run: |
+          dotnet tool uninstall --global wix
+          dotnet tool install --global wix --version 6.0.2
+          wix extension add --global WixToolset.UI.wixext/6.0.2
+
       - name: Package
         id: package
         shell: bash
         run: |
-          cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} -j1
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config ${{ env.BUILD_TYPE }} --verbose -j1
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
             INSTALLER_SUFFIX="zip"
           else
-            INSTALLER_SUFFIX="exe"
+            INSTALLER_SUFFIX="msi"
           fi
 
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.${INSTALLER_SUFFIX} | head -n 1)
@@ -190,6 +196,7 @@ jobs:
           name: package-logs-${{ matrix.triplet }}
           path: |
             ${{ env.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.log
+            ${{ env.CMAKE_BUILD_DIR }}/_CPack_Packages/**/*.wxs
             ${{ env.CMAKE_BUILD_DIR }}/CMakeCache.txt
 
       - name: 🎭 Sign
