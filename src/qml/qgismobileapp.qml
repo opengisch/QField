@@ -613,7 +613,7 @@ ApplicationWindow {
       property bool skipHover: false
 
       function isPointOverFloatingComponents(pt) {
-        return pointHandler.pointInItem(pt, digitizingToolbarContainer) || pointHandler.pointInItem(pt, zoomToolbar) || pointHandler.pointInItem(pt, mainToolbar) || pointHandler.pointInItem(pt, mainMenuBar) || pointHandler.pointInItem(pt, locationToolbar) || pointHandler.pointInItem(pt, locatorItem) || (informationDrawer.cogoOperationSettings.visible && pointHandler.pointInItem(pt, informationDrawer.cogoOperationSettings)) || (featureListForm.visible && pointHandler.pointInItem(pt, featureListForm)) || overlayFeatureFormDrawer.opened;
+        return pointHandler.pointInItem(pt, digitizingToolbarContainer) || pointHandler.pointInItem(pt, zoomToolbar) || pointHandler.pointInItem(pt, mainToolbar) || pointHandler.pointInItem(pt, mainMenuBar) || pointHandler.pointInItem(pt, locationToolbar) || pointHandler.pointInItem(pt, locatorItem) || pointHandler.pointInItem(pt, informationDrawer.cogoOperationSettings) || pointHandler.pointInItem(pt, featureListForm) || overlayFeatureFormDrawer.opened;
       }
 
       onPointChanged: {
