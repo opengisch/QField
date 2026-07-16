@@ -1209,7 +1209,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>Xóa đối tượng</translation>
+        <translation>Xóa (các) đối tượng</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
@@ -4484,7 +4484,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">Quét thất bại: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scanning done</source>
