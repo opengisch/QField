@@ -839,7 +839,7 @@ Page {
       leftPadding: Theme.menuItemLeftPadding
       enabled: projectActions.localDeltasCount > 0
 
-      text: qsTr("Push changes")
+      text: qsTr("Upload local changes")
       onTriggered: {
         cloudProjectsModel.projectPush(projectActions.projectId, false);
       }
