@@ -35,6 +35,7 @@ QfCollapsibleMessage {
 
   detailsColor: Theme.secondaryTextColor
   font: Theme.tipFont
+  iconSource: Theme.getThemeVectorIcon('ic_error_outline_24dp')
   titleText: cloudServiceStatus ? cloudServiceStatus.statusMessage : ''
   detailsText: cloudServiceStatus ? cloudServiceStatus.detailsMessage : ''
   externalLink: cloudServiceStatus ? cloudServiceStatus.statusPageUrl : ''
