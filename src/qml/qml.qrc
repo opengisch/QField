@@ -153,6 +153,7 @@
         <file>QFieldCloudLogin.qml</file>
         <file>QFieldCloudScreen.qml</file>
         <file>QFieldCloudPopup.qml</file>
+        <file>QFieldCloudDangerZone.qml</file>
         <file>QFieldCloudStatusBanner.qml</file>
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>
