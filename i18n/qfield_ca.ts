@@ -4834,7 +4834,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Quan està activat, el mapa farà zoom automàticament per mostrar tots els objectes  identificats, així com l&apos;objecte seleccionat individualment quan s&apos;obre el formulari d&apos;objecte.</translation>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
@@ -4842,23 +4842,23 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Seguir només la posició</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Seguir la posició i l&apos;orientació de la brúixola</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Seguir la posició i la direcció del moviment</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Quan el llenç del mapa segueix o està bloquejat a una posició, també pot girar per coincidir amb l&apos;orientació de la brúixola o la direcció del moviment.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest valor corregirà els valors Z registrats pel dispositiu de posicionament. Si s&apos;introdueix un valor de 1,6, el sistema restarà automàticament 1,6 a cada valor registrat. Assegureu-vos d&apos;introduir l&apos;alçada efectiva de l&apos;antena, és a dir, la longitud del pal més el desplaçament del centre de fase de l&apos;antena.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
