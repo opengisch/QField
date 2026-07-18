@@ -4,34 +4,24 @@ import org.qfield
 import Theme
 
 /**
- * A card grouping a primary action button with its title, description and
- * status texts. Extra rows (e.g. a toggle) can be added as children and are
- * placed below the action button.
+ * A card grouping a title, description and status texts. Content (e.g. an
+ * action button or a toggle) can be added as children and is placed below
+ * the texts.
  *
  * \ingroup qml
  */
 Rectangle {
-  id: actionCard
+  id: containerCard
 
   property color accentColor: Theme.mainColor
   property alias iconSource: cardIcon.iconSource
   property alias title: titleLabel.text
   property alias description: descriptionLabel.text
-  property alias badgeText: badgeLabel.text
-  property alias metaText: metaLabel.text
+  property int count: 0
+  property alias footnote: footnoteLabel.text
   property alias indicatorVisible: indicator.visible
-  property alias buttonText: actionButton.text
-  property color buttonColor: Theme.buttonColor
-  property alias buttonEnabled: actionButton.enabled
-  property alias buttonShowProgress: actionButton.showProgress
-  property alias buttonProgressValue: actionButton.progressValue
-
-  // Draw the action button as an accent-colored outline instead of a filled background
-  property bool outlined: false
 
   default property alias extraContent: extraContentColumn.data
-
-  signal actionClicked
 
   implicitHeight: cardColumn.implicitHeight + 32
   radius: 12
@@ -63,7 +53,7 @@ Rectangle {
         visible: iconSource !== ''
         enabled: false
         bgcolor: "transparent"
-        iconColor: actionCard.accentColor
+        iconColor: containerCard.accentColor
       }
 
       Text {
@@ -78,14 +68,15 @@ Rectangle {
         implicitWidth: Math.max(implicitHeight, badgeLabel.implicitWidth + 10)
         implicitHeight: badgeLabel.implicitHeight + 4
         radius: height / 2
-        color: actionCard.accentColor
-        visible: badgeLabel.text !== ""
+        color: containerCard.accentColor
+        visible: containerCard.count > 0
 
         Text {
           id: badgeLabel
           anchors.centerIn: parent
           font: Theme.tinyFont
           color: Theme.light
+          text: containerCard.count
         }
       }
 
@@ -95,7 +86,7 @@ Rectangle {
         width: 10
         height: 10
         radius: width / 2
-        color: actionCard.accentColor
+        color: containerCard.accentColor
         visible: false
       }
 
@@ -118,7 +109,7 @@ Rectangle {
     }
 
     Text {
-      id: metaLabel
+      id: footnoteLabel
       Layout.fillWidth: true
       font: Theme.tipFont
       color: Theme.secondaryTextColor
@@ -127,20 +118,10 @@ Rectangle {
       visible: text !== ""
     }
 
-    QfButton {
-      id: actionButton
-      Layout.fillWidth: true
-      Layout.topMargin: 4
-      bgcolor: actionCard.outlined ? "transparent" : actionCard.accentColor
-      color: actionCard.outlined ? actionCard.accentColor : actionCard.buttonColor
-
-      onClicked: actionCard.actionClicked()
-    }
-
     ColumnLayout {
       id: extraContentColumn
       Layout.fillWidth: true
-      spacing: 8
+      spacing: 6
       visible: children.length > 0
     }
   }

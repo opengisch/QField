@@ -359,22 +359,28 @@ Popup {
             readonly property bool isCloudifying: cloudProjectsModel.isCreating || !!cloudProjectCreationConnection.target
             readonly property real cloudifyProgress: cloudProjectCreationConnection.target ? cloudProjectCreationConnection.target.uploadProgress : 0
 
-            QfActionCard {
+            QfContainerCard {
               id: cloudifyCard
               Layout.fillWidth: true
               accentColor: Theme.cloudColor
               iconSource: Theme.getThemeVectorIcon('ic_cloud_active_24dp')
               title: qsTr('Cloudify project')
-              description: localProjectGrid.isCloudifying ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.') + '<br><a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>'
-              buttonText: localProjectGrid.isCloudifying ? (localProjectGrid.cloudifyProgress > 0 ? qsTr('Cloudifying %1%').arg(Math.round(localProjectGrid.cloudifyProgress * 100)) : qsTr('Cloudifying')) : qsTr('Cloudify project')
-              buttonColor: Theme.light
-              buttonEnabled: !localProjectGrid.isCloudifying
-              buttonShowProgress: localProjectGrid.isCloudifying
-              buttonProgressValue: localProjectGrid.cloudifyProgress
+              description: localProjectGrid.isCloudifying ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
 
-              onActionClicked: {
-                if (qgisProject.fileName != "") {
-                  cloudify(ProjectUtils.title(qgisProject), FileUtils.absolutePath(qgisProject.fileName));
+              QfButton {
+                Layout.fillWidth: true
+                Layout.topMargin: 4
+                bgcolor: Theme.cloudColor
+                color: Theme.light
+                text: localProjectGrid.isCloudifying ? (localProjectGrid.cloudifyProgress > 0 ? qsTr('Cloudifying %1%').arg(Math.round(localProjectGrid.cloudifyProgress * 100)) : qsTr('Cloudifying')) : qsTr('Cloudify project')
+                enabled: !localProjectGrid.isCloudifying
+                showProgress: localProjectGrid.isCloudifying
+                progressValue: localProjectGrid.cloudifyProgress
+
+                onClicked: {
+                  if (qgisProject.fileName != "") {
+                    cloudify(ProjectUtils.title(qgisProject), FileUtils.absolutePath(qgisProject.fileName));
+                  }
                 }
               }
             }
@@ -413,18 +419,15 @@ Popup {
               spacing: 10
               visible: cloudProjectGrid.hasDeltaFileWrapper && !cloudProjectGrid.hasDeltaError
 
-              QfActionCard {
+              QfContainerCard {
                 id: uploadCard
                 Layout.fillWidth: true
                 accentColor: Theme.cloudColor
                 iconSource: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
                 title: qsTr('Upload local changes')
-                badgeText: cloudProjectGrid.changesCount > 0 ? cloudProjectGrid.changesCount : ''
+                count: cloudProjectGrid.changesCount
                 description: qsTr('Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.')
-                buttonText: qsTr('Upload')
-                buttonColor: Theme.light
-                buttonEnabled: cloudProjectGrid.canUpload
-                metaText: {
+                footnote: {
                   if (!cloudProjectsModel.currentProject) {
                     return '';
                   }
@@ -433,16 +436,25 @@ Popup {
                   if (isNaN(timeDeltaMinutes)) {
                     return qsTr('No changes uploaded yet');
                   } else if (timeDeltaMinutes < 1) {
-                    return qsTr('Last upload just now');
+                    return qsTr('Last uploaded just now');
                   } else if (timeDeltaMinutes < 60) {
-                    return qsTr('Last upload %1 minutes ago').arg(timeDeltaMinutes);
+                    return qsTr('Last uploaded %1 minutes ago').arg(timeDeltaMinutes);
                   } else if (uploadedAt.toLocaleDateString() === new Date().toLocaleDateString()) {
-                    return qsTr('Last upload today at %1').arg(uploadedAt.toLocaleTimeString(Qt.locale(), Locale.ShortFormat));
+                    return qsTr('Last uploaded today at %1').arg(uploadedAt.toLocaleTimeString(Qt.locale(), Locale.ShortFormat));
                   }
-                  return qsTr('Last upload on %1').arg(uploadedAt.toLocaleString(Qt.locale(), Locale.ShortFormat));
+                  return qsTr('Last uploaded on %1').arg(uploadedAt.toLocaleString(Qt.locale(), Locale.ShortFormat));
                 }
 
-                onActionClicked: projectPush(false)
+                QfButton {
+                  Layout.fillWidth: true
+                  Layout.topMargin: 4
+                  bgcolor: Theme.cloudColor
+                  color: Theme.light
+                  text: qsTr('Upload')
+                  enabled: cloudProjectGrid.canUpload
+
+                  onClicked: projectPush(false)
+                }
 
                 RowLayout {
                   Layout.fillWidth: true
@@ -488,7 +500,7 @@ Popup {
                 }
               }
 
-              QfActionCard {
+              QfContainerCard {
                 id: synchronizeCard
                 Layout.fillWidth: true
                 accentColor: Theme.mainColor
@@ -496,10 +508,7 @@ Popup {
                 title: qsTr('Synchronize project')
                 indicatorVisible: !!(cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.isOutdated || cloudProjectsModel.currentProject.isProjectOutdated))
                 description: qsTr('Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.')
-                buttonText: qsTr('Synchronize')
-                outlined: true
-                buttonEnabled: cloudProjectGrid.canSynchronize
-                metaText: {
+                footnote: {
                   if (!cloudProjectsModel.currentProject) {
                     return '';
                   }
@@ -508,16 +517,25 @@ Popup {
                   if (isNaN(timeDeltaMinutes)) {
                     return '';
                   } else if (timeDeltaMinutes < 1) {
-                    return qsTr('Last sync just now');
+                    return qsTr('Last synchronized just now');
                   } else if (timeDeltaMinutes < 60) {
-                    return qsTr('Last sync %1 minutes ago').arg(timeDeltaMinutes);
+                    return qsTr('Last synchronized %1 minutes ago').arg(timeDeltaMinutes);
                   } else if (synchronizedAt.toLocaleDateString() === new Date().toLocaleDateString()) {
-                    return qsTr('Last sync today at %1').arg(synchronizedAt.toLocaleTimeString(Qt.locale(), Locale.ShortFormat));
+                    return qsTr('Last synchronized today at %1').arg(synchronizedAt.toLocaleTimeString(Qt.locale(), Locale.ShortFormat));
                   }
-                  return qsTr('Last sync on %1').arg(synchronizedAt.toLocaleString(Qt.locale(), Locale.ShortFormat));
+                  return qsTr('Last synchronized on %1').arg(synchronizedAt.toLocaleString(Qt.locale(), Locale.ShortFormat));
                 }
 
-                onActionClicked: projectPush(true)
+                QfButton {
+                  Layout.fillWidth: true
+                  Layout.topMargin: 4
+                  bgcolor: "transparent"
+                  color: Theme.mainColor
+                  text: qsTr('Synchronize')
+                  enabled: cloudProjectGrid.canSynchronize
+
+                  onClicked: projectPush(true)
+                }
               }
             }
 
