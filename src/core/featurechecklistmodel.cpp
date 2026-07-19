@@ -31,6 +31,12 @@ QVariant FeatureCheckListModelBase::data( const QModelIndex &index, int role ) c
     {
       return mCheckedEntries.isEmpty();
     }
+
+    if ( keyField().isEmpty() )
+    {
+      return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::FeatureIdRole ).toString() );
+    }
+
     return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
   }
   else
@@ -94,14 +100,21 @@ QVariant FeatureCheckListModelBase::attributeValue() const
   {
     if ( mAllowMulti )
     {
-      if ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList )
+      if ( !mAttributeField.name().isEmpty() && ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList ) )
       {
         value = vl;
       }
       else
       {
-        //make string
-        value = QgsPostgresStringUtils::buildArray( vl );
+        if ( mAttributeField.name().isEmpty() )
+        {
+          value = mCheckedEntries;
+        }
+        else
+        {
+          //make string
+          value = QgsPostgresStringUtils::buildArray( vl );
+        }
       }
     }
     else
@@ -119,7 +132,7 @@ void FeatureCheckListModelBase::setAttributeValue( const QVariant &attributeValu
 
   if ( mAllowMulti )
   {
-    if ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList )
+    if ( mAttributeField.name().isEmpty() || ( mAttributeField.type() == QMetaType::QVariantMap || mAttributeField.type() == QMetaType::QVariantList || mAttributeField.type() == QMetaType::QStringList ) )
     {
       if ( attributeValue.canConvert<QString>() )
       {
@@ -152,7 +165,9 @@ void FeatureCheckListModelBase::setAttributeValue( const QVariant &attributeValu
   }
 
   if ( mCheckedEntries == checkedEntries )
+  {
     return;
+  }
 
   beginResetModel();
   mCheckedEntries = checkedEntries;
@@ -225,8 +240,16 @@ void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
     emit dataChanged( index( 0, 0, QModelIndex() ), index( rowCount() - 1, 0, QModelIndex() ), QList<int>() << CheckedRole );
   }
 
-  mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+  if ( keyField().isEmpty() )
+  {
+    mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::FeatureIdRole ).toString() );
+  }
+  else
+  {
+    mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+  }
   emit dataChanged( idx, idx, QList<int>() << CheckedRole );
+
   if ( addNull() && wasEmpty )
   {
     QModelIndex nullIdx = index( 0, 0, QModelIndex() );
@@ -238,8 +261,16 @@ void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
 void FeatureCheckListModelBase::setUnchecked( const QModelIndex &idx )
 {
   const bool wasEmpty = mCheckedEntries.isEmpty();
-  mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+  if ( keyField().isEmpty() )
+  {
+    mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::FeatureIdRole ).toString() );
+  }
+  else
+  {
+    mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+  }
   emit dataChanged( idx, idx, QList<int>() << CheckedRole );
+
   if ( addNull() && !wasEmpty && mCheckedEntries.isEmpty() )
   {
     QModelIndex nullIdx = index( 0, 0, QModelIndex() );
