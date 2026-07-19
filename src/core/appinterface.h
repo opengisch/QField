@@ -23,7 +23,7 @@
 #include <QQmlComponent>
 #include <QStandardItemModel>
 
-class QgisMobileapp;
+class AppController;
 class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
@@ -39,7 +39,7 @@ class AppInterface : public QObject
     Q_OBJECT
 
   public:
-    explicit AppInterface( QQmlEngine *engine );
+    explicit AppInterface( QQmlEngine *engine, AppController *controller = nullptr );
     AppInterface()
     {
       // You shouldn't get here, this constructor only exists that we can register it as a QML type
@@ -282,11 +282,11 @@ class AppInterface : public QObject
 
   private:
     QObject *rootObject() const;
-    QgisMobileapp *app() const;
 
     static AppInterface *sAppInterface;
 
     QQmlEngine *mEngine = nullptr;
+    AppController *mController = nullptr;
 };
 
 #endif // APPINTERFACE_H

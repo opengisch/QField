@@ -29,6 +29,7 @@
 #include <qgsunittypes.h>
 
 // QField includes
+#include "appcontroller.h"
 #include "appcoordinateoperationhandlers.h"
 #include "bookmarkmodel.h"
 #include "clipboardmanager.h"
@@ -36,7 +37,7 @@
 #include "drawingtemplatemodel.h"
 #include "focusstack.h"
 #include "pluginmanager.h"
-#include "qfield_core_export.h"
+#include "qfield_app_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qfieldurlhandler.h"
 #include "qgsgpkgflusher.h"
@@ -66,14 +67,14 @@ class QgsPrintLayout;
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED(engine); Q_UNUSED(scriptEngine); return new _class(); } )
 
 /**
- * \defgroup core
- * \brief QField C++ classes
+ * \defgroup app
+ * \brief QField application C++ classes
  */
 
 /**
- * \ingroup core
+ * \ingroup app
  */
-class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
+class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public AppController
 {
     Q_OBJECT
   public:
@@ -87,7 +88,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      * \param name The project name
      * \note The actual loading is done in readProjectFile
      */
-    bool loadProjectFile( const QString &path, const QString &name = QString() );
+    bool loadProjectFile( const QString &path, const QString &name = QString() ) override;
 
     /**
      * Reloads the current project
@@ -95,12 +96,12 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      * \note It does not reset the Auth Request Handler.
      * \note The actual loading is done in readProjectFile
      */
-    void reloadProjectFile();
+    void reloadProjectFile() override;
 
     /**
      * Reads and opens the project file set in the loadProjectFile function
      */
-    void readProjectFile();
+    void readProjectFile() override;
 
     /**
      * Reads a string from the specified \a scope and \a key from the currently opened project
@@ -111,7 +112,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      *
      * \returns entry value as string from \a scope given its \a key
      */
-    QString readProjectEntry( const QString &scope, const QString &key, const QString &def = QString() ) const;
+    QString readProjectEntry( const QString &scope, const QString &key, const QString &def = QString() ) const override;
 
     /**
      * Reads an integer from the specified \a scope and \a key from the currently opened project
@@ -122,7 +123,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      *
      * \returns entry value as integer from \a scope given its \a key
      */
-    int readProjectNumEntry( const QString &scope, const QString &key, int def = 0 ) const;
+    int readProjectNumEntry( const QString &scope, const QString &key, int def = 0 ) const override;
 
     /**
      * Reads a double from the specified \a scope and \a key from the currently opened project
@@ -133,7 +134,7 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      *
      * \returns entry value as double from \a scope given its \a key
      */
-    double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const;
+    double readProjectDoubleEntry( const QString &scope, const QString &key, double def = 0.0 ) const override;
 
     /**
      * Reads a boolean from the specified \a scope and \a key from the currently opened project
@@ -144,14 +145,14 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      *
      * \returns entry value as boolean from \a scope given its \a key
      */
-    bool readProjectBoolEntry( const QString &scope, const QString &key, bool def = false ) const;
+    bool readProjectBoolEntry( const QString &scope, const QString &key, bool def = false ) const override;
 
     /**
      * Prints a given layout from the currently opened project to a PDF file
      * \param layoutName the layout name that will be printed
      * \return TRUE if the layout was successfully printed
      */
-    bool print( const QString &layoutName );
+    bool print( const QString &layoutName ) override;
 
     /**
      * Prints a given atlas-driven layout from the currently opened project to one or more PDF files
@@ -159,20 +160,20 @@ class QFIELD_CORE_EXPORT QgisMobileapp : public QQmlApplicationEngine
      * \param featureIds the features from the atlas coverage vector layer that will be used to print the layout
      * \return TRUE if the layout was successfully printed
      */
-    bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds );
+    bool printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds ) override;
 
     /**
      * Sets the screen dimmer timeout in seconds
      * \note setting the timeout value to 0 will disable the screen dimmer
      */
-    void setScreenDimmerTimeout( int timeoutSeconds );
+    void setScreenDimmerTimeout( int timeoutSeconds ) override;
 
     bool event( QEvent *event ) override;
 
     /**
      * Clear the currently opened project back to a blank project
      */
-    void clearProject();
+    void clearProject() override;
 
     static void initDeclarative( QQmlEngine *engine );
 

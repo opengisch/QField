@@ -15,12 +15,12 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "appcontroller.h"
 #include "appinterface.h"
 #include "fileutils.h"
 #include "platformutilities.h"
 #include "qfield.h"
 #include "qfieldxmlhttprequest.h"
-#include "qgismobileapp.h"
 #include "translatormanager.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
@@ -47,14 +47,10 @@
 
 AppInterface *AppInterface::sAppInterface = nullptr;
 
-AppInterface::AppInterface( QQmlEngine *engine )
+AppInterface::AppInterface( QQmlEngine *engine, AppController *controller )
   : mEngine( engine )
+  , mController( controller )
 {
-}
-
-QgisMobileapp *AppInterface::app() const
-{
-  return qobject_cast<QgisMobileapp *>( mEngine );
 }
 
 QObject *AppInterface::rootObject() const
@@ -216,80 +212,70 @@ bool AppInterface::hasProjectOnLaunch() const
 bool AppInterface::loadFile( const QString &path, const QString &name )
 {
   qInfo() << QStringLiteral( "AppInterface loading file: %1" ).arg( path );
-  QgisMobileapp *mobileApp = app();
-  if ( !mobileApp )
+  if ( !mController )
   {
     return false;
   }
   if ( QFileInfo::exists( path ) )
   {
-    return mobileApp->loadProjectFile( path, name );
+    return mController->loadProjectFile( path, name );
   }
 
   const QUrl url( path );
-  return mobileApp->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
+  return mController->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
 }
 
 void AppInterface::reloadProject()
 {
-  QgisMobileapp *mobileApp = app();
-  if ( mobileApp )
+  if ( mController )
   {
-    mobileApp->reloadProjectFile();
+    mController->reloadProjectFile();
   }
 }
 
 void AppInterface::readProject()
 {
-  QgisMobileapp *mobileApp = app();
-  if ( mobileApp )
+  if ( mController )
   {
-    mobileApp->readProjectFile();
+    mController->readProjectFile();
   }
 }
 
 QString AppInterface::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
 {
-  const QgisMobileapp *mobileApp = app();
-  return mobileApp ? mobileApp->readProjectEntry( scope, key, def ) : def;
+  return mController ? mController->readProjectEntry( scope, key, def ) : def;
 }
 
 int AppInterface::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
 {
-  const QgisMobileapp *mobileApp = app();
-  return mobileApp ? mobileApp->readProjectNumEntry( scope, key, def ) : def;
+  return mController ? mController->readProjectNumEntry( scope, key, def ) : def;
 }
 
 double AppInterface::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
 {
-  const QgisMobileapp *mobileApp = app();
-  return mobileApp ? mobileApp->readProjectDoubleEntry( scope, key, def ) : def;
+  return mController ? mController->readProjectDoubleEntry( scope, key, def ) : def;
 }
 
 bool AppInterface::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
 {
-  const QgisMobileapp *mobileApp = app();
-  return mobileApp ? mobileApp->readProjectBoolEntry( scope, key, def ) : def;
+  return mController ? mController->readProjectBoolEntry( scope, key, def ) : def;
 }
 
 bool AppInterface::print( const QString &layoutName )
 {
-  QgisMobileapp *mobileApp = app();
-  return mobileApp ? mobileApp->print( layoutName ) : false;
+  return mController ? mController->print( layoutName ) : false;
 }
 
 bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
-  QgisMobileapp *mobileApp = app();
-  return mobileApp ? mobileApp->printAtlasFeatures( layoutName, featureIds ) : false;
+  return mController ? mController->printAtlasFeatures( layoutName, featureIds ) : false;
 }
 
 void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
-  QgisMobileapp *mobileApp = app();
-  if ( mobileApp )
+  if ( mController )
   {
-    mobileApp->setScreenDimmerTimeout( timeoutSeconds );
+    mController->setScreenDimmerTimeout( timeoutSeconds );
   }
 }
 
@@ -376,10 +362,9 @@ void AppInterface::changeLanguage( const QString &languageCode )
     QgsApplication::setLocale( systemLocale );
   }
 
-  QgisMobileapp *mobileApp = app();
-  if ( mobileApp )
+  if ( mEngine )
   {
-    mobileApp->retranslate();
+    mEngine->retranslate();
   }
 }
 
@@ -423,10 +408,9 @@ void AppInterface::closeSentry() const
 
 void AppInterface::clearProject() const
 {
-  QgisMobileapp *mobileApp = app();
-  if ( mobileApp )
+  if ( mController )
   {
-    mobileApp->clearProject();
+    mController->clearProject();
   }
 }
 

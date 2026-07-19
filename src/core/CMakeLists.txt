@@ -130,7 +130,6 @@ set(QFIELD_CORE_SRCS
     qfieldappauthrequesthandler.cpp
     qfieldurlhandler.cpp
     qfieldxmlhttprequest.cpp
-    qgismobileapp.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
     recentprojectlistmodel.cpp
@@ -223,6 +222,7 @@ set(QFIELD_CORE_HDRS
     qfieldcloud/qfieldcloudproject.h
     qfieldcloud/qfieldcloudprojectsmodel.h
     qfieldcloud/qfieldcloudstatus.h
+    appcontroller.h
     appcoordinateoperationhandlers.h
     appexpressioncontextscopesgenerator.h
     appinterface.h
@@ -285,7 +285,6 @@ set(QFIELD_CORE_HDRS
     qfieldappauthrequesthandler.h
     qfieldurlhandler.h
     qfieldxmlhttprequest.h
-    qgismobileapp.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
     recentprojectlistmodel.h
