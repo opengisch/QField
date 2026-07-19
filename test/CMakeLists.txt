@@ -99,6 +99,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
+    qfield_app
     qfield_core
     qfield_qml
     Qt::Test

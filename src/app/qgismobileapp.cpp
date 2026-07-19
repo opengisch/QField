@@ -225,7 +225,7 @@
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
-  , mIface( new AppInterface( this ) )
+  , mIface( new AppInterface( this, this ) )
   , mFirstRenderingFlag( true )
   , mApp( app )
 {

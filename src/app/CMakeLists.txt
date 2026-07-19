@@ -62,6 +62,24 @@ find_package(
   COMPONENTS Core5Compat
   REQUIRED)
 
+set(QFIELD_APP_SRCS qgismobileapp.cpp)
+set(QFIELD_APP_HDRS qgismobileapp.h)
+
+add_library(qfield_app STATIC ${QFIELD_APP_SRCS} ${QFIELD_APP_HDRS})
+
+include(GenerateExportHeader)
+generate_export_header(qfield_app)
+
+target_include_directories(qfield_app SYSTEM PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+
+target_include_directories(qfield_app PUBLIC ${CMAKE_SOURCE_DIR}/src/app)
+
+target_compile_features(qfield_app PUBLIC cxx_std_20)
+
+set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
+
+target_link_libraries(qfield_app PUBLIC qfield_core)
+
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 
@@ -100,7 +118,7 @@ function(create_executable)
     FILES
     ${QM_FILES})
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_core qfield_qml)
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_core qfield_qml)
 
   if(ANDROID)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_service)
