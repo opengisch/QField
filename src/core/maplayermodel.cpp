@@ -298,6 +298,22 @@ int MapLayerModel::findLayer( QgsMapLayer *layer ) const
   return -1;
 }
 
+int MapLayerModel::findLayerName( const QString &name ) const
+{
+  if ( !name.isEmpty() )
+  {
+    QModelIndex startIndex = index( 0, 0 );
+    QModelIndexList list = match( startIndex, MapLayerModel::NameRole, name );
+    if ( !list.isEmpty() )
+    {
+      QModelIndex index = list[0];
+      return index.row();
+    }
+  }
+
+  return -1;
+}
+
 QVariantMap MapLayerModel::get( int row ) const
 {
   QVariantMap data;
