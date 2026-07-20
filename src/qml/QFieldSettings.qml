@@ -204,7 +204,7 @@ Page {
     }
     ListElement {
       title: qsTr("Allow finger tap on canvas to add vertices")
-      description: qsTr("When enabled, tapping on the map canvas with a finger moves the coordinate cursor, and double tapping adds a vertex.")
+      description: qsTr("When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.")
       settingAlias: "fingerTapDigitizing"
       isVisible: true
     }
