@@ -55,9 +55,13 @@ bool FeatureCheckListModelBase::setData( const QModelIndex &index, const QVarian
     case CheckedRole:
     {
       if ( value.toBool() )
+      {
         setChecked( index );
+      }
       else
+      {
         setUnchecked( index );
+      }
       break;
     }
   }
@@ -169,9 +173,8 @@ void FeatureCheckListModelBase::setAttributeValue( const QVariant &attributeValu
     return;
   }
 
-  beginResetModel();
   mCheckedEntries = checkedEntries;
-  endResetModel();
+  emit dataChanged( index( 0, 0, QModelIndex() ), index( rowCount() - 1, 0, QModelIndex() ), QList<int>() << CheckedRole );
 
   emit attributeValueChanged();
 }
@@ -209,24 +212,30 @@ void FeatureCheckListModelBase::toggleCheckAll( const bool toggleChecked )
   if ( toggleChecked )
   {
     QStringList checkedEntries;
-
     for ( int i = 0; i < rowCount(); i++ )
-      checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::KeyFieldRole ).toString() );
+    {
+      if ( keyField().isEmpty() )
+      {
+        checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::FeatureIdRole ).toString() );
+      }
+      else
+      {
+        checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::KeyFieldRole ).toString() );
+      }
+    }
 
     if ( checkedEntries != mCheckedEntries )
     {
-      beginResetModel();
       mCheckedEntries = checkedEntries;
-      endResetModel();
+      emit dataChanged( index( 0, 0, QModelIndex() ), index( rowCount() - 1, 0, QModelIndex() ), QList<int>() << CheckedRole );
     }
   }
   else
   {
     if ( !mCheckedEntries.isEmpty() )
     {
-      beginResetModel();
       mCheckedEntries = QStringList();
-      endResetModel();
+      emit dataChanged( index( 0, 0, QModelIndex() ), index( rowCount() - 1, 0, QModelIndex() ), QList<int>() << CheckedRole );
     }
   }
 }
