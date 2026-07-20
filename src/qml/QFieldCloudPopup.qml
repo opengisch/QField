@@ -12,12 +12,17 @@ Popup {
   padding: 0
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
+  closePolicy: Popup.CloseOnPressOutside
 
   property QFieldCloudStatus cloudServiceStatus: null
   property string pendingAction: ""
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
   property string lastSubscriptionUser: ""
+
+  property date currentDateTime: new Date()
+
+  onAboutToShow: currentDateTime = new Date()
 
   onAboutToHide: {
     pendingAction = "";
@@ -40,24 +45,100 @@ Popup {
 
       topMargin: mainWindow.sceneTopMargin
 
-      onFinished: {
-        if (swipeView.currentIndex === 1) {
-          swipeView.currentIndex = 0;
-        } else if (connectionSettings.visible) {
-          if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-            connectionSettings.visible = false;
-          } else {
-            popup.close();
+      onFinished: popup.goBack()
+    }
+
+    focus: true
+
+    Keys.onReleased: event => {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true;
+        popup.goBack();
+      }
+    }
+
+    RowLayout {
+      id: connectionInformation
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+
+      QfMeterBar {
+        id: storageMeterBar
+        Layout.fillWidth: true
+        Layout.margins: 10
+        Layout.alignment: Qt.AlignVCenter
+        visible: false
+      }
+
+      Item {
+        Layout.fillWidth: true
+        visible: !storageMeterBar.visible
+      }
+
+      Rectangle {
+        id: cloudAvatarRect
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.margins: 10
+        width: 48
+        height: 48
+        radius: width / 2
+        color: Theme.controlBackgroundAlternateColor
+        layer.enabled: true
+
+        Rectangle {
+          id: cloudAvatarMask
+          anchors.centerIn: parent
+          width: cloudAvatar.width
+          height: cloudAvatar.height
+          radius: width / 2
+          color: "white"
+          visible: false
+          layer.enabled: true
+        }
+
+        Image {
+          id: cloudAvatar
+          anchors.centerIn: parent
+          fillMode: Image.PreserveAspectCrop
+          smooth: true
+          source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/nyuki.svg'
+          width: 48
+          height: 48
+          sourceSize.width: width * screen.devicePixelRatio
+          sourceSize.height: height * screen.devicePixelRatio
+          layer.enabled: true
+          layer.effect: QfOpacityMask {
+            maskSource: cloudAvatarMask
           }
-        } else {
-          popup.close();
+
+          onStatusChanged: {
+            // In case the avatar URL fails to load or the image is corrupted, revert to our lovely Nyuki
+            if (status == Image.Error) {
+              source = 'qrc:/images/nyuki.svg';
+            }
+          }
+
+          MouseArea {
+            anchors.fill: parent
+
+            onClicked: {
+              if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
+                return;
+              connectionSettings.visible = !connectionSettings.visible;
+              storageMeterBar.visible = Qt.binding(() => (storageMeterBar.value > 0 || storageMeterBar.loading) && !connectionSettings.visible);
+            }
+          }
         }
       }
     }
 
     SwipeView {
       id: swipeView
-      anchors.fill: parent
+      anchors.top: connectionInformation.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
       clip: true
       interactive: false
 
@@ -78,79 +159,6 @@ Popup {
           columns: 1
           columnSpacing: 2
           rowSpacing: 2
-
-          RowLayout {
-            id: connectionInformation
-
-            QfMeterBar {
-              id: storageMeterBar
-              Layout.fillWidth: true
-              Layout.margins: 10
-              Layout.alignment: Qt.AlignVCenter
-              visible: false
-            }
-
-            Item {
-              Layout.fillWidth: true
-              visible: !storageMeterBar.visible
-            }
-
-            Rectangle {
-              id: cloudAvatarRect
-              Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-              Layout.margins: 10
-              width: 48
-              height: 48
-              radius: width / 2
-              color: Theme.controlBackgroundAlternateColor
-              layer.enabled: true
-
-              Rectangle {
-                id: cloudAvatarMask
-                anchors.centerIn: parent
-                width: cloudAvatar.width
-                height: cloudAvatar.height
-                radius: width / 2
-                color: "white"
-                visible: false
-                layer.enabled: true
-              }
-
-              Image {
-                id: cloudAvatar
-                anchors.centerIn: parent
-                fillMode: Image.PreserveAspectCrop
-                smooth: true
-                source: cloudConnection.avatarUrl !== '' ? cloudConnection.avatarUrl : 'qrc:/images/nyuki.svg'
-                width: 48
-                height: 48
-                sourceSize.width: width * screen.devicePixelRatio
-                sourceSize.height: height * screen.devicePixelRatio
-                layer.enabled: true
-                layer.effect: QfOpacityMask {
-                  maskSource: cloudAvatarMask
-                }
-
-                onStatusChanged: {
-                  // In case the avatar URL fails to load or the image is corrupted, revert to our lovely Nyuki
-                  if (status == Image.Error) {
-                    source = 'qrc:/images/nyuki.svg';
-                  }
-                }
-
-                MouseArea {
-                  anchors.fill: parent
-
-                  onClicked: {
-                    if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
-                      return;
-                    connectionSettings.visible = !connectionSettings.visible;
-                    storageMeterBar.visible = Qt.binding(() => (storageMeterBar.value > 0 || storageMeterBar.loading) && !connectionSettings.visible);
-                  }
-                }
-              }
-            }
-          }
 
           QFieldCloudStatusBanner {
             cloudServiceStatus: popup.cloudServiceStatus
@@ -432,14 +440,14 @@ Popup {
                     return '';
                   }
                   const uploadedAt = cloudProjectsModel.currentProject.lastLocalPushDeltas;
-                  const timeDeltaMinutes = parseInt(Math.max(new Date() - uploadedAt, 0) / (60 * 1000));
+                  const timeDeltaMinutes = parseInt(Math.max(popup.currentDateTime - uploadedAt, 0) / (60 * 1000));
                   if (isNaN(timeDeltaMinutes)) {
                     return qsTr('No changes uploaded yet');
                   } else if (timeDeltaMinutes < 1) {
                     return qsTr('Last uploaded just now');
                   } else if (timeDeltaMinutes < 60) {
                     return qsTr('Last uploaded %1 minutes ago').arg(timeDeltaMinutes);
-                  } else if (uploadedAt.toLocaleDateString() === new Date().toLocaleDateString()) {
+                  } else if (uploadedAt.toLocaleDateString() === popup.currentDateTime.toLocaleDateString()) {
                     return qsTr('Last uploaded today at %1').arg(uploadedAt.toLocaleTimeString(Qt.locale(), Locale.ShortFormat));
                   }
                   return qsTr('Last uploaded on %1').arg(uploadedAt.toLocaleString(Qt.locale(), Locale.ShortFormat));
@@ -513,14 +521,14 @@ Popup {
                     return '';
                   }
                   const synchronizedAt = cloudProjectsModel.currentProject.lastLocalExportedAt;
-                  const timeDeltaMinutes = parseInt(Math.max(new Date() - synchronizedAt, 0) / (60 * 1000));
+                  const timeDeltaMinutes = parseInt(Math.max(popup.currentDateTime - synchronizedAt, 0) / (60 * 1000));
                   if (isNaN(timeDeltaMinutes)) {
                     return '';
                   } else if (timeDeltaMinutes < 1) {
                     return qsTr('Last synchronized just now');
                   } else if (timeDeltaMinutes < 60) {
                     return qsTr('Last synchronized %1 minutes ago').arg(timeDeltaMinutes);
-                  } else if (synchronizedAt.toLocaleDateString() === new Date().toLocaleDateString()) {
+                  } else if (synchronizedAt.toLocaleDateString() === popup.currentDateTime.toLocaleDateString()) {
                     return qsTr('Last synchronized today at %1').arg(synchronizedAt.toLocaleTimeString(Qt.locale(), Locale.ShortFormat));
                   }
                   return qsTr('Last synchronized on %1').arg(synchronizedAt.toLocaleString(Qt.locale(), Locale.ShortFormat));
@@ -631,7 +639,6 @@ Popup {
             id: connectionSettings
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.topMargin: connectionInformation.visible ? 0 : connectionInformation.childrenRect.height
             spacing: 2
 
             visible: (cloudProjectsModel.currentProjectId || popup.pendingAction != "") && cloudConnection.status !== QFieldCloudConnection.LoggedIn
@@ -875,6 +882,20 @@ Popup {
     onRejected: {
       visible = false;
       popup.focus = true;
+    }
+  }
+
+  function goBack() {
+    if (swipeView.currentIndex === 1) {
+      swipeView.currentIndex = 0;
+    } else if (connectionSettings.visible) {
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        connectionSettings.visible = false;
+      } else {
+        popup.close();
+      }
+    } else {
+      popup.close();
     }
   }
 

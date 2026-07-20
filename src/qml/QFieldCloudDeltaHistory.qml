@@ -10,6 +10,7 @@ import Theme
  */
 QfPopup {
   id: popup
+  focus: true
 
   property alias model: deltaList.model
 
@@ -83,6 +84,14 @@ QfPopup {
 
   Page {
     id: page
+
+    Keys.onReleased: event => {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true;
+        popup.close();
+      }
+    }
+
     width: parent.width
     height: {
       const chromeHeight = toolBar.childrenRect.height + 20;
