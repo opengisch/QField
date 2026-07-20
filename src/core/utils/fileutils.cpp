@@ -465,7 +465,17 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
       if ( isEmbedded || isRemote || QFileInfo::exists( decorationSource ) )
       {
         const double lineHeight = context.convertFromPainterUnits( format.size(), format.sizeUnit() );
-        const bool isRaster = isEmbedded || isRemote || QFileInfo( decorationSource ).suffix().toLower() != QStringLiteral( "svg" );
+
+        bool isRaster = true;
+        if ( isEmbedded )
+        {
+          const QByteArray decoded = QByteArray::fromBase64( decorationSource.mid( 7 ).toUtf8() );
+          isRaster = QMimeDatabase().mimeTypeForData( decoded ).name() != QLatin1String( "image/svg+xml" );
+        }
+        else
+        {
+          isRaster = QFileInfo( decorationSource ).suffix().toLower() != QStringLiteral( "svg" );
+        }
 
         bool fitsInCache = false;
         if ( isRaster )
