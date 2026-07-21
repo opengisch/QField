@@ -206,6 +206,9 @@ class Quick3DTerrainProvider : public QObject
     void onTerrainDataCalculated();
     double sampleHeightFromTerrainProvider( double x, double y ) const;
 
+    //! Returns the Tukey lower fence ( Q1 - factor * IQR ) for the samples; heights below it are gross DEM spikes.
+    static double lowerOutlierFence( QVector<double> samples, double factor );
+
   private:
     QgsProject *mProject = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;

@@ -63,6 +63,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
       ConditionalFontItalicRole,
       ConditionalFontUnderlineRole,
       ConditionalFontStrikeOutRole,
+      ExtrusionRole,
     };
 
     explicit MultiFeatureListModel( QObject *parent = nullptr );
