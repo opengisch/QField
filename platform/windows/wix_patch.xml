@@ -1,0 +1,14 @@
+<CPackWiXPatch>
+  <CPackWiXFragment Id="CM_CP_usr.bin.qfield.exe">
+    <ProgId Id="QField.qgs" Description="QGS Document">
+      <Extension Id="qgs" ContentType="application/x-qgis-project">
+        <Verb Id="open" Command="Open" TargetFile="CM_FP_usr.bin.qfield.exe" Argument='"%1"' />
+      </Extension>
+    </ProgId>
+    <ProgId Id="QField.qgz" Description="QGZ Document">
+      <Extension Id="qgz" ContentType="application/x-qgis-project-container">
+        <Verb Id="open" Command="Open" TargetFile="CM_FP_usr.bin.qfield.exe" Argument='"%1"' />
+      </Extension>
+    </ProgId>
+  </CPackWiXFragment>
+</CPackWiXPatch>
