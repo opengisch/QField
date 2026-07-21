@@ -29,6 +29,14 @@ Item {
       width: parent.width
       spacing: 10
 
+      QfCollapsibleMessage {
+        Layout.fillWidth: true
+        Layout.margins: 10
+        color: Theme.darkRed
+        font: Theme.tipFont
+        iconSource: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+        titleText: qsTr('The action below is irreversible and permanently affects your local data. Proceed with caution.')
+      }
       QfContainerCard {
         Layout.fillWidth: true
         Layout.margins: 10
