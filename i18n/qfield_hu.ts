@@ -4735,10 +4735,6 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <translation>Lehetséges töréspont hozzáadása a térkép újjal érintésével</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Ha lehetséges, akkor a térkép újjal érintése egy töréspont hozzáadását eredményezi az adott helyen.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Ha engedélyezett, az egér úgy működik, mintha egy újj lett volna. Ha tiltott, az egér egy toll viselkedését követi.</translation>
     </message>
@@ -4985,6 +4981,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

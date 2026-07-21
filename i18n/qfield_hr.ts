@@ -4737,10 +4737,6 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation type="unfinished"/>
     </message>
@@ -4986,6 +4982,10 @@ Otkažite da pokrenete minimalno skeniranje uređaja.</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -4741,10 +4741,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Salli taitepisteiden lisääminen sorminapautuksella</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Kun tämä on käytössä, karttapohjan napauttaminen sormella lisää taitepisteen napautettuun kohtaan.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Kun tämä on käytössä, hiiri toimii kuin se olisi sormi. Kun hiiri ei ole käytössä, se vastaa kynän toimintaa.</translation>
     </message>
@@ -4990,6 +4986,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

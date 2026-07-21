@@ -4740,10 +4740,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Permitir toques con los dedos en el lienzo para añadir vértices</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Cuando está activado, al tocar con un dedo en el lienzo se añadirá un vértice en la posición tocada.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Cuando está activado, el ratón actuará como si fuera un dedo. Cuando no está activado, el ratón funcionará como un lápiz óptico.</translation>
     </message>
@@ -4991,6 +4987,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <message>
         <source>Authentication cache cleared</source>
         <translation>Se ha vaciado la caché de autenticación</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

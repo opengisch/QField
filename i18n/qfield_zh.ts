@@ -4738,10 +4738,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>允许手指在画布上点击以添加顶点</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>启用后，用手指点击地图画布将在点击位置添加一个顶点。</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>启用后，鼠标将像手指一样工作。禁用时，鼠标将与触控笔的行为相匹配。</translation>
     </message>
@@ -4988,6 +4984,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Authentication cache cleared</source>
         <translation>认证缓存已清除</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>启用后，用手指轻触地图画布可移动坐标光标，而双击可添加一个顶点。</translation>
     </message>
 </context>
 <context>

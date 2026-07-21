@@ -4737,10 +4737,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Autoriser une pression du doigt sur le canevas pour ajouter un sommet</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Si activé, la pression d&apos;un doigt sur le canevas de la carte ajoutera un sommet à l&apos;endroit touché.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Si activé, la souris agira comme si c&apos;était un doigt. Si désactivé, la souris aura le comportement d&apos;un stylet.</translation>
     </message>
@@ -4987,6 +4983,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Authentication cache cleared</source>
         <translation>Le cache d&apos;authentification a été vidé</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Si activée, tu peux déplacer le curseur de coordonnées en tapant avec le doigt sur la carte et ajouter un sommet en tapant deux fois.</translation>
     </message>
 </context>
 <context>

@@ -4720,10 +4720,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>ອະນຸຍາດໃຫ້ແຕະນິ້ວມືໃສ່ຜ້າໃບເພື່ອເພີ່ມຈຸດຕັ້ງ</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ການແຕະໃສ່ຜ້າໃບແຜນທີ່ດ້ວຍນິ້ວມືຈະເພີ່ມຈຸດສູງສຸດຢູ່ບ່ອນແຕະ.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>ເມື່ອເປີດໃຊ້ງານ, ເມົາສ໌ຈະເຮັດໜ້າທີ່ຄືກັບວ່າມັນເປັນນິ້ວມື. ເມື່ອປິດໃຊ້ງານ, ເມົາສ໌ຈະກົງກັບພຶດຕິກໍາຂອງສະໄຕລັດ.</translation>
     </message>
@@ -4970,6 +4966,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

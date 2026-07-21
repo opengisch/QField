@@ -4742,10 +4742,6 @@ Zrušiť a spraviť minimálny sken.</translation>
         <translation>Povoliť pridanie vrcholov klepnutím na obrazovku</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Po zapnutí možno pridávať vrcholové body klepnutím na obrazovku.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Po zapnutí sa bude myška správať ako prst, po vypnutí sa bude myška správať ako stylus pero.</translation>
     </message>
@@ -4991,6 +4987,10 @@ Zrušiť a spraviť minimálny sken.</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

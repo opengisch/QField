@@ -4741,10 +4741,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Разреши добавяне на нови възли чрез натискане на картата</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Когато е разрешено, при натискане на картата с пръст ще се добавят нови възли в геометрията на докоснатата локация.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Когато е включено, мишката ще се държи като пръст. Когато е изключено, мишката ще се държи като писалка.</translation>
     </message>
@@ -4990,6 +4986,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -4742,10 +4742,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Разрешить добавление вершин с помощью тапа</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Если включить эту функцию, то при нажатии пальцем на холст карты будет добавлена вершина в месте нажатия.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Если эта функция включена, мышь будет вести себя так, как будто это палец. Если отключить, мышь будет вести себя как стилус.</translation>
     </message>
@@ -4991,6 +4987,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

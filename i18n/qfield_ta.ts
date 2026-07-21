@@ -4735,10 +4735,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>செங்குத்துகளைச் சேர்க்க, கேன்வாசில் விரல் தட்டுவதை அனுமதிக்கவும்</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>இயக்கப்பட்டிருக்கும் போது, ​​வரைபட கேன்வாசில் விரலால் தட்டினால், தட்டப்பட்ட இடத்தில் ஒரு உச்சியைச் சேர்க்கும்.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>இயக்கப்பட்டால், சுட்டி ஒரு விரலைப் போல செயல்படும். முடக்கப்பட்டிருக்கும் போது, ​​மவுச் ச்டைலச் நடத்தைக்கு பொருந்தும்.</translation>
     </message>
@@ -4984,6 +4980,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

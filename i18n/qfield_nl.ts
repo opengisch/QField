@@ -4739,10 +4739,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation>Tik met je vinger op het scherm om hoekpunten toe te voegen</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Indien ingeschakeld kun je met je vinger op het kaartbeeld tikken om een Vertex toe te voegen op de gekozen locatie.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Indien ingeschakeld gedraagt de muis zich als een vinger. Als deze optie is uitgeschakeld, gedraagt de muis zich als een stylus.</translation>
     </message>
@@ -4988,6 +4984,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

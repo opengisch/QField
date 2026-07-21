@@ -4745,10 +4745,6 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
         <translation>Permetti di toccare con il dito la mappa per aggiungere vertici</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Quando abilitato, toccando con un dito la mappa aggiungerà un vertice al punto selezionato.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Quando abilitato, il mouse si comporterà come se fosse un dito. Quando disabilitato, il mouse corrisponderà al comportamento dello stilo.</translation>
     </message>
@@ -4994,6 +4990,10 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

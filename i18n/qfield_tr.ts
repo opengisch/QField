@@ -4734,10 +4734,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation>Tuval üzerinde parmakla dokunarak köşe eklemeye izin ver</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Etkinleştirildiğinde, harita tuvaline parmakla dokunmak, dokunulan konumda bir köşe ekleyecektir.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Etkinleştirildiğinde, fare parmak gibi davranacaktır. Devre dışı bırakıldığında, fare kalem davranışını yansıtacaktır.</translation>
     </message>
@@ -4983,6 +4979,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

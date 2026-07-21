@@ -4739,10 +4739,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation>Permitir toque de dedo na vista do mapa para engadir vértices</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Cando se activa, dar un toque cun dedo na vista do mapa engadirá un vértice na posición pulsada.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Cando se activa, o rato actuará coma se fose un dedo. Cando se desactiva, o rato comportarase coma un punteiro.</translation>
     </message>
@@ -4988,6 +4984,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Authentication cache cleared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
         <translation type="unfinished"/>
     </message>
 </context>

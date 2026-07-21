@@ -4741,10 +4741,6 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
         <translation>Permet tocar el llenç amb el dit per afegir vèrtexs</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Quan estigui habilitat, tocar el llenç del mapa amb un dit afegeix un vèrtex a la ubicació del toc.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Quan està habilitat, el ratolí actuarà com si fos un dit. Quan està desactivat, el ratolí s&apos;ajustarà al comportament del llapis òptic.</translation>
     </message>
@@ -4862,7 +4858,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 Configuració</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4870,7 +4866,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>Activa el servidor intermediari</translation>
     </message>
     <message>
         <source>Type</source>
@@ -4878,7 +4874,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Per defecte del sistema</translation>
     </message>
     <message>
         <source>Host</source>
@@ -4886,7 +4882,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>p. ex. proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -4894,7 +4890,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>p. ex. 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -4910,59 +4906,59 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>URL excloses del servidor intermediari (separades per comes)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>p. ex. localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
+        <translation>Configura un servidor intermediari de xarxa per encaminar el trànsit de QField a través d&apos;un servidor intermediari. Útil per a xarxes corporatives i VPN.</translation>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Si està activat, s&apos;utilitzarà la càmera nativa proporcionada pel sistema operatiu.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Si s&apos;activa, es recopilaran i s&apos;enviaran mètriques anonimitzades per ajudar a millorar l&apos;experiència de l&apos;usuari per a tothom.</translation>
     </message>
     <message>
         <source>Positioning Device</source>
-        <translation type="unfinished"/>
+        <translation>Dispositiu de posicionament</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Habilita les correccions NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Client NTRIP desconnectat</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>El client NTRIP s&apos;està connectant</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>Client NTRIP connectat</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, proporcioneu una configuració NTRIP vàlida.</translation>
     </message>
     <message>
         <source>Elevation Adjustment</source>
-        <translation type="unfinished"/>
+        <translation>Ajust d&apos;elevació</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Marca de temps (mil·lisegons des de l&apos;època)</translation>
     </message>
     <message>
         <source>Bad accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Llindar de precisió dolent</translation>
     </message>
     <message>
         <source>m</source>
@@ -4970,34 +4966,38 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold</source>
-        <translation type="unfinished"/>
+        <translation>Llindar de precisió excel·lent</translation>
     </message>
     <message>
         <source>Minimum positions count</source>
-        <translation type="unfinished"/>
+        <translation>Nombre mínim de posicions</translation>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Alçada de l&apos;antena</translation>
     </message>
     <message>
         <source>Available authentication configurations:</source>
-        <translation type="unfinished"/>
+        <translation>Configuracions d&apos;autenticació disponibles:</translation>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Esborrar la memòria cau d&apos;autenticació</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha esborrat la memòria cau d&apos;autenticació</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation>Quan està activat, si toqueu el llenç del mapa amb el dit es mou el cursor de coordenades, mentre que si toqueu dues vegades s&apos;afegeix un vèrtex.</translation>
     </message>
 </context>
 <context>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu una plantilla de dibuix</translation>
     </message>
 </context>
 <context>
@@ -5012,11 +5012,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation type="unfinished"/>
+        <translation>Error desconegut de QFieldCloud</translation>
     </message>
     <message>
         <source>Status not ok</source>
-        <translation type="unfinished"/>
+        <translation>Estat no correcte</translation>
     </message>
     <message>
         <source>Empty content</source>
@@ -5024,7 +5024,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Object not found</source>
-        <translation type="unfinished"/>
+        <translation>Object no trobat</translation>
     </message>
     <message>
         <source>API Error</source>
@@ -5040,11 +5040,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Invalid delta file</source>
-        <translation type="unfinished"/>
+        <translation>Fitxer delta no vàlid</translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation type="unfinished"/>
+        <translation>El projecte no conté un fitxer de projecte QGIS vàlid.</translation>
     </message>
     <message>
         <source>Invalid job</source>
@@ -5052,19 +5052,19 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;exportació de QGIS ha fallat</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation type="unfinished"/>
+        <translation>QGIS no pot obrir el projecte QGIS.</translation>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha produït un error en obrir la base de dades &lt;b&gt;%1&lt;/b&gt;: %2</translation>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut buidar la base de dades %1 (%3)</translation>
     </message>
     <message>
         <source>Position</source>
@@ -5072,15 +5072,15 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation type="unfinished"/>
+        <translation>Captura de la eina de mapa</translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation type="unfinished"/>
+        <translation>Informació de l&apos;usuari al núvol</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, espereu mentre finalitza la instal·lació de QField.</translation>
     </message>
     <message>
         <source>averaged</source>
@@ -5092,55 +5092,55 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error: el fitxer zip no existeix: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Error: nom de fitxer zip buit</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error: la carpeta de sortida no existeix: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error: el directori de sortida no és un directori: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error: no es pot escriure a la carpeta de sortida: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Fitxer %1 omès fora del directori %2</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut crear un subdirectori %1/%2</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut escriure a %1</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error en llegir el fitxer: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Error en obtenir els fitxers: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Error en obrir l&apos;arxiu zip: &apos;%1&apos; (Codi d&apos;error: %2)</translation>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Cercle #1: radi</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Cercle #2: radi</translation>
     </message>
     <message>
         <source>Candidate</source>
@@ -5148,15 +5148,15 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Paràmetres XYZ</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
-        <translation type="unfinished"/>
+        <translation>Distància/Angle des del punt</translation>
     </message>
     <message>
         <source>Circles Intersection</source>
-        <translation type="unfinished"/>
+        <translation>Intersecció de cercles</translation>
     </message>
     <message>
         <source>Point</source>
@@ -5176,11 +5176,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>Circle #1: punt</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>Circle #2: punt</translation>
     </message>
     <message>
         <source>KB</source>
@@ -5204,19 +5204,19 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>No es pot suprimir el fitxer (no està permès): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;arxiu no existeix: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut suprimir el directori: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut suprimir el fitxer: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -5331,11 +5331,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Toca per ampliar l&apos;emmagatzematge</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Toca per gestionar l&apos;emmagatzematge</translation>
     </message>
 </context>
 <context>
@@ -5371,43 +5371,43 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">El fitxer de projecte &quot;%1&quot; no existeix</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha cap fitxer de projecte obert actualment</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut carregar el tipus de lletra %1</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">S&apos;està carregant el tipus de lletra %1</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Connector del projecte</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut carregar el tipus de lletra: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>No es pot carregar el projecte, el fitxer &quot;%1&quot; no existeix.</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>No es pot llegir el projecte, el fitxer &quot;%1&quot; no existeix.</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>Mapa imprès a %1 utilitzant QField</translation>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut carregar el tipus de lletra del recurs: %1</translation>
     </message>
 </context>
 <context>
@@ -5418,7 +5418,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode d&apos;entrada manual</translation>
     </message>
     <message>
         <source>Estimated</source>
@@ -5468,7 +5468,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;admet la rotació del llenç del mapa. S&apos;està reinicialitzant de %1 a 0.</translation>
     </message>
 </context>
 <context>
@@ -5486,7 +5486,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>ReferencingFeatureListModel</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Capa de referència no vàlida</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -5494,7 +5494,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No es pot esborrar l&apos;objecte</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -5509,7 +5509,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation type="unfinished"/>
+        <translation>Capa de referència no vàlida</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -5517,7 +5517,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation type="unfinished"/>
+        <translation>No es pot esborrar l&apos;objecte</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -5551,19 +5551,19 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>RelationEditorBase</name>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>No es pot afegir un objecte secundari: assegureu-vos que l&apos;objecte principal compleixi totes les restriccions i es pugui desar.</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Afegint un objecte secundari a la capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>No es pot afegir unn objecte secundari: el valor de l&apos;atribut que enllaça el pare i els fills no està definit.</translation>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Desvincula l&apos;objecte</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -5571,23 +5571,23 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;hauria de desenllaçar l&apos;objecte &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connexió s&apos;eliminarà a la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha d&apos;eliminar l&apos;objecte &lt;b&gt;%1 (%2)&lt;/b&gt; a la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut suprimir l&apos;objecte de referència</translation>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú infantil</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>Copiar atributs de l&apos;objecte</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -5611,25 +5611,25 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n objecte(s)</numerusform><numerusform>%n objecte(s)</numerusform></translation>
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Obre el formulari</translation>
     </message>
 </context>
 <context>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation>La geometria no s&apos;ha pogut remodelar</translation>
     </message>
 </context>
 <context>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La geometria no s&apos;ha pogut remodelar</translation>
     </message>
 </context>
 <context>
@@ -5650,11 +5650,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu el port sèrie de la llista següent:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;han detectat ports sèrie, actualitzeu la llista un cop s&apos;hagi connectat un dispositiu.</translation>
     </message>
     <message>
         <source>Refresh list</source>
@@ -5662,51 +5662,51 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>Nom a mostrar del port sèrie:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>Adreça del port sèrie:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut trobar el dispositiu de port sèrie</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;intent de llegir des del port sèrie ha retornat un error</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha rebutjat la connexió a causa de no tenir prou permisos</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Error del receptor del port sèrie (%1)</translation>
     </message>
 </context>
 <context>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut separar l&apos;objecte</translation>
     </message>
 </context>
 <context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut separar l&apos;objecte</translation>
     </message>
 </context>
 <context>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Preparant QField, aquesta és una operació que només s&apos;executa una vegada i que pot trigar una estona.</translation>
     </message>
 </context>
 <context>
@@ -5721,7 +5721,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>Adreça IP</translation>
     </message>
     <message>
         <source>Port</source>
@@ -5756,11 +5756,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La connexió ha estat rebutjada per la mànega remota</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Error del receptor UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -5779,7 +5779,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation type="unfinished"/>
+        <translation>Activa el filtre temporal</translation>
     </message>
 </context>
 <context>
@@ -5809,7 +5809,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
+        <translation>Traça iniciada a la capa %1</translation>
     </message>
 </context>
 <context>
@@ -5824,7 +5824,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisit de temps</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
@@ -5832,11 +5832,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quan s&apos;habilita, s&apos;afegiran vèrtexs quan el temps entre l&apos;últim vèrtex i el nou vèrtex assoleixi un valor mínim configurat.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisit de distància</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
@@ -5844,35 +5844,35 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quan s&apos;habilita, s&apos;afegiran vèrtexs quan la distància entre l&apos;últim vèrtex i el nou vèrtex assoleixi un valor mínim configurat.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>Requisit de dades del sensor</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>Quan estigui habilitat, s&apos;afegiran vèrtex quan els sensors hagin capturat dades noves.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>Espereu tots els requisits actius</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>Quan està habilitat, els vèrtex només es registraran quan es compleixin tots els requisits actius. Quan està desactivat, el compliment de cada requisit individual desencadenarà l&apos;addició de vèrtexs.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració general</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>Protecció de distància errònia</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>Quan està habilitada, l&apos;addició de vèrtex no es produirà quan la distància entre l&apos;últim vèrtex i el nou vèrtex sigui superior a un valor màxim configurat.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -5880,7 +5880,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>Temps transcorregut (segons des de l&apos;inici del seguiment)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -5916,7 +5916,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>Per activar la funcionalitat de mesurament, assegura&apos;t que el tipus de geometria de la capa vectorial utilitzada per a la sessió de seguiment tingui una dimensió M.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -5928,7 +5928,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>Reprendre el seguiment</translation>
     </message>
     <message>
         <source>Layer</source>
@@ -5936,15 +5936,15 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>Traça represa a la capa %1</translation>
     </message>
     <message>
         <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>Marca de temps (mil·lisegons des de l&apos;època)</translation>
     </message>
     <message>
         <source>Minimum time</source>
-        <translation type="unfinished"/>
+        <translation>Temps mínim</translation>
     </message>
     <message>
         <source>sec</source>
@@ -5952,18 +5952,18 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Minimum distance</source>
-        <translation type="unfinished"/>
+        <translation>Distància mínima</translation>
     </message>
     <message>
         <source>Maximum tolerated distance</source>
-        <translation type="unfinished"/>
+        <translation>Distància màxima tolerada</translation>
     </message>
 </context>
 <context>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Traça iniciada a la capa %1</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
@@ -5971,27 +5971,27 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Activa la restricció de temps</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Temps mínim [seg]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Activa la restricció de distància</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Distància mínima [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Registra quan es compleixen les dues restriccions actives</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Quan està habilitat, els vèrtexs només es registren quan es compleixen ambdues restriccions actives. Si la configuració està desactivada, el compliment de cada restricció individual desencadenarà l&apos;addició d&apos;un vèrtex.</translation>
     </message>
     <message>
         <source>Start tracking</source>
@@ -5999,11 +5999,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No es pot iniciar la traça amb valors buits</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Quan ambdues restriccions estan desactivades, les addicions de vèrtex es produiran tan sovint com les proporcioni el dispositiu de posicionament.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
@@ -6011,7 +6011,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Temps transcorregut (segons des de l&apos;inici del seguiment)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -6047,7 +6047,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Per activar la funcionalitat de mesurament, assegura&apos;t que el tipus de geometria de la capa vectorial utilitzada per a la sessió de seguiment tingui una dimensió M.</translation>
     </message>
 </context>
 <context>
@@ -6172,11 +6172,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La connexió ha estat rebutjada per la mànega remota</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Error del receptor UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -6202,103 +6202,103 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix una variable nova</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables globals</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables del projecte</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut desar l&apos;objecte!</translation>
     </message>
 </context>
 <context>
     <name>VertexEditorToolbar</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut desar l&apos;objecte!</translation>
     </message>
 </context>
 <context>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut baixar el fitxer %1 a causa d&apos;un error de xarxa (%2)</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut pujar el fitxer %1 a causa d&apos;un error de xarxa (%2)</translation>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Pujada finalitzada.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha proporcionat rutes locals.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>El WebDAV està ocupat.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>No és un projecte importat de WebDAV.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>Falten camps obligatoris a la configuració de WebDAV.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha cap contrasenya emmagatzemada disponible.</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Els elements seleccionats pertanyen a diferents projectes WebDAV.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha res per pujar.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;han detectat canvis locals.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Pujada cancel·lada.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Pujada omesa.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>La càrrega està bloquejada per un altre procés.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut llegir el fitxer de configuració de WebDAV.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>JSON de configuració WebDAV no vàlid.</translation>
     </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation type="unfinished"/>
+        <translation>Ens sap greu. Feu clic al botó següent per comentar o demanar ajuda.</translation>
     </message>
     <message>
         <source>Reach out</source>
@@ -6306,11 +6306,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ei, com us ha anat l&apos;experiència amb QField fins ara?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fantàstic! Ens agradaria molt que fessiu clic al botó següent i deixessiu un comentari a la botiga.</translation>
     </message>
     <message>
         <source>Rate us</source>
@@ -6318,11 +6318,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>La recopilació de mètriques anonimitzades s&apos;ha desactivat. Podeu tornar-la a activar a través del tauler de configuració.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Per millorar l&apos;estabilitat per a tothom, QField recull i envia mètriques anonimitzades.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -6330,7 +6330,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>Prefereixo que no</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
@@ -6350,23 +6350,23 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Projecte de mapa base</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Projecte de mapa base</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Elimina dels projectes recents</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Benvingut a QField. És la primera vegada que feu servir aquesta aplicació? Proveu els projectes d&apos;exemple que apareixen a la llista següent.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Benvinguts de nou a QField.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -6378,62 +6378,65 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Carrega el projecte per defecte en iniciar-se</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>Carrega l&apos;últim projecte obert en iniciar-se</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>Accions recents del projecte</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>Fantàstic! Ens encantaria que fessiu clic al botó de sota i deixessiu una ressenya.</translation>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>Torna al mapa</translation>
     </message>
     <message>
         <source>QFieldCloud
 projects</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud
+projectes</translation>
     </message>
     <message>
         <source>Local projects and
  datasets</source>
-        <translation type="unfinished"/>
+        <translation>Projectes locals i
+ conjunts de dades</translation>
     </message>
     <message>
         <source>Create new
 project</source>
-        <translation type="unfinished"/>
+        <translation>Crea nou
+projecte</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Ei, què us sembla l&apos;experiència amb %1 fins ara?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Per millorar l&apos;estabilitat per a tothom, %1 recull i envia mètriques anonimitzades.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>La primera vegada que utilitzeu aquesta aplicació? Proveu els projectes de mostra que s&apos;indiquen a continuació.</translation>
     </message>
     <message>
         <source>Recently Opened</source>
-        <translation type="unfinished"/>
+        <translation>Obert recentment</translation>
     </message>
     <message>
         <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa base de conjunts de dades individuals</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
-        <translation type="unfinished"/>
+        <translation>Elimina dels oberts recentment</translation>
     </message>
 </context>
 <context>
@@ -6447,7 +6450,7 @@ project</source>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>graus quadrats</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -6455,23 +6458,23 @@ project</source>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>metres quadrats</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>quilòmetres quadrats</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>peus quadrats</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>iardes quadrades</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>milles quadrades</translation>
     </message>
     <message>
         <source>hectares</source>
@@ -6483,19 +6486,19 @@ project</source>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>milles nàutiques quadrades</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>centímetres quadrats</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>mil·límetres quadrats</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>polzades quadrades</translation>
     </message>
 </context>
 <context>
@@ -6541,7 +6544,7 @@ project</source>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>milles nàutiques</translation>
     </message>
     <message>
         <source>centimeters</source>
@@ -6579,31 +6582,31 @@ project</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afegint un objecte secundari a la capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No es pot afegir u objecte secundari: les claus primàries principals no estan disponibles.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Desenllaça l&apos;objecte %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Esborra l&apos;objecte %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">S&apos;hauria de desenllaçar l&apos;objecte &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connexió s&apos;eliminarà a la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">S&apos;ha d&apos;eliminar l&apos;objecte &lt;b&gt;%1 (%2)&lt;/b&gt; a la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut suprimir l&apos;objecte de referència</translation>
     </message>
 </context>
 <context>
@@ -6622,38 +6625,38 @@ project</source>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>est [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>nord [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>elevació [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Selector d&apos;objecte punt</translation>
     </message>
 </context>
 <context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Ara sou en mode de navegació.</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Ara esteu en mode de digitalització a la capa %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation type="unfinished"/>
+        <translation>Ara sou en mode de digitalització</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation type="unfinished"/>
+        <translation>Ara sou en mode de mesura</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -6681,7 +6684,7 @@ project</source>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation type="unfinished"/>
+        <translation>Tanca l&apos;eina de mesura</translation>
     </message>
     <message>
         <source>Stop editing</source>
@@ -6693,27 +6696,27 @@ project</source>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Edició topològica activada</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Edició topològica desactivada</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Digitalització a mà alçada activada</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Digitalització a mà alçada desactivada</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">El cursor de coordenada ara està bloquejat a la posició</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Cursor de coordenada desbloquejat</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -6721,15 +6724,15 @@ project</source>
     </message>
     <message>
         <source>Searching for position</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cercant ubicació</translation>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">El llenç segueix la ubicació</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation type="unfinished"/>
+        <translation>Esperant ubicació</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -6741,15 +6744,15 @@ project</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">El llenç ha deixat de seguir la ubicació</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut crear l&apos;objecte!</translation>
     </message>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut desar l&apos;objecte!</translation>
     </message>
     <message>
         <source>Main Menu</source>
@@ -6765,15 +6768,15 @@ project</source>
     </message>
     <message>
         <source>Printing to PDF</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Impressió a PDF</translation>
     </message>
     <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Anar a la pantalla d&apos;inici</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Obre la carpeta del projecte</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -6797,7 +6800,7 @@ project</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation type="unfinished"/>
+        <translation>Activant el servei de localització</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -6805,7 +6808,7 @@ project</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions del llenç del mapa</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -6813,11 +6816,11 @@ project</source>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>Estableix com a destinació</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afegeix un marcador a les coordenades</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -6825,7 +6828,7 @@ project</source>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Estableix les coordenades com a destinació</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
@@ -6841,11 +6844,11 @@ project</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Coordenades copiades al porta-retalls</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Configuració de la vista precisa</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
@@ -6873,19 +6876,19 @@ project</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>Mostra sempre la vista precisa</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Centra a la ubicació</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un marcador a la ubicació</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>Copia les coordenades de la ubicació</translation>
     </message>
     <message>
         <source>Signed out</source>
@@ -6897,7 +6900,7 @@ project</source>
     </message>
     <message>
         <source>Set As Destination</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Estableix com a destinació</translation>
     </message>
     <message>
         <source>Navigation Options</source>
@@ -6913,7 +6916,7 @@ project</source>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Activa el retorn d&apos;informació de proximitat d&apos;àudio</translation>
     </message>
     <message>
         <source>Positioning Options</source>
@@ -6925,7 +6928,7 @@ project</source>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la informació de la posició</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -6933,15 +6936,15 @@ project</source>
     </message>
     <message>
         <source>Center to Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Centra a la ubicació actual</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afegeix un marcador a la ubicació actual</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ubicació actual desconeguda</translation>
     </message>
     <message>
         <source>My location</source>
@@ -6949,7 +6952,7 @@ project</source>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Copia la ubicació actual</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -6961,11 +6964,11 @@ project</source>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>La ubicació actual s&apos;ha copiat al porta-retalls</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation type="unfinished"/>
+        <translation>La capa actual s&apos;ha canviat a la que conté la geometria seleccionada.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
@@ -6989,19 +6992,19 @@ project</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation type="unfinished"/>
+        <translation>El projecte %1 no s&apos;ha pogut descarregar</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation type="unfinished"/>
+        <translation>El projecte %1 s&apos;ha descarregat correctament, ara ja es pot obrir.</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation type="unfinished"/>
+        <translation>Els canvis no han pogut arribar a QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Els canvis s&apos;han enviat correctament a QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
@@ -7009,7 +7012,7 @@ project</source>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Error de posicionament: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
@@ -7021,7 +7024,7 @@ project</source>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Imprimeix com imatge</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -7033,7 +7036,7 @@ project</source>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error del dispositiu de posicionament: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
@@ -7045,23 +7048,23 @@ project</source>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>Encaix activat</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>Encaix desactivat</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha activat l&apos;ajust a un angle de %1°</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha desactivat l&apos;ajust a l&apos;angle comú.</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>Angle relatiu</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -7073,7 +7076,7 @@ project</source>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>Cap sensor disponible</translation>
     </message>
     <message>
         <source>Project Folder</source>
@@ -7081,23 +7084,23 @@ project</source>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu el sensor a continuació</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Error del sensor: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Desconnectant el sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>Connectant el sensor &apos;%1&apos;...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la disposició a continuació</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -7109,47 +7112,47 @@ project</source>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>Obre el formulari d&apos;objecte</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
+        <translation>Duplicació d&apos;objecte no disponible</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està important %1</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut importar l&apos;URL</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Concediu permís per activar `%1`?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>Recorda la meva elecció</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>La posició ha entrat sense permís a &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Posició fora de les àrees després de sortir de ‘%1’</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Posició introduïda a ‘%1’</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>Posició a l&apos;esquerra de &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Activa la rotació del mapa</translation>
     </message>
     <message>
         <source>Dashboard</source>
@@ -7157,7 +7160,7 @@ project</source>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest botó obre el tauler de control. Amb el tauler de control pots interactuar amb la llegenda i el tema del mapa, o començar a digitalitzar activant el mode d&apos;edició. Mantenir premut el botó et dóna accés immediat al menú principal.</translation>
     </message>
     <message>
         <source>Positioning</source>
@@ -7169,27 +7172,27 @@ project</source>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>La barra de cerca us ofereix una manera ràpida de trobar objectes dins del vostre projecte, saltar a un punt de latitud i longitud introduït i molt més.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la l&apos;operació de l&apos;algoritme</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu a punt de descartar l&apos;operació en curs de l&apos;algorisme, voleu continuar?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>Desbloquegeu la pantalla per tancar el projecte i l&apos;aplicació</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>Mode sense marcs activat, utilitzeu la cantonada superior esquerra i la inferior dreta per moure i redimensionar la finestra.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>Acabeu o cancel·leu la funció de digitalització abans de canviar al mode de navegació.</translation>
     </message>
     <message>
         <source>Variables</source>
@@ -7205,11 +7208,11 @@ project</source>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Reproduint les posicions recollides, espereu.</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
+        <translation>Encaixa a cada</translation>
     </message>
     <message>
         <source>%1°</source>
@@ -7217,7 +7220,7 @@ project</source>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>Tolerància d&apos;encaix</translation>
     </message>
     <message>
         <source>Narrow</source>
@@ -7233,15 +7236,15 @@ project</source>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>Tolerància d&apos;encaix definida a %1</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>Confirmació d&apos;importació</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>Permisos del connector</translation>
     </message>
     <message>
         <source>Unlock</source>
@@ -7249,31 +7252,31 @@ project</source>
     </message>
     <message>
         <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Connector del projecte</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>Doneu permís per activar el connector?</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut crear l&apos;objecte</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut crear un objecte perquè el permís d&apos;afegir objectes està desactivat.</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut desar l&apos;objecte</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>Interruptor de digitalització</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>Canvia entre els modes de navegació i de digitalització. El mode de navegació se centra a oferir la millor experiència en la visualització del mapa i els seus objectes, mentre que el mode de digitalització et permet crear objectes i editar geometries.</translation>
     </message>
     <message>
         <source>Measurement</source>
@@ -7281,11 +7284,11 @@ project</source>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Activa l&apos;eina de mesura per calcular distàncies i àrees al mapa.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Exporta el llenç del mapa a PDF utilitzant els dissenys configurats d&apos;impressió i atles del projecte.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -7293,15 +7296,15 @@ project</source>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Envia canvis, sincronitza o reverteix canvis a i des de QFieldCloud quan s&apos;obre un projecte al núvol.</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Carpeta del projecte</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Obre la carpeta del projecte per accedir als fitxers del projecte, a les fonts de dades i als documents relacionats. És útil per gestionar els recursos del projecte, pujar manualment dades a QFieldCloud i compartir conjunts de dades, adjunts i dissenys.</translation>
     </message>
     <message>
         <source>Legend</source>
@@ -7309,140 +7312,141 @@ project</source>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>La llegenda mostra les capes del mapa i permet commutar les propietats de visibilitat i opacitat &lt;b&gt;mantenint premuda una capa per obrir un menú emergent de propietats&lt;/b&gt;. El menú emergent ofereix funcionalitats addicionals, com ara el zoom a l&apos;extensió de la capa i la visualització dels objectes continguts en les capes vectorials.</translation>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Copia l&apos;objecte</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Talla l&apos;objecte</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;objecte s&apos;ha enganxat correctament</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut enganxar l&apos;objecte a la capa</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>Enganxa a la capa</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;edició de geometria multipart encara no està suportada.</translation>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Cursor de coordenada bloquejat a la ubicació</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Llenç del mapa desbloquejat</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Llenç del mapa bloquejat a la ubicació</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Llenç del mapa bloquejat a la ubicació i a l&apos;orientació de la brúixola</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>El llenç del mapa segueix la ubicació i l&apos;orientació de la brúixola.</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>El llenç del mapa segueix la ubicació</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>Bloqueja el cursor de coordenada a la ubicació</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Bloqueja el llenç del mapa a la ubicació</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Bloqueig del llenç del mapa en repòs</translation>
     </message>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Toca el marcador d&apos;ubicació
+per mostrar les accions</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest botó activa o desactiva el sistema de posicionament. Quan està activat, apareixerà un marcador de posició a la part superior del mapa. Si manteniu premut el botó, s&apos;obrirà el menú de posicionament on podreu explorar funcionalitats addicionals.</translation>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Seguiment actiu a %n capa(es)</numerusform><numerusform>Seguiment actiu a %n capa(es)</numerusform></translation>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Atureu-ho tot</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Seguiment aturat a %n capa(es)</numerusform><numerusform>Seguiment aturat a %n capa(es)</numerusform></translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha cap capa compatible disponible per iniciar el seguiment.</translation>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Digitalització COGO activada</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Digitalització COGO desactivada</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>Activeu el servei de posicionament per obtenir punts a la vostra ubicació</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
+        <translation>El servei de posicionament encara no ha rebut una ubicació vàlida</translation>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Llenç del mapa bloquejat a la ubicació i la direcció del moviment</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>El llenç del mapa segueix la ubicació i la direcció del moviment.</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut carregar la vista 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està carregant el terreny...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Tanca la vista 3D</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Quant a %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Voleu importar &lt;b&gt;%1&lt;/b&gt; de&lt;b&gt; %2&lt;/b&gt; a %3?</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Premeu i manteniu premut el marcador d&apos;ubicació per mostrar les accions</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -7450,11 +7454,11 @@ to show actions</source>
     </message>
     <message>
         <source>Plugin Manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestor de connectors</translation>
     </message>
     <message>
         <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
+        <translation>El connector del projecte s&apos;ha carregat</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your available storage is full.</source>
@@ -7466,23 +7470,23 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>El projecte %1 no es pot descarregar perquè el vostre pla de subscripció és insuficient.</translation>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Pla de millora</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
+        <translation>El projecte %1 no es pot descarregar perquè el pla de subscripció del propietari del projecte és insuficient.</translation>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Habilita les correccions NTRIP</translation>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Premeu i manteniu premut el marcador de destinació per mostrar les accions</translation>
     </message>
     <message>
         <source>meters</source>
@@ -7501,31 +7505,31 @@ to show actions</source>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afegint un objecte secundari a la capa %1</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No es pot afegir u objecte secundari: les claus primàries principals no estan disponibles.</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Desenllaça l&apos;objecte %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Esborra l&apos;objecte %1 (%2) de %3</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">S&apos;hauria de desenllaçar l&apos;objecte &lt;b&gt;%1 (%2)&lt;/b&gt; de la capa &lt;b&gt;%3&lt;/b&gt;?&lt;br&gt;&lt;i&gt;(La connexió s&apos;eliminarà a la capa &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">S&apos;ha d&apos;eliminar l&apos;objecte &lt;b&gt;%1 (%2)&lt;/b&gt; a la capa &lt;b&gt;%3&lt;/b&gt;?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">No s&apos;ha pogut suprimir l&apos;objecte de referència</translation>
     </message>
 </context>
 </TS>

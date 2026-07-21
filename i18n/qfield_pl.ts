@@ -4744,10 +4744,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Niech stuknięcie palcem w obszarze mapy dodaje wierzchołki</translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Kiedy włączone, stuknięcie palcem w obszarze mapy doda wierzchołek w dotkniętym miejscu</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Kiedy włączone, myszka będzie działać jako palec. Kiedy wyłączone, myszka będzie zachowywać się jak rysik.</translation>
     </message>
@@ -4994,6 +4990,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Authentication cache cleared</source>
         <translation>Pamięć podręczna uwierzytelniania została wyczyszczona</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

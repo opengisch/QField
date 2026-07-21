@@ -4737,10 +4737,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Fingertippen auf die Karte erlauben, um Objekte und Knotenpunkte hinzuzufügen. </translation>
     </message>
     <message>
-        <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation>Wenn aktiviert, kann ein Objekt oder Knotenpunkt durch Tippen auf die Karte an diesem Ort erfasst werden.</translation>
-    </message>
-    <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
         <translation>Wenn aktiviert, wird die Maus als Finger interpretiert, wenn deaktiviert, als Eingabe-Stift.</translation>
     </message>
@@ -4987,6 +4983,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Authentication cache cleared</source>
         <translation>Authentifizierungs-Cache gelöscht</translation>
+    </message>
+    <message>
+        <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
