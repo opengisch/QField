@@ -419,6 +419,7 @@ Page {
           id: trackPositionColumn
           anchors.left: parent.left
           anchors.right: parent.right
+          spacing: 8
 
           Label {
             text: qsTr("Record your location every second, along with date and time, to keep a precise track of your movements.")
@@ -476,7 +477,9 @@ Page {
 
         content: Column {
           id: databaseAndColabrationColumn
-          width: parent.width
+          anchors.left: parent.left
+          anchors.right: parent.right
+          spacing: 8
 
           Label {
             text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. ").arg(appName) + "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>."
