@@ -75,7 +75,8 @@ IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
 PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   PlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
-      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive;
+      CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive |
+      FileImport;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -511,6 +512,114 @@ void IosPlatformUtilities::importDatasets() const {
                            OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
   [root presentViewController:picker animated:YES completion:nil];
+}
+
+static void removeInboxFile(const QString &path, const QString &appDir) {
+  const QString inboxDir = appDir + QStringLiteral("/Inbox/");
+  if (path.startsWith(inboxDir)) {
+    QFile::remove(path);
+  }
+}
+
+void IosPlatformUtilities::importFile(const QString &path) const {
+  NSLog(@"QField[importFile] called with path: %@", path.toNSString());
+
+  QFileInfo fileInfo(path);
+  if (!fileInfo.exists() || !fileInfo.isFile()) {
+    NSLog(@"QField[importFile] abort: not an existing regular file");
+    return;
+  }
+  if (!AppInterface::instance()) {
+    NSLog(@"QField[importFile] abort: AppInterface instance is null");
+    return;
+  }
+
+  const QString appDir = applicationDirectory();
+  const QString suffix = fileInfo.suffix().toLower();
+  const bool isProjectFile =
+      suffix == QLatin1String("qgs") || suffix == QLatin1String("qgz");
+  const bool isArchive = suffix == QLatin1String("zip");
+  NSLog(@"QField[importFile] suffix=%@ isProjectFile=%d isArchive=%d",
+        suffix.toNSString(), isProjectFile, isArchive);
+
+  if (isArchive) {
+    const QString importBase = appDir + QStringLiteral("/Imported Projects/");
+    QDir().mkpath(importBase);
+
+    QString destinationDir = importBase + fileInfo.completeBaseName();
+    int index = 1;
+    while (QFileInfo::exists(destinationDir)) {
+      destinationDir = importBase + fileInfo.completeBaseName() +
+                       QStringLiteral("_%1").arg(index);
+      ++index;
+    }
+    QDir().mkpath(destinationDir);
+
+    QStringList extractedFiles;
+    if (!FileUtils::unzip(path, destinationDir, extractedFiles, false)) {
+      NSLog(@"QField[importFile] abort: unzip failed for %@",
+            path.toNSString());
+      return;
+    }
+    NSLog(@"QField[importFile] extracted %lu files into %@",
+          (unsigned long)extractedFiles.size(), destinationDir.toNSString());
+    removeInboxFile(path, appDir);
+
+    // Open the project bundled within the archive, or reveal its content
+    QString projectFile;
+    for (const QString &extractedFile : extractedFiles) {
+      const QString extractedSuffix =
+          QFileInfo(extractedFile).suffix().toLower();
+      if (extractedSuffix == QLatin1String("qgs") ||
+          extractedSuffix == QLatin1String("qgz")) {
+        projectFile = extractedFile;
+        break;
+      }
+    }
+
+    if (!projectFile.isEmpty()) {
+      NSLog(@"QField[importFile] loading bundled project: %@",
+            projectFile.toNSString());
+      AppInterface::instance()->loadFile(projectFile);
+    } else {
+      NSLog(@"QField[importFile] no project in archive, revealing: %@",
+            destinationDir.toNSString());
+      emit AppInterface::instance()->openPath(destinationDir);
+    }
+    return;
+  }
+
+  const QString importBase =
+      isProjectFile ? appDir + QStringLiteral("/Imported Projects/")
+                    : appDir + QStringLiteral("/Imported Datasets/");
+  QDir().mkpath(importBase);
+
+  const QString suffixPart =
+      suffix.isEmpty() ? QString() : QStringLiteral(".") + suffix;
+  QString destinationFile = importBase + fileInfo.fileName();
+  int index = 1;
+  while (QFileInfo::exists(destinationFile)) {
+    destinationFile = importBase + fileInfo.completeBaseName() +
+                      QStringLiteral("_%1").arg(index) + suffixPart;
+    ++index;
+  }
+
+  if (!QFile::copy(path, destinationFile)) {
+    NSLog(@"QField[importFile] abort: copy failed %@ -> %@", path.toNSString(),
+          destinationFile.toNSString());
+    return;
+  }
+  NSLog(@"QField[importFile] copied to %@", destinationFile.toNSString());
+  removeInboxFile(path, appDir);
+
+  const bool loaded = AppInterface::instance()->loadFile(destinationFile);
+  NSLog(@"QField[importFile] loadFile(%@) returned %d",
+        destinationFile.toNSString(), loaded);
+  if (!loaded) {
+    NSLog(@"QField[importFile] revealing in browser: %@",
+          importBase.toNSString());
+    emit AppInterface::instance()->openPath(importBase);
+  }
 }
 
 void IosPlatformUtilities::sendDatasetTo(const QString &path) const {

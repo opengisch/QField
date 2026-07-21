@@ -282,6 +282,11 @@ void PlatformUtilities::importProjectArchive() const
 void PlatformUtilities::importDatasets() const
 {}
 
+void PlatformUtilities::importFile( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
 void PlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
 {
   const QString zipFilePath = QFileDialog::getOpenFileName( nullptr,
