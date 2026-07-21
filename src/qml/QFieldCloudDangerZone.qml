@@ -13,6 +13,8 @@ Item {
   signal discardRequested
   signal resetRequested
 
+  readonly property bool hasDeltaError: !!(cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.hasError)
+
   ScrollView {
     anchors.fill: parent
 
@@ -27,45 +29,33 @@ Item {
       width: parent.width
       spacing: 10
 
-      QfCollapsibleMessage {
+      QfContainerCard {
         Layout.fillWidth: true
         Layout.margins: 10
-        color: Theme.darkRed
-        font: Theme.tipFont
-        iconSource: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-        titleText: qsTr('The action below is irreversible and permanently affects your local data. Proceed with caution.')
-      }
+        Layout.maximumWidth: 525
+        Layout.alignment: Qt.AlignHCenter
+        accentColor: Theme.darkRed
+        iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+        title: dangerZone.hasDeltaError ? qsTr('Reset project') : qsTr('Discard local changes')
+        description: dangerZone.hasDeltaError ? qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.') : qsTr('Removes all your local edits that have not yet been uploaded.')
 
-      QfButton {
-        id: discardButton
-        Layout.fillWidth: true
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
-        bgcolor: Theme.darkRed
-        text: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError ? qsTr('Discard local changes') : qsTr('Reset project')
-        enabled: cloudProjectsModel.layerObserver.deltaFileWrapper && (cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || cloudProjectsModel.layerObserver.deltaFileWrapper.hasError)
-        icon.source: Theme.getThemeVectorIcon('ic_undo_black_24dp')
+        QfButton {
+          Layout.fillWidth: true
+          Layout.topMargin: 4
 
-        onClicked: {
-          if (!cloudProjectsModel.layerObserver.deltaFileWrapper.hasError) {
-            dangerZone.discardRequested();
-          } else {
-            dangerZone.resetRequested();
+          bgcolor: Theme.darkRed
+          color: Theme.light
+          text: dangerZone.hasDeltaError ? qsTr('Reset') : qsTr('Discard')
+          enabled: cloudProjectsModel.layerObserver.deltaFileWrapper && (cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0 || dangerZone.hasDeltaError)
+
+          onClicked: {
+            if (!dangerZone.hasDeltaError) {
+              dangerZone.discardRequested();
+            } else {
+              dangerZone.resetRequested();
+            }
           }
         }
-      }
-
-      Text {
-        id: discardText
-        Layout.fillWidth: true
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
-        Layout.bottomMargin: 10
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
-        wrapMode: Text.WordWrap
-        horizontalAlignment: Text.AlignHCenter
-        text: cloudProjectsModel.layerObserver.deltaFileWrapper && !cloudProjectsModel.layerObserver.deltaFileWrapper.hasError ? qsTr('Revert all modified features in the local layers. You cannot restore those changes.') : qsTr('The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.\n\nWhile you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.')
       }
     }
   }

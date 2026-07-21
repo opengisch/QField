@@ -83,8 +83,8 @@ Rectangle {
       Rectangle {
         id: indicator
         Layout.alignment: Qt.AlignVCenter
-        width: 10
-        height: 10
+        width: badgeLabel.implicitHeight + 4
+        height: width
         radius: width / 2
         color: containerCard.accentColor
         visible: false

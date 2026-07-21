@@ -508,7 +508,7 @@ Page {
             Label {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
-              text: qsTr("Automatically push changes on a regular interval")
+              text: qsTr("Automatically upload changes on a regular interval")
               font: Theme.defaultFont
               color: Theme.mainTextColor
               wrapMode: Text.WordWrap
