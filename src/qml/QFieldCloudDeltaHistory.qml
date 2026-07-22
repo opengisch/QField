@@ -10,11 +10,65 @@ import Theme
  */
 QfPopup {
   id: popup
+  focus: true
 
   property alias model: deltaList.model
 
+  function deltaStatusColor(status) {
+    switch (status) {
+    case DeltaListModel.AppliedStatus:
+      return Theme.mainColor;
+    case DeltaListModel.PendingStatus:
+    case DeltaListModel.BusyStatus:
+      return Theme.cloudColor;
+    case DeltaListModel.ConflictStatus:
+    case DeltaListModel.NotAppliedStatus:
+      return Theme.warningColor;
+    case DeltaListModel.ErrorStatus:
+    case DeltaListModel.UnpermittedStatus:
+      return Theme.errorColor;
+    default:
+      return Theme.secondaryTextColor;
+    }
+  }
+
+  function deltaStatusLabel(status) {
+    switch (status) {
+    case DeltaListModel.AppliedStatus:
+      return qsTr('Applied');
+    case DeltaListModel.PendingStatus:
+      return qsTr('Pending');
+    case DeltaListModel.BusyStatus:
+      return qsTr('Busy');
+    case DeltaListModel.ConflictStatus:
+      return qsTr('Conflict');
+    case DeltaListModel.NotAppliedStatus:
+      return qsTr('Not applied');
+    case DeltaListModel.ErrorStatus:
+      return qsTr('Error');
+    case DeltaListModel.IgnoredStatus:
+      return qsTr('Ignored');
+    case DeltaListModel.UnpermittedStatus:
+      return qsTr('Unpermitted');
+    default:
+      return qsTr('Unknown');
+    }
+  }
+
+  function deltaStatusIcon(status) {
+    switch (status) {
+    case DeltaListModel.AppliedStatus:
+      return Theme.getThemeVectorIcon('ic_check_white_24dp');
+    case DeltaListModel.PendingStatus:
+    case DeltaListModel.BusyStatus:
+      return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+    default:
+      return Theme.getThemeVectorIcon('ic_error_outline_24dp');
+    }
+  }
+
   width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2)
-  height: page.height
+  height: page.height + padding * 2
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
 
@@ -30,9 +84,28 @@ QfPopup {
 
   Page {
     id: page
+
+    Keys.onReleased: event => {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true;
+        popup.close();
+      }
+    }
+
     width: parent.width
-    height: Math.min(deltaList.contentHeight + toolBar.childrenRect.height + 20, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+    height: {
+      const chromeHeight = toolBar.childrenRect.height + 20;
+      const maximumHeight = mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4);
+      let contentHeight = deltaList.contentHeight;
+      if (!popup.model) {
+        contentHeight = loadingIndicator.implicitHeight;
+      } else if (deltaList.count === 0) {
+        contentHeight = emptyLabel.implicitHeight;
+      }
+      return Math.min(contentHeight + chromeHeight, maximumHeight);
+    }
     padding: 5
+    background: null
     header: ToolBar {
       id: toolBar
       height: Theme.toolButtonSize
@@ -51,9 +124,9 @@ QfPopup {
         leftPadding: Theme.toolButtonSize
         rightPadding: Theme.toolButtonSize
         width: parent.width - 20
-        text: !!model ? qsTr("Push History") : qsTr("Loading…")
+        text: qsTr("Upload History")
         font: Theme.strongFont
-        color: Theme.mainColor
+        color: Theme.mainTextColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
       }
@@ -78,14 +151,42 @@ QfPopup {
       anchors.fill: parent
       spacing: 4
 
+      Item {
+        id: loadingIndicator
+        Layout.fillWidth: true
+        implicitHeight: loadingContent.height + 30
+        visible: !popup.model
+
+        Column {
+          id: loadingContent
+          anchors.centerIn: parent
+          spacing: 10
+
+          BusyIndicator {
+            id: busyIndicator
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 48
+            height: 48
+          }
+
+          Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+            font: Theme.tipFont
+            color: Theme.secondaryTextColor
+            text: qsTr("Fetching upload history…")
+          }
+        }
+      }
+
       Label {
+        id: emptyLabel
         Layout.fillWidth: true
         leftPadding: 48
         rightPadding: 48
         width: parent.width
-        visible: deltaList.count === 0
+        visible: !!popup.model && deltaList.count === 0
 
-        text: qsTr("No changes have been pushed yet!")
+        text: qsTr("No changes have been uploaded yet!")
         color: Theme.mainTextDisabledColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
@@ -97,64 +198,17 @@ QfPopup {
         Layout.fillHeight: true
         visible: count !== 0
         clip: true
+        spacing: 5
         ScrollBar.vertical: QfScrollBar {}
 
-        delegate: Rectangle {
-          id: rectangle
+        delegate: QfCollapsibleMessage {
           width: parent ? parent.width : undefined
-          height: inner.height
-          color: "transparent"
-
-          ColumnLayout {
-            id: inner
-            width: parent.width
-
-            Text {
-              Layout.fillWidth: true
-              topPadding: 5
-              leftPadding: 5
-              text: {
-                var dt = new Date(CreatedAt);
-                return dt.toLocaleString();
-              }
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
-              wrapMode: Text.WordWrap
-            }
-
-            Text {
-              Layout.fillWidth: true
-              leftPadding: 5
-              bottomPadding: 5
-              text: {
-                var status = '';
-                switch (Status) {
-                case DeltaListModel.PendingStatus:
-                  status = 'pending';
-                  break;
-                case DeltaListModel.BusyStatus:
-                  status = 'busy';
-                  break;
-                case DeltaListModel.AppliedStatus:
-                  status = 'applied';
-                  break;
-                case DeltaListModel.ConflictStatus:
-                  status = 'conflict';
-                  break;
-                case DeltaListModel.NotAppliedStatus:
-                  status = 'not applied';
-                  break;
-                case DeltaListModel.ErrorStatus:
-                  status = 'error';
-                  break;
-                }
-                return 'Status: ' + status + (Output != '' ? ' (' + Output + ')' : '');
-              }
-              font: Theme.tipFont
-              color: Theme.secondaryTextColor
-              wrapMode: Text.WordWrap
-            }
-          }
+          color: popup.deltaStatusColor(Status)
+          detailsColor: Theme.secondaryTextColor
+          font: Theme.tipFont
+          iconSource: popup.deltaStatusIcon(Status)
+          titleText: popup.deltaStatusLabel(Status) + ' • ' + new Date(CreatedAt).toLocaleString(Qt.locale(), Locale.ShortFormat)
+          detailsText: Output
         }
       }
     }

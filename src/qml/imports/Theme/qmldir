@@ -1,5 +1,6 @@
 module Theme
 QfActionButton 1.0 QfActionButton.qml
+QfContainerCard 1.0 QfContainerCard.qml
 QfBadge 1.0 QfBadge.qml
 QfButton 1.0 QfButton.qml
 QfCalendarPanel 1.0 QfCalendarPanel.qml

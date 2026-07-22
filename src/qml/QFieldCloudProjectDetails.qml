@@ -329,7 +329,7 @@ ColumnLayout {
       Layout.preferredWidth: 1
       enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
       visible: cloudProject != undefined && cloudProject.userRole !== "reader"
-      text: qsTr('Push changes')
+      text: qsTr('Upload local changes')
 
       onClicked: {
         pushChanges();

@@ -109,6 +109,7 @@
         <file>Nyuki.qml</file>
         <file>LayerLoginDialog.qml</file>
         <file>imports/Theme/QfActionButton.qml</file>
+        <file>imports/Theme/QfContainerCard.qml</file>
         <file>imports/Theme/QfButton.qml</file>
         <file>imports/Theme/QfComboBox.qml</file>
         <file>imports/Theme/QfDropShadow.qml</file>
@@ -152,6 +153,7 @@
         <file>QFieldCloudLogin.qml</file>
         <file>QFieldCloudScreen.qml</file>
         <file>QFieldCloudPopup.qml</file>
+        <file>QFieldCloudDangerZone.qml</file>
         <file>QFieldCloudStatusBanner.qml</file>
         <file>QFieldCloudDeltaHistory.qml</file>
         <file>QFieldCloudPackageLayersFeedback.qml</file>

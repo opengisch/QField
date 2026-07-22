@@ -5802,7 +5802,7 @@ ApplicationWindow {
       {
         "type": "information",
         "title": qsTr("QFieldCloud"),
-        "description": qsTr("Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened."),
+        "description": qsTr("Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened."),
         "target": () => [iface.findItemByObjectName('cloudButton')]
       },
       {

@@ -8,9 +8,12 @@ import org.qfield
  * \ingroup qml
  */
 Item {
+  id: collapsibleMessage
+
   property bool collapsed: true
   property string externalLink: ""
-  property alias color: titleText.color
+  property color color: Theme.mainTextColor
+  property alias iconSource: messageIcon.iconSource
   property alias detailsColor: detailsText.color
   property alias font: titleText.font
   property alias titleText: titleText.text
@@ -30,11 +33,20 @@ Item {
   Rectangle {
     id: background
     anchors.fill: parent
-    color: "transparent"
-    border.color: titleText.color
+    color: Qt.rgba(collapsibleMessage.color.r, collapsibleMessage.color.g, collapsibleMessage.color.b, 0.1)
+    border.color: collapsibleMessage.color
     border.width: 1
-    opacity: 0.25
-    radius: 12
+    radius: 8
+  }
+
+  QfToolButton {
+    id: messageIcon
+    visible: iconSource !== ''
+    anchors.left: parent.left
+    anchors.verticalCenter: titleText.verticalCenter
+    enabled: false
+    bgcolor: "transparent"
+    iconColor: collapsibleMessage.color
   }
 
   Text {
@@ -42,12 +54,12 @@ Item {
     width: parent.width - 5
     anchors.top: parent.top
     anchors.left: parent.left
-    leftPadding: 8
+    leftPadding: messageIcon.visible ? messageIcon.width + 2 : 8
     topPadding: 10
     bottomPadding: 10
     clip: true
     font: Theme.defaultFont
-    color: "black"
+    color: Theme.mainTextColor
     horizontalAlignment: Text.AlignLeft
     wrapMode: Text.WordWrap
   }
@@ -70,7 +82,7 @@ Item {
     background: Rectangle {
       implicitWidth: 30
       implicitHeight: 30
-      color: titleText.color
+      color: collapsibleMessage.color
       radius: background.radius
     }
   }
@@ -81,7 +93,8 @@ Item {
     anchors.top: titleText.bottom
     anchors.horizontalCenter: parent.horizontalCenter
     height: 1
-    color: titleText.color
+    visible: detailsText.text !== ''
+    color: collapsibleMessage.color
     opacity: 0.25
   }
 
@@ -107,7 +120,9 @@ Item {
     id: mainMouseArea
     anchors.fill: parent
     onClicked: {
-      parent.collapsed = !parent.collapsed;
+      if (detailsText.text !== '') {
+        parent.collapsed = !parent.collapsed;
+      }
     }
   }
 }

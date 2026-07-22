@@ -10,8 +10,10 @@ Rectangle {
   id: expandableGroupBox
   implicitHeight: checked ? header.height + body.childrenRect.height + 30 : 60
 
-  radius: 8
+  radius: 12
   color: Theme.groupBoxBackgroundColor
+  border.width: 1
+  border.color: Theme.controlBorderColor
   clip: true
 
   property alias title: headerText.text
@@ -49,6 +51,8 @@ Rectangle {
         width: 24
         height: 24
         padding: 0
+        icon.width: 24
+        icon.height: 24
         anchors.verticalCenter: headerText.verticalCenter
         anchors.left: parent.left
         enabled: false
@@ -90,7 +94,7 @@ Rectangle {
     width: parent.width
     height: 1
     anchors.top: header.bottom
-    color: Theme.groupBoxSurfaceColor
+    color: Theme.controlBorderColor
   }
 
   Item {
