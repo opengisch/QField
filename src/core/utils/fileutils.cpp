@@ -456,19 +456,34 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
 
     if ( !imageDecoration.isEmpty() )
     {
-      const QFileInfo fi( QgsProject::instance()->pathResolver().readPath( imageDecoration ) );
-      if ( fi.exists() )
+      const bool isEmbedded = imageDecoration.startsWith( QLatin1String( "base64:" ), Qt::CaseInsensitive );
+      const bool isRemote = imageDecoration.startsWith( QLatin1String( "http" ), Qt::CaseInsensitive );
+      const QString decorationSource = ( isEmbedded || isRemote )
+                                         ? imageDecoration
+                                         : QgsProject::instance()->pathResolver().readPath( imageDecoration );
+
+      if ( isEmbedded || isRemote || QFileInfo::exists( decorationSource ) )
       {
         const double lineHeight = context.convertFromPainterUnits( format.size(), format.sizeUnit() );
-        const bool isRaster = fi.suffix().toLower() != QStringLiteral( "svg" );
+
+        bool isRaster = true;
+        if ( isEmbedded )
+        {
+          const QByteArray decoded = QByteArray::fromBase64( decorationSource.mid( 7 ).toUtf8() );
+          isRaster = QMimeDatabase().mimeTypeForData( decoded ).name() != QLatin1String( "image/svg+xml" );
+        }
+        else
+        {
+          isRaster = QFileInfo( decorationSource ).suffix().toLower() != QStringLiteral( "svg" );
+        }
 
         bool fitsInCache = false;
         if ( isRaster )
         {
-          const QSizeF decorationOriginalSize = QgsApplication::instance()->imageCache()->originalSize( fi.absoluteFilePath(), true );
+          const QSizeF decorationOriginalSize = QgsApplication::instance()->imageCache()->originalSize( decorationSource, true );
           const double decorationHeight = std::min( std::min( decorationOriginalSize.height(), img.height() / 6.0 ), lineHeight * 10.0 );
           const double decorationWidth = decorationOriginalSize.width() * decorationHeight / decorationOriginalSize.height();
-          QImage decorationImage = QgsApplication::instance()->imageCache()->pathAsImage( fi.absoluteFilePath(), QSize( decorationWidth, decorationHeight ), true, 1, fitsInCache, true );
+          QImage decorationImage = QgsApplication::instance()->imageCache()->pathAsImage( decorationSource, QSize( decorationWidth, decorationHeight ), true, 1, fitsInCache, true );
           switch ( horizontalAlignment )
           {
             case Qgis::TextHorizontalAlignment::Left:
@@ -485,10 +500,10 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
         }
         else
         {
-          const QSizeF decorationOriginalSize = QgsApplication::instance()->svgCache()->svgViewboxSize( fi.absoluteFilePath(), 100, QColor( 0, 0, 0 ), QColor( 255, 0, 0 ), 10, 1, 0, true );
+          const QSizeF decorationOriginalSize = QgsApplication::instance()->svgCache()->svgViewboxSize( decorationSource, 100, QColor( 0, 0, 0 ), QColor( 255, 0, 0 ), 10, 1, 0, true );
           const double decorationHeight = std::min( img.height() / 6.0, lineHeight * 10.0 );
           const double decorationWidth = decorationOriginalSize.width() * decorationHeight / decorationOriginalSize.height();
-          QPicture decorationPicture = QgsApplication::instance()->svgCache()->svgAsPicture( fi.absoluteFilePath(), decorationWidth, QColor(), QColor(), 1.0, 1, fitsInCache, 0, true );
+          QPicture decorationPicture = QgsApplication::instance()->svgCache()->svgAsPicture( decorationSource, decorationWidth, QColor(), QColor(), 1.0, 1, fitsInCache, 0, true );
           switch ( horizontalAlignment )
           {
             case Qgis::TextHorizontalAlignment::Left:
