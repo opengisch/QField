@@ -200,10 +200,10 @@ EditorWidgetBase {
     id: deleteDialog
     parent: mainWindow.contentItem
 
-    property int referencingFeatureId
+    property var referencingFeatureId
     property string referencingFeatureDisplayMessage
     property string referencingLayerName: relationEditorModel.relation.referencingLayer ? relationEditorModel.relation.referencingLayer.name : ''
-    property int nmReferencedFeatureId
+    property var nmReferencedFeatureId
     property string nmReferencedFeatureDisplayMessage
     property string nmReferencedLayerName: relationEditorModel.nmRelation.referencedLayer ? relationEditorModel.nmRelation.referencedLayer.name : ''
     property string nmReferencingLayerName
