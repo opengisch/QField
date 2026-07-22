@@ -2813,12 +2813,12 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>QFieldCloud允许同步与合并您的团队在%1中收集的数据。从小型个人工程到大型数据收集活动。</translation>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
-        <translation>定期自动推送更新</translation>
-    </message>
-    <message>
         <source>Allow notes on lines and polygons</source>
         <translation>允许在线和多边形上注释</translation>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3023,18 +3023,97 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>重置工程</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>放弃本地修改</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>此云工程的本地副本已损坏。重置工程将重新下载云版本，并删除所有本地修改，请确保在需要时先备份这些修改。
+
+虽然您仍然可以查看和使用工程，但强烈建议进行重置以避免任何意外的数据丢失，因为所做的任何修改都不会被推回云端。</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>推送历史记录</translation>
+        <translation type="vanished">推送历史记录</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>正在加载…</translation>
+        <translation type="vanished">正在加载…</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>尚未推送任何更改！</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>未知</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3211,11 +3290,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>有%n个本地修改</numerusform></translation>
+        <translation type="vanished"><numerusform>有%n个本地修改</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>本地没有修改</translation>
+        <translation type="vanished">本地没有修改</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3227,27 +3306,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>将整个工程与所有已修改的要素进行同步，并从QFieldCloud下载最新更新的工程和所有已使用的修改。</translation>
+        <translation type="vanished">将整个工程与所有已修改的要素进行同步，并从QFieldCloud下载最新更新的工程和所有已使用的修改。</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>推送修改</translation>
+        <translation type="vanished">推送修改</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>仅将本地要素和图片推送到云端可节省互联网带宽流量，而不必更新整个工程。</translation>
+        <translation type="vanished">仅将本地要素和图片推送到云端可节省互联网带宽流量，而不必更新整个工程。</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>恢复本地修改</translation>
+        <translation type="vanished">恢复本地修改</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>重置工程</translation>
+        <translation type="vanished">重置工程</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>恢复本地图层中所有修改的要素。您无法恢复这些更改。</translation>
+        <translation type="vanished">恢复本地图层中所有修改的要素。您无法恢复这些更改。</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3257,7 +3336,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>此云工程的本地副本已损坏。重置工程将重新下载云版本，并删除所有本地修改，请确保在需要时先备份这些修改。
+        <translation type="vanished">此云工程的本地副本已损坏。重置工程将重新下载云版本，并删除所有本地修改，请确保在需要时先备份这些修改。
 
 虽然您仍然可以查看和使用工程，但强烈建议进行重置以避免任何意外的数据丢失，因为所做的任何修改都不会被推回云端。</translation>
     </message>
@@ -3271,7 +3350,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>上次同步在 %1</translation>
+        <translation type="vanished">上次同步在 %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3279,23 +3358,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>刚刚推送的最后修改</translation>
+        <translation type="vanished">刚刚推送的最后修改</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>上次修改推送于 %1 分之前</translation>
+        <translation type="vanished">上次修改推送于 %1 分之前</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>上次修改推送于 %1</translation>
+        <translation type="vanished">上次修改推送于 %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>上次修改推送在 %1</translation>
+        <translation type="vanished">上次修改推送在 %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>尚未推送任何修改</translation>
+        <translation type="vanished">尚未推送任何修改</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3303,7 +3382,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>是否恢复本地修改？</translation>
+        <translation type="vanished">是否恢复本地修改？</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3319,15 +3398,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>本地修改已恢复</translation>
+        <translation type="vanished">本地修改已恢复</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>无法恢复修改</translation>
+        <translation type="vanished">无法恢复修改</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>没有要恢复的修改</translation>
+        <translation type="vanished">没有要恢复的修改</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3353,18 +3432,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>联系QFieldCloud下载工程</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>每隔 %n 分钟自动推送更改</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>当前工程不允许关闭自动推送</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>将工程文件存储在QFieldCloud中，可提供无缝同步、离线编辑和团队管理等功能。&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation>推送修改, %1%…</translation>
@@ -3376,18 +3443,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>正在将当前工程上传到QFieldCloud。</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>当前工程未存储在QFieldCloud。</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>云化工程</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>Cloudify!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3412,6 +3467,106 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation>由于工程所有者的可用存储空间已满，无法打包工程%1。</translation>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>放弃本地修改</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>已放弃本地修改</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>无法放弃修改</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>没有要放弃的修改</translation>
     </message>
 </context>
 <context>
@@ -3563,7 +3718,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>推送修改</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3600,6 +3755,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Clone project</source>
         <translation>克隆工程</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3936,7 +4095,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>推送修改</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4001,6 +4160,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Settings page</source>
         <translation>设置页面</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7292,10 +7455,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>打开云工程时，向QFieldCloud推送、同步或从QFieldCloud还原更改。</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>工程文件夹</translation>
     </message>
@@ -7492,6 +7651,10 @@ to show actions</source>
     <message>
         <source>Bookmarks</source>
         <translation>书签</translation>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2819,11 +2819,11 @@ Motiv:
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3029,17 +3029,96 @@ Motiv:
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Resetează proiectul</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Copia locală a acestui proiect cloud a fost coruptă. Resetarea proiectului va  descărca din nou proiectul și va elimina orice modificări locale. Asigurați-vă că acestea au fost copiate mai întâi, dacă este necesar
+
+Între timp puteți vizualiza și utiliza în continuare proiectul. Este recomandat să îl resetați pentru a evita orice pierdere accidentală de date, deoarece niciuna dintre modificările efectuate nu va fi trimisă înapoi în cloud.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Istoric Push</translation>
+        <translation type="vanished">Istoric Push</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Încărcare...</translation>
+        <translation type="vanished">Încărcare...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Necunoscut</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3216,11 +3295,11 @@ Motiv:
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>Există %n modificări locale()</numerusform><numerusform>Există %n modificări locale()</numerusform><numerusform>Există %n modificări locale()</numerusform></translation>
+        <translation type="vanished"><numerusform>Există %n modificări locale()</numerusform><numerusform>Există %n modificări locale()</numerusform><numerusform>Există %n modificări locale()</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Nu există modificări locale</translation>
+        <translation type="vanished">Nu există modificări locale</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3232,27 +3311,27 @@ Motiv:
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Sincronizați întregul proiect cu toate elementele modificate și descărcați proiectele proaspăt actualizate cu toate modificările aplicate de pe QFieldCloud.</translation>
+        <translation type="vanished">Sincronizați întregul proiect cu toate elementele modificate și descărcați proiectele proaspăt actualizate cu toate modificările aplicate de pe QFieldCloud.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Modificări Push</translation>
+        <translation type="vanished">Modificări Push</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Salvați lățimea de bandă a internetului prin încărcarea numai a elementelor locale și a imaginilor în cloud, fără a actualiza întregul proiect.</translation>
+        <translation type="vanished">Salvați lățimea de bandă a internetului prin încărcarea numai a elementelor locale și a imaginilor în cloud, fără a actualiza întregul proiect.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Revino la schimbările locale</translation>
+        <translation type="vanished">Revino la schimbările locale</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Resetează proiectul</translation>
+        <translation type="vanished">Resetează proiectul</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Reveniți la toate elementele modificate din straturile locale. Nu puteți restabili aceste schimbări.</translation>
+        <translation type="vanished">Reveniți la toate elementele modificate din straturile locale. Nu puteți restabili aceste schimbări.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3262,7 +3341,7 @@ Motiv:
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Copia locală a acestui proiect cloud a fost coruptă. Resetarea proiectului va  descărca din nou proiectul și va elimina orice modificări locale. Asigurați-vă că acestea au fost copiate mai întâi, dacă este necesar
+        <translation type="vanished">Copia locală a acestui proiect cloud a fost coruptă. Resetarea proiectului va  descărca din nou proiectul și va elimina orice modificări locale. Asigurați-vă că acestea au fost copiate mai întâi, dacă este necesar
 
 Între timp puteți vizualiza și utiliza în continuare proiectul. Este recomandat să îl resetați pentru a evita orice pierdere accidentală de date, deoarece niciuna dintre modificările efectuate nu va fi trimisă înapoi în cloud.</translation>
     </message>
@@ -3276,7 +3355,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Ultima sincronizare a fost la %1</translation>
+        <translation type="vanished">Ultima sincronizare a fost la %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3284,23 +3363,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Ultimele schimbări au fost făcute chiar acum</translation>
+        <translation type="vanished">Ultimele schimbări au fost făcute chiar acum</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Ultima modificare comisă %1 minute în urmă</translation>
+        <translation type="vanished">Ultima modificare comisă %1 minute în urmă</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Ultimele modificări au fost încărcate la% 1</translation>
+        <translation type="vanished">Ultimele modificări au fost încărcate la% 1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Ultimele modificări au fost încărcate pe% 1</translation>
+        <translation type="vanished">Ultimele modificări au fost încărcate pe% 1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Nici o modificare nu a fost încarctă încă</translation>
+        <translation type="vanished">Nici o modificare nu a fost încarctă încă</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3308,7 +3387,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Ar trebui să fie readuse schimbările locale?</translation>
+        <translation type="vanished">Ar trebui să fie readuse schimbările locale?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3324,15 +3403,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Modificările locale au fost readuse</translation>
+        <translation type="vanished">Modificările locale au fost readuse</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Nu s-au putut readuce modificările</translation>
+        <translation type="vanished">Nu s-au putut readuce modificările</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Nu există modificări de readus</translation>
+        <translation type="vanished">Nu există modificări de readus</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3358,18 +3437,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
@@ -3380,18 +3447,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3416,6 +3471,106 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3568,7 +3723,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Modificări Push</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3604,6 +3759,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3941,7 +4100,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Modificări Push</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4005,6 +4164,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7294,10 +7457,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation type="unfinished"/>
     </message>
@@ -7492,6 +7651,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2815,11 +2815,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3025,18 +3025,97 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Reset project</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>De lokale kopie van dit cloudproject is beschadigd. Als u het project opnieuw instelt, wordt de cloudversie opnieuw gedownload en worden eventuele lokale wijzigingen verwijderd. Zorg ervoor dat deze indien nodig eerst zijn gekopieerd.
+
+Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerste aanbevolen om te resetten om onbedoeld gegevensverlies te voorkomen, aangezien geen van de aangebrachte wijzigingen naar de cloud wordt teruggestuurd.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Push-geschiedenis</translation>
+        <translation type="vanished">Push-geschiedenis</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Laden...</translation>
+        <translation type="vanished">Laden...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>Er zijn nog geen wijzigingen doorgevoerd!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Onbekend</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3212,11 +3291,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>Er is/zijn %n lokale wijziging(en)</numerusform><numerusform>Er is/zijn %n lokale wijziging(en)</numerusform></translation>
+        <translation type="vanished"><numerusform>Er is/zijn %n lokale wijziging(en)</numerusform><numerusform>Er is/zijn %n lokale wijziging(en)</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Er zijn geen lokale wijzigingen</translation>
+        <translation type="vanished">Er zijn geen lokale wijzigingen</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3228,27 +3307,27 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synchroniseer het hele project met alle gewijzigde objecten en download het vers bijgewerkte project met alle aangebrachte wijzigingen van QFieldCloud.</translation>
+        <translation type="vanished">Synchroniseer het hele project met alle gewijzigde objecten en download het vers bijgewerkte project met alle aangebrachte wijzigingen van QFieldCloud.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Push wijzigingen</translation>
+        <translation type="vanished">Push wijzigingen</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Bespaar internetbandbreedte door alleen de lokale objecten en afbeeldingen naar de cloud te pushen, zonder het hele project bij te werken.</translation>
+        <translation type="vanished">Bespaar internetbandbreedte door alleen de lokale objecten en afbeeldingen naar de cloud te pushen, zonder het hele project bij te werken.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Lokale wijzigingen ongedaan maken</translation>
+        <translation type="vanished">Lokale wijzigingen ongedaan maken</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Reset project</translation>
+        <translation type="vanished">Reset project</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Zet alle gewijzigde objecten in de lokale lagen terug. U kunt die wijzigingen niet herstellen.</translation>
+        <translation type="vanished">Zet alle gewijzigde objecten in de lokale lagen terug. U kunt die wijzigingen niet herstellen.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3258,7 +3337,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>De lokale kopie van dit cloudproject is beschadigd. Als u het project opnieuw instelt, wordt de cloudversie opnieuw gedownload en worden eventuele lokale wijzigingen verwijderd. Zorg ervoor dat deze indien nodig eerst zijn gekopieerd.
+        <translation type="vanished">De lokale kopie van dit cloudproject is beschadigd. Als u het project opnieuw instelt, wordt de cloudversie opnieuw gedownload en worden eventuele lokale wijzigingen verwijderd. Zorg ervoor dat deze indien nodig eerst zijn gekopieerd.
 
 Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerste aanbevolen om te resetten om onbedoeld gegevensverlies te voorkomen, aangezien geen van de aangebrachte wijzigingen naar de cloud wordt teruggestuurd.</translation>
     </message>
@@ -3272,7 +3351,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Laatst gesynchroniseerd om %1</translation>
+        <translation type="vanished">Laatst gesynchroniseerd om %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3280,23 +3359,23 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Laatste wijzigingen zojuist gepusht</translation>
+        <translation type="vanished">Laatste wijzigingen zojuist gepusht</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Laatste wijzigingen %1 minuten geleden gepusht</translation>
+        <translation type="vanished">Laatste wijzigingen %1 minuten geleden gepusht</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Laatste wijzigingen doorgevoerd op %1</translation>
+        <translation type="vanished">Laatste wijzigingen doorgevoerd op %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Laatste wijzigingen doorgevoerd op %1</translation>
+        <translation type="vanished">Laatste wijzigingen doorgevoerd op %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Nog geen wijzigingen doorgevoerd</translation>
+        <translation type="vanished">Nog geen wijzigingen doorgevoerd</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3304,7 +3383,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Moeten lokale wijzigingen ongedaan worden gemaakt?</translation>
+        <translation type="vanished">Moeten lokale wijzigingen ongedaan worden gemaakt?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3320,15 +3399,15 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Lokale wijzigingen teruggedraaid</translation>
+        <translation type="vanished">Lokale wijzigingen teruggedraaid</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Kan wijzigingen niet ongedaan maken</translation>
+        <translation type="vanished">Kan wijzigingen niet ongedaan maken</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Geen wijzigingen om terug te zetten</translation>
+        <translation type="vanished">Geen wijzigingen om terug te zetten</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3354,18 +3433,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>QFieldCloud benaderen om project te downloaden</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>Automatisch wijzigingen doorvoeren om de %n minuten</numerusform><numerusform>Automatisch wijzigingen doorvoeren om de %n minuten</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Projecten opslaan op QFieldCloud biedt naadloze synchronisatie, offline bewerken en teambeheer.&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
@@ -3376,18 +3443,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3412,6 +3467,106 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3564,7 +3719,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Push wijzigingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3600,6 +3755,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3937,7 +4096,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Push wijzigingen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4001,6 +4160,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7293,10 +7456,6 @@ project</translation>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation type="unfinished"/>
     </message>
@@ -7491,6 +7650,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

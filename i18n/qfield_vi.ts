@@ -2810,11 +2810,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3020,6 +3020,39 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
@@ -3027,10 +3060,54 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Đang tải…</translation>
+        <translation type="vanished">Đang tải…</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Không xác định</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3266,7 +3343,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Đã đồng bộ hóa lúc %1</translation>
+        <translation type="vanished">Đã đồng bộ hóa lúc %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3348,18 +3425,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Đang liên hệ với QFieldCloud để tải xuống dự án</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
@@ -3371,18 +3436,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>Đang tải dự án hiện tại lên QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>Dự án hiện tại không được lưu trữ trên QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>Đưa dự án lên cloud</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>Đưa lên cloud!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3406,6 +3459,106 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3595,6 +3748,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Clone project</source>
         <translation>Nhân bản dự án</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3995,6 +4152,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7286,10 +7447,6 @@ mới</translation>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>Thư mục dự án</translation>
     </message>
@@ -7484,6 +7641,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

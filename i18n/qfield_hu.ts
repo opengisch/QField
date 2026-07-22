@@ -2814,12 +2814,12 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>A QFieldCloud biztosítja a %1 során a csapatoddal gyűjtött adatok szinkronizálását és egyesítését. Kis egyedi projektektől nagy adatgyűjtési kampányokig. </translation>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
-        <translation>Változásfeltöltés automatikusan, állandó időközönként</translation>
-    </message>
-    <message>
         <source>Allow notes on lines and polygons</source>
         <translation>Megjegyzés adható vonalakhoz és poligonokhoz</translation>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3023,18 +3023,95 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Projekt visszaállítás</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Helyi változások eldobása</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Ennek a felhőprojektnek a helyi példánya megsérült. A projekt alaphelyzetbe állításával újra letölti a felhőverziót, és eltávolítja az összes helyi módosítást. Szükség esetén  először készítsen másolatot. A projektet továbbra is megtekintheti és használhatja, a véletlen adatvesztés elkerülése érdekében erősen ajánlott a visszaállítás, mivel a végrehajtott módosítások egyike sem kerül vissza a felhőbe.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Előzmények</translation>
+        <translation type="vanished">Előzmények</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Betöltés...</translation>
+        <translation type="vanished">Betöltés...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>A változások még nem mentek végbe!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Ismeretlen</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3211,11 +3288,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>%n helyi változás van</numerusform><numerusform>%n helyi változás van</numerusform></translation>
+        <translation type="vanished"><numerusform>%n helyi változás van</numerusform><numerusform>%n helyi változás van</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Nincsenek helyi változások</translation>
+        <translation type="vanished">Nincsenek helyi változások</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3227,27 +3304,27 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Az egész projekt szinkronizálása az összes módosult elemmel és a frissen aktualizált projekt letöltése a QFieldCloud-ból az összes alkalmazott módosítással.</translation>
+        <translation type="vanished">Az egész projekt szinkronizálása az összes módosult elemmel és a frissen aktualizált projekt letöltése a QFieldCloud-ból az összes alkalmazott módosítással.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Változtatások feltöltése</translation>
+        <translation type="vanished">Változtatások feltöltése</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Spórolás az internet sávszélességgel, csak a helyi elemeket és a képeket töltöm fel a felhőbe, anélkül, hogy az egész projektet aktualizálnánk.</translation>
+        <translation type="vanished">Spórolás az internet sávszélességgel, csak a helyi elemeket és a képeket töltöm fel a felhőbe, anélkül, hogy az egész projektet aktualizálnánk.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Helyi változások visszaállítása</translation>
+        <translation type="vanished">Helyi változások visszaállítása</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Projekt visszaállítás</translation>
+        <translation type="vanished">Projekt visszaállítás</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>A helyi rétegek összes módosított elemének visszaállítása. Az eldobott változtatások visszaállítása nem lehetséges.</translation>
+        <translation type="vanished">A helyi rétegek összes módosított elemének visszaállítása. Az eldobott változtatások visszaállítása nem lehetséges.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3257,7 +3334,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Ennek a felhőprojektnek a helyi példánya megsérült. A projekt alaphelyzetbe állításával újra letölti a felhőverziót, és eltávolítja az összes helyi módosítást. Szükség esetén  először készítsen másolatot. A projektet továbbra is megtekintheti és használhatja, a véletlen adatvesztés elkerülése érdekében erősen ajánlott a visszaállítás, mivel a végrehajtott módosítások egyike sem kerül vissza a felhőbe.</translation>
+        <translation type="vanished">Ennek a felhőprojektnek a helyi példánya megsérült. A projekt alaphelyzetbe állításával újra letölti a felhőverziót, és eltávolítja az összes helyi módosítást. Szükség esetén  először készítsen másolatot. A projektet továbbra is megtekintheti és használhatja, a véletlen adatvesztés elkerülése érdekében erősen ajánlott a visszaállítás, mivel a végrehajtott módosítások egyike sem kerül vissza a felhőbe.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -3269,7 +3346,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Utoljára ekkor szinkronizáltuk %1</translation>
+        <translation type="vanished">Utoljára ekkor szinkronizáltuk %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3277,23 +3354,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>A legutóbbi módosítások most lettek közzétéve.</translation>
+        <translation type="vanished">A legutóbbi módosítások most lettek közzétéve.</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Az utolsó módosítások %1 perce lettek beküldve.</translation>
+        <translation type="vanished">Az utolsó módosítások %1 perce lettek beküldve.</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Az utolsó módosítás beküldve: %1</translation>
+        <translation type="vanished">Az utolsó módosítás beküldve: %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Az utolsó módosítás beküldve: %1</translation>
+        <translation type="vanished">Az utolsó módosítás beküldve: %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Nem történt változtatás</translation>
+        <translation type="vanished">Nem történt változtatás</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3301,7 +3378,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Visszaállítsuk a helyi változásokat?</translation>
+        <translation type="vanished">Visszaállítsuk a helyi változásokat?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3317,15 +3394,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Helyi változásokat elvetettem</translation>
+        <translation type="vanished">Helyi változásokat elvetettem</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Nem sikerült a változások elvetése</translation>
+        <translation type="vanished">Nem sikerült a változások elvetése</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Nincsenek elvethető változások</translation>
+        <translation type="vanished">Nincsenek elvethető változások</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3351,18 +3428,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>Változások automatikus küldése %n percenként</numerusform><numerusform>Változások automatikus küldése %n percenként</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>Ebben a projektben nem lehetséges az automatikus mentés kikapcsolása</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>A projektek QFieldCloudon történő tárolása zökkenőmentes szinkronizálást, offline szerkesztést és csapatkezelést kínál.&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation>Változások feltöltése, %1%…</translation>
@@ -3374,18 +3439,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>Az aktuális projekt feltöltése a QFieldCloud-ra.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>Ez a projekt nincs fent a QFieldCloud fiókodban.</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>Projekt felhőbe töltés</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>Felhősítés!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3410,6 +3463,106 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation>A %1 projekt nem becsomagolható, mert a projekt tulajdonos tárhelye betelt.</translation>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Helyi változások eldobása</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>Helyi változásokat eldobtam</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>Sikertelen a változások eldobása</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>Nincsenek eldobható változások</translation>
     </message>
 </context>
 <context>
@@ -3561,7 +3714,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Változtatások feltöltése</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3598,6 +3751,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Clone project</source>
         <translation>Projekt másolás</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3932,7 +4089,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Változtatások feltöltése</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3996,6 +4153,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7290,10 +7451,6 @@ készítése</translation>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation type="unfinished"/>
     </message>
@@ -7488,6 +7645,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

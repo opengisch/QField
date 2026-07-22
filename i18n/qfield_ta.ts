@@ -2811,11 +2811,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>QField இல் உங்கள் குழுவால் சேகரிக்கப்பட்ட தரவை  %1 ஒத்திசைக்கவும் ஒன்றிணைக்கவும் QFieldCloud அனுமதிக்கிறது. சிறிய தனிப்பட்ட திட்டங்கள் முதல் பெரிய தரவு சேகரிப்பு பிரச்சாரங்கள் வரை.</translation>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3021,18 +3021,97 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>திட்டத்தை மீட்டமைக்கவும்</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>இந்த முகில் திட்டத்தின் உள்ளக நகல் சிதைந்துள்ளது. திட்டத்தை மீட்டமைப்பது முகில் பதிப்பை மீண்டும் பதிவிறக்கும் மற்றும் ஏதேனும் உள்ளக மாற்றங்களை அகற்றும், தேவைப்பட்டால் அவை முதலில் நகலெடுக்கப்பட்டன என்பதை உறுதிப்படுத்தவும். 
+
+நீங்கள் இன்னும் திட்டத்தைப் பார்க்கவும் பயன்படுத்தவும் முடியும் என்றாலும், தற்செயலான தரவு இழப்பைத் தவிர்க்க மீட்டமைக்க பரிந்துரைக்கப்படுகிறது, ஏனெனில் செய்யப்பட்ட மாற்றங்கள் எதுவும் மேகக்கணிக்குத் தள்ளப்படாது.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>புச் வரலாறு</translation>
+        <translation type="vanished">புச் வரலாறு</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>ஏற்றுகிறது…</translation>
+        <translation type="vanished">ஏற்றுகிறது…</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>எந்த மாற்றமும் இன்னும் தள்ளப்படவில்லை!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>தெரியவில்லை</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3212,7 +3291,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>உள்ளக மாற்றங்கள் எதுவும் இல்லை</translation>
+        <translation type="vanished">உள்ளக மாற்றங்கள் எதுவும் இல்லை</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3224,27 +3303,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>அனைத்து மாற்றியமைக்கப்பட்ட அம்சங்களுடன் முழு திட்டத்தையும் ஒத்திசைக்கவும் மற்றும் QFieldCloud இலிருந்து பயன்படுத்தப்பட்ட அனைத்து மாற்றங்களுடன் புதிதாக புதுப்பிக்கப்பட்ட திட்டத்தைப் பதிவிறக்கவும்.</translation>
+        <translation type="vanished">அனைத்து மாற்றியமைக்கப்பட்ட அம்சங்களுடன் முழு திட்டத்தையும் ஒத்திசைக்கவும் மற்றும் QFieldCloud இலிருந்து பயன்படுத்தப்பட்ட அனைத்து மாற்றங்களுடன் புதிதாக புதுப்பிக்கப்பட்ட திட்டத்தைப் பதிவிறக்கவும்.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>புச் மாற்றங்கள்</translation>
+        <translation type="vanished">புச் மாற்றங்கள்</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>முழுத் திட்டத்தையும் புதுப்பிக்காமல், உள்ளக அம்சங்களையும் படங்களையும் கிளவுடுக்கு மட்டும் அழுத்துவதன் மூலம் இணைய அலைவரிசையைச் சேமிக்கவும்.</translation>
+        <translation type="vanished">முழுத் திட்டத்தையும் புதுப்பிக்காமல், உள்ளக அம்சங்களையும் படங்களையும் கிளவுடுக்கு மட்டும் அழுத்துவதன் மூலம் இணைய அலைவரிசையைச் சேமிக்கவும்.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>உள்ளக மாற்றங்களை மாற்றவும்</translation>
+        <translation type="vanished">உள்ளக மாற்றங்களை மாற்றவும்</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>திட்டத்தை மீட்டமைக்கவும்</translation>
+        <translation type="vanished">திட்டத்தை மீட்டமைக்கவும்</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>உள்ளக அடுக்குகளில் அனைத்து மாற்றியமைக்கப்பட்ட அம்சங்களையும் மாற்றியமைக்கவும். நீங்கள் அந்த மாற்றங்களை மீட்டெடுக்க முடியாது.</translation>
+        <translation type="vanished">உள்ளக அடுக்குகளில் அனைத்து மாற்றியமைக்கப்பட்ட அம்சங்களையும் மாற்றியமைக்கவும். நீங்கள் அந்த மாற்றங்களை மீட்டெடுக்க முடியாது.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3254,7 +3333,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>இந்த முகில் திட்டத்தின் உள்ளக நகல் சிதைந்துள்ளது. திட்டத்தை மீட்டமைப்பது முகில் பதிப்பை மீண்டும் பதிவிறக்கும் மற்றும் ஏதேனும் உள்ளக மாற்றங்களை அகற்றும், தேவைப்பட்டால் அவை முதலில் நகலெடுக்கப்பட்டன என்பதை உறுதிப்படுத்தவும். 
+        <translation type="vanished">இந்த முகில் திட்டத்தின் உள்ளக நகல் சிதைந்துள்ளது. திட்டத்தை மீட்டமைப்பது முகில் பதிப்பை மீண்டும் பதிவிறக்கும் மற்றும் ஏதேனும் உள்ளக மாற்றங்களை அகற்றும், தேவைப்பட்டால் அவை முதலில் நகலெடுக்கப்பட்டன என்பதை உறுதிப்படுத்தவும். 
 
 நீங்கள் இன்னும் திட்டத்தைப் பார்க்கவும் பயன்படுத்தவும் முடியும் என்றாலும், தற்செயலான தரவு இழப்பைத் தவிர்க்க மீட்டமைக்க பரிந்துரைக்கப்படுகிறது, ஏனெனில் செய்யப்பட்ட மாற்றங்கள் எதுவும் மேகக்கணிக்குத் தள்ளப்படாது.</translation>
     </message>
@@ -3268,7 +3347,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>கடைசியாக % 1 இல் ஒத்திசைக்கப்பட்டது</translation>
+        <translation type="vanished">கடைசியாக % 1 இல் ஒத்திசைக்கப்பட்டது</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3276,23 +3355,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>கடைசி மாற்றங்கள் இப்போது தள்ளப்பட்டன</translation>
+        <translation type="vanished">கடைசி மாற்றங்கள் இப்போது தள்ளப்பட்டன</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>கடைசி மாற்றங்கள் % 1 நிமிடங்களுக்கு முன்பு தள்ளப்பட்டன</translation>
+        <translation type="vanished">கடைசி மாற்றங்கள் % 1 நிமிடங்களுக்கு முன்பு தள்ளப்பட்டன</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>கடைசி மாற்றங்கள் % 1 இல் தள்ளப்பட்டன</translation>
+        <translation type="vanished">கடைசி மாற்றங்கள் % 1 இல் தள்ளப்பட்டன</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>கடைசி மாற்றங்கள் % 1 இல் தள்ளப்பட்டன</translation>
+        <translation type="vanished">கடைசி மாற்றங்கள் % 1 இல் தள்ளப்பட்டன</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>எந்த மாற்றமும் இன்னும் தள்ளப்படவில்லை</translation>
+        <translation type="vanished">எந்த மாற்றமும் இன்னும் தள்ளப்படவில்லை</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3300,7 +3379,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>உள்ளக மாற்றங்கள் திரும்பப்பெற வேண்டுமா?</translation>
+        <translation type="vanished">உள்ளக மாற்றங்கள் திரும்பப்பெற வேண்டுமா?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3316,15 +3395,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>உள்ளக மாற்றங்கள் மாற்றப்பட்டன</translation>
+        <translation type="vanished">உள்ளக மாற்றங்கள் மாற்றப்பட்டன</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>மாற்றங்களை மாற்றியமைக்க முடியவில்லை</translation>
+        <translation type="vanished">மாற்றங்களை மாற்றியமைக்க முடியவில்லை</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>மாற்றியமைக்க மாற்றங்கள் இல்லை</translation>
+        <translation type="vanished">மாற்றியமைக்க மாற்றங்கள் இல்லை</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3350,18 +3429,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>திட்டத்தைப் பதிவிறக்க QFieldCloud ஐ அணுகவும்</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>தற்போதைய திட்டம் தானாக தள்ளுவதை முடக்க அனுமதிக்கவில்லை</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>QFieldCloud இல் திட்டப்பணிகளைச் சேமிப்பது தடையற்ற ஒத்திசைவு, இணைப்பில்லாத திருத்துதல் மற்றும் குழு மேலாண்மை ஆகியவற்றை வழங்குகிறது.&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation>மாற்றங்களைத் தள்ளுகிறது, % 1%…</translation>
@@ -3373,18 +3440,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>தற்போதைய திட்டத்தை QFieldCloud இல் பதிவேற்றுகிறது.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>தற்போதைய திட்டம் QFieldCloud இல் சேமிக்கப்படவில்லை.</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>Cloudifying திட்டம்</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>Cloudify!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3408,6 +3463,106 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3560,7 +3715,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>புச் மாற்றங்கள்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3596,6 +3751,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3933,7 +4092,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>புச் மாற்றங்கள்</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3997,6 +4156,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7289,10 +7452,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>முகில் ப்ராசெக்ட் திறக்கப்படும்போது QFieldCloud க்கு மாற்றங்களை அழுத்தவும், ஒத்திசைக்கவும் அல்லது மாற்றியமைக்கவும்.</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>திட்ட கோப்புறை</translation>
     </message>
@@ -7488,6 +7647,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

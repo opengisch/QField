@@ -2817,11 +2817,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3027,17 +3027,94 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Ponovo Pokreni Projekt</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Lokalna kopija projekta iz oblaka je neispravna. Ponovo pokretanje projekta će ponovo skinuti verziju iz oblaka i ukloniti lokalne promjene, provjerite da li su kopirane ako ih trebate.Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučivo da ga ponovo pokrenete da izbjegnete slučajne gubitke podataka pošto nikakve promjene neće ići u oblak.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Povijest promjena</translation>
+        <translation type="vanished">Povijest promjena</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Učitavam...</translation>
+        <translation type="vanished">Učitavam...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Nepoznato</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3214,11 +3291,11 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>Ima %n lokalne promjen(e)</numerusform><numerusform>Ima %n lokalnih promjen(a)</numerusform><numerusform>Ima %n lokalnih promjene(a)</numerusform></translation>
+        <translation type="vanished"><numerusform>Ima %n lokalne promjen(e)</numerusform><numerusform>Ima %n lokalnih promjen(a)</numerusform><numerusform>Ima %n lokalnih promjene(a)</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Nema lokalnih promjena</translation>
+        <translation type="vanished">Nema lokalnih promjena</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3230,27 +3307,27 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Sinkroniziraj cijeli projekt sa svim promijenjenim elementima i preuzmi osvježeni projekt sa svim promjenama sa QFieldCloud.</translation>
+        <translation type="vanished">Sinkroniziraj cijeli projekt sa svim promijenjenim elementima i preuzmi osvježeni projekt sa svim promjenama sa QFieldCloud.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Poguraj promjene</translation>
+        <translation type="vanished">Poguraj promjene</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Uštedite internet promet guranjem samo lokalnih elemenata i slika u oblak, bez nadogradnje cijelog projekta.</translation>
+        <translation type="vanished">Uštedite internet promet guranjem samo lokalnih elemenata i slika u oblak, bez nadogradnje cijelog projekta.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Vrati Lokalne Promjene</translation>
+        <translation type="vanished">Vrati Lokalne Promjene</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Ponovo Pokreni Projekt</translation>
+        <translation type="vanished">Ponovo Pokreni Projekt</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Vratite sve promijenjene elemente u lokalnim slojevima. Ne možete vratiti ove promjene.</translation>
+        <translation type="vanished">Vratite sve promijenjene elemente u lokalnim slojevima. Ne možete vratiti ove promjene.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3260,7 +3337,7 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Lokalna kopija projekta iz oblaka je neispravna. Ponovo pokretanje projekta će ponovo skinuti verziju iz oblaka i ukloniti lokalne promjene, provjerite da li su kopirane ako ih trebate.Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučivo da ga ponovo pokrenete da izbjegnete slučajne gubitke podataka pošto nikakve promjene neće ići u oblak.</translation>
+        <translation type="vanished">Lokalna kopija projekta iz oblaka je neispravna. Ponovo pokretanje projekta će ponovo skinuti verziju iz oblaka i ukloniti lokalne promjene, provjerite da li su kopirane ako ih trebate.Iako i dalje možete pregledati i koristiti ovaj projekat, strogo je preporučivo da ga ponovo pokrenete da izbjegnete slučajne gubitke podataka pošto nikakve promjene neće ići u oblak.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -3272,7 +3349,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Zadnja sinkronizacija na %1</translation>
+        <translation type="vanished">Zadnja sinkronizacija na %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3280,23 +3357,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Zadnje promjene upravo pogurane</translation>
+        <translation type="vanished">Zadnje promjene upravo pogurane</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Zadnje promjene pogurane prije %1 minuta</translation>
+        <translation type="vanished">Zadnje promjene pogurane prije %1 minuta</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Zadnje promjene pogurane na %1</translation>
+        <translation type="vanished">Zadnje promjene pogurane na %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Zadnje promjene pogurane u %1</translation>
+        <translation type="vanished">Zadnje promjene pogurane u %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Nema još poslanih promjena</translation>
+        <translation type="vanished">Nema još poslanih promjena</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3304,7 +3381,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Treba li vratiti lokalne promjene?</translation>
+        <translation type="vanished">Treba li vratiti lokalne promjene?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3320,15 +3397,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Lokalne promjene vraćene</translation>
+        <translation type="vanished">Lokalne promjene vraćene</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Nije moguće vratiti promjene</translation>
+        <translation type="vanished">Nije moguće vratiti promjene</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Nema promjena za vraćanje</translation>
+        <translation type="vanished">Nema promjena za vraćanje</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3354,18 +3431,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
@@ -3376,18 +3441,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3412,6 +3465,106 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3564,7 +3717,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Poguraj promjene</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3600,6 +3753,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3935,7 +4092,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Poguraj promjene</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3999,6 +4156,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7288,10 +7449,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation type="unfinished"/>
     </message>
@@ -7486,6 +7643,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

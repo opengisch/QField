@@ -2806,11 +2806,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3015,18 +3015,95 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>ຕັ້ງຄ່າໂຄງການຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>ສໍາເນົາທ້ອງຖິ່ນຂອງໂຄງການຄລາວນີ້ຖືກເສຍຫາຍ. ການຣີເຊັດໂຄງການຈະດາວໂຫຼດເວີຊັນຄລາວຄືນໃໝ່ ແລະ ຈະລຶບການປ່ຽນແປງໃນເຄື່ອງອອກ, ໃຫ້ແນ່ໃຈວ່າການປ່ຽນແປງຖືກສຳເນົາໄວ້ກ່ອນຖ້າຈຳເປັນ. ໃນຂະນະທີ່ທ່ານຍັງສາມາດເບິ່ງ ແລະ ນຳໃຊ້ໂຄງການໄດ້, ແນະນຳໃຫ້ຣີເຊັດເພື່ອຫຼີກເວັ້ນການສູນເສຍຂໍ້ມູນໂດຍບັງເອີນ ເນື່ອງຈາກບໍ່ມີການປ່ຽນແປງໃດໆທີ່ສ້າງຂຶ້ນຈະຖືກຍູ້ກັບໄປຄລາວ.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>ປະຫວັດການຍູ້</translation>
+        <translation type="vanished">ປະຫວັດການຍູ້</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>ກຳລັງໂຫລດ...</translation>
+        <translation type="vanished">ກຳລັງໂຫລດ...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>ຍັງ​ບໍ່​ທັນ​ມີ​ການ​ປ່ຽນ​ແປງ​ໄດ້​ຮັບ​ການ​​ຍູ້​!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>ບໍ່ຮູ້</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3201,11 +3278,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>ມີ % ການປ່ຽນແປງໃນທ້ອງຖິ່ນ</numerusform></translation>
+        <translation type="vanished"><numerusform>ມີ % ການປ່ຽນແປງໃນທ້ອງຖິ່ນ</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>ບໍ່ມີການປ່ຽນແປງທ້ອງຖິ່ນ</translation>
+        <translation type="vanished">ບໍ່ມີການປ່ຽນແປງທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3217,27 +3294,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Sync ​ໂຄງ​ການທັງ​ຫມົດ​ທີ່​ມີ​ລັກ​ສະ​ນະ​ການ​ປ່ຽນ​ແປງ​ ​ແລະ​ ດາວ​ໂຫລດ​ໂຄງ​ການ​​ທີ່​ມີ​ການ​ປ່ຽນ​ແປງ​ທັງ​ຫມົດ​ຈາກ QFieldCloud​.</translation>
+        <translation type="vanished">Sync ​ໂຄງ​ການທັງ​ຫມົດ​ທີ່​ມີ​ລັກ​ສະ​ນະ​ການ​ປ່ຽນ​ແປງ​ ​ແລະ​ ດາວ​ໂຫລດ​ໂຄງ​ການ​​ທີ່​ມີ​ການ​ປ່ຽນ​ແປງ​ທັງ​ຫມົດ​ຈາກ QFieldCloud​.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>ຊຸກປ່ຽນແປງ</translation>
+        <translation type="vanished">ຊຸກປ່ຽນແປງ</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>ປະຫຍັດແບນວິດອິນເຕີເນັດໂດຍການພຽງແຕ່ຍູ້ລັກສະນະທ້ອງຖິ່ນ ແລະ ຮູບພາບໃສ່ຄລາວ, ໂດຍບໍ່ມີການປັບປຸງໂຄງການທັງຫມົດ.</translation>
+        <translation type="vanished">ປະຫຍັດແບນວິດອິນເຕີເນັດໂດຍການພຽງແຕ່ຍູ້ລັກສະນະທ້ອງຖິ່ນ ແລະ ຮູບພາບໃສ່ຄລາວ, ໂດຍບໍ່ມີການປັບປຸງໂຄງການທັງຫມົດ.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>ກັບການປ່ຽນແປງໃນທ້ອງຖິ່ນຄືນ</translation>
+        <translation type="vanished">ກັບການປ່ຽນແປງໃນທ້ອງຖິ່ນຄືນ</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>ຕັ້ງຄ່າໂຄງການຄືນໃໝ່</translation>
+        <translation type="vanished">ຕັ້ງຄ່າໂຄງການຄືນໃໝ່</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>ກັບຄືນຄຸນສົມບັດທີ່ແກ້ໄຂທັງໝົດໃນຊັ້ນຂໍ້ມູນທ້ອງຖິ່ນ. ທ່ານບໍ່ສາມາດຟື້ນຟູການປ່ຽນແປງເຫຼົ່ານັ້ນໄດ້.</translation>
+        <translation type="vanished">ກັບຄືນຄຸນສົມບັດທີ່ແກ້ໄຂທັງໝົດໃນຊັ້ນຂໍ້ມູນທ້ອງຖິ່ນ. ທ່ານບໍ່ສາມາດຟື້ນຟູການປ່ຽນແປງເຫຼົ່ານັ້ນໄດ້.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3247,7 +3324,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>ສໍາເນົາທ້ອງຖິ່ນຂອງໂຄງການຄລາວນີ້ຖືກເສຍຫາຍ. ການຣີເຊັດໂຄງການຈະດາວໂຫຼດເວີຊັນຄລາວຄືນໃໝ່ ແລະ ຈະລຶບການປ່ຽນແປງໃນເຄື່ອງອອກ, ໃຫ້ແນ່ໃຈວ່າການປ່ຽນແປງຖືກສຳເນົາໄວ້ກ່ອນຖ້າຈຳເປັນ. ໃນຂະນະທີ່ທ່ານຍັງສາມາດເບິ່ງ ແລະ ນຳໃຊ້ໂຄງການໄດ້, ແນະນຳໃຫ້ຣີເຊັດເພື່ອຫຼີກເວັ້ນການສູນເສຍຂໍ້ມູນໂດຍບັງເອີນ ເນື່ອງຈາກບໍ່ມີການປ່ຽນແປງໃດໆທີ່ສ້າງຂຶ້ນຈະຖືກຍູ້ກັບໄປຄລາວ.</translation>
+        <translation type="vanished">ສໍາເນົາທ້ອງຖິ່ນຂອງໂຄງການຄລາວນີ້ຖືກເສຍຫາຍ. ການຣີເຊັດໂຄງການຈະດາວໂຫຼດເວີຊັນຄລາວຄືນໃໝ່ ແລະ ຈະລຶບການປ່ຽນແປງໃນເຄື່ອງອອກ, ໃຫ້ແນ່ໃຈວ່າການປ່ຽນແປງຖືກສຳເນົາໄວ້ກ່ອນຖ້າຈຳເປັນ. ໃນຂະນະທີ່ທ່ານຍັງສາມາດເບິ່ງ ແລະ ນຳໃຊ້ໂຄງການໄດ້, ແນະນຳໃຫ້ຣີເຊັດເພື່ອຫຼີກເວັ້ນການສູນເສຍຂໍ້ມູນໂດຍບັງເອີນ ເນື່ອງຈາກບໍ່ມີການປ່ຽນແປງໃດໆທີ່ສ້າງຂຶ້ນຈະຖືກຍູ້ກັບໄປຄລາວ.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
@@ -3259,7 +3336,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>ຊິ້ງຂໍ້ມູນຫຼ້າສຸດຢູ່ທີ່ %1</translation>
+        <translation type="vanished">ຊິ້ງຂໍ້ມູນຫຼ້າສຸດຢູ່ທີ່ %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3267,23 +3344,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>ການ​ປ່ຽນ​ແປງ​ຫຼ້າ​ສຸດ​ຖືກຊຸກ​​ໃນ​ປັດ​ຈຸ​ບັນ​</translation>
+        <translation type="vanished">ການ​ປ່ຽນ​ແປງ​ຫຼ້າ​ສຸດ​ຖືກຊຸກ​​ໃນ​ປັດ​ຈຸ​ບັນ​</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>ການ​ປ່ຽນ​ແປງ​ຫຼ້າ​ສຸດ​ຖືກຊຸກ​ %1 ນາ​ທີ​ກ່ອນ​ນີ້</translation>
+        <translation type="vanished">ການ​ປ່ຽນ​ແປງ​ຫຼ້າ​ສຸດ​ຖືກຊຸກ​ %1 ນາ​ທີ​ກ່ອນ​ນີ້</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>ການປ່ຽນແປງຫຼ້າສຸດຖືກຊຸກ​ຢູ່ທີ່ %1</translation>
+        <translation type="vanished">ການປ່ຽນແປງຫຼ້າສຸດຖືກຊຸກ​ຢູ່ທີ່ %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>ການ​ປ່ຽນ​ແປງ​ຫຼ້າ​ສຸດ​ຖືກຊຸກ​​ໃນ %1</translation>
+        <translation type="vanished">ການ​ປ່ຽນ​ແປງ​ຫຼ້າ​ສຸດ​ຖືກຊຸກ​​ໃນ %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>ບໍ່ມີການຊຸກການປ່ຽນແປງເທື່ອ</translation>
+        <translation type="vanished">ບໍ່ມີການຊຸກການປ່ຽນແປງເທື່ອ</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3291,7 +3368,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>ການປ່ຽນແປງທ້ອງຖິ່ນຄວນຖືກຍົກເລີກບໍ?</translation>
+        <translation type="vanished">ການປ່ຽນແປງທ້ອງຖິ່ນຄວນຖືກຍົກເລີກບໍ?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3307,15 +3384,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>ຍົກເລີກການປ່ຽນແປງທ້ອງຖິ່ນ</translation>
+        <translation type="vanished">ຍົກເລີກການປ່ຽນແປງທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>ຍົກເລີກການປ່ຽນແປງບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ຍົກເລີກການປ່ຽນແປງບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>ບໍ່ມີການປ່ຽນແປງທີ່ຈະຍົກເລີກ</translation>
+        <translation type="vanished">ບໍ່ມີການປ່ຽນແປງທີ່ຈະຍົກເລີກ</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3341,18 +3418,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>ກຳລັງເຂົ້າຫາ QFieldCloud ເພື່ອດາວໂຫລດໂຄງການ</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>ຊຸກການປ່ຽນແປງອັດຕະໂນມັດທຸກໆ %n ນາທີ</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>ໂຄງການປະຈຸບັນບໍ່ອະນຸຍາດໃຫ້ປິດການຊຸກອັດຕະໂນມັດ</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>ການເກັບຮັກສາໂຄງການໃນ QFieldCloud ສະຫນອງການຊິງຄ໌ແບບບໍ່ມີຮອຍຕໍ່, ການແກ້ໄຂອອບໄລນ໌, ແລະການຄຸ້ມຄອງທີມງານ.</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation>ກຳລັງຊຸກການປ່ຽນແປງ, %1%…</translation>
@@ -3364,18 +3429,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>ກຳລັງອັບໂຫລດໂຄງການປັດຈຸບັນໄປໃສ່ QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>ໂຄງການປະຈຸບັນບໍ່ໄດ້ເກັບຮັກສາໄວ້ໃນ QFieldCloud.</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>ບັນ​ທຶກ​ໂຄງ​ການ​ໃນ​ຄລາວ</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>ບັນ​ທຶກ​ໃນ​ຄລາວ</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3399,6 +3452,106 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3550,7 +3703,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>ຊຸກປ່ຽນແປງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3586,6 +3739,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3919,7 +4076,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>ຊຸກປ່ຽນແປງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3983,6 +4140,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7274,10 +7435,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>ຍູ້ການປ່ຽນແປງ, ສິງໂຄຣໄນ ຫຼື ປ່ຽນຄືນການປ່ຽນແປງໄປ ແລະ ຈາກ QFieldCloud ເມື່ອໂຄງການຄລາວຖືກເປີດ.</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>ໂຟນເດີໂຄງການ</translation>
     </message>
@@ -7472,6 +7629,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

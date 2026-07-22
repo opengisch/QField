@@ -2810,11 +2810,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3020,18 +3020,97 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Projeyi sıfırla</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Bu bulut projesinin yerel kopyası bozuldu. Projeyi sıfırlamak, bulut sürümünü yeniden indirmeye ve yerel değişiklikleri kaldırmaya neden olacaktır, bu nedenle gerekirse bunların önce kopyalandığından emin olun.
+
+Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri kaybını önlemek için sıfırlamanız şiddetle önerilir, çünkü yapılan değişikliklerin hiçbiri buluta geri gönderilmeyecektir.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Gönderim Geçmişi</translation>
+        <translation type="vanished">Gönderim Geçmişi</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Yükleniyor...</translation>
+        <translation type="vanished">Yükleniyor...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>Henüz hiçbir değişiklik gönderilmedi!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Bilinmeyen</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3211,7 +3290,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Yerel değişiklik yok</translation>
+        <translation type="vanished">Yerel değişiklik yok</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3223,27 +3302,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Değiştirilen tüm özelliklerle birlikte projeyi senkronize edin ve QFieldCloud&apos;dan uygulanan tüm değişikliklerle güncellenmiş projeyi indirin.</translation>
+        <translation type="vanished">Değiştirilen tüm özelliklerle birlikte projeyi senkronize edin ve QFieldCloud&apos;dan uygulanan tüm değişikliklerle güncellenmiş projeyi indirin.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Değişiklikleri Gönder</translation>
+        <translation type="vanished">Değişiklikleri Gönder</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Projenin tamamını güncellemeden yalnızca yerel özellikleri ve resimleri buluta göndererek internet bant genişliğinden tasarruf edin.</translation>
+        <translation type="vanished">Projenin tamamını güncellemeden yalnızca yerel özellikleri ve resimleri buluta göndererek internet bant genişliğinden tasarruf edin.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Yerel değişiklikleri geri al</translation>
+        <translation type="vanished">Yerel değişiklikleri geri al</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Projeyi sıfırla</translation>
+        <translation type="vanished">Projeyi sıfırla</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Yerel katmanlardaki tüm değiştirilmiş özellikleri geri al. Bu değişiklikleri geri yükleyemezsiniz.</translation>
+        <translation type="vanished">Yerel katmanlardaki tüm değiştirilmiş özellikleri geri al. Bu değişiklikleri geri yükleyemezsiniz.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3253,7 +3332,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Bu bulut projesinin yerel kopyası bozuldu. Projeyi sıfırlamak, bulut sürümünü yeniden indirmeye ve yerel değişiklikleri kaldırmaya neden olacaktır, bu nedenle gerekirse bunların önce kopyalandığından emin olun.
+        <translation type="vanished">Bu bulut projesinin yerel kopyası bozuldu. Projeyi sıfırlamak, bulut sürümünü yeniden indirmeye ve yerel değişiklikleri kaldırmaya neden olacaktır, bu nedenle gerekirse bunların önce kopyalandığından emin olun.
 
 Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri kaybını önlemek için sıfırlamanız şiddetle önerilir, çünkü yapılan değişikliklerin hiçbiri buluta geri gönderilmeyecektir.</translation>
     </message>
@@ -3267,7 +3346,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Son senkronizasyon %1&apos;de yapıldı</translation>
+        <translation type="vanished">Son senkronizasyon %1&apos;de yapıldı</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3275,23 +3354,23 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Son değişiklikler az önce gönderildi</translation>
+        <translation type="vanished">Son değişiklikler az önce gönderildi</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Son değişiklikler %1 dakika önce gönderildi</translation>
+        <translation type="vanished">Son değişiklikler %1 dakika önce gönderildi</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Son değişiklikler %1&apos;de gönderildi</translation>
+        <translation type="vanished">Son değişiklikler %1&apos;de gönderildi</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Son değişiklikler %1&apos;de gönderildi</translation>
+        <translation type="vanished">Son değişiklikler %1&apos;de gönderildi</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Henüz değişiklik gönderilmedi</translation>
+        <translation type="vanished">Henüz değişiklik gönderilmedi</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3299,7 +3378,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Yerel değişiklikler geri alınmalı mı?</translation>
+        <translation type="vanished">Yerel değişiklikler geri alınmalı mı?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3315,15 +3394,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Yerel değişiklikler geri alındı</translation>
+        <translation type="vanished">Yerel değişiklikler geri alındı</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Değişiklikleri geri alma işlemi başarısız oldu</translation>
+        <translation type="vanished">Değişiklikleri geri alma işlemi başarısız oldu</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Geri alınacak değişiklik yok</translation>
+        <translation type="vanished">Geri alınacak değişiklik yok</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3349,18 +3428,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>QFieldCloud ile bağlantı kuruluyor, proje indiriliyor</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>Mevcut proje, otomatik gönderimin kapatılmasına izin vermiyor</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Projeleri QFieldCloud&apos;da saklamak, kesintisiz senkronizasyon, çevrimdışı düzenleme ve ekip yönetimi sunar.&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
@@ -3371,18 +3438,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3407,6 +3462,106 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3559,7 +3714,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Değişiklikleri Gönder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3595,6 +3750,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3932,7 +4091,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Değişiklikleri Gönder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3996,6 +4155,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7285,10 +7448,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>Bir bulut projesi açıldığında değişiklikleri QFieldCloud&apos;a itmek, senkronize etmek veya geri almak için kullanın.</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>Proje klasörü</translation>
     </message>
@@ -7483,6 +7642,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

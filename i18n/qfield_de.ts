@@ -2814,12 +2814,12 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>QFieldCloud ermöglicht es Ihnen Daten, die von ihrem Team in QField gesammelt wurden, zu synchronisieren und zusammenzufügen. Von kleinen individuellen Projekten bis zu großen Datenerfassungskampagnen.</translation>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
-        <translation>Änderungen automatisch in einem bestimmten Intervall übertragen</translation>
-    </message>
-    <message>
         <source>Allow notes on lines and polygons</source>
         <translation>Notizen auf Linien und Polygonen zulassen</translation>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3024,18 +3024,97 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Projekt zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stelle sicher, diese bei Bedarf zuerst zu kopieren. 
+
+Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen wird.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Push-Verlauf</translation>
+        <translation type="vanished">Push-Verlauf</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Lade...</translation>
+        <translation type="vanished">Lade...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>Es wurden bisher keine Änderungen gepusht!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Unbekannt</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3212,11 +3291,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderungen.</numerusform></translation>
+        <translation type="vanished"><numerusform>Es gibt %n lokale Änderung</numerusform><numerusform>Es gibt %n lokale Änderungen.</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Es gibt keine lokalen Änderungen.</translation>
+        <translation type="vanished">Es gibt keine lokalen Änderungen.</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3228,27 +3307,27 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synchronisiere das gesamte Projekt mit allen Änderungen und lade das frisch aktualisierte Projekt aus der QFieldCloud herunter.</translation>
+        <translation type="vanished">Synchronisiere das gesamte Projekt mit allen Änderungen und lade das frisch aktualisierte Projekt aus der QFieldCloud herunter.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Änderungen pushen</translation>
+        <translation type="vanished">Änderungen pushen</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Spare Internet-Bandbreite, indem du nur die lokalen Objekte und Bilder in die Cloud verschiebst, ohne das gesamte Projekt zu aktualisieren.</translation>
+        <translation type="vanished">Spare Internet-Bandbreite, indem du nur die lokalen Objekte und Bilder in die Cloud verschiebst, ohne das gesamte Projekt zu aktualisieren.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Lokale Änderungen rückgängig machen</translation>
+        <translation type="vanished">Lokale Änderungen rückgängig machen</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Projekt zurücksetzen</translation>
+        <translation type="vanished">Projekt zurücksetzen</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Alle geänderten Objekte in den lokalen Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
+        <translation type="vanished">Alle geänderten Objekte in den lokalen Layern rückgängig machen. Sie können diese Änderungen nicht wiederherstellen.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3258,7 +3337,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stelle sicher, diese bei Bedarf zuerst zu kopieren. 
+        <translation type="vanished">Die lokale Kopie des Cloud Projekts wurde beschädigt. Beim Zurücksetzen wird die Cloud-Version erneut heruntergeladen und alle lokalen Änderungen werden entfernt. Stelle sicher, diese bei Bedarf zuerst zu kopieren. 
 
 Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend empfohlen, es zurückzusetzen, um einen versehentlichen Datenverlust zu vermeiden, da keine der vorgenommenen Änderungen zurück in die Cloud übertragen wird.</translation>
     </message>
@@ -3272,7 +3351,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Letzte Synchronisierung um %1</translation>
+        <translation type="vanished">Letzte Synchronisierung um %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3280,23 +3359,23 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Letzte Änderung gerade eben gepusht</translation>
+        <translation type="vanished">Letzte Änderung gerade eben gepusht</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Letzte Änderung vor %1 Minuten gepusht</translation>
+        <translation type="vanished">Letzte Änderung vor %1 Minuten gepusht</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Letzte Änderung gepusht am %1</translation>
+        <translation type="vanished">Letzte Änderung gepusht am %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Letzte Änderung gepusht am %1</translation>
+        <translation type="vanished">Letzte Änderung gepusht am %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Noch keine Änderungen gepusht.</translation>
+        <translation type="vanished">Noch keine Änderungen gepusht.</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3304,7 +3383,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Sollten lokale Änderungen rückgängig gemacht werden?</translation>
+        <translation type="vanished">Sollten lokale Änderungen rückgängig gemacht werden?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3320,15 +3399,15 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Lokale Änderungen zurückgesetzt</translation>
+        <translation type="vanished">Lokale Änderungen zurückgesetzt</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Zurücksetzen der Änderungen fehlgeschlagen</translation>
+        <translation type="vanished">Zurücksetzen der Änderungen fehlgeschlagen</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Keine Änderungen zum Zurücksetzen vorhanden</translation>
+        <translation type="vanished">Keine Änderungen zum Zurücksetzen vorhanden</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3354,18 +3433,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Verbinde mit der QFieldCloud, um das Projekt herunterzuladen.</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>Änderungen automatisch alle %n Minute(n) pushen</numerusform><numerusform>Änderungen automatisch alle %n Minute(n) pushen.</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>Für das aktuelle Projekt kann das automatische Pushen nicht deaktiviert werden.</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Das Speichern von Projekten in der QFieldCloud bietet nahtlose Synchronisation, Offline-Bearbeitung und Team-Managment. &lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation>Änderungen werden angestoßen, %1%...</translation>
@@ -3377,18 +3444,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>Aktuelle Projekt wird zu QFieldCloud hochgeladen.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>Das aktuelle Projekt ist nicht in QFieldCloud gespeichert.</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>Projekt synchronisieren</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>Synchronisation!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3413,6 +3468,106 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation>Projekt %1 kann nicht gepackt werden, da der Speicher des Projekt-Besitzers voll ist.</translation>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3564,7 +3719,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Änderungen pushen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3601,6 +3756,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Clone project</source>
         <translation>Projekt klonen</translation>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3935,7 +4094,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Änderungen pushen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3999,6 +4158,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7291,10 +7454,6 @@ erstellen</translation>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>Lade Änderungen hoch, synchronisiere oder setze Änderungen zu und von QFieldCloud zurück, wenn ein Cloud-Projekt geöffnet ist.</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>Projekt-Ordner</translation>
     </message>
@@ -7490,6 +7649,10 @@ um Aktionen anzuzeigen</translation>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2813,11 +2813,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3023,18 +3023,97 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>プロジェクトのリセット</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>ローカルの変更を破棄する</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>このクラウドプロジェクトのローカルのコピーが破損しています。プロジェクトをリセットすると、クラウド版が再ダウンロードされ、ローカルの変更が削除されますので、必要に応じてそれらを最初にバックアップしておいてください。
+
+プロジェクトの閲覧や使用は可能ですが、変更した内容がクラウドに反映されないため、誤ってデータが失われないようにリセットすることを強くお勧めします。</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>履歴のプッシュ</translation>
+        <translation type="vanished">履歴のプッシュ</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>読込中…</translation>
+        <translation type="vanished">読込中…</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>まだプッシュされた変更はありません</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>不明</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3210,11 +3289,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>%n 個のローカルの変更があります。</numerusform></translation>
+        <translation type="vanished"><numerusform>%n 個のローカルの変更があります。</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>ローカルな変更はありません。</translation>
+        <translation type="vanished">ローカルな変更はありません。</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3226,27 +3305,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>全ての変更された地物を持つプロジェクト全体を同期させ、全ての更新内容が含まれた最新のプロジェクトをQFieldCloudからダウンロードします。</translation>
+        <translation type="vanished">全ての変更された地物を持つプロジェクト全体を同期させ、全ての更新内容が含まれた最新のプロジェクトをQFieldCloudからダウンロードします。</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>変更点をプッシュ</translation>
+        <translation type="vanished">変更点をプッシュ</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>プロジェクト全体を更新することなく、ローカルの地物や画像のみをクラウドにプッシュすることで、インターネットの帯域幅を節約できます。</translation>
+        <translation type="vanished">プロジェクト全体を更新することなく、ローカルの地物や画像のみをクラウドにプッシュすることで、インターネットの帯域幅を節約できます。</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>ローカルの変更を取り消す</translation>
+        <translation type="vanished">ローカルの変更を取り消す</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>プロジェクトのリセット</translation>
+        <translation type="vanished">プロジェクトのリセット</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>ローカルレイヤで変更されたすべての地物を元に戻します。破棄すると元に戻すことはできません。</translation>
+        <translation type="vanished">ローカルレイヤで変更されたすべての地物を元に戻します。破棄すると元に戻すことはできません。</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3256,7 +3335,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>このクラウドプロジェクトのローカルのコピーが破損しています。プロジェクトをリセットすると、クラウド版が再ダウンロードされ、ローカルの変更が削除されますので、必要に応じてそれらを最初にバックアップしておいてください。
+        <translation type="vanished">このクラウドプロジェクトのローカルのコピーが破損しています。プロジェクトをリセットすると、クラウド版が再ダウンロードされ、ローカルの変更が削除されますので、必要に応じてそれらを最初にバックアップしておいてください。
 
 プロジェクトの閲覧や使用は可能ですが、変更した内容がクラウドに反映されないため、誤ってデータが失われないようにリセットすることを強くお勧めします。</translation>
     </message>
@@ -3270,7 +3349,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>最後に同期した時間：%1</translation>
+        <translation type="vanished">最後に同期した時間：%1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3278,23 +3357,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>たった今最後の変更のプッシュがされました</translation>
+        <translation type="vanished">たった今最後の変更のプッシュがされました</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>%1 分前に最後の変更のプッシュがされました</translation>
+        <translation type="vanished">%1 分前に最後の変更のプッシュがされました</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>最後に変更をプッシュした時間：%1</translation>
+        <translation type="vanished">最後に変更をプッシュした時間：%1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>最後に変更をプッシュした日：%1</translation>
+        <translation type="vanished">最後に変更をプッシュした日：%1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>まだプッシュされた変更はありません</translation>
+        <translation type="vanished">まだプッシュされた変更はありません</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3302,7 +3381,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>ローカルの変更を元に戻しますか？</translation>
+        <translation type="vanished">ローカルの変更を元に戻しますか？</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3318,15 +3397,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>ローカルな変更を元に戻しました</translation>
+        <translation type="vanished">ローカルな変更を元に戻しました</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>変更を取り消すのに失敗しました</translation>
+        <translation type="vanished">変更を取り消すのに失敗しました</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>元に戻す変更はありません</translation>
+        <translation type="vanished">元に戻す変更はありません</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3352,18 +3431,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>プロジェクトをダウンロードするためにQFieldCloudに連絡する</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>%n分ごとに変更を自動的にプッシュする</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>現在のプロジェクトでは、自動プッシュをオフにすることはできません。</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>QFieldCloudにプロジェクトを保存することで、シームレスな同期、オフライン編集、チームでの管理が可能になります。&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation type="unfinished"/>
@@ -3374,18 +3441,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloudify!</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3411,6 +3466,106 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>ローカルの変更を破棄する</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>ローカルな変更は破棄されました</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>ローカルな変更の破棄に失敗しました</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>破棄できる変更はありません</translation>
     </message>
 </context>
 <context>
@@ -3562,7 +3717,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>変更点をプッシュ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3598,6 +3753,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3935,7 +4094,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Push changes</source>
-        <translation>変更点をプッシュ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -3999,6 +4158,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7288,10 +7451,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>クラウドプロジェクトを開いたときに、QFieldCloudとの間で変更をプッシュしたり、同期したり、元に戻したりします。</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>プロジェクトフォルダ</translation>
     </message>
@@ -7486,6 +7645,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

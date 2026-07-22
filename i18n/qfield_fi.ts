@@ -2815,11 +2815,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>QFieldCloudin avulla voit synkronoida ja yhdistää tiimisi keräämän datan kohteessa %1. Se soveltuu sekä pieniin projekteihin että laajoihin tiedonkeruukampanjoihin.</translation>
     </message>
     <message>
-        <source>Automatically push changes on a regular interval</source>
+        <source>Allow notes on lines and polygons</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Allow notes on lines and polygons</source>
+        <source>Automatically upload changes on a regular interval</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3025,18 +3025,97 @@ syy: %2</translation>
     </message>
 </context>
 <context>
+    <name>QFieldCloudDangerZone</name>
+    <message>
+        <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset project</source>
+        <translation>Alusta projekti</translation>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Hylkää lokaalit muutokset</translation>
+    </message>
+    <message>
+        <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+
+While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
+        <translation>Cloud-projektin paikallinen kopio on korruptoitunut. Projektin alustaminen lataa uudelleen pilviversion ja poistaa kaikki paikalliset muutokset. Varmista tarvittaessa että nämä on ensin kopioitu.
+
+Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suositellaan vahvasti jotta dataa ei vahindossa häviä, sillä tehtyjä muutoksia ei ajeta takaisin pilveen.</translation>
+    </message>
+    <message>
+        <source>Removes all your local edits that have not yet been uploaded.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Ajettujen muutosten historia</translation>
+        <translation type="vanished">Ajettujen muutosten historia</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Ladataan...</translation>
+        <translation type="vanished">Ladataan...</translation>
     </message>
     <message>
-        <source>No changes have been pushed yet!</source>
-        <translation>Muutoksia ei ole vielä ajettu!</translation>
+        <source>Applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not applied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unpermitted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Tuntematon</translation>
+    </message>
+    <message>
+        <source>Upload History</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fetching upload history…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3213,11 +3292,11 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>%n lokaali muutos</numerusform><numerusform>Löytyy %n paikallista muutosta</numerusform></translation>
+        <translation type="vanished"><numerusform>%n lokaali muutos</numerusform><numerusform>Löytyy %n paikallista muutosta</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>Ei lokaaleja muutoksia</translation>
+        <translation type="vanished">Ei lokaaleja muutoksia</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3229,27 +3308,27 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synkronoi koko projekti kaikilla kohdemuutoksilla ja lataa viimeisin päivitetty projekti kaikilla lisätyillä muutoksilla QFieldCloudista.</translation>
+        <translation type="vanished">Synkronoi koko projekti kaikilla kohdemuutoksilla ja lataa viimeisin päivitetty projekti kaikilla lisätyillä muutoksilla QFieldCloudista.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Aja muutokset</translation>
+        <translation type="vanished">Aja muutokset</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Tallenna internetin kaistanpituus ajamalla vain lokaalit kohteet ja kuvat pilveen, ilman koko projektin päivitystä.</translation>
+        <translation type="vanished">Tallenna internetin kaistanpituus ajamalla vain lokaalit kohteet ja kuvat pilveen, ilman koko projektin päivitystä.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Palauta lokaalit muutokset</translation>
+        <translation type="vanished">Palauta lokaalit muutokset</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Alusta projekti</translation>
+        <translation type="vanished">Alusta projekti</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation>Palauta kaikki muokatut ominaisuudet paikallisissa tasoissa. Et voi palauttaa näitä muutoksia.</translation>
+        <translation type="vanished">Palauta kaikki muokatut ominaisuudet paikallisissa tasoissa. Et voi palauttaa näitä muutoksia.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
@@ -3259,7 +3338,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>Cloud-projektin paikallinen kopio on korruptoitunut. Projektin alustaminen lataa uudelleen pilviversion ja poistaa kaikki paikalliset muutokset. Varmista tarvittaessa että nämä on ensin kopioitu.
+        <translation type="vanished">Cloud-projektin paikallinen kopio on korruptoitunut. Projektin alustaminen lataa uudelleen pilviversion ja poistaa kaikki paikalliset muutokset. Varmista tarvittaessa että nämä on ensin kopioitu.
 
 Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suositellaan vahvasti jotta dataa ei vahindossa häviä, sillä tehtyjä muutoksia ei ajeta takaisin pilveen.</translation>
     </message>
@@ -3273,7 +3352,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Synkronoitu viimeksi %1</translation>
+        <translation type="vanished">Synkronoitu viimeksi %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -3281,23 +3360,23 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Viimeisimmät muutokset ajettu juuri äsken</translation>
+        <translation type="vanished">Viimeisimmät muutokset ajettu juuri äsken</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Viimeisimmät muutokset ajettu %1 minuuttia sitten</translation>
+        <translation type="vanished">Viimeisimmät muutokset ajettu %1 minuuttia sitten</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Muutokset ajettu viimeksi %1</translation>
+        <translation type="vanished">Muutokset ajettu viimeksi %1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Muutokset ajettu viimeksi %1</translation>
+        <translation type="vanished">Muutokset ajettu viimeksi %1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>Muutoksia ei vielä ajettu</translation>
+        <translation type="vanished">Muutoksia ei vielä ajettu</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3305,7 +3384,7 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Palautetaanko lokaalit muutokset?</translation>
+        <translation type="vanished">Palautetaanko lokaalit muutokset?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3321,15 +3400,15 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Lokaalit muutokset palautettu</translation>
+        <translation type="vanished">Lokaalit muutokset palautettu</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Muutosten palautus epäonnistui</translation>
+        <translation type="vanished">Muutosten palautus epäonnistui</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>Ei palautettavia muutoksia</translation>
+        <translation type="vanished">Ei palautettavia muutoksia</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3355,18 +3434,6 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
         <source>Reaching out to QFieldCloud to download project</source>
         <translation>Sisäänkirjaudu QFieldCloudiin projektin lataamiseksi</translation>
     </message>
-    <message numerus="yes">
-        <source>Automatically push changes every %n minute(s)</source>
-        <translation><numerusform>Aja muutokset automaattisesti %n minuutin välein</numerusform><numerusform>Aja muutokset automaattisesti %n minuutin välein</numerusform></translation>
-    </message>
-    <message>
-        <source>The current project does not allow for auto-push to be turned off</source>
-        <translation>Nykyinen projekti ei salli, että automaattinen muutosten ajaminen kytketään pois päältä.</translation>
-    </message>
-    <message>
-        <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation>Projektien tallentaminen QFieldCloudiin tarjoaa saumatonta synkronointia, offline-muokkausta ja tiimin hallintaa.&lt;br&gt;&lt;br&gt;</translation>
-    </message>
     <message>
         <source>Pushing changes, %1%…</source>
         <translation>Lähetetään muutoksia, %1%…</translation>
@@ -3378,18 +3445,6 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
         <translation>Lähetetään nykyinen projekti QFieldCloudiin.</translation>
-    </message>
-    <message>
-        <source>The current project is not stored on QFieldCloud.</source>
-        <translation>Nykyistä projektia ei ole tallennettu QFieldCloudiin.</translation>
-    </message>
-    <message>
-        <source>Cloudifying project</source>
-        <translation>Projektin vieminen pilveen</translation>
-    </message>
-    <message>
-        <source>Cloudify!</source>
-        <translation>Vie pilveen!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
@@ -3414,6 +3469,106 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     <message>
         <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger Zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudify project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying %1%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloudifying</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No changes uploaded yet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded %1 minutes ago</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Auto-upload every %n minute(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>The current project does not allow for auto-upload to be turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Synchronize project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Last synchronized today at %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Danger zone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local changes</source>
+        <translation>Hylkää lokaalit muutokset</translation>
+    </message>
+    <message>
+        <source>Should local changes be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local changes discarded</source>
+        <translation>Lokaalit muutokset hylätty</translation>
+    </message>
+    <message>
+        <source>Failed to discard changes</source>
+        <translation>Muutosten hylkääminen epäonnistui</translation>
+    </message>
+    <message>
+        <source>No changes to discard</source>
+        <translation>Ei muutoksia hylättäväksi</translation>
     </message>
 </context>
 <context>
@@ -3565,7 +3720,7 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Aja muutokset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
@@ -3601,6 +3756,10 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Clone project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3939,7 +4098,7 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Aja muutokset</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Projects</source>
@@ -4003,6 +4162,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
     </message>
     <message>
         <source>Settings page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7292,10 +7455,6 @@ project</source>
         <translation>QFieldCloud</translation>
     </message>
     <message>
-        <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation>Lähetä muutoksia, synkronoi tai palauta ne QFieldCloudiin ja QFieldCloudista, kun pilviprojekti avataan.</translation>
-    </message>
-    <message>
         <source>Project folder</source>
         <translation>Projektihakemisto</translation>
     </message>
@@ -7490,6 +7649,10 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>
