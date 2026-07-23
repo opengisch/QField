@@ -16,15 +16,23 @@
  ***************************************************************************/
 
 #define QFIELDTEST_MAIN
+#include "activelayerfeatureslocatorfilter.h"
 #include "bookmarklocatorfilter.h"
 #include "bookmarkmodel.h"
 #include "catch2.h"
 #include "expressioncalculatorlocatorfilter.h"
+#include "featurelistextentcontroller.h"
+#include "featurelistmodelselection.h"
 #include "gotolocatorfilter.h"
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
+#include "multifeaturelistmodel.h"
 #include "qgsquickmapsettings.h"
 
+#include <QCoreApplication>
+#include <QElapsedTimer>
+#include <QEventLoop>
+#include <QSignalSpy>
 #include <qgsapplication.h>
 #include <qgsbookmarkmanager.h>
 #include <qgscoordinatereferencesystem.h>
@@ -34,6 +42,7 @@
 #include <qgsproject.h>
 #include <qgsrectangle.h>
 #include <qgsreferencedgeometry.h>
+#include <qgsvectorlayer.h>
 
 using Catch::Approx;
 
@@ -59,12 +68,45 @@ static bool hasAction( const QgsLocatorResult &result, int actionId )
   return false;
 }
 
+static bool waitForRowCount( const MultiFeatureListModel &model, int expectedCount )
+{
+  QElapsedTimer timer;
+  timer.start();
+  while ( model.rowCount() != expectedCount && timer.elapsed() < 5000 )
+  {
+    QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+  }
+  return model.rowCount() == expectedCount;
+}
+
 static QgsBookmark makeBookmark( const QString &name )
 {
   QgsBookmark bookmark;
   bookmark.setName( name );
   bookmark.setExtent( QgsReferencedRectangle( QgsRectangle( 0.0, 0.0, 10.0, 10.0 ), QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) ) );
   return bookmark;
+}
+
+static QgsVectorLayer *addPointLayer( const QString &name )
+{
+  QgsVectorLayer *layer = new QgsVectorLayer( QStringLiteral( "Point?crs=epsg:4326&field=fid:integer&field=str:string" ), name, QStringLiteral( "memory" ) );
+  layer->setDisplayExpression( QStringLiteral( "\"str\"" ) );
+
+  QgsFeature alpha( layer->fields() );
+  alpha.setAttribute( QStringLiteral( "fid" ), 1 );
+  alpha.setAttribute( QStringLiteral( "str" ), QStringLiteral( "Alpha" ) );
+  alpha.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 1.0, 1.0 ) ) );
+
+  QgsFeature beta( layer->fields() );
+  beta.setAttribute( QStringLiteral( "fid" ), 2 );
+  beta.setAttribute( QStringLiteral( "str" ), QStringLiteral( "Beta" ) );
+  beta.setGeometry( QgsGeometry::fromPointXY( QgsPointXY( 2.0, 2.0 ) ) );
+
+  layer->dataProvider()->addFeature( alpha );
+  layer->dataProvider()->addFeature( beta );
+
+  QgsProject::instance()->addMapLayer( layer );
+  return layer;
 }
 
 /*
@@ -304,4 +346,132 @@ TEST_CASE( "HelpLocatorFilter" )
     REQUIRE( fetchResults( &filter, QStringLiteral( "ab" ) ).isEmpty() );
     REQUIRE( fetchResults( &filter, QString() ).isEmpty() );
   }
+}
+
+/*
+ * ActiveLayerFeaturesLocatorFilter
+ * Triggering a result needs a feature list controller whose model and selection are
+ * only populated from QML, so coverage stops at prepare() and fetchResults()
+ */
+TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
+{
+  QgsProject::instance()->clear();
+
+  LocatorModelSuperBridge bridge;
+  ActiveLayerFeaturesLocatorFilter filter( &bridge );
+
+  SECTION( "Metadata" )
+  {
+    REQUIRE( filter.name() == QStringLiteral( "features" ) );
+    REQUIRE( filter.prefix() == QStringLiteral( "f" ) );
+    REQUIRE( filter.priority() == QgsLocatorFilter::Medium );
+    REQUIRE( !filter.useWithoutPrefix() );
+  }
+
+  SECTION( "Clone" )
+  {
+    std::unique_ptr<ActiveLayerFeaturesLocatorFilter> cloned( filter.clone() );
+    REQUIRE( cloned );
+    REQUIRE( cloned->name() == filter.name() );
+    REQUIRE( cloned->prefix() == filter.prefix() );
+  }
+
+  SECTION( "PrepareWithoutActiveLayer" )
+  {
+    REQUIRE( filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() ).isEmpty() );
+  }
+
+  SECTION( "PrepareSkipsShortSearchStrings" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
+
+    REQUIRE( filter.prepare( QStringLiteral( "Al" ), QgsLocatorContext() ).isEmpty() );
+
+    QgsLocatorContext context;
+    context.usingPrefix = true;
+    REQUIRE( !filter.prepare( QStringLiteral( "Al" ), context ).isEmpty() );
+  }
+
+  SECTION( "PrepareReturnsFieldCompletions" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
+
+    const QStringList completions = filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    REQUIRE( completions.contains( QStringLiteral( "@fid " ) ) );
+    REQUIRE( completions.contains( QStringLiteral( "@str " ) ) );
+  }
+
+  SECTION( "MatchesFeatureFromActiveLayer" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
+
+    filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+
+    REQUIRE( results.size() == 1 );
+    REQUIRE( results.at( 0 ).displayString == QStringLiteral( "Alpha" ) );
+    REQUIRE( results.at( 0 ).group == QStringLiteral( "points" ) );
+    const QVariantList data = results.at( 0 ).userData().toList();
+    REQUIRE( data.size() == 2 );
+    REQUIRE( data.at( 1 ).toString() == QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 )->id() );
+    REQUIRE( hasAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::OpenForm ) );
+    REQUIRE( hasAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::Navigation ) );
+  }
+
+  SECTION( "ProposesFieldRestrictionsOnEmptySearch" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
+
+    QgsLocatorContext context;
+    context.usingPrefix = true;
+    filter.prepare( QString(), context );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QString(), context );
+
+    REQUIRE( results.size() == 2 );
+    REQUIRE( results.at( 0 ).displayString == QStringLiteral( "@fid" ) );
+    REQUIRE( results.at( 1 ).displayString == QStringLiteral( "@str" ) );
+    REQUIRE( results.at( 0 ).userData().toMap().value( QStringLiteral( "type" ) ).value<ActiveLayerFeaturesLocatorFilter::ResultType>() == ActiveLayerFeaturesLocatorFilter::ResultType::FieldRestriction );
+  }
+
+  SECTION( "RestrictsSearchToSingleField" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
+
+    filter.prepare( QStringLiteral( "@str Alpha" ), QgsLocatorContext() );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "@str Alpha" ) );
+
+    REQUIRE( results.size() == 1 );
+    REQUIRE( results.at( 0 ).displayString == QStringLiteral( "Alpha" ) );
+  }
+
+  SECTION( "OpenFormActionFeedsTheFeatureList" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
+
+    MultiFeatureListModel featureListModel;
+    FeatureListModelSelection selection;
+    FeatureListExtentController controller;
+    controller.setProperty( "model", QVariant::fromValue( &featureListModel ) );
+    controller.setProperty( "selection", QVariant::fromValue( &selection ) );
+    bridge.setFeatureListController( &controller );
+
+    filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+    REQUIRE( results.size() == 1 );
+
+    QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
+    filter.triggerResultFromAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::OpenForm );
+
+    REQUIRE( waitForRowCount( featureListModel, 1 ) );
+    REQUIRE( selection.focusedItem() == 0 );
+    REQUIRE( formStateSpy.count() == 1 );
+  }
+
+  QgsProject::instance()->clear();
 }
