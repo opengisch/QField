@@ -1166,7 +1166,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">放弃最后的修改</translation>
+        <translation type="vanished">放弃最后的更改</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
@@ -1687,7 +1687,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>无法取消图层 %1 中的图层更改</translation>
+        <translation>无法取消图层%1中的图层更改</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
@@ -1886,11 +1886,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>无法取消图层 %1 中的图层更改</translation>
+        <translation>无法取消图层%1中的图层更改</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>无法更改 %2 中要素 %1 的几何图形</translation>
+        <translation>无法更改%2中要素%1的几何图形</translation>
     </message>
 </context>
 <context>
@@ -2098,11 +2098,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>无法取消图层 %1 中的图层更改</translation>
+        <translation>无法取消图层%1中的图层更改</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>无法提交图层 %1 中的图层更改。</translation>
+        <translation>无法提交图层%1中的图层更改。</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
@@ -2113,15 +2113,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>修改已保存</translation>
+        <translation>更改已保存</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>修改已放弃</translation>
+        <translation>更改已放弃</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">放弃最后的修改</translation>
+        <translation type="vanished">放弃最后的更改</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -2818,7 +2818,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>定期自动上传更改</translation>
     </message>
 </context>
 <context>
@@ -3026,7 +3026,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCloudDangerZone</name>
     <message>
         <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
+        <translation>以下操作不可逆，且会永久影响您的本地数据。请谨慎操作。</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -3034,27 +3034,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Discard local changes</source>
-        <translation>放弃本地修改</translation>
+        <translation>放弃本地更改</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>此云工程的本地副本已损坏。重置工程将重新下载云版本，并删除所有本地修改，请确保在需要时先备份这些修改。
+        <translation>此云工程的本地副本已损坏。重置工程将重新下载云版本，并删除所有本地更改，请确保在需要时先备份这些更改。
 
-虽然您仍然可以查看和使用工程，但强烈建议进行重置以避免任何意外的数据丢失，因为所做的任何修改都不会被推回云端。</translation>
+虽然您仍然可以查看和使用工程，但强烈建议进行重置以避免任何意外的数据丢失，因为所做的任何更改都不会被推回云端。</translation>
     </message>
     <message>
         <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
+        <translation>移除所有尚未上传的本地编辑内容。</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>重置</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished"/>
+        <translation>丢弃</translation>
     </message>
 </context>
 <context>
@@ -3069,35 +3069,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Applied</source>
-        <translation type="unfinished"/>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>待定</translation>
     </message>
     <message>
         <source>Busy</source>
-        <translation type="unfinished"/>
+        <translation>忙碌</translation>
     </message>
     <message>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>冲突</translation>
     </message>
     <message>
         <source>Not applied</source>
-        <translation type="unfinished"/>
+        <translation>未应用</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>错误</translation>
     </message>
     <message>
         <source>Ignored</source>
-        <translation type="unfinished"/>
+        <translation>忽略</translation>
     </message>
     <message>
         <source>Unpermitted</source>
-        <translation type="unfinished"/>
+        <translation>禁止</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -3105,15 +3105,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload History</source>
-        <translation type="unfinished"/>
+        <translation>上传历史</translation>
     </message>
     <message>
         <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
+        <translation>获取上传历史…</translation>
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
+        <translation>尚未上传任何更改！</translation>
     </message>
 </context>
 <context>
@@ -3278,7 +3278,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud正在请求最新上传的修改。这可能需要一些时间，请稍等...</translation>
+        <translation type="vanished">QFieldCloud正在请求最新上传更改。这可能需要一些时间，请稍等...</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -3290,11 +3290,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation type="vanished"><numerusform>有%n个本地修改</numerusform></translation>
+        <translation type="vanished"><numerusform>有%n个本地更改</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation type="vanished">本地没有修改</translation>
+        <translation type="vanished">没有本地更改</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -3306,11 +3306,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation type="vanished">将整个工程与所有已修改的要素进行同步，并从QFieldCloud下载最新更新的工程和所有已使用的修改。</translation>
+        <translation type="vanished">将整个工程与所有已修改的要素进行同步，并从QFieldCloud下载包含所有已应用更改的最新更新工程。</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation type="vanished">推送修改</translation>
+        <translation type="vanished">推送更改</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
@@ -3318,7 +3318,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation type="vanished">恢复本地修改</translation>
+        <translation type="vanished">恢复本地更改</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -3330,7 +3330,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">还原本地云图层中所有已修改的要素。您无法恢复这些修改。</translation>
+        <translation type="vanished">还原本地云图层中所有已修改的要素。您无法恢复这些更改。</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -3358,23 +3358,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation type="vanished">刚刚推送的最后修改</translation>
+        <translation type="vanished">刚刚推送的最后更改</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation type="vanished">上次修改推送于 %1 分之前</translation>
+        <translation type="vanished">上次更改推送于%1分之前</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation type="vanished">上次修改推送于 %1</translation>
+        <translation type="vanished">上次更改推送于%1</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation type="vanished">上次修改推送在 %1</translation>
+        <translation type="vanished">上次更改推送在%1</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation type="vanished">尚未推送任何修改</translation>
+        <translation type="vanished">尚未推送任何更改</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
@@ -3382,7 +3382,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation type="vanished">是否恢复本地修改？</translation>
+        <translation type="vanished">是否恢复本地更改？</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
@@ -3390,7 +3390,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>最后警告，重置云工程将删除所有本地修改，您确定要继续吗？</translation>
+        <translation>最后警告，重置云工程将删除所有本地更改，您确定要继续吗？</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
@@ -3398,15 +3398,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation type="vanished">本地修改已恢复</translation>
+        <translation type="vanished">本地更改已恢复</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation type="vanished">无法恢复修改</translation>
+        <translation type="vanished">无法恢复更改</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation type="vanished">没有要恢复的修改</translation>
+        <translation type="vanished">没有要恢复的更改</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
@@ -3434,7 +3434,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation>推送修改, %1%…</translation>
+        <translation>推送更改, %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
@@ -3470,103 +3470,103 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Danger Zone</source>
-        <translation type="unfinished"/>
+        <translation>危险区域</translation>
     </message>
     <message>
         <source>Cloudify project</source>
-        <translation type="unfinished"/>
+        <translation>云化工程</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
+        <translation>当前工程未存储在QFieldCloud。将工程存储在QFieldCloud可实现无缝同步、离线编辑和团队管理。</translation>
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>云化 %1%</translation>
     </message>
     <message>
         <source>Cloudifying</source>
-        <translation type="unfinished"/>
+        <translation>云化</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>上传本地更改</translation>
     </message>
     <message>
         <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
+        <translation>无需下载工程更新，即可将您的编辑内容和附件发送至云端。快速且低流量。</translation>
     </message>
     <message>
         <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
+        <translation>尚未上传任何更改</translation>
     </message>
     <message>
         <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
+        <translation>最后上传</translation>
     </message>
     <message>
         <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>最后上传时间为%1分钟之前</translation>
     </message>
     <message>
         <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
+        <translation>今日最后上传时间为%1</translation>
     </message>
     <message>
         <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>最后上传于%1</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>上传</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>每%n分钟自动上传一次</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>当前工程不允许关闭自动上传</translation>
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>同步工程</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
+        <translation>上传您的编辑内容，然后从QFieldCloud下载最新工程，确保所有内容均为最新。</translation>
     </message>
     <message>
         <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
+        <translation>今天最后同步于%1</translation>
     </message>
     <message>
         <source>Upload history</source>
-        <translation type="unfinished"/>
+        <translation>上传历史</translation>
     </message>
     <message>
         <source>Danger zone</source>
-        <translation type="unfinished"/>
+        <translation>危险区域</translation>
     </message>
     <message>
         <source>Discard local changes</source>
-        <translation>放弃本地修改</translation>
+        <translation>放弃本地更改</translation>
     </message>
     <message>
         <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>是否丢弃本地更改？</translation>
     </message>
     <message>
         <source>Local changes discarded</source>
-        <translation>已放弃本地修改</translation>
+        <translation>已放弃本地更改</translation>
     </message>
     <message>
         <source>Failed to discard changes</source>
-        <translation>无法放弃修改</translation>
+        <translation>无法放弃更改</translation>
     </message>
     <message>
         <source>No changes to discard</source>
-        <translation>没有要放弃的修改</translation>
+        <translation>没有要放弃的更改</translation>
     </message>
 </context>
 <context>
@@ -3758,7 +3758,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>上传本地更改</translation>
     </message>
 </context>
 <context>
@@ -4003,7 +4003,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Has changes. </source>
-        <translation type="vanished">有修改。</translation>
+        <translation type="vanished">有更改。</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
@@ -4163,7 +4163,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>上传本地更改</translation>
     </message>
 </context>
 <context>
@@ -5658,11 +5658,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="vanished">无法取消图层 %1 中的图层更改</translation>
+        <translation type="vanished">无法取消图层%1中的图层更改</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="vanished">无法在图层 %1 提交图层更改。</translation>
+        <translation type="vanished">无法在图层%1提交图层更改。</translation>
     </message>
 </context>
 <context>
@@ -7160,11 +7160,11 @@ project</source>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>修改无法上传至QFieldCloud: %1</translation>
+        <translation>更改无法上传至QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>修改已成功上传至QFieldCloud</translation>
+        <translation>更改已成功上传至QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
@@ -7654,7 +7654,7 @@ to show actions</source>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>打开云工程时，上传本地更改，与QFieldCloud进行同步或放弃更改。</translation>
     </message>
 </context>
 <context>

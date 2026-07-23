@@ -2821,7 +2821,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer automatiquement les modifications à interval régulier</translation>
     </message>
 </context>
 <context>
@@ -3029,7 +3029,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>QFieldCloudDangerZone</name>
     <message>
         <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;action ci-dessous est irréversible et modifie définitivement tes données locales. À utiliser avec précaution.</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -3043,21 +3043,21 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>La copie locale de ce projet cloud a été corrompue. Réinitialiser ce projet va télécharger à nouveau la version distante et supprimera tous les changements locaux. Merci de vérifier que ces changements ont été copiés d&apos;abord si nécessaire.
+        <translation>La copie locale de ce projet cloud a été corrompue. Réinitialiser ce projet va retélécharger la version distante et supprimera tous les changements locaux. Soyez sur que ces changements ont été copiés d&apos;abord si nécessaire.
 
 Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recommandé de réinitialiser afin d&apos;éviter toute perte de données accidentelle car aucun des changements locaux ne sera envoyé sur le cloud.</translation>
     </message>
     <message>
         <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
+        <translation>Supprime toutes tes modifications locales qui n&apos;ont pas encore été envoyées au cloud.</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Réinitialiser</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished"/>
+        <translation>Ignorer</translation>
     </message>
 </context>
 <context>
@@ -3072,35 +3072,35 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Applied</source>
-        <translation type="unfinished"/>
+        <translation>Appliqué</translation>
     </message>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>En attente</translation>
     </message>
     <message>
         <source>Busy</source>
-        <translation type="unfinished"/>
+        <translation>Occupé</translation>
     </message>
     <message>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflit</translation>
     </message>
     <message>
         <source>Not applied</source>
-        <translation type="unfinished"/>
+        <translation>Non appliqué</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Ignored</source>
-        <translation type="unfinished"/>
+        <translation>Ignoré</translation>
     </message>
     <message>
         <source>Unpermitted</source>
-        <translation type="unfinished"/>
+        <translation>Non autorisé</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -3108,15 +3108,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Upload History</source>
-        <translation type="unfinished"/>
+        <translation>Historique des téléchargements envoyés</translation>
     </message>
     <message>
         <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
+        <translation>Récupération de l&apos;historique des téléchargements envoyés…</translation>
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
+        <translation>Aucune modification n&apos;a encore été transférée !</translation>
     </message>
 </context>
 <context>
@@ -3472,83 +3472,83 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Danger Zone</source>
-        <translation type="unfinished"/>
+        <translation>Zone dangereuse</translation>
     </message>
     <message>
         <source>Cloudify project</source>
-        <translation type="unfinished"/>
+        <translation>Cloudifier le projet</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet courant n&apos;est pas hébergé sur QFieldCloud. En hébergeant tes projets sur QFieldCloud tu bénéficies d&apos;une synchronisation fluide, d&apos;une édition hors ligne et d&apos;une gestion d&apos;équipe.</translation>
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement dans le cloud %1%</translation>
     </message>
     <message>
         <source>Cloudifying</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement dans le cloud</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer les modifications locales</translation>
     </message>
     <message>
         <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
+        <translation>Envoie tes modifications et pièces jointes sur le cloud sans télécharger les mises à jour du projet. Rapide et peu gourmand en données.</translation>
     </message>
     <message>
         <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
+        <translation>Aucune modification n&apos;a encore été envoyée</translation>
     </message>
     <message>
         <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
+        <translation>Dernier envoi il y a quelques instants</translation>
     </message>
     <message>
         <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Dernier envoi il y a %1 minutes</translation>
     </message>
     <message>
         <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Dernier envoi aujourd&apos;hui à %1</translation>
     </message>
     <message>
         <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>Dernier envoi le %1</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>Transférer</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Mise en ligne automatique toutes les %n minutes</numerusform><numerusform>Mise en ligne automatique toutes les %n minutes</numerusform><numerusform>Envoi automatique toutes les %n minute(s)</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Le projet actuel ne permet pas de désactiver le transfert automatique</translation>
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>Synchroniser le projet</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
+        <translation>Il télécharge tes modifications, puis récupère la dernière version d&apos;projet sur QFieldCloud pour que tout soit à jour.</translation>
     </message>
     <message>
         <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Dernière synchronisation aujourd&apos;hui à %1</translation>
     </message>
     <message>
         <source>Upload history</source>
-        <translation type="unfinished"/>
+        <translation>Historique des téléchargements envoyés</translation>
     </message>
     <message>
         <source>Danger zone</source>
-        <translation type="unfinished"/>
+        <translation>Zone dangereuse</translation>
     </message>
     <message>
         <source>Discard local changes</source>
@@ -3556,7 +3556,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>Faut-il ignorer les modifications locales ?</translation>
     </message>
     <message>
         <source>Local changes discarded</source>
@@ -3760,7 +3760,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer les modifications locales</translation>
     </message>
 </context>
 <context>
@@ -4163,7 +4163,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer les modifications locales</translation>
     </message>
 </context>
 <context>
@@ -7655,7 +7655,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Envoyer les modifications locales, synchroniser ou ignorer les modifications vers et depuis QFieldCloud quand un projet cloud est ouvert.</translation>
     </message>
 </context>
 <context>

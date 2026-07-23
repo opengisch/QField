@@ -373,7 +373,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>BookmarkList</name>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Favorieten</translation>
     </message>
     <message>
         <source>Bookmark List Menu</source>
@@ -385,11 +385,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Verwijder geselecteerde favoriet(en)</translation>
     </message>
     <message>
         <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Verwijder favoriet(en)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
@@ -401,19 +401,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"/>
+        <translation>Oranje</translation>
     </message>
     <message>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>Rood</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"/>
+        <translation>Blauw</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"/>
+        <translation>Groen</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
@@ -421,11 +421,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
+        <translation>Nog geen favorieten</translation>
     </message>
     <message>
         <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
+        <translation>Exporteer Geselecteerde Favoriet(en)</translation>
     </message>
     <message>
         <source>Export All User Bookmarks</source>
@@ -729,7 +729,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Project Information</source>
-        <translation type="unfinished"/>
+        <translation>Projectinformatie</translation>
     </message>
 </context>
 <context>
@@ -4076,7 +4076,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>View Project Details</source>
-        <translation>Bekijk Project Details</translation>
+        <translation>Bekijk Projectdetails</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
@@ -4084,7 +4084,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>Bekijk projectmap</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
@@ -4291,7 +4291,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="vanished">Verwijder project folder</translation>
+        <translation type="vanished">Verwijder projectmap</translation>
     </message>
     <message>
         <source>Import project from folder</source>
@@ -4327,7 +4327,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>View file</source>
-        <translation type="unfinished"/>
+        <translation>Bekijk bestand</translation>
     </message>
     <message>
         <source>Push to QFieldCloud</source>
@@ -4351,7 +4351,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Verwijder map</translation>
     </message>
     <message>
         <source>Delete file</source>
@@ -7457,7 +7457,7 @@ project</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>Projectmap</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
@@ -7473,15 +7473,15 @@ project</translation>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>Kopieer Object</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>Knip Object</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>Object succesvol geplakt</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
@@ -7650,7 +7650,7 @@ to show actions</source>
     </message>
     <message>
         <source>Bookmarks</source>
-        <translation type="unfinished"/>
+        <translation>Bladwijzers</translation>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
