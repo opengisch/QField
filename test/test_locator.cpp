@@ -21,6 +21,7 @@
 #include "catch2.h"
 #include "expressioncalculatorlocatorfilter.h"
 #include "gotolocatorfilter.h"
+#include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 
@@ -269,5 +270,38 @@ TEST_CASE( "BookmarkLocatorFilter" )
     REQUIRE( results.at( 0 ).userData().toInt() == 0 );
 
     REQUIRE( fetchResults( &filter, QStringLiteral( "zzzzz" ) ).isEmpty() );
+  }
+}
+
+/*
+ * HelpLocatorFilter
+ * Fetching documentation hits the live docs.qfield.org index and triggering opens a
+ * browser, so coverage stops at the guard that runs before any request is made
+ */
+TEST_CASE( "HelpLocatorFilter" )
+{
+  LocatorModelSuperBridge bridge;
+  HelpLocatorFilter filter( &bridge );
+
+  SECTION( "Metadata" )
+  {
+    REQUIRE( filter.name() == QStringLiteral( "optionpages" ) );
+    REQUIRE( filter.prefix() == QStringLiteral( "?" ) );
+    REQUIRE( filter.priority() == QgsLocatorFilter::Medium );
+    REQUIRE( !filter.useWithoutPrefix() );
+  }
+
+  SECTION( "Clone" )
+  {
+    std::unique_ptr<HelpLocatorFilter> cloned( filter.clone() );
+    REQUIRE( cloned );
+    REQUIRE( cloned->name() == filter.name() );
+    REQUIRE( cloned->prefix() == filter.prefix() );
+  }
+
+  SECTION( "NoResultOnShortQuery" )
+  {
+    REQUIRE( fetchResults( &filter, QStringLiteral( "ab" ) ).isEmpty() );
+    REQUIRE( fetchResults( &filter, QString() ).isEmpty() );
   }
 }
