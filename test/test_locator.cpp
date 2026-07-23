@@ -23,6 +23,7 @@
 #include "expressioncalculatorlocatorfilter.h"
 #include "featurelistextentcontroller.h"
 #include "featurelistmodelselection.h"
+#include "featureslocatorfilter.h"
 #include "gotolocatorfilter.h"
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
@@ -467,6 +468,112 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
 
     QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
     filter.triggerResultFromAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::OpenForm );
+
+    REQUIRE( waitForRowCount( featureListModel, 1 ) );
+    REQUIRE( selection.focusedItem() == 0 );
+    REQUIRE( formStateSpy.count() == 1 );
+  }
+
+  QgsProject::instance()->clear();
+}
+
+/*
+ * FeaturesLocatorFilter
+ * As with the active layer filter, triggering depends on QML-populated objects and is
+ * left out; prepare() and fetchResults() carry the searchable behaviour
+ */
+TEST_CASE( "FeaturesLocatorFilter" )
+{
+  QgsProject::instance()->clear();
+
+  LocatorModelSuperBridge bridge;
+  FeaturesLocatorFilter filter( &bridge );
+
+  SECTION( "Metadata" )
+  {
+    REQUIRE( filter.name() == QStringLiteral( "allfeatures" ) );
+    REQUIRE( filter.prefix() == QStringLiteral( "af" ) );
+    REQUIRE( filter.priority() == QgsLocatorFilter::Medium );
+    REQUIRE( filter.useWithoutPrefix() );
+  }
+
+  SECTION( "Clone" )
+  {
+    std::unique_ptr<FeaturesLocatorFilter> cloned( filter.clone() );
+    REQUIRE( cloned );
+    REQUIRE( cloned->name() == filter.name() );
+    REQUIRE( cloned->prefix() == filter.prefix() );
+  }
+
+  SECTION( "NoResultOnShortSearchString" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+
+    REQUIRE( filter.prepare( QStringLiteral( "Al" ), QgsLocatorContext() ).isEmpty() );
+    REQUIRE( fetchResults( &filter, QStringLiteral( "Al" ) ).isEmpty() );
+  }
+
+  SECTION( "MatchesFeatureAcrossLayers" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+    addPointLayer( QStringLiteral( "more points" ) );
+
+    filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+
+    REQUIRE( results.size() == 2 );
+    for ( const QgsLocatorResult &result : results )
+    {
+      REQUIRE( result.displayString == QStringLiteral( "Alpha" ) );
+      REQUIRE( result.userData().toList().size() == 2 );
+      REQUIRE( hasAction( result, FeaturesLocatorFilter::OpenForm ) );
+      REQUIRE( hasAction( result, FeaturesLocatorFilter::Navigation ) );
+    }
+  }
+
+  SECTION( "SkipsNonSearchableLayers" )
+  {
+    QgsVectorLayer *layer = addPointLayer( QStringLiteral( "points" ) );
+    layer->setFlags( layer->flags() & ~QgsMapLayer::Searchable );
+
+    filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    REQUIRE( fetchResults( &filter, QStringLiteral( "Alpha" ) ).isEmpty() );
+  }
+
+  SECTION( "OmitsNavigationActionForGeometrylessLayer" )
+  {
+    QgsVectorLayer *layer = new QgsVectorLayer( QStringLiteral( "None?field=str:string" ), QStringLiteral( "table" ), QStringLiteral( "memory" ) );
+    layer->setDisplayExpression( QStringLiteral( "\"str\"" ) );
+    QgsFeature feature( layer->fields() );
+    feature.setAttribute( QStringLiteral( "str" ), QStringLiteral( "Alpha" ) );
+    layer->dataProvider()->addFeature( feature );
+    QgsProject::instance()->addMapLayer( layer );
+
+    filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+
+    REQUIRE( results.size() == 1 );
+    REQUIRE( hasAction( results.at( 0 ), FeaturesLocatorFilter::OpenForm ) );
+    REQUIRE( !hasAction( results.at( 0 ), FeaturesLocatorFilter::Navigation ) );
+  }
+
+  SECTION( "OpenFormActionFeedsTheFeatureList" )
+  {
+    addPointLayer( QStringLiteral( "points" ) );
+
+    MultiFeatureListModel featureListModel;
+    FeatureListModelSelection selection;
+    FeatureListExtentController controller;
+    controller.setProperty( "model", QVariant::fromValue( &featureListModel ) );
+    controller.setProperty( "selection", QVariant::fromValue( &selection ) );
+    bridge.setFeatureListController( &controller );
+
+    filter.prepare( QStringLiteral( "Alpha" ), QgsLocatorContext() );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+    REQUIRE( results.size() == 1 );
+
+    QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
+    filter.triggerResultFromAction( results.at( 0 ), FeaturesLocatorFilter::OpenForm );
 
     REQUIRE( waitForRowCount( featureListModel, 1 ) );
     REQUIRE( selection.focusedItem() == 0 );
