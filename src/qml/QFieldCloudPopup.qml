@@ -464,8 +464,18 @@ Popup {
                   onClicked: projectPush(false)
                 }
 
+                Rectangle {
+                  Layout.fillWidth: true
+                  Layout.topMargin: 12
+                  Layout.bottomMargin: 6
+                  Layout.preferredHeight: 1
+
+                  color: Theme.controlBorderColor
+                }
+
                 RowLayout {
                   Layout.fillWidth: true
+                  spacing: 0
 
                   Label {
                     id: autoPushText
@@ -493,8 +503,11 @@ Popup {
 
                   QfSwitch {
                     id: autoPush
+
                     verticalPadding: 0
-                    Layout.preferredWidth: implicitContentWidth
+
+                    Layout.preferredWidth: 38
+                    Layout.preferredHeight: 24
                     Layout.alignment: Qt.AlignVCenter
                     enabled: !(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.forceAutoPush)
                     checked: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.autoPushEnabled)
