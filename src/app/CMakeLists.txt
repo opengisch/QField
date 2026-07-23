@@ -62,8 +62,43 @@ find_package(
   COMPONENTS Core5Compat
   REQUIRED)
 
-set(QFIELD_APP_SRCS qgismobileapp.cpp)
-set(QFIELD_APP_HDRS qgismobileapp.h)
+set(QFIELD_APP_SRCS
+    badlayerhandler.cpp
+    changelogcontents.cpp
+    clipboardmanager.cpp
+    externalstorage.cpp
+    localfilesimageprovider.cpp
+    localfilesmodel.cpp
+    permissions.cpp
+    pluginmanager.cpp
+    pluginmodel.cpp
+    projectinfo.cpp
+    projectsimageprovider.cpp
+    qfieldappauthrequesthandler.cpp
+    qfieldurlhandler.cpp
+    qgismobileapp.cpp
+    recentprojectlistmodel.cpp
+    screendimmer.cpp
+    webdavconnection.cpp)
+
+set(QFIELD_APP_HDRS
+    badlayerhandler.h
+    changelogcontents.h
+    clipboardmanager.h
+    externalstorage.h
+    localfilesimageprovider.h
+    localfilesmodel.h
+    permissions.h
+    pluginmanager.h
+    pluginmodel.h
+    projectinfo.h
+    projectsimageprovider.h
+    qfieldappauthrequesthandler.h
+    qfieldurlhandler.h
+    qgismobileapp.h
+    recentprojectlistmodel.h
+    screendimmer.h
+    webdavconnection.h)
 
 add_library(qfield_app STATIC ${QFIELD_APP_SRCS} ${QFIELD_APP_HDRS})
 

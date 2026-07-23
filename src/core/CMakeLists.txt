@@ -78,18 +78,14 @@ set(QFIELD_CORE_SRCS
     audiorecorder.cpp
     barcodedecoder.cpp
     barcodeimageprovider.cpp
-    badlayerhandler.cpp
     bookmarkmodel.cpp
-    clipboardmanager.cpp
     cameraorientationnormalizer.cpp
-    changelogcontents.cpp
     digitizinglogger.cpp
     distancearea.cpp
     drawingcanvas.cpp
     drawingtemplatemodel.cpp
     expressionevaluator.cpp
     expressionvariablemodel.cpp
-    externalstorage.cpp
     featurechecklistmodel.cpp
     featurelistextentcontroller.cpp
     featurelistmodel.cpp
@@ -106,8 +102,6 @@ set(QFIELD_CORE_SRCS
     layertreemodel.cpp
     legendimageprovider.cpp
     linepolygonshape.cpp
-    localfilesimageprovider.cpp
-    localfilesmodel.cpp
     maplayermodel.cpp
     maptoscreen.cpp
     messagelogmodel.cpp
@@ -119,25 +113,17 @@ set(QFIELD_CORE_SRCS
     orderedrelationmodel.cpp
     parameterizedimage.cpp
     peliasgeocoder.cpp
-    pluginmanager.cpp
-    pluginmodel.cpp
     resourcesource.cpp
     translatormanager.cpp
     printlayoutlistmodel.cpp
-    projectinfo.cpp
     projectsource.cpp
-    projectsimageprovider.cpp
-    qfieldappauthrequesthandler.cpp
-    qfieldurlhandler.cpp
     qfieldxmlhttprequest.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
-    recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
     rubberbandshape.cpp
     rubberbandmodel.cpp
     scalebarmeasurement.cpp
-    screendimmer.cpp
     sensorlistmodel.cpp
     settings.cpp
     snappingresult.cpp
@@ -148,8 +134,7 @@ set(QFIELD_CORE_SRCS
     valuemapmodel.cpp
     valuemapmodelbase.cpp
     vertexmodel.cpp
-    viewstatus.cpp
-    webdavconnection.cpp)
+    viewstatus.cpp)
 
 set(QFIELD_CORE_HDRS
     cogo/cogoexecutor.h
@@ -232,18 +217,14 @@ set(QFIELD_CORE_HDRS
     audiorecorder.h
     barcodedecoder.h
     barcodeimageprovider.h
-    badlayerhandler.h
     bookmarkmodel.h
-    clipboardmanager.h
     cameraorientationnormalizer.h
-    changelogcontents.h
     digitizinglogger.h
     distancearea.h
     drawingcanvas.h
     drawingtemplatemodel.h
     expressionevaluator.h
     expressionvariablemodel.h
-    externalstorage.h
     featurechecklistmodel.h
     featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
@@ -261,8 +242,6 @@ set(QFIELD_CORE_HDRS
     layertreemodel.h
     legendimageprovider.h
     linepolygonshape.h
-    localfilesimageprovider.h
-    localfilesmodel.h
     maplayermodel.h
     maptoscreen.h
     messagelogmodel.h
@@ -274,25 +253,17 @@ set(QFIELD_CORE_HDRS
     orderedrelationmodel.h
     parameterizedimage.h
     peliasgeocoder.h
-    pluginmanager.h
-    pluginmodel.h
     resourcesource.h
     translatormanager.h
     printlayoutlistmodel.h
-    projectinfo.h
     projectsource.h
-    projectsimageprovider.h
-    qfieldappauthrequesthandler.h
-    qfieldurlhandler.h
     qfieldxmlhttprequest.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
-    recentprojectlistmodel.h
     referencingfeaturelistmodel.h
     rubberbandshape.h
     rubberbandmodel.h
     scalebarmeasurement.h
-    screendimmer.h
     sensorlistmodel.h
     settings.h
     snappingresult.h
@@ -304,11 +275,7 @@ set(QFIELD_CORE_HDRS
     valuemapmodelbase.h
     vertexmodel.h
     viewstatus.h
-    webdavconnection.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
-
-list(APPEND QFIELD_CORE_SRCS permissions.cpp)
-list(APPEND QFIELD_CORE_HDRS permissions.h)
 
 if(WITH_BLUETOOTH)
   list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
