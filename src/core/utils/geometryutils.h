@@ -109,6 +109,9 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     //! Creates a geometry from a WKT string.
     static Q_INVOKABLE QgsGeometry createGeometryFromWkt( const QString &wkt );
 
+    //! Returns a reprojected \a geometry from the stated \a sourceCrs to a \a destinationCrs.
+    static Q_INVOKABLE QgsGeometry reprojectGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs );
+
     //! Returns the bounding box of a given \a geometry.
     static Q_INVOKABLE QgsRectangle boundingBox( const QgsGeometry &geometry ) { return geometry.boundingBox(); }
 

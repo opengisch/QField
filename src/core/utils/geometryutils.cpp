@@ -433,7 +433,9 @@ QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordina
 QgsRectangle GeometryUtils::reprojectRectangle( const QgsRectangle &rectangle, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
+  {
     return rectangle;
+  }
 
   const QgsCoordinateTransform ct( sourceCrs, destinationCrs, QgsProject::instance() );
   QgsRectangle reprojectedRectangle;
@@ -447,6 +449,30 @@ QgsRectangle GeometryUtils::reprojectRectangle( const QgsRectangle &rectangle, c
   }
 
   return reprojectedRectangle;
+}
+
+QgsGeometry GeometryUtils::reprojectGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+{
+  if ( sourceCrs == destinationCrs )
+  {
+    return geometry;
+  }
+
+  const QgsCoordinateTransform ct( sourceCrs, destinationCrs, QgsProject::instance() );
+  QgsGeometry reprojectedGeometry = geometry;
+  try
+  {
+    if ( reprojectedGeometry.transform( ct ) == Qgis::GeometryOperationResult::Success )
+    {
+      return reprojectedGeometry;
+    }
+  }
+  catch ( QgsCsException & )
+  {
+    return QgsGeometry();
+  }
+
+  return QgsGeometry();
 }
 
 QgsGeometry GeometryUtils::createGeometryFromWkt( const QString &wkt )
