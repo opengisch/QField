@@ -16,18 +16,23 @@
  ***************************************************************************/
 
 #define QFIELDTEST_MAIN
+#include "bookmarklocatorfilter.h"
+#include "bookmarkmodel.h"
 #include "catch2.h"
 #include "expressioncalculatorlocatorfilter.h"
 #include "gotolocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "qgsquickmapsettings.h"
 
+#include <qgsapplication.h>
+#include <qgsbookmarkmanager.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsfeedback.h>
 #include <qgslocatorcontext.h>
 #include <qgspointxy.h>
 #include <qgsproject.h>
 #include <qgsrectangle.h>
+#include <qgsreferencedgeometry.h>
 
 using Catch::Approx;
 
@@ -53,10 +58,18 @@ static bool hasAction( const QgsLocatorResult &result, int actionId )
   return false;
 }
 
+static QgsBookmark makeBookmark( const QString &name )
+{
+  QgsBookmark bookmark;
+  bookmark.setName( name );
+  bookmark.setExtent( QgsReferencedRectangle( QgsRectangle( 0.0, 0.0, 10.0, 10.0 ), QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) ) );
+  return bookmark;
+}
+
 /*
  * ExpressionCalculatorLocatorFilter
  * The trigger path copies to the clipboard through QGuiApplication, which is not
- * available in this gui less harness, so only fetching is exercised
+ * available in this GUI-less harness, so only fetching is exercised
  */
 TEST_CASE( "ExpressionCalculatorLocatorFilter" )
 {
@@ -206,5 +219,55 @@ TEST_CASE( "GotoLocatorFilter" )
     const QgsPointXY mapCrsPoint = results.at( 0 ).userData().toMap().value( QStringLiteral( "point" ) ).value<QgsPointXY>();
     REQUIRE( mapCrsPoint.x() == Approx( 1.5 ) );
     REQUIRE( mapCrsPoint.y() == Approx( 2.5 ) );
+  }
+}
+
+/*
+ * BookmarkLocatorFilter
+ * Triggering a result moves the map extent and writes onto the geometry highlighter,
+ * neither of which has a lightweight headless equivalent, so only fetching is covered
+ */
+TEST_CASE( "BookmarkLocatorFilter" )
+{
+  LocatorModelSuperBridge bridge;
+  BookmarkLocatorFilter filter( &bridge );
+
+  SECTION( "Metadata" )
+  {
+    REQUIRE( filter.name() == QStringLiteral( "bookmarks" ) );
+    REQUIRE( filter.prefix() == QStringLiteral( "b" ) );
+    REQUIRE( filter.priority() == QgsLocatorFilter::Highest );
+    REQUIRE( filter.flags().testFlag( QgsLocatorFilter::FlagFast ) );
+    REQUIRE( filter.useWithoutPrefix() );
+  }
+
+  SECTION( "Clone" )
+  {
+    std::unique_ptr<BookmarkLocatorFilter> cloned( filter.clone() );
+    REQUIRE( cloned );
+    REQUIRE( cloned->name() == filter.name() );
+    REQUIRE( cloned->prefix() == filter.prefix() );
+  }
+
+  SECTION( "NoResultWithoutBookmarkModel" )
+  {
+    REQUIRE( fetchResults( &filter, QStringLiteral( "anything" ) ).isEmpty() );
+  }
+
+  SECTION( "MatchesBookmarkByName" )
+  {
+    QgsBookmarkManager manager;
+    manager.addBookmark( makeBookmark( QStringLiteral( "Alpha" ) ) );
+    manager.addBookmark( makeBookmark( QStringLiteral( "Beta" ) ) );
+    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    bridge.setBookmarks( &model );
+
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+    REQUIRE( results.size() == 1 );
+    REQUIRE( results.at( 0 ).displayString == QStringLiteral( "Alpha" ) );
+    REQUIRE( results.at( 0 ).score > 0 );
+    REQUIRE( results.at( 0 ).userData().toInt() == 0 );
+
+    REQUIRE( fetchResults( &filter, QStringLiteral( "zzzzz" ) ).isEmpty() );
   }
 }
