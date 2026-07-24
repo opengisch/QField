@@ -78,11 +78,8 @@ set(QFIELD_CORE_SRCS
     audiorecorder.cpp
     barcodedecoder.cpp
     barcodeimageprovider.cpp
-    badlayerhandler.cpp
     bookmarkmodel.cpp
-    clipboardmanager.cpp
     cameraorientationnormalizer.cpp
-    changelogcontents.cpp
     digitizinglogger.cpp
     distancearea.cpp
     drawingcanvas.cpp
@@ -119,16 +116,12 @@ set(QFIELD_CORE_SRCS
     orderedrelationmodel.cpp
     parameterizedimage.cpp
     peliasgeocoder.cpp
-    pluginmanager.cpp
-    pluginmodel.cpp
     resourcesource.cpp
     translatormanager.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
-    projectsource.cpp
     projectsimageprovider.cpp
-    qfieldappauthrequesthandler.cpp
-    qfieldurlhandler.cpp
+    projectsource.cpp
     qfieldxmlhttprequest.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
@@ -137,7 +130,6 @@ set(QFIELD_CORE_SRCS
     rubberbandshape.cpp
     rubberbandmodel.cpp
     scalebarmeasurement.cpp
-    screendimmer.cpp
     sensorlistmodel.cpp
     settings.cpp
     snappingresult.cpp
@@ -232,11 +224,8 @@ set(QFIELD_CORE_HDRS
     audiorecorder.h
     barcodedecoder.h
     barcodeimageprovider.h
-    badlayerhandler.h
     bookmarkmodel.h
-    clipboardmanager.h
     cameraorientationnormalizer.h
-    changelogcontents.h
     digitizinglogger.h
     distancearea.h
     drawingcanvas.h
@@ -274,16 +263,12 @@ set(QFIELD_CORE_HDRS
     orderedrelationmodel.h
     parameterizedimage.h
     peliasgeocoder.h
-    pluginmanager.h
-    pluginmodel.h
     resourcesource.h
     translatormanager.h
     printlayoutlistmodel.h
     projectinfo.h
-    projectsource.h
     projectsimageprovider.h
-    qfieldappauthrequesthandler.h
-    qfieldurlhandler.h
+    projectsource.h
     qfieldxmlhttprequest.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
@@ -292,7 +277,6 @@ set(QFIELD_CORE_HDRS
     rubberbandshape.h
     rubberbandmodel.h
     scalebarmeasurement.h
-    screendimmer.h
     sensorlistmodel.h
     settings.h
     snappingresult.h
@@ -306,9 +290,6 @@ set(QFIELD_CORE_HDRS
     viewstatus.h
     webdavconnection.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
-
-list(APPEND QFIELD_CORE_SRCS permissions.cpp)
-list(APPEND QFIELD_CORE_HDRS permissions.h)
 
 if(WITH_BLUETOOTH)
   list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp

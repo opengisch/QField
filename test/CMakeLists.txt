@@ -16,6 +16,7 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
   add_executable(${TESTNAME} ${TESTSOURCES})
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
+    qfield_app
     qfield_core
     Qt::Test
     Qt::Core
