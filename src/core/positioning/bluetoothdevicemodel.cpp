@@ -187,15 +187,6 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
                .arg( info.name(), info.address().toString(), deviceAddress( info ) )
                .arg( mLocalDevice->pairingStatus( info.address() ) );
 
-#if defined( Q_OS_ANDROID )
-  // Only list paired devices users have control over it.
-  const bool paired = mLocalDevice->pairingStatus( info.address() ) != QBluetoothLocalDevice::Unpaired;
-  if ( !paired )
-  {
-    return;
-  }
-#endif
-
   const int index = static_cast<int>( mDiscoveredDevices.size() );
   beginInsertRows( QModelIndex(), index, index );
   mDiscoveredDevices.append( info );
