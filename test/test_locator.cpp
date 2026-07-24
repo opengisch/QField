@@ -35,7 +35,9 @@
 #include <QCoreApplication>
 #include <QElapsedTimer>
 #include <QEventLoop>
+#include <QSettings>
 #include <QSignalSpy>
+#include <QTemporaryDir>
 #include <qgsapplication.h>
 #include <qgsbookmarkmanager.h>
 #include <qgscoordinatereferencesystem.h>
@@ -118,6 +120,38 @@ class DummyGeocoder : public QgsGeocoderInterface
 {
   public:
     Flags flags() const override { return Flags(); }
+};
+
+class ScopedIniSettings
+{
+  public:
+    explicit ScopedIniSettings( const QString &root )
+      : mPreviousDefaultFormat( QSettings::defaultFormat() )
+      , mPreviousOrg( QCoreApplication::organizationName() )
+      , mPreviousApp( QCoreApplication::applicationName() )
+    {
+      QSettings probe( QSettings::IniFormat, QSettings::UserScope, QStringLiteral( "ProbeOrg" ), QStringLiteral( "ProbeApp" ) );
+      mPreviousIniUserPath = QFileInfo( probe.fileName() ).absolutePath();
+
+      QSettings::setDefaultFormat( QSettings::IniFormat );
+      QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, root );
+      QCoreApplication::setOrganizationName( QStringLiteral( "QFieldUnitTests" ) );
+      QCoreApplication::setApplicationName( QStringLiteral( "LocatorTests" ) );
+    }
+
+    ~ScopedIniSettings()
+    {
+      QCoreApplication::setOrganizationName( mPreviousOrg );
+      QCoreApplication::setApplicationName( mPreviousApp );
+      QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, mPreviousIniUserPath );
+      QSettings::setDefaultFormat( mPreviousDefaultFormat );
+    }
+
+  private:
+    QSettings::Format mPreviousDefaultFormat;
+    QString mPreviousIniUserPath;
+    QString mPreviousOrg;
+    QString mPreviousApp;
 };
 
 /*
@@ -805,5 +839,73 @@ TEST_CASE( "LocatorModelSuperBridge" )
     QSignalSpy messageSpy( &bridge, &LocatorModelSuperBridge::messageEmitted );
     bridge.emitMessage( QStringLiteral( "Something happened" ) );
     REQUIRE( messageSpy.count() == 1 );
+  }
+}
+
+/*
+ * LocatorFiltersModel
+ */
+TEST_CASE( "LocatorFiltersModel" )
+{
+  LocatorFiltersModel model;
+
+  SECTION( "EmptyWithoutBridge" )
+  {
+    /* data() dereferences the bridge before null checking it, unlike rowCount()
+     * and setData(), so it is not called here without a bridge set */
+    REQUIRE( model.rowCount() == 0 );
+    REQUIRE( !model.index( 0, 0 ).isValid() );
+  }
+
+  SECTION( "RoleNames" )
+  {
+    const QHash<int, QByteArray> roles = model.roleNames();
+    REQUIRE( roles.contains( LocatorFiltersModel::NameRole ) );
+    REQUIRE( roles.contains( LocatorFiltersModel::DescriptionRole ) );
+    REQUIRE( roles.contains( LocatorFiltersModel::PrefixRole ) );
+    REQUIRE( roles.contains( LocatorFiltersModel::ActiveRole ) );
+    REQUIRE( roles.contains( LocatorFiltersModel::DefaultRole ) );
+  }
+
+  SECTION( "ListsRegisteredFilters" )
+  {
+    LocatorModelSuperBridge bridge;
+    LocatorFiltersModel boundModel;
+    boundModel.setLocatorModelSuperBridge( &bridge );
+
+    REQUIRE( boundModel.rowCount() == bridge.locator()->filters().count() );
+
+    const QModelIndex index = boundModel.index( 0, 0 );
+    QgsLocatorFilter *filter = boundModel.filterForIndex( index );
+    REQUIRE( filter );
+    REQUIRE( boundModel.data( index, LocatorFiltersModel::NameRole ).toString() == filter->displayName() );
+    REQUIRE( boundModel.data( index, LocatorFiltersModel::DescriptionRole ).toString() == filter->description() );
+    REQUIRE( boundModel.data( index, LocatorFiltersModel::ActiveRole ).toBool() == filter->enabled() );
+  }
+
+  SECTION( "TogglesFilterStateThroughSetData" )
+  {
+    QTemporaryDir settingsDir;
+    REQUIRE( settingsDir.isValid() );
+    const ScopedIniSettings scopedSettings( settingsDir.path() );
+
+    LocatorModelSuperBridge bridge;
+    LocatorFiltersModel boundModel;
+    boundModel.setLocatorModelSuperBridge( &bridge );
+
+    const QModelIndex index = boundModel.index( 0, 0 );
+    QgsLocatorFilter *filter = boundModel.filterForIndex( index );
+    const bool wasEnabled = filter->enabled();
+
+    REQUIRE( boundModel.setData( index, !wasEnabled, LocatorFiltersModel::ActiveRole ) );
+    REQUIRE( filter->enabled() == !wasEnabled );
+    REQUIRE( !boundModel.setData( index, !wasEnabled, LocatorFiltersModel::ActiveRole ) );
+
+    const bool wasDefault = filter->useWithoutPrefix();
+    REQUIRE( boundModel.setData( index, !wasDefault, LocatorFiltersModel::DefaultRole ) );
+    REQUIRE( filter->useWithoutPrefix() == !wasDefault );
+
+    REQUIRE( !boundModel.setData( index, QStringLiteral( "nope" ), LocatorFiltersModel::NameRole ) );
+    REQUIRE( !boundModel.setData( index, QStringLiteral( "nope" ), LocatorFiltersModel::PrefixRole ) );
   }
 }
