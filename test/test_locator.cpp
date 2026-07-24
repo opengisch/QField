@@ -54,7 +54,7 @@ using Catch::Approx;
 static QList<QgsLocatorResult> fetchResults( QgsLocatorFilter *filter, const QString &string, const QgsLocatorContext &context = QgsLocatorContext() )
 {
   QList<QgsLocatorResult> results;
-  const QMetaObject::Connection connection = QObject::connect( filter, &QgsLocatorFilter::resultFetched, filter, [&results]( QgsLocatorResult result ) {
+  const QMetaObject::Connection connection = QObject::connect( filter, &QgsLocatorFilter::resultFetched, filter, [&results]( const QgsLocatorResult &result ) {
     results << result;
   } );
   QgsFeedback feedback;
@@ -175,6 +175,18 @@ TEST_CASE( "ExpressionCalculatorLocatorFilter" )
     REQUIRE( stringResults.at( 0 ).userData().toString() == QStringLiteral( "ABC" ) );
   }
 
+  SECTION( "EvaluatesAgainstProject" )
+  {
+    QgsProject::instance()->clear();
+    addPointLayer( QStringLiteral( "memory" ) );
+
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "aggregate('memory', 'concatenate', \"str\")" ) );
+    REQUIRE( results.size() == 1 );
+    REQUIRE( results.at( 0 ).userData().toString() == QStringLiteral( "AlphaBeta" ) );
+
+    QgsProject::instance()->clear();
+  }
+
   SECTION( "NoResultOnInvalidExpression" )
   {
     REQUIRE( fetchResults( &filter, QStringLiteral( "this is not an expression" ) ).isEmpty() );
@@ -244,10 +256,15 @@ TEST_CASE( "GotoLocatorFilter" )
 
   SECTION( "ParsesDegreeMinuteSecond" )
   {
-    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "1°30'0\"N 2°30'0\"E" ) );
-    REQUIRE( results.size() == 1 );
+    const QList<QgsLocatorResult> northingFirst = fetchResults( &filter, QStringLiteral( "1°30'0\"N 2°30'0\"E" ) );
+    REQUIRE( northingFirst.size() == 1 );
+    QgsPointXY point = northingFirst.at( 0 ).userData().toMap().value( QStringLiteral( "point" ) ).value<QgsPointXY>();
+    REQUIRE( point.x() == Approx( 2.5 ) );
+    REQUIRE( point.y() == Approx( 1.5 ) );
 
-    const QgsPointXY point = results.at( 0 ).userData().toMap().value( QStringLiteral( "point" ) ).value<QgsPointXY>();
+    const QList<QgsLocatorResult> eastingFirst = fetchResults( &filter, QStringLiteral( "2°30'0\"E 1°30'0\"N" ) );
+    REQUIRE( eastingFirst.size() == 1 );
+    point = eastingFirst.at( 0 ).userData().toMap().value( QStringLiteral( "point" ) ).value<QgsPointXY>();
     REQUIRE( point.x() == Approx( 2.5 ) );
     REQUIRE( point.y() == Approx( 1.5 ) );
   }
