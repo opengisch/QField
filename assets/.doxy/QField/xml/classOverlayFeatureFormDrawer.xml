@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classOverlayFeatureFormDrawer" kind="class" language="C++" prot="public">
+    <compoundname>OverlayFeatureFormDrawer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Drawer</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a85273ddc6835bed8469aac045774082c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool OverlayFeatureFormDrawer::fullScreenView</definition>
+        <argsstring></argsstring>
+        <name>fullScreenView</name>
+        <qualifiedname>OverlayFeatureFormDrawer::fullScreenView</qualifiedname>
+        <read>dummyGetter_fullScreenView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="13" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1aeec6214e11a5398807e44119b870504c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool OverlayFeatureFormDrawer::isVertical</definition>
+        <argsstring></argsstring>
+        <name>isVertical</name>
+        <qualifiedname>OverlayFeatureFormDrawer::isVertical</qualifiedname>
+        <read>dummyGetter_isVertical_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="15" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a7a0f2a3070f477a9858eeab8e25ae26f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool OverlayFeatureFormDrawer::isDragging</definition>
+        <argsstring></argsstring>
+        <name>isDragging</name>
+        <qualifiedname>OverlayFeatureFormDrawer::isDragging</qualifiedname>
+        <read>dummyGetter_isDragging_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="17" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1af15da3b50848bede718eab3ce4372a36" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real OverlayFeatureFormDrawer::dragHeightAdjustment</definition>
+        <argsstring></argsstring>
+        <name>dragHeightAdjustment</name>
+        <qualifiedname>OverlayFeatureFormDrawer::dragHeightAdjustment</qualifiedname>
+        <read>dummyGetter_dragHeightAdjustment_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="19" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a32e133d68d296dd6cd771827bf725d81" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real OverlayFeatureFormDrawer::dragWidthAdjustment</definition>
+        <argsstring></argsstring>
+        <name>dragWidthAdjustment</name>
+        <qualifiedname>OverlayFeatureFormDrawer::dragWidthAdjustment</qualifiedname>
+        <read>dummyGetter_dragWidthAdjustment_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="21" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a78ba035af742a54ebef3cf324f6c0836" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias OverlayFeatureFormDrawer::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>OverlayFeatureFormDrawer::featureModel</qualifiedname>
+        <read>dummyGetter_featureModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="23" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a364e942931113b8283bbc52a8a0526c4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias OverlayFeatureFormDrawer::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>OverlayFeatureFormDrawer::state</qualifiedname>
+        <read>dummyGetter_state_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="25" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1ae00632648843f9dfb560556abb4f2d17" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias OverlayFeatureFormDrawer::featureForm</definition>
+        <argsstring></argsstring>
+        <name>featureForm</name>
+        <qualifiedname>OverlayFeatureFormDrawer::featureForm</qualifiedname>
+        <read>dummyGetter_featureForm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="27" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1ae31ba496aec53e33f073958e53ec357f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias OverlayFeatureFormDrawer::digitizingToolbar</definition>
+        <argsstring></argsstring>
+        <name>digitizingToolbar</name>
+        <qualifiedname>OverlayFeatureFormDrawer::digitizingToolbar</qualifiedname>
+        <read>dummyGetter_digitizingToolbar_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="29" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1ac330f5ce7b98325c3ee68bad7e815bc0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias OverlayFeatureFormDrawer::codeReader</definition>
+        <argsstring></argsstring>
+        <name>codeReader</name>
+        <qualifiedname>OverlayFeatureFormDrawer::codeReader</qualifiedname>
+        <read>dummyGetter_codeReader_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="31" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a84c326e82f9029489d82f8cb57818294" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool OverlayFeatureFormDrawer::isAdding</definition>
+        <argsstring></argsstring>
+        <name>isAdding</name>
+        <qualifiedname>OverlayFeatureFormDrawer::isAdding</qualifiedname>
+        <read>dummyGetter_isAdding_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="33" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a61662cc3f26ea4085ecf76fdcf060d4b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real OverlayFeatureFormDrawer::lastWidth</definition>
+        <argsstring></argsstring>
+        <name>lastWidth</name>
+        <qualifiedname>OverlayFeatureFormDrawer::lastWidth</qualifiedname>
+        <read>dummyGetter_lastWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="43" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classOverlayFeatureFormDrawer_1a63fb985cfeb961715b9cbe34c8706b1d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real OverlayFeatureFormDrawer::lastHeight</definition>
+        <argsstring></argsstring>
+        <name>lastHeight</name>
+        <qualifiedname>OverlayFeatureFormDrawer::lastHeight</qualifiedname>
+        <read>dummyGetter_lastHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="48" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a73d5437be5d62016f7546e99426e3c0f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <qualifiedname>OverlayFeatureFormDrawer::edge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="37" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1ad246e3cba0132f275f36bf6c62a62be4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>OverlayFeatureFormDrawer::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="38" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1af28764dda6a8b6a470ee2af7f5aead36" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>OverlayFeatureFormDrawer::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="40" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1adaf8a9efed4ecbf882f8aafde896edbc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>OverlayFeatureFormDrawer::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="45" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a64cf52122f86d5d39746d344f2a5de9a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>OverlayFeatureFormDrawer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="50" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a0c2ae3fb93d312b6b5308cefea185cea" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>OverlayFeatureFormDrawer::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="51" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1abc4268a03dfcba43726a85a2e4399b9c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>OverlayFeatureFormDrawer::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="52" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1adbd5c36d3b0f9fb4fe3f048a3eb73ebb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>OverlayFeatureFormDrawer::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="53" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a216b10af04d7896d472d4b52c1e9c16c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>OverlayFeatureFormDrawer::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="54" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a4ed45eb7f7557e764982df3ff4b08388" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::interactive</definition>
+        <argsstring></argsstring>
+        <name>interactive</name>
+        <qualifiedname>OverlayFeatureFormDrawer::interactive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="55" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a3504b41cda7407c34303d981d55f1087" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::dragMargin</definition>
+        <argsstring></argsstring>
+        <name>dragMargin</name>
+        <qualifiedname>OverlayFeatureFormDrawer::dragMargin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="56" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1acbfbae64667fb0e7166d07cf92441cef" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::onOpened</definition>
+        <argsstring></argsstring>
+        <name>onOpened</name>
+        <qualifiedname>OverlayFeatureFormDrawer::onOpened</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If the save/cancel was initiated by button, the drawer needs to be closed in the end If the drawer is closed by back key or integrated functionality (by Drawer) it has to save in the end To make a difference between these scenarios we need position of the drawer and the isSaved flag of the <ref refid="classFeatureForm" kindref="compound">FeatureForm</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="62" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a6167efa0b3f4a39b2e264b272c729c04" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var OverlayFeatureFormDrawer::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>OverlayFeatureFormDrawer::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="63" column="5" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a96f95b31b7e8aec420888448f377ba97" prot="private" static="no" mutable="no">
+        <type><ref refid="classFeatureForm" kindref="compound">FeatureForm</ref></type>
+        <definition>FeatureForm OverlayFeatureFormDrawer::overlayFeatureForm</definition>
+        <argsstring></argsstring>
+        <name>overlayFeatureForm</name>
+        <qualifiedname>OverlayFeatureFormDrawer::overlayFeatureForm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="64" column="13" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOverlayFeatureFormDrawer_1a8d246305c97e684c6e22aee3293ea67b" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component OverlayFeatureFormDrawer::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>OverlayFeatureFormDrawer::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="65" column="14" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classOverlayFeatureFormDrawer_1a7159e01b362e7478b0235bdcc03c43ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OverlayFeatureFormDrawer::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>OverlayFeatureFormDrawer::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/OverlayFeatureFormDrawer.qml" line="35" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Drawer</label>
+      </node>
+      <node id="1">
+        <label>OverlayFeatureFormDrawer</label>
+        <link refid="classOverlayFeatureFormDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Drawer</label>
+      </node>
+      <node id="1">
+        <label>OverlayFeatureFormDrawer</label>
+        <link refid="classOverlayFeatureFormDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/OverlayFeatureFormDrawer.qml" line="10" column="1" bodyfile="src/qml/OverlayFeatureFormDrawer.qml" bodystart="10" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classOverlayFeatureFormDrawer_1a216b10af04d7896d472d4b52c1e9c16c" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>bottomPadding</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1ad246e3cba0132f275f36bf6c62a62be4" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>closePolicy</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1ac330f5ce7b98325c3ee68bad7e815bc0" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>codeReader</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1ae31ba496aec53e33f073958e53ec357f" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>digitizingToolbar</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1af15da3b50848bede718eab3ce4372a36" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>dragHeightAdjustment</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a3504b41cda7407c34303d981d55f1087" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>dragMargin</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a32e133d68d296dd6cd771827bf725d81" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>dragWidthAdjustment</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a73d5437be5d62016f7546e99426e3c0f" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>edge</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1ae00632648843f9dfb560556abb4f2d17" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>featureForm</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a78ba035af742a54ebef3cf324f6c0836" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>featureModel</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1af28764dda6a8b6a470ee2af7f5aead36" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>focus</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a85273ddc6835bed8469aac045774082c" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>fullScreenView</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a64cf52122f86d5d39746d344f2a5de9a" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>height</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a4ed45eb7f7557e764982df3ff4b08388" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>interactive</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a84c326e82f9029489d82f8cb57818294" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>isAdding</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a7a0f2a3070f477a9858eeab8e25ae26f" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>isDragging</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1aeec6214e11a5398807e44119b870504c" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>isVertical</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a63fb985cfeb961715b9cbe34c8706b1d" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>lastHeight</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a61662cc3f26ea4085ecf76fdcf060d4b" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>lastWidth</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1abc4268a03dfcba43726a85a2e4399b9c" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>leftPadding</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a6167efa0b3f4a39b2e264b272c729c04" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>onClosed</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a8d246305c97e684c6e22aee3293ea67b" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>onCompleted</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1acbfbae64667fb0e7166d07cf92441cef" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>onOpened</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a96f95b31b7e8aec420888448f377ba97" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>overlayFeatureForm</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a7159e01b362e7478b0235bdcc03c43ee" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>requestJumpToPoint</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1adbd5c36d3b0f9fb4fe3f048a3eb73ebb" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>rightPadding</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a364e942931113b8283bbc52a8a0526c4" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>state</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1a0c2ae3fb93d312b6b5308cefea185cea" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>topPadding</name></member>
+      <member refid="classOverlayFeatureFormDrawer_1adaf8a9efed4ecbf882f8aafde896edbc" prot="private" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

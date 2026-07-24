@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBookmarkList" kind="class" language="C++" prot="public">
+    <compoundname>BookmarkList</compoundname>
+    <basecompoundref refid="classTheme_1_1QfPaneDrawer" prot="public" virt="non-virtual">Theme::QfPaneDrawer</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classBookmarkList_1a2f406e10778c834aedb4616e61679eeb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias BookmarkList::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>BookmarkList::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="15" column="1" bodyfile="src/qml/BookmarkList.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classBookmarkList_1a657110173cf625721ef4c0f1e14cd1a7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BookmarkList::multiSelection</definition>
+        <argsstring></argsstring>
+        <name>multiSelection</name>
+        <qualifiedname>BookmarkList::multiSelection</qualifiedname>
+        <read>dummyGetter_multiSelection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="17" column="1" bodyfile="src/qml/BookmarkList.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBookmarkList_1ac312491f412467b6dac47d1475c4ef33" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkList::contentVisible</definition>
+        <argsstring></argsstring>
+        <name>contentVisible</name>
+        <qualifiedname>BookmarkList::contentVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="21" column="5" bodyfile="src/qml/BookmarkList.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkList_1ac374eddfe5fad94fa888752de9d50c79" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkList::freezeKey</definition>
+        <argsstring></argsstring>
+        <name>freezeKey</name>
+        <qualifiedname>BookmarkList::freezeKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="22" column="5" bodyfile="src/qml/BookmarkList.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkList_1a4b9c59797b87d3c445daaf01bcb91a25" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkList::headerHeight</definition>
+        <argsstring></argsstring>
+        <name>headerHeight</name>
+        <qualifiedname>BookmarkList::headerHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="23" column="5" bodyfile="src/qml/BookmarkList.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkList_1ac7da323e5ac2271aa989ea6c52d1ca54" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkList::minContentHeight</definition>
+        <argsstring></argsstring>
+        <name>minContentHeight</name>
+        <qualifiedname>BookmarkList::minContentHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="24" column="5" bodyfile="src/qml/BookmarkList.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkList_1ac765e8013da8c8e8fa7bb61d5febf8ff" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkList::onCollapsed</definition>
+        <argsstring></argsstring>
+        <name>onCollapsed</name>
+        <qualifiedname>BookmarkList::onCollapsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="25" column="5" bodyfile="src/qml/BookmarkList.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBookmarkList_1a4294fb4d53fbcfa1a3c1d069d3ef0280" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var BookmarkList::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>BookmarkList::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="26" column="5" bodyfile="src/qml/BookmarkList.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classBookmarkList_1af6f69ee23b6228bea135a9dd8e0358eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BookmarkList::requestBookmarkProperties</definition>
+        <argsstring>(string bookmarkId, string bookmarkName, string bookmarkGroup)</argsstring>
+        <name>requestBookmarkProperties</name>
+        <qualifiedname>BookmarkList::requestBookmarkProperties</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>bookmarkId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bookmarkName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bookmarkGroup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/BookmarkList.qml" line="19" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BookmarkList</label>
+        <link refid="classBookmarkList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Pane</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPaneDrawer</label>
+        <link refid="classTheme_1_1QfPaneDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BookmarkList</label>
+        <link refid="classBookmarkList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Pane</label>
+      </node>
+      <node id="2">
+        <label>Theme::QfPaneDrawer</label>
+        <link refid="classTheme_1_1QfPaneDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/BookmarkList.qml" line="12" column="1" bodyfile="src/qml/BookmarkList.qml" bodystart="12" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfPaneDrawer_1aebb54b9f1e006f0bf29bc86679036686" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>collapsed</name></member>
+      <member refid="classBookmarkList_1ac312491f412467b6dac47d1475c4ef33" prot="private" virt="non-virtual"><scope>BookmarkList</scope><name>contentVisible</name></member>
+      <member refid="classBookmarkList_1ac374eddfe5fad94fa888752de9d50c79" prot="private" virt="non-virtual"><scope>BookmarkList</scope><name>freezeKey</name></member>
+      <member refid="classBookmarkList_1a4b9c59797b87d3c445daaf01bcb91a25" prot="private" virt="non-virtual"><scope>BookmarkList</scope><name>headerHeight</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a7606cb4b664c866b5baf0141488ad25b" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>isDragging</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a4fd20c747e3380eadae81cb22bd1fd0f" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>isFullscreen</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a7c8f7d9b39cb49526df4e22069004a09" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>isVertical</name></member>
+      <member refid="classBookmarkList_1ac7da323e5ac2271aa989ea6c52d1ca54" prot="private" virt="non-virtual"><scope>BookmarkList</scope><name>minContentHeight</name></member>
+      <member refid="classBookmarkList_1a2f406e10778c834aedb4616e61679eeb" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>model</name></member>
+      <member refid="classBookmarkList_1a657110173cf625721ef4c0f1e14cd1a7" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>multiSelection</name></member>
+      <member refid="classBookmarkList_1ac765e8013da8c8e8fa7bb61d5febf8ff" prot="private" virt="non-virtual"><scope>BookmarkList</scope><name>onCollapsed</name></member>
+      <member refid="classBookmarkList_1af6f69ee23b6228bea135a9dd8e0358eb" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>requestBookmarkProperties</name></member>
+      <member refid="classBookmarkList_1a4294fb4d53fbcfa1a3c1d069d3ef0280" prot="private" virt="non-virtual"><scope>BookmarkList</scope><name>states</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a32ef6e0bddaf0f30f36bc93df3fc601d" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1ad0b8a49690bb7cf48681dda71440f894" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1ae2131fbe95f94c34926e1196491cfb27" prot="public" virt="non-virtual"><scope>BookmarkList</scope><name>useDefaultMinHeight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

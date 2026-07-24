@@ -1,0 +1,1368 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>File qfieldxmlhttprequest.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qfieldxmlhttprequestcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qfieldxmlhttprequest.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../translate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translate a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qfieldxmlhttprequestcpp">File qfieldxmlhttprequest.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../qfieldxmlhttprequest_8cpp/"><strong>qfieldxmlhttprequest.cpp</strong></a></p>
+<p><a href="../qfieldxmlhttprequest_8cpp/">Go to the documentation of this file</a></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/***************************************************************************</span>
+<span class="cm">qfieldxmlhttprequest.cpp - QFieldXmlHttpRequest</span>
+
+<span class="cm">---------------------</span>
+<span class="cm">begin                : 15.12.2025</span>
+<span class="cm">copyright            : (C) 2025 by Kaustuv Pokharel</span>
+<span class="cm">email                : kaustuv (at) opengis.ch</span>
+<span class="cm">***************************************************************************</span>
+<span class="cm">*                                                                         *</span>
+<span class="cm">*   This program is free software; you can redistribute it and/or modify  *</span>
+<span class="cm">*   it under the terms of the GNU General Public License as published by  *</span>
+<span class="cm">*   the Free Software Foundation; either version 2 of the License, or     *</span>
+<span class="cm">*   (at your option) any later version.                                   *</span>
+<span class="cm">*                                                                         *</span>
+<span class="cm">***************************************************************************/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qfieldxmlhttprequest.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QDebug&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QDir&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QFile&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QFileInfo&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QHttpMultiPart&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QHttpPart&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QJsonDocument&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QJsonObject&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QJsonParseError&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QJsonValue&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QNetworkReply&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QTimer&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qfieldcloudutils.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;qgsnetworkaccessmanager.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fileutils.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;urlutils.h&gt;</span>
+
+<span class="k">namespace</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stringValue</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">trimmed</span><span class="p">().</span><span class="n">startsWith</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;file://&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">CaseInsensitive</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace</span>
+
+<span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">QFieldXmlHttpRequest</span><span class="p">(</span><span class="w"> </span><span class="n">QObject</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">QObject</span><span class="p">(</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">QFieldXmlHttpRequest</span><span class="o">::~</span><span class="n">QFieldXmlHttpRequest</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Destructor must be silent (no QML callbacks / no signals)</span>
+<span class="w">  </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QFieldXmlHttpRequest</span><span class="w"> </span><span class="o">*</span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">newRequest</span><span class="p">(</span><span class="w"> </span><span class="n">QObject</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="p">(</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">setTimeout</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">milliseconds</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">timeoutMilliseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">milliseconds</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">milliseconds</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mTimeoutMs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">timeoutMilliseconds</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mTimeoutMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timeoutMilliseconds</span><span class="p">;</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">timeoutChanged</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">scheduleAutoDelete</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Defer so QML callbacks finish first.</span>
+<span class="w">  </span><span class="n">QTimer</span><span class="o">::</span><span class="n">singleShot</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QObject</span><span class="o">::</span><span class="n">deleteLater</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">containsNewlines</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stringValue</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="w"> </span><span class="n">QLatin1Char</span><span class="p">(</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="w"> </span><span class="n">QLatin1Char</span><span class="p">(</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">isOpen</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">mMethod</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mUrl</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">QString</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">normalizeHeaderName</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stringValue</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">stringValue</span><span class="p">.</span><span class="n">trimmed</span><span class="p">().</span><span class="n">toLower</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">collectResponseHeaders</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="w"> </span><span class="o">*</span><span class="n">networkReply</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">networkReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">RawHeaderPair</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">headerPairs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkReply</span><span class="o">-&gt;</span><span class="n">rawHeaderPairs</span><span class="p">();</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">RawHeaderPair</span><span class="w"> </span><span class="o">&amp;</span><span class="n">headerPair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">headerPairs</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">headerNameLowercase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="w"> </span><span class="n">headerPair</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="p">).</span><span class="n">trimmed</span><span class="p">().</span><span class="n">toLower</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">headerValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="w"> </span><span class="n">headerPair</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="p">).</span><span class="n">trimmed</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">headerNameLowercase</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mResponseHeaders</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="w"> </span><span class="n">headerNameLowercase</span><span class="p">,</span><span class="w"> </span><span class="n">headerValue</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">QString</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">getResponseHeader</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mResponseHeaders</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="w"> </span><span class="n">normalizeHeaderName</span><span class="p">(</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QString</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">getAllResponseHeaders</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QString</span><span class="w"> </span><span class="n">allHeaders</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span><span class="w"> </span><span class="n">QString</span><span class="o">&gt;::</span><span class="n">ConstIterator</span><span class="w"> </span><span class="n">headerIterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResponseHeaders</span><span class="p">.</span><span class="n">constBegin</span><span class="p">();</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">headerIterator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">mResponseHeaders</span><span class="p">.</span><span class="n">constEnd</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">headerIterator</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">allHeaders</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">headerIterator</span><span class="p">.</span><span class="n">key</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">headerIterator</span><span class="p">.</span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">allHeaders</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">clearResponse</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">mStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mStatusText</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">  </span><span class="n">mResponseText</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mResponseType</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mResponseUrl</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">mResponseHeaders</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mLastError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">NoError</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mLastErrorString</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">resetForNewRequest</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">clearResponse</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mFinalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mTimedOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mAborted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">abortNetwork</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QMetaObject</span><span class="o">::</span><span class="n">Connection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">connection</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mConnections</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">mConnections</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">mReply</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">abortNetwork</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">abort</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">deleteLater</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">ReadyState</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReadyState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mReadyState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">readyStateChanged</span><span class="p">();</span>
+<span class="w">  </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnReadyStateChanged</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">open</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QUrl</span><span class="w"> </span><span class="o">&amp;</span><span class="n">url</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// open() cancels any in-flight request</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QByteArray</span><span class="w"> </span><span class="n">methodBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">method</span><span class="p">.</span><span class="n">trimmed</span><span class="p">().</span><span class="n">toUtf8</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">methodBytes</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">url</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: invalid open() args:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">url</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mMethod</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QUrl</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="p">();</span>
+<span class="w">    </span><span class="n">resetForNewRequest</span><span class="p">();</span>
+<span class="w">    </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Unsent</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">methodBytes</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">url</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="p">(</span><span class="w"> </span><span class="n">mUrl</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mRequest</span><span class="p">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">RedirectPolicyAttribute</span><span class="p">,</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">NoLessSafeRedirectPolicy</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">resetForNewRequest</span><span class="p">();</span>
+<span class="w">  </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Opened</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">setRequestHeader</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">headerName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">headerValue</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">isOpen</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">headerKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">headerName</span><span class="p">.</span><span class="n">trimmed</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">headerKey</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">containsNewlines</span><span class="p">(</span><span class="w"> </span><span class="n">headerKey</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">containsNewlines</span><span class="p">(</span><span class="w"> </span><span class="n">headerValue</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: blocked header with newline:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">headerName</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">headerKeyLower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalizeHeaderName</span><span class="p">(</span><span class="w"> </span><span class="n">headerKey</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// IMPORTANT: keep Content-Type in the typed header too, because startRequest()</span>
+<span class="w">  </span><span class="c1">// reads it via mRequest.header(QNetworkRequest::ContentTypeHeader)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">headerKeyLower</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;content-type&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mRequest</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="p">,</span><span class="w"> </span><span class="n">headerValue</span><span class="p">.</span><span class="n">trimmed</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mRequest</span><span class="p">.</span><span class="n">setRawHeader</span><span class="p">(</span><span class="w"> </span><span class="n">headerKey</span><span class="p">.</span><span class="n">toUtf8</span><span class="p">(),</span><span class="w"> </span><span class="n">headerValue</span><span class="p">.</span><span class="n">toUtf8</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">send</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">body</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">isOpen</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: call open() before send()&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// &quot;Resend&quot; should not behave like abort(): it should not produce an error callback chain</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReadyState</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Opened</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Opened</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">resetForNewRequest</span><span class="p">();</span>
+<span class="w">  </span><span class="o">++</span><span class="n">mRequestSerial</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">startRequest</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">startRequest</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">body</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QByteArray</span><span class="w"> </span><span class="n">upperCaseMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mMethod</span><span class="p">.</span><span class="n">trimmed</span><span class="p">().</span><span class="n">toUpper</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Security: only allow http(s) network requests.</span>
+<span class="w">  </span><span class="c1">// Do this at send-time to avoid breaking existing open()-&gt;setHeader()-&gt;send() flows.</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">urlScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mUrl</span><span class="p">.</span><span class="n">scheme</span><span class="p">().</span><span class="n">toLower</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">urlScheme</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;http&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">urlScheme</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;https&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: blocked non-http(s) URL:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">mUrl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Blocked non-http(s) URL&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isGetMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upperCaseMethod</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;GET&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isPostMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upperCaseMethod</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;POST&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isPutMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upperCaseMethod</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;PUT&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isDeleteMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upperCaseMethod</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;DELETE&quot;</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">isGetMethod</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isPostMethod</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isPutMethod</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isDeleteMethod</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: unsupported method:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">upperCaseMethod</span><span class="p">;</span>
+<span class="w">    </span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Unsupported HTTP method&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">requestContentTypeHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mRequest</span><span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="w"> </span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isMultipartForcedByHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">requestContentTypeHeader</span><span class="p">.</span><span class="n">startsWith</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;multipart/form-data&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">CaseInsensitive</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Multipart can only be built from a map (see buildMultipart()).</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">canBuildMultipart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">canConvert</span><span class="o">&lt;</span><span class="n">QVariantMap</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Only detect file URLs when we can actually build a multipart body.</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bodyHasFileUrls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canBuildMultipart</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">bodyContainsFileUrls</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">shouldUseMultipart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isMultipartForcedByHeader</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">canBuildMultipart</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">bodyHasFileUrls</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// If the caller forces multipart via header but doesn&#39;t provide a map body, fail fast with a clear error.</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isMultipartForcedByHeader</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">canBuildMultipart</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: multipart/form-data requires a QVariantMap body&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;multipart/form-data requires a map body&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QNetworkAccessManager</span><span class="w"> </span><span class="o">*</span><span class="n">networkAccessManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsNetworkAccessManager</span><span class="o">::</span><span class="n">instance</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">networkAccessManager</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Network manager unavailable&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QNetworkReply</span><span class="w"> </span><span class="o">*</span><span class="n">networkReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isGetMethod</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">networkReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isDeleteMethod</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QString</span><span class="w"> </span><span class="n">inferredContentTypeHeader</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QByteArray</span><span class="w"> </span><span class="n">requestPayload</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">body</span><span class="p">.</span><span class="n">isNull</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">requestPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bodyToBytes</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">inferredContentTypeHeader</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="w"> </span><span class="p">).</span><span class="n">isNull</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">inferredContentTypeHeader</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mRequest</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="p">,</span><span class="w"> </span><span class="n">inferredContentTypeHeader</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">requestPayload</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">networkReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="n">deleteResource</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">networkReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="n">sendCustomRequest</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">,</span><span class="w"> </span><span class="n">QByteArrayLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;DELETE&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">requestPayload</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">shouldUseMultipart</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Do NOT keep a preset Content-Type, because QHttpMultiPart/QNetworkAccessManager</span>
+<span class="w">      </span><span class="c1">// will generate the correct Content-Type including the boundary.</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isMultipartForcedByHeader</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mRequest</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="p">,</span><span class="w"> </span><span class="n">QVariant</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">QHttpMultiPart</span><span class="w"> </span><span class="o">*</span><span class="n">multipartBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buildMultipart</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">multipartBody</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Invalid multipart body&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">networkReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isPostMethod</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="k">post</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">,</span><span class="w"> </span><span class="n">multipartBody</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                                  </span><span class="o">:</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="n">put</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">,</span><span class="w"> </span><span class="n">multipartBody</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">multipartBody</span><span class="o">-&gt;</span><span class="n">setParent</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">multipartBody</span><span class="o">-&gt;</span><span class="n">deleteLater</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">QString</span><span class="w"> </span><span class="n">inferredContentTypeHeader</span><span class="p">;</span>
+<span class="w">      </span><span class="n">QByteArray</span><span class="w"> </span><span class="n">requestPayload</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">body</span><span class="p">.</span><span class="n">isNull</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">requestPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bodyToBytes</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">inferredContentTypeHeader</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="w"> </span><span class="p">).</span><span class="n">isNull</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">inferredContentTypeHeader</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mRequest</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="p">,</span><span class="w"> </span><span class="n">inferredContentTypeHeader</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">networkReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isPostMethod</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="k">post</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">,</span><span class="w"> </span><span class="n">requestPayload</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                                  </span><span class="o">:</span><span class="w"> </span><span class="n">networkAccessManager</span><span class="o">-&gt;</span><span class="n">put</span><span class="p">(</span><span class="w"> </span><span class="n">mRequest</span><span class="p">,</span><span class="w"> </span><span class="n">requestPayload</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">networkReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Failed to start request&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mReply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkReply</span><span class="p">;</span>
+<span class="w">  </span><span class="n">hookReply</span><span class="p">(</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">abort</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mFinalized</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mAborted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">clearResponse</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Done</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">responseChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnAborted</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnLoadEnd</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">scheduleAutoDelete</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">hookReply</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="w"> </span><span class="o">*</span><span class="n">networkReply</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">networkReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">metaDataChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">networkReply</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReadyState</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">HeadersReceived</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">HeadersReceived</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">collectResponseHeaders</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">readyRead</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReadyState</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">HeadersReceived</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">HeadersReceived</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mReadyState</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Loading</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Loading</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">downloadProgress</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">](</span><span class="w"> </span><span class="n">qint64</span><span class="w"> </span><span class="n">receivedBytes</span><span class="p">,</span><span class="w"> </span><span class="n">qint64</span><span class="w"> </span><span class="n">totalBytes</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnDownloadProgress</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="w"> </span><span class="n">receivedBytes</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="w"> </span><span class="n">totalBytes</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">uploadProgress</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">](</span><span class="w"> </span><span class="n">qint64</span><span class="w"> </span><span class="n">sentBytes</span><span class="p">,</span><span class="w"> </span><span class="n">qint64</span><span class="w"> </span><span class="n">totalBytes</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnUploadProgress</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="w"> </span><span class="n">sentBytes</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="kt">double</span><span class="p">(</span><span class="w"> </span><span class="n">totalBytes</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">redirected</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">](</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QUrl</span><span class="w"> </span><span class="o">&amp;</span><span class="n">redirectUrl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnRedirected</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">redirectUrl</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">errorOccurred</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">](</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">NetworkError</span><span class="w"> </span><span class="n">networkError</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mFinalized</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mAborted</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">networkError</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">TimeoutError</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mTimedOut</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">mTimedOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">clearResponse</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Done</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">emit</span><span class="w"> </span><span class="nf">responseChanged</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnTimeout</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnLoadEnd</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">scheduleAutoDelete</span><span class="p">();</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">networkError</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">OperationCanceledError</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">mLastError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">networkError</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mLastErrorString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">errorString</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mConnections</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">finished</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">networkReply</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">finalizeReply</span><span class="p">(</span><span class="w"> </span><span class="n">networkReply</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mTimeoutMs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">quint64</span><span class="w"> </span><span class="n">requestSerialSnapshot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mRequestSerial</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QTimer</span><span class="o">::</span><span class="n">singleShot</span><span class="p">(</span><span class="w"> </span><span class="n">mTimeoutMs</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">requestSerialSnapshot</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">requestSerialSnapshot</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">mRequestSerial</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mFinalized</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mAborted</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mTimedOut</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mReply</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">isFinished</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">mTimedOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">clearResponse</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Done</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">emit</span><span class="w"> </span><span class="nf">responseChanged</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnTimeout</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnLoadEnd</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">scheduleAutoDelete</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">finalizeReply</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="w"> </span><span class="o">*</span><span class="n">finishedReply</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mFinalized</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Ignore stale finished signals (example; resend raced with previous reply)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">finishedReply</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">finishedReply</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mFinalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">attribute</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">HttpStatusCodeAttribute</span><span class="w"> </span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mStatusText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">attribute</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">HttpReasonPhraseAttribute</span><span class="w"> </span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">mResponseUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">url</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mResponseType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">header</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="w"> </span><span class="p">).</span><span class="n">toString</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">collectResponseHeaders</span><span class="p">(</span><span class="w"> </span><span class="n">mReply</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QByteArray</span><span class="w"> </span><span class="n">responseBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mReply</span><span class="o">-&gt;</span><span class="n">readAll</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="w"> </span><span class="n">responseBytes</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">responseContentTypeLowercase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResponseType</span><span class="p">.</span><span class="n">toLower</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">responseContentTypeLowercase</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">responseContentTypeLowercase</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;+json&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QJsonParseError</span><span class="w"> </span><span class="n">jsonParseError</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="w"> </span><span class="n">jsonDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="o">::</span><span class="n">fromJson</span><span class="p">(</span><span class="w"> </span><span class="n">responseBytes</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">jsonParseError</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jsonParseError</span><span class="p">.</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QJsonParseError</span><span class="o">::</span><span class="n">NoError</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jsonDocument</span><span class="p">.</span><span class="n">isObject</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonDocument</span><span class="p">.</span><span class="n">object</span><span class="p">().</span><span class="n">toVariantMap</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jsonDocument</span><span class="p">.</span><span class="n">isArray</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonDocument</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">toVariantList</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResponseText</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResponseText</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mResponseText</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Done</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">responseChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mStatus</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">errorCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mLastError</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">NoError</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="w"> </span><span class="n">mLastError</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">UnknownNetworkError</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">errorMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">mLastErrorString</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">mLastErrorString</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Network error&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnError</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">errorCode</span><span class="p">,</span><span class="w"> </span><span class="n">errorMessage</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnLoad</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnLoadEnd</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">scheduleAutoDelete</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">finalizeAsError</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">detail</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">shouldEmitResponseChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mFinalized</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">clearResponse</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonObject</span><span class="w"> </span><span class="n">errorObj</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;detail&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="n">mResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">errorObj</span><span class="w"> </span><span class="p">).</span><span class="n">toJson</span><span class="p">(</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="o">::</span><span class="n">Compact</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">errorObj</span><span class="p">.</span><span class="n">toVariantMap</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">mLastError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">UnknownNetworkError</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mLastErrorString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mFinalized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">cleanupReply</span><span class="p">(</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">setReadyState</span><span class="p">(</span><span class="w"> </span><span class="n">Done</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">shouldEmitResponseChanged</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">emit</span><span class="w"> </span><span class="nf">responseChanged</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnError</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkReply</span><span class="o">::</span><span class="n">UnknownNetworkError</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">mOnLoadEnd</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">scheduleAutoDelete</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">QByteArray</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">bodyToBytes</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">*</span><span class="n">outContentType</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">outContentType</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">outContentType</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QByteArray</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">toByteArray</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">outContentType</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="o">*</span><span class="n">outContentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;text/plain; charset=utf-8&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">toString</span><span class="p">().</span><span class="n">toUtf8</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonValue</span><span class="w"> </span><span class="n">jsonValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QJsonValue</span><span class="o">::</span><span class="n">fromVariant</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QJsonDocument</span><span class="w"> </span><span class="n">jsonDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">isObject</span><span class="p">()</span><span class="w">  </span><span class="o">?</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">toObject</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                               </span><span class="o">:</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">isArray</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">toArray</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                                                     </span><span class="o">:</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">QJsonObject</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">jsonValue</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">outContentType</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="o">*</span><span class="n">outContentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">jsonDocument</span><span class="p">.</span><span class="n">toJson</span><span class="p">(</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="o">::</span><span class="n">Compact</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">bodyContainsFileUrls</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">body</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">canConvert</span><span class="o">&lt;</span><span class="n">QVariantList</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantList</span><span class="w"> </span><span class="n">variantList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">toList</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">any_of</span><span class="p">(</span><span class="w"> </span><span class="n">variantList</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">variantList</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">listValue</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">listValue</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="n">listValue</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">canConvert</span><span class="o">&lt;</span><span class="n">QVariantMap</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="n">variantMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">toMap</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">any_of</span><span class="p">(</span><span class="w"> </span><span class="n">variantMap</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">variantMap</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mapValue</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mapValue</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="n">mapValue</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mapValue</span><span class="p">.</span><span class="n">canConvert</span><span class="o">&lt;</span><span class="n">QVariantList</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantList</span><span class="w"> </span><span class="n">nestedVariantList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapValue</span><span class="p">.</span><span class="n">toList</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">any_of</span><span class="p">(</span><span class="w"> </span><span class="n">nestedVariantList</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">nestedVariantList</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nestedListValue</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n">nestedListValue</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="n">nestedListValue</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">isAllowedLocalUploadPath</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">localPath</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">localPath</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">canonical</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QFileInfo</span><span class="p">(</span><span class="w"> </span><span class="n">localPath</span><span class="w"> </span><span class="p">).</span><span class="n">canonicalFilePath</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">canonical</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">FileUtils</span><span class="o">::</span><span class="n">isWithinProjectDirectory</span><span class="p">(</span><span class="w"> </span><span class="n">canonical</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">cloudRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QFieldCloudUtils</span><span class="o">::</span><span class="n">localCloudDirectory</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">cloudRoot</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">cloudCanonical</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QFileInfo</span><span class="p">(</span><span class="w"> </span><span class="n">cloudRoot</span><span class="w"> </span><span class="p">).</span><span class="n">canonicalFilePath</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">cloudCanonical</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">cloudRootPrefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QDir</span><span class="o">::</span><span class="n">cleanPath</span><span class="p">(</span><span class="w"> </span><span class="n">cloudCanonical</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">QDir</span><span class="o">::</span><span class="n">separator</span><span class="p">();</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QDir</span><span class="o">::</span><span class="n">cleanPath</span><span class="p">(</span><span class="w"> </span><span class="n">canonical</span><span class="w"> </span><span class="p">).</span><span class="n">startsWith</span><span class="p">(</span><span class="w"> </span><span class="n">cloudRootPrefix</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">QHttpMultiPart</span><span class="w"> </span><span class="o">*</span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">buildMultipart</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">body</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">body</span><span class="p">.</span><span class="n">canConvert</span><span class="o">&lt;</span><span class="n">QVariantMap</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantMap</span><span class="w"> </span><span class="n">bodyMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">body</span><span class="p">.</span><span class="n">toMap</span><span class="p">();</span>
+<span class="w">  </span><span class="n">QHttpMultiPart</span><span class="w"> </span><span class="o">*</span><span class="n">multipartBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QHttpMultiPart</span><span class="p">(</span><span class="w"> </span><span class="n">QHttpMultiPart</span><span class="o">::</span><span class="n">FormDataType</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">appendTextPart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">multipartBody</span><span class="p">](</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fieldValueText</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">QHttpPart</span><span class="w"> </span><span class="n">httpPart</span><span class="p">;</span>
+<span class="w">    </span><span class="n">httpPart</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentDispositionHeader</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;form-data; name=</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">httpPart</span><span class="p">.</span><span class="n">setBody</span><span class="p">(</span><span class="w"> </span><span class="n">fieldValueText</span><span class="p">.</span><span class="n">toUtf8</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">multipartBody</span><span class="o">-&gt;</span><span class="n">append</span><span class="p">(</span><span class="w"> </span><span class="n">httpPart</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">appendFilePart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">multipartBody</span><span class="p">](</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QUrl</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fileUrl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">fileUrl</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">fileUrl</span><span class="p">.</span><span class="n">isLocalFile</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileUrl</span><span class="p">.</span><span class="n">toLocalFile</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">isAllowedLocalUploadPath</span><span class="p">(</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: blocked file upload path:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">filePath</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">QFile</span><span class="w"> </span><span class="o">*</span><span class="n">fileDevice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QFile</span><span class="p">(</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">fileDevice</span><span class="o">-&gt;</span><span class="n">exists</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">fileDevice</span><span class="o">-&gt;</span><span class="n">open</span><span class="p">(</span><span class="w"> </span><span class="n">QFile</span><span class="o">::</span><span class="n">ReadOnly</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest: cannot open file:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">filePath</span><span class="p">;</span>
+<span class="w">      </span><span class="k">delete</span><span class="w"> </span><span class="n">fileDevice</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">mimeTypeName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileUtils</span><span class="o">::</span><span class="n">mimeTypeName</span><span class="p">(</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">QHttpPart</span><span class="w"> </span><span class="n">httpPart</span><span class="p">;</span>
+<span class="w">    </span><span class="n">httpPart</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentTypeHeader</span><span class="p">,</span><span class="w"> </span><span class="n">mimeTypeName</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">httpPart</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(</span><span class="w"> </span><span class="n">QNetworkRequest</span><span class="o">::</span><span class="n">ContentDispositionHeader</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">QStringLiteral</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;form-data; name=</span><span class="se">\&quot;</span><span class="s">%1</span><span class="se">\&quot;</span><span class="s">; filename=</span><span class="se">\&quot;</span><span class="s">%2</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                          </span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">QFileInfo</span><span class="p">(</span><span class="w"> </span><span class="n">filePath</span><span class="w"> </span><span class="p">).</span><span class="n">fileName</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">httpPart</span><span class="p">.</span><span class="n">setBodyDevice</span><span class="p">(</span><span class="w"> </span><span class="n">fileDevice</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">fileDevice</span><span class="o">-&gt;</span><span class="n">setParent</span><span class="p">(</span><span class="w"> </span><span class="n">multipartBody</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">multipartBody</span><span class="o">-&gt;</span><span class="n">append</span><span class="p">(</span><span class="w"> </span><span class="n">httpPart</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="n">QVariantMap</span><span class="o">::</span><span class="n">ConstIterator</span><span class="w"> </span><span class="n">fieldIterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bodyMap</span><span class="p">.</span><span class="n">constBegin</span><span class="p">();</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">fieldIterator</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">bodyMap</span><span class="p">.</span><span class="n">constEnd</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">fieldIterator</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fieldName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldIterator</span><span class="p">.</span><span class="n">key</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fieldValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldIterator</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fieldValue</span><span class="p">.</span><span class="n">canConvert</span><span class="o">&lt;</span><span class="n">QVariantList</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">QVariantList</span><span class="w"> </span><span class="n">listValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldValue</span><span class="p">.</span><span class="n">toList</span><span class="p">();</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QVariant</span><span class="w"> </span><span class="o">&amp;</span><span class="n">listValue</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">listValues</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">listValue</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listValue</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">QUrl</span><span class="w"> </span><span class="n">fileUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UrlUtils</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fileUrl</span><span class="p">.</span><span class="n">isLocalFile</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">appendFilePart</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">fileUrl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">              </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonValue</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QJsonValue</span><span class="o">::</span><span class="n">fromVariant</span><span class="p">(</span><span class="w"> </span><span class="n">listValue</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="n">isObject</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="n">isArray</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="n">isObject</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="n">toObject</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="n">toArray</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">appendTextPart</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="n">toJson</span><span class="p">(</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="o">::</span><span class="n">Compact</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">appendTextPart</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">.</span><span class="n">toVariant</span><span class="p">().</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fieldValue</span><span class="p">.</span><span class="n">typeId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">QMetaType</span><span class="o">::</span><span class="n">QString</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fieldValue</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isFileUrlString</span><span class="p">(</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">QUrl</span><span class="w"> </span><span class="n">fileUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UrlUtils</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="w"> </span><span class="n">stringValue</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">appendFilePart</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">fileUrl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonValue</span><span class="w"> </span><span class="n">jsonValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QJsonValue</span><span class="o">::</span><span class="n">fromVariant</span><span class="p">(</span><span class="w"> </span><span class="n">fieldValue</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">isObject</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">isArray</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="w"> </span><span class="n">jsonDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">isObject</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">toObject</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="p">(</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">toArray</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">appendTextPart</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="w"> </span><span class="n">jsonDocument</span><span class="p">.</span><span class="n">toJson</span><span class="p">(</span><span class="w"> </span><span class="n">QJsonDocument</span><span class="o">::</span><span class="n">Compact</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">appendTextPart</span><span class="p">(</span><span class="w"> </span><span class="n">fieldName</span><span class="p">,</span><span class="w"> </span><span class="n">jsonValue</span><span class="p">.</span><span class="n">toVariant</span><span class="p">().</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">multipartBody</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QFieldXmlHttpRequest</span><span class="o">::</span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QJSValue</span><span class="w"> </span><span class="o">&amp;</span><span class="n">callback</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QJSValueList</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arguments</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">callback</span><span class="p">.</span><span class="n">isCallable</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QJSValue</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callback</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">isError</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;QFieldXmlHttpRequest callback error:&quot;</span>
+<span class="w">               </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">property</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;fileName&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">toString</span><span class="p">()</span>
+<span class="w">               </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">property</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;lineNumber&quot;</span><span class="w"> </span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
+<span class="w">               </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

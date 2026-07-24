@@ -1,0 +1,954 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../translate/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Code Snippets - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qfield-plugin-code-snippets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code Snippets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-emergency-phone-call-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add emergency phone call action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-the-map-canvas-center-or-extent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the map canvas center or extent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-the-current-position-from-an-active-gnss-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch the current position from an active GNSS device
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrate-with-the-search-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate with the search bar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-plugin-configuration-button-in-the-plugin-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a plugin configuration button in the plugin manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash-geometries-on-top-of-the-map-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flash geometries on top of the map canvas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-project-variable-through-dialog-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a project variable through dialog input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-a-map-canvas-point-handler-to-take-over-taps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register a map canvas point handler to take over taps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translate a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QField/group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QField/group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-emergency-phone-call-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add emergency phone call action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-the-map-canvas-center-or-extent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the map canvas center or extent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-the-current-position-from-an-active-gnss-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch the current position from an active GNSS device
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrate-with-the-search-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate with the search bar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-plugin-configuration-button-in-the-plugin-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a plugin configuration button in the plugin manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash-geometries-on-top-of-the-map-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flash geometries on top of the map canvas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-project-variable-through-dialog-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a project variable through dialog input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-a-map-canvas-point-handler-to-take-over-taps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register a map canvas point handler to take over taps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="qfield-plugin-code-snippets">QField Plugin Code Snippets</h1>
+<p>Below are useful code snippets that will teach you ways to work within the plugin framework.</p>
+<h2 id="add-emergency-phone-call-action">Add emergency phone call action</h2>
+<p>Mobile devices can handle several useful hyperlinks protocols such as <code>tel:</code> and <code>mailto:</code>. The code below will add a tool button on the map canvas offering field works a quick way to call an emergency number using the <code>Qt.openUrlExternally</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+<span class="kr">import</span> <span class="nx">Theme</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="nx">QfToolButton</span> <span class="p">{</span>
+    <span class="kd">id: emergencyCall</span>
+
+    <span class="k">iconSource:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">getThemeVectorIcon</span><span class="p">(</span><span class="s2">&quot;ic_info_white_24dp&quot;</span><span class="p">)</span>
+    <span class="k">iconColor:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">toolButtonColor</span>
+    <span class="k">bgcolor:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">toolButtonBackgroundColor</span>
+    <span class="k">round:</span> <span class="kc">true</span>
+
+    <span class="k">onClicked:</span> <span class="p">{</span>
+      <span class="nx">Qt</span><span class="p">.</span><span class="nx">openUrlExternally</span><span class="p">(</span><span class="s1">&#39;tel:+1800123456&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">Component.onCompleted:</span> <span class="p">{</span>
+    <span class="nx">iface</span><span class="p">.</span><span class="nx">addItemToPluginsToolbar</span><span class="p">(</span><span class="nx">emergencyCall</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="change-the-map-canvas-center-or-extent">Change the map canvas center or extent</h2>
+<p>This code below will re-center the map canvas around a WGS84 point reprojected to match the current project CRS by using <a href="../QField/classGeometryUtils/"><code>GeometryUtils</code></a> functions.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+<span class="kr">import</span> <span class="nx">Theme</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="nx">QfToolButton</span> <span class="p">{</span>
+    <span class="kd">id: gotoPoint</span>
+
+    <span class="k">iconSource:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">getThemeVectorIcon</span><span class="p">(</span><span class="s2">&quot;ic_geotag_white_24dp&quot;</span><span class="p">)</span>
+    <span class="k">iconColor:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">toolButtonColor</span>
+    <span class="k">bgcolor:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">toolButtonBackgroundColor</span>
+    <span class="k">round:</span> <span class="kc">true</span>
+
+    <span class="k">onClicked:</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">point</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">point</span><span class="p">(</span><span class="mf">174.7656025</span><span class="p">,</span> <span class="o">-</span><span class="mf">36.8533493</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">projectedPoint</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">reprojectPoint</span><span class="p">(</span><span class="nx">point</span><span class="p">,</span> <span class="nx">CoordinateReferenceSystemUtils</span><span class="p">.</span><span class="nx">wgs84Crs</span><span class="p">(),</span> <span class="nx">qgisProject</span><span class="p">.</span><span class="nx">crs</span><span class="p">);</span>
+      <span class="nx">iface</span><span class="p">.</span><span class="nx">mapCanvas</span><span class="p">().</span><span class="nx">mapSettings</span><span class="p">.</span><span class="nx">center</span> <span class="o">=</span> <span class="nx">projectedPoint</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">Component.onCompleted:</span> <span class="p">{</span>
+    <span class="nx">iface</span><span class="p">.</span><span class="nx">addItemToPluginsToolbar</span><span class="p">(</span><span class="nx">gotoPoint</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It's also possible to use an extent instead of a point to be in control of the scale. The <code>onClicked</code> function would be changed to this instead:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">onClicked:</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">point1</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">point</span><span class="p">(</span><span class="mf">174.7646543</span><span class="p">,</span> <span class="o">-</span><span class="mf">36.8519053</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">point2</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">point</span><span class="p">(</span><span class="mf">174.7682343</span><span class="p">,</span> <span class="o">-</span><span class="mf">36.8542590</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">extent</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">createRectangleFromPoints</span><span class="p">(</span><span class="nx">point1</span><span class="p">,</span> <span class="nx">point2</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">projectedExtent</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">reprojectRectangle</span><span class="p">(</span><span class="nx">extent</span><span class="p">,</span> <span class="nx">CoordinateReferenceSystemUtils</span><span class="p">.</span><span class="nx">wgs84Crs</span><span class="p">(),</span> <span class="nx">qgisProject</span><span class="p">.</span><span class="nx">crs</span><span class="p">);</span>
+      <span class="nx">iface</span><span class="p">.</span><span class="nx">mapCanvas</span><span class="p">().</span><span class="nx">mapSettings</span><span class="p">.</span><span class="nx">extent</span> <span class="o">=</span> <span class="nx">projectedExtent</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h2 id="fetch-the-current-position-from-an-active-gnss-device">Fetch the current position from an active GNSS device</h2>
+<p>One of the basic functionality you will likely seek is the ability to retrieve the current position from an active GNSS device. This code will copy the current position inside your device's clipboard:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+<span class="kr">import</span> <span class="nx">Theme</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="nx">QfToolButton</span> <span class="p">{</span>
+    <span class="kd">id: copyPositionToClipboard</span>
+
+    <span class="k">iconSource:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">getThemeVectorIcon</span><span class="p">(</span><span class="s2">&quot;ic_copy_black_24dp&quot;</span><span class="p">)</span>
+    <span class="k">iconColor:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">toolButtonColor</span>
+    <span class="k">bgcolor:</span> <span class="nx">Theme</span><span class="p">.</span><span class="nx">toolButtonBackgroundColor</span>
+    <span class="k">round:</span> <span class="kc">true</span>
+
+    <span class="k">onClicked:</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">positioning</span> <span class="o">=</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">findItemByObjectName</span><span class="p">(</span><span class="s1">&#39;positionSource&#39;</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">positioning</span><span class="p">.</span><span class="nx">active</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">positioning</span><span class="p">.</span><span class="nx">positionInformation</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">longitudeValid</span> <span class="o">&amp;&amp;</span> <span class="nx">info</span><span class="p">.</span><span class="nx">latitudeValid</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kr">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">latitude</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+          <span class="nx">platformUtilities</span><span class="p">.</span><span class="nx">copyTextToClipboard</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+          <span class="nx">iface</span><span class="p">.</span><span class="nx">mainWindow</span><span class="p">().</span><span class="nx">displayToast</span><span class="p">(</span><span class="s1">&#39;Position copied into the clipboard&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">Component.onCompleted:</span> <span class="p">{</span>
+    <span class="nx">iface</span><span class="p">.</span><span class="nx">addItemToPluginsToolbar</span><span class="p">(</span><span class="nx">copyPositionToClipboard</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="integrate-with-the-search-bar">Integrate with the search bar</h2>
+<p>The plugin framework empowers you to integrate custom searches into the QField search bar through the <a href="../QField/classQFieldLocatorFilter/"><code>QFieldLocatorFilter</code></a> item which can be added into a plugin's root item:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">QFieldLocatorFilter</span> <span class="p">{</span>
+  <span class="kd">id: locatorFilter</span>
+
+  <span class="k">delay:</span> <span class="mi">1000</span>
+  <span class="k">name:</span> <span class="s2">&quot;unique_filter_string&quot;</span>
+  <span class="k">displayName:</span> <span class="s2">&quot;Plugin filter&quot;</span>
+  <span class="k">prefix:</span> <span class="s2">&quot;plug&quot;</span>
+  <span class="k">locatorBridge:</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">findItemByObjectName</span><span class="p">(</span><span class="s1">&#39;locatorBridge&#39;</span><span class="p">)</span>
+
+  <span class="k">parameters:</span> <span class="p">{</span> <span class="s2">&quot;parameter_1&quot;</span><span class="o">:</span> <span class="s2">&quot;value_1&quot;</span> <span class="p">}</span>
+  <span class="k">source:</span> <span class="nx">Qt</span><span class="p">.</span><span class="nx">resolvedUrl</span><span class="p">(</span><span class="s1">&#39;search.qml&#39;</span><span class="p">)</span>
+
+  <span class="kd">function</span> <span class="nx">triggerResult</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// result is a QgsLocatorResult object with the following properties:</span>
+    <span class="c1">// - description, displayString, group, groupScore, score, and userData</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">triggerResultFromAction</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">actionId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// additional actions handled here</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The source property refers to a QML source file which will hold the logic to execute searches and pass on results.
+It will be executed off the main thread to allow for non-blocking result fetching operations.</p>
+<p>Here's a simple search QML source code:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="nx">signal</span> <span class="nx">prepareResult</span><span class="p">(</span><span class="kd">var</span> <span class="nx">details</span><span class="p">)</span>
+  <span class="nx">signal</span> <span class="nx">fetchResultsEnded</span><span class="p">()</span>
+
+  <span class="kd">function</span> <span class="nx">fetchResults</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// string is the search term(s) typed into the search bar</span>
+    <span class="c1">// context is a QgsLocatorContext object with the following properties:</span>
+    <span class="c1">// - targetExtent, targetExtentCrs, and transformContext</span>
+    <span class="c1">// parameters is a map of keys and values attached to the QFieldLocatorFilter parameters properties</span>
+
+    <span class="c1">// sample details object</span>
+    <span class="kd">let</span> <span class="nx">result_details</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;userData&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span> <span class="p">},</span>
+      <span class="s2">&quot;displayString&quot;</span><span class="o">:</span> <span class="s2">&quot;display string&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;score&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;group&quot;</span><span class="o">:</span> <span class="s2">&quot;group name&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;groupScore&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;actions&quot;</span><span class="o">:</span><span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span> <span class="s2">&quot;icon&quot;</span><span class="o">:</span> <span class="s2">&quot;icon.svg&quot;</span><span class="p">}]</span>
+    <span class="p">}</span>
+
+    <span class="c1">// prepareResult is the signal needed to pass on a result</span>
+    <span class="c1">// you can trigger the signal as many times as you need to pass on all available results</span>
+    <span class="nx">prepareResult</span><span class="p">(</span><span class="nx">result_details</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This <a href="https://github.com/opengisch/qfield-nominatim-locator">QField OpenStreetMap Nomination plugin</a> is a good example to learn more about search bar integration.</p>
+<h2 id="add-a-plugin-configuration-button-in-the-plugin-manager">Add a plugin configuration button in the plugin manager</h2>
+<p>For plugins requiring user configuration, QField allows for these to add a configuration button within its plugin manager.</p>
+<p>To do so, you can simply add a <code>function configure()</code> invocable function attached to the plugin's root item:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="kd">function</span> <span class="nx">configure</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="nx">optionDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">Dialog</span> <span class="p">{</span>
+    <span class="kd">id: optionDialog</span>
+    <span class="k">parent:</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">mainWindow</span><span class="p">().</span><span class="nx">contentItem</span>
+    <span class="k">visible:</span> <span class="kc">false</span>
+    <span class="k">modal:</span> <span class="kc">true</span>
+    <span class="k">title:</span> <span class="s2">&quot;Configuration&quot;</span>
+
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="flash-geometries-on-top-of-the-map-canvas">Flash geometries on top of the map canvas</h2>
+<p>Plugins can make use of QField's <a href="../QField/classGeometryHighlighter/"><code>GeometryHighlighter</code></a> item to flash created or fetched geometries through the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="nx">property</span> <span class="kd">var</span> <span class="k">geometryHighlighter:</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">findItemByObjectName</span><span class="p">(</span><span class="s1">&#39;geometryHighlighter&#39;</span><span class="p">)</span>
+
+  <span class="kd">function</span> <span class="nx">demo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Flash Null Island geometry</span>
+    <span class="kd">let</span> <span class="nx">geom</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">createGeometryFromWkt</span><span class="p">(</span><span class="s2">&quot;POINT(0 0)&quot;</span><span class="p">)</span>
+    <span class="kd">let</span> <span class="nx">crs</span> <span class="o">=</span> <span class="nx">CoordinateReferenceSystemUtils</span><span class="p">.</span><span class="nx">fromDescription</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+
+    <span class="nx">geometryHighlighter</span><span class="p">.</span><span class="nx">geometryWrapper</span><span class="p">.</span><span class="nx">qgsGeometry</span> <span class="o">=</span> <span class="nx">geometry</span>
+    <span class="nx">geometryHighlighter</span><span class="p">.</span><span class="nx">geometryWrapper</span><span class="p">.</span><span class="nx">crs</span> <span class="o">=</span> <span class="nx">crs</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="add-a-project-variable-through-dialog-input">Add a project variable through dialog input</h2>
+<p>This example demonstrates how to check for a given project variable on project load and asks the user for a value if not present or empty through <a href="../QField/classExpressionContextUtils/"><code>ExpressionContextUtils</code></a> functions. The plugin also uses the projectInfo object to save the variable across sessions.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nx">QtQuick</span>
+<span class="kr">import</span> <span class="nx">QtQuick</span><span class="p">.</span><span class="nx">Controls</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">qfield</span>
+<span class="kr">import</span> <span class="nx">Theme</span>
+
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="nx">Connections</span> <span class="p">{</span>
+    <span class="k">target:</span> <span class="nx">iface</span>
+
+    <span class="kd">function</span> <span class="nx">onLoadProjectEnded</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">variables</span> <span class="o">=</span> <span class="nx">ExpressionContextUtils</span><span class="p">.</span><span class="nx">projectVariables</span><span class="p">(</span><span class="nx">qgisProject</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">variables</span><span class="p">[</span><span class="s2">&quot;favorite_icecream&quot;</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">variables</span><span class="p">[</span><span class="s2">&quot;favorite_icecream&quot;</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">favoriteIceCreamDialog</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="nx">QfDialog</span> <span class="p">{</span>
+    <span class="kd">id: favoriteIceCreamDialog</span>
+    <span class="k">parent:</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">mainWindow</span><span class="p">().</span><span class="nx">contentItem</span>
+
+    <span class="k">width:</span> <span class="mi">300</span>
+    <span class="k">height:</span> <span class="mi">180</span>
+    <span class="k">x:</span> <span class="p">(</span><span class="nx">iface</span><span class="p">.</span><span class="nx">mainWindow</span><span class="p">().</span><span class="nx">width</span> <span class="o">-</span> <span class="nx">width</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">y:</span> <span class="p">(</span><span class="nx">iface</span><span class="p">.</span><span class="nx">mainWindow</span><span class="p">().</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">title:</span> <span class="s2">&quot;What is your favorite ice cream?&quot;</span>
+
+    <span class="nx">Column</span> <span class="p">{</span>
+      <span class="kd">id: columnLayout</span>
+      <span class="k">width:</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">width</span>
+
+      <span class="nx">TextField</span> <span class="p">{</span>
+        <span class="kd">id: favoriteIceCreamField</span>
+        <span class="k">width:</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">width</span>
+        <span class="k">text:</span> <span class="s2">&quot;&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">onAccepted:</span> <span class="p">{</span>
+      <span class="nx">ExpressionContextUtils</span><span class="p">.</span><span class="nx">setProjectVariable</span><span class="p">(</span><span class="nx">qgisProject</span><span class="p">,</span> <span class="s2">&quot;favorite_icecream&quot;</span><span class="p">,</span> <span class="nx">favoriteIceCreamField</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">projectInfo</span> <span class="o">=</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">findItemByObjectName</span><span class="p">(</span><span class="s2">&quot;projectInfo&quot;</span><span class="p">);</span>
+      <span class="nx">projectInfo</span><span class="p">.</span><span class="nx">saveVariable</span><span class="p">(</span><span class="s2">&quot;favorite_icecream&quot;</span><span class="p">,</span> <span class="nx">favoriteIceCreamField</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="register-a-map-canvas-point-handler-to-take-over-taps">Register a map canvas point handler to take over taps</h2>
+<p>Plugins can take over map canvas taps behavior by registering an handler with the <a href="../QField/classMapCanvasPointHandler/"><code>MapCanvasPointHandler</code></a> object. The code snippet below will look for features within a given layer and return an attribute instead of showing the features list. Feature iteration is done using functions provided by the <a href="../QField/classLayerUtils/"><code>LayerUtils</code></a> class.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">pointHandler</span><span class="p">.</span><span class="nx">registerHandler</span><span class="p">(</span><span class="s2">&quot;feature_iteration_example&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">point</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">interactionType</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">interactionType</span> <span class="o">===</span> <span class="s2">&quot;clicked&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">mapCanvas</span> <span class="o">=</span> <span class="nx">iface</span><span class="p">.</span><span class="nx">mapCanvas</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">tl</span> <span class="o">=</span> <span class="nx">mapCanvas</span><span class="p">.</span><span class="nx">mapSettings</span><span class="p">.</span><span class="nx">screenToCoordinate</span><span class="p">(</span><span class="nx">Qt</span><span class="p">.</span><span class="nx">point</span><span class="p">(</span><span class="nx">point</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">4</span><span class="p">));</span>
+    <span class="kr">const</span> <span class="nx">br</span> <span class="o">=</span> <span class="nx">mapCanvas</span><span class="p">.</span><span class="nx">mapSettings</span><span class="p">.</span><span class="nx">screenToCoordinate</span><span class="p">(</span><span class="nx">Qt</span><span class="p">.</span><span class="nx">point</span><span class="p">(</span><span class="nx">point</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">point</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="mi">4</span><span class="p">));</span>
+
+    <span class="kr">const</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="nx">GeometryUtils</span><span class="p">.</span><span class="nx">createRectangleFromPoints</span><span class="p">(</span><span class="nx">tl</span><span class="p">,</span> <span class="nx">br</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">it</span> <span class="o">=</span> <span class="nx">LayerUtils</span><span class="p">.</span><span class="nx">createFeatureIteratorFromRectangle</span><span class="p">(</span><span class="nx">qgisProject</span><span class="p">.</span><span class="nx">mapLayersByName</span><span class="p">(</span><span class="s2">&quot;my_layer&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">rectangle</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">hasNext</span><span class="p">())</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">feature</span> <span class="o">=</span> <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+      <span class="nx">mainWindow</span><span class="p">.</span><span class="nx">displayToast</span><span class="p">(</span><span class="s2">&quot;Feature found! It&#39;s name is &quot;</span> <span class="o">+</span> <span class="nx">feature</span><span class="p">.</span><span class="nx">attribute</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>By returning true, we are telling QField that we have taken over the handling and provided the desired action.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

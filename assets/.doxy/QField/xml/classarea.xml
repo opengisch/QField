@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classarea" kind="class" language="C++" prot="public">
+    <compoundname>area</compoundname>
+    <basecompoundref refid="classProcessingParameterWidgetBase" prot="public" virt="non-virtual">ProcessingParameterWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classarea_1ae0b47a309e9b8cab1fe000509cd79f02" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real area::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <qualifiedname>area::step</qualifiedname>
+        <read>dummyGetter_step_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="9" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classarea_1ad372ff0afe075e6a3ea90a3d562e0176" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real area::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>area::min</qualifiedname>
+        <read>dummyGetter_min_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="11" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classarea_1a8895320140b972730a86220154eb5423" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real area::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>area::max</qualifiedname>
+        <read>dummyGetter_max_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="13" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classarea_1a49d72a89265626d5002198d9472ea984" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int area::areaUnit</definition>
+        <argsstring></argsstring>
+        <name>areaUnit</name>
+        <qualifiedname>area::areaUnit</qualifiedname>
+        <read>dummyGetter_areaUnit_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="15" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classarea_1ab6ff1e82dd3384df3d0deb00d9aa01fb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool area::areaConvertible</definition>
+        <argsstring></argsstring>
+        <name>areaConvertible</name>
+        <qualifiedname>area::areaConvertible</qualifiedname>
+        <read>dummyGetter_areaConvertible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="17" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classarea_1a34989a10e86f564b5aaab187429a16fd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double area::currentValue</definition>
+        <argsstring></argsstring>
+        <name>currentValue</name>
+        <qualifiedname>area::currentValue</qualifiedname>
+        <read>dummyGetter_currentValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="22" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classarea_1aeec1bd251f0bcf57fe82d25e7b07600a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var area::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>area::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="19" column="5" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1ab1f11077bfd3735c1ed4e3f21c6ba60e" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField area::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>area::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="24" column="13" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1ae8fc5e814fc254c053d0ba61abf88a89" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label area::unitTypeLabel</definition>
+        <argsstring></argsstring>
+        <name>unitTypeLabel</name>
+        <qualifiedname>area::unitTypeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="25" column="7" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1a8bb787979ef44ac2fdcc3b670cdb18ae" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox area::unitTypesComboBox</definition>
+        <argsstring></argsstring>
+        <name>unitTypesComboBox</name>
+        <qualifiedname>area::unitTypesComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="26" column="12" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1a0caa3a2392d36c25d4951356f87b2c5f" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton area::decreaseButton</definition>
+        <argsstring></argsstring>
+        <name>decreaseButton</name>
+        <qualifiedname>area::decreaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="27" column="14" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1a938b4f2cc6839421cd5895f17da473d7" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton area::increaseButton</definition>
+        <argsstring></argsstring>
+        <name>increaseButton</name>
+        <qualifiedname>area::increaseButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="28" column="14" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1aa66de63fece9e9a97162c5bf471d06d5" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer area::changeValueTimer</definition>
+        <argsstring></argsstring>
+        <name>changeValueTimer</name>
+        <qualifiedname>area::changeValueTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="29" column="7" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1a2f4888cfce56d3de28ada6404d774d83" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics area::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>area::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="34" column="13" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classarea_1addb7cd152229f8880828b7b6e2844721" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator area::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>area::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="35" column="17" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classarea_1acc97caa877e0e8feba9660396f240436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void area::adjustValue</definition>
+        <argsstring>(direction)</argsstring>
+        <name>adjustValue</name>
+        <qualifiedname>area::adjustValue</qualifiedname>
+        <param>
+          <type>direction</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classarea_1ae94c68d822d2f10a116b9530a6c7918c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void area::prepareValueChangeRequest</definition>
+        <argsstring>(newValue)</argsstring>
+        <name>prepareValueChangeRequest</name>
+        <qualifiedname>area::prepareValueChangeRequest</qualifiedname>
+        <param>
+          <type>newValue</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/area.qml" line="38" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>area</label>
+        <link refid="classarea"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>area</label>
+        <link refid="classarea"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/processingparameterwidgets/area.qml" line="6" column="1" bodyfile="src/qml/processingparameterwidgets/area.qml" bodystart="6" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classarea_1acc97caa877e0e8feba9660396f240436" prot="public" virt="non-virtual"><scope>area</scope><name>adjustValue</name></member>
+      <member refid="classarea_1ab6ff1e82dd3384df3d0deb00d9aa01fb" prot="public" virt="non-virtual"><scope>area</scope><name>areaConvertible</name></member>
+      <member refid="classarea_1a49d72a89265626d5002198d9472ea984" prot="public" virt="non-virtual"><scope>area</scope><name>areaUnit</name></member>
+      <member refid="classarea_1aa66de63fece9e9a97162c5bf471d06d5" prot="private" virt="non-virtual"><scope>area</scope><name>changeValueTimer</name></member>
+      <member refid="classarea_1a34989a10e86f564b5aaab187429a16fd" prot="public" virt="non-virtual"><scope>area</scope><name>currentValue</name></member>
+      <member refid="classarea_1a0caa3a2392d36c25d4951356f87b2c5f" prot="private" virt="non-virtual"><scope>area</scope><name>decreaseButton</name></member>
+      <member refid="classarea_1addb7cd152229f8880828b7b6e2844721" prot="private" virt="non-virtual"><scope>area</scope><name>doubleValidator</name></member>
+      <member refid="classarea_1a2f4888cfce56d3de28ada6404d774d83" prot="private" virt="non-virtual"><scope>area</scope><name>fontMetrics</name></member>
+      <member refid="classarea_1aeec1bd251f0bcf57fe82d25e7b07600a" prot="private" virt="non-virtual"><scope>area</scope><name>height</name></member>
+      <member refid="classarea_1a938b4f2cc6839421cd5895f17da473d7" prot="private" virt="non-virtual"><scope>area</scope><name>increaseButton</name></member>
+      <member refid="classarea_1a8895320140b972730a86220154eb5423" prot="public" virt="non-virtual"><scope>area</scope><name>max</name></member>
+      <member refid="classarea_1ad372ff0afe075e6a3ea90a3d562e0176" prot="public" virt="non-virtual"><scope>area</scope><name>min</name></member>
+      <member refid="classarea_1ae94c68d822d2f10a116b9530a6c7918c" prot="public" virt="non-virtual"><scope>area</scope><name>prepareValueChangeRequest</name></member>
+      <member refid="classarea_1ae0b47a309e9b8cab1fe000509cd79f02" prot="public" virt="non-virtual"><scope>area</scope><name>step</name></member>
+      <member refid="classarea_1ab1f11077bfd3735c1ed4e3f21c6ba60e" prot="private" virt="non-virtual"><scope>area</scope><name>textField</name></member>
+      <member refid="classarea_1ae8fc5e814fc254c053d0ba61abf88a89" prot="private" virt="non-virtual"><scope>area</scope><name>unitTypeLabel</name></member>
+      <member refid="classarea_1a8bb787979ef44ac2fdcc3b670cdb18ae" prot="private" virt="non-virtual"><scope>area</scope><name>unitTypesComboBox</name></member>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual"><scope>area</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

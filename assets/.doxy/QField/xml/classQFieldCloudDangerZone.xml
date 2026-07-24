@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCloudDangerZone" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCloudDangerZone</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQFieldCloudDangerZone_1ac8ee858f56ba412ae967c33159276a5f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QFieldCloudDangerZone::hasDeltaError</definition>
+        <argsstring></argsstring>
+        <name>hasDeltaError</name>
+        <qualifiedname>QFieldCloudDangerZone::hasDeltaError</qualifiedname>
+        <read>dummyGetter_hasDeltaError_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudDangerZone.qml" line="17" column="1" bodyfile="src/qml/QFieldCloudDangerZone.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQFieldCloudDangerZone_1a90d023aa96536fa5d116c8e9a52293cc" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QFieldCloudDangerZone::dangerZoneColumn</definition>
+        <argsstring></argsstring>
+        <name>dangerZoneColumn</name>
+        <qualifiedname>QFieldCloudDangerZone::dangerZoneColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudDangerZone.qml" line="19" column="14" bodyfile="src/qml/QFieldCloudDangerZone.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQFieldCloudDangerZone_1adc148838ffd8677bee869b18cbf168a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudDangerZone::discardRequested</definition>
+        <argsstring>()</argsstring>
+        <name>discardRequested</name>
+        <qualifiedname>QFieldCloudDangerZone::discardRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudDangerZone.qml" line="12" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQFieldCloudDangerZone_1ad304ed359c5aa969bd20914b9df2f110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QFieldCloudDangerZone::resetRequested</definition>
+        <argsstring>()</argsstring>
+        <name>resetRequested</name>
+        <qualifiedname>QFieldCloudDangerZone::resetRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/QFieldCloudDangerZone.qml" line="14" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QFieldCloudDangerZone</label>
+        <link refid="classQFieldCloudDangerZone"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QFieldCloudDangerZone</label>
+        <link refid="classQFieldCloudDangerZone"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/QFieldCloudDangerZone.qml" line="9" column="1" bodyfile="src/qml/QFieldCloudDangerZone.qml" bodystart="9" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classQFieldCloudDangerZone_1a90d023aa96536fa5d116c8e9a52293cc" prot="private" virt="non-virtual"><scope>QFieldCloudDangerZone</scope><name>dangerZoneColumn</name></member>
+      <member refid="classQFieldCloudDangerZone_1adc148838ffd8677bee869b18cbf168a2" prot="public" virt="non-virtual"><scope>QFieldCloudDangerZone</scope><name>discardRequested</name></member>
+      <member refid="classQFieldCloudDangerZone_1ac8ee858f56ba412ae967c33159276a5f" prot="public" virt="non-virtual"><scope>QFieldCloudDangerZone</scope><name>hasDeltaError</name></member>
+      <member refid="classQFieldCloudDangerZone_1ad304ed359c5aa969bd20914b9df2f110" prot="public" virt="non-virtual"><scope>QFieldCloudDangerZone</scope><name>resetRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

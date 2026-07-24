@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureIterator" kind="class" language="C++" prot="public">
+    <compoundname>FeatureIterator</compoundname>
+    <includes refid="layerutils_8h" local="no">layerutils.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureIterator_1ad00dd139711365e99f395f5b03bc0c92" prot="private" static="no" mutable="no">
+        <type>QgsFeatureIterator</type>
+        <definition>QgsFeatureIterator FeatureIterator::mFeatureIterator</definition>
+        <argsstring></argsstring>
+        <name>mFeatureIterator</name>
+        <qualifiedname>FeatureIterator::mFeatureIterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="81" column="24" bodyfile="src/core/utils/layerutils.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureIterator_1a1b48998012f68a23e36042d8ff48a243" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature FeatureIterator::mCurrentFeature</definition>
+        <argsstring></argsstring>
+        <name>mCurrentFeature</name>
+        <qualifiedname>FeatureIterator::mCurrentFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="82" column="16" bodyfile="src/core/utils/layerutils.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureIterator_1afba845088213e1aa3b380433f62d25e7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureIterator::mHasNext</definition>
+        <argsstring></argsstring>
+        <name>mHasNext</name>
+        <qualifiedname>FeatureIterator::mHasNext</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="84" column="10" bodyfile="src/core/utils/layerutils.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureIterator_1ab196250662484ed8fb126307ae197e92" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureIterator::mHasNextChecked</definition>
+        <argsstring></argsstring>
+        <name>mHasNextChecked</name>
+        <qualifiedname>FeatureIterator::mHasNextChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="85" column="10" bodyfile="src/core/utils/layerutils.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureIterator_1ade0dea0d691410b34491e153df26303f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FeatureIterator::FeatureIterator</definition>
+        <argsstring>(QgsVectorLayer *layer=nullptr, const QgsFeatureRequest &amp;request=QgsFeatureRequest())</argsstring>
+        <name>FeatureIterator</name>
+        <qualifiedname>FeatureIterator::FeatureIterator</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>const QgsFeatureRequest &amp;</type>
+          <declname>request</declname>
+          <defval>QgsFeatureRequest()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="44" column="5" bodyfile="src/core/utils/layerutils.h" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureIterator_1a843b2da10d77f340cae47962e50c1de0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>Q_INVOKABLE bool FeatureIterator::hasNext</definition>
+        <argsstring>()</argsstring>
+        <name>hasNext</name>
+        <qualifiedname>FeatureIterator::hasNext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="52" column="22" bodyfile="src/core/utils/layerutils.h" bodystart="52" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureIterator_1a8e04af2ffd466aae98a325a0b50fb6fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QgsFeature</type>
+        <definition>Q_INVOKABLE QgsFeature FeatureIterator::next</definition>
+        <argsstring>()</argsstring>
+        <name>next</name>
+        <qualifiedname>FeatureIterator::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="62" column="28" bodyfile="src/core/utils/layerutils.h" bodystart="62" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureIterator_1a8521bdb74bebb9b17fc1a3efb5005fca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>Q_INVOKABLE void FeatureIterator::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>FeatureIterator::close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/layerutils.h" line="75" column="22" bodyfile="src/core/utils/layerutils.h" bodystart="75" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class providing a feature iterator interface to be used within QML/javascript environment.</para>
+<para>Users of this class must manually call its close() once feature iteration is finished. </para>
+    </detaileddescription>
+    <location file="src/core/utils/layerutils.h" line="39" column="1" bodyfile="src/core/utils/layerutils.h" bodystart="40" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classFeatureIterator_1a8521bdb74bebb9b17fc1a3efb5005fca" prot="public" virt="non-virtual"><scope>FeatureIterator</scope><name>close</name></member>
+      <member refid="classFeatureIterator_1ade0dea0d691410b34491e153df26303f" prot="public" virt="non-virtual"><scope>FeatureIterator</scope><name>FeatureIterator</name></member>
+      <member refid="classFeatureIterator_1a843b2da10d77f340cae47962e50c1de0" prot="public" virt="non-virtual"><scope>FeatureIterator</scope><name>hasNext</name></member>
+      <member refid="classFeatureIterator_1a1b48998012f68a23e36042d8ff48a243" prot="private" virt="non-virtual"><scope>FeatureIterator</scope><name>mCurrentFeature</name></member>
+      <member refid="classFeatureIterator_1ad00dd139711365e99f395f5b03bc0c92" prot="private" virt="non-virtual"><scope>FeatureIterator</scope><name>mFeatureIterator</name></member>
+      <member refid="classFeatureIterator_1afba845088213e1aa3b380433f62d25e7" prot="private" virt="non-virtual"><scope>FeatureIterator</scope><name>mHasNext</name></member>
+      <member refid="classFeatureIterator_1ab196250662484ed8fb126307ae197e92" prot="private" virt="non-virtual"><scope>FeatureIterator</scope><name>mHasNextChecked</name></member>
+      <member refid="classFeatureIterator_1a8e04af2ffd466aae98a325a0b50fb6fd" prot="public" virt="non-virtual"><scope>FeatureIterator</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmForm" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmForm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classProcessingAlgorithmForm_1a9781731a0447ed421ed5b2ea0fbf3be1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classProcessingAlgorithmParametersModel" kindref="compound">ProcessingAlgorithmParametersModel</ref></type>
+        <definition>ProcessingAlgorithmParametersModel ProcessingAlgorithmForm::algorithmParametersModel</definition>
+        <argsstring></argsstring>
+        <name>algorithmParametersModel</name>
+        <qualifiedname>ProcessingAlgorithmForm::algorithmParametersModel</qualifiedname>
+        <read>dummyGetter_algorithmParametersModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="14" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmForm_1a28b4b65e831afed89a6cf36897be9583" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ProcessingAlgorithmForm::inPlaceLayer</definition>
+        <argsstring></argsstring>
+        <name>inPlaceLayer</name>
+        <qualifiedname>ProcessingAlgorithmForm::inPlaceLayer</qualifiedname>
+        <read>dummyGetter_inPlaceLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="16" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmForm_1a7082a9ab757411db7cc7309e68c2e4e7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ProcessingAlgorithmForm::algorithmId</definition>
+        <argsstring></argsstring>
+        <name>algorithmId</name>
+        <qualifiedname>ProcessingAlgorithmForm::algorithmId</qualifiedname>
+        <read>dummyGetter_algorithmId_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="18" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmForm_1ab3c6f4e99ac69a9372ff1f1c18ed73e6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ProcessingAlgorithmForm::algorithmDisplayName</definition>
+        <argsstring></argsstring>
+        <name>algorithmDisplayName</name>
+        <qualifiedname>ProcessingAlgorithmForm::algorithmDisplayName</qualifiedname>
+        <read>dummyGetter_algorithmDisplayName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="20" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmForm_1a192cf7e1e4acdf5f7041dcce4a10abbf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias ProcessingAlgorithmForm::algorithmShortHelp</definition>
+        <argsstring></argsstring>
+        <name>algorithmShortHelp</name>
+        <qualifiedname>ProcessingAlgorithmForm::algorithmShortHelp</qualifiedname>
+        <read>dummyGetter_algorithmShortHelp_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="22" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classProcessingAlgorithmForm_1a5f6b85b902325b782a4c609af298e680" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real ProcessingAlgorithmForm::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>ProcessingAlgorithmForm::bottomMargin</qualifiedname>
+        <read>dummyGetter_bottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="24" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a365fd6337f5f07c188f2b27f61f83b5f" prot="private" static="no" mutable="no">
+        <type><ref refid="classProcessingAlgorithmParametersModel" kindref="compound">ProcessingAlgorithmParametersModel</ref></type>
+        <definition>ProcessingAlgorithmParametersModel ProcessingAlgorithmForm::processingAlgorithmParametersModel</definition>
+        <argsstring></argsstring>
+        <name>processingAlgorithmParametersModel</name>
+        <qualifiedname>ProcessingAlgorithmForm::processingAlgorithmParametersModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="26" column="36" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1af689c46cea1ba6701100c40f8f9e1d54" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout ProcessingAlgorithmForm::container</definition>
+        <argsstring></argsstring>
+        <name>container</name>
+        <qualifiedname>ProcessingAlgorithmForm::container</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="27" column="14" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a4af793ab319d00f336ed2944548d00c8" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfTabBar" kindref="compound">QfTabBar</ref></type>
+        <definition>QfTabBar ProcessingAlgorithmForm::tabRow</definition>
+        <argsstring></argsstring>
+        <name>tabRow</name>
+        <qualifiedname>ProcessingAlgorithmForm::tabRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="28" column="10" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a671faedf9802d1611ef33ad9f0c10e8f" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable ProcessingAlgorithmForm::contentView</definition>
+        <argsstring></argsstring>
+        <name>contentView</name>
+        <qualifiedname>ProcessingAlgorithmForm::contentView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="29" column="11" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a330ba988eb12f5f73b7a69a88e09ee2f" prot="private" static="no" mutable="no">
+        <type>Flow</type>
+        <definition>Flow ProcessingAlgorithmForm::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>ProcessingAlgorithmForm::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="30" column="6" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a6fe1dfb8da910a798faf4f4cf4515390" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater ProcessingAlgorithmForm::contentRepeater</definition>
+        <argsstring></argsstring>
+        <name>contentRepeater</name>
+        <qualifiedname>ProcessingAlgorithmForm::contentRepeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="31" column="10" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a232d63a391e2b083d89facc3d33dd26a" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable ProcessingAlgorithmForm::descriptionView</definition>
+        <argsstring></argsstring>
+        <name>descriptionView</name>
+        <qualifiedname>ProcessingAlgorithmForm::descriptionView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="32" column="11" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1ae1aad63a902490c84b14bd390abbe37e" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column ProcessingAlgorithmForm::descriptionContent</definition>
+        <argsstring></argsstring>
+        <name>descriptionContent</name>
+        <qualifiedname>ProcessingAlgorithmForm::descriptionContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="33" column="8" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1ae31445830488761c4d4b3912acf7f7d9" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component ProcessingAlgorithmForm::parameterItem</definition>
+        <argsstring></argsstring>
+        <name>parameterItem</name>
+        <qualifiedname>ProcessingAlgorithmForm::parameterItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="34" column="11" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1aa03eed4511545c0b570097b11c4a66b0" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label ProcessingAlgorithmForm::parameterDescription</definition>
+        <argsstring></argsstring>
+        <name>parameterDescription</name>
+        <qualifiedname>ProcessingAlgorithmForm::parameterDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="35" column="7" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a9c83777e175a3e8ff266c8794e72e4ce" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item ProcessingAlgorithmForm::parameterContent</definition>
+        <argsstring></argsstring>
+        <name>parameterContent</name>
+        <qualifiedname>ProcessingAlgorithmForm::parameterContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="36" column="6" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1af54cd282da16bde928cd742d31d94d7d" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item ProcessingAlgorithmForm::parameterWidgetPlaceholder</definition>
+        <argsstring></argsstring>
+        <name>parameterWidgetPlaceholder</name>
+        <qualifiedname>ProcessingAlgorithmForm::parameterWidgetPlaceholder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="37" column="6" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classProcessingAlgorithmForm_1a3dddff64c24dd32c7a4c658caabc1a8e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader ProcessingAlgorithmForm::parameterWidgetLoader</definition>
+        <argsstring></argsstring>
+        <name>parameterWidgetLoader</name>
+        <qualifiedname>ProcessingAlgorithmForm::parameterWidgetLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/ProcessingAlgorithmForm.qml" line="38" column="8" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmForm</label>
+        <link refid="classProcessingAlgorithmForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmForm</label>
+        <link refid="classProcessingAlgorithmForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/ProcessingAlgorithmForm.qml" line="11" column="1" bodyfile="src/qml/ProcessingAlgorithmForm.qml" bodystart="11" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classProcessingAlgorithmForm_1ab3c6f4e99ac69a9372ff1f1c18ed73e6" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmDisplayName</name></member>
+      <member refid="classProcessingAlgorithmForm_1a7082a9ab757411db7cc7309e68c2e4e7" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmId</name></member>
+      <member refid="classProcessingAlgorithmForm_1a9781731a0447ed421ed5b2ea0fbf3be1" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmParametersModel</name></member>
+      <member refid="classProcessingAlgorithmForm_1a192cf7e1e4acdf5f7041dcce4a10abbf" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmShortHelp</name></member>
+      <member refid="classProcessingAlgorithmForm_1a5f6b85b902325b782a4c609af298e680" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>bottomMargin</name></member>
+      <member refid="classProcessingAlgorithmForm_1af689c46cea1ba6701100c40f8f9e1d54" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>container</name></member>
+      <member refid="classProcessingAlgorithmForm_1a330ba988eb12f5f73b7a69a88e09ee2f" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>content</name></member>
+      <member refid="classProcessingAlgorithmForm_1a6fe1dfb8da910a798faf4f4cf4515390" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>contentRepeater</name></member>
+      <member refid="classProcessingAlgorithmForm_1a671faedf9802d1611ef33ad9f0c10e8f" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>contentView</name></member>
+      <member refid="classProcessingAlgorithmForm_1ae1aad63a902490c84b14bd390abbe37e" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>descriptionContent</name></member>
+      <member refid="classProcessingAlgorithmForm_1a232d63a391e2b083d89facc3d33dd26a" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>descriptionView</name></member>
+      <member refid="classProcessingAlgorithmForm_1a28b4b65e831afed89a6cf36897be9583" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>inPlaceLayer</name></member>
+      <member refid="classProcessingAlgorithmForm_1a9c83777e175a3e8ff266c8794e72e4ce" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>parameterContent</name></member>
+      <member refid="classProcessingAlgorithmForm_1aa03eed4511545c0b570097b11c4a66b0" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>parameterDescription</name></member>
+      <member refid="classProcessingAlgorithmForm_1ae31445830488761c4d4b3912acf7f7d9" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>parameterItem</name></member>
+      <member refid="classProcessingAlgorithmForm_1a3dddff64c24dd32c7a4c658caabc1a8e" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>parameterWidgetLoader</name></member>
+      <member refid="classProcessingAlgorithmForm_1af54cd282da16bde928cd742d31d94d7d" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>parameterWidgetPlaceholder</name></member>
+      <member refid="classProcessingAlgorithmForm_1a365fd6337f5f07c188f2b27f61f83b5f" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>processingAlgorithmParametersModel</name></member>
+      <member refid="classProcessingAlgorithmForm_1a4af793ab319d00f336ed2944548d00c8" prot="private" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>tabRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfContainerCard" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfContainerCard</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1a8c9c4ebebcf84b9f0f7c038abefb97f1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfContainerCard::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>Theme::QfContainerCard::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="18" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1a239553095e594c9239d796fac4cdc996" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfContainerCard::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>Theme::QfContainerCard::description</qualifiedname>
+        <read>dummyGetter_description_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="20" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1afc863a0b7c42dc17a18f6e4f9174c850" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfContainerCard::footnote</definition>
+        <argsstring></argsstring>
+        <name>footnote</name>
+        <qualifiedname>Theme::QfContainerCard::footnote</qualifiedname>
+        <read>dummyGetter_footnote_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="22" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1adf1df4da4598e69a1e6aab376024414b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfContainerCard::accentColor</definition>
+        <argsstring></argsstring>
+        <name>accentColor</name>
+        <qualifiedname>Theme::QfContainerCard::accentColor</qualifiedname>
+        <read>dummyGetter_accentColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="24" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1a5af9ddadbb6b0060362dab5d309bdebc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfContainerCard::iconSource</definition>
+        <argsstring></argsstring>
+        <name>iconSource</name>
+        <qualifiedname>Theme::QfContainerCard::iconSource</qualifiedname>
+        <read>dummyGetter_iconSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="26" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1a9aac9541af1d15897a99b7e04e91ef9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfContainerCard::indicatorVisible</definition>
+        <argsstring></argsstring>
+        <name>indicatorVisible</name>
+        <qualifiedname>Theme::QfContainerCard::indicatorVisible</qualifiedname>
+        <read>dummyGetter_indicatorVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="28" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1a391c4287db338bd42665fb112447aaf4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Theme::QfContainerCard::indicatorCount</definition>
+        <argsstring></argsstring>
+        <name>indicatorCount</name>
+        <qualifiedname>Theme::QfContainerCard::indicatorCount</qualifiedname>
+        <read>dummyGetter_indicatorCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="30" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfContainerCard_1ae33360e6680a788a899e34694c246067" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Theme::QfContainerCard::extraContent</definition>
+        <argsstring></argsstring>
+        <name>extraContent</name>
+        <qualifiedname>Theme::QfContainerCard::extraContent</qualifiedname>
+        <read>dummyGetter_extraContent_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="33" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a7dc3a78c1ce1c2045976f27412e68aaa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfContainerCard::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>Theme::QfContainerCard::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="35" column="5" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a72fab8d3a671043e26e9685181669190" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfContainerCard::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Theme::QfContainerCard::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="36" column="5" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a706d6f940526183d3ef9d086b724c767" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfContainerCard::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfContainerCard::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="37" column="5" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1acd035b6d06877cfa74085b4070b46307" prot="private" static="no" mutable="no">
+        <type>var border</type>
+        <definition>var border Theme::QfContainerCard::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Theme::QfContainerCard::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="38" column="11" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a82ba779ddf49afc66eb26452446b0981" prot="private" static="no" mutable="no">
+        <type>var border</type>
+        <definition>var border Theme::QfContainerCard::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Theme::QfContainerCard::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="39" column="11" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a51cded264a245f49edcf3596e4b4e787" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout Theme::QfContainerCard::cardColumn</definition>
+        <argsstring></argsstring>
+        <name>cardColumn</name>
+        <qualifiedname>Theme::QfContainerCard::cardColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="40" column="14" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a9ff2c2e825afa886db5152289b5cad19" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfContainerCard::cardIcon</definition>
+        <argsstring></argsstring>
+        <name>cardIcon</name>
+        <qualifiedname>Theme::QfContainerCard::cardIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="41" column="14" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a92febe4495f82651626a922dcf5d88ea" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfContainerCard::titleLabel</definition>
+        <argsstring></argsstring>
+        <name>titleLabel</name>
+        <qualifiedname>Theme::QfContainerCard::titleLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="42" column="6" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a52b8a71d0329e48b0361746bac17fc62" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Theme::QfContainerCard::indicator</definition>
+        <argsstring></argsstring>
+        <name>indicator</name>
+        <qualifiedname>Theme::QfContainerCard::indicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="43" column="11" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1aeefe166b241955a4c34f81e7d0b4ce2a" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfContainerCard::badgeLabel</definition>
+        <argsstring></argsstring>
+        <name>badgeLabel</name>
+        <qualifiedname>Theme::QfContainerCard::badgeLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="44" column="6" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1ad182c14ccdf5ff4da53c685186b3e375" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfContainerCard::descriptionLabel</definition>
+        <argsstring></argsstring>
+        <name>descriptionLabel</name>
+        <qualifiedname>Theme::QfContainerCard::descriptionLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="45" column="6" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a1fbe4a38631da57bf84709e5e2bf6a5c" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text Theme::QfContainerCard::footnoteLabel</definition>
+        <argsstring></argsstring>
+        <name>footnoteLabel</name>
+        <qualifiedname>Theme::QfContainerCard::footnoteLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="46" column="6" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfContainerCard_1a721f7d56b85f8bcf6e83141d4dd3f2d6" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout Theme::QfContainerCard::extraContentColumn</definition>
+        <argsstring></argsstring>
+        <name>extraContentColumn</name>
+        <qualifiedname>Theme::QfContainerCard::extraContentColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfContainerCard.qml" line="47" column="14" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A card grouping a title, description and status texts. Content (e.g. an action button or a toggle) can be added as children and is placed below the texts. <linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfContainerCard</label>
+        <link refid="classTheme_1_1QfContainerCard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfContainerCard</label>
+        <link refid="classTheme_1_1QfContainerCard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfContainerCard.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfContainerCard.qml" bodystart="15" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfContainerCard_1adf1df4da4598e69a1e6aab376024414b" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>accentColor</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1aeefe166b241955a4c34f81e7d0b4ce2a" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>badgeLabel</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a51cded264a245f49edcf3596e4b4e787" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>cardColumn</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a9ff2c2e825afa886db5152289b5cad19" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>cardIcon</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a706d6f940526183d3ef9d086b724c767" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a82ba779ddf49afc66eb26452446b0981" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>color</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a239553095e594c9239d796fac4cdc996" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>description</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1ad182c14ccdf5ff4da53c685186b3e375" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>descriptionLabel</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1ae33360e6680a788a899e34694c246067" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>extraContent</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a721f7d56b85f8bcf6e83141d4dd3f2d6" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>extraContentColumn</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1afc863a0b7c42dc17a18f6e4f9174c850" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>footnote</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a1fbe4a38631da57bf84709e5e2bf6a5c" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>footnoteLabel</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a5af9ddadbb6b0060362dab5d309bdebc" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>iconSource</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a7dc3a78c1ce1c2045976f27412e68aaa" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>implicitHeight</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a52b8a71d0329e48b0361746bac17fc62" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>indicator</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a391c4287db338bd42665fb112447aaf4" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>indicatorCount</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a9aac9541af1d15897a99b7e04e91ef9e" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>indicatorVisible</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a72fab8d3a671043e26e9685181669190" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>radius</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a8c9c4ebebcf84b9f0f7c038abefb97f1" prot="public" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>title</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1a92febe4495f82651626a922dcf5d88ea" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>titleLabel</name></member>
+      <member refid="classTheme_1_1QfContainerCard_1acd035b6d06877cfa74085b4070b46307" prot="private" virt="non-virtual"><scope>Theme::QfContainerCard</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

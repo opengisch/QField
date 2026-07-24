@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="EditorWidgetBase_8qml" kind="file" language="C++">
+    <compoundname>EditorWidgetBase.qml</compoundname>
+    <innerclass refid="classEditorWidgetBase" prot="public">EditorWidgetBase</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>Theme</highlight></codeline>
+<codeline lineno="5" refid="classEditorWidgetBase" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">Item<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>isLoaded:<sp/>false</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>property<sp/>bool<sp/>hasMenu:<sp/>false</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>readonly<sp/>property<sp/>bool<sp/>isNull:<sp/>FeatureUtils.attributeIsNull(value)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>readonly<sp/>property<sp/>bool<sp/>isEmpty:<sp/>value<sp/>===<sp/>&apos;&apos;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>property<sp/>Menu<sp/>menu:<sp/>QfMenu<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>itemMenu</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>title:<sp/>qsTr(&quot;Item<sp/>Menu&quot;)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>z:<sp/>10000<sp/></highlight><highlight class="comment">//<sp/>1000s<sp/>are<sp/>embedded<sp/>feature<sp/>forms,<sp/>use<sp/>a<sp/>higher<sp/>value<sp/>to<sp/>insure<sp/>feature<sp/>form<sp/>popups<sp/>always<sp/>show<sp/>above<sp/>embedded<sp/>feature<sp/>formes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>topMargin:<sp/>mainWindow.sceneTopMargin</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>bottomMargin:<sp/>mainWindow.sceneBottomMargin</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>signal<sp/>valueChangeRequested(var<sp/>value,<sp/>bool<sp/>isNull)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>signal<sp/>requestGeometry(var<sp/>item,<sp/>var<sp/>layer)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>signal<sp/>requestBarcode(var<sp/>item)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>signal<sp/>requestJumpToPoint(var<sp/>center,<sp/>real<sp/>scale,<sp/>bool<sp/>handleMargins)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/qml/editorwidgets/EditorWidgetBase.qml"/>
+  </compounddef>
+</doxygen>

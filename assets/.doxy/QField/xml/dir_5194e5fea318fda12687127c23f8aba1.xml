@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_5194e5fea318fda12687127c23f8aba1" kind="dir">
+    <compoundname>src/app</compoundname>
+    <innerfile refid="badlayerhandler_8cpp">badlayerhandler.cpp</innerfile>
+    <innerfile refid="badlayerhandler_8h">badlayerhandler.h</innerfile>
+    <innerfile refid="changelogcontents_8cpp">changelogcontents.cpp</innerfile>
+    <innerfile refid="changelogcontents_8h">changelogcontents.h</innerfile>
+    <innerfile refid="clipboardmanager_8cpp">clipboardmanager.cpp</innerfile>
+    <innerfile refid="clipboardmanager_8h">clipboardmanager.h</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="permissions_8cpp">permissions.cpp</innerfile>
+    <innerfile refid="permissions_8h">permissions.h</innerfile>
+    <innerfile refid="pluginmanager_8cpp">pluginmanager.cpp</innerfile>
+    <innerfile refid="pluginmanager_8h">pluginmanager.h</innerfile>
+    <innerfile refid="pluginmodel_8cpp">pluginmodel.cpp</innerfile>
+    <innerfile refid="pluginmodel_8h">pluginmodel.h</innerfile>
+    <innerfile refid="qfieldappauthrequesthandler_8cpp">qfieldappauthrequesthandler.cpp</innerfile>
+    <innerfile refid="qfieldappauthrequesthandler_8h">qfieldappauthrequesthandler.h</innerfile>
+    <innerfile refid="qfieldurlhandler_8cpp">qfieldurlhandler.cpp</innerfile>
+    <innerfile refid="qfieldurlhandler_8h">qfieldurlhandler.h</innerfile>
+    <innerfile refid="qgismobileapp_8cpp">qgismobileapp.cpp</innerfile>
+    <innerfile refid="qgismobileapp_8h">qgismobileapp.h</innerfile>
+    <innerfile refid="screendimmer_8cpp">screendimmer.cpp</innerfile>
+    <innerfile refid="screendimmer_8h">screendimmer.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/app/"/>
+  </compounddef>
+</doxygen>

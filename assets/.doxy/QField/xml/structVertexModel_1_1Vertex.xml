@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structVertexModel_1_1Vertex" kind="struct" language="C++" prot="public">
+    <compoundname>VertexModel::Vertex</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structVertexModel_1_1Vertex_1a6e582a6e738e3556352c468f60120fc3" prot="public" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint VertexModel::Vertex::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>VertexModel::Vertex::point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="112" column="18" bodyfile="src/core/vertexmodel.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVertexModel_1_1Vertex_1a33b2dcdc13c3767d134b3e36b7fe54f3" prot="public" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint VertexModel::Vertex::originalPoint</definition>
+        <argsstring></argsstring>
+        <name>originalPoint</name>
+        <qualifiedname>VertexModel::Vertex::originalPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="113" column="18" bodyfile="src/core/vertexmodel.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVertexModel_1_1Vertex_1a2c91e42f21c35a1cdfa23fd491fc3277" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VertexModel::Vertex::currentVertex</definition>
+        <argsstring></argsstring>
+        <name>currentVertex</name>
+        <qualifiedname>VertexModel::Vertex::currentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="114" column="14" bodyfile="src/core/vertexmodel.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVertexModel_1_1Vertex_1a19c2c9b7a1e66a7d9b0dbee4224640e1" prot="public" static="no" mutable="no">
+        <type>PointType</type>
+        <definition>PointType VertexModel::Vertex::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>VertexModel::Vertex::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="115" column="19" bodyfile="src/core/vertexmodel.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVertexModel_1_1Vertex_1abe85f8828a9bf2175a23d96594a7c696" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int VertexModel::Vertex::ring</definition>
+        <argsstring></argsstring>
+        <name>ring</name>
+        <qualifiedname>VertexModel::Vertex::ring</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/vertexmodel.h" line="116" column="13" bodyfile="src/core/vertexmodel.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/vertexmodel.h" line="110" column="5" bodyfile="src/core/vertexmodel.h" bodystart="111" bodyend="117"/>
+    <listofallmembers>
+      <member refid="structVertexModel_1_1Vertex_1a2c91e42f21c35a1cdfa23fd491fc3277" prot="public" virt="non-virtual"><scope>VertexModel::Vertex</scope><name>currentVertex</name></member>
+      <member refid="structVertexModel_1_1Vertex_1a33b2dcdc13c3767d134b3e36b7fe54f3" prot="public" virt="non-virtual"><scope>VertexModel::Vertex</scope><name>originalPoint</name></member>
+      <member refid="structVertexModel_1_1Vertex_1a6e582a6e738e3556352c468f60120fc3" prot="public" virt="non-virtual"><scope>VertexModel::Vertex</scope><name>point</name></member>
+      <member refid="structVertexModel_1_1Vertex_1abe85f8828a9bf2175a23d96594a7c696" prot="public" virt="non-virtual"><scope>VertexModel::Vertex</scope><name>ring</name></member>
+      <member refid="structVertexModel_1_1Vertex_1a19c2c9b7a1e66a7d9b0dbee4224640e1" prot="public" virt="non-virtual"><scope>VertexModel::Vertex</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

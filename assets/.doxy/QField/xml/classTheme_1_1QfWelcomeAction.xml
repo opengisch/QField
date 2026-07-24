@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfWelcomeAction" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfWelcomeAction</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfWelcomeAction_1a19bbfd5c7189920dbafc2314f58b9b74" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>url</type>
+        <definition>url Theme::QfWelcomeAction::iconSource</definition>
+        <argsstring></argsstring>
+        <name>iconSource</name>
+        <qualifiedname>Theme::QfWelcomeAction::iconSource</qualifiedname>
+        <read>dummyGetter_iconSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="14" column="1" bodyfile="src/qml/imports/Theme/QfWelcomeAction.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfWelcomeAction_1a9f507a6300aee135dd799ad4a1680036" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color Theme::QfWelcomeAction::iconColor</definition>
+        <argsstring></argsstring>
+        <name>iconColor</name>
+        <qualifiedname>Theme::QfWelcomeAction::iconColor</qualifiedname>
+        <read>dummyGetter_iconColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="16" column="1" bodyfile="src/qml/imports/Theme/QfWelcomeAction.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfWelcomeAction_1af965b041e7dfffb6e51e1efb01a6ca39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Theme::QfWelcomeAction::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>Theme::QfWelcomeAction::label</qualifiedname>
+        <read>dummyGetter_label_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="18" column="1" bodyfile="src/qml/imports/Theme/QfWelcomeAction.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfWelcomeAction_1a39078c7dceb4b7e6117acbd0e15b3a53" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfWelcomeAction::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>Theme::QfWelcomeAction::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="22" column="5" bodyfile="src/qml/imports/Theme/QfWelcomeAction.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfWelcomeAction_1accf54fc2ce4b125c3db00d2fb0adddce" prot="private" static="no" mutable="no">
+        <type><ref refid="classTheme_1_1QfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton Theme::QfWelcomeAction::actionButton</definition>
+        <argsstring></argsstring>
+        <name>actionButton</name>
+        <qualifiedname>Theme::QfWelcomeAction::actionButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="23" column="14" bodyfile="src/qml/imports/Theme/QfWelcomeAction.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfWelcomeAction_1ac6daeab0439ccfbf73aaa150b606afee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfWelcomeAction::clicked</definition>
+        <argsstring>()</argsstring>
+        <name>clicked</name>
+        <qualifiedname>Theme::QfWelcomeAction::clicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="20" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfWelcomeAction</label>
+        <link refid="classTheme_1_1QfWelcomeAction"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfWelcomeAction</label>
+        <link refid="classTheme_1_1QfWelcomeAction"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfWelcomeAction.qml" line="11" column="1" bodyfile="src/qml/imports/Theme/QfWelcomeAction.qml" bodystart="11" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfWelcomeAction_1accf54fc2ce4b125c3db00d2fb0adddce" prot="private" virt="non-virtual"><scope>Theme::QfWelcomeAction</scope><name>actionButton</name></member>
+      <member refid="classTheme_1_1QfWelcomeAction_1ac6daeab0439ccfbf73aaa150b606afee" prot="public" virt="non-virtual"><scope>Theme::QfWelcomeAction</scope><name>clicked</name></member>
+      <member refid="classTheme_1_1QfWelcomeAction_1a9f507a6300aee135dd799ad4a1680036" prot="public" virt="non-virtual"><scope>Theme::QfWelcomeAction</scope><name>iconColor</name></member>
+      <member refid="classTheme_1_1QfWelcomeAction_1a19bbfd5c7189920dbafc2314f58b9b74" prot="public" virt="non-virtual"><scope>Theme::QfWelcomeAction</scope><name>iconSource</name></member>
+      <member refid="classTheme_1_1QfWelcomeAction_1af965b041e7dfffb6e51e1efb01a6ca39" prot="public" virt="non-virtual"><scope>Theme::QfWelcomeAction</scope><name>label</name></member>
+      <member refid="classTheme_1_1QfWelcomeAction_1a39078c7dceb4b7e6117acbd0e15b3a53" prot="private" virt="non-virtual"><scope>Theme::QfWelcomeAction</scope><name>spacing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

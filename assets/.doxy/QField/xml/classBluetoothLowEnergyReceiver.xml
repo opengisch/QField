@@ -1,0 +1,685 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBluetoothLowEnergyReceiver" kind="class" language="C++" prot="public">
+    <compoundname>BluetoothLowEnergyReceiver</compoundname>
+    <basecompoundref refid="classNmeaGnssReceiver" prot="public" virt="non-virtual">NmeaGnssReceiver</basecompoundref>
+    <includes refid="bluetoothlowenergyreceiver_8h" local="no">bluetoothlowenergyreceiver.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a89a9dd92f465600d604cb67709dd961a" prot="public" static="yes" mutable="no">
+        <type>QLatin1String</type>
+        <definition>QLatin1String BluetoothLowEnergyReceiver::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::identifier</qualifiedname>
+        <initializer>= QLatin1String( &quot;ble&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="45" column="26" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a9efe91da25d1062f22255fd3180caf74" prot="public" static="yes" mutable="no">
+        <type>QMap&lt; QBluetoothUuid, std::pair&lt; QBluetoothUuid, QBluetoothUuid &gt; &gt;</type>
+        <definition>QMap&lt; QBluetoothUuid, std::pair&lt; QBluetoothUuid, QBluetoothUuid &gt; &gt; BluetoothLowEnergyReceiver::serviceChars</definition>
+        <argsstring></argsstring>
+        <name>serviceChars</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::serviceChars</qualifiedname>
+        <initializer>= {
+  { 
+    QBluetoothUuid( &quot;6e400001-b5a3-f393-e0a9-e50e24dcca9e&quot; ),
+    std::make_pair( QBluetoothUuid( &quot;6e400003-b5a3-f393-e0a9-e50e24dcca9e&quot; ), QBluetoothUuid( &quot;6e400002-b5a3-f393-e0a9-e50e24dcca9e&quot; ) ) },
+  { 
+    QBluetoothUuid( &quot;0000ffe0-0000-1000-8000-00805f9b34fb&quot; ),
+    std::make_pair( QBluetoothUuid( &quot;0000ffe1-0000-1000-8000-00805f9b34fb&quot; ), QBluetoothUuid( &quot;0000ffe1-0000-1000-8000-00805f9b34fb&quot; ) ) },
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="47" column="17" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="25" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a78a3b82e07ad9cce82bf5b5ffd26402d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString BluetoothLowEnergyReceiver::mAddress</definition>
+        <argsstring></argsstring>
+        <name>mAddress</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="78" column="13" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1aeb6a96f4734da8d4dfb589bcb56dd808" prot="private" static="no" mutable="no">
+        <type>QLowEnergyController *</type>
+        <definition>QLowEnergyController* BluetoothLowEnergyReceiver::mController</definition>
+        <argsstring></argsstring>
+        <name>mController</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mController</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="80" column="26" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a44b88f725e6beb979dd39c36a705da2f" prot="private" static="no" mutable="no">
+        <type>QLowEnergyService *</type>
+        <definition>QLowEnergyService* BluetoothLowEnergyReceiver::mService</definition>
+        <argsstring></argsstring>
+        <name>mService</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mService</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="82" column="23" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a7e8cd8e6c825976309712d2c5fb1a4ec" prot="private" static="no" mutable="no">
+        <type>QLowEnergyCharacteristic</type>
+        <definition>QLowEnergyCharacteristic BluetoothLowEnergyReceiver::mRxCharacteristic</definition>
+        <argsstring></argsstring>
+        <name>mRxCharacteristic</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mRxCharacteristic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="83" column="30" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a02c5ecb87bd4c3878c4b4fc5ae98cb12" prot="private" static="no" mutable="no">
+        <type>QLowEnergyCharacteristic</type>
+        <definition>QLowEnergyCharacteristic BluetoothLowEnergyReceiver::mTxCharacteristic</definition>
+        <argsstring></argsstring>
+        <name>mTxCharacteristic</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mTxCharacteristic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="84" column="30" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a3a35480fbf5a83031a6caf92a3198f75" prot="private" static="no" mutable="no">
+        <type>QLowEnergyService *</type>
+        <definition>QLowEnergyService* BluetoothLowEnergyReceiver::mBatteryService</definition>
+        <argsstring></argsstring>
+        <name>mBatteryService</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mBatteryService</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="86" column="23" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a9a95a4f5654b54d944158208df4d7ce2" prot="private" static="no" mutable="no">
+        <type>QLowEnergyCharacteristic</type>
+        <definition>QLowEnergyCharacteristic BluetoothLowEnergyReceiver::mBatteryCharacteristic</definition>
+        <argsstring></argsstring>
+        <name>mBatteryCharacteristic</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mBatteryCharacteristic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="87" column="30" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1aaedc329d1e5163c38f4a6cb13ff490fa" prot="private" static="no" mutable="no">
+        <type>QBuffer *</type>
+        <definition>QBuffer* BluetoothLowEnergyReceiver::mBuffer</definition>
+        <argsstring></argsstring>
+        <name>mBuffer</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mBuffer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="89" column="13" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a62c07384d777097d952313616ec91753" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray BluetoothLowEnergyReceiver::mBufferData</definition>
+        <argsstring></argsstring>
+        <name>mBufferData</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mBufferData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="90" column="16" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1ad65f52b4c94e08e39078db2a01d1c087" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray BluetoothLowEnergyReceiver::mCorrectionData</definition>
+        <argsstring></argsstring>
+        <name>mCorrectionData</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mCorrectionData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="92" column="16" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a49214d7202af325fab109a18d71f6788" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer BluetoothLowEnergyReceiver::mCorrectionTimer</definition>
+        <argsstring></argsstring>
+        <name>mCorrectionTimer</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mCorrectionTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="93" column="12" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1ae11cab5d20295bf2f0aa1e04f5490230" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothLowEnergyReceiver::mDisconnecting</definition>
+        <argsstring></argsstring>
+        <name>mDisconnecting</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mDisconnecting</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="95" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1ad583f6c350ab2558c7952fad06e54393" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BluetoothLowEnergyReceiver::mConnectOnDisconnect</definition>
+        <argsstring></argsstring>
+        <name>mConnectOnDisconnect</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mConnectOnDisconnect</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="96" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBluetoothLowEnergyReceiver_1a4664bcc557523ea6cd508d34d1f383e4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BluetoothLowEnergyReceiver::mConnectionFailureCount</definition>
+        <argsstring></argsstring>
+        <name>mConnectionFailureCount</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::mConnectionFailureCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="97" column="9" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBluetoothLowEnergyReceiver_1a70e19b72cef07b369fac1bfd0ab745b4" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver</definition>
+        <argsstring>(const QString &amp;address=QString(), QObject *parent=nullptr)</argsstring>
+        <name>BluetoothLowEnergyReceiver</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="40" column="14" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="37" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothLowEnergyReceiver_1af45dd355fc678fab6e91026cd73c9930" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluetoothLowEnergyReceiver::~BluetoothLowEnergyReceiver</definition>
+        <argsstring>()</argsstring>
+        <name>~BluetoothLowEnergyReceiver</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::~BluetoothLowEnergyReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="41" column="5" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="51" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothLowEnergyReceiver_1a09ef9594a6eb82220691ae129d942f3f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>AbstractGnssReceiver::Capabilities</type>
+        <definition>AbstractGnssReceiver::Capabilities BluetoothLowEnergyReceiver::capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>capabilities</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::capabilities</qualifiedname>
+        <reimplements refid="classAbstractGnssReceiver_1a9b8f1308b1b074582601f79dbf1edeef">capabilities</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="43" column="40" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a43aaf5c8b24a9d6515296d4204452898" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString BluetoothLowEnergyReceiver::socketStateString</definition>
+        <argsstring>() override</argsstring>
+        <name>socketStateString</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::socketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="50" column="13" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="349" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a9c689f68a3dddc067b96b56bed4aa72d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::onCorrectionDataReceived</definition>
+        <argsstring>(const QByteArray &amp;data) override</argsstring>
+        <name>onCorrectionDataReceived</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::onCorrectionDataReceived</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="51" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="363" bodyend="376"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a0a693377b12a153949be9b2ba41457c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::handleConnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="54" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="70" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a1d568d1b2acd1bcf8c143a4c503b2269" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::handleDisconnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="55" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a980514835e9ba9da97fbd8d4c66b28e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::deviceConnected</definition>
+        <argsstring>()</argsstring>
+        <name>deviceConnected</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::deviceConnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="58" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="135" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a05837881de8b55b85d3d586c4a4adcdf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::deviceDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>deviceDisconnected</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::deviceDisconnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="59" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="141" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a35101047ffffdb9cfd0eed3c16a24466" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::controllerErrorOccurred</definition>
+        <argsstring>(QLowEnergyController::Error error)</argsstring>
+        <name>controllerErrorOccurred</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::controllerErrorOccurred</qualifiedname>
+        <param>
+          <type>QLowEnergyController::Error</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="60" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="146" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a8582c7117c6c6f3c73c04668a817c791" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::serviceDiscovered</definition>
+        <argsstring>(const QBluetoothUuid &amp;newService)</argsstring>
+        <name>serviceDiscovered</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::serviceDiscovered</qualifiedname>
+        <param>
+          <type>const QBluetoothUuid &amp;</type>
+          <declname>newService</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="61" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="168" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a414c266d85fba3c93c08889bff25acac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::serviceDiscoveryFinished</definition>
+        <argsstring>()</argsstring>
+        <name>serviceDiscoveryFinished</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::serviceDiscoveryFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="62" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="180" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1afce2794aef2a8cbe68a41f2252bbd3eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::serviceStateChanged</definition>
+        <argsstring>(QLowEnergyService::ServiceState state)</argsstring>
+        <name>serviceStateChanged</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::serviceStateChanged</qualifiedname>
+        <param>
+          <type>QLowEnergyService::ServiceState</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="65" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="220" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1a9628a9062ac8667fe13423754a72a125" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::serviceErrorOccurred</definition>
+        <argsstring>(QLowEnergyService::ServiceError error)</argsstring>
+        <name>serviceErrorOccurred</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::serviceErrorOccurred</qualifiedname>
+        <param>
+          <type>QLowEnergyService::ServiceError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="66" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="289" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1aefb70f0f00e542ce2cc94266ba44cf52" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::characteristicChanged</definition>
+        <argsstring>(const QLowEnergyCharacteristic &amp;characteristic, const QByteArray &amp;value)</argsstring>
+        <name>characteristicChanged</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::characteristicChanged</qualifiedname>
+        <param>
+          <type>const QLowEnergyCharacteristic &amp;</type>
+          <declname>characteristic</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="67" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="296" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="slot" id="classBluetoothLowEnergyReceiver_1adf824ec744081d8d5b13bd9cc7a09f6d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::forwardCorrectionDataChunk</definition>
+        <argsstring>()</argsstring>
+        <name>forwardCorrectionDataChunk</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::forwardCorrectionDataChunk</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="69" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="378" bodyend="392"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBluetoothLowEnergyReceiver_1aa30a1c4e8bb282b05c318206677cfd70" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::clearService</definition>
+        <argsstring>()</argsstring>
+        <name>clearService</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::clearService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="72" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="323" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothLowEnergyReceiver_1a95ddd2ec63d2b5a876606190930c66ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::doConnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>doConnectDevice</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::doConnectDevice</qualifiedname>
+        <briefdescription>
+<para>Used to wait for previous connection to finish disconnecting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="75" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="98" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classBluetoothLowEnergyReceiver_1abda1f4aa6cd7176dbf39f4ff8672b39e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluetoothLowEnergyReceiver::doDisconnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>doDisconnectDevice</name>
+        <qualifiedname>BluetoothLowEnergyReceiver::doDisconnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="76" column="10" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.cpp" bodystart="121" bodyend="133"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classBluetoothLowEnergyReceiver" kindref="compound">BluetoothLowEnergyReceiver</ref> connects to a BLE device and feeds the QgsNmeaConnection over a proxy QIODevice using QLowEnergyController. It receives QgsGpsInformation and converts it to <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BluetoothLowEnergyReceiver</label>
+        <link refid="classBluetoothLowEnergyReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>AbstractGnssReceiver</label>
+        <link refid="classAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BluetoothLowEnergyReceiver</label>
+        <link refid="classBluetoothLowEnergyReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NmeaGnssReceiver</label>
+        <link refid="classNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/bluetoothlowenergyreceiver.h" line="35" column="1" bodyfile="src/core/positioning/bluetoothlowenergyreceiver.h" bodystart="36" bodyend="98"/>
+    <listofallmembers>
+      <member refid="classAbstractGnssReceiver_1a1609d1d8c1a316b44ffdbcc83bf4a766" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>AbstractGnssReceiver</name></member>
+      <member refid="classAbstractGnssReceiver_1a38f7a22b69619e13fcf92c4927ecd6e0" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>batteryLevel</name></member>
+      <member refid="classAbstractGnssReceiver_1a500042aeb81fc5ab3e06669627696672" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>batteryLevelChanged</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a70e19b72cef07b369fac1bfd0ab745b4" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>BluetoothLowEnergyReceiver</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a09ef9594a6eb82220691ae129d942f3f" prot="public" virt="virtual"><scope>BluetoothLowEnergyReceiver</scope><name>capabilities</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>Capability</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1aefb70f0f00e542ce2cc94266ba44cf52" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>characteristicChanged</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1aa30a1c4e8bb282b05c318206677cfd70" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>clearService</name></member>
+      <member refid="classAbstractGnssReceiver_1a44f38d0bb07d582b9b301aeb1b834c71" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>connectDevice</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a35101047ffffdb9cfd0eed3c16a24466" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>controllerErrorOccurred</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a980514835e9ba9da97fbd8d4c66b28e9" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>deviceConnected</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a05837881de8b55b85d3d586c4a4adcdf" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>deviceDisconnected</name></member>
+      <member refid="classAbstractGnssReceiver_1a8238eb63f6cea17e0269188394fad4d8" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a95ddd2ec63d2b5a876606190930c66ca" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>doConnectDevice</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1abda1f4aa6cd7176dbf39f4ff8672b39e" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>doDisconnectDevice</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1adf824ec744081d8d5b13bd9cc7a09f6d" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>forwardCorrectionDataChunk</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a0a693377b12a153949be9b2ba41457c7" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a1d568d1b2acd1bcf8c143a4c503b2269" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a89a9dd92f465600d604cb67709dd961a" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>identifier</name></member>
+      <member refid="classNmeaGnssReceiver_1a9c49ff486907cd866c2caa732b47a0d6" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classAbstractGnssReceiver_1aaca96579de6a3a47f6af8f3872b9b727" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>lastError</name></member>
+      <member refid="classAbstractGnssReceiver_1afe956f57b712d23f7ffc7988293aea3e" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acae5ab4648a4eaa9aae76c1b76d4915c" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classAbstractGnssReceiver_1a4f9353d27fc14bbbc9f157a3aea8429f" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a627bf82746c2007f651b25f6a9f4e76d" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>Logging</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a78a3b82e07ad9cce82bf5b5ffd26402d" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mAddress</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a9a95a4f5654b54d944158208df4d7ce2" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mBatteryCharacteristic</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a3a35480fbf5a83031a6caf92a3198f75" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mBatteryService</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1aaedc329d1e5163c38f4a6cb13ff490fa" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mBuffer</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a62c07384d777097d952313616ec91753" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mBufferData</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a4664bcc557523ea6cd508d34d1f383e4" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mConnectionFailureCount</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1ad583f6c350ab2558c7952fad06e54393" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mConnectOnDisconnect</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1aeb6a96f4734da8d4dfb589bcb56dd808" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mController</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1ad65f52b4c94e08e39078db2a01d1c087" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mCorrectionData</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a49214d7202af325fab109a18d71f6788" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mCorrectionTimer</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1ae11cab5d20295bf2f0aa1e04f5490230" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mDisconnecting</name></member>
+      <member refid="classNmeaGnssReceiver_1a2820ae5b15d27fbada2b3d6437701c9b" prot="protected" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classNmeaGnssReceiver_1a825488688149acfdc3f38967fbf1c480" prot="protected" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a7e8cd8e6c825976309712d2c5fb1a4ec" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mRxCharacteristic</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a44b88f725e6beb979dd39c36a705da2f" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mService</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a02c5ecb87bd4c3878c4b4fc5ae98cb12" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>mTxCharacteristic</name></member>
+      <member refid="classNmeaGnssReceiver_1aff510bf60aa7f7ad90f953e070c608fd" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>NmeaGnssReceiver</name></member>
+      <member refid="classNmeaGnssReceiver_1a59d0ada00ff24ad7b9a90389581efff4" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>nmeaSentenceReceived</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975aed9e46fde2ff0acea44bc8137ac4d21a" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a47d8789bab34e20a596ed66709ea1b82" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>NtripCorrection</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a9c689f68a3dddc067b96b56bed4aa72d" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>onCorrectionDataReceived</name></member>
+      <member refid="classAbstractGnssReceiver_1ae59d2b8077ab097a16f63dd369a60975a26d16bd4c6171e893dd7303886a782e5" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a9efe91da25d1062f22255fd3180caf74" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>serviceChars</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a8582c7117c6c6f3c73c04668a817c791" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>serviceDiscovered</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a414c266d85fba3c93c08889bff25acac" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>serviceDiscoveryFinished</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a9628a9062ac8667fe13423754a72a125" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>serviceErrorOccurred</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1afce2794aef2a8cbe68a41f2252bbd3eb" prot="private" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>serviceStateChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a579d81115c16bc5a498cc8532f44fcb3" prot="protected" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>setSocketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a61a9a4baf3e854038b0cd6bd9f969366" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>setValid</name></member>
+      <member refid="classAbstractGnssReceiver_1a778bd4ee7e98f891e42396a953eba4b4" prot="public" virt="virtual"><scope>BluetoothLowEnergyReceiver</scope><name>socketState</name></member>
+      <member refid="classAbstractGnssReceiver_1a251c5c7ac7a3e6a8795fd9004b729e2e" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1a43aaf5c8b24a9d6515296d4204452898" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>socketStateString</name></member>
+      <member refid="classAbstractGnssReceiver_1ad9d28fec49b2faf94fe187453b540d00" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1acb8e0d5ddd87eb007bf55a2a9a231801" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>startLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a098f12276d444f455473ffb9b95735d0" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>stopLogging</name></member>
+      <member refid="classAbstractGnssReceiver_1a0738727cbe42715b16564e8ea5863875" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>valid</name></member>
+      <member refid="classAbstractGnssReceiver_1a3fa79a03f84f0f9b0938cf9cc76513ba" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>validChanged</name></member>
+      <member refid="classAbstractGnssReceiver_1a79bb78bb03066de84106cd0a72579378" prot="public" virt="virtual"><scope>BluetoothLowEnergyReceiver</scope><name>~AbstractGnssReceiver</name></member>
+      <member refid="classBluetoothLowEnergyReceiver_1af45dd355fc678fab6e91026cd73c9930" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>~BluetoothLowEnergyReceiver</name></member>
+      <member refid="classNmeaGnssReceiver_1a01427d39adc04c08330d0812f0e89482" prot="public" virt="non-virtual"><scope>BluetoothLowEnergyReceiver</scope><name>~NmeaGnssReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFocusStack" kind="class" language="C++" prot="public">
+    <compoundname>FocusStack</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFocusStack_1a433d136c42baf512c60e18e50b02d826" prot="private" static="no" mutable="no">
+        <type>QList&lt; QPointer&lt; QObject &gt; &gt;</type>
+        <definition>QList&lt;QPointer&lt;QObject&gt; &gt; FocusStack::mStackList</definition>
+        <argsstring></argsstring>
+        <name>mStackList</name>
+        <qualifiedname>FocusStack::mStackList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="42" column="11" bodyfile="src/core/focusstack.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFocusStack_1a315336ab2c549e26bedcf280216f6015" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FocusStack::FocusStack</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FocusStack</name>
+        <qualifiedname>FocusStack::FocusStack</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="30" column="14" bodyfile="src/core/focusstack.cpp" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classFocusStack_1a9ffa24aee9189050963b3b41414f50d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FocusStack::~FocusStack</definition>
+        <argsstring>()=default</argsstring>
+        <name>~FocusStack</name>
+        <qualifiedname>FocusStack::~FocusStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="31" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classFocusStack_1a0698ecd71d3798bfe0bb73b96c9da763" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FocusStack::addFocusTaker</definition>
+        <argsstring>(QObject *object)</argsstring>
+        <name>addFocusTaker</name>
+        <qualifiedname>FocusStack::addFocusTaker</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="33" column="22" bodyfile="src/core/focusstack.cpp" bodystart="23" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classFocusStack_1a43eb6ae3235c8f64cdee5c5b6757140d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FocusStack::forceActiveFocusOnLastTaker</definition>
+        <argsstring>()</argsstring>
+        <name>forceActiveFocusOnLastTaker</name>
+        <qualifiedname>FocusStack::forceActiveFocusOnLastTaker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="34" column="22" bodyfile="src/core/focusstack.cpp" bodystart="104" bodyend="113"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classFocusStack_1aacbf36475b4b5d0b152569712d37c682" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FocusStack::visibleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleChanged</name>
+        <qualifiedname>FocusStack::visibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="37" column="10" bodyfile="src/core/focusstack.cpp" bodystart="52" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFocusStack_1a2ab46f50359a5f4995dc0307579fe041" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FocusStack::popupOpened</definition>
+        <argsstring>()</argsstring>
+        <name>popupOpened</name>
+        <qualifiedname>FocusStack::popupOpened</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="38" column="10" bodyfile="src/core/focusstack.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="slot" id="classFocusStack_1a1307545d96e77f921b5cc079f454de24" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FocusStack::popupClosed</definition>
+        <argsstring>()</argsstring>
+        <name>popupClosed</name>
+        <qualifiedname>FocusStack::popupClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="39" column="10" bodyfile="src/core/focusstack.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFocusStack_1acbbccffc60f9c6bc3aaf8a9d81a20f1c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FocusStack::setFocused</definition>
+        <argsstring>(QObject *object)</argsstring>
+        <name>setFocused</name>
+        <qualifiedname>FocusStack::setFocused</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="43" column="10" bodyfile="src/core/focusstack.cpp" bodystart="65" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classFocusStack_1af64fe461db00336d55effb4d60c15ce6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FocusStack::setUnfocused</definition>
+        <argsstring>(QObject *object)</argsstring>
+        <name>setUnfocused</name>
+        <qualifiedname>FocusStack::setUnfocused</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/focusstack.h" line="44" column="10" bodyfile="src/core/focusstack.cpp" bodystart="72" bodyend="102"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FocusStack</label>
+        <link refid="classFocusStack"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FocusStack</label>
+        <link refid="classFocusStack"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/focusstack.h" line="25" column="1" bodyfile="src/core/focusstack.h" bodystart="26" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classFocusStack_1a0698ecd71d3798bfe0bb73b96c9da763" prot="public" virt="non-virtual"><scope>FocusStack</scope><name>addFocusTaker</name></member>
+      <member refid="classFocusStack_1a315336ab2c549e26bedcf280216f6015" prot="public" virt="non-virtual"><scope>FocusStack</scope><name>FocusStack</name></member>
+      <member refid="classFocusStack_1a43eb6ae3235c8f64cdee5c5b6757140d" prot="public" virt="non-virtual"><scope>FocusStack</scope><name>forceActiveFocusOnLastTaker</name></member>
+      <member refid="classFocusStack_1a433d136c42baf512c60e18e50b02d826" prot="private" virt="non-virtual"><scope>FocusStack</scope><name>mStackList</name></member>
+      <member refid="classFocusStack_1a1307545d96e77f921b5cc079f454de24" prot="private" virt="non-virtual"><scope>FocusStack</scope><name>popupClosed</name></member>
+      <member refid="classFocusStack_1a2ab46f50359a5f4995dc0307579fe041" prot="private" virt="non-virtual"><scope>FocusStack</scope><name>popupOpened</name></member>
+      <member refid="classFocusStack_1acbbccffc60f9c6bc3aaf8a9d81a20f1c" prot="private" virt="non-virtual"><scope>FocusStack</scope><name>setFocused</name></member>
+      <member refid="classFocusStack_1af64fe461db00336d55effb4d60c15ce6" prot="private" virt="non-virtual"><scope>FocusStack</scope><name>setUnfocused</name></member>
+      <member refid="classFocusStack_1aacbf36475b4b5d0b152569712d37c682" prot="private" virt="non-virtual"><scope>FocusStack</scope><name>visibleChanged</name></member>
+      <member refid="classFocusStack_1a9ffa24aee9189050963b3b41414f50d1" prot="public" virt="non-virtual"><scope>FocusStack</scope><name>~FocusStack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

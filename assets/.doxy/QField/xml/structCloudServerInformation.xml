@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structCloudServerInformation" kind="struct" language="C++" prot="public">
+    <compoundname>CloudServerInformation</compoundname>
+    <includes refid="qfieldcloudutils_8h" local="no">qfieldcloudutils.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="structCloudServerInformation_1a368b22a127f20a1f53b25dfa7fb35a1f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structCloudWhitelabelInformation" kindref="compound">CloudWhitelabelInformation</ref></type>
+        <definition>CloudWhitelabelInformation CloudServerInformation::whitelabel</definition>
+        <argsstring></argsstring>
+        <name>whitelabel</name>
+        <qualifiedname>CloudServerInformation::whitelabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="180" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudServerInformation_1a15a761b45d59b208476b09e0657390de" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudServerInformation::signupUrl</definition>
+        <argsstring></argsstring>
+        <name>signupUrl</name>
+        <qualifiedname>CloudServerInformation::signupUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="181" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCloudServerInformation_1a86c327fb7c2ff066526effc462ebf34e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CloudServerInformation::CloudServerInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>CloudServerInformation</name>
+        <qualifiedname>CloudServerInformation::CloudServerInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="184" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudServerInformation_1ac38d1e87fa4e5bd66f4b18b80150ff50" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CloudServerInformation::CloudServerInformation</definition>
+        <argsstring>(const QVariantMap &amp;serverInformation)</argsstring>
+        <name>CloudServerInformation</name>
+        <qualifiedname>CloudServerInformation::CloudServerInformation</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>serverInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="186" column="14" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudServerInformation_1a322e31d0f8560a5dca5181db43aab502" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudServerInformation::operator==</definition>
+        <argsstring>(const CloudServerInformation &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CloudServerInformation::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudServerInformation" kindref="compound">CloudServerInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="191" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudServerInformation_1a5e986cf76225846ea3f7a62a018b1aa2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudServerInformation::operator!=</definition>
+        <argsstring>(const CloudServerInformation &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>CloudServerInformation::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudServerInformation" kindref="compound">CloudServerInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="196" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudServerInformation_1a0f9231451c5af1a29076e73d5a258897" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap CloudServerInformation::toVariantMap</definition>
+        <argsstring>() const</argsstring>
+        <name>toVariantMap</name>
+        <qualifiedname>CloudServerInformation::toVariantMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="201" column="17" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="201" bodyend="207"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Public information about a QFieldCloud server, including whitelabel branding and the new-user signup URL. </para>
+    </detaileddescription>
+    <location file="src/core/utils/qfieldcloudutils.h" line="176" column="1" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="177" bodyend="211"/>
+    <listofallmembers>
+      <member refid="structCloudServerInformation_1a86c327fb7c2ff066526effc462ebf34e" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>CloudServerInformation</name></member>
+      <member refid="structCloudServerInformation_1ac38d1e87fa4e5bd66f4b18b80150ff50" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>CloudServerInformation</name></member>
+      <member refid="structCloudServerInformation_1a5e986cf76225846ea3f7a62a018b1aa2" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>operator!=</name></member>
+      <member refid="structCloudServerInformation_1a322e31d0f8560a5dca5181db43aab502" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>operator==</name></member>
+      <member refid="structCloudServerInformation_1a15a761b45d59b208476b09e0657390de" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>signupUrl</name></member>
+      <member refid="structCloudServerInformation_1a0f9231451c5af1a29076e73d5a258897" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>toVariantMap</name></member>
+      <member refid="structCloudServerInformation_1a368b22a127f20a1f53b25dfa7fb35a1f" prot="public" virt="non-virtual"><scope>CloudServerInformation</scope><name>whitelabel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

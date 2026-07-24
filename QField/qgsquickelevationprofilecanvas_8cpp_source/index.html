@@ -1,0 +1,1303 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>File qgsquickelevationprofilecanvas.cpp - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-qgsquickelevationprofilecanvascpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File qgsquickelevationprofilecanvas.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../translate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translate a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-qgsquickelevationprofilecanvascpp">File qgsquickelevationprofilecanvas.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_aebb8dcc11953d78e620bbef0b9e2183/"><strong>core</strong></a> <strong>&gt;</strong> <a href="../dir_19c3d7c8ba6dc95926fecc96295d1560/"><strong>qgsquick</strong></a> <strong>&gt;</strong> <a href="../qgsquickelevationprofilecanvas_8cpp/"><strong>qgsquickelevationprofilecanvas.cpp</strong></a></p>
+<p><a href="../qgsquickelevationprofilecanvas_8cpp/">Go to the documentation of this file</a></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/***************************************************************************</span>
+<span class="cm">                          QgsQuickElevationProfileCanvas.cpp</span>
+<span class="cm">                          -----------------</span>
+<span class="cm">    begin                : October 2022</span>
+<span class="cm">    copyright            : (C) 2022 by Mathieu Pellerin</span>
+<span class="cm">    email                : mathieu at opengis dot ch</span>
+<span class="cm">***************************************************************************/</span>
+
+
+<span class="cm">/***************************************************************************</span>
+<span class="cm"> *                                                                         *</span>
+<span class="cm"> *   This program is free software; you can redistribute it and/or modify  *</span>
+<span class="cm"> *   it under the terms of the GNU General Public License as published by  *</span>
+<span class="cm"> *   the Free Software Foundation; either version 2 of the License, or     *</span>
+<span class="cm"> *   (at your option) any later version.                                   *</span>
+<span class="cm"> *                                                                         *</span>
+<span class="cm"> ***************************************************************************/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsabstractprofilegenerator.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsabstractprofilesource.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgscolorutils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsexpressioncontextutils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsfillsymbol.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsfillsymbollayer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgslinesymbol.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgslinesymbollayer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsmaplayerelevationproperties.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsmaplayerutils.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsplot.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsprofilerenderer.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsprofilerequest.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsprojectelevationproperties.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsquickelevationprofilecanvas.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qgsterrainprovider.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QQuickWindow&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QSGSimpleRectNode&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QSGSimpleTextureNode&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QScreen&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QTimer&gt;</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">_qgis_listQPointerToRaw</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsWeakMapLayerPointerList</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layers</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">lst</span><span class="p">;</span>
+<span class="w">  </span><span class="n">lst</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="w"> </span><span class="n">layers</span><span class="p">.</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsWeakMapLayerPointer</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layerPtr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">layers</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layerPtr</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="n">lst</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"> </span><span class="n">layerPtr</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">lst</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">QgsWeakMapLayerPointerList</span><span class="w"> </span><span class="n">_qgis_listRawToQPointer</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layers</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QgsWeakMapLayerPointerList</span><span class="w"> </span><span class="n">lst</span><span class="p">;</span>
+<span class="w">  </span><span class="n">lst</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="w"> </span><span class="n">layers</span><span class="p">.</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">layers</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lst</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">lst</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">QgsElevationProfilePlotItem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Qgs2DXyPlot</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">QgsElevationProfilePlotItem</span><span class="p">(</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="w"> </span><span class="o">*</span><span class="n">canvas</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">mCanvas</span><span class="p">(</span><span class="w"> </span><span class="n">canvas</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="n">mCanvas</span><span class="o">-&gt;</span><span class="n">boundingRect</span><span class="p">().</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">QgsProfilePlotRenderer</span><span class="w"> </span><span class="o">*</span><span class="n">renderer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mRenderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">renderer</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">updateRect</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="n">mCanvas</span><span class="o">-&gt;</span><span class="n">boundingRect</span><span class="p">().</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">      </span><span class="n">mPlotArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QRectF</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">updatePlot</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">      </span><span class="n">mPlotArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QRectF</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">redrawResults</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sourceId</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="w"> </span><span class="n">sourceId</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">QRectF</span><span class="w"> </span><span class="n">plotArea</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mPlotArea</span><span class="p">.</span><span class="n">isNull</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mPlotArea</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// force immediate recalculation of plot area</span>
+<span class="w">      </span><span class="n">QgsRenderContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">      </span><span class="n">context</span><span class="p">.</span><span class="n">setScaleFactor</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCanvas</span><span class="o">-&gt;</span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">physicalDotsPerInch</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mCanvas</span><span class="o">-&gt;</span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">devicePixelRatio</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">25.4</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">QgsPlotRenderContext</span><span class="w"> </span><span class="n">plotRenderContext</span><span class="p">;</span>
+<span class="w">      </span><span class="n">calculateOptimisedIntervals</span><span class="p">(</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">plotRenderContext</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">mPlotArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">interiorPlotArea</span><span class="p">(</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">plotRenderContext</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">mPlotArea</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">renderContent</span><span class="p">(</span><span class="w"> </span><span class="n">QgsRenderContext</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="n">QgsPlotRenderContext</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plotContext</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QRectF</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plotArea</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsPlotData</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plotData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsPlotData</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mPlotArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plotArea</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mRenderer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">QStringList</span><span class="w"> </span><span class="n">sourceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mRenderer</span><span class="o">-&gt;</span><span class="n">sourceIds</span><span class="p">();</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QString</span><span class="w"> </span><span class="o">&amp;</span><span class="n">source</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sourceIds</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">QImage</span><span class="w"> </span><span class="n">plot</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">constFind</span><span class="p">(</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">constEnd</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="n">plot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mCanvas</span><span class="o">-&gt;</span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">devicePixelRatio</span><span class="p">();</span>
+<span class="w">          </span><span class="n">plot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QImage</span><span class="p">(</span><span class="w"> </span><span class="n">plotArea</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="p">,</span><span class="w"> </span><span class="n">plotArea</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="p">,</span><span class="w"> </span><span class="n">QImage</span><span class="o">::</span><span class="n">Format_ARGB32_Premultiplied</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">plot</span><span class="p">.</span><span class="n">setDevicePixelRatio</span><span class="p">(</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">plot</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">transparent</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">          </span><span class="n">QPainter</span><span class="w"> </span><span class="nf">plotPainter</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plot</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">plotPainter</span><span class="p">.</span><span class="n">setRenderHint</span><span class="p">(</span><span class="w"> </span><span class="n">QPainter</span><span class="o">::</span><span class="n">Antialiasing</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">QgsRenderContext</span><span class="w"> </span><span class="n">plotRc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsRenderContext</span><span class="o">::</span><span class="n">fromQPainter</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plotPainter</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">plotRc</span><span class="p">.</span><span class="n">setDevicePixelRatio</span><span class="p">(</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">mRenderer</span><span class="o">-&gt;</span><span class="n">render</span><span class="p">(</span><span class="w"> </span><span class="n">plotRc</span><span class="p">,</span><span class="w"> </span><span class="n">plotArea</span><span class="p">.</span><span class="n">width</span><span class="p">(),</span><span class="w"> </span><span class="n">plotArea</span><span class="p">.</span><span class="n">height</span><span class="p">(),</span><span class="w"> </span><span class="n">xMinimum</span><span class="p">(),</span><span class="w"> </span><span class="n">xMaximum</span><span class="p">(),</span><span class="w"> </span><span class="n">yMinimum</span><span class="p">(),</span><span class="w"> </span><span class="n">yMaximum</span><span class="p">(),</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">);</span>
+<span class="w">          </span><span class="n">plotPainter</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+
+<span class="w">          </span><span class="n">mCachedImages</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">plot</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">rc</span><span class="p">.</span><span class="n">painter</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">drawImage</span><span class="p">(</span><span class="w"> </span><span class="n">plotArea</span><span class="p">.</span><span class="n">left</span><span class="p">(),</span><span class="w"> </span><span class="n">plotArea</span><span class="p">.</span><span class="n">top</span><span class="p">(),</span><span class="w"> </span><span class="n">plot</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="w"> </span><span class="o">*</span><span class="n">mCanvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QgsProfilePlotRenderer</span><span class="w"> </span><span class="o">*</span><span class="n">mRenderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">QRectF</span><span class="w"> </span><span class="n">mPlotArea</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QMap</span><span class="o">&lt;</span><span class="n">QString</span><span class="p">,</span><span class="w"> </span><span class="n">QImage</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mCachedImages</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="p">(</span><span class="w"> </span><span class="n">QQuickItem</span><span class="w"> </span><span class="o">*</span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">QQuickItem</span><span class="p">(</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// updating the profile plot is deferred on a timer, so that we don&#39;t trigger it too often</span>
+<span class="w">  </span><span class="n">mDeferredRegenerationTimer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QTimer</span><span class="p">(</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mDeferredRegenerationTimer</span><span class="o">-&gt;</span><span class="n">setSingleShot</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mDeferredRegenerationTimer</span><span class="o">-&gt;</span><span class="n">stop</span><span class="p">();</span>
+<span class="w">  </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">mDeferredRegenerationTimer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QTimer</span><span class="o">::</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">startDeferredRegeneration</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mDeferredRedrawTimer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QTimer</span><span class="p">(</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mDeferredRedrawTimer</span><span class="o">-&gt;</span><span class="n">setSingleShot</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mDeferredRedrawTimer</span><span class="o">-&gt;</span><span class="n">stop</span><span class="p">();</span>
+<span class="w">  </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">mDeferredRedrawTimer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QTimer</span><span class="o">::</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">startDeferredRedraw</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mPlotItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsElevationProfilePlotItem</span><span class="p">(</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">updateStyle</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">setTransformOrigin</span><span class="p">(</span><span class="w"> </span><span class="n">QQuickItem</span><span class="o">::</span><span class="n">TopLeft</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">setFlags</span><span class="p">(</span><span class="w"> </span><span class="n">QQuickItem</span><span class="o">::</span><span class="n">ItemHasContents</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::~</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">deleteLater</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">cancelJobs</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsProfilePlotRenderer</span><span class="o">::</span><span class="n">generationFinished</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">generationFinished</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">cancelGeneration</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">deleteLater</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setupLayerConnections</span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isDisconnect</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isDisconnect</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsMapLayerElevationProperties</span><span class="o">::</span><span class="n">profileGenerationPropertyChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">onLayerProfileGenerationPropertyChanged</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsMapLayerElevationProperties</span><span class="o">::</span><span class="n">profileRenderingPropertyChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">onLayerProfileRendererPropertyChanged</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsMapLayer</span><span class="o">::</span><span class="n">dataChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsMapLayerElevationProperties</span><span class="o">::</span><span class="n">profileGenerationPropertyChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">onLayerProfileGenerationPropertyChanged</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsMapLayerElevationProperties</span><span class="o">::</span><span class="n">profileRenderingPropertyChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">onLayerProfileRendererPropertyChanged</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsMapLayer</span><span class="o">::</span><span class="n">dataChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">Vector</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*</span><span class="n">vl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qobject_cast</span><span class="o">&lt;</span><span class="n">QgsVectorLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isDisconnect</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">featureAdded</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">featureDeleted</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">geometryChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">attributeValueChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">featureAdded</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">featureDeleted</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">geometryChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">vl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsVectorLayer</span><span class="o">::</span><span class="n">attributeValueChanged</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">Raster</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">Plugin</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">Mesh</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">VectorTile</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">Annotation</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">PointCloud</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">Group</span><span class="p">:</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Qgis</span><span class="o">::</span><span class="no">LayerType</span><span class="o">::</span><span class="no">TiledScene</span><span class="p">:</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">isRendering</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">isActive</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">refresh</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCrs</span><span class="p">.</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">mProject</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsProfilePlotRenderer</span><span class="o">::</span><span class="n">generationFinished</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">generationFinished</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">deleteLater</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QgsProfileRequest</span><span class="w"> </span><span class="n">request</span><span class="p">(</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QgsCurve</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">request</span><span class="p">.</span><span class="n">setCrs</span><span class="p">(</span><span class="w"> </span><span class="n">mCrs</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">request</span><span class="p">.</span><span class="n">setTolerance</span><span class="p">(</span><span class="w"> </span><span class="n">mTolerance</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">request</span><span class="p">.</span><span class="n">setTransformContext</span><span class="p">(</span><span class="w"> </span><span class="n">mProject</span><span class="o">-&gt;</span><span class="n">transformContext</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">request</span><span class="p">.</span><span class="n">setTerrainProvider</span><span class="p">(</span><span class="w"> </span><span class="n">mProject</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">terrainProvider</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">mProject</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">terrainProvider</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">QgsExpressionContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">  </span><span class="n">context</span><span class="p">.</span><span class="n">appendScope</span><span class="p">(</span><span class="w"> </span><span class="n">QgsExpressionContextUtils</span><span class="o">::</span><span class="n">globalScope</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">context</span><span class="p">.</span><span class="n">appendScope</span><span class="p">(</span><span class="w"> </span><span class="n">QgsExpressionContextUtils</span><span class="o">::</span><span class="n">projectScope</span><span class="p">(</span><span class="w"> </span><span class="n">mProject</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">request</span><span class="p">.</span><span class="n">setExpressionContext</span><span class="p">(</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">layersToGenerate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layers</span><span class="p">();</span>
+<span class="w">  </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">sources</span><span class="p">;</span>
+<span class="w">  </span><span class="n">sources</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="w"> </span><span class="n">layersToGenerate</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">layersToGenerate</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1">// cppcheck-suppress constVariablePointer</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">sources</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsProfilePlotRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">sources</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">connect</span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsProfilePlotRenderer</span><span class="o">::</span><span class="n">generationFinished</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">generationFinished</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">QgsProfileGenerationContext</span><span class="w"> </span><span class="n">generationContext</span><span class="p">;</span>
+<span class="w">  </span><span class="n">generationContext</span><span class="p">.</span><span class="n">setDpi</span><span class="p">(</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">physicalDotsPerInch</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">devicePixelRatio</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">generationContext</span><span class="p">.</span><span class="n">setMaximumErrorMapUnits</span><span class="p">(</span><span class="w"> </span><span class="n">MAX_ERROR_PIXELS</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">plotArea</span><span class="p">().</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">generationContext</span><span class="p">.</span><span class="n">setMapUnitsPerDistancePixel</span><span class="p">(</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">plotArea</span><span class="p">().</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">setContext</span><span class="p">(</span><span class="w"> </span><span class="n">generationContext</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">updatePlot</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">startGeneration</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">activeJobCountChanged</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">isRenderingChanged</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">generationFinished</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">activeJobCountChanged</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mZoomFullWhenJobFinished</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mZoomFullWhenJobFinished</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">zoomFull</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QRectF</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boundingRect</span><span class="p">();</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">devicePixelRatio</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QImage</span><span class="p">(</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="p">,</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="p">,</span><span class="w"> </span><span class="n">QImage</span><span class="o">::</span><span class="n">Format_ARGB32_Premultiplied</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mImage</span><span class="p">.</span><span class="n">setDevicePixelRatio</span><span class="p">(</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mImage</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">transparent</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">QPainter</span><span class="w"> </span><span class="nf">imagePainter</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mImage</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">imagePainter</span><span class="p">.</span><span class="n">setRenderHint</span><span class="p">(</span><span class="w"> </span><span class="n">QPainter</span><span class="o">::</span><span class="n">Antialiasing</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">QgsRenderContext</span><span class="w"> </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsRenderContext</span><span class="o">::</span><span class="n">fromQPainter</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">imagePainter</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">rc</span><span class="p">.</span><span class="n">setDevicePixelRatio</span><span class="p">(</span><span class="w"> </span><span class="n">devicePixelRatio</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">rc</span><span class="p">.</span><span class="n">expressionContext</span><span class="p">().</span><span class="n">appendScope</span><span class="p">(</span><span class="w"> </span><span class="n">QgsExpressionContextUtils</span><span class="o">::</span><span class="n">globalScope</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">rc</span><span class="p">.</span><span class="n">expressionContext</span><span class="p">().</span><span class="n">appendScope</span><span class="p">(</span><span class="w"> </span><span class="n">QgsExpressionContextUtils</span><span class="o">::</span><span class="n">projectScope</span><span class="p">(</span><span class="w"> </span><span class="n">mProject</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">QgsPlotRenderContext</span><span class="w"> </span><span class="n">plotRenderContext</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">calculateOptimisedIntervals</span><span class="p">(</span><span class="w"> </span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="n">plotRenderContext</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">render</span><span class="p">(</span><span class="w"> </span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="n">plotRenderContext</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">imagePainter</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">mDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">update</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mForceRegenerationAfterCurrentJobCompletes</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mForceRegenerationAfterCurrentJobCompletes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">invalidateAllRefinableSources</span><span class="p">();</span>
+<span class="w">    </span><span class="n">scheduleDeferredRegeneration</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">emit</span><span class="w"> </span><span class="nf">isRenderingChanged</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">onLayerProfileGenerationPropertyChanged</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// TODO -- handle nicely when existing job is in progress</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">isActive</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">QgsMapLayerElevationProperties</span><span class="w"> </span><span class="o">*</span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qobject_cast</span><span class="o">&lt;</span><span class="n">QgsMapLayerElevationProperties</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">sender</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">properties</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qobject_cast</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">properties</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">invalidateResults</span><span class="p">(</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="n">scheduleDeferredRegeneration</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">onLayerProfileRendererPropertyChanged</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// TODO -- handle nicely when existing job is in progress</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">isActive</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">QgsMapLayerElevationProperties</span><span class="w"> </span><span class="o">*</span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qobject_cast</span><span class="o">&lt;</span><span class="n">QgsMapLayerElevationProperties</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">sender</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">properties</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qobject_cast</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">properties</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">replaceSource</span><span class="p">(</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">redrawResults</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="n">scheduleDeferredRedraw</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">regenerateResultsForLayer</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qobject_cast</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">sender</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">QgsAbstractProfileSource</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">invalidateResults</span><span class="p">(</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="n">scheduleDeferredRegeneration</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">scheduleDeferredRegeneration</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mDeferredRegenerationScheduled</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mDeferredRegenerationTimer</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mDeferredRegenerationScheduled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">scheduleDeferredRedraw</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mDeferredRedrawScheduled</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mDeferredRedrawTimer</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mDeferredRedrawScheduled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">startDeferredRegeneration</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">isActive</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">emit</span><span class="w"> </span><span class="nf">activeJobCountChanged</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">regenerateInvalidatedResults</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mForceRegenerationAfterCurrentJobCompletes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mDeferredRegenerationScheduled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">startDeferredRedraw</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">refresh</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mDeferredRedrawScheduled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">refineResults</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsProfileGenerationContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">setDpi</span><span class="p">(</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">physicalDotsPerInch</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">devicePixelRatio</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">plotDistanceRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xMaximum</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xMinimum</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">plotElevationRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yMaximum</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yMinimum</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">plotDistanceUnitsPerPixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plotDistanceRange</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">plotArea</span><span class="p">().</span><span class="n">width</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// we round the actual desired map error down to just one significant figure, to avoid tiny differences</span>
+<span class="w">    </span><span class="c1">// as the plot is panned</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">targetMaxErrorInMapUnits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAX_ERROR_PIXELS</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">plotDistanceUnitsPerPixel</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ceil</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">log10</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fabs</span><span class="p">(</span><span class="w"> </span><span class="n">targetMaxErrorInMapUnits</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">roundedErrorInMapUnits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">floor</span><span class="p">(</span><span class="w"> </span><span class="n">targetMaxErrorInMapUnits</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">factor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">setMaximumErrorMapUnits</span><span class="p">(</span><span class="w"> </span><span class="n">roundedErrorInMapUnits</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">setMapUnitsPerDistancePixel</span><span class="p">(</span><span class="w"> </span><span class="n">plotDistanceUnitsPerPixel</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// for similar reasons we round the minimum distance off to multiples of the maximum error in map units</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">distanceMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">floor</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xMinimum</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">plotDistanceRange</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">maximumErrorMapUnits</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">maximumErrorMapUnits</span><span class="p">();</span>
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">setDistanceRange</span><span class="p">(</span><span class="w"> </span><span class="n">QgsDoubleRange</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">distanceMin</span><span class="w"> </span><span class="p">),</span>
+<span class="w">                                              </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xMaximum</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">plotDistanceRange</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">context</span><span class="p">.</span><span class="n">setElevationRange</span><span class="p">(</span><span class="w"> </span><span class="n">QgsDoubleRange</span><span class="p">(</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yMinimum</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">plotElevationRange</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<span class="w">                                               </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yMaximum</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">plotElevationRange</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">setContext</span><span class="p">(</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">scheduleDeferredRegeneration</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setProject</span><span class="p">(</span><span class="w"> </span><span class="n">QgsProject</span><span class="w"> </span><span class="o">*</span><span class="n">project</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mProject</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">project</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">projectChanged</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setCrs</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QgsCoordinateReferenceSystem</span><span class="w"> </span><span class="o">&amp;</span><span class="n">crs</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCrs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">crs</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mCrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crs</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">crsChanged</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setProfileCurve</span><span class="p">(</span><span class="w"> </span><span class="n">QgsGeometry</span><span class="w"> </span><span class="n">curve</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">equals</span><span class="p">(</span><span class="w"> </span><span class="n">curve</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mProfileCurve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curve</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">GeometryType</span><span class="o">::</span><span class="n">Line</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">curve</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">QgsGeometry</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">profileCurveChanged</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setTolerance</span><span class="p">(</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mTolerance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mTolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tolerance</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">toleranceChanged</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">populateLayersFromProject</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">as_const</span><span class="p">(</span><span class="w"> </span><span class="n">mLayers</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">setupLayerConnections</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mProject</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mLayers</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">projectLayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsProject</span><span class="o">::</span><span class="n">instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">layers</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">().</span><span class="n">toList</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// sort layers so that types which are more likely to obscure others are rendered below</span>
+<span class="w">  </span><span class="c1">// e.g. vector features should be drawn above raster DEMS, or the DEM line may completely obscure</span>
+<span class="w">  </span><span class="c1">// the vector feature</span>
+<span class="w">  </span><span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">sortedLayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QgsMapLayerUtils</span><span class="o">::</span><span class="n">sortLayersByType</span><span class="p">(</span><span class="w"> </span><span class="n">projectLayers</span><span class="p">,</span>
+<span class="w">                                                                          </span><span class="p">{</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LayerType</span><span class="o">::</span><span class="n">Raster</span><span class="p">,</span>
+<span class="w">                                                                            </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LayerType</span><span class="o">::</span><span class="n">Mesh</span><span class="p">,</span>
+<span class="w">                                                                            </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LayerType</span><span class="o">::</span><span class="n">Vector</span><span class="p">,</span>
+<span class="w">                                                                            </span><span class="n">Qgis</span><span class="o">::</span><span class="n">LayerType</span><span class="o">::</span><span class="n">PointCloud</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// filter list, removing null layers and invalid layers</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">filteredList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sortedLayers</span><span class="p">;</span>
+<span class="w">  </span><span class="n">filteredList</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">remove_if</span><span class="p">(</span><span class="w"> </span><span class="n">filteredList</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">filteredList</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">                                      </span><span class="p">[](</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                        </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">isValid</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">layer</span><span class="o">-&gt;</span><span class="n">elevationProperties</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">showByDefaultInElevationProfilePlots</span><span class="p">();</span>
+<span class="w">                                      </span><span class="p">}</span><span class="w"> </span><span class="p">),</span>
+<span class="w">                      </span><span class="n">filteredList</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">mLayers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_qgis_listRawToQPointer</span><span class="p">(</span><span class="w"> </span><span class="n">filteredList</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*</span><span class="n">layer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">as_const</span><span class="p">(</span><span class="w"> </span><span class="n">mLayers</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">setupLayerConnections</span><span class="p">(</span><span class="w"> </span><span class="n">layer</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">QList</span><span class="o">&lt;</span><span class="n">QgsMapLayer</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">layers</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">_qgis_listQPointerToRaw</span><span class="p">(</span><span class="w"> </span><span class="n">mLayers</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">geometryChange</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QRectF</span><span class="w"> </span><span class="o">&amp;</span><span class="n">newGeometry</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QRectF</span><span class="w"> </span><span class="o">&amp;</span><span class="n">oldGeometry</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">QQuickItem</span><span class="o">::</span><span class="n">geometryChange</span><span class="p">(</span><span class="w"> </span><span class="n">newGeometry</span><span class="p">,</span><span class="w"> </span><span class="n">oldGeometry</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">updateRect</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">refresh</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">QSGNode</span><span class="w"> </span><span class="o">*</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">updatePaintNode</span><span class="p">(</span><span class="w"> </span><span class="n">QSGNode</span><span class="w"> </span><span class="o">*</span><span class="n">oldNode</span><span class="p">,</span><span class="w"> </span><span class="n">QQuickItem</span><span class="o">::</span><span class="n">UpdatePaintNodeData</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mDirty</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">oldNode</span><span class="p">;</span>
+<span class="w">    </span><span class="n">oldNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QSGNode</span><span class="w"> </span><span class="o">*</span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mImage</span><span class="p">.</span><span class="n">isNull</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QSGSimpleTextureNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QSGSimpleTextureNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">oldNode</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">node</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QSGSimpleTextureNode</span><span class="p">();</span>
+<span class="w">      </span><span class="n">QSGTexture</span><span class="w"> </span><span class="o">*</span><span class="n">texture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">createTextureFromImage</span><span class="p">(</span><span class="w"> </span><span class="n">mImage</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">setTexture</span><span class="p">(</span><span class="w"> </span><span class="n">texture</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">setOwnsTexture</span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">QRectF</span><span class="w"> </span><span class="n">rect</span><span class="p">(</span><span class="w"> </span><span class="n">boundingRect</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">QSizeF</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mImage</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">size</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="n">size</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">screen</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">devicePixelRatio</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Check for resizes that change the w/h ratio</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">rect</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">size</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">qgsDoubleNear</span><span class="p">(</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">height</span><span class="p">(),</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qgsDoubleNear</span><span class="p">(</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">height</span><span class="p">(),</span><span class="w"> </span><span class="n">mImage</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rect</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rect</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">setRect</span><span class="p">(</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QSGSimpleRectNode</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QSGSimpleRectNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">oldNode</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">node</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QSGSimpleRectNode</span><span class="p">();</span>
+<span class="w">      </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">transparent</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">setRect</span><span class="p">(</span><span class="w"> </span><span class="n">boundingRect</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">zoomFull</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QgsDoubleRange</span><span class="w"> </span><span class="n">zRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">zRange</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// invalid range, e.g. no features found in plot!</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qgsDoubleNear</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">(),</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">(),</span><span class="w"> </span><span class="mf">0.0000001</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// corner case ... a zero height plot! Just pick an arbitrary +/- 5 height range.</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// add 5% margin to height range</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">profileLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// just 2% margin to max distance -- any more is overkill and wasted space</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">profileLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.02</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">refineResults</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">zoomFullInRatio</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QgsDoubleRange</span><span class="w"> </span><span class="n">zRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">zRange</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">xLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mProfileCurve</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">yLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">yLength</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// invalid range, e.g. no features found in plot!</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// just 2% margin to max distance -- any more is overkill and wasted space</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">xLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.02</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">yInRatioLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">().</span><span class="n">height</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">().</span><span class="n">width</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">xInRatioLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">().</span><span class="n">width</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">().</span><span class="n">height</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">yInRatioLength</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">yLength</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">yInRatioLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">yInRatioLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// just 2% margin to max distance -- any more is overkill and wasted space</span>
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">xLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.02</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// add 5% margin to height range</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span>
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">zRange</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMinimum</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xInRatioLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">      </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">xLength</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xInRatioLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">refineResults</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setVisiblePlotRange</span><span class="p">(</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">minimumDistance</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">maximumDistance</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">minimumElevation</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">maximumElevation</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMinimum</span><span class="p">(</span><span class="w"> </span><span class="n">minimumElevation</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setYMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">maximumElevation</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMinimum</span><span class="p">(</span><span class="w"> </span><span class="n">minimumDistance</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setXMaximum</span><span class="p">(</span><span class="w"> </span><span class="n">maximumDistance</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="n">refineResults</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">QColor</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">backgroundColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mBackgroundColor</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mBackgroundColor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mBackgroundColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">backgroundColorChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">updateStyle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">QColor</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">borderColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mBorderColor</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setBorderColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mBorderColor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mBorderColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">borderColorChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">updateStyle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">QColor</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">axisLabelColor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mAxisLabelColor</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setAxisLabelColor</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">QColor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mAxisLabelColor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mAxisLabelColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">axisLabelColorChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">updateStyle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">axisLabelSize</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mAxisLabelSize</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">setAxisLabelSize</span><span class="p">(</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mAxisLabelSize</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mAxisLabelSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">  </span><span class="n">emit</span><span class="w"> </span><span class="nf">axisLabelSizeChanged</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">updateStyle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">updateStyle</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mPlotItem</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">QgsTextFormat</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xAxis</span><span class="p">().</span><span class="n">textFormat</span><span class="p">();</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">mAxisLabelColor</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="n">mAxisLabelSize</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSizeUnit</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">RenderUnit</span><span class="o">::</span><span class="n">Points</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xAxis</span><span class="p">().</span><span class="n">setTextFormat</span><span class="p">(</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">textFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yAxis</span><span class="p">().</span><span class="n">textFormat</span><span class="p">();</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="w"> </span><span class="n">mAxisLabelColor</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="w"> </span><span class="n">mAxisLabelSize</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">textFormat</span><span class="p">.</span><span class="n">setSizeUnit</span><span class="p">(</span><span class="w"> </span><span class="n">Qgis</span><span class="o">::</span><span class="n">RenderUnit</span><span class="o">::</span><span class="n">Points</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yAxis</span><span class="p">().</span><span class="n">setTextFormat</span><span class="p">(</span><span class="w"> </span><span class="n">textFormat</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">QgsSimpleLineSymbolLayer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lineSymbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">QgsSimpleLineSymbolLayer</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">mBorderColor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">lineSymbolLayer</span><span class="o">-&gt;</span><span class="n">setPenCapStyle</span><span class="p">(</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">FlatCap</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xAxis</span><span class="p">().</span><span class="n">setGridMinorSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsLineSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayerList</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lineSymbolLayer</span><span class="o">-&gt;</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yAxis</span><span class="p">().</span><span class="n">setGridMinorSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsLineSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayerList</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lineSymbolLayer</span><span class="o">-&gt;</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xAxis</span><span class="p">().</span><span class="n">setGridMajorSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsLineSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayerList</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lineSymbolLayer</span><span class="o">-&gt;</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yAxis</span><span class="p">().</span><span class="n">setGridMajorSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsLineSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayerList</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lineSymbolLayer</span><span class="o">-&gt;</span><span class="n">clone</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setChartBorderSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsFillSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayerList</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lineSymbolLayer</span><span class="p">.</span><span class="n">release</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">QgsSimpleFillSymbolLayer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fillSymbolLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">QgsSimpleFillSymbolLayer</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">mBackgroundColor</span><span class="p">,</span><span class="w"> </span><span class="n">Qt</span><span class="o">::</span><span class="n">SolidPattern</span><span class="p">,</span><span class="w"> </span><span class="n">mBackgroundColor</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setChartBackgroundSymbol</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QgsFillSymbol</span><span class="p">(</span><span class="w"> </span><span class="n">QgsSymbolLayerList</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">fillSymbolLayer</span><span class="p">.</span><span class="n">release</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">mDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">refresh</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">QgsDoubleRange</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">visibleDistanceRange</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">QgsDoubleRange</span><span class="p">(</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xMinimum</span><span class="p">(),</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">xMaximum</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">QgsDoubleRange</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">visibleElevationRange</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">QgsDoubleRange</span><span class="p">(</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yMinimum</span><span class="p">(),</span><span class="w"> </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">yMaximum</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">clear</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">setProfileCurve</span><span class="p">(</span><span class="w"> </span><span class="n">QgsGeometry</span><span class="p">()</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">mPlotItem</span><span class="o">-&gt;</span><span class="n">setRenderer</span><span class="p">(</span><span class="w"> </span><span class="nb">nullptr</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">disconnect</span><span class="p">(</span><span class="w"> </span><span class="n">mCurrentJob</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsProfilePlotRenderer</span><span class="o">::</span><span class="n">generationFinished</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">QgsQuickElevationProfileCanvas</span><span class="o">::</span><span class="n">generationFinished</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="o">-&gt;</span><span class="n">deleteLater</span><span class="p">();</span>
+<span class="w">    </span><span class="n">mCurrentJob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">mZoomFullWhenJobFinished</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">mImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QImage</span><span class="p">();</span>
+<span class="w">  </span><span class="n">mDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">update</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

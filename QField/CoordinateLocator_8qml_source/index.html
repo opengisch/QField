@@ -1,0 +1,950 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>File CoordinateLocator.qml - QField API Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-coordinatelocatorqml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QField API Documentation" class="md-header__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QField API Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File CoordinateLocator.qml
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QField API Documentation" class="md-nav__button md-logo" aria-label="QField API Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/qfield_logo_white.svg" alt="logo">
+
+    </a>
+    QField API Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../translate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translate a plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group__qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QML Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-coordinatelocatorqml">File CoordinateLocator.qml</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_1d81f7f4362e4398c0a695c4e466fcb0/"><strong>qml</strong></a> <strong>&gt;</strong> <a href="../CoordinateLocator_8qml/"><strong>CoordinateLocator.qml</strong></a></p>
+<p><a href="../CoordinateLocator_8qml/">Go to the documentation of this file</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="n">QtQuick</span>
+<span class="k">import</span><span class="w"> </span><span class="n">QtQuick</span><span class="p">.</span><span class="n">Shapes</span>
+<span class="k">import</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">qgis</span>
+<span class="k">import</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">qfield</span>
+<span class="k">import</span><span class="w"> </span><span class="n">Theme</span>
+
+<span class="n">Item</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">locator</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">MapSettings</span><span class="w"> </span><span class="n">mapSettings</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="n">mainColor</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;#CFD8DC&quot;</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="n">highlightColor</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;#263238&quot;</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="n">cursorFillColor</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;#000000&quot;</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="n">cursorOutlineColor</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;#FFFFFF&quot;</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">cursorSizeScale</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">  </span><span class="n">readonly</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">crossHalfLength</span><span class="o">:</span><span class="w"> </span><span class="n">cursorSizeScale</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cursorSizeScale</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">1.5</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">8</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">alias</span><span class="w"> </span><span class="n">currentLayer</span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">currentLayer</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">positionInformation</span><span class="o">:</span><span class="w"> </span><span class="n">undefined</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">positionLocked</span><span class="o">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">averagedPosition</span><span class="o">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">averagedPositionCount</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">snapToCommonAngles</span><span class="o">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">snappingIsRelative</span><span class="o">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">snappingAngleDegrees</span><span class="o">:</span><span class="w"> </span><span class="mf">45.0</span>
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">snappingTolerance</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">overrideLocation</span><span class="o">:</span><span class="w"> </span><span class="n">undefined</span><span class="w"> </span><span class="c1">// QgsPoint</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">sourceLocation</span><span class="o">:</span><span class="w"> </span><span class="n">undefined</span><span class="w"> </span><span class="c1">// Screen coordinate</span>
+
+<span class="w">  </span><span class="n">readonly</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">currentCoordinate</span><span class="o">:</span><span class="w"> </span><span class="o">!!</span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">overrideLocation</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">snappedCoordinate</span>
+
+<span class="w">  </span><span class="c1">// some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when</span>
+<span class="w">  </span><span class="c1">// the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered</span>
+<span class="w">  </span><span class="n">readonly</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">displayPosition</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// this property gets initially evaluated before the `currentCoordinate`</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">coordinate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentCoordinate</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">currentCoordinate</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">!!</span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">snappedCoordinate</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!!</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">visibleExtent</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coordinate</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Qt</span><span class="p">.</span><span class="n">point</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="o">:</span><span class="w"> </span><span class="n">undefined</span>
+
+<span class="w">  </span><span class="n">readonly</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">alias</span><span class="w"> </span><span class="n">snappedCoordinate</span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">snappedCoordinate</span><span class="w"> </span><span class="c1">// In map coordinates, derived from snappinResult</span>
+<span class="w">  </span><span class="n">readonly</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">alias</span><span class="w"> </span><span class="n">snappedPoint</span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">snappedPoint</span><span class="w"> </span><span class="c1">// In screen coordinates, derived from snappinResult</span>
+<span class="w">  </span><span class="n">readonly</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">alias</span><span class="w"> </span><span class="n">topSnappingResult</span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">snappingResult</span><span class="w"> </span><span class="c1">// The snappingResult itself, only one (compared to QGIS where it&#39;s usually a list)</span>
+
+<span class="w">  </span><span class="n">SnappingUtils</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">snappingUtils</span>
+
+<span class="w">    </span><span class="nl">enabled</span><span class="p">:</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">visible</span>
+<span class="w">    </span><span class="nl">mapSettings</span><span class="p">:</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">mapSettings</span>
+<span class="w">    </span><span class="nl">config</span><span class="p">:</span><span class="w"> </span><span class="n">qgisProject</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">qgisProject</span><span class="p">.</span><span class="n">snappingConfig</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">emptySnappingConfig</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">// Get the current crosshair location in screen coordinates. If `undefined`, then we use the center of the screen as input point.</span>
+<span class="w">    </span><span class="nl">inputCoordinate</span><span class="p">:</span><span class="w"> </span><span class="n">sourceLocation</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="n">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Qt</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="n">locator</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sourceLocation</span>
+
+<span class="w">    </span><span class="n">property</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">snappedCoordinate</span>
+<span class="w">    </span><span class="n">property</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">snappedPoint</span>
+
+<span class="w">    </span><span class="nl">onSnappingResultChanged</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">snappingResult</span><span class="p">.</span><span class="n">isValid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">snappedCoordinate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snappingResult</span><span class="p">.</span><span class="n">point</span><span class="p">;</span>
+<span class="w">        </span><span class="n">snappedPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">snappedCoordinate</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">snappedPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputCoordinate</span><span class="p">;</span>
+<span class="w">        </span><span class="n">snappedCoordinate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapSettings</span><span class="p">.</span><span class="n">screenToCoordinate</span><span class="p">(</span><span class="n">snappedPoint</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">locator</span><span class="p">.</span><span class="n">positionLocked</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snapToCommonAngles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">backwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined</span><span class="p">;</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">backwardCoords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">backwardPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined</span><span class="p">;</span>
+<span class="w">        </span><span class="n">backwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCommonAngleInDegrees</span><span class="p">(</span><span class="n">snappedPoint</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">rubberbandModel</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingAngleDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingIsRelative</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">backwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">backwardPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snapPointToCommonAngle</span><span class="p">(</span><span class="n">snappedPoint</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">rubberbandModel</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCommonAngleInDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingIsRelative</span><span class="p">);</span>
+<span class="w">          </span><span class="n">backwardCoords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calculateSnapToAngleLineEndCoords</span><span class="p">(</span><span class="n">backwardPoint</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCommonAngleInDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingIsRelative</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">forwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined</span><span class="p">;</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">forwardCoords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">forwardPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undefined</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">locator</span><span class="p">.</span><span class="n">rubberbandModel</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertexCount</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">forwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCommonAngleInDegrees</span><span class="p">(</span><span class="n">snappedPoint</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">rubberbandModel</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingAngleDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingIsRelative</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">forwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">forwardPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snapPointToCommonAngle</span><span class="p">(</span><span class="n">snappedPoint</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">rubberbandModel</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCommonAngleInDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingIsRelative</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">            </span><span class="n">forwardCoords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calculateSnapToAngleLineEndCoords</span><span class="p">(</span><span class="n">forwardPoint</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCommonAngleInDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">snappingIsRelative</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beginCoordX&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">x1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beginCoordY&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">y1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;endCoordX&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">x2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;endCoordY&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">y2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;snappedToAngle&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beginCoordX&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">x1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beginCoordY&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">y1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;endCoordX&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">x2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;endCoordY&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">y2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;snappedToAngle&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">forwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">backwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Get the intersection of the two snapped lines</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">x1</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">y1</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">x2</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backwardCoords</span><span class="p">.</span><span class="n">y2</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">x3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">x1</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">y3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">y1</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">x4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">x2</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">y4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forwardCoords</span><span class="p">.</span><span class="n">y2</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">y4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">x4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y1</span><span class="p">));</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">ua</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">x4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">y4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x3</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">ub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x3</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">;</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">intersectX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ua</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">);</span>
+<span class="w">          </span><span class="k">const</span><span class="w"> </span><span class="n">intersectY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ua</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y1</span><span class="p">);</span>
+<span class="w">          </span><span class="n">snappedPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Qt</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="n">intersectX</span><span class="p">,</span><span class="w"> </span><span class="n">intersectY</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">backwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">snappedPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">backwardPoint</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">forwardCommonAngleInDegrees</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">snappedPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forwardPoint</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">snappedCoordinate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapSettings</span><span class="p">.</span><span class="n">screenToCoordinate</span><span class="p">(</span><span class="n">snappedPoint</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beginCoordX&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">          </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;beginCoordY&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">          </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;endCoordX&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">          </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;endCoordY&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">          </span><span class="n">snappingLinesModel</span><span class="p">.</span><span class="n">setProperty</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;snappedToAngle&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">averagedInfoShield</span>
+<span class="w">    </span><span class="nl">visible</span><span class="p">:</span><span class="w"> </span><span class="n">positionLocked</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">averagedPosition</span>
+<span class="w">    </span><span class="n">anchors</span><span class="p">.</span><span class="n">left</span><span class="o">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">left</span>
+<span class="w">    </span><span class="n">anchors</span><span class="p">.</span><span class="n">leftMargin</span><span class="o">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="n">anchors</span><span class="p">.</span><span class="n">bottom</span><span class="o">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">top</span>
+<span class="w">    </span><span class="n">anchors</span><span class="p">.</span><span class="n">bottomMargin</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">8</span>
+<span class="w">    </span><span class="nl">height</span><span class="p">:</span><span class="w"> </span><span class="n">averagedInfo</span><span class="p">.</span><span class="n">contentHeight</span>
+<span class="w">    </span><span class="nl">color</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#44263238&quot;</span>
+<span class="w">    </span><span class="nl">radius</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="n">border</span><span class="p">.</span><span class="n">color</span><span class="o">:</span><span class="w"> </span><span class="n">highlightColor</span>
+<span class="w">    </span><span class="n">border</span><span class="p">.</span><span class="n">width</span><span class="o">:</span><span class="w"> </span><span class="mf">1.2</span>
+<span class="w">    </span><span class="nl">clip</span><span class="p">:</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="w">    </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">averagedProgress</span>
+<span class="w">      </span><span class="n">anchors</span><span class="p">.</span><span class="n">top</span><span class="o">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">top</span>
+<span class="w">      </span><span class="n">anchors</span><span class="p">.</span><span class="n">topMargin</span><span class="o">:</span><span class="w"> </span><span class="mf">1.2</span>
+<span class="w">      </span><span class="n">anchors</span><span class="p">.</span><span class="n">left</span><span class="o">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">left</span>
+<span class="w">      </span><span class="n">anchors</span><span class="p">.</span><span class="n">leftMargin</span><span class="o">:</span><span class="w"> </span><span class="mf">1.2</span>
+<span class="w">      </span><span class="nl">height</span><span class="p">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.4</span>
+<span class="w">      </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">positioningSettings</span><span class="p">.</span><span class="n">averagedPositioning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">averagedPositionCount</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">positioningSettings</span><span class="p">.</span><span class="n">averagedPositioningMinimumCount</span><span class="p">)))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.4</span>
+<span class="w">      </span><span class="nl">color</span><span class="p">:</span><span class="w"> </span><span class="n">positioningSettings</span><span class="p">.</span><span class="n">accuracyIndicator</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">!</span><span class="n">positionSource</span><span class="p">.</span><span class="n">positionInformation</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">positionSource</span><span class="p">.</span><span class="n">positionInformation</span><span class="p">.</span><span class="n">haccValid</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">positionSource</span><span class="p">.</span><span class="n">positionInformation</span><span class="p">.</span><span class="n">hacc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">positioningSettings</span><span class="p">.</span><span class="n">accuracyBad</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Theme</span><span class="p">.</span><span class="n">accuracyBad</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">positionSource</span><span class="p">.</span><span class="n">positionInformation</span><span class="p">.</span><span class="n">hacc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">positioningSettings</span><span class="p">.</span><span class="n">accuracyExcellent</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Theme</span><span class="p">.</span><span class="n">accuracyTolerated</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Theme</span><span class="p">.</span><span class="n">accuracyExcellent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Theme</span><span class="p">.</span><span class="n">positionColor</span>
+
+<span class="w">      </span><span class="nl">transitions</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="n">Transition</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">NumberAnimation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nl">property</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;width&quot;</span>
+<span class="w">            </span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Text</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">averagedInfo</span>
+<span class="w">      </span><span class="n">anchors</span><span class="p">.</span><span class="n">centerIn</span><span class="o">:</span><span class="w"> </span><span class="n">parent</span>
+<span class="w">      </span><span class="nl">text</span><span class="p">:</span><span class="w"> </span><span class="n">averagedPositionCount</span>
+<span class="w">      </span><span class="nl">color</span><span class="p">:</span><span class="w"> </span><span class="n">mainColor</span>
+<span class="w">      </span><span class="n">font</span><span class="p">.</span><span class="n">pointSize</span><span class="o">:</span><span class="w"> </span><span class="n">Theme</span><span class="p">.</span><span class="n">tinyFont</span><span class="p">.</span><span class="n">pointSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="nl">style</span><span class="p">:</span><span class="w"> </span><span class="n">Text</span><span class="p">.</span><span class="n">Outline</span>
+<span class="w">      </span><span class="nl">styleColor</span><span class="p">:</span><span class="w"> </span><span class="n">highlightColor</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span>
+
+<span class="w">    </span><span class="n">property</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isSnapped</span><span class="o">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span><span class="n">property</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">halfWidth</span><span class="o">:</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="n">property</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">arcSpacing</span><span class="o">:</span><span class="w"> </span><span class="n">isSnapped</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">20</span>
+
+<span class="w">    </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">isSnapped</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">48</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">cursorSizeScale</span>
+<span class="w">    </span><span class="nl">height</span><span class="p">:</span><span class="w"> </span><span class="n">width</span>
+
+<span class="w">    </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">displayPosition</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">halfWidth</span>
+<span class="w">    </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">displayPosition</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">halfWidth</span>
+
+<span class="w">    </span><span class="n">Behavior</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">enabled</span><span class="p">:</span><span class="w"> </span><span class="o">!</span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">sourceLocation</span><span class="w"> </span><span class="c1">// It looks strange if the GPS position indicator and the crosshair are not synchronized</span>
+<span class="w">      </span><span class="n">NumberAnimation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Behavior</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">enabled</span><span class="p">:</span><span class="w"> </span><span class="o">!</span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">sourceLocation</span>
+<span class="w">      </span><span class="n">NumberAnimation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Behavior</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">SmoothedAnimation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">ShapePath</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairPathBuffer</span>
+<span class="w">      </span><span class="nl">strokeColor</span><span class="p">:</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">cursorOutlineColor</span>
+<span class="w">      </span><span class="nl">strokeWidth</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairPath</span><span class="p">.</span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="nl">fillColor</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transparent&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">ShapePath</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairPath</span>
+<span class="w">      </span><span class="nl">strokeColor</span><span class="p">:</span><span class="w"> </span><span class="o">!!</span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">overrideLocation</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Qt</span><span class="p">.</span><span class="n">darker</span><span class="p">(</span><span class="n">Theme</span><span class="p">.</span><span class="n">positionColor</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">cursorFillColor</span>
+<span class="w">      </span><span class="nl">strokeWidth</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="nl">fillColor</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transparent&quot;</span>
+
+<span class="w">      </span><span class="n">PathAngleArc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">centerX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">centerY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">startAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span>
+<span class="w">        </span><span class="nl">sweepAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathAngleArc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">centerX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">centerY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">startAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span>
+<span class="w">        </span><span class="nl">sweepAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathAngleArc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">centerX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">centerY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">startAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span>
+<span class="w">        </span><span class="nl">sweepAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathAngleArc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">centerX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">centerY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusX</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">radiusY</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">startAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">270</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span>
+<span class="w">        </span><span class="nl">sweepAngle</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">arcSpacing</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathMove</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">crossHalfLength</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathLine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">        </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">crossHalfLength</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathMove</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">crossHalfLength</span>
+<span class="w">        </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">PathLine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">locator</span><span class="p">.</span><span class="n">crossHalfLength</span>
+<span class="w">        </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">halfWidth</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Repeater</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">snappingLines</span>
+<span class="w">    </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">width</span>
+<span class="w">    </span><span class="nl">height</span><span class="p">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">height</span>
+<span class="w">    </span><span class="n">anchors</span><span class="p">.</span><span class="n">centerIn</span><span class="o">:</span><span class="w"> </span><span class="n">parent</span>
+
+<span class="w">    </span><span class="nl">model</span><span class="p">:</span><span class="w"> </span><span class="n">ListModel</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">snappingLinesModel</span>
+<span class="w">      </span><span class="n">ListElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">beginCoordX</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">beginCoordY</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">endCoordX</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">endCoordY</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">snappedToAngle</span><span class="p">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">ListElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">beginCoordX</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">beginCoordY</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">endCoordX</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">endCoordY</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nl">snappedToAngle</span><span class="p">:</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nl">delegate</span><span class="p">:</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nl">visible</span><span class="p">:</span><span class="w"> </span><span class="o">!!</span><span class="n">snappedToAngle</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">endCoordX</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">endCoordY</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">width</span>
+<span class="w">      </span><span class="nl">height</span><span class="p">:</span><span class="w"> </span><span class="n">parent</span><span class="p">.</span><span class="n">height</span>
+<span class="w">      </span><span class="n">anchors</span><span class="p">.</span><span class="n">centerIn</span><span class="o">:</span><span class="w"> </span><span class="n">parent</span>
+<span class="w">      </span><span class="nl">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
+
+<span class="w">      </span><span class="c1">// outer line</span>
+<span class="w">      </span><span class="n">ShapePath</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">outerLine</span>
+<span class="w">        </span><span class="nl">strokeWidth</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">        </span><span class="nl">strokeColor</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#fff&quot;</span>
+<span class="w">        </span><span class="nl">strokeStyle</span><span class="p">:</span><span class="w"> </span><span class="n">ShapePath</span><span class="p">.</span><span class="n">DashLine</span>
+<span class="w">        </span><span class="nl">dashPattern</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<span class="w">        </span><span class="nl">startX</span><span class="p">:</span><span class="w"> </span><span class="n">beginCoordX</span>
+<span class="w">        </span><span class="nl">startY</span><span class="p">:</span><span class="w"> </span><span class="n">beginCoordY</span>
+
+<span class="w">        </span><span class="n">PathLine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">endCoordX</span>
+<span class="w">          </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">endCoordY</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// inner line</span>
+<span class="w">      </span><span class="n">ShapePath</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">strokeWidth</span><span class="p">:</span><span class="w"> </span><span class="n">outerLine</span><span class="p">.</span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="nl">strokeColor</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#000&quot;</span>
+<span class="w">        </span><span class="nl">strokeStyle</span><span class="p">:</span><span class="w"> </span><span class="n">ShapePath</span><span class="p">.</span><span class="n">DashLine</span>
+<span class="w">        </span><span class="nl">dashPattern</span><span class="p">:</span><span class="w"> </span><span class="n">outerLine</span><span class="p">.</span><span class="n">dashPattern</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="nl">startX</span><span class="p">:</span><span class="w"> </span><span class="n">beginCoordX</span>
+<span class="w">        </span><span class="nl">startY</span><span class="p">:</span><span class="w"> </span><span class="n">beginCoordY</span>
+
+<span class="w">        </span><span class="n">PathLine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">endCoordX</span>
+<span class="w">          </span><span class="nl">y</span><span class="p">:</span><span class="w"> </span><span class="n">endCoordY</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">ParallelAnimation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">flashAnimation</span>
+
+<span class="w">    </span><span class="n">SequentialAnimation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ScaleAnimator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">target</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span>
+<span class="w">        </span><span class="nl">from</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nl">to</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span>
+<span class="w">        </span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span>
+
+<span class="w">        </span><span class="n">easing</span><span class="p">.</span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">Easing</span><span class="p">.</span><span class="n">InOutQuad</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">ScaleAnimator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nl">target</span><span class="p">:</span><span class="w"> </span><span class="n">crosshairCircle</span>
+<span class="w">        </span><span class="nl">from</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span>
+<span class="w">        </span><span class="nl">to</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span>
+
+<span class="w">        </span><span class="n">easing</span><span class="p">.</span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">Easing</span><span class="p">.</span><span class="n">InOutCubic</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Component</span><span class="p">.</span><span class="n">onCompleted</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">crosshairPathBuffer</span><span class="p">.</span><span class="n">pathElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crosshairPath</span><span class="p">.</span><span class="n">pathElements</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Connections</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">target</span><span class="p">:</span><span class="w"> </span><span class="n">snappingUtils</span>
+
+<span class="w">    </span><span class="n">function</span><span class="w"> </span><span class="n">onSnappingResultChanged</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">isSnapped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">overrideLocation</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">undefined</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">snappingUtils</span><span class="p">.</span><span class="n">snappingResult</span><span class="p">.</span><span class="n">isValid</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">function</span><span class="w"> </span><span class="n">flash</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">flashAnimation</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">positionLocked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">outOfScreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">mainWindow</span><span class="p">.</span><span class="n">width</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">height</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">crosshairCircle</span><span class="p">.</span><span class="n">height</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">mainWindow</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">outOfScreen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mapCanvasMap</span><span class="p">.</span><span class="n">jumpTo</span><span class="p">(</span><span class="n">positionSource</span><span class="p">.</span><span class="n">projectedPosition</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">function</span><span class="w"> </span><span class="n">getToleranceMultiplier</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">snappingTolerance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">function</span><span class="w"> </span><span class="n">getCommonAngleInDegrees</span><span class="p">(</span><span class="n">currentPoint</span><span class="p">,</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">,</span><span class="w"> </span><span class="n">commonAngleStepDeg</span><span class="p">,</span><span class="w"> </span><span class="n">isRelativeAngle</span><span class="p">,</span><span class="w"> </span><span class="n">forwardMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rubberbandModel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MINIMAL_PIXEL_DISTANCE_TRESHOLD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SOFT_CONSTRAINT_TOLERANCE_DEGREES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">getToleranceMultiplier</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SOFT_CONSTRAINT_TOLERANCE_PIXEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertexCount</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">targetPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapCanvas</span><span class="p">.</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">firstCoordinate</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">lastCoordinate</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">minimumDigitizedPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// we need at least [minimumDigitizedPoints - 1] alredy digitized point (and the other one is wanna be digitized)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">minimumDigitizedPoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">distanceFromLastPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">currentPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">currentPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">distanceFromLastPoint</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MINIMAL_PIXEL_DISTANCE_TRESHOLD</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">commonAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">commonAngleStepDeg</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">180</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// see if soft common angle constraint should be performed</span>
+<span class="w">    </span><span class="c1">// only if not in HardLock mode</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">softAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">currentPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">deltaAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isRelativeAngle</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// compute the angle relative to the last segment (0° is aligned with last segment)</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapCanvas</span><span class="p">.</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">penultimateCoordinate</span><span class="p">);</span>
+<span class="w">      </span><span class="n">deltaAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="w">      </span><span class="n">softAngle</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">deltaAngle</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">quo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="n">softAngle</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">commonAngle</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="n">softAngle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">quo</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">commonAngle</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">180.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">SOFT_CONSTRAINT_TOLERANCE_DEGREES</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// also check the distance in pixel to the line, otherwise it&#39;s too sticky at long ranges</span>
+<span class="w">      </span><span class="n">softAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quo</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">commonAngle</span><span class="p">;</span>
+<span class="w">      </span><span class="c1">// http://mathworld.wolfram.com/Point-LineDistance2-Dimensional.html</span>
+<span class="w">      </span><span class="c1">// use the direction vector (cos(a),sin(a)) from previous point. |x2-x1|=1 since sin2+cos2=1</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">softAngle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deltaAngle</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">softAngle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deltaAngle</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">.</span><span class="n">x</span><span class="p">));</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SOFT_CONSTRAINT_TOLERANCE_PIXEL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">180.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">softAngle</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">function</span><span class="w"> </span><span class="n">snapPointToCommonAngle</span><span class="p">(</span><span class="n">currentPoint</span><span class="p">,</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">,</span><span class="w"> </span><span class="n">commonAngleDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">isRelativeAngle</span><span class="p">,</span><span class="w"> </span><span class="n">forwardMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rubberbandModel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">commonAngleDegrees</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">commonAngleDegrees</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">angleValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">commonAngleDegrees</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">180</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">returnPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertexCount</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">targetPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapCanvas</span><span class="p">.</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">firstCoordinate</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">lastCoordinate</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isRelativeAngle</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// compute the angle relative to the last segment (0° is aligned with last segment)</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapCanvas</span><span class="p">.</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">penultimateCoordinate</span><span class="p">);</span>
+<span class="w">      </span><span class="n">angleValue</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">cosa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angleValue</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">sina</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angleValue</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">currentPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cosa</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">currentPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sina</span><span class="p">;</span>
+<span class="w">    </span><span class="n">returnPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cosa</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="n">returnPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sina</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">returnPoint</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">function</span><span class="w"> </span><span class="n">calculateSnapToAngleLineEndCoords</span><span class="p">(</span><span class="n">currentPoint</span><span class="p">,</span><span class="w"> </span><span class="n">angleDegrees</span><span class="p">,</span><span class="w"> </span><span class="n">isRelativeAngle</span><span class="p">,</span><span class="w"> </span><span class="n">screenSize</span><span class="p">,</span><span class="w"> </span><span class="n">forwardMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rubberbandModel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertexCount</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">angleDegrees</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">angleDegrees</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="n">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">deltaAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isRelativeAngle</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rubberbandPointsCount</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// compute the angle relative to the last segment (0° is aligned with last segment)</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">targetPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapCanvas</span><span class="p">.</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">firstCoordinate</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">lastCoordinate</span><span class="p">);</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapCanvas</span><span class="p">.</span><span class="n">mapSettings</span><span class="p">.</span><span class="n">coordinateToScreen</span><span class="p">(</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rubberbandModel</span><span class="p">.</span><span class="n">penultimateCoordinate</span><span class="p">);</span>
+<span class="w">      </span><span class="n">deltaAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">targetPoint</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">targetPoint</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">penultimatePoint</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">xOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">yOrigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentPoint</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">angleRadians</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angleDegrees</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deltaAngle</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xOrigin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">screenSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angleRadians</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yOrigin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">screenSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angleRadians</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">angleRadians</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">180</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xOrigin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">screenSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angleRadians</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yOrigin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">screenSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angleRadians</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">forwardMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;x1&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;y1&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;x2&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;y2&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">y2</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://OPENGIS.ch">OPENGIS.ch</a> -  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC-BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classIosProjectSource" kind="class" language="C++" prot="public">
+    <compoundname>IosProjectSource</compoundname>
+    <basecompoundref refid="classProjectSource" prot="public" virt="non-virtual">ProjectSource</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classIosProjectSource_1a844ce97b91433ddc3d7c55a490bb0fd2" prot="private" static="no" mutable="no">
+        <type>QQuickItem *</type>
+        <definition>QQuickItem* IosProjectSource::mParent</definition>
+        <argsstring></argsstring>
+        <name>mParent</name>
+        <qualifiedname>IosProjectSource::mParent</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosprojectsource.h" line="34" column="16" bodyfile="src/core/platforms/ios/iosprojectsource.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classIosProjectSource_1ae9541eb21575e84315a775ea3cd90e1c" prot="private" static="no" mutable="no">
+        <type>ProjectDelegateContainer *</type>
+        <definition>ProjectDelegateContainer* IosProjectSource::mDelegate</definition>
+        <argsstring></argsstring>
+        <name>mDelegate</name>
+        <qualifiedname>IosProjectSource::mDelegate</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosprojectsource.h" line="36" column="30" bodyfile="src/core/platforms/ios/iosprojectsource.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIosProjectSource_1a5f07b4274aca95198482de1e128287f5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IosProjectSource::IosProjectSource</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>IosProjectSource</name>
+        <qualifiedname>IosProjectSource::IosProjectSource</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosprojectsource.h" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classIosProjectSource_1a317f50e42528c81bf738ed825248a190" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString IosProjectSource::projectFromFolder</definition>
+        <argsstring>(const QString &amp;folder) const</argsstring>
+        <name>projectFromFolder</name>
+        <qualifiedname>IosProjectSource::projectFromFolder</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosprojectsource.h" line="28" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classIosProjectSource_1a271fa670512e43ea2ac5320a7b6b89bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IosProjectSource::pickProject</definition>
+        <argsstring>()</argsstring>
+        <name>pickProject</name>
+        <qualifiedname>IosProjectSource::pickProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/iosprojectsource.h" line="31" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>IosProjectSource</label>
+        <link refid="classIosProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProjectSource</label>
+        <link refid="classProjectSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>IosProjectSource</label>
+        <link refid="classIosProjectSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProjectSource</label>
+        <link refid="classProjectSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/ios/iosprojectsource.h" line="21" column="1" bodyfile="src/core/platforms/ios/iosprojectsource.h" bodystart="22" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classIosProjectSource_1a5f07b4274aca95198482de1e128287f5" prot="public" virt="non-virtual"><scope>IosProjectSource</scope><name>IosProjectSource</name></member>
+      <member refid="classIosProjectSource_1ae9541eb21575e84315a775ea3cd90e1c" prot="private" virt="non-virtual"><scope>IosProjectSource</scope><name>mDelegate</name></member>
+      <member refid="classIosProjectSource_1a844ce97b91433ddc3d7c55a490bb0fd2" prot="private" virt="non-virtual"><scope>IosProjectSource</scope><name>mParent</name></member>
+      <member refid="classIosProjectSource_1a271fa670512e43ea2ac5320a7b6b89bc" prot="public" virt="non-virtual"><scope>IosProjectSource</scope><name>pickProject</name></member>
+      <member refid="classIosProjectSource_1a317f50e42528c81bf738ed825248a190" prot="public" virt="non-virtual"><scope>IosProjectSource</scope><name>projectFromFolder</name></member>
+      <member refid="classProjectSource_1a2dea7b551dd13f5f0c1f51fcd57215ad" prot="public" virt="non-virtual"><scope>IosProjectSource</scope><name>projectOpened</name></member>
+      <member refid="classProjectSource_1ae95256cbdacb3dc494a7fe7926594405" prot="public" virt="non-virtual"><scope>IosProjectSource</scope><name>ProjectSource</name></member>
+      <member refid="classProjectSource_1a9a0471d0ea2af0e23e1c3d22cab84326" prot="public" virt="virtual"><scope>IosProjectSource</scope><name>~ProjectSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

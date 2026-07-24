@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structCloudWhitelabelInformation" kind="struct" language="C++" prot="public">
+    <compoundname>CloudWhitelabelInformation</compoundname>
+    <includes refid="qfieldcloudutils_8h" local="no">qfieldcloudutils.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="structCloudWhitelabelInformation_1a43b0cb0fee70577419ce032233caf306" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudWhitelabelInformation::siteTitle</definition>
+        <argsstring></argsstring>
+        <name>siteTitle</name>
+        <qualifiedname>CloudWhitelabelInformation::siteTitle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="127" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudWhitelabelInformation_1a798554b5704823d2a1d0f2887013bb8f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudWhitelabelInformation::logoMain</definition>
+        <argsstring></argsstring>
+        <name>logoMain</name>
+        <qualifiedname>CloudWhitelabelInformation::logoMain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="128" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudWhitelabelInformation_1a0ef54fbf0b4d38529f0a0157b04b86eb" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudWhitelabelInformation::logoNavbar</definition>
+        <argsstring></argsstring>
+        <name>logoNavbar</name>
+        <qualifiedname>CloudWhitelabelInformation::logoNavbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="129" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structCloudWhitelabelInformation_1a58f7ab7dc7cd6077390bd002c8f761d2" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString CloudWhitelabelInformation::favicon</definition>
+        <argsstring></argsstring>
+        <name>favicon</name>
+        <qualifiedname>CloudWhitelabelInformation::favicon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="130" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCloudWhitelabelInformation_1a0b1939ed330fb1a04a2f7994b944d1ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CloudWhitelabelInformation::CloudWhitelabelInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>CloudWhitelabelInformation</name>
+        <qualifiedname>CloudWhitelabelInformation::CloudWhitelabelInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="133" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudWhitelabelInformation_1aa26404ffa1065ace76c93eaf5534a62f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CloudWhitelabelInformation::CloudWhitelabelInformation</definition>
+        <argsstring>(const QVariantMap &amp;whitelabel)</argsstring>
+        <name>CloudWhitelabelInformation</name>
+        <qualifiedname>CloudWhitelabelInformation::CloudWhitelabelInformation</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>whitelabel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="135" column="14" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="135" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudWhitelabelInformation_1a1d71a8f04ea1a18ae6c2cc5ed4903723" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudWhitelabelInformation::operator==</definition>
+        <argsstring>(const CloudWhitelabelInformation &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CloudWhitelabelInformation::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudWhitelabelInformation" kindref="compound">CloudWhitelabelInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="142" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudWhitelabelInformation_1a93ebd4b701602f487084546c67a5fe96" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CloudWhitelabelInformation::operator!=</definition>
+        <argsstring>(const CloudWhitelabelInformation &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>CloudWhitelabelInformation::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudWhitelabelInformation" kindref="compound">CloudWhitelabelInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="147" column="10" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="structCloudWhitelabelInformation_1af9e9d59b6813acbd6e095e22ec5b1d11" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap CloudWhitelabelInformation::toVariantMap</definition>
+        <argsstring>() const</argsstring>
+        <name>toVariantMap</name>
+        <qualifiedname>CloudWhitelabelInformation::toVariantMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="152" column="17" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="152" bodyend="160"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds whitelabeling information advertised by a QFieldCloud server, such as the displayed site title and branding assets. </para>
+    </detaileddescription>
+    <location file="src/core/utils/qfieldcloudutils.h" line="123" column="1" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="124" bodyend="166"/>
+    <listofallmembers>
+      <member refid="structCloudWhitelabelInformation_1a0b1939ed330fb1a04a2f7994b944d1ce" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>CloudWhitelabelInformation</name></member>
+      <member refid="structCloudWhitelabelInformation_1aa26404ffa1065ace76c93eaf5534a62f" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>CloudWhitelabelInformation</name></member>
+      <member refid="structCloudWhitelabelInformation_1a58f7ab7dc7cd6077390bd002c8f761d2" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>favicon</name></member>
+      <member refid="structCloudWhitelabelInformation_1a798554b5704823d2a1d0f2887013bb8f" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>logoMain</name></member>
+      <member refid="structCloudWhitelabelInformation_1a0ef54fbf0b4d38529f0a0157b04b86eb" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>logoNavbar</name></member>
+      <member refid="structCloudWhitelabelInformation_1a93ebd4b701602f487084546c67a5fe96" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>operator!=</name></member>
+      <member refid="structCloudWhitelabelInformation_1a1d71a8f04ea1a18ae6c2cc5ed4903723" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>operator==</name></member>
+      <member refid="structCloudWhitelabelInformation_1a43b0cb0fee70577419ce032233caf306" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>siteTitle</name></member>
+      <member refid="structCloudWhitelabelInformation_1af9e9d59b6813acbd6e095e22ec5b1d11" prot="public" virt="non-virtual"><scope>CloudWhitelabelInformation</scope><name>toVariantMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

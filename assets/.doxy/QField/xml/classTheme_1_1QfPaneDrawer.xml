@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTheme_1_1QfPaneDrawer" kind="class" language="C++" prot="public">
+    <compoundname>Theme::QfPaneDrawer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Pane</basecompoundref>
+    <derivedcompoundref refid="classBookmarkList" prot="public" virt="non-virtual">BookmarkList</derivedcompoundref>
+    <derivedcompoundref refid="classFeatureListForm" prot="public" virt="non-virtual">FeatureListForm</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1a7c8f7d9b39cb49526df4e22069004a09" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPaneDrawer::isVertical</definition>
+        <argsstring></argsstring>
+        <name>isVertical</name>
+        <qualifiedname>Theme::QfPaneDrawer::isVertical</qualifiedname>
+        <read>dummyGetter_isVertical_ignore</read>
+        <briefdescription>
+<para>TRUE when the pane is laid out vertically (portrait or narrow), driving the drag axis and resize animation direction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="13" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1a4fd20c747e3380eadae81cb22bd1fd0f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPaneDrawer::isFullscreen</definition>
+        <argsstring></argsstring>
+        <name>isFullscreen</name>
+        <qualifiedname>Theme::QfPaneDrawer::isFullscreen</qualifiedname>
+        <read>dummyGetter_isFullscreen_ignore</read>
+        <briefdescription>
+<para>When TRUE the pane expands to fill the whole available area. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="15" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1a7606cb4b664c866b5baf0141488ad25b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPaneDrawer::isDragging</definition>
+        <argsstring></argsstring>
+        <name>isDragging</name>
+        <qualifiedname>Theme::QfPaneDrawer::isDragging</qualifiedname>
+        <read>dummyGetter_isDragging_ignore</read>
+        <briefdescription>
+<para>TRUE while the header is being dragged to resize the pane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="17" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1af2b4576a395872851b499d921f77b3d0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPaneDrawer::contentVisible</definition>
+        <argsstring></argsstring>
+        <name>contentVisible</name>
+        <qualifiedname>Theme::QfPaneDrawer::contentVisible</qualifiedname>
+        <read>dummyGetter_contentVisible_ignore</read>
+        <briefdescription>
+<para>When TRUE the pane is laid out at its resting size, when FALSE it collapses to zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="19" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1acb056867ce3b54a5b18a326cc26ce4b2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfPaneDrawer::minContentHeight</definition>
+        <argsstring></argsstring>
+        <name>minContentHeight</name>
+        <qualifiedname>Theme::QfPaneDrawer::minContentHeight</qualifiedname>
+        <read>dummyGetter_minContentHeight_ignore</read>
+        <briefdescription>
+<para>Content driven minimum height the pane snaps to at rest, clamped to half the available height. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="21" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1ae2131fbe95f94c34926e1196491cfb27" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Theme::QfPaneDrawer::useDefaultMinHeight</definition>
+        <argsstring></argsstring>
+        <name>useDefaultMinHeight</name>
+        <qualifiedname>Theme::QfPaneDrawer::useDefaultMinHeight</qualifiedname>
+        <read>dummyGetter_useDefaultMinHeight_ignore</read>
+        <briefdescription>
+<para>When TRUE the resting height ignores a minContentHeight and uses the default minimum. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="23" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1adbffdd13ee5cce8aa9552c63ccae4158" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real Theme::QfPaneDrawer::headerHeight</definition>
+        <argsstring></argsstring>
+        <name>headerHeight</name>
+        <qualifiedname>Theme::QfPaneDrawer::headerHeight</qualifiedname>
+        <read>dummyGetter_headerHeight_ignore</read>
+        <briefdescription>
+<para>Height of the header, used to compute the collapse threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="25" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classTheme_1_1QfPaneDrawer_1a3f809f7e20c9663c9fbefc2b88d483af" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Theme::QfPaneDrawer::freezeKey</definition>
+        <argsstring></argsstring>
+        <name>freezeKey</name>
+        <qualifiedname>Theme::QfPaneDrawer::freezeKey</qualifiedname>
+        <read>dummyGetter_freezeKey_ignore</read>
+        <briefdescription>
+<para>Key passed to mapCanvasMap freeze/unfreeze so concurrent panes does not clear each other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="27" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1ac3c85799251e7c5e0c9a3940724a742a" prot="private" static="no" mutable="no">
+        <type>QtObject</type>
+        <definition>QtObject Theme::QfPaneDrawer::props</definition>
+        <argsstring></argsstring>
+        <name>props</name>
+        <qualifiedname>Theme::QfPaneDrawer::props</qualifiedname>
+        <briefdescription>
+<para>Internal state driving the resize math, kept out of the public interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="32" column="10" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a010c165de37f9b94a610728bc93b4c2b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Theme::QfPaneDrawer::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="33" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a95729dcb8fe15ffce69ed52ac492eeb4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Theme::QfPaneDrawer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="34" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1ab56eac188fae029a6e10d0a32a0285fc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::topPadding</definition>
+        <argsstring></argsstring>
+        <name>topPadding</name>
+        <qualifiedname>Theme::QfPaneDrawer::topPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="35" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a8922661c22a531020af1ccc596b0571d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>Theme::QfPaneDrawer::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="36" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a0a89034d21df053a2107a29436ceaea2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>Theme::QfPaneDrawer::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="37" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a9c488455314d332b65b6fbd81d7f0599" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::bottomPadding</definition>
+        <argsstring></argsstring>
+        <name>bottomPadding</name>
+        <qualifiedname>Theme::QfPaneDrawer::bottomPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="38" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a98f364ccd5befb2c44fd3bc9e4703ca5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>Theme::QfPaneDrawer::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="39" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTheme_1_1QfPaneDrawer_1a2759e02385627cbd1fe2f7f6d76ff952" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var Theme::QfPaneDrawer::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>Theme::QfPaneDrawer::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="40" column="5" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classTheme_1_1QfPaneDrawer_1aebb54b9f1e006f0bf29bc86679036686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPaneDrawer::collapsed</definition>
+        <argsstring>()</argsstring>
+        <name>collapsed</name>
+        <qualifiedname>Theme::QfPaneDrawer::collapsed</qualifiedname>
+        <briefdescription>
+<para>Emitted when a drag releases below the minimum size without entering fullscreen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="29" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTheme_1_1QfPaneDrawer_1a32ef6e0bddaf0f30f36bc93df3fc601d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPaneDrawer::statusIndicatorDragged</definition>
+        <argsstring>(deltaX, deltaY)</argsstring>
+        <name>statusIndicatorDragged</name>
+        <qualifiedname>Theme::QfPaneDrawer::statusIndicatorDragged</qualifiedname>
+        <param>
+          <type>deltaX</type>
+        </param>
+        <param>
+          <type>deltaY</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="43" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classTheme_1_1QfPaneDrawer_1ad0b8a49690bb7cf48681dda71440f894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Theme::QfPaneDrawer::statusIndicatorDragReleased</definition>
+        <argsstring>()</argsstring>
+        <name>statusIndicatorDragReleased</name>
+        <qualifiedname>Theme::QfPaneDrawer::statusIndicatorDragReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="45" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><linebreak/>
+ <linebreak/>
+<bold>Import Statement</bold> <linebreak/>
+ <programlisting><codeline><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Theme<sp/></highlight></codeline>
+</programlisting> <simplesect kind="version"><para>1.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BookmarkList</label>
+        <link refid="classBookmarkList"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>FeatureListForm</label>
+        <link refid="classFeatureListForm"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfPaneDrawer</label>
+        <link refid="classTheme_1_1QfPaneDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>Theme::QfPaneDrawer</label>
+        <link refid="classTheme_1_1QfPaneDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/imports/Theme/QfPaneDrawer.qml" line="9" column="1" bodyfile="src/qml/imports/Theme/QfPaneDrawer.qml" bodystart="9" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classTheme_1_1QfPaneDrawer_1a9c488455314d332b65b6fbd81d7f0599" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>bottomPadding</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a2759e02385627cbd1fe2f7f6d76ff952" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>clip</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1aebb54b9f1e006f0bf29bc86679036686" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>collapsed</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1af2b4576a395872851b499d921f77b3d0" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>contentVisible</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a3f809f7e20c9663c9fbefc2b88d483af" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>freezeKey</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1adbffdd13ee5cce8aa9552c63ccae4158" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>headerHeight</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a95729dcb8fe15ffce69ed52ac492eeb4" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>height</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a7606cb4b664c866b5baf0141488ad25b" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>isDragging</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a4fd20c747e3380eadae81cb22bd1fd0f" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>isFullscreen</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a7c8f7d9b39cb49526df4e22069004a09" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>isVertical</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a8922661c22a531020af1ccc596b0571d" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>leftPadding</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1acb056867ce3b54a5b18a326cc26ce4b2" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>minContentHeight</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1ac3c85799251e7c5e0c9a3940724a742a" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>props</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a0a89034d21df053a2107a29436ceaea2" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>rightPadding</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a32ef6e0bddaf0f30f36bc93df3fc601d" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1ad0b8a49690bb7cf48681dda71440f894" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1ab56eac188fae029a6e10d0a32a0285fc" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>topPadding</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1ae2131fbe95f94c34926e1196491cfb27" prot="public" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>useDefaultMinHeight</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a98f364ccd5befb2c44fd3bc9e4703ca5" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>visible</name></member>
+      <member refid="classTheme_1_1QfPaneDrawer_1a010c165de37f9b94a610728bc93b4c2b" prot="private" virt="non-virtual"><scope>Theme::QfPaneDrawer</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

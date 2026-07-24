@@ -1,0 +1,84 @@
+
+
+# File geometryeditorsmodel.h
+
+[**File List**](files.md) **>** [**core**](dir_aebb8dcc11953d78e620bbef0b9e2183.md) **>** [**geometryeditorsmodel.h**](geometryeditorsmodel_8h.md)
+
+[Go to the documentation of this file](geometryeditorsmodel_8h.md)
+
+
+```C++
+/***************************************************************************
+  geometryeditorsmodel.h
+
+ ---------------------
+ begin                : 24.09.2019
+ copyright            : (C) 2019 by Denis Rouzaud
+ email                : denis@opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#ifndef GEOMETRYEDITORSMODEL_H
+#define GEOMETRYEDITORSMODEL_H
+
+
+#include "vertexmodel.h"
+
+#include <QQuickItem>
+#include <QStandardItemModel>
+
+class GeometryEditorsModel : public QStandardItemModel
+{
+    Q_OBJECT
+
+    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+
+  public:
+    enum ActionRoles
+    {
+      NameRole = Qt::UserRole + 1,
+      IconPathRole,
+      ToolbarRole,
+      SupportedGeometriesRole
+    };
+    Q_ENUM( ActionRoles )
+
+    enum GeometryType
+    {
+      Point = 1,
+      Line = 2,
+      Polygon = 4,
+      AllGeometries = Point | Line | Polygon
+    };
+
+    Q_DECLARE_FLAGS( SupportedGeometries, GeometryType )
+    Q_FLAG( SupportedGeometries )
+
+
+    explicit GeometryEditorsModel( QObject *parent = nullptr );
+    QHash<int, QByteArray> roleNames() const override;
+    Q_INVOKABLE void addEditor( const QString &name, const QString &icon, const QString &toolbar, SupportedGeometries supportedGeometries = AllGeometries );
+
+    Q_INVOKABLE static bool supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries );
+
+    VertexModel *vertexModel() const { return mVertexModel; }
+    void setVertexModel( VertexModel *vertexModel );
+
+  signals:
+    void vertexModelChanged();
+
+  private:
+    VertexModel *mVertexModel = nullptr;
+};
+
+
+#endif // GEOMETRYEDITORSMODEL_H
+```
+
+

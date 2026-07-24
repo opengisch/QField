@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingParameterWidgetBase" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingParameterWidgetBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classarea" prot="public" virt="non-virtual">area</derivedcompoundref>
+    <derivedcompoundref refid="classboolean" prot="public" virt="non-virtual">boolean</derivedcompoundref>
+    <derivedcompoundref refid="classdistance" prot="public" virt="non-virtual">distance</derivedcompoundref>
+    <derivedcompoundref refid="classenum" prot="public" virt="non-virtual">enum</derivedcompoundref>
+    <derivedcompoundref refid="classnumber" prot="public" virt="non-virtual">number</derivedcompoundref>
+    <derivedcompoundref refid="classsource" prot="public" virt="non-virtual">source</derivedcompoundref>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ProcessingParameterWidgetBase::valueChangeRequested</definition>
+        <argsstring>(var value)</argsstring>
+        <name>valueChangeRequested</name>
+        <qualifiedname>ProcessingParameterWidgetBase::valueChangeRequested</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emmited when a processing parameter widget has changed the value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/qml/processingparameterwidgets/ProcessingParameterWidgetBase.qml" line="8" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>area</label>
+        <link refid="classarea"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>boolean</label>
+        <link refid="classboolean"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>distance</label>
+        <link refid="classdistance"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>enum</label>
+        <link refid="classenum"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>number</label>
+        <link refid="classnumber"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>source</label>
+        <link refid="classsource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingParameterWidgetBase</label>
+        <link refid="classProcessingParameterWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/qml/processingparameterwidgets/ProcessingParameterWidgetBase.qml" line="3" column="1" bodyfile="src/qml/processingparameterwidgets/ProcessingParameterWidgetBase.qml" bodystart="3" bodyend="9"/>
+    <listofallmembers>
+      <member refid="classProcessingParameterWidgetBase_1ad9696e0221e7fc60b474690077fc900a" prot="public" virt="non-virtual"><scope>ProcessingParameterWidgetBase</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
