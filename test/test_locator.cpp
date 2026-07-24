@@ -33,8 +33,6 @@
 #include "qgsquickmapsettings.h"
 
 #include <QCoreApplication>
-#include <QElapsedTimer>
-#include <QEventLoop>
 #include <QSettings>
 #include <QSignalSpy>
 #include <QTemporaryDir>
@@ -73,17 +71,6 @@ static bool hasAction( const QgsLocatorResult &result, int actionId )
       return true;
   }
   return false;
-}
-
-static bool waitForRowCount( const MultiFeatureListModel &model, int expectedCount )
-{
-  QElapsedTimer timer;
-  timer.start();
-  while ( model.rowCount() != expectedCount && timer.elapsed() < 5000 )
-  {
-    QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
-  }
-  return model.rowCount() == expectedCount;
 }
 
 static QgsBookmark makeBookmark( const QString &name )
@@ -130,9 +117,6 @@ class ScopedIniSettings
       , mPreviousOrg( QCoreApplication::organizationName() )
       , mPreviousApp( QCoreApplication::applicationName() )
     {
-      QSettings probe( QSettings::IniFormat, QSettings::UserScope, QStringLiteral( "ProbeOrg" ), QStringLiteral( "ProbeApp" ) );
-      mPreviousIniUserPath = QFileInfo( probe.fileName() ).absolutePath();
-
       QSettings::setDefaultFormat( QSettings::IniFormat );
       QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, root );
       QCoreApplication::setOrganizationName( QStringLiteral( "QFieldUnitTests" ) );
@@ -143,13 +127,11 @@ class ScopedIniSettings
     {
       QCoreApplication::setOrganizationName( mPreviousOrg );
       QCoreApplication::setApplicationName( mPreviousApp );
-      QSettings::setPath( QSettings::IniFormat, QSettings::UserScope, mPreviousIniUserPath );
       QSettings::setDefaultFormat( mPreviousDefaultFormat );
     }
 
   private:
     QSettings::Format mPreviousDefaultFormat;
-    QString mPreviousIniUserPath;
     QString mPreviousOrg;
     QString mPreviousApp;
 };
@@ -513,7 +495,7 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
     QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
     filter.triggerResultFromAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::OpenForm );
 
-    REQUIRE( waitForRowCount( featureListModel, 1 ) );
+    REQUIRE( featureListModel.rowCount() == 1 );
     REQUIRE( selection.focusedItem() == 0 );
     REQUIRE( formStateSpy.count() == 1 );
   }
@@ -619,7 +601,7 @@ TEST_CASE( "FeaturesLocatorFilter" )
     QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
     filter.triggerResultFromAction( results.at( 0 ), FeaturesLocatorFilter::OpenForm );
 
-    REQUIRE( waitForRowCount( featureListModel, 1 ) );
+    REQUIRE( featureListModel.rowCount() == 1 );
     REQUIRE( selection.focusedItem() == 0 );
     REQUIRE( formStateSpy.count() == 1 );
   }
