@@ -32,6 +32,7 @@ Popup {
   }
 
   Page {
+    id: page
     anchors.fill: parent
 
     header: QfPageHeader {
@@ -433,7 +434,8 @@ Popup {
                 accentColor: Theme.cloudColor
                 iconSource: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
                 title: qsTr('Upload local changes')
-                count: cloudProjectGrid.changesCount
+                indicatorVisible: cloudProjectGrid.changesCount > 0
+                indicatorCount: cloudProjectGrid.changesCount
                 description: qsTr('Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.')
                 footnote: {
                   if (!cloudProjectsModel.currentProject) {
@@ -587,12 +589,15 @@ Popup {
             }
 
             RowLayout {
-              Layout.alignment: Qt.AlignHCenter
               Layout.topMargin: 5
               Layout.bottomMargin: 10
-              spacing: 40
+              Layout.alignment: Qt.AlignHCenter
+              Layout.maximumWidth: uploadCard.width - 80
+              spacing: 20
 
               ColumnLayout {
+                Layout.preferredWidth: uploadCard.width / 2 - 60
+                Layout.alignment: Qt.AlignTop
                 spacing: 5
 
                 QfToolButton {
@@ -607,9 +612,11 @@ Popup {
                 }
 
                 Text {
-                  Layout.alignment: Qt.AlignHCenter
+                  Layout.fillWidth: true
                   font: Theme.tipFont
                   color: Theme.mainTextColor
+                  horizontalAlignment: Text.AlignHCenter
+                  wrapMode: Text.WordWrap
                   text: qsTr('Upload history')
 
                   MouseArea {
@@ -620,6 +627,8 @@ Popup {
               }
 
               ColumnLayout {
+                Layout.preferredWidth: uploadCard.width / 2 - 60
+                Layout.alignment: Qt.AlignTop
                 spacing: 5
 
                 QfToolButton {
@@ -634,9 +643,12 @@ Popup {
                 }
 
                 Text {
+                  Layout.fillWidth: true
                   Layout.alignment: Qt.AlignHCenter
                   font: Theme.tipFont
                   color: Theme.mainTextColor
+                  horizontalAlignment: Text.AlignHCenter
+                  wrapMode: Text.WordWrap
                   text: qsTr('Danger zone')
 
                   MouseArea {

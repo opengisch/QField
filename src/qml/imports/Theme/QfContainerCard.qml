@@ -13,13 +13,15 @@ import Theme
 Rectangle {
   id: containerCard
 
-  property color accentColor: Theme.mainColor
-  property alias iconSource: cardIcon.iconSource
   property alias title: titleLabel.text
   property alias description: descriptionLabel.text
-  property int count: 0
   property alias footnote: footnoteLabel.text
-  property alias indicatorVisible: indicator.visible
+
+  property color accentColor: Theme.mainColor
+  property alias iconSource: cardIcon.iconSource
+
+  property bool indicatorVisible: false
+  property int indicatorCount: 0
 
   default property alias extraContent: extraContentColumn.data
 
@@ -58,26 +60,10 @@ Rectangle {
 
       Text {
         id: titleLabel
+        Layout.fillWidth: true
         font: Theme.strongFont
         color: Theme.mainTextColor
         wrapMode: Text.WordWrap
-      }
-
-      Rectangle {
-        Layout.alignment: Qt.AlignVCenter
-        implicitWidth: Math.max(implicitHeight, badgeLabel.implicitWidth + 10)
-        implicitHeight: badgeLabel.implicitHeight + 4
-        radius: height / 2
-        color: containerCard.accentColor
-        visible: containerCard.count > 0
-
-        Text {
-          id: badgeLabel
-          anchors.centerIn: parent
-          font: Theme.tinyFont
-          color: Theme.light
-          text: containerCard.count
-        }
       }
 
       Rectangle {
@@ -87,11 +73,16 @@ Rectangle {
         height: width
         radius: width / 2
         color: containerCard.accentColor
-        visible: false
-      }
+        visible: containerCard.indicatorCount
 
-      Item {
-        Layout.fillWidth: true
+        Text {
+          id: badgeLabel
+          anchors.centerIn: parent
+          font: Theme.tinyFont
+          color: Theme.light
+          text: containerCard.indicatorCount
+          visible: containerCard.indicatorCount > 0
+        }
       }
     }
 
