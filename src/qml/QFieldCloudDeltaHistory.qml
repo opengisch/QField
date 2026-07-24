@@ -160,6 +160,7 @@ QfPopup {
         Column {
           id: loadingContent
           anchors.centerIn: parent
+          width: parent.width
           spacing: 10
 
           BusyIndicator {
@@ -170,9 +171,11 @@ QfPopup {
           }
 
           Label {
-            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width
             font: Theme.tipFont
             color: Theme.secondaryTextColor
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
             text: qsTr("Fetching upload history…")
           }
         }
