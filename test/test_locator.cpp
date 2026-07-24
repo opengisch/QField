@@ -29,6 +29,7 @@
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "multifeaturelistmodel.h"
+#include "qfieldlocatorfilter.h"
 #include "qgsquickmapsettings.h"
 
 #include <QCoreApplication>
@@ -629,5 +630,95 @@ TEST_CASE( "FinlandLocatorFilter" )
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->geocoder() == &geocoder );
+  }
+}
+
+/*
+ * QFieldLocatorFilter
+ */
+TEST_CASE( "QFieldLocatorFilter" )
+{
+  QFieldLocatorFilter filter;
+
+  SECTION( "Defaults" )
+  {
+    REQUIRE( filter.priority() == QgsLocatorFilter::Medium );
+    REQUIRE( !filter.useWithoutPrefix() );
+    REQUIRE( filter.name().isEmpty() );
+    REQUIRE( filter.source().isEmpty() );
+  }
+
+  SECTION( "PropertiesRoundTripAndNotifyOnce" )
+  {
+    QSignalSpy nameSpy( &filter, &QFieldLocatorFilter::nameChanged );
+    filter.setName( QStringLiteral( "plugin" ) );
+    REQUIRE( filter.name() == QStringLiteral( "plugin" ) );
+    REQUIRE( nameSpy.count() == 1 );
+
+    filter.setName( QStringLiteral( "plugin" ) );
+    REQUIRE( nameSpy.count() == 1 );
+
+    QSignalSpy displayNameSpy( &filter, &QFieldLocatorFilter::displayNameChanged );
+    filter.setDisplayName( QStringLiteral( "Plugin filter" ) );
+    REQUIRE( filter.displayName() == QStringLiteral( "Plugin filter" ) );
+    REQUIRE( displayNameSpy.count() == 1 );
+
+    QSignalSpy prefixSpy( &filter, &QFieldLocatorFilter::prefixChanged );
+    filter.setPrefix( QStringLiteral( "plg" ) );
+    REQUIRE( filter.prefix() == QStringLiteral( "plg" ) );
+    REQUIRE( prefixSpy.count() == 1 );
+
+    QSignalSpy descriptionSpy( &filter, &QFieldLocatorFilter::descriptionChanged );
+    filter.setDescription( QStringLiteral( "A plugin filter" ) );
+    REQUIRE( filter.description() == QStringLiteral( "A plugin filter" ) );
+    REQUIRE( descriptionSpy.count() == 1 );
+
+    QSignalSpy delaySpy( &filter, &QFieldLocatorFilter::delayChanged );
+    filter.setDelay( 500 );
+    REQUIRE( filter.delay() == 500 );
+    REQUIRE( delaySpy.count() == 1 );
+
+    QSignalSpy parametersSpy( &filter, &QFieldLocatorFilter::parametersChanged );
+    const QVariantMap parameters( { { QStringLiteral( "key" ), QStringLiteral( "value" ) } } );
+    filter.setParameters( parameters );
+    REQUIRE( filter.parameters() == parameters );
+    REQUIRE( parametersSpy.count() == 1 );
+  }
+
+  SECTION( "SourceGetsCacheBustingQuery" )
+  {
+    QSignalSpy sourceSpy( &filter, &QFieldLocatorFilter::sourceChanged );
+    filter.setSource( QUrl( QStringLiteral( "file:///tmp/filter.qml" ) ) );
+
+    REQUIRE( sourceSpy.count() == 1 );
+    REQUIRE( filter.source().path() == QStringLiteral( "/tmp/filter.qml" ) );
+    REQUIRE( filter.source().hasQuery() );
+  }
+
+  SECTION( "CloneCopiesConfiguration" )
+  {
+    LocatorModelSuperBridge bridge;
+    filter.setName( QStringLiteral( "plugin" ) );
+    filter.setDisplayName( QStringLiteral( "Plugin filter" ) );
+    filter.setPrefix( QStringLiteral( "plg" ) );
+    filter.setDelay( 500 );
+    filter.setParameters( QVariantMap( { { QStringLiteral( "key" ), QStringLiteral( "value" ) } } ) );
+    filter.setSource( QUrl( QStringLiteral( "file:///tmp/filter.qml" ) ) );
+    filter.setLocatorBridge( &bridge );
+
+    std::unique_ptr<QFieldLocatorFilter> cloned( filter.clone() );
+    REQUIRE( cloned );
+    REQUIRE( cloned->name() == QStringLiteral( "plugin" ) );
+    REQUIRE( cloned->displayName() == QStringLiteral( "Plugin filter" ) );
+    REQUIRE( cloned->prefix() == QStringLiteral( "plg" ) );
+    REQUIRE( cloned->delay() == 500 );
+    REQUIRE( cloned->parameters() == filter.parameters() );
+    REQUIRE( cloned->source().path() == filter.source().path() );
+    REQUIRE( cloned->locatorBridge() == &bridge );
+  }
+
+  SECTION( "NoResultWithoutSource" )
+  {
+    REQUIRE( fetchResults( &filter, QStringLiteral( "anything" ) ).isEmpty() );
   }
 }
