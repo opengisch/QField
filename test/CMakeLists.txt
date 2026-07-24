@@ -17,6 +17,7 @@ function(ADD_CATCH2_TEST TESTNAME TESTSRC WITH_CATCH2_MAIN)
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_app
+    qfield_gui
     qfield_core
     Qt::Test
     Qt::Core
@@ -101,6 +102,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
   set_target_properties(${TESTNAME} PROPERTIES AUTOMOC TRUE)
   target_link_libraries(${TESTNAME} PRIVATE
     qfield_app
+    qfield_gui
     qfield_core
     qfield_qml
     Qt::Test

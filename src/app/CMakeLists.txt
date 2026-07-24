@@ -99,7 +99,7 @@ target_compile_features(qfield_app PUBLIC cxx_std_20)
 
 set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
 
-target_link_libraries(qfield_app PUBLIC qfield_core)
+target_link_libraries(qfield_app PUBLIC qfield_gui)
 
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
@@ -139,7 +139,8 @@ function(create_executable)
     FILES
     ${QM_FILES})
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_core qfield_qml)
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_gui qfield_core
+                                              qfield_qml)
 
   if(ANDROID)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_service)
