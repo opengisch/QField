@@ -29,7 +29,9 @@ QgsGeometry Geometry::asQgsGeometry() const
   QgsAbstractGeometry *geom = nullptr;
 
   if ( !mVectorLayer )
+  {
     return QgsGeometry();
+  }
 
   switch ( mVectorLayer->geometryType() )
   {
@@ -57,13 +59,18 @@ QgsGeometry Geometry::asQgsGeometry() const
 
     case Qgis::GeometryType::Unknown:
       break;
+
     case Qgis::GeometryType::Null:
       break;
   }
 
-  // QgsCoordinateTransform ct( mRubberbandModel->crs(), mVectorLayer->crs() );
-  // return ct.transform( QgsGeometry( geom ) );
-  return QgsGeometry( geom );
+  QgsGeometry geometry( geom );
+  if ( QgsWkbTypes::isMultiType( mVectorLayer->wkbType() ) )
+  {
+    geometry.convertToMultiType();
+  }
+
+  return geometry;
 }
 
 RubberbandModel *Geometry::rubberbandModel() const
