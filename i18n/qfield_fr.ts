@@ -3536,7 +3536,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation>Il télécharge tes modifications, puis récupère la dernière version d&apos;projet sur QFieldCloud pour que tout soit à jour.</translation>
+        <translation>Il télécharge tes modifications, puis récupère la dernière version du projet sur QFieldCloud pour que tout soit à jour.</translation>
     </message>
     <message>
         <source>Last synchronized today at %1</source>

@@ -393,11 +393,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Czy na pewno chcesz usunąć wybraną zakładkę?</numerusform><numerusform>Czy na pewno chcesz usunąć %n wybrane zakładki?</numerusform><numerusform>Czy na pewno chcesz usunąć %n wybranych zakładek?</numerusform><numerusform>Czy na pewno chcesz usunąć %n wybranych zakładek?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Usunięto %n zakładkę</numerusform><numerusform>Usunięto %n zakładki</numerusform><numerusform>Usunięto %n zakładek</numerusform><numerusform>Usunięto %n zakładek</numerusform></translation>
     </message>
     <message>
         <source>Orange</source>
@@ -2672,7 +2672,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Źródło obrotu</translation>
     </message>
     <message>
         <source>Compass</source>
@@ -2824,7 +2824,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
+        <translation>Automatycznie przesyłaj zmiany w regularnych odstępach czasu</translation>
     </message>
 </context>
 <context>
@@ -3032,7 +3032,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>QFieldCloudDangerZone</name>
     <message>
         <source>The action below is irreversible and permanently affects your local data. Proceed with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Poniższa czynność jest nieodwracalna i trwale wpłynie na twoje lokalne dane. Postępuj ostrożnie.</translation>
     </message>
     <message>
         <source>Reset project</source>
@@ -3040,7 +3040,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Discard local changes</source>
-        <translation type="unfinished"/>
+        <translation>Odrzuć lokalne zmiany</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
@@ -3052,15 +3052,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Removes all your local edits that have not yet been uploaded.</source>
-        <translation type="unfinished"/>
+        <translation>Usuwa wszystkie twoje lokalne zmiany, które nie zostały jeszcze przesłane.</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Resetuj</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished"/>
+        <translation>Odrzuć</translation>
     </message>
 </context>
 <context>
@@ -3075,35 +3075,35 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Applied</source>
-        <translation type="unfinished"/>
+        <translation>Zastosowane</translation>
     </message>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>W toku</translation>
     </message>
     <message>
         <source>Busy</source>
-        <translation type="unfinished"/>
+        <translation>Zajęty</translation>
     </message>
     <message>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>Konflikt</translation>
     </message>
     <message>
         <source>Not applied</source>
-        <translation type="unfinished"/>
+        <translation>Nie zastosowano</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Błąd</translation>
     </message>
     <message>
         <source>Ignored</source>
-        <translation type="unfinished"/>
+        <translation>Zignorowane</translation>
     </message>
     <message>
         <source>Unpermitted</source>
-        <translation type="unfinished"/>
+        <translation>Niedozwolone</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -3111,15 +3111,15 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Upload History</source>
-        <translation type="unfinished"/>
+        <translation>Historia przesyłania</translation>
     </message>
     <message>
         <source>Fetching upload history…</source>
-        <translation type="unfinished"/>
+        <translation>Pobieram historię przesłania…</translation>
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
-        <translation type="unfinished"/>
+        <translation>Nie wysłano jeszcze żadnych zmian!</translation>
     </message>
 </context>
 <context>
@@ -3476,103 +3476,103 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Danger Zone</source>
-        <translation type="unfinished"/>
+        <translation>Strefa zagrożenia</translation>
     </message>
     <message>
         <source>Cloudify project</source>
-        <translation type="unfinished"/>
+        <translation>Przenieś projekt do chmury</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.</source>
-        <translation type="unfinished"/>
+        <translation>Obecny projekt nie jest zapisany w QFieldCloud. Przechowywanie projektów na QFieldCloud zapewnia płynną synchronizację, edycję w trybie offline oraz zarządzanie zespołem.</translation>
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>Przenoszenie do chmury %1%</translation>
     </message>
     <message>
         <source>Cloudifying</source>
-        <translation type="unfinished"/>
+        <translation>Przenoszenie do chmury</translation>
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij zmiany lokalne</translation>
     </message>
     <message>
         <source>Sends your edits and attachments to the cloud without downloading project updates. Fast and low on data.</source>
-        <translation type="unfinished"/>
+        <translation>Wysyła twoje zmiany i załączniki do chmury bez pobierania aktualizacji z projektu. Szybko i zużywa mało danych.</translation>
     </message>
     <message>
         <source>No changes uploaded yet</source>
-        <translation type="unfinished"/>
+        <translation>Nie wysłano jeszcze żadnych zmian</translation>
     </message>
     <message>
         <source>Last uploaded just now</source>
-        <translation type="unfinished"/>
+        <translation>Właśnie przesłane</translation>
     </message>
     <message>
         <source>Last uploaded %1 minutes ago</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio przesłano %1 minut temu</translation>
     </message>
     <message>
         <source>Last uploaded today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio przesłane dzisiaj o %1</translation>
     </message>
     <message>
         <source>Last uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnio przesłane %1</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij</translation>
     </message>
     <message numerus="yes">
         <source>Auto-upload every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Automatyczne przesyłanie co %n minutę</numerusform><numerusform>Automatyczne przesyłanie co %n minuty</numerusform><numerusform>Automatyczne przesyłanie co %n minut</numerusform><numerusform>Automatyczne przesyłanie co %n minut</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-upload to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>Obecny projekt nie pozwala na wyłączenie automatycznego przesyłania plików</translation>
     </message>
     <message>
         <source>Synchronize project</source>
-        <translation type="unfinished"/>
+        <translation>Zsynchronizuj projekt</translation>
     </message>
     <message>
         <source>Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.</source>
-        <translation type="unfinished"/>
+        <translation>Przesyła twoje zmiany, a potem pobiera najnowszą wersję projektu z QFieldCloud, żeby wszystko było na bieżąco.</translation>
     </message>
     <message>
         <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Ostatnia synchronizacja dzisiaj o %1</translation>
     </message>
     <message>
         <source>Upload history</source>
-        <translation type="unfinished"/>
+        <translation>Historia przesyłania</translation>
     </message>
     <message>
         <source>Danger zone</source>
-        <translation type="unfinished"/>
+        <translation>Strefa zagrożenia</translation>
     </message>
     <message>
         <source>Discard local changes</source>
-        <translation type="unfinished"/>
+        <translation>Odrzuć lokalne zmiany</translation>
     </message>
     <message>
         <source>Should local changes be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>Czy lokalne zmiany powinny zostać odrzucone?</translation>
     </message>
     <message>
         <source>Local changes discarded</source>
-        <translation type="unfinished"/>
+        <translation>Lokalne zmiany zostały odrzucone</translation>
     </message>
     <message>
         <source>Failed to discard changes</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się odrzucić zmian</translation>
     </message>
     <message>
         <source>No changes to discard</source>
-        <translation type="unfinished"/>
+        <translation>Brak zmian do usunięcia</translation>
     </message>
 </context>
 <context>
@@ -3764,7 +3764,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij zmiany lokalne</translation>
     </message>
 </context>
 <context>
@@ -4169,7 +4169,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Upload local changes</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij zmiany lokalne</translation>
     </message>
 </context>
 <context>
@@ -5156,7 +5156,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger moves the coordinate cursor while double tapping adds a vertex.</source>
-        <translation type="unfinished"/>
+        <translation>Gdy ta opcja jest włączona, dotknięcie palcem obszaru mapy powoduje przesunięcie kursora współrzędnych, a podwójne dotknięcie dodaje wierzchołek.</translation>
     </message>
 </context>
 <context>
@@ -5310,7 +5310,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Próbna</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
@@ -6598,7 +6598,7 @@ projekt</translation>
     </message>
     <message>
         <source>Individual datasets base map</source>
-        <translation type="unfinished"/>
+        <translation>Mapa bazowa dla własnych zestawów danych</translation>
     </message>
     <message>
         <source>Remove from recently opened</source>
@@ -7660,7 +7660,7 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij lokalne zmiany, zsynchronizuj lub odrzuć zmiany z i do QFieldCloud po otwarciu projektu w chmurze.</translation>
     </message>
 </context>
 <context>
