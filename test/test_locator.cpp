@@ -24,6 +24,7 @@
 #include "featurelistextentcontroller.h"
 #include "featurelistmodelselection.h"
 #include "featureslocatorfilter.h"
+#include "finlandlocatorfilter.h"
 #include "gotolocatorfilter.h"
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
@@ -38,6 +39,7 @@
 #include <qgsbookmarkmanager.h>
 #include <qgscoordinatereferencesystem.h>
 #include <qgsfeedback.h>
+#include <qgsgeocoder.h>
 #include <qgslocatorcontext.h>
 #include <qgspointxy.h>
 #include <qgsproject.h>
@@ -109,6 +111,12 @@ static QgsVectorLayer *addPointLayer( const QString &name )
   QgsProject::instance()->addMapLayer( layer );
   return layer;
 }
+
+class DummyGeocoder : public QgsGeocoderInterface
+{
+  public:
+    Flags flags() const override { return Flags(); }
+};
 
 /*
  * ExpressionCalculatorLocatorFilter
@@ -581,4 +589,45 @@ TEST_CASE( "FeaturesLocatorFilter" )
   }
 
   QgsProject::instance()->clear();
+}
+
+/*
+ * FinlandLocatorFilter
+ * The filter is currently not registered by the bridge and its geocoding path is
+ * network backed, so only its construction time contract is covered
+ */
+TEST_CASE( "FinlandLocatorFilter" )
+{
+  LocatorModelSuperBridge bridge;
+  DummyGeocoder geocoder;
+  FinlandLocatorFilter filter( &geocoder, &bridge );
+
+  SECTION( "Metadata" )
+  {
+    REQUIRE( filter.name() == QStringLiteral( "pelias-finland" ) );
+    REQUIRE( filter.prefix() == QStringLiteral( "fia" ) );
+    REQUIRE( filter.geocoder() == &geocoder );
+    REQUIRE( !filter.useWithoutPrefix() );
+  }
+
+  SECTION( "BoundingBoxCoversFinland" )
+  {
+    REQUIRE( filter.boundingBox().contains( QgsPointXY( 24.9384, 60.1699 ) ) );
+    REQUIRE( !filter.boundingBox().contains( QgsPointXY( -79.3832, 43.6532 ) ) );
+  }
+
+  SECTION( "BoundingBoxRoundTrips" )
+  {
+    const QgsRectangle boundingBox( 1.0, 2.0, 3.0, 4.0 );
+    filter.setBoundingBox( boundingBox );
+    REQUIRE( filter.boundingBox() == boundingBox );
+  }
+
+  SECTION( "Clone" )
+  {
+    std::unique_ptr<FinlandLocatorFilter> cloned( filter.clone() );
+    REQUIRE( cloned );
+    REQUIRE( cloned->name() == filter.name() );
+    REQUIRE( cloned->geocoder() == &geocoder );
+  }
 }
