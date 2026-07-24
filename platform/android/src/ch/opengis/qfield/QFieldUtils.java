@@ -105,7 +105,15 @@ public class QFieldUtils {
                                                String folder,
                                                ContentResolver resolver) {
         DocumentFile[] files = directory.listFiles();
+        if (files == null) {
+            return false;
+        }
+
         for (DocumentFile file : files) {
+            if (file.getName() == null) {
+                continue;
+            }
+
             if (file.isDirectory()) {
                 String directoryPath = folder + file.getName() + "/";
                 new File(directoryPath).mkdir();
@@ -118,11 +126,10 @@ public class QFieldUtils {
                 String filePath = folder + file.getName();
                 try {
                     InputStream input = resolver.openInputStream(file.getUri());
-                    QFieldUtils.inputStreamToFile(input, filePath,
-                                                  file.length());
+                    QFieldUtils.inputStreamToFile(input, filePath);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return false;
+                    continue;
                 }
             }
         }
@@ -380,28 +387,17 @@ public class QFieldUtils {
      *     InputStream
      * @return           returns True if the operation was successful
      */
-    public static boolean inputStreamToFile(InputStream in, String file,
-                                            long totalBytes) {
+    public static boolean inputStreamToFile(InputStream in, String file) {
         try {
             OutputStream out = new FileOutputStream(new File(file));
 
-            int size = 0;
-            int bufferSize = 1024;
-            long bufferRead = 0;
-            byte[] buffer = new byte[bufferSize];
+            int bufferRead = 0;
+            byte[] buffer = new byte[1024];
 
-            if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
-                bufferSize = (int)(totalBytes - bufferRead);
+            while ((bufferRead = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bufferRead);
             }
-            while (bufferSize > 0 &&
-                   (size = in.read(buffer, 0, bufferSize)) != -1) {
-                out.write(buffer, 0, size);
-                bufferRead += bufferSize;
-                if (totalBytes > 0 && bufferRead + bufferSize > totalBytes) {
-                    bufferSize = (int)(totalBytes - bufferRead);
-                }
-            }
-
+            out.flush();
             out.close();
         } catch (Exception e) {
             Log.e("QField", "inputStreamToFile exception: " + e.getMessage());
