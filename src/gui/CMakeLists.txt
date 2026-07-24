@@ -1,8 +1,54 @@
-set(QFIELD_GUI_SRCS localfilesimageprovider.cpp localfilesmodel.cpp
-                    projectsimageprovider.cpp recentprojectlistmodel.cpp)
+set(QFIELD_GUI_SRCS
+    attributeformmodel.cpp
+    attributeformmodelbase.cpp
+    barcodeimageprovider.cpp
+    drawingtemplatemodel.cpp
+    expressionevaluator.cpp
+    expressionvariablemodel.cpp
+    featurechecklistmodel.cpp
+    focusstack.cpp
+    geometryeditorsmodel.cpp
+    legendimageprovider.cpp
+    localfilesimageprovider.cpp
+    localfilesmodel.cpp
+    messagelogmodel.cpp
+    orderedrelationmodel.cpp
+    parameterizedimage.cpp
+    printlayoutlistmodel.cpp
+    projectsimageprovider.cpp
+    recentprojectlistmodel.cpp
+    referencingfeaturelistmodel.cpp
+    sensorlistmodel.cpp
+    submodel.cpp
+    theme.cpp
+    valuemapmodel.cpp
+    valuemapmodelbase.cpp)
 
-set(QFIELD_GUI_HDRS localfilesimageprovider.h localfilesmodel.h
-                    projectsimageprovider.h recentprojectlistmodel.h)
+set(QFIELD_GUI_HDRS
+    attributeformmodel.h
+    attributeformmodelbase.h
+    barcodeimageprovider.h
+    drawingtemplatemodel.h
+    expressionevaluator.h
+    expressionvariablemodel.h
+    featurechecklistmodel.h
+    focusstack.h
+    geometryeditorsmodel.h
+    legendimageprovider.h
+    localfilesimageprovider.h
+    localfilesmodel.h
+    messagelogmodel.h
+    orderedrelationmodel.h
+    parameterizedimage.h
+    printlayoutlistmodel.h
+    projectsimageprovider.h
+    recentprojectlistmodel.h
+    referencingfeaturelistmodel.h
+    sensorlistmodel.h
+    submodel.h
+    theme.h
+    valuemapmodel.h
+    valuemapmodelbase.h)
 
 add_library(qfield_gui STATIC ${QFIELD_GUI_SRCS} ${QFIELD_GUI_HDRS})
 

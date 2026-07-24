@@ -72,69 +72,49 @@ set(QFIELD_CORE_SRCS
     appcoordinateoperationhandlers.cpp
     appexpressioncontextscopesgenerator.cpp
     appinterface.cpp
-    attributeformmodel.cpp
-    attributeformmodelbase.cpp
     audioanalyzer.cpp
     audiorecorder.cpp
     barcodedecoder.cpp
-    barcodeimageprovider.cpp
     bookmarkmodel.cpp
     cameraorientationnormalizer.cpp
     digitizinglogger.cpp
     distancearea.cpp
     drawingcanvas.cpp
-    drawingtemplatemodel.cpp
-    expressionevaluator.cpp
-    expressionvariablemodel.cpp
     externalstorage.cpp
-    featurechecklistmodel.cpp
     featurelistextentcontroller.cpp
     featurelistmodel.cpp
     featurelistmodelselection.cpp
     featuremodel.cpp
-    focusstack.cpp
     geometry.cpp
-    geometryeditorsmodel.cpp
     gridmodel.cpp
     identifytool.cpp
     featurehistory.cpp
     layerresolver.cpp
     layertreemapcanvasbridge.cpp
     layertreemodel.cpp
-    legendimageprovider.cpp
     linepolygonshape.cpp
     maplayermodel.cpp
     maptoscreen.cpp
-    messagelogmodel.cpp
     multifeaturelistmodel.cpp
     multifeaturelistmodelbase.cpp
     navigation.cpp
     navigationmodel.cpp
     nearfieldreader.cpp
-    orderedrelationmodel.cpp
-    parameterizedimage.cpp
     peliasgeocoder.cpp
     resourcesource.cpp
     translatormanager.cpp
-    printlayoutlistmodel.cpp
     projectinfo.cpp
     projectsource.cpp
     qfieldxmlhttprequest.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
-    referencingfeaturelistmodel.cpp
     rubberbandshape.cpp
     rubberbandmodel.cpp
     scalebarmeasurement.cpp
-    sensorlistmodel.cpp
     settings.cpp
     snappingresult.cpp
-    submodel.cpp
-    theme.cpp
     tracker.cpp
     trackingmodel.cpp
-    valuemapmodel.cpp
-    valuemapmodelbase.cpp
     vertexmodel.cpp
     viewstatus.cpp
     webdavconnection.cpp)
@@ -214,70 +194,50 @@ set(QFIELD_CORE_HDRS
     appcoordinateoperationhandlers.h
     appexpressioncontextscopesgenerator.h
     appinterface.h
-    attributeformmodel.h
-    attributeformmodelbase.h
     audioanalyzer.h
     audiorecorder.h
     barcodedecoder.h
-    barcodeimageprovider.h
     bookmarkmodel.h
     cameraorientationnormalizer.h
     digitizinglogger.h
     distancearea.h
     drawingcanvas.h
-    drawingtemplatemodel.h
-    expressionevaluator.h
-    expressionvariablemodel.h
     externalstorage.h
-    featurechecklistmodel.h
     featureexpressionvaluesgatherer.h
     featurelistextentcontroller.h
     featurelistmodel.h
     featurelistmodelselection.h
     featuremodel.h
-    focusstack.h
     geometry.h
-    geometryeditorsmodel.h
     gridmodel.h
     identifytool.h
     featurehistory.h
     layerresolver.h
     layertreemapcanvasbridge.h
     layertreemodel.h
-    legendimageprovider.h
     linepolygonshape.h
     maplayermodel.h
     maptoscreen.h
-    messagelogmodel.h
     multifeaturelistmodel.h
     multifeaturelistmodelbase.h
     navigation.h
     navigationmodel.h
     nearfieldreader.h
-    orderedrelationmodel.h
-    parameterizedimage.h
     peliasgeocoder.h
     resourcesource.h
     translatormanager.h
-    printlayoutlistmodel.h
     projectinfo.h
     projectsource.h
     qfieldxmlhttprequest.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
-    referencingfeaturelistmodel.h
     rubberbandshape.h
     rubberbandmodel.h
     scalebarmeasurement.h
-    sensorlistmodel.h
     settings.h
     snappingresult.h
-    submodel.h
-    theme.h
     tracker.h
     trackingmodel.h
-    valuemapmodel.h
-    valuemapmodelbase.h
     vertexmodel.h
     viewstatus.h
     webdavconnection.h
