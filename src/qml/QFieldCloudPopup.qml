@@ -373,7 +373,7 @@ Popup {
               accentColor: Theme.cloudColor
               iconSource: Theme.getThemeVectorIcon('ic_cloud_active_24dp')
               title: qsTr('Cloudify project')
-              description: localProjectGrid.isCloudifying ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+              description: localProjectGrid.isCloudifying ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
 
               QfButton {
                 Layout.fillWidth: true
