@@ -384,7 +384,7 @@ Popup {
             Layout.fillWidth: true
             font: Theme.tipFont
             color: Theme.secondaryTextColor
-            text: qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+            text: qsTr('Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.<br><br>') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
