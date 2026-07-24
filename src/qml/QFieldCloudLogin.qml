@@ -270,7 +270,7 @@ Item {
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.url === cloudConnection.defaultUrl
+      visible: Qt.platform.os !== "ios" && cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.url === cloudConnection.defaultUrl
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
@@ -293,7 +293,7 @@ Item {
       color: Theme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
+      visible: Qt.platform.os !== "ios" && cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
@@ -309,7 +309,7 @@ Item {
     Text {
       id: cloudIntroLabel
       Layout.fillWidth: true
-      text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.'
+      text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
       horizontalAlignment: Text.AlignHCenter
       font: Theme.defaultFont
       color: Theme.mainTextColor
