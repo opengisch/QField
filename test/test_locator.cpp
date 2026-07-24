@@ -41,6 +41,7 @@
 #include <qgscoordinatereferencesystem.h>
 #include <qgsfeedback.h>
 #include <qgsgeocoder.h>
+#include <qgslocator.h>
 #include <qgslocatorcontext.h>
 #include <qgspointxy.h>
 #include <qgsproject.h>
@@ -720,5 +721,89 @@ TEST_CASE( "QFieldLocatorFilter" )
   SECTION( "NoResultWithoutSource" )
   {
     REQUIRE( fetchResults( &filter, QStringLiteral( "anything" ) ).isEmpty() );
+  }
+}
+
+/*
+ * LocatorModelSuperBridge
+ */
+TEST_CASE( "LocatorModelSuperBridge" )
+{
+  LocatorModelSuperBridge bridge;
+
+  SECTION( "RegistersQFieldFilters" )
+  {
+    REQUIRE( bridge.locator()->filters().count() == 6 );
+
+    QStringList names;
+    for ( QgsLocatorFilter *filter : bridge.locator()->filters() )
+      names << filter->name();
+
+    REQUIRE( names.contains( QStringLiteral( "features" ) ) );
+    REQUIRE( names.contains( QStringLiteral( "allfeatures" ) ) );
+    REQUIRE( names.contains( QStringLiteral( "goto" ) ) );
+    REQUIRE( names.contains( QStringLiteral( "bookmarks" ) ) );
+    REQUIRE( names.contains( QStringLiteral( "calculator" ) ) );
+    REQUIRE( names.contains( QStringLiteral( "optionpages" ) ) );
+  }
+
+  SECTION( "RegistersAndDeregistersPluginFilters" )
+  {
+    const int initialCount = static_cast<int>( bridge.locator()->filters().count() );
+    QSignalSpy spy( &bridge, &LocatorModelSuperBridge::locatorFiltersChanged );
+
+    QFieldLocatorFilter *filter = new QFieldLocatorFilter();
+    filter->setName( QStringLiteral( "plugin" ) );
+    bridge.registerQFieldLocatorFilter( filter );
+    REQUIRE( bridge.locator()->filters().count() == initialCount + 1 );
+    REQUIRE( spy.count() == 1 );
+
+    bridge.deregisterQFieldLocatorFilter( filter );
+    REQUIRE( bridge.locator()->filters().count() == initialCount );
+    REQUIRE( spy.count() == 2 );
+  }
+
+  SECTION( "PrefixIsExtractedFromSearchString" )
+  {
+    REQUIRE( bridge.getPrefixFromSearchString( QStringLiteral( "go 1.5 2.5" ) ) == QStringLiteral( "go" ) );
+    REQUIRE( bridge.getPrefixFromSearchString( QStringLiteral( "  b Alpha" ) ) == QStringLiteral( "b" ) );
+    REQUIRE( bridge.getPrefixFromSearchString( QStringLiteral( "zz Alpha" ) ).isEmpty() );
+    REQUIRE( bridge.getPrefixFromSearchString( QString() ).isEmpty() );
+  }
+
+  SECTION( "PropertiesRoundTripAndNotifyOnce" )
+  {
+    QSignalSpy keepScaleSpy( &bridge, &LocatorModelSuperBridge::keepScaleChanged );
+    REQUIRE( !bridge.keepScale() );
+    bridge.setKeepScale( true );
+    REQUIRE( bridge.keepScale() );
+    REQUIRE( keepScaleSpy.count() == 1 );
+    bridge.setKeepScale( true );
+    REQUIRE( keepScaleSpy.count() == 1 );
+
+    QgsVectorLayer layer( QStringLiteral( "Point?crs=epsg:4326" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+    QSignalSpy activeLayerSpy( &bridge, &LocatorModelSuperBridge::activeLayerChanged );
+    bridge.setActiveLayer( &layer );
+    REQUIRE( bridge.activeLayer() == &layer );
+    REQUIRE( activeLayerSpy.count() == 1 );
+
+    QgsBookmarkManager manager;
+    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    QSignalSpy bookmarksSpy( &bridge, &LocatorModelSuperBridge::bookmarksChanged );
+    bridge.setBookmarks( &model );
+    REQUIRE( bridge.bookmarks() == &model );
+    REQUIRE( bookmarksSpy.count() == 1 );
+  }
+
+  SECTION( "EmitsSearchRequests" )
+  {
+    QSignalSpy searchSpy( &bridge, &LocatorModelSuperBridge::searchRequested );
+    bridge.requestSearch( QStringLiteral( "Alpha" ) );
+    REQUIRE( searchSpy.count() == 1 );
+    REQUIRE( searchSpy.at( 0 ).at( 0 ).toString() == QStringLiteral( "Alpha" ) );
+
+    QSignalSpy messageSpy( &bridge, &LocatorModelSuperBridge::messageEmitted );
+    bridge.emitMessage( QStringLiteral( "Something happened" ) );
+    REQUIRE( messageSpy.count() == 1 );
   }
 }
