@@ -103,8 +103,6 @@ set(QFIELD_CORE_SRCS
     layertreemodel.cpp
     legendimageprovider.cpp
     linepolygonshape.cpp
-    localfilesimageprovider.cpp
-    localfilesmodel.cpp
     maplayermodel.cpp
     maptoscreen.cpp
     messagelogmodel.cpp
@@ -120,12 +118,10 @@ set(QFIELD_CORE_SRCS
     translatormanager.cpp
     printlayoutlistmodel.cpp
     projectinfo.cpp
-    projectsimageprovider.cpp
     projectsource.cpp
     qfieldxmlhttprequest.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
-    recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
     rubberbandshape.cpp
     rubberbandmodel.cpp
@@ -250,8 +246,6 @@ set(QFIELD_CORE_HDRS
     layertreemodel.h
     legendimageprovider.h
     linepolygonshape.h
-    localfilesimageprovider.h
-    localfilesmodel.h
     maplayermodel.h
     maptoscreen.h
     messagelogmodel.h
@@ -267,12 +261,10 @@ set(QFIELD_CORE_HDRS
     translatormanager.h
     printlayoutlistmodel.h
     projectinfo.h
-    projectsimageprovider.h
     projectsource.h
     qfieldxmlhttprequest.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
-    recentprojectlistmodel.h
     referencingfeaturelistmodel.h
     rubberbandshape.h
     rubberbandmodel.h

@@ -234,6 +234,7 @@ if (WITH_SPIX)
 endif ()
 
 add_subdirectory(src/core)
+add_subdirectory(src/gui)
 add_subdirectory(src/qml)
 if (ANDROID)
   add_subdirectory(src/service)
