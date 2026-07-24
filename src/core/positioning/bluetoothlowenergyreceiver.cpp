@@ -141,6 +141,15 @@ void BluetoothLowEnergyReceiver::deviceConnected()
 void BluetoothLowEnergyReceiver::deviceDisconnected()
 {
   qInfo() << "BluetoothLowEnergyReceiver: Received disconnected signal.";
+
+  if ( mDisconnecting )
+  {
+    mDisconnecting = false;
+    if ( mConnectOnDisconnect )
+    {
+      doConnectDevice();
+    }
+  }
 }
 
 void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::Error error )
