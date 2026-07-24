@@ -734,10 +734,12 @@ Page {
     }
 
     MenuItem {
+      property bool isVisible: Qt.platform.os !== "ios" && cloudConnection.url === cloudConnection.defaultUrl
+
       text: qsTr('Settings page')
       font: Theme.defaultFont
-      visible: cloudConnection.url === cloudConnection.defaultUrl
-      height: cloudConnection.url === cloudConnection.defaultUrl ? 48 : 0
+      visible: isVisible
+      height: isVisible ? 48 : 0
       leftPadding: Theme.menuItemLeftPadding
       icon.source: Theme.getThemeVectorIcon('ic_tune_white_24dp')
       enabled: cloudConnection.state !== QFieldCloudConnection.Busy && cloudConnection.status === QFieldCloudConnection.LoggedIn
