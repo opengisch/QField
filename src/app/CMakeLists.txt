@@ -88,6 +88,16 @@ set(QFIELD_APP_HDRS
 
 add_library(qfield_app STATIC ${QFIELD_APP_SRCS} ${QFIELD_APP_HDRS})
 
+if(WITH_BLUETOOTH)
+  target_compile_definitions(qfield_app PRIVATE WITH_BLUETOOTH)
+endif()
+if(WITH_SERIALPORT)
+  target_compile_definitions(qfield_app PRIVATE WITH_SERIALPORT)
+endif()
+if(WITH_NFC)
+  target_compile_definitions(qfield_app PRIVATE WITH_NFC)
+endif()
+
 include(GenerateExportHeader)
 generate_export_header(qfield_app)
 
