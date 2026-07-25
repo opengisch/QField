@@ -2029,8 +2029,10 @@ ApplicationWindow {
 
         width: parent.width - 4
         height: parent.height
+        topPadding: 2
         leftPadding: 2
         rightPadding: 2
+        bottomPadding: 2
 
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
