@@ -14,7 +14,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "attributeformmodel.h"
 #include "submodel.h"
 
 SubModel::SubModel( QObject *parent )

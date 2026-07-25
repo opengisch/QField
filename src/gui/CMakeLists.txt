@@ -19,7 +19,6 @@ set(QFIELD_GUI_SRCS
     recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
     sensorlistmodel.cpp
-    submodel.cpp
     theme.cpp
     valuemapmodel.cpp
     valuemapmodelbase.cpp)
@@ -45,7 +44,6 @@ set(QFIELD_GUI_HDRS
     recentprojectlistmodel.h
     referencingfeaturelistmodel.h
     sensorlistmodel.h
-    submodel.h
     theme.h
     valuemapmodel.h
     valuemapmodelbase.h)
@@ -63,4 +61,5 @@ target_compile_features(qfield_gui PUBLIC cxx_std_20)
 
 set_target_properties(qfield_gui PROPERTIES AUTOMOC TRUE)
 
-target_link_libraries(qfield_gui PUBLIC qfield_core)
+target_link_libraries(qfield_gui PUBLIC qfield_core Qt::Core Qt::Gui Qt::Quick
+                                        Qt::Widgets)

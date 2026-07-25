@@ -113,6 +113,7 @@ set(QFIELD_CORE_SRCS
     scalebarmeasurement.cpp
     settings.cpp
     snappingresult.cpp
+    submodel.cpp
     tracker.cpp
     trackingmodel.cpp
     vertexmodel.cpp
@@ -236,6 +237,7 @@ set(QFIELD_CORE_HDRS
     scalebarmeasurement.h
     settings.h
     snappingresult.h
+    submodel.h
     tracker.h
     trackingmodel.h
     vertexmodel.h
