@@ -167,6 +167,11 @@ void BluetoothDeviceModel::stopDeviceDiscovery()
 
 void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
 {
+  if ( info.name().isEmpty() )
+  {
+    return;
+  }
+
   for ( qsizetype i = 0; i < mDiscoveredDevices.size(); i++ )
   {
     if ( deviceAddress( mDiscoveredDevices[i] ) == deviceAddress( info ) )
