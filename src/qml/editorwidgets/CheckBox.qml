@@ -99,8 +99,8 @@ EditorWidgetBase {
       } else {
         // Work around absence of proper configuration
         if (!isNull) {
-          // Type coercion is desired here as custom unchecked/checked states are stored as strings yet value could be integers
-          editedValue = value === checkedState ? uncheckedState : checkedState;
+          // String comparison is used here as custom unchecked/checked states are stored as strings yet value could be integers
+          editedValue = String(value) === String(checkedState) ? uncheckedState : checkedState;
         } else {
           editedValue = checkedState;
         }
