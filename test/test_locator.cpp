@@ -180,9 +180,9 @@ TEST_CASE( "ExpressionCalculatorLocatorFilter" )
     QgsProject::instance()->clear();
     addPointLayer( QStringLiteral( "memory" ) );
 
-    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "aggregate('memory', 'concatenate', \"str\")" ) );
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "aggregate(layer:='memory', aggregate:='concatenate', expression:=\"str\", concatenator:=',')" ) );
     REQUIRE( results.size() == 1 );
-    REQUIRE( results.at( 0 ).userData().toString() == QStringLiteral( "AlphaBeta" ) );
+    REQUIRE( results.at( 0 ).userData().toString() == QStringLiteral( "Alpha,Beta" ) );
 
     QgsProject::instance()->clear();
   }
@@ -361,8 +361,8 @@ TEST_CASE( "BookmarkLocatorFilter" )
 
 /*
  * HelpLocatorFilter
- * Fetching documentation hits the live docs.qfield.org index and triggering opens a
- * browser, so coverage stops at the guard that runs before any request is made
+ * The live documentation index is replaced with a local one to exercise fetching and
+ * parsing; triggering opens a browser, so it is not exercised
  */
 TEST_CASE( "HelpLocatorFilter" )
 {
@@ -389,6 +389,19 @@ TEST_CASE( "HelpLocatorFilter" )
   {
     REQUIRE( fetchResults( &filter, QStringLiteral( "ab" ) ).isEmpty() );
     REQUIRE( fetchResults( &filter, QString() ).isEmpty() );
+  }
+
+  SECTION( "MatchesAgainstLocalSearchIndex" )
+  {
+    filter.setSearchUrl( QStringLiteral( "file:%1/locator_help_index.json" ).arg( TEST_DATA_DIR ) );
+
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "tracking" ) );
+    REQUIRE( results.size() == 1 );
+    REQUIRE( results.at( 0 ).displayString == QStringLiteral( "Tracking" ) );
+    REQUIRE( results.at( 0 ).userData().toString() == QStringLiteral( "https://docs.qfield.org/get-started/tracking/" ) );
+
+    REQUIRE( fetchResults( &filter, QStringLiteral( "principles" ) ).size() == 1 );
+    REQUIRE( fetchResults( &filter, QStringLiteral( "nonexistentterm" ) ).isEmpty() );
   }
 }
 

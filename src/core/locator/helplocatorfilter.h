@@ -47,12 +47,16 @@ class HelpLocatorFilter : public QgsLocatorFilter
     Priority priority() const override { return Medium; }
     QString prefix() const override { return QStringLiteral( "?" ); }
 
+    QString searchUrl() const { return mSearchUrl; }
+    void setSearchUrl( const QString &url ) { mSearchUrl = url; }
+
     void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
     void triggerResult( const QgsLocatorResult &result ) override;
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   private:
     LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QString mSearchUrl = QStringLiteral( "https://docs.qfield.org/search/search_index.json" );
 };
 
 #endif // HELPLOCATORFILTER_H

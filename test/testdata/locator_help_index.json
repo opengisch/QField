@@ -1,0 +1,28 @@
+{
+  "config": {
+    "lang": [
+      "en"
+    ],
+    "separator": "[\\s\\-]+",
+    "pipeline": [
+      "stopWordFilter"
+    ]
+  },
+  "docs": [
+    {
+      "location": "get-started/concepts/",
+      "title": "Principles",
+      "text": "<p>QField is designed with a few key principles in mind.</p>"
+    },
+    {
+      "location": "get-started/tracking/",
+      "title": "Tracking",
+      "text": "<p>QField can record a positioning track while you move across the field.</p>"
+    },
+    {
+      "location": "reference/settings/",
+      "title": "Settings reference",
+      "text": "<p>This tracking reference page should be skipped by the filter.</p>"
+    }
+  ]
+}

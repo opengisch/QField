@@ -53,7 +53,8 @@ void HelpLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
     return;
   }
 
-  QNetworkRequest request( QUrl( "https://docs.qfield.org/search/search_index.json" ) );
+  const QUrl url( mSearchUrl );
+  QNetworkRequest request( url );
   QgsBlockingNetworkRequest blockingRequest;
   const QgsBlockingNetworkRequest::ErrorCode errorCode = blockingRequest.get( request, false, feedback );
   if ( errorCode != QgsBlockingNetworkRequest::NoError )
