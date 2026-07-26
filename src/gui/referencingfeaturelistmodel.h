@@ -24,7 +24,7 @@
 #include <qgsvectorlayerfeatureiterator.h>
 
 //used for gatherer
-#include "qfield_core_export.h"
+#include "qfield_gui_export.h"
 
 
 class QgsVectorLayer;
@@ -34,7 +34,7 @@ class OrderedRelationModel;
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemModel
+class QFIELD_GUI_EXPORT ReferencingFeatureListModelBase : public QAbstractItemModel
 {
     Q_OBJECT
 

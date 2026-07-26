@@ -17,7 +17,7 @@ email                : kaustuv@opengis.ch
 #ifndef THEME_H
 #define THEME_H
 
-#include "qfield_core_export.h"
+#include "qfield_gui_export.h"
 
 #include <QColor>
 #include <QFont>
@@ -32,7 +32,7 @@ email                : kaustuv@opengis.ch
  *
  * \note Default colors are loaded from :/theme/theme.json
  */
-class QFIELD_CORE_EXPORT Theme final : public QObject
+class QFIELD_GUI_EXPORT Theme final : public QObject
 {
     Q_OBJECT
 
