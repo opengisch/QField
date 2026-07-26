@@ -308,3 +308,61 @@ pointHandler.registerHandler("feature_iteration_example", (point, type, interact
 ```
 
 By returning true, we are telling QField that we have taken over the handling and provided the desired action.
+
+## Split the `qml` code into multiple files
+
+Sometimes, the plugin's `main.qml` file can become long. In such cases, it is possible and recommended to split the code into multiple `qml` files.
+
+_This snippet does not intend to be a tutorial on QML itself, rather on how to organize QML code within a QField plugin. Also consider it as a hint that splitting QML code into multiple files can be considered as a good practice._
+
+Here is an example of the content of the `main.qml` plugin file:
+
+```qml
+import QtQuick
+import QtCore
+
+import org.qfield
+import "qrc:/qml" as QFieldItems
+
+Item {
+  id: myPlugin
+  objectName: "myPlugin"
+
+  property var mainWindow: iface.mainWindow()
+  property var mapCanvas: iface.mapCanvas()
+
+  // This is an example of a QML component that is defined in a separate file.
+  // The code lives in the `MyOtherDialog.qml` file.
+  MyOtherDialog {
+    id: myOtherDialog
+    mainWindow: myPlugin.mainWindow
+    mapCanvas: myPlugin.mapCanvas
+  }
+
+  Component.onCompleted: {
+    myOtherDialog.open();
+  }
+
+  // other components, layouts, etc...
+}
+```
+
+And an example of the content of the `MyOtherDialog.qml` file:
+
+```qml
+import QtQuick
+
+import org.qfield
+
+Dialog {
+  id: myOtherDialog
+  objectName: "myOtherDialog"
+  title: "The title"
+
+  // Those are properties that are passed from the main.qml file to this component.
+  required property var mainWindow
+  required property var mapCanvas
+
+  // other components, layouts, etc...
+}
+```
