@@ -34,7 +34,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
-    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured || table.selectedItemsDeletable)
+    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsPushableToQField || table.selectedItemsWebDavConfigured || table.selectedItemsDeletable || table.selectedItemsCompressible)
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
@@ -159,6 +159,7 @@ Page {
         property bool selectedItemsWebDavConfigured
         property bool selectedItemsPushableToQField
         property bool selectedItemsDeletable
+        property bool selectedItemsCompressible
 
         delegate: Rectangle {
           id: rectangle
@@ -335,12 +336,15 @@ Page {
           table.selectedItemsWebDavConfigured = true;
           table.selectedItemsPushableToQField = true;
           table.selectedItemsDeletable = true;
+          table.selectedItemsCompressible = true;
           for (let i = 0; i < table.selectedList.length; ++i) {
             const selectedItem = table.model.get(table.selectedList[i]);
-            table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && webdavConnectionLoader.item.hasWebdavConfiguration(selectedItem.path);
             const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && selectedItem.path.search(cloudProjectsModel.currentProjectId) !== -1;
+
+            table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && webdavConnectionLoader.item.hasWebdavConfiguration(selectedItem.path);
             table.selectedItemsPushableToQField = (table.selectedItemsPushableToQField && selectedItem.metaType == LocalFilesModel.Dataset && selectedItem.type == LocalFilesModel.RasterDataset && cloudProjectsModel.currentProjectId) || (selectedItem.metaType == LocalFilesModel.Folder && itemWithinQFieldCloudProjectFolder);
             table.selectedItemsDeletable = table.selectedItemsDeletable && FileUtils.isDeletable(selectedItem.path);
+            table.selectedItemsCompressible = table.selectedItemsCompressible && selectedItem.metaType == LocalFilesModel.Dataset;
           }
         }
 
@@ -937,6 +941,30 @@ Page {
             QFieldCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QFieldCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
           } else {
             displayToast(qsTr("Please select one or more files to push to QFieldCloud."));
+          }
+        }
+      }
+
+      MenuItem {
+        id: sendCompressedFilesTo
+
+        enabled: table.selectedItemsCompressible
+        visible: enabled
+
+        font: Theme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: Theme.menuItemLeftPadding
+
+        text: qsTr("Send compressed item(s) to...")
+        onTriggered: {
+          var fileNames = [];
+          for (let i = 0; i < table.selectedList.length; ++i) {
+            const item = table.model.get(table.selectedList[i]);
+            fileNames.push(item.path);
+          }
+          if (fileNames.length > 0) {
+            platformUtilities.sendCompressedFilesTo(fileNames);
           }
         }
       }
