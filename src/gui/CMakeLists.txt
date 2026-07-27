@@ -16,6 +16,7 @@ set(QFIELD_GUI_SRCS
     parameterizedimage.cpp
     printlayoutlistmodel.cpp
     projectsimageprovider.cpp
+    qfieldguiqmlregistration.cpp
     recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
     sensorlistmodel.cpp
@@ -41,6 +42,7 @@ set(QFIELD_GUI_HDRS
     parameterizedimage.h
     printlayoutlistmodel.h
     projectsimageprovider.h
+    qfieldguiqmlregistration.h
     recentprojectlistmodel.h
     referencingfeaturelistmodel.h
     sensorlistmodel.h

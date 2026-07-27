@@ -121,6 +121,7 @@
 #include "qfieldcloudstatus.h"
 #include "qfieldcloudutils.h"
 #include "qfieldcoreqmlregistration.h"
+#include "qfieldguiqmlregistration.h"
 #include "qfieldlocatorfilter.h"
 #include "qfieldurlhandler.h"
 #include "qgismobileapp.h"
@@ -486,26 +487,14 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<PositioningSource::NtripState>( "PositioningSource::NtripState" );
 
   QFieldCore::registerQmlTypes();
+  QFieldGui::registerQmlTypes();
   qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
 
   qmlRegisterUncreatableMetaObject( CogoVisualGuide::staticMetaObject, "org.qfield", 1, 0, "CogoVisualGuide", "Used to access enum values" );
 
-  qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
-  qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
   qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
-  qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
-  qmlRegisterType<ParameterizedImage>( "org.qfield", 1, 0, "ParameterizedImage" );
-  qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
   qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
   qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
-  qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
-  qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
-  qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
-  qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
-  qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
-  qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
-  qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
-  qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
 #ifdef WITH_BLUETOOTH
   engine->rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #else
@@ -518,7 +507,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 #endif
   qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
   qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
-  qmlRegisterType<SensorListModel>( "org.qfield", 1, 0, "SensorListModel" );
   qRegisterMetaType<NtripMountPoint>( "NtripMountPoint" );
   qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
   qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
@@ -537,20 +525,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
 
-  QScreen *screen = QGuiApplication::primaryScreen();
-  const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;
-  const qreal systemFontPointSize = PlatformUtilities::instance()->systemFontPointSize();
-  qmlRegisterSingletonType<Theme>( "org.qfield", 1, 0, "Theme", [dpi, systemFontPointSize]( QQmlEngine *, QJSEngine * ) -> QObject * {
-    Theme *t = new Theme();
-    t->setScreenPpi( dpi );
-    t->setSystemFontPointSize( systemFontPointSize );
-    return t;
-  } );
-
-  REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
 
   qmlRegisterUncreatableType<PluginManager>( "org.qfield", 1, 0, "PluginManager", "" );
-  qmlRegisterUncreatableType<MessageLogModel>( "org.qfield", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
