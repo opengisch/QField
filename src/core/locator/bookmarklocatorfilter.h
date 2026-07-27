@@ -37,6 +37,7 @@ class BookmarkLocatorFilter : public QgsLocatorFilter
     enum ActionOrigin
     {
       Normal,
+      Navigation,
     };
 
     explicit BookmarkLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );

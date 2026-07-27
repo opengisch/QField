@@ -29,6 +29,7 @@
 #include "helplocatorfilter.h"
 #include "locatormodelsuperbridge.h"
 #include "multifeaturelistmodel.h"
+#include "navigation.h"
 #include "qfieldlocatorfilter.h"
 #include "qgsquickmapsettings.h"
 
@@ -356,6 +357,48 @@ TEST_CASE( "BookmarkLocatorFilter" )
     REQUIRE( results.at( 0 ).userData().toInt() == 0 );
 
     REQUIRE( fetchResults( &filter, QStringLiteral( "zzzzz" ) ).isEmpty() );
+  }
+
+  SECTION( "ProvidesNavigationAction" )
+  {
+    QgsBookmarkManager manager;
+    manager.addBookmark( makeBookmark( QStringLiteral( "Alpha" ) ) );
+    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    bridge.setBookmarks( &model );
+
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+    REQUIRE( results.size() == 1 );
+    REQUIRE( hasAction( results.at( 0 ), BookmarkLocatorFilter::Navigation ) );
+  }
+
+  SECTION( "NavigationActionSetsDestinationInMapCrs" )
+  {
+    QgsQuickMapSettings mapSettings;
+    mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
+    mapSettings.setOutputSize( QSize( 1000, 500 ) );
+    mapSettings.setExtent( QgsRectangle( -20000000.0, -20000000.0, 20000000.0, 20000000.0 ) );
+    bridge.setMapSettings( &mapSettings );
+
+    Navigation navigation;
+    navigation.setMapSettings( &mapSettings );
+    bridge.setNavigation( &navigation );
+
+    QgsBookmarkManager manager;
+    manager.addBookmark( makeBookmark( QStringLiteral( "Alpha" ) ) );
+    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    model.setMapSettings( &mapSettings );
+    bridge.setBookmarks( &model );
+
+    const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
+    REQUIRE( results.size() == 1 );
+
+    filter.triggerResultFromAction( results.at( 0 ), BookmarkLocatorFilter::Navigation );
+
+    REQUIRE( navigation.isActive() );
+
+    const QgsPoint destination = navigation.destination();
+    REQUIRE( destination.x() == Approx( 556597.5 ).margin( 1.0 ) );
+    REQUIRE( destination.y() == Approx( 557305.3 ).margin( 1.0 ) );
   }
 }
 
