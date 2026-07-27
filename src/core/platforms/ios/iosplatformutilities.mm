@@ -349,6 +349,10 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
       emit AppInterface::instance()->openPath(importedPath);
     }
   } else if ([_mode isEqualToString:@"updateFromArchive"]) {
+    if (AppInterface::instance()) {
+      AppInterface::instance()->clearProject();
+    }
+
     QString zipPath = QString::fromNSString(url.path);
     QString destDir = QString::fromNSString(_importPath);
     QStringList extractedFiles;

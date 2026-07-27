@@ -820,6 +820,15 @@ JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, 
   return;
 }
 
+JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, clearProject )( JNIEnv *env, jobject obj )
+{
+  if ( AppInterface::instance() )
+  {
+    AppInterface::instance()->clearProject();
+  }
+  return;
+}
+
 JNIEXPORT void JNICALL JNI_FUNCTION_NAME( APP_PACKAGE_JNI_NAME, QFieldActivity, executeAction )( JNIEnv *env, jobject obj, jstring action )
 {
   if ( AppInterface::instance() )

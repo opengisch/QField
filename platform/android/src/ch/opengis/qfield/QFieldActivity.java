@@ -118,6 +118,8 @@ public class QFieldActivity extends QtActivity {
     ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     public static native void openProject(String url);
+    public static native void clearProject();
+
     public static native void openPath(String path);
     public static native void executeAction(String action);
 
@@ -1198,6 +1200,8 @@ public class QFieldActivity extends QtActivity {
                 DocumentFile documentFile =
                     DocumentFile.fromSingleUri(context, archiveUri);
 
+                clearProject();
+
                 String projectFolder =
                     new File(projectPath).getParentFile().getAbsolutePath() +
                     "/";
@@ -1216,10 +1220,7 @@ public class QFieldActivity extends QtActivity {
                 }
 
                 progressDialog.dismiss();
-                if (imported) {
-                    // Trigger a project re-load
-                    openProject(projectPath);
-                }
+                openProject(projectPath);
             }
         });
     }
