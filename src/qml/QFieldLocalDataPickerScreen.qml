@@ -956,7 +956,7 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Send compressed item(s) to...")
+        text: qsTr("Send compressed file(s) to...")
         onTriggered: {
           var fileNames = [];
           for (let i = 0; i < table.selectedList.length; ++i) {
