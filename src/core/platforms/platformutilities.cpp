@@ -290,12 +290,13 @@ void PlatformUtilities::updateProjectFromArchive( const QString &projectPath ) c
     return;
   }
 
+  AppInterface::instance()->clearProject();
+
   QStringList extractedFiles;
   const QString projectFolder = QFileInfo( projectPath ).absolutePath();
-  if ( FileUtils::unzip( zipFilePath, projectFolder, extractedFiles, false ) )
-  {
-    AppInterface::instance()->loadFile( projectPath );
-  }
+  ( void ) FileUtils::unzip( zipFilePath, projectFolder, extractedFiles, false );
+
+  AppInterface::instance()->loadFile( projectPath );
 }
 
 void PlatformUtilities::exportFolderTo( const QString &path ) const
