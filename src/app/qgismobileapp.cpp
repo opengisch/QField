@@ -153,6 +153,7 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayereditbuffer.h>
 #include <qgsvectorlayertemporalproperties.h>
+#include <qgsvectortilelayer.h>
 
 
 #define QUOTE( string ) _QUOTE( string )
@@ -696,6 +697,7 @@ void QgisMobileapp::readProjectFile()
   RecentProjectListModel::saveRecentProjects( projects );
 
   QList<QgsMapLayer *> vectorLayers;
+  QList<QgsMapLayer *> vectorTileLayers;
   QList<QgsMapLayer *> rasterLayers;
   QgsCoordinateReferenceSystem crs;
   QgsRectangle extent;
@@ -793,8 +795,10 @@ void QgisMobileapp::readProjectFile()
         case Qgis::LayerType::Raster:
           rasterLayers << layer.release();
           break;
-        case Qgis::LayerType::Mesh:
         case Qgis::LayerType::VectorTile:
+          vectorTileLayers << layer.release();
+          break;
+        case Qgis::LayerType::Mesh:
         case Qgis::LayerType::Annotation:
         case Qgis::LayerType::PointCloud:
         case Qgis::LayerType::Group:
@@ -826,7 +830,7 @@ void QgisMobileapp::readProjectFile()
     } );
   }
 
-  if ( vectorLayers.size() > 0 || rasterLayers.size() > 0 )
+  if ( vectorLayers.size() > 0 || rasterLayers.size() > 0 || vectorTileLayers.size() > 0 )
   {
     if ( crs.isValid() )
     {
@@ -879,6 +883,14 @@ void QgisMobileapp::readProjectFile()
     mProject->setTitle( mProjectFileName );
     mProject->setPresetHomePath( fi.absolutePath() );
     mProject->writeEntry( QStringLiteral( "QField" ), QStringLiteral( "isDataset" ), true );
+
+    for ( QgsMapLayer *l : std::as_const( vectorTileLayers ) )
+    {
+      QgsVectorTileLayer *vtlayer = qobject_cast<QgsVectorTileLayer *>( l );
+      bool ok;
+      vtlayer->loadDefaultStyle( ok );
+    }
+    mProject->addMapLayers( vectorTileLayers );
 
     for ( QgsMapLayer *l : std::as_const( rasterLayers ) )
     {

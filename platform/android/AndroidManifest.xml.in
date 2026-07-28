@@ -246,6 +246,14 @@
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.mbtiles" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.mbtiles" />
         <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.mbtiles" />
+        <data android:pathPattern=".*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\..*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.vtpk" />
+        <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.vtpk" />
       </intent-filter>
 
       <!-- Git Revision -->
