@@ -104,6 +104,7 @@
 #include "viewstatus.h"
 #include "webdavconnection.h"
 
+#include <QAbstractSocket>
 #include <QtQml>
 
 #ifdef WITH_BLUETOOTH
@@ -223,6 +224,16 @@ namespace QFieldCore
     qmlRegisterType<SerialPortModel>( "org.qfield", 1, 0, "SerialPortModel" );
     qmlRegisterType<SerialPortReceiver>( "org.qfield", 1, 0, "SerialPortReceiver" );
 #endif
+
+    qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "featureIterator" );
+    qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
+    qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
+    qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
+    qmlRegisterUncreatableMetaObject( CogoVisualGuide::staticMetaObject, "org.qfield", 1, 0, "CogoVisualGuide", "Used to access enum values" );
+    qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "Used to access to enum values" );
+    qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
+    qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
+    qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   }
 } // namespace QFieldCore
 

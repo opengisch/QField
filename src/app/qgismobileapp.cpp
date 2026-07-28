@@ -115,6 +115,7 @@
 #include "projectsource.h"
 #include "projectutils.h"
 #include "qfield.h"
+#include "qfieldappqmlregistration.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
 #include "qfieldcloudprojectsmodel.h"
@@ -488,13 +489,9 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   QFieldCore::registerQmlTypes();
   QFieldGui::registerQmlTypes();
-  qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
+  QFieldApp::registerQmlTypes();
 
-  qmlRegisterUncreatableMetaObject( CogoVisualGuide::staticMetaObject, "org.qfield", 1, 0, "CogoVisualGuide", "Used to access enum values" );
 
-  qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
-  qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
-  qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
 #ifdef WITH_BLUETOOTH
   engine->rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #else
@@ -505,28 +502,16 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 #else
   engine->rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
 #endif
-  qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
-  qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
   qRegisterMetaType<NtripMountPoint>( "NtripMountPoint" );
-  qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
-  qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
-  qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
 
-  qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
 
-  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "Used to access to enum values" );
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
-  qmlRegisterType<PluginModel>( "org.qfield", 1, 0, "PluginModel" );
-  qmlRegisterType<PluginProxyModel>( "org.qfield", 1, 0, "PluginProxyModel" );
-  qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "featureIterator" );
 
 
   qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
 
-
-  qmlRegisterUncreatableType<PluginManager>( "org.qfield", 1, 0, "PluginManager", "" );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
