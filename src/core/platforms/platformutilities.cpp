@@ -351,14 +351,30 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
     return;
   }
 
-  const QString directory = QFileDialog::getExistingDirectory( nullptr, tr( "Select Destination Folder" ) );
-  if ( !directory.isEmpty() )
+  sendDatasetTo( tempZipPath );
+}
+
+void PlatformUtilities::sendCompressedFilesTo( const QStringList &paths ) const
+{
+  const QString tempZipPath = QStringLiteral( "%1/qfield_files_%2.zip" ).arg( QDir::tempPath(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+  QFile::remove( tempZipPath );
+
+  QStringList files;
+  for ( const QString &path : paths )
   {
-    const QString destination = QStringLiteral( "%1/%2" ).arg( directory, QFileInfo( tempZipPath ).fileName() );
-    QFile::copy( tempZipPath, destination );
+    QFileInfo fi( path );
+    if ( fi.isFile() && fi.exists() )
+    {
+      files << path;
+    }
   }
 
-  QFile::remove( tempZipPath );
+  if ( files.isEmpty() || !QgsZipUtils::zip( tempZipPath, files ) )
+  {
+    return;
+  }
+
+  sendDatasetTo( tempZipPath );
 }
 
 void PlatformUtilities::removeDataset( const QString &path ) const
