@@ -477,7 +477,7 @@ Popup {
 
                 RowLayout {
                   Layout.fillWidth: true
-                  spacing: 0
+                  spacing: 4
 
                   Label {
                     id: autoPushText
