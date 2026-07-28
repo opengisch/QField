@@ -181,25 +181,23 @@ void Quick3DGeometry::markDirtyAndUpdate()
   updateGeometry();
 }
 
-QVector3D Quick3DGeometry::vertexTo3D( double geoX, double geoY, double geometryZ ) const
+QVector3D Quick3DGeometry::vertexTo3D( double geoX, double geoY, double geoZ ) const
 {
   switch ( mAltitudeClamping )
   {
     case AltitudeClamping::Absolute:
     {
-      const double z = std::isnan( geometryZ ) ? 0.0 : geometryZ;
-      QVector3D pos = mTerrainProvider->geoTo3D( geoX, geoY, mHeightOffset );
+      QVector3D pos = mTerrainProvider->geoTo3D( QgsPoint( geoX, geoY, geoZ ), mHeightOffset );
       if ( std::isnan( pos.x() ) )
       {
         return pos;
       }
-      pos.setY( static_cast<float>( z ) + mHeightOffset );
       return pos;
     }
 
     case AltitudeClamping::ClampToGround:
     {
-      const float extraZ = std::isnan( geometryZ ) ? 0.0f : static_cast<float>( geometryZ );
+      const float extraZ = std::isnan( geoZ ) ? 0.0f : static_cast<float>( geoZ );
       return mTerrainProvider->geoTo3D( geoX, geoY, mHeightOffset + extraZ );
     }
 

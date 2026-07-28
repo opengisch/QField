@@ -124,7 +124,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     void updateGeometry();
 
     //! Returns the terrain-relative scene-Y for \a geoX/\a geoY honoring \a altitudeClamping and the per-vertex \a geometryZ
-    QVector3D vertexTo3D( double geoX, double geoY, double geometryZ ) const;
+    QVector3D vertexTo3D( double geoX, double geoY, double geoZ ) const;
 
     //! Walks an abstract geometry and returns its rings/lines as 3D paths
     QVector<QVector<QVector3D>> buildPaths( const QgsAbstractGeometry *geom ) const;

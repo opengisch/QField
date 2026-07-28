@@ -28,6 +28,7 @@ void Quick3DGeometryConfiguration::setWkt( const QString &wkt )
   {
     return;
   }
+
   mWkt = wkt;
   emit wktChanged();
 }
@@ -38,18 +39,42 @@ void Quick3DGeometryConfiguration::setCrs( const QgsCoordinateReferenceSystem &c
   {
     return;
   }
+
   mCrs = crs;
   emit crsChanged();
 }
 
-void Quick3DGeometryConfiguration::setLineColor( const QColor &color )
+void Quick3DGeometryConfiguration::setHeightOffset( float offset )
 {
-  if ( mLineColor == color )
+  if ( mHeightOffset == offset )
   {
     return;
   }
-  mLineColor = color;
-  emit lineColorChanged();
+
+  mHeightOffset = offset;
+  emit heightOffsetChanged();
+}
+
+void Quick3DGeometryConfiguration::setAltitudeClamping( Quick3DGeometry::AltitudeClamping clamping )
+{
+  if ( mAltitudeClamping == clamping )
+  {
+    return;
+  }
+
+  mAltitudeClamping = clamping;
+  emit altitudeClampingChanged();
+}
+
+void Quick3DGeometryConfiguration::setColor( const QColor &color )
+{
+  if ( mColor == color )
+  {
+    return;
+  }
+
+  mColor = color;
+  emit colorChanged();
 }
 
 void Quick3DGeometryConfiguration::setLineWidth( float width )
@@ -58,6 +83,7 @@ void Quick3DGeometryConfiguration::setLineWidth( float width )
   {
     return;
   }
+
   mLineWidth = width;
   emit lineWidthChanged();
 }
