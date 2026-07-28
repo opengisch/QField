@@ -4705,6 +4705,11 @@ ApplicationWindow {
       }
     }
 
+    onRequestBookmarkNavigation: bookmarkIndex => {
+      navigation.destination = bookmarkList.model.getBookmarkPoint(bookmarkIndex);
+      bookmarkList.hide();
+    }
+
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 

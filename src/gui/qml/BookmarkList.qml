@@ -16,6 +16,7 @@ QfPaneDrawer {
   property bool multiSelection: false
 
   signal requestBookmarkProperties(string bookmarkId, string bookmarkName, string bookmarkGroup)
+  signal requestBookmarkNavigation(int bookmarkIndex)
 
   contentVisible: props.isVisible
   freezeKey: 'bookmarkresize'
@@ -256,6 +257,7 @@ QfPaneDrawer {
     property string itemId: ''
     property string itemName: ''
     property string itemGroup: ''
+    property int itemIndex: -1
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
@@ -270,6 +272,19 @@ QfPaneDrawer {
 
       onTriggered: {
         bookmarkList.requestBookmarkProperties(itemMenu.itemId, itemMenu.itemName, itemMenu.itemGroup);
+      }
+    }
+
+    MenuItem {
+      text: qsTr("Navigate to bookmark")
+      icon.source: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+
+      font: Theme.defaultFont
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+
+      onTriggered: {
+        bookmarkList.requestBookmarkNavigation(itemMenu.itemIndex);
       }
     }
 
@@ -475,6 +490,7 @@ QfPaneDrawer {
           const gc = mapToItem(bookmarkList, 0, 0);
           itemMenu.itemId = BookmarkId;
           itemMenu.itemName = BookmarkName;
+          itemMenu.itemIndex = index;
           // BookmarkGroup surfaces empty groups as "green"; restore empty so edits don't persist a color onto an ungrouped bookmark.
           itemMenu.itemGroup = BookmarkGroup === 'green' ? '' : BookmarkGroup;
           itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
