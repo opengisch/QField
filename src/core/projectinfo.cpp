@@ -311,7 +311,7 @@ CloudUserInformation ProjectInfo::cloudUserInformation() const
   return userinfo;
 }
 
-void ProjectInfo::setCloudUserInformation( const CloudUserInformation cloudUserInformation )
+void ProjectInfo::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
 {
   if ( mFilePath.isEmpty() )
     return;
