@@ -523,7 +523,7 @@ void DeltaFileWrapper::addPatch( const QgsProject *project, const QString &local
   QJsonObject newData;
   bool hasFeatureChanged = false;
 
-  if ( !oldGeom.equals( newGeom ) )
+  if ( !oldGeom.isExactlyEqual( newGeom ) )
   {
     oldData.insert( QStringLiteral( "geometry" ), geometryToJsonValue( oldGeom ) );
     newData.insert( QStringLiteral( "geometry" ), geometryToJsonValue( newGeom ) );

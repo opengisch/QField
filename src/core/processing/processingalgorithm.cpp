@@ -214,7 +214,7 @@ bool ProcessingAlgorithm::run( bool previewMode )
         {
           auto updateOriginalFeature = [this, feature]( const QgsFeature &outputFeature ) {
             QgsGeometry outputGeometry = outputFeature.geometry();
-            if ( !outputGeometry.equals( feature.geometry() ) )
+            if ( !outputGeometry.isExactlyEqual( feature.geometry() ) )
             {
               mInPlaceLayer->changeGeometry( feature.id(), outputGeometry );
             }
