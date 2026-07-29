@@ -17,6 +17,8 @@
 #ifndef QUICK3DGEOMETRYCONFIGURATION_H
 #define QUICK3DGEOMETRYCONFIGURATION_H
 
+#include "quick3dgeometry.h"
+
 #include <QColor>
 #include <QQuickItem>
 #include <qgscoordinatereferencesystem.h>
@@ -33,10 +35,15 @@ class Quick3DGeometryConfiguration : public QQuickItem
 
     //! WKT representation of the geometry to render
     Q_PROPERTY( QString wkt READ wkt WRITE setWkt NOTIFY wktChanged )
+    //! Extra vertical offset added on top of the elevation chosen by altitudeClamping
+    Q_PROPERTY( float heightOffset READ heightOffset WRITE setHeightOffset NOTIFY heightOffsetChanged )
+    //! How the geometry's Z values are combined with the terrain elevation
+    Q_PROPERTY( Quick3DGeometry::AltitudeClamping altitudeClamping READ altitudeClamping WRITE setAltitudeClamping NOTIFY altitudeClampingChanged )
     //! Coordinate reference system the geometry is expressed in
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
+
     //! Color of the rendered geometry
-    Q_PROPERTY( QColor lineColor READ lineColor WRITE setLineColor NOTIFY lineColorChanged )
+    Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     //! Outline tube thickness in scene units
     Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
 
@@ -49,8 +56,14 @@ class Quick3DGeometryConfiguration : public QQuickItem
     QgsCoordinateReferenceSystem crs() const { return mCrs; }
     void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-    QColor lineColor() const { return mLineColor; }
-    void setLineColor( const QColor &color );
+    float heightOffset() const { return mHeightOffset; }
+    void setHeightOffset( float offset );
+
+    Quick3DGeometry::AltitudeClamping altitudeClamping() const { return mAltitudeClamping; }
+    void setAltitudeClamping( Quick3DGeometry::AltitudeClamping clamping );
+
+    QColor color() const { return mColor; }
+    void setColor( const QColor &color );
 
     float lineWidth() const { return mLineWidth; }
     void setLineWidth( float width );
@@ -58,13 +71,17 @@ class Quick3DGeometryConfiguration : public QQuickItem
   signals:
     void wktChanged();
     void crsChanged();
-    void lineColorChanged();
+    void heightOffsetChanged();
+    void altitudeClampingChanged();
+    void colorChanged();
     void lineWidthChanged();
 
   private:
     QString mWkt;
     QgsCoordinateReferenceSystem mCrs;
-    QColor mLineColor = QColor( 255, 102, 0 );
+    float mHeightOffset = 20.0f;
+    Quick3DGeometry::AltitudeClamping mAltitudeClamping = Quick3DGeometry::AltitudeClamping::Ignore;
+    QColor mColor = QColor( 255, 102, 0 );
     float mLineWidth = 4.0f;
 };
 

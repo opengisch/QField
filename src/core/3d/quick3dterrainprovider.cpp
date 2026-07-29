@@ -217,6 +217,11 @@ double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 
 QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heightOffset ) const
 {
+  return geoTo3D( QgsPoint( geoX, geoY ), heightOffset );
+}
+
+QVector3D Quick3DTerrainProvider::geoTo3D( const QgsPoint &geoPoint, float heightOffset ) const
+{
   const double extW = mExtent.width();
   const double extH = mExtent.height();
 
@@ -225,8 +230,8 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
     return QVector3D( std::numeric_limits<float>::quiet_NaN(), 0, 0 );
   }
 
-  const double nx = ( geoX - mExtent.xMinimum() ) / extW;
-  const double nz = ( geoY - mExtent.yMinimum() ) / extH;
+  const double nx = ( geoPoint.x() - mExtent.xMinimum() ) / extW;
+  const double nz = ( geoPoint.y() - mExtent.yMinimum() ) / extH;
 
   if ( nx < 0 || nx > 1 || nz < 0 || nz > 1 )
   {
@@ -235,8 +240,17 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
 
   const float x3d = static_cast<float>( ( nx - 0.5 ) * mSize.width() );
   const float z3d = static_cast<float>( ( 0.5 - nz ) * mSize.height() );
-
-  float y3d = static_cast<float>( normalizedHeightAt( geoX, geoY ) );
+  float y3d = 0.0;
+  if ( std::isnan( geoPoint.z() ) )
+  {
+    y3d = static_cast<float>( normalizedHeightAt( geoPoint.x(), geoPoint.y() ) );
+  }
+  else
+  {
+    const double extentSize = std::max( mNormalizedDataExtent.width(), mNormalizedDataExtent.height() );
+    const double scale = ( mBaseSize / extentSize );
+    y3d = ( geoPoint.z() - mMinRealHeight ) * scale / mOffsetScale;
+  }
   y3d += heightOffset;
 
   return QVector3D( x3d, y3d, z3d );

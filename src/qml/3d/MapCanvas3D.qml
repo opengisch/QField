@@ -269,11 +269,11 @@ Item {
           geometry: Quick3DGeometry {
             qgsGeometry: GeometryUtils.createGeometryFromWkt(modelData.wkt)
             crs: modelData.crs
-            terrainProvider: mapTerrainProvider
             lineWidth: modelData.lineWidth
-            heightOffset: 20.0
-            altitudeClamping: Quick3DGeometry.ClampToGround
-            color: modelData.lineColor
+            heightOffset: modelData.heightOffset
+            altitudeClamping: modelData.altitudeClamping
+            color: modelData.color
+            terrainProvider: mapTerrainProvider
           }
           materials: PrincipledMaterial {
             vertexColorsEnabled: true
