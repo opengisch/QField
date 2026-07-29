@@ -1298,6 +1298,8 @@ RelationEditorBase {
             text: model.displayString
             color: Theme.mainTextColor
             font: Theme.tipFont
+            wrapMode: Text.WordWrap
+            maximumLineCount: 2
             elide: Text.ElideRight
           }
 
