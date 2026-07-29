@@ -115,6 +115,7 @@ set(QFIELD_CORE_SRCS
     settings.cpp
     snappingresult.cpp
     submodel.cpp
+    theme.cpp
     tracker.cpp
     trackingmodel.cpp
     vertexmodel.cpp
@@ -240,6 +241,7 @@ set(QFIELD_CORE_HDRS
     settings.h
     snappingresult.h
     submodel.h
+    theme.h
     tracker.h
     trackingmodel.h
     vertexmodel.h
