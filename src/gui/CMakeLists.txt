@@ -185,3 +185,5 @@ foreach(qml_file ${QFIELD_GUI_QML_FILES})
        "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
 endforeach()
 set_property(TARGET qfield_gui PROPERTY QML_FILES ${QFIELD_GUI_QML_FILES_ABS})
+
+qt_import_qml_plugins(qfield_gui)

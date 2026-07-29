@@ -141,6 +141,8 @@ foreach(qml_file ${QFIELD_APP_QML_FILES})
 endforeach()
 set_property(TARGET qfield_app PROPERTY QML_FILES ${QFIELD_APP_QML_FILES_ABS})
 
+qt_import_qml_plugins(qfield_app)
+
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 

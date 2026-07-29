@@ -522,3 +522,5 @@ foreach(qml_file ${QFIELD_CORE_QML_FILES})
        "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
 endforeach()
 set_property(TARGET qfield_core PROPERTY QML_FILES ${QFIELD_CORE_QML_FILES_ABS})
+
+qt_import_qml_plugins(qfield_core)
