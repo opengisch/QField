@@ -111,6 +111,36 @@ set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_app PUBLIC qfield_gui)
 
+# QML owned by this library. The /qml prefix keeps resource paths stable.
+set(QFIELD_APP_QML_FILES
+    qml/About.qml
+    qml/BadLayerItem.qml
+    qml/Changelog.qml
+    qml/Dummy.qml
+    qml/Nyuki.qml
+    qml/PluginItem.qml
+    qml/PluginManagerSettings.qml
+    qml/ScreenLocker.qml
+    qml/qgismobileapp.qml)
+
+qt_add_resources(
+  qfield_app
+  "app_qml"
+  PREFIX
+  "/qml"
+  BASE
+  "${CMAKE_CURRENT_SOURCE_DIR}/qml"
+  FILES
+  ${QFIELD_APP_QML_FILES})
+
+# The import scanner needs absolute paths (QTBUG-80847).
+set(QFIELD_APP_QML_FILES_ABS "")
+foreach(qml_file ${QFIELD_APP_QML_FILES})
+  list(APPEND QFIELD_APP_QML_FILES_ABS
+       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
+endforeach()
+set_property(TARGET qfield_app PROPERTY QML_FILES ${QFIELD_APP_QML_FILES_ABS})
+
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
 
@@ -285,33 +315,3 @@ if(IOS)
     qfield PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
                       "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements")
 endif()
-
-# QML owned by this library. The /qml prefix keeps resource paths stable.
-set(QFIELD_APP_QML_FILES
-    qml/About.qml
-    qml/BadLayerItem.qml
-    qml/Changelog.qml
-    qml/Dummy.qml
-    qml/Nyuki.qml
-    qml/PluginItem.qml
-    qml/PluginManagerSettings.qml
-    qml/ScreenLocker.qml
-    qml/qgismobileapp.qml)
-
-qt_add_resources(
-  qfield_app
-  "app_qml"
-  PREFIX
-  "/qml"
-  BASE
-  "${CMAKE_CURRENT_SOURCE_DIR}/qml"
-  FILES
-  ${QFIELD_APP_QML_FILES})
-
-# The import scanner needs absolute paths (QTBUG-80847).
-set(QFIELD_APP_QML_FILES_ABS "")
-foreach(qml_file ${QFIELD_APP_QML_FILES})
-  list(APPEND QFIELD_APP_QML_FILES_ABS
-       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
-endforeach()
-set_property(TARGET qfield_app PROPERTY QML_FILES ${QFIELD_APP_QML_FILES_ABS})
