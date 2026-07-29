@@ -125,8 +125,10 @@ function(create_executable)
                                                ${ANDROID_PACKAGE_SOURCE_DIR})
     set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_IMPORT_PATH
                                                $ENV{Qt6_DIR}/qml)
-    set_property(TARGET ${exe_TARGET} PROPERTY QT_QML_ROOT_PATH
-                                               ${CMAKE_SOURCE_DIR}/src/qml)
+    set_property(
+      TARGET ${exe_TARGET}
+      PROPERTY QT_QML_ROOT_PATH ${CMAKE_SOURCE_DIR}/src/core/qml
+               ${CMAKE_SOURCE_DIR}/src/gui/qml ${CMAKE_SOURCE_DIR}/src/app/qml)
 
     set(PROJECT_NAME ${exe_TARGET})
   else()
@@ -149,8 +151,7 @@ function(create_executable)
     FILES
     ${QM_FILES})
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_gui qfield_core
-                                              qfield_qml)
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_gui qfield_core)
 
   if(ANDROID)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_service)
@@ -161,15 +162,17 @@ function(create_executable)
   endif()
 
   get_target_property(QT_TARGET_TYPE Qt::Core TYPE)
-  # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5.
+  # This should sit next to the QML files but that's not possible with Qt5.
   # Retry with Qt6 Same is in tests/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt6 COMPONENTS QmlImportScanner)
 
-    get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
-    file(COPY ${qfield_qmlfiles}
-         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    foreach(qml_target qfield_core qfield_gui qfield_app)
+      get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
+      file(COPY ${qfield_qmlfiles}
+           DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    endforeach()
 
     if(NOT WITH_BLUETOOTH)
       file(REMOVE
@@ -282,3 +285,33 @@ if(IOS)
     qfield PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
                       "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements")
 endif()
+
+# QML owned by this library. The /qml prefix keeps resource paths stable.
+set(QFIELD_APP_QML_FILES
+    qml/About.qml
+    qml/BadLayerItem.qml
+    qml/Changelog.qml
+    qml/Dummy.qml
+    qml/Nyuki.qml
+    qml/PluginItem.qml
+    qml/PluginManagerSettings.qml
+    qml/ScreenLocker.qml
+    qml/qgismobileapp.qml)
+
+qt_add_resources(
+  qfield_app
+  "app_qml"
+  PREFIX
+  "/qml"
+  BASE
+  "${CMAKE_CURRENT_SOURCE_DIR}/qml"
+  FILES
+  ${QFIELD_APP_QML_FILES})
+
+# The import scanner needs absolute paths (QTBUG-80847).
+set(QFIELD_APP_QML_FILES_ABS "")
+foreach(qml_file ${QFIELD_APP_QML_FILES})
+  list(APPEND QFIELD_APP_QML_FILES_ABS
+       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
+endforeach()
+set_property(TARGET qfield_app PROPERTY QML_FILES ${QFIELD_APP_QML_FILES_ABS})

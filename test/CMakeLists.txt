@@ -78,7 +78,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
   file(GLOB test_qmlfiles "${CMAKE_CURRENT_SOURCE_DIR}/qml/*.qml")
   add_executable(${TESTNAME} ${TESTSOURCES} ${test_qmlfiles})
-  # This should be in src/qml/CMakeLists.txt but that's not possible with Qt5. Retry with Qt6
+  # This should sit next to the QML files but that's not possible with Qt5. Retry with Qt6
   # Same is in src/app/CMakeLists.txt
   # https://bugreports.qt.io/browse/QTBUG-80847
   get_target_property(QT_TARGET_TYPE Qt::Core TYPE)
@@ -87,9 +87,11 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
-    get_target_property(qfield_qmlfiles qfield_qml QML_FILES)
-    file(COPY ${qfield_qmlfiles}
-         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    foreach(qml_target qfield_core qfield_gui qfield_app)
+      get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
+      file(COPY ${qfield_qmlfiles}
+           DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
+    endforeach()
 
     if(NOT WITH_BLUETOOTH)
       file(REMOVE
@@ -104,7 +106,6 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
     qfield_app
     qfield_gui
     qfield_core
-    qfield_qml
     Qt::Test
     Qt::Core
     Qt::Gui
@@ -112,7 +113,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
     Qt::Xml
     Qt::QuickTest
   )
-  add_test(NAME ${TESTNAME} COMMAND ${TESTNAME} -import ${CMAKE_SOURCE_DIR}/src/qml/imports -input ${CMAKE_SOURCE_DIR}/test/qml)
+  add_test(NAME ${TESTNAME} COMMAND ${TESTNAME} -import ${CMAKE_SOURCE_DIR}/src/core/qml/imports -input ${CMAKE_SOURCE_DIR}/test/qml)
 endmacro (ADD_QFIELD_QML_TEST)
 
 if (WITH_SPIX)

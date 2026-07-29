@@ -115,7 +115,6 @@ class Setup : public QObject
     {
       qputenv( "QT_QUICK_CONTROLS_STYLE", QByteArray( "Material" ) );
       qputenv( "QT_QUICK_CONTROLS_MATERIAL_VARIANT", QByteArray( "Dense" ) );
-      Q_INIT_RESOURCE( qml );
     }
 
   public slots:
