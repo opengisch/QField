@@ -168,7 +168,7 @@ class ProjectInfo : public QObject
     /**
      * Saves the cloud user infomation for offline usage
      */
-    void setCloudUserInformation( const CloudUserInformation cloudUserInformation );
+    void setCloudUserInformation( const CloudUserInformation &cloudUserInformation );
 
     /**
      * Restores last saved cloud user information details attached to the current project

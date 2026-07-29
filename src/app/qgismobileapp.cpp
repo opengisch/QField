@@ -30,52 +30,18 @@
 #include "gdal_version.h"
 
 #ifdef WITH_BLUETOOTH
-#include "bluetoothdevicemodel.h"
-#include "bluetoothreceiver.h"
 #endif
 #ifdef WITH_SERIALPORT
-#include "serialportmodel.h"
-#include "serialportreceiver.h"
 #endif
-#include "appexpressioncontextscopesgenerator.h"
 #include "appinterface.h"
-#include "attributeformmodel.h"
-#include "audioanalyzer.h"
-#include "audiorecorder.h"
-#include "authutils.h"
-#include "badlayerhandler.h"
-#include "barcodedecoder.h"
 #include "barcodeimageprovider.h"
-#include "cameraorientationnormalizer.h"
-#include "changelogcontents.h"
-#include "cogoexecutor.h"
-#include "cogooperation.h"
-#include "cogooperationsmodel.h"
 #include "cogoregistry.h"
-#include "coordinatereferencesystemutils.h"
-#include "deltafilewrapper.h"
-#include "deltalistmodel.h"
-#include "digitizinglogger.h"
 #include "distancearea.h"
-#include "drawingcanvas.h"
-#include "expressioncontextutils.h"
-#include "expressionevaluator.h"
-#include "expressionvariablemodel.h"
-#include "externalstorage.h"
-#include "featurechecklistmodel.h"
 #include "featurehistory.h"
-#include "featurelistextentcontroller.h"
 #include "featurelistmodel.h"
-#include "featurelistmodelselection.h"
-#include "featuremodel.h"
 #include "featureutils.h"
-#include "fileutils.h"
-#include "geofencer.h"
-#include "geometry.h"
-#include "geometryeditorsmodel.h"
 #include "geometryutils.h"
 #include "gnsspositioninformation.h"
-#include "gridmodel.h"
 #include "identifytool.h"
 #include "layerobserver.h"
 #include "layerresolver.h"
@@ -85,76 +51,45 @@
 #include "legendimageprovider.h"
 #include "linepolygonshape.h"
 #include "localfilesimageprovider.h"
-#include "localfilesmodel.h"
 #include "locatormodelsuperbridge.h"
-#include "maplayermodel.h"
-#include "maptoscreen.h"
-#include "maptoview3d.h"
 #include "messagelogmodel.h"
-#include "navigation.h"
-#include "navigationmodel.h"
 #include "nearfieldreader.h"
-#include "ntripsettings.h"
 #include "ntripsourcetablefetcher.h"
-#include "orderedrelationmodel.h"
-#include "parameterizedimage.h"
-#include "permissions.h"
 #include "platformutilities.h"
 #include "pluginmodel.h"
-#include "positioning.h"
-#include "positioningdevicemodel.h"
-#include "positioninginformationmodel.h"
-#include "positioningutils.h"
+#include "positioningsource.h"
 #include "printlayoutlistmodel.h"
 #include "processingalgorithm.h"
-#include "processingalgorithmparametersmodel.h"
 #include "processingalgorithmsmodel.h"
-#include "processingutils.h"
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
-#include "projectsource.h"
-#include "projectutils.h"
 #include "qfield.h"
+#include "qfieldappqmlregistration.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
 #include "qfieldcloudprojectsmodel.h"
-#include "qfieldcloudstatus.h"
 #include "qfieldcloudutils.h"
-#include "qfieldlocatorfilter.h"
+#include "qfieldcoreqmlregistration.h"
+#include "qfieldguiqmlregistration.h"
 #include "qfieldurlhandler.h"
 #include "qgismobileapp.h"
-#include "qgsgeometrywrapper.h"
 #include "qgsproviderregistry.h"
 #include "qgsprovidersublayerdetails.h"
-#include "qgsquickcoordinatetransformer.h"
 #include "qgsquickelevationprofilecanvas.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 #include "qgsquickmaptransform.h"
-#include "quick3dgeometry.h"
-#include "quick3dgeometryconfiguration.h"
-#include "quick3dmaptexturedata.h"
-#include "quick3drubberbandgeometry.h"
-#include "quick3dterraingeometry.h"
 #include "quick3dterrainprovider.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
-#include "relationutils.h"
-#include "resourcesource.h"
 #include "rubberbandmodel.h"
 #include "rubberbandshape.h"
 #include "scalebarmeasurement.h"
 #include "sensorlistmodel.h"
 #include "snappingresult.h"
 #include "snappingutils.h"
-#include "stringutils.h"
-#include "submodel.h"
-#include "theme.h"
 #include "trackingmodel.h"
-#include "urlutils.h"
-#include "valuemapmodel.h"
 #include "vertexmodel.h"
-#include "webdavconnection.h"
 
 #include <QDateTime>
 #include <QDesktopServices>
@@ -467,18 +402,10 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   // Register QgsQuick QML types
   qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
   qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
-  qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield", 1, 0, "CoordinateTransformer" );
   qmlRegisterType<QgsQuickElevationProfileCanvas>( "org.qgis", 1, 0, "ElevationProfileCanvas" );
   qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
 
   // Register 3D QML types
-  qmlRegisterType<Quick3DRubberbandGeometry>( "org.qfield", 1, 0, "Quick3DRubberbandGeometry" );
-  qmlRegisterType<Quick3DTerrainGeometry>( "org.qfield", 1, 0, "Quick3DTerrainGeometry" );
-  qmlRegisterType<Quick3DTerrainProvider>( "org.qfield", 1, 0, "Quick3DTerrainProvider" );
-  qmlRegisterType<Quick3DMapTextureData>( "org.qfield", 1, 0, "Quick3DMapTextureData" );
-  qmlRegisterType<Quick3DGeometry>( "org.qfield", 1, 0, "Quick3DGeometry" );
-  qmlRegisterType<Quick3DGeometryConfiguration>( "org.qfield", 1, 0, "Quick3DGeometryConfiguration" );
-  qmlRegisterType<MapToView3D>( "org.qfield", 1, 0, "MapToView3D" );
 
   // Register QField QML types
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
@@ -492,158 +419,31 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
   qRegisterMetaType<PositioningSource::NtripState>( "PositioningSource::NtripState" );
 
-  qmlRegisterType<MultiFeatureListModel>( "org.qfield", 1, 0, "MultiFeatureListModel" );
-  qmlRegisterType<FeatureListModel>( "org.qfield", 1, 0, "FeatureListModel" );
-  qmlRegisterType<FeatureListModelSelection>( "org.qfield", 1, 0, "FeatureListModelSelection" );
-  qmlRegisterType<FeatureListExtentController>( "org.qfield", 1, 0, "FeaturelistExtentController" );
-  qmlRegisterType<Geometry>( "org.qfield", 1, 0, "Geometry" );
-  qmlRegisterType<RubberbandShape>( "org.qfield", 1, 0, "RubberbandShape" );
-  qmlRegisterType<RubberbandModel>( "org.qfield", 1, 0, "RubberbandModel" );
-  qmlRegisterType<ResourceSource>( "org.qfield", 1, 0, "ResourceSource" );
-  qmlRegisterType<ProjectInfo>( "org.qfield", 1, 0, "ProjectInfo" );
-  qmlRegisterType<ProjectSource>( "org.qfield", 1, 0, "ProjectSource" );
-  qmlRegisterType<ViewStatus>( "org.qfield", 1, 0, "ViewStatus" );
-  qmlRegisterType<GridModel>( "org.qfield", 1, 0, "GridModel" );
-  qmlRegisterType<CameraOrientationNormalizer>( "org.qfield", 1, 0, "CameraOrientationNormalizer" );
-  qmlRegisterUncreatableType<GridAnnotation>( "org.qfield", 1, 0, "gridAnnotation", "Used for property values" );
-  qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
+  QFieldCore::registerQmlTypes();
+  QFieldGui::registerQmlTypes();
+  QFieldApp::registerQmlTypes();
 
-  qmlRegisterType<CogoExecutor>( "org.qfield", 1, 0, "CogoExecutor" );
-  qmlRegisterType<CogoOperationsModel>( "org.qfield", 1, 0, "CogoOperationsModel" );
-  qmlRegisterUncreatableType<CogoParameter>( "org.qfield", 1, 0, "cogoParameter", "Used for property values" );
-  qmlRegisterUncreatableType<CogoVisualGuide>( "org.qfield", 1, 0, "cogoVisualGuide", "Used for property values" );
-  qmlRegisterUncreatableMetaObject( CogoVisualGuide::staticMetaObject, "org.qfield", 1, 0, "CogoVisualGuide", "Used to access enum values" );
 
-  qmlRegisterType<Geofencer>( "org.qfield", 1, 0, "Geofencer" );
-  qmlRegisterType<DigitizingLogger>( "org.qfield", 1, 0, "DigitizingLogger" );
-  qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
-  qmlRegisterType<FeatureModel>( "org.qfield", 1, 0, "FeatureModel" );
-  qmlRegisterType<IdentifyTool>( "org.qfield", 1, 0, "IdentifyTool" );
-  qmlRegisterType<DrawingCanvas>( "org.qfield", 1, 0, "DrawingCanvas" );
-  qmlRegisterType<SubModel>( "org.qfield", 1, 0, "SubModel" );
-  qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
-  qmlRegisterType<ExternalStorage>( "org.qfield", 1, 0, "ExternalStorage" );
-  qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
-  qmlRegisterType<SnappingUtils>( "org.qfield", 1, 0, "SnappingUtils" );
-  qmlRegisterType<DistanceArea>( "org.qfield", 1, 0, "DistanceArea" );
-  qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
-  qmlRegisterType<ParameterizedImage>( "org.qfield", 1, 0, "ParameterizedImage" );
-  qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
-  qmlRegisterType<VertexModel>( "org.qfield", 1, 0, "VertexModel" );
-  qmlRegisterType<MapLayerModel>( "org.qfield", 1, 0, "MapLayerModel" );
-  qmlRegisterType<MapToScreen>( "org.qfield", 1, 0, "MapToScreen" );
-  qmlRegisterType<LocatorModelSuperBridge>( "org.qfield", 1, 0, "LocatorModelSuperBridge" );
-  qmlRegisterType<LocatorActionsModel>( "org.qfield", 1, 0, "LocatorActionsModel" );
-  qmlRegisterType<LocatorFiltersModel>( "org.qfield", 1, 0, "LocatorFiltersModel" );
-  qmlRegisterType<LinePolygonShape>( "org.qfield", 1, 0, "LinePolygonShape" );
-  qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
-  qmlRegisterType<QgsGeometryWrapper>( "org.qfield", 1, 0, "QgsGeometryWrapper" );
-  qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
-  qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
-  qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
-  qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
-  qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
-  qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
-  qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
 #ifdef WITH_BLUETOOTH
-  qmlRegisterType<BluetoothDeviceModel>( "org.qfield", 1, 0, "BluetoothDeviceModel" );
-  qmlRegisterType<BluetoothReceiver>( "org.qfield", 1, 0, "BluetoothReceiver" );
   engine->rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
 #else
   engine->rootContext()->setContextProperty( "withBluetooth", QVariant( false ) );
 #endif
 #ifdef WITH_SERIALPORT
-  qmlRegisterType<SerialPortModel>( "org.qfield", 1, 0, "SerialPortModel" );
-  qmlRegisterType<SerialPortReceiver>( "org.qfield", 1, 0, "SerialPortReceiver" );
   engine->rootContext()->setContextProperty( "withSerialPort", QVariant( true ) );
 #else
   engine->rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
 #endif
-  qmlRegisterType<NearFieldReader>( "org.qfield", 1, 0, "NearFieldReader" );
-  qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
-  qmlRegisterType<LayerResolver>( "org.qfield", 1, 0, "LayerResolver" );
-  qmlRegisterType<QFieldCloudConnection>( "org.qfield", 1, 0, "QFieldCloudConnection" );
-  qmlRegisterType<QFieldCloudProject>( "org.qfield", 1, 0, "QFieldCloudProject" );
-  qmlRegisterType<QFieldCloudProjectsModel>( "org.qfield", 1, 0, "QFieldCloudProjectsModel" );
-  qmlRegisterType<QFieldCloudProjectsFilterModel>( "org.qfield", 1, 0, "QFieldCloudProjectsFilterModel" );
-  qmlRegisterType<QFieldCloudStatus>( "org.qfield", 1, 0, "QFieldCloudStatus" );
-  qmlRegisterType<DeltaListModel>( "org.qfield", 1, 0, "DeltaListModel" );
-  qmlRegisterType<ScaleBarMeasurement>( "org.qfield", 1, 0, "ScaleBarMeasurement" );
-  qmlRegisterType<SensorListModel>( "org.qfield", 1, 0, "SensorListModel" );
-  qmlRegisterType<Navigation>( "org.qfield", 1, 0, "Navigation" );
-  qmlRegisterType<NavigationModel>( "org.qfield", 1, 0, "NavigationModel" );
-  qmlRegisterType<Positioning>( "org.qfield", 1, 0, "Positioning" );
-  qmlRegisterType<PositioningInformationModel>( "org.qfield", 1, 0, "PositioningInformationModel" );
-  qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
-  qmlRegisterType<NtripSourceTableFetcher>( "org.qfield", 1, 0, "NtripSourceTableFetcher" );
   qRegisterMetaType<NtripMountPoint>( "NtripMountPoint" );
-  qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
-  qmlRegisterType<AppExpressionContextScopesGenerator>( "org.qfield", 1, 0, "AppExpressionContextScopesGenerator" );
-  qmlRegisterType<AudioAnalyzer>( "org.qfield", 1, 0, "AudioAnalyzer" );
-  qmlRegisterType<AudioRecorder>( "org.qfield", 1, 0, "AudioRecorder" );
-  qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
-  qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
-  qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
-  qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
-  qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield", 1, 0, "AbstractGnssReceiver", "" );
-  qmlRegisterUncreatableType<Tracker>( "org.qfield", 1, 0, "Tracker", "" );
 
-  qmlRegisterUncreatableType<NtripSettings>( "org.qfield", 1, 0, "ntripSettings", "Used for property values" );
-  qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
 
-  qmlRegisterUncreatableType<GnssPositionInformation>( "org.qfield", 1, 0, "gnssPositionInformation", "Used for property values" );
-  qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "Used to access to enum values" );
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
-  qmlRegisterType<PluginModel>( "org.qfield", 1, 0, "PluginModel" );
-  qmlRegisterType<PluginProxyModel>( "org.qfield", 1, 0, "PluginProxyModel" );
-  qmlRegisterType<FeatureIterator>( "org.qfield", 1, 0, "featureIterator" );
 
-  qmlRegisterType<ProcessingAlgorithm>( "org.qfield", 1, 0, "ProcessingAlgorithm" );
-  qmlRegisterType<ProcessingAlgorithmParametersModel>( "org.qfield", 1, 0, "ProcessingAlgorithmParametersModel" );
-  qmlRegisterType<ProcessingAlgorithmsModel>( "org.qfield", 1, 0, "ProcessingAlgorithmsModel" );
 
-  qmlRegisterType<QFieldLocatorFilter>( "org.qfield", 1, 0, "QFieldLocatorFilter" );
   qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
 
-  QScreen *screen = QGuiApplication::primaryScreen();
-  const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;
-  const qreal systemFontPointSize = PlatformUtilities::instance()->systemFontPointSize();
-  qmlRegisterSingletonType<Theme>( "org.qfield", 1, 0, "Theme", [dpi, systemFontPointSize]( QQmlEngine *, QJSEngine * ) -> QObject * {
-    Theme *t = new Theme();
-    t->setScreenPpi( dpi );
-    t->setSystemFontPointSize( systemFontPointSize );
-    return t;
-  } );
-
-  REGISTER_SINGLETON( "org.qfield", AuthUtils, "AuthUtils" );
-  REGISTER_SINGLETON( "org.qfield", ExpressionContextUtils, "ExpressionContextUtils" );
-  REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
-  REGISTER_SINGLETON( "org.qfield", GeometryUtils, "GeometryUtils" );
-  REGISTER_SINGLETON( "org.qfield", FeatureUtils, "FeatureUtils" );
-  REGISTER_SINGLETON( "org.qfield", FileUtils, "FileUtils" );
-  REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
-  REGISTER_SINGLETON( "org.qfield", RelationUtils, "RelationUtils" );
-  REGISTER_SINGLETON( "org.qfield", StringUtils, "StringUtils" );
-  REGISTER_SINGLETON( "org.qfield", UrlUtils, "UrlUtils" );
-  REGISTER_SINGLETON( "org.qfield", QFieldCloudUtils, "QFieldCloudUtils" );
-  REGISTER_SINGLETON( "org.qfield", PositioningUtils, "PositioningUtils" );
-  REGISTER_SINGLETON( "org.qfield", ProcessingUtils, "ProcessingUtils" );
-  REGISTER_SINGLETON( "org.qfield", ProjectUtils, "ProjectUtils" );
-  REGISTER_SINGLETON( "org.qfield", CoordinateReferenceSystemUtils, "CoordinateReferenceSystemUtils" );
-
-  qmlRegisterUncreatableType<AppInterface>( "org.qfield", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
-  qmlRegisterUncreatableType<Settings>( "org.qfield", 1, 0, "SettingsInterface", "" );
-  qmlRegisterUncreatableType<PluginManager>( "org.qfield", 1, 0, "PluginManager", "" );
-  qmlRegisterUncreatableType<PlatformUtilities>( "org.qfield", 1, 0, "PlatformUtilities", "" );
-  qmlRegisterUncreatableType<FlatLayerTreeModel>( "org.qfield", 1, 0, "FlatLayerTreeModel", "The FlatLayerTreeModel is available as context property `flatLayerTree`." );
-  qmlRegisterUncreatableType<TrackingModel>( "org.qfield", 1, 0, "TrackingModel", "The TrackingModel is available as context property `trackingModel`." );
-  qmlRegisterUncreatableType<QgsGpkgFlusher>( "org.qfield", 1, 0, "QgsGpkgFlusher", "The gpkgFlusher is available as context property `gpkgFlusher`" );
-  qmlRegisterUncreatableType<LayerObserver>( "org.qfield", 1, 0, "LayerObserver", "" );
-  qmlRegisterUncreatableType<DeltaFileWrapper>( "org.qfield", 1, 0, "DeltaFileWrapper", "" );
-  qmlRegisterUncreatableType<BookmarkModel>( "org.qfield", 1, 0, "BookmarkModel", "The BookmarkModel is available as context property `bookmarkModel`" );
-  qmlRegisterUncreatableType<MessageLogModel>( "org.qfield", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 
