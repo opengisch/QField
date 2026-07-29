@@ -600,6 +600,7 @@ RelationEditorBase {
       height: relationEditor.listItemHeight
 
       property string attachmentPath: model.attachmentPath
+      readonly property bool hasAttachment: attachmentPath !== ""
       property string attachmentFullPath: ""
       Component.onCompleted: {
         attachmentFullPath = resolveAttachmentPath(attachmentPath);
@@ -690,17 +691,18 @@ RelationEditorBase {
           color: Material.rippleColor
         }
 
-        Row {
+        Item {
           id: listRow
           anchors.fill: parent
           anchors.leftMargin: 10
           anchors.rightMargin: 10
-          spacing: 10
 
           Rectangle {
             id: listThumbnail
-            width: 56
+            width: hasAttachment ? 56 : 0
             height: 56
+            visible: hasAttachment
+            anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             radius: 6
             color: Theme.controlBorderColor
@@ -836,7 +838,10 @@ RelationEditorBase {
 
           Text {
             anchors.verticalCenter: parent.verticalCenter
-            width: listRow.width - listThumbnail.width - listFormButton.width - listMenuButton.width - listRow.spacing * 2
+            anchors.left: listThumbnail.right
+            anchors.leftMargin: hasAttachment ? 10 : 0
+            anchors.right: listFormButton.left
+            anchors.rightMargin: 10
             text: model.displayString
             color: Theme.mainTextColor
             font: Theme.resultFont
@@ -847,6 +852,7 @@ RelationEditorBase {
 
           QfToolButton {
             id: listFormButton
+            anchors.right: listMenuButton.left
             anchors.verticalCenter: parent.verticalCenter
             width: Theme.toolButtonSize
             height: Theme.toolButtonSize
@@ -860,6 +866,7 @@ RelationEditorBase {
 
           QfToolButton {
             id: listMenuButton
+            anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             width: Theme.toolButtonSize
             height: Theme.toolButtonSize
