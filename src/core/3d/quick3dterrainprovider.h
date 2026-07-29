@@ -163,7 +163,7 @@ class Quick3DTerrainProvider : public QObject
      * \param geoPoint Point coordinate in map CRS
      * \returns 3D position in scene space, or a null vector if the extent is invalid
      */
-    Q_INVOKABLE QVector3D geoTo3D( QgsPoint geoPoint, float heightOffset = 0.0f ) const;
+    Q_INVOKABLE QVector3D geoTo3D( const QgsPoint &geoPoint, float heightOffset = 0.0f ) const;
 
     /**
      * Converts a 3D scene position back to geographic coordinates in map CRS.

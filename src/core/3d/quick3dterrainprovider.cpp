@@ -220,7 +220,7 @@ QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heigh
   return geoTo3D( QgsPoint( geoX, geoY ), heightOffset );
 }
 
-QVector3D Quick3DTerrainProvider::geoTo3D( QgsPoint geoPoint, float heightOffset ) const
+QVector3D Quick3DTerrainProvider::geoTo3D( const QgsPoint &geoPoint, float heightOffset ) const
 {
   const double extW = mExtent.width();
   const double extH = mExtent.height();
