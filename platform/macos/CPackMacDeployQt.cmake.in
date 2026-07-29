@@ -2,7 +2,7 @@ if(NOT "$ENV{MATCH_PASSWORD}" STREQUAL ""
    AND NOT "$ENV{MATCH_PASSWORD}" STREQUAL ""
    AND NOT "$ENV{MATCH_PASSWORD}" STREQUAL "")
   # -appstore-compliant will strip away odbc, psql and webengine plugins
-  execute_process(COMMAND "${MACDEPLOYQT_EXECUTABLE}" qfield.app -appstore-compliant -qmldir=${CMAKE_SOURCE_DIR}/src/qml -codesign=${MACOS_CODE_SIGN_IDENTITY} -sign-for-notarization=${MACOS_CODE_SIGN_IDENTITY}
+  execute_process(COMMAND "${MACDEPLOYQT_EXECUTABLE}" qfield.app -appstore-compliant -qmldir=${CMAKE_SOURCE_DIR}/src -codesign=${MACOS_CODE_SIGN_IDENTITY} -sign-for-notarization=${MACOS_CODE_SIGN_IDENTITY}
                   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/output/bin
                   COMMAND_ERROR_IS_FATAL ANY
                   )
@@ -17,7 +17,7 @@ if(NOT "$ENV{MATCH_PASSWORD}" STREQUAL ""
   endif()
 else()
   # -appstore-compliant will strip away odbc, psql and webengine plugins
-  execute_process(COMMAND "${MACDEPLOYQT_EXECUTABLE}" qfield.app -appstore-compliant -qmldir=${CMAKE_SOURCE_DIR}/src/qml
+  execute_process(COMMAND "${MACDEPLOYQT_EXECUTABLE}" qfield.app -appstore-compliant -qmldir=${CMAKE_SOURCE_DIR}/src
                   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/output/bin
                   COMMAND_ERROR_IS_FATAL ANY
                   )

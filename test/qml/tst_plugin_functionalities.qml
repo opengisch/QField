@@ -5,7 +5,7 @@ import QtTest
 import org.qfield
 import org.qgis
 import Theme
-import "../../src/qml/" as QFieldControls
+import "qrc:/qml/" as QFieldControls
 
 TestCase {
   id: testCase
