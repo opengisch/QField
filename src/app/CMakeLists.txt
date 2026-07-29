@@ -66,7 +66,6 @@ set(QFIELD_APP_SRCS
     badlayerhandler.cpp
     changelogcontents.cpp
     clipboardmanager.cpp
-    permissions.cpp
     pluginmanager.cpp
     pluginmodel.cpp
     qfieldappauthrequesthandler.cpp
@@ -79,7 +78,6 @@ set(QFIELD_APP_HDRS
     badlayerhandler.h
     changelogcontents.h
     clipboardmanager.h
-    permissions.h
     pluginmanager.h
     pluginmodel.h
     qfieldappauthrequesthandler.h

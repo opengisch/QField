@@ -23,6 +23,7 @@
 #include "messagelogmodel.h"
 #include "orderedrelationmodel.h"
 #include "parameterizedimage.h"
+#include "permissions.h"
 #include "printlayoutlistmodel.h"
 #include "qfieldguiqmlregistration.h"
 #include "recentprojectlistmodel.h"
@@ -30,6 +31,7 @@
 #include "sensorlistmodel.h"
 #include "valuemapmodel.h"
 
+#include <QPermissions>
 #include <QtQml>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )
@@ -39,12 +41,14 @@ namespace QFieldGui
   void registerQmlTypes()
   {
     qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
+    qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
     qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
     qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
     qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
     qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
     qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
     qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
+    qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
     qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
     qmlRegisterType<ParameterizedImage>( "org.qfield", 1, 0, "ParameterizedImage" );
     qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );

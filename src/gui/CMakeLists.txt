@@ -14,6 +14,7 @@ set(QFIELD_GUI_SRCS
     messagelogmodel.cpp
     orderedrelationmodel.cpp
     parameterizedimage.cpp
+    permissions.cpp
     printlayoutlistmodel.cpp
     projectsimageprovider.cpp
     qfieldguiqmlregistration.cpp
@@ -39,6 +40,7 @@ set(QFIELD_GUI_HDRS
     messagelogmodel.h
     orderedrelationmodel.h
     parameterizedimage.h
+    permissions.h
     printlayoutlistmodel.h
     projectsimageprovider.h
     qfieldguiqmlregistration.h
