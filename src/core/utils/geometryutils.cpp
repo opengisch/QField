@@ -169,7 +169,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
 
           otherGeometry = otherFeature.geometry();
           QgsGeometry otherGeometryDifference = otherGeometry.difference( selectedGeometry );
-          if ( otherGeometryDifference.equals( otherGeometry ) )
+          if ( otherGeometryDifference.isExactlyEqual( otherGeometry ) )
           {
             // No change to geometry, moving on
             continue;

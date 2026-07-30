@@ -1,5 +1,5 @@
 diff --git a/src/analysis/CMakeLists.txt b/src/analysis/CMakeLists.txt
-index 4e568004b05..3fbeb2b3752 100644
+index 482d0bdfee7..45d9958f70a 100644
 --- a/src/analysis/CMakeLists.txt
 +++ b/src/analysis/CMakeLists.txt
 @@ -49,7 +49,6 @@ set(QGIS_ANALYSIS_SRCS
@@ -10,15 +10,15 @@ index 4e568004b05..3fbeb2b3752 100644
    processing/qgsalgorithmbasicstatistics.cpp
    processing/qgsalgorithmbatchgeocode.cpp
    processing/qgsalgorithmbatchnominatimgeocode.cpp
-@@ -164,7 +163,6 @@ set(QGIS_ANALYSIS_SRCS
+@@ -168,7 +167,6 @@ set(QGIS_ANALYSIS_SRCS
    processing/qgsalgorithmfuzzifyraster.cpp
    processing/qgsalgorithmgenerateelevationprofile.cpp
    processing/qgsalgorithmgeometrybyexpression.cpp
 -  processing/qgsalgorithmgltftovector.cpp
    processing/qgsalgorithmgpsbabeltools.cpp
    processing/qgsalgorithmgrid.cpp
-   processing/qgsalgorithmhillshade.cpp
-@@ -278,7 +276,6 @@ set(QGIS_ANALYSIS_SRCS
+   processing/qgsalgorithmheatmap.cpp
+@@ -288,7 +286,6 @@ set(QGIS_ANALYSIS_SRCS
    processing/qgsalgorithmsinglesidedbuffer.cpp
    processing/qgsalgorithmslope.cpp
    processing/qgsalgorithmsmooth.cpp
@@ -27,7 +27,7 @@ index 4e568004b05..3fbeb2b3752 100644
    processing/qgsalgorithmspatialindex.cpp
    processing/qgsalgorithmsplitfeaturesbyattributecharacter.cpp
 diff --git a/src/analysis/processing/qgsnativealgorithms.cpp b/src/analysis/processing/qgsnativealgorithms.cpp
-index 481586bcbc4..5998e8b3c69 100644
+index ff5404f9791..68d0ea65cfa 100644
 --- a/src/analysis/processing/qgsnativealgorithms.cpp
 +++ b/src/analysis/processing/qgsnativealgorithms.cpp
 @@ -32,7 +32,6 @@
@@ -38,15 +38,15 @@ index 481586bcbc4..5998e8b3c69 100644
  #include "qgsalgorithmbasicstatistics.h"
  #include "qgsalgorithmbatchnominatimgeocode.h"
  #include "qgsalgorithmboundary.h"
-@@ -145,7 +144,6 @@
+@@ -149,7 +148,6 @@
  #include "qgsalgorithmfuzzifyraster.h"
  #include "qgsalgorithmgenerateelevationprofile.h"
  #include "qgsalgorithmgeometrybyexpression.h"
 -#include "qgsalgorithmgltftovector.h"
+ #include "qgsalgorithmheatmap.h"
  #include "qgsruntimeprofiler.h"
  
- #include <QString>
-@@ -267,7 +265,6 @@ using namespace Qt::StringLiterals;
+@@ -277,7 +275,6 @@ using namespace Qt::StringLiterals;
  #include "qgsalgorithmsinglesidedbuffer.h"
  #include "qgsalgorithmslope.h"
  #include "qgsalgorithmsmooth.h"
@@ -54,7 +54,7 @@ index 481586bcbc4..5998e8b3c69 100644
  #include "qgsalgorithmsnaptogrid.h"
  #include "qgsalgorithmspatialindex.h"
  #include "qgsalgorithmsplitfeaturesbyattributecharacter.h"
-@@ -373,7 +370,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+@@ -383,7 +380,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
    addAlgorithm( new QgsAspectAlgorithm() );
    addAlgorithm( new QgsAssignProjectionAlgorithm() );
    addAlgorithm( new QgsAttributeIndexAlgorithm() );
@@ -62,7 +62,7 @@ index 481586bcbc4..5998e8b3c69 100644
    addAlgorithm( new QgsBasicStatisticsAlgorithm() );
    addAlgorithm( new QgsBatchNominatimGeocodeAlgorithm() );
    addAlgorithm( new QgsBookmarksToLayerAlgorithm() );
-@@ -495,7 +491,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+@@ -509,7 +505,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
    addAlgorithm( new QgsFuzzifyRasterNearMembershipAlgorithm() );
    addAlgorithm( new QgsGenerateElevationProfileAlgorithm() );
    addAlgorithm( new QgsGeometryByExpressionAlgorithm() );
@@ -70,7 +70,7 @@ index 481586bcbc4..5998e8b3c69 100644
  #if QT_CONFIG( process )
    addAlgorithm( new QgsConvertGpxFeatureTypeAlgorithm() );
    addAlgorithm( new QgsConvertGpsDataAlgorithm() );
-@@ -641,7 +636,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
+@@ -662,7 +657,6 @@ void QgsNativeAlgorithms::loadAlgorithms()
    addAlgorithm( new QgsSingleSidedBufferAlgorithm() );
    addAlgorithm( new QgsSlopeAlgorithm() );
    addAlgorithm( new QgsSmoothAlgorithm() );

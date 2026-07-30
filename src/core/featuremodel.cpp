@@ -683,7 +683,7 @@ bool FeatureModel::save( bool flushBuffer )
         if ( mSavedFeature.id() == mFeature.id() && mSavedFeature.fields() == mFeature.fields() )
         {
           bool hasChanged = false;
-          if ( ( mFeature.hasGeometry() || mSavedFeature.hasGeometry() ) && !mFeature.geometry().equals( mSavedFeature.geometry() ) )
+          if ( ( mFeature.hasGeometry() || mSavedFeature.hasGeometry() ) && !mFeature.geometry().isExactlyEqual( mSavedFeature.geometry() ) )
           {
             hasChanged = true;
             QgsGeometry temporaryGeometry = mFeature.geometry();

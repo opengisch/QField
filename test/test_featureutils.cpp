@@ -29,5 +29,5 @@ TEST_CASE( "FeatureUtils" )
   QgsFeature f = FeatureUtils::createFeature( vl.get(), geometry );
 
   REQUIRE( f.fields() == vl->fields() );
-  REQUIRE( f.geometry().equals( geometry ) );
+  REQUIRE( f.geometry().isExactlyEqual( geometry ) );
 }

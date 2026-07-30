@@ -32,7 +32,7 @@ Quick3DGeometry::Quick3DGeometry( QQuick3DObject *parent )
 
 void Quick3DGeometry::setQgsGeometry( const QgsGeometry &geometry )
 {
-  if ( mGeometry.equals( geometry ) )
+  if ( mGeometry.isExactlyEqual( geometry ) )
   {
     return;
   }
