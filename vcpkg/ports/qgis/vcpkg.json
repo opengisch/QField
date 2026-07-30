@@ -16,6 +16,10 @@
       "name": "gdal",
       "features": [
         "archive",
+        {
+          "name":"parquet",
+          "platform": "x64 | arm64"
+        },
         "poppler"
       ]
     },
