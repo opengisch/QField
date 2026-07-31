@@ -469,8 +469,9 @@ QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDoc
 
     delta.id = QUuid( deltaObject.value( QStringLiteral( "id" ) ).toString() );
     delta.deltafileId = QUuid( deltaObject.value( QStringLiteral( "deltafile_id" ) ).toString() );
-    delta.createdAt = deltaObject.value( QStringLiteral( "created_at" ) ).toString();
-    delta.updatedAt = deltaObject.value( QStringLiteral( "updated_at" ) ).toString();
+    delta.createdBy = deltaObject.value( QStringLiteral( "created_by" ) ).toString();
+    delta.createdAt = QDateTime::fromString( deltaObject.value( QStringLiteral( "created_at" ) ).toString(), Qt::ISODate );
+    delta.updatedAt = QDateTime::fromString( deltaObject.value( QStringLiteral( "updated_at" ) ).toString(), Qt::ISODate );
 
     isValid = true;
     deltas.append( delta );

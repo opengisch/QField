@@ -57,11 +57,11 @@ QfPopup {
 
   function deltaStatusIcon(status) {
     switch (status) {
-    case DeltaListModel.AppliedStatus:
+    case QFieldCloudDelta.AppliedStatus:
       return Theme.getThemeVectorIcon('ic_check_white_24dp');
-    case DeltaListModel.PendingStatus:
-    case DeltaListModel.BusyStatus:
-      return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+    case QFieldCloudDelta.PendingStatus:
+    case QFieldCloudDelta.BusyStatus:
+      return Theme.getThemeVectorIcon('ic_hourglass_black_24dp');
     default:
       return Theme.getThemeVectorIcon('ic_error_outline_24dp');
     }
@@ -211,7 +211,7 @@ QfPopup {
           detailsColor: Theme.secondaryTextColor
           font: Theme.tipFont
           iconSource: popup.deltaStatusIcon(Status)
-          titleText: popup.deltaStatusLabel(Status) + ' • ' + new Date(CreatedAt).toLocaleString(Qt.locale(), Locale.ShortFormat)
+          titleText: qsTr("Uploaded by %1 on %2").arg(CreatedBy).arg(CreatedAt.toLocaleString(Qt.locale(), Locale.ShortFormat))
           detailsText: Output
         }
       }

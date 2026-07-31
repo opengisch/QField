@@ -98,8 +98,9 @@ struct QFieldCloudDelta
 
     QUuid id;
     QUuid deltafileId;
-    QString createdAt;
-    QString updatedAt;
+    QString createdBy;
+    QDateTime createdAt;
+    QDateTime updatedAt;
     Status status = PendingStatus;
     QString output;
 };

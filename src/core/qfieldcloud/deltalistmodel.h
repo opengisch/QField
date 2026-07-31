@@ -43,6 +43,7 @@ class DeltaListModel : public QAbstractListModel
     {
       IdRole,
       DeltafileIdRole,
+      CreatedByRole,
       CreatedAtRole,
       UpdatedAtRole,
       StatusRole,

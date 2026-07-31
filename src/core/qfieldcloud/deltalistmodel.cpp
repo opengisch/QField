@@ -50,6 +50,8 @@ QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
       return mDeltas.at( index.row() ).id;
     case DeltafileIdRole:
       return mDeltas.at( index.row() ).deltafileId;
+    case CreatedByRole:
+      return mDeltas.at( index.row() ).createdBy;
     case CreatedAtRole:
       return mDeltas.at( index.row() ).createdAt;
     case UpdatedAtRole:
@@ -68,6 +70,7 @@ QHash<int, QByteArray> DeltaListModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
   roles[DeltafileIdRole] = "DeltafileId";
+  roles[CreatedByRole] = "CreatedBy";
   roles[CreatedAtRole] = "CreatedAt";
   roles[UpdatedAtRole] = "UpdatedAt";
   roles[StatusRole] = "Status";
