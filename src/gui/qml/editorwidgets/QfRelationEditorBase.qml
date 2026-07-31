@@ -4,7 +4,6 @@ import org.qfield.core
 import org.qfield.gui
 import org.qfield.gui.editorwidgets
 import org.qgis
-import Theme
 
 QfEditorWidgetBase {
   id: relationEditorBase

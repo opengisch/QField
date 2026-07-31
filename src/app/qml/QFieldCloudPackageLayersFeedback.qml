@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.qfield.core
-import Theme
+import org.qfield.gui
 
 /**
  * \ingroup qml

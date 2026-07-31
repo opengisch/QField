@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Shapes
 import org.qgis
 import org.qfield.core
-import Theme
 
 /**
  * \ingroup qml

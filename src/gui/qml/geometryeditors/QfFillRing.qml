@@ -4,7 +4,6 @@ import org.qgis
 import org.qfield.core
 import org.qfield.gui
 import org.qfield.gui.geometryeditors
-import Theme
 
 QfGeometryEditorBase {
   id: fillRingToolbar

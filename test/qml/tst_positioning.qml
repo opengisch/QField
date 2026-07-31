@@ -1,6 +1,6 @@
 import QtQuick
 import QtTest
-import org.qfield
+import org.qfield.core
 
 TestCase {
   name: "Positioning"

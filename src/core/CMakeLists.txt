@@ -441,5 +441,4 @@ install(
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR})
 
 add_subdirectory(qml)
-target_link_libraries(qfield_core PUBLIC qfield_core_qml qfield_core_qml_3d
-                                         qfield_qml_theme)
+target_link_libraries(qfield_core PUBLIC qfield_core_qml qfield_core_qml_3d)

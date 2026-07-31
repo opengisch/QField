@@ -1,7 +1,6 @@
 import QtQuick
 import org.qgis
 import org.qfield.core
-import Theme
 
 /**
  * \ingroup qml

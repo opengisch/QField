@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick3D
 import org.qfield.core
-import Theme
 
 /**
  * \ingroup qml

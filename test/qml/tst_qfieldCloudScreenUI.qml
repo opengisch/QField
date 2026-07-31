@@ -1,8 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtTest
-import org.qfield
-import Theme
+import org.qfield.core
 import org.qfield.app as QFieldControls
 
 TestCase {

@@ -4,7 +4,7 @@ import QtQuick.Layouts
 import QtTest
 import org.qfield
 import org.qgis
-import Theme
+import org.qfield.gui
 import org.qfield.app as QFieldControls
 import org.qfield.core as QFieldControls
 import org.qfield.gui as QFieldControls

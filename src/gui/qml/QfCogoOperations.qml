@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQml.Models
 import org.qgis
 import org.qfield.core
-import Theme
+import org.qfield.gui
 
 Item {
   id: cogoOperations

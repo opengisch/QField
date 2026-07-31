@@ -18,8 +18,8 @@ set(QFIELD_GUI_EDITORWIDGETS_QML_FILES
     relationeditors/relation_editor.qml)
 
 # A plain script, not a component to expose.
-set_source_files_properties(ExternalResourceUtils.js PROPERTIES
-                            QT_QML_SKIP_QMLDIR_ENTRY TRUE)
+set_source_files_properties(ExternalResourceUtils.js
+                            PROPERTIES QT_QML_SKIP_QMLDIR_ENTRY TRUE)
 
 qt_add_library(qfield_gui_qml_editorwidgets STATIC)
 

@@ -175,7 +175,6 @@ function(create_executable)
       qml_target
       qfield_core_qml
       qfield_core_qml_3d
-      qfield_qml_theme
       qfield_gui_qml
       qfield_gui_qml_editorwidgets
       qfield_gui_qml_geometryeditors
@@ -188,8 +187,9 @@ function(create_executable)
     endforeach()
 
     if(NOT WITH_BLUETOOTH)
-      file(REMOVE
-           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfBluetoothDeviceChooser.qml")
+      file(
+        REMOVE
+        "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfBluetoothDeviceChooser.qml")
     endif()
     if(NOT WITH_SERIALPORT)
       file(REMOVE

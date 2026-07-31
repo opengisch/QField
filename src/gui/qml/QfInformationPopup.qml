@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.qgis
 import org.qfield.core
-import Theme
+import org.qfield.gui
 
 /**
  * \ingroup qml

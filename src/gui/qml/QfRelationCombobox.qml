@@ -4,7 +4,6 @@ import QtQuick.Layouts
 import org.qfield.core
 import org.qfield.gui
 import org.qgis
-import Theme
 
 /**
  * \ingroup qml

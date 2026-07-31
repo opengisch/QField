@@ -5,7 +5,6 @@ import QtQuick.Particles
 import QtCore
 import org.qfield.core
 import org.qfield.gui
-import Theme
 
 /**
  * \ingroup qml

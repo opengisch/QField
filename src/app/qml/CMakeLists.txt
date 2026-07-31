@@ -20,8 +20,8 @@ set(QFIELD_APP_QML_FILES
     QFieldLocalDataPickerScreen.qml
     QFieldSettings.qml
     QFieldSketcher.qml
-    ScreenLocker.qml
-    QgisMobileapp.qml)
+    QgisMobileapp.qml
+    ScreenLocker.qml)
 
 qt_add_library(qfield_app_qml STATIC)
 

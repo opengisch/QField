@@ -1,8 +1,7 @@
 import QtQuick
 import QtTest
-import org.qfield
+import org.qfield.core
 import org.qgis
-import Theme
 import "Utils.js" as Utils
 import org.qfield.gui.geometryeditors as GeometryEditors
 

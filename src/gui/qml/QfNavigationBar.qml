@@ -19,7 +19,6 @@ import QtQuick.Controls
 import org.qgis
 import org.qfield.core
 import org.qfield.gui
-import Theme
 
 /**
  * \ingroup qml

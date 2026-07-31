@@ -29,7 +29,6 @@ import org.qgis
 import org.qfield.core
 import org.qfield.gui
 import org.qfield.app
-import Theme
 
 /**
  * \defgroup qml

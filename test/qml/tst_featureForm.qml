@@ -1,7 +1,6 @@
 import QtQuick
 import QtTest
-import org.qfield
-import Theme
+import org.qfield.core
 import org.qfield.gui as QFieldControls
 import "Utils.js" as Utils
 

@@ -5,6 +5,7 @@ set(QFIELD_CORE_QML_FILES
     QfBookmarkRenderer.qml
     QfCogoOperationPreview.qml
     QfCoordinateLocator.qml
+    QfDropShadow.qml
     QfFeatureListSelectionHighlight.qml
     QfGeometryHighlighter.qml
     QfGeometryRenderer.qml

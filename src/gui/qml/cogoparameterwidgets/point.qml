@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Theme
 import org.qgis
 import org.qfield.core
 import org.qfield.gui

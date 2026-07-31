@@ -87,8 +87,8 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
-    foreach(qml_target qfield_core_qml qfield_core_qml_3d qfield_qml_theme
-                       qfield_gui_qml qfield_gui_qml_editorwidgets
+    foreach(qml_target qfield_core_qml qfield_core_qml_3d qfield_gui_qml
+                       qfield_gui_qml_editorwidgets
                        qfield_gui_qml_geometryeditors
                        qfield_gui_qml_cogoparameterwidgets
                        qfield_gui_qml_processingparameterwidgets qfield_app_qml)

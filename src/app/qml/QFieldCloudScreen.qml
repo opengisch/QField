@@ -5,7 +5,6 @@ import QtQml.Models
 import org.qfield.core
 import org.qfield.gui
 import org.qfield.app
-import Theme
 
 /**
  * \ingroup qml

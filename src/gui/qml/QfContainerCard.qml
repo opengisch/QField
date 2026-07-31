@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import org.qfield.core
-import Theme
+import org.qfield.gui
 
 /**
  * A card grouping a title, description and status texts. Content (e.g. an

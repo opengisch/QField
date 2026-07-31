@@ -22,7 +22,6 @@ import QtQuick.Controls.Material.impl
 import org.qgis
 import org.qfield.core
 import org.qfield.gui
-import Theme
 
 /**
  * \ingroup qml

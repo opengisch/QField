@@ -1,8 +1,7 @@
 import QtQuick
 import QtTest
 import org.qgis
-import org.qfield
-import Theme
+import org.qfield.core
 import "Utils.js" as Utils
 
 TestCase {
