@@ -15,7 +15,6 @@
 
 #include "appinterface.h"
 #include "deltafilewrapper.h"
-#include "deltalistmodel.h"
 #include "fileutils.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
@@ -1877,11 +1876,13 @@ void QFieldCloudProject::getDeltaStatus()
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    DeltaListModel deltaListModel( doc );
-    if ( !deltaListModel.isValid() )
+    QString errorString;
+    bool isValid = false;
+    const QList<QFieldCloudDelta> deltas = QFieldCloudUtils::parseDeltaJsonDocument( doc, errorString, isValid );
+    if ( !isValid )
     {
       setDeltaFilePushStatus( DeltaErrorStatus );
-      setDeltaFilePushStatusString( deltaListModel.errorString() );
+      setDeltaFilePushStatusString( errorString );
 
       emit networkDeltaStatusChecked();
       return;
@@ -1889,7 +1890,24 @@ void QFieldCloudProject::getDeltaStatus()
 
     setDeltaFilePushStatusString( QString() );
 
-    if ( !deltaListModel.allHaveFinalStatus() )
+    const bool pendingDeltas = std::any_of( deltas.begin(), deltas.end(), []( const QFieldCloudDelta &delta ) {
+      switch ( delta.status )
+      {
+        case QFieldCloudDelta::PendingStatus:
+        case QFieldCloudDelta::BusyStatus:
+          return true;
+          break;
+        case QFieldCloudDelta::AppliedStatus:
+        case QFieldCloudDelta::NotAppliedStatus:
+        case QFieldCloudDelta::ConflictStatus:
+        case QFieldCloudDelta::ErrorStatus:
+        case QFieldCloudDelta::UnpermittedStatus:
+        case QFieldCloudDelta::IgnoredStatus:
+          break;
+      }
+      return false;
+    } );
+    if ( pendingDeltas )
     {
       setDeltaFilePushStatus( DeltaPendingStatus );
 

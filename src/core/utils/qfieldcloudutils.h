@@ -73,6 +73,39 @@ struct CloudUserInformation
     QString email;
 };
 
+
+/**
+ * \ingroup core
+ */
+struct QFieldCloudDelta
+{
+    Q_GADGET
+
+  public:
+    enum Status
+    {
+      PendingStatus,
+      BusyStatus,
+      AppliedStatus,
+      ConflictStatus,
+      NotAppliedStatus,
+      ErrorStatus,
+      IgnoredStatus,
+      UnpermittedStatus,
+    };
+
+    Q_ENUM( Status )
+
+    QUuid id;
+    QUuid deltafileId;
+    QString createdAt;
+    QString updatedAt;
+    Status status = PendingStatus;
+    QString output;
+};
+
+Q_DECLARE_METATYPE( QFieldCloudDelta )
+
 /**
  * \ingroup core
  */
@@ -308,6 +341,9 @@ class QFieldCloudUtils : public QObject
      * Returns an empty string if the server is not the default QFieldCloud server or if the \a projectOwner does not match the \a username.
      */
     Q_INVOKABLE static QString subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username );
+
+
+    static QList<QFieldCloudDelta> parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid );
 
   private:
     static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection = nullptr );

@@ -245,6 +245,7 @@ namespace QFieldCore
     qmlRegisterUncreatableMetaObject( GnssPositionInformation::staticMetaObject, "org.qfield", 1, 0, "GnssPositionInformation", "Used to access to enum values" );
     qmlRegisterUncreatableMetaObject( GridAnnotation::staticMetaObject, "org.qfield", 1, 0, "GridAnnotation", "Used to access enum values" );
     qmlRegisterUncreatableMetaObject( NtripSettings::staticMetaObject, "org.qfield", 1, 0, "NtripSettings", "Used to access to enum values" );
+    qmlRegisterUncreatableMetaObject( QFieldCloudDelta::staticMetaObject, "org.qfield", 1, 0, "QFieldCloudDelta", "Used to access to enum values" );
     qmlRegisterUncreatableType<QAbstractSocket>( "org.qfield", 1, 0, "QAbstractSocket", "" );
   }
 } // namespace QFieldCore

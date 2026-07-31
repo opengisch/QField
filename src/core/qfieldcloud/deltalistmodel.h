@@ -17,6 +17,7 @@
 #define DELTALISTMODEL_H
 
 #include "qfieldcloudconnection.h"
+#include "qfieldcloudutils.h"
 
 #include <QAbstractListModel>
 #include <QJsonDocument>
@@ -29,24 +30,15 @@ class DeltaListModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY( bool isValid READ isValid NOTIFY isValidChanged )
+    Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
+
     Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
     Q_PROPERTY( QString cloudProjectId READ cloudProjectId WRITE setCloudProjectId NOTIFY cloudProjectIdChanged )
 
+    Q_PROPERTY( QString errorString READ errorString NOTIFY errorStringChanged )
+
   public:
-    enum Status
-    {
-      PendingStatus,
-      BusyStatus,
-      AppliedStatus,
-      ConflictStatus,
-      NotAppliedStatus,
-      ErrorStatus,
-      IgnoredStatus,
-      UnpermittedStatus,
-    };
-
-    Q_ENUM( Status )
-
     enum ColumnRole
     {
       IdRole,
@@ -56,18 +48,7 @@ class DeltaListModel : public QAbstractListModel
       StatusRole,
       OutputRole,
     };
-
     Q_ENUM( ColumnRole )
-
-    struct Delta
-    {
-        QUuid id;
-        QUuid deltafileId;
-        QString createdAt;
-        QString updatedAt;
-        Status status;
-        QString output;
-    };
 
     explicit DeltaListModel( QJsonDocument deltasStatusList = QJsonDocument(), QObject *parent = nullptr );
 
@@ -95,25 +76,33 @@ class DeltaListModel : public QAbstractListModel
     void setCloudProjectId( const QString &cloudProjectId );
 
     //! Whether the model is valid and can be used.
-    Q_INVOKABLE bool isValid() const;
+    bool isValid() const;
 
-    //! Whether all the deltas are in final status.
-    Q_INVOKABLE bool allHaveFinalStatus() const;
+    //! Whether the model is refreshing.
+    bool isRefreshing() const;
 
     //! Refreshes the delta list model
     Q_INVOKABLE void refresh();
 
   signals:
+    void isValidChanged();
+    void isRefreshingChanged();
+
+    void errorStringChanged();
+
     void cloudConnectionChanged();
     void cloudProjectIdChanged();
 
   private:
-    void parseJson();
+    void setIsRefreshing( bool isRefreshing );
+
+    bool mIsValid = false;
+    bool mIsRefreshing = false;
 
     QJsonDocument mJson;
-    bool mIsValid = false;
     QString mErrorString;
-    QList<Delta> mDeltas;
+
+    QList<QFieldCloudDelta> mDeltas;
 
     QFieldCloudConnection *mCloudConnection = nullptr;
     QString mCloudProjectId;

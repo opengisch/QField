@@ -16,16 +16,16 @@ QfPopup {
 
   function deltaStatusColor(status) {
     switch (status) {
-    case DeltaListModel.AppliedStatus:
+    case QFieldCloudDelta.AppliedStatus:
       return Theme.mainColor;
-    case DeltaListModel.PendingStatus:
-    case DeltaListModel.BusyStatus:
+    case QFieldCloudDelta.PendingStatus:
+    case QFieldCloudDelta.BusyStatus:
       return Theme.cloudColor;
-    case DeltaListModel.ConflictStatus:
-    case DeltaListModel.NotAppliedStatus:
+    case QFieldCloudDelta.ConflictStatus:
+    case QFieldCloudDelta.NotAppliedStatus:
       return Theme.warningColor;
-    case DeltaListModel.ErrorStatus:
-    case DeltaListModel.UnpermittedStatus:
+    case QFieldCloudDelta.ErrorStatus:
+    case QFieldCloudDelta.UnpermittedStatus:
       return Theme.errorColor;
     default:
       return Theme.secondaryTextColor;
@@ -34,21 +34,21 @@ QfPopup {
 
   function deltaStatusLabel(status) {
     switch (status) {
-    case DeltaListModel.AppliedStatus:
+    case QFieldCloudDelta.AppliedStatus:
       return qsTr('Applied');
-    case DeltaListModel.PendingStatus:
+    case QFieldCloudDelta.PendingStatus:
       return qsTr('Pending');
-    case DeltaListModel.BusyStatus:
+    case QFieldCloudDelta.BusyStatus:
       return qsTr('Busy');
-    case DeltaListModel.ConflictStatus:
+    case QFieldCloudDelta.ConflictStatus:
       return qsTr('Conflict');
-    case DeltaListModel.NotAppliedStatus:
+    case QFieldCloudDelta.NotAppliedStatus:
       return qsTr('Not applied');
-    case DeltaListModel.ErrorStatus:
+    case QFieldCloudDelta.ErrorStatus:
       return qsTr('Error');
-    case DeltaListModel.IgnoredStatus:
+    case QFieldCloudDelta.IgnoredStatus:
       return qsTr('Ignored');
-    case DeltaListModel.UnpermittedStatus:
+    case QFieldCloudDelta.UnpermittedStatus:
       return qsTr('Unpermitted');
     default:
       return qsTr('Unknown');
@@ -93,7 +93,7 @@ QfPopup {
       const chromeHeight = toolBar.childrenRect.height + 20;
       const maximumHeight = mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4);
       let contentHeight = deltaList.contentHeight;
-      if (!popup.model) {
+      if (popup.model.isRefreshing) {
         contentHeight = loadingIndicator.implicitHeight;
       } else if (deltaList.count === 0) {
         contentHeight = emptyLabel.implicitHeight;
@@ -151,7 +151,7 @@ QfPopup {
         id: loadingIndicator
         Layout.fillWidth: true
         implicitHeight: loadingContent.height + 30
-        visible: !popup.model
+        visible: popup.model.isRefreshing
 
         Column {
           id: loadingContent
@@ -183,12 +183,13 @@ QfPopup {
         leftPadding: 48
         rightPadding: 48
         width: parent.width
-        visible: !!popup.model && deltaList.count === 0
+        visible: !popup.model.isRefreshing && deltaList.count === 0
 
-        text: qsTr("No changes have been uploaded yet!")
+        font: Theme.tipFont
         color: Theme.mainTextDisabledColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
+        text: qsTr("No changes have been uploaded yet!")
       }
 
       ListView {

@@ -406,3 +406,77 @@ QString QFieldCloudUtils::subscriptionManagementUrl( const QString &serverUrl, c
 
   return QString();
 }
+
+QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )
+{
+  QList<QFieldCloudDelta> deltas;
+
+  if ( !jsonDocument.isArray() )
+  {
+    errorString = tr( "Expected the json document to be an array of delta status" );
+    isValid = false;
+    return deltas;
+  }
+
+  const QJsonArray deltasArray = jsonDocument.array();
+  for ( const QJsonValue deltaValue : deltasArray )
+  {
+    if ( !deltaValue.isObject() )
+    {
+      errorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( deltas.size() );
+      isValid = false;
+      break;
+    }
+
+    const QJsonObject deltaObject = deltaValue.toObject();
+    const QStringList requiredKeys( { "id", "deltafile_id", "created_at", "updated_at", "status" } );
+    auto match = std::find_if( requiredKeys.begin(), requiredKeys.end(), [&deltaObject]( const QString &key ) {
+      return deltaObject.value( key ).isNull() || deltaObject.value( key ).isUndefined();
+    } );
+    if ( match != requiredKeys.end() )
+    {
+      errorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( *match ).arg( deltas.size() );
+      isValid = false;
+      break;
+    }
+
+    QFieldCloudDelta delta;
+    delta.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
+
+    const QString statusString = deltaObject.value( QStringLiteral( "status" ) ).toString();
+    if ( statusString == QStringLiteral( "STATUS_APPLIED" ) )
+      delta.status = QFieldCloudDelta::AppliedStatus;
+    else if ( statusString == QStringLiteral( "STATUS_CONFLICT" ) )
+      delta.status = QFieldCloudDelta::ConflictStatus;
+    else if ( statusString == QStringLiteral( "STATUS_NOT_APPLIED" ) )
+      delta.status = QFieldCloudDelta::NotAppliedStatus;
+    else if ( statusString == QStringLiteral( "STATUS_PENDING" ) )
+      delta.status = QFieldCloudDelta::PendingStatus;
+    else if ( statusString == QStringLiteral( "STATUS_BUSY" ) )
+      delta.status = QFieldCloudDelta::BusyStatus;
+    else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
+      delta.status = QFieldCloudDelta::ErrorStatus;
+    else if ( statusString == QStringLiteral( "STATUS_IGNORED" ) )
+      delta.status = QFieldCloudDelta::IgnoredStatus;
+    else if ( statusString == QStringLiteral( "STATUS_UNPERMITTED" ) )
+      delta.status = QFieldCloudDelta::UnpermittedStatus;
+    else
+    {
+      errorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, QString::number( deltas.size() ) );
+      isValid = false;
+      break;
+    }
+
+    delta.id = QUuid( deltaObject.value( QStringLiteral( "id" ) ).toString() );
+    delta.deltafileId = QUuid( deltaObject.value( QStringLiteral( "deltafile_id" ) ).toString() );
+    delta.createdAt = deltaObject.value( QStringLiteral( "created_at" ) ).toString();
+    delta.updatedAt = deltaObject.value( QStringLiteral( "updated_at" ) ).toString();
+
+    isValid = true;
+    deltas.append( delta );
+  }
+
+  std::sort( deltas.begin(), deltas.end(), []( const QFieldCloudDelta &a, const QFieldCloudDelta &b ) { return a.createdAt > b.createdAt; } );
+
+  return deltas;
+}
