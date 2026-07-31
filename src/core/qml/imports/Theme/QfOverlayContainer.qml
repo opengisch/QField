@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
-import org.qfield
+import org.qfield.core
 
 /**
  * \ingroup qml

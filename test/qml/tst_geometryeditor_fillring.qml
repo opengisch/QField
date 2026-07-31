@@ -5,7 +5,7 @@ import org.qfield
 import org.qgis
 import Theme
 import "Utils.js" as Utils
-import "qrc:/qml/geometryeditors" as GeometryEditors
+import org.qfield.gui.geometryeditors as GeometryEditors
 
 TestCase {
   id: testCase

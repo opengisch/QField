@@ -1,5 +1,5 @@
 import QtQuick
-import org.qfield
+import org.qfield.core
 
 /**
  * \ingroup qml

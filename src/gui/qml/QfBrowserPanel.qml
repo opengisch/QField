@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtWebView
-import org.qfield
+import org.qfield.core
 import Theme
 
 /**

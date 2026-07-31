@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Controls
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.gui.editorwidgets
 import org.qgis
 import Theme
-import "../"
 
 QfEditorWidgetBase {
   id: relationEditorBase

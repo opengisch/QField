@@ -5,7 +5,7 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
-import org.qfield
+import org.qfield.core
 
 /**
  * \ingroup qml

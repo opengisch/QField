@@ -297,7 +297,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
-  load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
+  loadFromModule( "org.qfield.app", "QgisMobileapp" );
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
@@ -348,7 +348,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 #if defined( Q_OS_ANDROID )
   QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
 #endif
-  engine->addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
   qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
 

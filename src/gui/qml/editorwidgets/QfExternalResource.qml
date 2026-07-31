@@ -4,9 +4,10 @@ import QtQuick.Layouts
 import QtQuick.Window
 import QtMultimedia
 import org.qgis
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.gui.editorwidgets
 import Theme
-import ".."
 import "ExternalResourceUtils.js" as ExternalResourceUtils
 
 QfEditorWidgetBase {

@@ -1,10 +1,10 @@
 import QtQuick
 import QtQuick.Controls
 import org.qgis
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.gui.geometryeditors
 import Theme
-import "."
-import ".."
 
 QfGeometryEditorBase {
   id: fillRingToolbar

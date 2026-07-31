@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQml.Models
 import org.qgis
-import org.qfield
+import org.qfield.core
 import Theme
 
 Item {

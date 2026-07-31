@@ -1,7 +1,8 @@
 import QtQuick
 import QtQml.Models
 import org.qgis
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
 import Theme
 
 /**

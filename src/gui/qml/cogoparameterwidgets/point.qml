@@ -3,7 +3,9 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Theme
 import org.qgis
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.gui.cogoparameterwidgets
 
 QfCogoParameterWidgetBase {
   id: pointParameter

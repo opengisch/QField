@@ -1,7 +1,7 @@
 import QtQuick
 import QtQml
 import org.qgis
-import org.qfield
+import org.qfield.core
 import Theme
 
 /**

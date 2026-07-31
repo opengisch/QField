@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick3D
 import QtQuick3D.Helpers
-import org.qfield
+import org.qfield.core
 import Theme
 
 Item {

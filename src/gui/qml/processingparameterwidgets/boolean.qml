@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import Theme
-import org.qfield
+import org.qfield.core
+import org.qfield.gui.processingparameterwidgets
 import org.qgis
 
 QfProcessingParameterWidgetBase {

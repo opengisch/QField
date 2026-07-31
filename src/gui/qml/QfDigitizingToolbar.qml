@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import org.qgis
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
 import Theme
 
 /**

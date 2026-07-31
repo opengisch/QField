@@ -1,5 +1,5 @@
 /***************************************************************************
-                            qgismobileapp.qml
+                            QgisMobileapp.qml
                               -------------------
               begin                : 10.12.2014
               copyright            : (C) 2014 by Matthias Kuhn
@@ -26,7 +26,9 @@ import QtQuick.Window
 import QtQml
 import QtSensors
 import org.qgis
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.app
 import Theme
 
 /**
@@ -758,7 +760,7 @@ ApplicationWindow {
         }
       }
 
-      source: "qrc:/qml/3d/QfMapCanvas3D.qml"
+      source: "qrc:/qt/qml/org/qfield/core/_3d/QfMapCanvas3D.qml"
 
       onActiveChanged: {
         if (active) {

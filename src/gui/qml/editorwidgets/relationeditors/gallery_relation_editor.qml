@@ -3,11 +3,11 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import QtMultimedia
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.gui.editorwidgets
 import org.qgis
 import Theme
-import "../.."
-import ".."
 import "../ExternalResourceUtils.js" as ExternalResourceUtils
 
 QfRelationEditorBase {

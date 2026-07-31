@@ -25,11 +25,18 @@ namespace QFieldApp
 {
   void registerQmlTypes()
   {
-    qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
-    qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
-    qmlRegisterType<PluginModel>( "org.qfield", 1, 0, "PluginModel" );
-    qmlRegisterType<PluginProxyModel>( "org.qfield", 1, 0, "PluginProxyModel" );
+    qmlRegisterType<BadLayerHandler>( "org.qfield.app", 1, 0, "BadLayerHandler" );
+    qmlRegisterType<ChangelogContents>( "org.qfield.app", 1, 0, "ChangelogContents" );
+    qmlRegisterType<PluginModel>( "org.qfield.app", 1, 0, "PluginModel" );
+    qmlRegisterType<PluginProxyModel>( "org.qfield.app", 1, 0, "PluginProxyModel" );
 
-    qmlRegisterUncreatableType<PluginManager>( "org.qfield", 1, 0, "PluginManager", "" );
+    qmlRegisterUncreatableType<PluginManager>( "org.qfield.app", 1, 0, "PluginManager", "" );
+
+    // Existing plugins import the flat org.qfield module. Alias it rather than
+    // registering everything twice, which would duplicate the singletons.
+    qmlRegisterModule( "org.qfield", 1, 0 );
+    qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield.core", QQmlModuleImportLatest );
+    qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield.gui", QQmlModuleImportLatest );
+    qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield.app", QQmlModuleImportLatest );
   }
 } // namespace QFieldApp

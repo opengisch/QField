@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Shapes
 import QtQuick.Window
 import QtQuick.Controls.Material
-import org.qfield
+import org.qfield.core
 import Theme
 
 /**

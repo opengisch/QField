@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.qgis
-import org.qfield
+import org.qfield.core
 import Theme
 
 /**
@@ -259,17 +259,17 @@ QfPopup {
           source: {
             switch (positioningDeviceType.currentValue) {
             case PositioningDeviceModel.FileDevice:
-              return "qrc:/qml/QfFileDeviceChooser.qml";
+              return "QfFileDeviceChooser.qml";
             case PositioningDeviceModel.BluetoothDevice:
-              return "qrc:/qml/QfBluetoothDeviceChooser.qml";
+              return "QfBluetoothDeviceChooser.qml";
             case PositioningDeviceModel.TcpDevice:
-              return "qrc:/qml/QfTcpDeviceChooser.qml";
+              return "QfTcpDeviceChooser.qml";
             case PositioningDeviceModel.UdpDevice:
-              return "qrc:/qml/QfUdpDeviceChooser.qml";
+              return "QfUdpDeviceChooser.qml";
             case PositioningDeviceModel.SerialPortDevice:
-              return "qrc:/qml/QfSerialPortDeviceChooser.qml";
+              return "QfSerialPortDeviceChooser.qml";
             case PositioningDeviceModel.EgenioussDevice:
-              return "qrc:/qml/QfEgenioussDeviceChooser.qml";
+              return "QfEgenioussDeviceChooser.qml";
             }
             return '';
           }

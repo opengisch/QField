@@ -2,7 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Window
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
 import Theme
 
 /**

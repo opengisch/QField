@@ -4,7 +4,8 @@ import QtQuick.Layouts
 import QtQuick.Shapes
 import QtMultimedia
 import QtCore
-import org.qfield
+import org.qfield.core
+import org.qfield.gui
 import Theme
 
 /**

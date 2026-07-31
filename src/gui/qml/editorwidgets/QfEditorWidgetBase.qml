@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import org.qfield
+import org.qfield.core
 import Theme
 
 Item {

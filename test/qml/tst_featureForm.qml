@@ -2,7 +2,7 @@ import QtQuick
 import QtTest
 import org.qfield
 import Theme
-import "qrc:/qml/" as QFieldControls
+import org.qfield.gui as QFieldControls
 import "Utils.js" as Utils
 
 TestCase {

@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.19)
 
 set(VCPKG_TAG 99e82d9c9f0b281ec11fba48cc8434574a2b6e66)
 
-set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/core/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
+set(QML_IMPORT_PATH ${CMAKE_BINARY_DIR}/qml CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
 set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
@@ -232,6 +232,9 @@ endif()
 if (WITH_SPIX)
   find_package(Spix REQUIRED)
 endif ()
+
+# Keep the generated QML modules together so tests and Qt Creator find them.
+set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
 
 add_subdirectory(src/core)
 add_subdirectory(src/gui)

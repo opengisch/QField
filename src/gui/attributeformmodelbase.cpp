@@ -49,7 +49,7 @@ AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
 
   if ( sSupportedEditorWidgets->isEmpty() )
   {
-    QDirIterator it( ":qml/editorwidgets" );
+    QDirIterator it( QStringLiteral( ":/qt/qml/org/qfield/gui/editorwidgets" ) );
     while ( it.hasNext() )
     {
       it.next();

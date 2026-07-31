@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Shapes
 import org.qgis
-import org.qfield
+import org.qfield.core
 import Theme
 
 /**

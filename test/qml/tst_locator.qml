@@ -2,7 +2,7 @@ import QtQuick
 import QtTest
 import org.qgis
 import org.qfield
-import "qrc:/qml/" as QFieldControls
+import org.qfield.core as QFieldControls
 
 /**
  * test_locator.cpp covers each filter's logic in isolation. These tests instead

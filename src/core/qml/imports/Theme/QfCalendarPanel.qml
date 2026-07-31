@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Dialogs
 import QtQuick.Layouts
 import QtQuick.Controls.Material
-import org.qfield
+import org.qfield.core
 
 /**
  * \ingroup qml

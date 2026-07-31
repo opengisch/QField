@@ -4,7 +4,7 @@ import QtQuick.Layouts
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import org.qgis
-import org.qfield
+import org.qfield.core
 import Theme
 
 /**
