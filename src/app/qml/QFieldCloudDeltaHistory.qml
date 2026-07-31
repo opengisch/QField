@@ -12,20 +12,20 @@ QfPopup {
   id: popup
   focus: true
 
-  property alias model: deltaList.model
+  property alias model: deltaListModel
 
   function deltaStatusColor(status) {
     switch (status) {
-    case DeltaListModel.AppliedStatus:
+    case QFieldCloudDelta.AppliedStatus:
       return Theme.mainColor;
-    case DeltaListModel.PendingStatus:
-    case DeltaListModel.BusyStatus:
+    case QFieldCloudDelta.PendingStatus:
+    case QFieldCloudDelta.BusyStatus:
       return Theme.cloudColor;
-    case DeltaListModel.ConflictStatus:
-    case DeltaListModel.NotAppliedStatus:
+    case QFieldCloudDelta.ConflictStatus:
+    case QFieldCloudDelta.NotAppliedStatus:
       return Theme.warningColor;
-    case DeltaListModel.ErrorStatus:
-    case DeltaListModel.UnpermittedStatus:
+    case QFieldCloudDelta.ErrorStatus:
+    case QFieldCloudDelta.UnpermittedStatus:
       return Theme.errorColor;
     default:
       return Theme.secondaryTextColor;
@@ -34,21 +34,21 @@ QfPopup {
 
   function deltaStatusLabel(status) {
     switch (status) {
-    case DeltaListModel.AppliedStatus:
+    case QFieldCloudDelta.AppliedStatus:
       return qsTr('Applied');
-    case DeltaListModel.PendingStatus:
+    case QFieldCloudDelta.PendingStatus:
       return qsTr('Pending');
-    case DeltaListModel.BusyStatus:
+    case QFieldCloudDelta.BusyStatus:
       return qsTr('Busy');
-    case DeltaListModel.ConflictStatus:
+    case QFieldCloudDelta.ConflictStatus:
       return qsTr('Conflict');
-    case DeltaListModel.NotAppliedStatus:
+    case QFieldCloudDelta.NotAppliedStatus:
       return qsTr('Not applied');
-    case DeltaListModel.ErrorStatus:
+    case QFieldCloudDelta.ErrorStatus:
       return qsTr('Error');
-    case DeltaListModel.IgnoredStatus:
+    case QFieldCloudDelta.IgnoredStatus:
       return qsTr('Ignored');
-    case DeltaListModel.UnpermittedStatus:
+    case QFieldCloudDelta.UnpermittedStatus:
       return qsTr('Unpermitted');
     default:
       return qsTr('Unknown');
@@ -57,11 +57,11 @@ QfPopup {
 
   function deltaStatusIcon(status) {
     switch (status) {
-    case DeltaListModel.AppliedStatus:
+    case QFieldCloudDelta.AppliedStatus:
       return Theme.getThemeVectorIcon('ic_check_white_24dp');
-    case DeltaListModel.PendingStatus:
-    case DeltaListModel.BusyStatus:
-      return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+    case QFieldCloudDelta.PendingStatus:
+    case QFieldCloudDelta.BusyStatus:
+      return Theme.getThemeVectorIcon('ic_hourglass_black_24dp');
     default:
       return Theme.getThemeVectorIcon('ic_error_outline_24dp');
     }
@@ -72,14 +72,10 @@ QfPopup {
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
 
-  onOpened: function () {
-    if (cloudProjectsModel.currentProjectId) {
-      cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId);
+  onAboutToShow: {
+    if (model.cloudProjectId != "") {
+      model.refresh();
     }
-  }
-
-  onClosed: function () {
-    deltaList.model = null;
   }
 
   Page {
@@ -97,7 +93,7 @@ QfPopup {
       const chromeHeight = toolBar.childrenRect.height + 20;
       const maximumHeight = mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4);
       let contentHeight = deltaList.contentHeight;
-      if (!popup.model) {
+      if (popup.model.isRefreshing) {
         contentHeight = loadingIndicator.implicitHeight;
       } else if (deltaList.count === 0) {
         contentHeight = emptyLabel.implicitHeight;
@@ -155,7 +151,7 @@ QfPopup {
         id: loadingIndicator
         Layout.fillWidth: true
         implicitHeight: loadingContent.height + 30
-        visible: !popup.model
+        visible: popup.model.isRefreshing
 
         Column {
           id: loadingContent
@@ -187,12 +183,13 @@ QfPopup {
         leftPadding: 48
         rightPadding: 48
         width: parent.width
-        visible: !!popup.model && deltaList.count === 0
+        visible: !popup.model.isRefreshing && deltaList.count === 0
 
-        text: qsTr("No changes have been uploaded yet!")
+        font: Theme.tipFont
         color: Theme.mainTextDisabledColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
+        text: qsTr("No changes have been uploaded yet!")
       }
 
       ListView {
@@ -204,13 +201,17 @@ QfPopup {
         spacing: 5
         ScrollBar.vertical: QfScrollBar {}
 
+        model: DeltaListModel {
+          id: deltaListModel
+        }
+
         delegate: QfCollapsibleMessage {
           width: parent ? parent.width : undefined
           color: popup.deltaStatusColor(Status)
           detailsColor: Theme.secondaryTextColor
           font: Theme.tipFont
           iconSource: popup.deltaStatusIcon(Status)
-          titleText: popup.deltaStatusLabel(Status) + ' • ' + new Date(CreatedAt).toLocaleString(Qt.locale(), Locale.ShortFormat)
+          titleText: Summary + "\n" + qsTr("Uploaded by %1 on %2").arg(CreatedBy).arg(CreatedAt.toLocaleString(Qt.locale(), Locale.ShortFormat))
           detailsText: Output
         }
       }

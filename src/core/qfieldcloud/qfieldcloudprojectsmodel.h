@@ -88,8 +88,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
       LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
-      UserRoleOriginRole,
-      DeltaListRole
+      UserRoleOriginRole
     };
 
     //! Attributes controlling fetching of projects
@@ -153,9 +152,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     //! Pushes all local deltas for given \a projectId. If \a shouldDownloadUpdates is true, also calls `downloadProject`.
     Q_INVOKABLE void projectPush( const QString &projectId, const bool shouldDownloadUpdates );
-
-    //! Retreives the delta list for a given \a projectId.
-    Q_INVOKABLE void refreshProjectDeltaList( const QString &projectId );
 
     //! Remove local cloud project with given \a projectId from the device storage
     Q_INVOKABLE void removeLocalProject( const QString &projectId );
@@ -221,8 +217,6 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
     void projectDownloaded( const QString &projectId, const QString &projectName, const QString &projectOwner, const bool hasError = false, const QString &errorString = QString() );
     void pushFinished( const QString &projectId, bool isDownloadingProject, bool hasError = false, const QString &errorString = QString() );
-
-    void deltaListModelChanged();
 
     void projectUploaded( const QString &projectId );
 

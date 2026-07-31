@@ -406,3 +406,156 @@ QString QFieldCloudUtils::subscriptionManagementUrl( const QString &serverUrl, c
 
   return QString();
 }
+
+QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )
+{
+  QList<QFieldCloudDelta> deltas;
+
+  if ( !jsonDocument.isArray() )
+  {
+    errorString = tr( "Expected the json document to be an array of delta status" );
+    isValid = false;
+    return deltas;
+  }
+
+  const QJsonArray deltasArray = jsonDocument.array();
+  for ( const QJsonValue deltaValue : deltasArray )
+  {
+    if ( !deltaValue.isObject() )
+    {
+      errorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( deltas.size() );
+      isValid = false;
+      break;
+    }
+
+    const QJsonObject deltaObject = deltaValue.toObject();
+    const QStringList requiredKeys( { "id", "deltafile_id", "created_at", "updated_at", "status" } );
+    auto match = std::find_if( requiredKeys.begin(), requiredKeys.end(), [&deltaObject]( const QString &key ) {
+      return deltaObject.value( key ).isNull() || deltaObject.value( key ).isUndefined();
+    } );
+    if ( match != requiredKeys.end() )
+    {
+      errorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( *match ).arg( deltas.size() );
+      isValid = false;
+      break;
+    }
+
+    QFieldCloudDelta delta;
+    delta.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
+
+    QList<QJsonObject> deltaObjects;
+    deltaObjects << deltaObject.value( "content" ).toObject();
+    delta.summary = QFieldCloudUtils::summarizeDeltaContent( deltaObjects );
+
+    const QString statusString = deltaObject.value( QStringLiteral( "status" ) ).toString();
+    if ( statusString == QStringLiteral( "STATUS_APPLIED" ) )
+      delta.status = QFieldCloudDelta::AppliedStatus;
+    else if ( statusString == QStringLiteral( "STATUS_CONFLICT" ) )
+      delta.status = QFieldCloudDelta::ConflictStatus;
+    else if ( statusString == QStringLiteral( "STATUS_NOT_APPLIED" ) )
+      delta.status = QFieldCloudDelta::NotAppliedStatus;
+    else if ( statusString == QStringLiteral( "STATUS_PENDING" ) )
+      delta.status = QFieldCloudDelta::PendingStatus;
+    else if ( statusString == QStringLiteral( "STATUS_BUSY" ) )
+      delta.status = QFieldCloudDelta::BusyStatus;
+    else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
+      delta.status = QFieldCloudDelta::ErrorStatus;
+    else if ( statusString == QStringLiteral( "STATUS_IGNORED" ) )
+      delta.status = QFieldCloudDelta::IgnoredStatus;
+    else if ( statusString == QStringLiteral( "STATUS_UNPERMITTED" ) )
+      delta.status = QFieldCloudDelta::UnpermittedStatus;
+    else
+    {
+      errorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, QString::number( deltas.size() ) );
+      isValid = false;
+      break;
+    }
+
+    delta.id = QUuid( deltaObject.value( QStringLiteral( "id" ) ).toString() );
+    delta.deltafileId = QUuid( deltaObject.value( QStringLiteral( "deltafile_id" ) ).toString() );
+    delta.createdBy = deltaObject.value( QStringLiteral( "created_by" ) ).toString();
+    delta.createdAt = QDateTime::fromString( deltaObject.value( QStringLiteral( "created_at" ) ).toString(), Qt::ISODate );
+    delta.updatedAt = QDateTime::fromString( deltaObject.value( QStringLiteral( "updated_at" ) ).toString(), Qt::ISODate );
+
+    isValid = true;
+    deltas.append( delta );
+  }
+
+  std::sort( deltas.begin(), deltas.end(), []( const QFieldCloudDelta &a, const QFieldCloudDelta &b ) { return a.createdAt > b.createdAt; } );
+
+  return deltas;
+}
+
+QString QFieldCloudUtils::summarizeDeltaContent( const QList<QJsonObject> &deltaObjects, const QString &modificationSeparator, const QString &layerSeparator )
+{
+  QMap<QString, int> createdFeatures;
+  QMap<QString, int> patchedFeatures;
+  QMap<QString, int> deletedFeatures;
+
+  for ( const QJsonObject &deltaObject : deltaObjects )
+  {
+    const QString method = deltaObject.value( QStringLiteral( "method" ) ).toString();
+    const QString layerName = deltaObject.value( QStringLiteral( "localLayerName" ) ).toString();
+
+    if ( !layerName.isEmpty() )
+    {
+      if ( method == QStringLiteral( "create" ) )
+      {
+        if ( createdFeatures.contains( layerName ) )
+        {
+          createdFeatures[layerName]++;
+        }
+        else
+        {
+          createdFeatures[layerName] = 1;
+        }
+      }
+      else if ( method == QStringLiteral( "patch" ) )
+      {
+        if ( patchedFeatures.contains( layerName ) )
+        {
+          patchedFeatures[layerName]++;
+        }
+        else
+        {
+          patchedFeatures[layerName] = 1;
+        }
+      }
+      else if ( method == QStringLiteral( "delete" ) )
+      {
+        if ( deletedFeatures.contains( layerName ) )
+        {
+          deletedFeatures[layerName]++;
+        }
+        else
+        {
+          deletedFeatures[layerName] = 1;
+        }
+      }
+    }
+  }
+
+  QStringList modifiedLayers = createdFeatures.keys() + patchedFeatures.keys() + deletedFeatures.keys();
+  modifiedLayers.removeDuplicates();
+
+  QStringList summary;
+  for ( const QString &modifiedLayer : modifiedLayers )
+  {
+    QStringList modifications;
+    if ( createdFeatures.contains( modifiedLayer ) )
+    {
+      modifications << tr( "%n feature(s) created", "", createdFeatures[modifiedLayer] );
+    }
+    if ( patchedFeatures.contains( modifiedLayer ) )
+    {
+      modifications << tr( "%n feature(s) edited", "", patchedFeatures[modifiedLayer] );
+    }
+    if ( deletedFeatures.contains( modifiedLayer ) )
+    {
+      modifications << tr( "%n feature(s) deleted", "", deletedFeatures[modifiedLayer] );
+    }
+    summary << tr( "%1 in layer %2" ).arg( modifications.join( modificationSeparator ), modifiedLayer );
+  }
+
+  return summary.join( layerSeparator );
+}

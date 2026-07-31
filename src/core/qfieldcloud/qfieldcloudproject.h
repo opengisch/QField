@@ -24,7 +24,6 @@
 #include <QPointer>
 #include <QVariantMap>
 
-class DeltaListModel;
 class QgsGpkgFlusher;
 class QFieldCloudConnection;
 
@@ -62,7 +61,6 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
     Q_PROPERTY( int deltasCount READ deltasCount NOTIFY deltasCountChanged )
     Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
-    Q_PROPERTY( DeltaListModel *deltaListModel READ deltaListModel NOTIFY deltaListModelChanged )
 
     Q_PROPERTY( qint64 uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
     Q_PROPERTY( qint64 uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
@@ -357,7 +355,6 @@ class QFieldCloudProject : public QObject
 
     int deltasCount() const { return mDeltaFileWrapper ? mDeltaFileWrapper->count() : 0; }
     DeltaFileWrapper *deltaFileWrapper() const { return mDeltaFileWrapper.get(); }
-    DeltaListModel *deltaListModel() const { return mDeltaListModel.get(); }
 
     QString thumbnailPath() const { return mThumbnailPath; }
     void setThumbnailPath( const QString &thumbnailPath );
@@ -456,7 +453,6 @@ class QFieldCloudProject : public QObject
 
     void deltasCountChanged();
     void deltaFileWrapperChanged();
-    void deltaListModelChanged();
 
     void thumbnailPathChanged();
 
@@ -573,7 +569,6 @@ class QFieldCloudProject : public QObject
     double mUploadProgress = 0.0;
 
     std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
-    std::unique_ptr<DeltaListModel> mDeltaListModel;
 
     QString mThumbnailPath;
 

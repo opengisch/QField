@@ -608,7 +608,7 @@ Popup {
                   iconSource: Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
                   iconColor: Theme.cloudColor
 
-                  onClicked: qfieldCloudDeltaHistory.open()
+                  onClicked: showHistory()
                 }
 
                 Text {
@@ -621,7 +621,7 @@ Popup {
 
                   MouseArea {
                     anchors.fill: parent
-                    onClicked: qfieldCloudDeltaHistory.open()
+                    onClicked: showHistory()
                   }
                 }
               }
@@ -752,7 +752,7 @@ Popup {
     target: cloudConnection
 
     function onStatusChanged() {
-      if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
         fetchSubscriptionInformation();
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
@@ -1024,5 +1024,12 @@ Popup {
     storageMeterBar.warningThreshold = warnRatio;
     storageMeterBar.criticalThreshold = critRatio;
     storageMeterBar.visible = true;
+  }
+
+  function showHistory() {
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
+      qfieldCloudDeltaHistory.model.cloudProjectId = cloudProjectsModel.currentProject.id;
+      qfieldCloudDeltaHistory.open();
+    }
   }
 }

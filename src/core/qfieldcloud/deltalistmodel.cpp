@@ -19,84 +19,24 @@
 #include <QJsonObject>
 
 
-DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
+DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList, QObject *parent )
   : mJson( deltasStatusList )
+  , QAbstractListModel( parent )
 {
-  if ( !mJson.isArray() )
+  if ( !mJson.isEmpty() )
   {
-    mIsValid = false;
-    mErrorString = tr( "Expected the json document to be an array of delta status" );
-    return;
+    mDeltas = QFieldCloudUtils::parseDeltaJsonDocument( mJson, mErrorString, mIsValid );
   }
-
-  const QJsonArray deltas = mJson.array();
-  for ( const QJsonValue deltaJson : deltas )
-  {
-    if ( !deltaJson.isObject() )
-    {
-      mIsValid = false;
-      mErrorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( mDeltas.size() );
-      return;
-    }
-
-    const QJsonObject deltaObject = deltaJson.toObject();
-    const QStringList requiredKeys( { "id", "deltafile_id", "created_at", "updated_at", "status" } );
-    auto match = std::find_if( requiredKeys.begin(), requiredKeys.end(), [&deltaObject]( const QString &key ) {
-      return deltaObject.value( key ).isNull() || deltaObject.value( key ).isUndefined();
-    } );
-    if ( match != requiredKeys.end() )
-    {
-      mIsValid = false;
-      mErrorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( *match ).arg( mDeltas.size() );
-      return;
-    }
-
-    Delta delta;
-    delta.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
-
-    const QString statusString = deltaObject.value( QStringLiteral( "status" ) ).toString();
-    if ( statusString == QStringLiteral( "STATUS_APPLIED" ) )
-      delta.status = AppliedStatus;
-    else if ( statusString == QStringLiteral( "STATUS_CONFLICT" ) )
-      delta.status = ConflictStatus;
-    else if ( statusString == QStringLiteral( "STATUS_NOT_APPLIED" ) )
-      delta.status = NotAppliedStatus;
-    else if ( statusString == QStringLiteral( "STATUS_PENDING" ) )
-      delta.status = PendingStatus;
-    else if ( statusString == QStringLiteral( "STATUS_BUSY" ) )
-      delta.status = BusyStatus;
-    else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
-      delta.status = ErrorStatus;
-    else if ( statusString == QStringLiteral( "STATUS_IGNORED" ) )
-      delta.status = IgnoredStatus;
-    else if ( statusString == QStringLiteral( "STATUS_UNPERMITTED" ) )
-      delta.status = UnpermittedStatus;
-    else
-    {
-      mIsValid = false;
-      mErrorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, QString::number( mDeltas.size() ) );
-      return;
-    }
-
-    delta.id = QUuid( deltaObject.value( QStringLiteral( "id" ) ).toString() );
-    delta.deltafileId = QUuid( deltaObject.value( QStringLiteral( "deltafile_id" ) ).toString() );
-    delta.createdAt = deltaObject.value( QStringLiteral( "created_at" ) ).toString();
-    delta.updatedAt = deltaObject.value( QStringLiteral( "updated_at" ) ).toString();
-
-    mIsValid = true;
-    mDeltas.append( delta );
-  }
-
-  connect( this, &DeltaListModel::rowsInserted, this, &DeltaListModel::rowCountChanged );
-  connect( this, &DeltaListModel::rowsRemoved, this, &DeltaListModel::rowCountChanged );
 }
 
 int DeltaListModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return static_cast<int>( mDeltas.size() );
-  else
+  if ( parent.isValid() )
+  {
     return 0;
+  }
+
+  return static_cast<int>( mDeltas.size() );
 }
 
 QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
@@ -110,12 +50,16 @@ QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
       return mDeltas.at( index.row() ).id;
     case DeltafileIdRole:
       return mDeltas.at( index.row() ).deltafileId;
+    case CreatedByRole:
+      return mDeltas.at( index.row() ).createdBy;
     case CreatedAtRole:
       return mDeltas.at( index.row() ).createdAt;
     case UpdatedAtRole:
       return mDeltas.at( index.row() ).updatedAt;
     case StatusRole:
       return mDeltas.at( index.row() ).status;
+    case SummaryRole:
+      return mDeltas.at( index.row() ).summary;
     case OutputRole:
       return mDeltas.at( index.row() ).output;
   }
@@ -128,9 +72,11 @@ QHash<int, QByteArray> DeltaListModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
   roles[DeltafileIdRole] = "DeltafileId";
+  roles[CreatedByRole] = "CreatedBy";
   roles[CreatedAtRole] = "CreatedAt";
   roles[UpdatedAtRole] = "UpdatedAt";
   roles[StatusRole] = "Status";
+  roles[SummaryRole] = "Summary";
   roles[OutputRole] = "Output";
   return roles;
 }
@@ -138,6 +84,11 @@ QHash<int, QByteArray> DeltaListModel::roleNames() const
 bool DeltaListModel::isValid() const
 {
   return mIsValid;
+}
+
+bool DeltaListModel::isRefreshing() const
+{
+  return mIsRefreshing;
 }
 
 QJsonDocument DeltaListModel::json() const
@@ -150,44 +101,90 @@ QString DeltaListModel::errorString() const
   return mErrorString;
 }
 
-bool DeltaListModel::allHaveFinalStatus() const
+void DeltaListModel::refresh()
 {
-  bool isFinalForAll = false;
-
-  for ( const Delta &delta : mDeltas )
+  if ( !mDeltas.isEmpty() )
   {
-    switch ( delta.status )
+    beginResetModel();
+    mDeltas.clear();
+    mJson = QJsonDocument();
+    endResetModel();
+  }
+
+  if ( mCloudProjectId.isEmpty() )
+  {
+    setIsRefreshing( false );
+    return;
+  }
+
+  setIsRefreshing( true );
+  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjectId ) );
+  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
+    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
+    deltaStatusReply->deleteLater();
+
+    Q_ASSERT( deltaStatusReply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    if ( rawReply->error() != QNetworkReply::NoError )
     {
-      case AppliedStatus:
-      case NotAppliedStatus:
-      case ConflictStatus:
-      case ErrorStatus:
-      case UnpermittedStatus:
-      case IgnoredStatus:
-        isFinalForAll = true;
-        break;
-      case PendingStatus:
-      case BusyStatus:
-        isFinalForAll = false;
-        break;
+      setIsRefreshing( false );
+      return;
     }
 
-    if ( !isFinalForAll )
-      break;
-  }
+    mJson = QJsonDocument::fromJson( rawReply->readAll() );
 
-  return isFinalForAll;
+    beginResetModel();
+    QString errorString;
+    bool isValid = false;
+    mDeltas = QFieldCloudUtils::parseDeltaJsonDocument( mJson, errorString, isValid );
+    endResetModel();
+
+    if ( !errorString.isEmpty() )
+    {
+      mErrorString = errorString;
+      emit errorStringChanged();
+    }
+
+    if ( mIsValid != isValid )
+    {
+      mIsValid = isValid;
+      emit isValidChanged();
+    }
+
+    setIsRefreshing( false );
+  } );
 }
 
-QString DeltaListModel::combinedOutput() const
+void DeltaListModel::setCloudConnection( QFieldCloudConnection *cloudConnection )
 {
-  QString output;
-
-  for ( const Delta &delta : mDeltas )
+  if ( mCloudConnection == cloudConnection )
   {
-    output += delta.output;
-    output += QStringLiteral( "\n" );
+    return;
   }
 
-  return output;
+  mCloudConnection = cloudConnection;
+  emit cloudConnectionChanged();
+}
+
+void DeltaListModel::setCloudProjectId( const QString &cloudProjectId )
+{
+  if ( mCloudProjectId == cloudProjectId )
+  {
+    return;
+  }
+
+  mCloudProjectId = cloudProjectId;
+  emit cloudProjectIdChanged();
+}
+
+void DeltaListModel::setIsRefreshing( bool isRefreshing )
+{
+  if ( mIsRefreshing == isRefreshing )
+  {
+    return;
+  }
+
+  mIsRefreshing = isRefreshing;
+  emit isRefreshingChanged();
 }

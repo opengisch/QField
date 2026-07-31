@@ -15,7 +15,6 @@
 
 #include "appinterface.h"
 #include "deltafilewrapper.h"
-#include "deltalistmodel.h"
 #include "fileutils.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
@@ -1877,11 +1876,13 @@ void QFieldCloudProject::getDeltaStatus()
     }
 
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    DeltaListModel deltaListModel( doc );
-    if ( !deltaListModel.isValid() )
+    QString errorString;
+    bool isValid = false;
+    const QList<QFieldCloudDelta> deltas = QFieldCloudUtils::parseDeltaJsonDocument( doc, errorString, isValid );
+    if ( !isValid )
     {
       setDeltaFilePushStatus( DeltaErrorStatus );
-      setDeltaFilePushStatusString( deltaListModel.errorString() );
+      setDeltaFilePushStatusString( errorString );
 
       emit networkDeltaStatusChecked();
       return;
@@ -1889,7 +1890,24 @@ void QFieldCloudProject::getDeltaStatus()
 
     setDeltaFilePushStatusString( QString() );
 
-    if ( !deltaListModel.allHaveFinalStatus() )
+    const bool pendingDeltas = std::any_of( deltas.begin(), deltas.end(), []( const QFieldCloudDelta &delta ) {
+      switch ( delta.status )
+      {
+        case QFieldCloudDelta::PendingStatus:
+        case QFieldCloudDelta::BusyStatus:
+          return true;
+          break;
+        case QFieldCloudDelta::AppliedStatus:
+        case QFieldCloudDelta::NotAppliedStatus:
+        case QFieldCloudDelta::ConflictStatus:
+        case QFieldCloudDelta::ErrorStatus:
+        case QFieldCloudDelta::UnpermittedStatus:
+        case QFieldCloudDelta::IgnoredStatus:
+          break;
+      }
+      return false;
+    } );
+    if ( pendingDeltas )
     {
       setDeltaFilePushStatus( DeltaPendingStatus );
 
@@ -2101,32 +2119,6 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
   } );
 }
 
-void QFieldCloudProject::refreshDeltaList()
-{
-  if ( mDeltaListModel )
-  {
-    mDeltaListModel.reset();
-    emit deltaListModelChanged();
-  }
-
-  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mId ) );
-  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
-    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
-    deltaStatusReply->deleteLater();
-
-    Q_ASSERT( deltaStatusReply->isFinished() );
-    Q_ASSERT( rawReply );
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      return;
-    }
-
-    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    mDeltaListModel.reset( new DeltaListModel( doc ) );
-    emit deltaListModelChanged();
-  } );
-}
 void QFieldCloudProject::cancelDownload()
 {
   const QStringList fileKeys = mDownloadFileTransfers.keys();
