@@ -116,6 +116,7 @@ set(QFIELD_APP_QML_FILES
     qml/About.qml
     qml/BadLayerItem.qml
     qml/Changelog.qml
+    qml/DashBoard.qml
     qml/Dummy.qml
     qml/Nyuki.qml
     qml/PluginItem.qml

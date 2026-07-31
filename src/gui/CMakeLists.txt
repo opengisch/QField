@@ -77,7 +77,6 @@ set(QFIELD_GUI_QML_FILES
     qml/CogoOperationSettings.qml
     qml/CogoOperations.qml
     qml/ConfirmationToolbar.qml
-    qml/DashBoard.qml
     qml/DigitizingToolbar.qml
     qml/EgenioussDeviceChooser.qml
     qml/ElevationProfile.qml
