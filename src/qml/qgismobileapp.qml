@@ -5257,7 +5257,7 @@ ApplicationWindow {
       if (hasError) {
         const ownerIsUser = cloudConnection.username === projectOwner;
         if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
-          if (ownerIsUser && cloudConnection.url == cloudConnection.defaultUrl) {
+          if (ownerIsUser && cloudConnection.url == cloudConnection.defaultUrl && Qt.platform !== "ios") {
             displayToast(qsTr("Project %1 cannot be packaged as your available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
               Qt.openUrlExternally('https://app.qfield.cloud/plans');
             });
@@ -5265,7 +5265,7 @@ ApplicationWindow {
             displayToast(qsTr("Project %1 cannot be packaged as the project owner's available storage is full.").arg(projectName), 'warning');
           }
         } else if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodePlanInsufficient}"`) >= 0) {
-          if (ownerIsUser && cloudConnection.url == cloudConnection.defaultUrl) {
+          if (ownerIsUser && cloudConnection.url == cloudConnection.defaultUrl && Qt.platform !== "ios") {
             displayToast(qsTr("Project %1 cannot be downloaded as your subscription plan is insufficient.").arg(projectName), 'info', qsTr('Upgrade plan'), function () {
               Qt.openUrlExternally('https://app.qfield.cloud/plans');
             });
