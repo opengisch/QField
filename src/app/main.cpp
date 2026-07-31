@@ -119,8 +119,6 @@ int main( int argc, char **argv )
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
   QCoreApplication::setApplicationName( qfield::appName );
 
-  Q_INIT_RESOURCE( qml );
-
 #if defined( Q_OS_ANDROID )
   if ( argc > 1 )
   {

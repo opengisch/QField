@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.19)
 
 set(VCPKG_TAG 99e82d9c9f0b281ec11fba48cc8434574a2b6e66)
 
-set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src/core/qml/imports CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
 set(CMAKE_COLOR_MAKEFILE ON)
 set(APP_NAME "QField" CACHE STRING "Application Name")
@@ -235,7 +235,6 @@ endif ()
 
 add_subdirectory(src/core)
 add_subdirectory(src/gui)
-add_subdirectory(src/qml)
 if (ANDROID)
   add_subdirectory(src/service)
 endif()

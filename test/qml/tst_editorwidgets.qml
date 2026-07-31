@@ -2,7 +2,7 @@ import QtQuick
 import QtTest
 import org.qfield
 import Theme
-import "../../src/qml/editorwidgets" as EditorWidgets
+import "qrc:/qml/editorwidgets" as EditorWidgets
 import "Utils.js" as Utils
 
 TestCase {

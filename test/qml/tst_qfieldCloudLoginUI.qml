@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtTest
 import org.qfield
 import Theme
-import "../../src/qml/" as QFieldControls
+import "qrc:/qml/" as QFieldControls
 
 TestCase {
   name: "QFieldCloudLoginUI"

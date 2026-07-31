@@ -115,6 +115,7 @@ set(QFIELD_CORE_SRCS
     settings.cpp
     snappingresult.cpp
     submodel.cpp
+    theme.cpp
     tracker.cpp
     trackingmodel.cpp
     vertexmodel.cpp
@@ -240,6 +241,7 @@ set(QFIELD_CORE_HDRS
     settings.h
     snappingresult.h
     submodel.h
+    theme.h
     tracker.h
     trackingmodel.h
     vertexmodel.h
@@ -437,3 +439,88 @@ install(
   ARCHIVE DESTINATION ${QFIELD_LIB_DIR}
   FRAMEWORK DESTINATION ${QFIELD_FW_SUBDIR}
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR})
+
+# QML owned by this library. The /qml prefix keeps resource paths stable.
+set(QFIELD_CORE_QML_FILES
+    qml/3d/FeatureListSelectionHighlight3D.qml
+    qml/3d/MapCanvas3D.qml
+    qml/3d/Rubberband3D.qml
+    qml/3d/TerrainMesh.qml
+    qml/3d/TouchCameraController.qml
+    qml/BookmarkHighlight.qml
+    qml/BookmarkRenderer.qml
+    qml/CogoOperationPreview.qml
+    qml/CoordinateLocator.qml
+    qml/FeatureListSelectionHighlight.qml
+    qml/GeometryHighlighter.qml
+    qml/GeometryRenderer.qml
+    qml/GridRenderer.qml
+    qml/KineticHandler.qml
+    qml/LinePolygon.qml
+    qml/LocationMarker.qml
+    qml/MapCanvas.qml
+    qml/MapCanvasPointHandler.qml
+    qml/MeasuringTool.qml
+    qml/NavigationHighlight.qml
+    qml/NavigationRenderer.qml
+    qml/PositioningSettings.qml
+    qml/ProcessingAlgorithmPreview.qml
+    qml/Rubberband.qml
+    qml/ScaleBar.qml
+    qml/TrackingSession.qml
+    qml/VertexRubberband.qml
+    qml/imports/Theme/QfActionButton.qml
+    qml/imports/Theme/QfBadge.qml
+    qml/imports/Theme/QfButton.qml
+    qml/imports/Theme/QfCalendarItem.qml
+    qml/imports/Theme/QfCalendarPanel.qml
+    qml/imports/Theme/QfCollapsibleMessage.qml
+    qml/imports/Theme/QfComboBox.qml
+    qml/imports/Theme/QfContainerCard.qml
+    qml/imports/Theme/QfDialog.qml
+    qml/imports/Theme/QfDropShadow.qml
+    qml/imports/Theme/QfExpandableGroupBox.qml
+    qml/imports/Theme/QfMenu.qml
+    qml/imports/Theme/QfMeterBar.qml
+    qml/imports/Theme/QfOpacityMask.qml
+    qml/imports/Theme/QfOverlayContainer.qml
+    qml/imports/Theme/QfPageHeader.qml
+    qml/imports/Theme/QfPaneDrawer.qml
+    qml/imports/Theme/QfPopup.qml
+    qml/imports/Theme/QfProgressRing.qml
+    qml/imports/Theme/QfProjectThumbnail.qml
+    qml/imports/Theme/QfScrollBar.qml
+    qml/imports/Theme/QfSearchBar.qml
+    qml/imports/Theme/QfSlider.qml
+    qml/imports/Theme/QfSwipeAnimator.qml
+    qml/imports/Theme/QfSwitch.qml
+    qml/imports/Theme/QfTabBar.qml
+    qml/imports/Theme/QfTextField.qml
+    qml/imports/Theme/QfTimeItem.qml
+    qml/imports/Theme/QfToggleButtonGroup.qml
+    qml/imports/Theme/QfToolButton.qml
+    qml/imports/Theme/QfToolButtonDrawer.qml
+    qml/imports/Theme/QfToolButtonPie.qml
+    qml/imports/Theme/QfVisibilityFadingRow.qml
+    qml/imports/Theme/QfWelcomeAction.qml
+    qml/imports/Theme/qmldir)
+
+qt_add_resources(
+  qfield_core
+  "core_qml"
+  PREFIX
+  "/qml"
+  BASE
+  "${CMAKE_CURRENT_SOURCE_DIR}/qml"
+  FILES
+  ${QFIELD_CORE_QML_FILES})
+
+# The import scanner needs absolute paths (QTBUG-80847).
+set(QFIELD_CORE_QML_FILES_ABS "")
+foreach(qml_file ${QFIELD_CORE_QML_FILES})
+  list(APPEND QFIELD_CORE_QML_FILES_ABS
+       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
+endforeach()
+set_property(TARGET qfield_core PROPERTY QML_FILES ${QFIELD_CORE_QML_FILES_ABS})
+
+qt_import_qml_plugins(qfield_core)

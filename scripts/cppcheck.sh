@@ -35,7 +35,7 @@ cppcheck --library=qt.cfg --inline-suppr \
 	-DQ_FLAG= \
 	-D_QGIS_VERSION_INT=34400 \
 	-j $(nproc) \
-	-isrc/qml \
+	-isrc/core/qml -isrc/gui/qml -isrc/app/qml \
 	${SCRIPT_DIR}/../src \
 	>>${LOG_FILE} 2>&1 &
 

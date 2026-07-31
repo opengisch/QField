@@ -15,12 +15,10 @@
 
 #include "badlayerhandler.h"
 #include "changelogcontents.h"
-#include "permissions.h"
 #include "pluginmanager.h"
 #include "pluginmodel.h"
 #include "qfieldappqmlregistration.h"
 
-#include <QPermissions>
 #include <QtQml>
 
 namespace QFieldApp
@@ -28,9 +26,7 @@ namespace QFieldApp
   void registerQmlTypes()
   {
     qmlRegisterType<BadLayerHandler>( "org.qfield", 1, 0, "BadLayerHandler" );
-    qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
     qmlRegisterType<ChangelogContents>( "org.qfield", 1, 0, "ChangelogContents" );
-    qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
     qmlRegisterType<PluginModel>( "org.qfield", 1, 0, "PluginModel" );
     qmlRegisterType<PluginProxyModel>( "org.qfield", 1, 0, "PluginProxyModel" );
 
