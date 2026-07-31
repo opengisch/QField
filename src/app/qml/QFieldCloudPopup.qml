@@ -529,7 +529,7 @@ Popup {
                 accentColor: Theme.mainColor
                 iconSource: Theme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
                 title: qsTr('Synchronize project')
-                indicatorVisible: !!(cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.isOutdated || cloudProjectsModel.currentProject.isProjectOutdated))
+                indicatorVisible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.isOutdated || cloudProjectsModel.currentProject.isProjectOutdated)
                 description: qsTr('Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.')
                 footnote: {
                   if (!cloudProjectsModel.currentProject) {

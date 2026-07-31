@@ -73,7 +73,7 @@ Rectangle {
         height: width
         radius: width / 2
         color: containerCard.accentColor
-        visible: containerCard.indicatorCount
+        visible: containerCard.indicatorVisible
 
         Text {
           id: badgeLabel
