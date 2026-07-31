@@ -4,7 +4,7 @@ import Theme
 import org.qfield
 import org.qgis
 
-ProcessingParameterWidgetBase {
+QfProcessingParameterWidgetBase {
   id: distanceItem
 
   height: childrenRect.height

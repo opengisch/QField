@@ -222,7 +222,7 @@ function(create_executable)
 
     if(NOT WITH_BLUETOOTH)
       file(REMOVE
-           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfBluetoothDeviceChooser.qml")
     endif()
     if(NOT WITH_SERIALPORT)
       file(REMOVE

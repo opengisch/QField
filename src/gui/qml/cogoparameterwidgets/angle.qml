@@ -5,7 +5,7 @@ import Theme
 import org.qgis
 import org.qfield
 
-CogoParameterWidgetBase {
+QfCogoParameterWidgetBase {
   id: angleParameter
 
   width: parent.width

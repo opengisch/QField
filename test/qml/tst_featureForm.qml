@@ -8,7 +8,7 @@ import "Utils.js" as Utils
 TestCase {
   name: "FeatureForm"
 
-  QFieldControls.FeatureForm {
+  QFieldControls.QfFeatureForm {
     id: featureForm
     property var mainWindow: mainWindowItem
     property var mSelectedLayer: qgisProject.mapLayersByName('Apiary')[0]
@@ -104,37 +104,37 @@ TestCase {
       {
         "containerName": "Number of Boxes",
         "widgetType": "Range",
-        "source": "editorwidgets/Range.qml",
+        "source": "editorwidgets/QfRange.qml",
         "value": 7
       },
       {
         "containerName": "Species of Bees",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/ValueMap.qml",
+        "source": "editorwidgets/QfValueMap.qml",
         "value": "Apis Mellifera Carnica"
       },
       {
         "containerName": "Amount of Bees",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/ValueMap.qml",
+        "source": "editorwidgets/QfValueMap.qml",
         "value": "1000"
       },
       {
         "containerName": "Beekeeper",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/TextEdit.qml",
+        "source": "editorwidgets/QfTextEdit.qml",
         "value": "Stephen Hawking"
       },
       {
         "containerName": "Yearly Harvest (kg)",
         "widgetType": "Range",
-        "source": "editorwidgets/Range.qml",
+        "source": "editorwidgets/QfRange.qml",
         "value": 10
       },
       {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
-        "source": "editorwidgets/ValueRelation.qml",
+        "source": "editorwidgets/QfValueRelation.qml",
         "value": ""
       }
     ];
@@ -185,19 +185,19 @@ TestCase {
       {
         "containerName": "Proprietor",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/ValueMap.qml",
+        "source": "editorwidgets/QfValueMap.qml",
         "value": "national"
       },
       {
         "containerName": "Plants",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/ValueMap.qml",
+        "source": "editorwidgets/QfValueMap.qml",
         "value": "taraxacum"
       },
       {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
-        "source": "editorwidgets/ValueRelation.qml",
+        "source": "editorwidgets/QfValueRelation.qml",
         "value": "2"
       }
     ];
@@ -243,19 +243,19 @@ TestCase {
       {
         "containerName": "Track Name",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/TextEdit.qml",
+        "source": "editorwidgets/QfTextEdit.qml",
         "value": "Munt Sura"
       },
       {
         "containerName": "Region",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/TextEdit.qml",
+        "source": "editorwidgets/QfTextEdit.qml",
         "value": ""
       },
       {
         "containerName": "Editor Name",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/TextEdit.qml",
+        "source": "editorwidgets/QfTextEdit.qml",
         "value": "Linda Camathiias"
       }
     ];
@@ -437,7 +437,7 @@ TestCase {
     textEditLoader.value = initialTextValue;
     wait(50);
 
-    // Test ValueMap widget
+    // Test QfValueMap widget
     const valueMapLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[0].children[0].text);
     compare(valueMapLoader.widget, "ValueMap");
 

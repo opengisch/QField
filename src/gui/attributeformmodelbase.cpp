@@ -56,7 +56,8 @@ AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
       const QFileInfo fileInfo = it.fileInfo();
       if ( fileInfo.isFile() )
       {
-        sSupportedEditorWidgets->append( fileInfo.baseName() );
+        // Our QML files carry a Qf prefix, the widget names QGIS hands us don't
+        sSupportedEditorWidgets->append( fileInfo.baseName().mid( 2 ) );
       }
     }
     sSupportedEditorWidgets->append( QStringLiteral( "RelationEditor" ) );

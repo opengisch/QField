@@ -510,7 +510,7 @@ Drawer {
         }
       }
 
-      Legend {
+      QfLegend {
         id: legend
         objectName: "legend"
         isVisible: dashBoard.position > 0
@@ -626,12 +626,12 @@ Drawer {
     }
   }
 
-  TemporalProperties {
+  QfTemporalProperties {
     id: temporalProperties
     mapSettings: dashBoard.mapSettings
   }
 
-  InformationPopup {
+  QfInformationPopup {
     id: informationPopup
   }
 }

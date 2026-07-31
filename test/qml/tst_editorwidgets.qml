@@ -26,7 +26,7 @@ TestCase {
     id: appScopesGenerator
   }
 
-  EditorWidgets.TextEdit {
+  EditorWidgets.QfTextEdit {
     id: textEdit
     property var mainWindow: mainWindowItem
     property string value: "DEFAULT_VALUE"
@@ -35,7 +35,7 @@ TestCase {
     property bool isEnabled: true
   }
 
-  EditorWidgets.Range {
+  EditorWidgets.QfRange {
     id: range
     property var mainWindow: mainWindowItem
     property real value: default_value
@@ -53,7 +53,7 @@ TestCase {
     }
   }
 
-  EditorWidgets.DateTime {
+  EditorWidgets.QfDateTime {
     id: dateTime
     property var mainWindow: mainWindowItem
     fieldIsDateTime: false
@@ -65,7 +65,7 @@ TestCase {
     property bool isEnabled: true
   }
 
-  EditorWidgets.CheckBox {
+  EditorWidgets.QfCheckBox {
     id: checkBox
     property var mainWindow: mainWindowItem
     property bool value: false
@@ -74,7 +74,7 @@ TestCase {
     property bool isEnabled: true
   }
 
-  EditorWidgets.ValueMap {
+  EditorWidgets.QfValueMap {
     id: valueMap
     property var mainWindow: mainWindowItem
     property var value: undefined
@@ -101,7 +101,7 @@ TestCase {
     }
   }
 
-  EditorWidgets.UuidGenerator {
+  EditorWidgets.QfUuidGenerator {
     id: uuidGenerator
     property var mainWindow: mainWindowItem
     property var value: undefined
@@ -109,7 +109,7 @@ TestCase {
     property bool isAdding: false
   }
 
-  EditorWidgets.ValueRelation {
+  EditorWidgets.QfValueRelation {
     id: valueRelation
     width: parent.width
     height: parent.height
@@ -153,7 +153,7 @@ TestCase {
     }
   }
 
-  EditorWidgets.ValueRelation {
+  EditorWidgets.QfValueRelation {
     id: valueRelation2
     property var mainWindow: mainWindowItem
     property var value: undefined
@@ -520,7 +520,7 @@ TestCase {
   }
 
   /**
-   * Helper function: Initializes the ValueRelation component in read-only mode.
+   * Helper function: Initializes the QfValueRelation component in read-only mode.
    *
    * This function:
    * - Sets the current layer and feature
@@ -542,7 +542,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation behavior in read-only vs editable mode.
+   * Tests QfValueRelation behavior in read-only vs editable mode.
    *
    * This test:
    * - Verifies that the combobox and add feature button are disabled in read-only mode
@@ -593,7 +593,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation ordering by feature key (OrderByKey = true).
+   * Tests QfValueRelation ordering by feature key (OrderByKey = true).
    *
    * This test:
    * - Verifies that items in the combobox should be sorted by feature key
@@ -636,7 +636,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation ordering by display value (OrderByValue = true).
+   * Tests QfValueRelation ordering by display value (OrderByValue = true).
    *
    * This test:
    * - Ensures combobox items are sorted alphabetically by display value
@@ -678,7 +678,7 @@ TestCase {
   }
 
   /**
-   * Tests embedded feature form integration in ValueRelation.
+   * Tests embedded feature form integration in QfValueRelation.
    *
    * This test:
    * - Checks that embeddedFeatureForm is null initially
@@ -719,7 +719,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation when AllowNull is enabled.
+   * Tests QfValueRelation when AllowNull is enabled.
    *
    * This test:
    * - Verifies that a NULL option is displayed as NULL
@@ -763,13 +763,13 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation in multi-select mode with grouping.
+   * Tests QfValueRelation in multi-select mode with grouping.
    *
    * This test:
    * - Verifies UI state in read-only and editable mode
    * - Checks that grid view layout is applied
    * - Confirms that the repeater contains grouped items after enabling editing
-   * - Uses a second ValueRelation instance (valueRelation2) because the first one
+   * - Uses a second QfValueRelation instance (valueRelation2) because the first one
    *   had a populated combobox; we need a fresh instance to ensure the combobox model
    *   remains empty in list mode
    */
@@ -821,7 +821,7 @@ TestCase {
   }
 
   /**
-   * Tests grouped display in ValueRelation when grouping by 'team' with multi-select mode.
+   * Tests grouped display in QfValueRelation when grouping by 'team' with multi-select mode.
    *
    * This test:
    * - Compares actual item order against expected grouped order
@@ -860,7 +860,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation ordering by value when grouping is enabled (group by 'team').
+   * Tests QfValueRelation ordering by value when grouping is enabled (group by 'team').
    *
    * This test:
    * - Ensures all items are displayed in the expected sequence
@@ -900,7 +900,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation search filtering
+   * Tests QfValueRelation search filtering
    *
    * This test:
    * - Verifies that the search bar filters items correctly based on input text
@@ -951,13 +951,13 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation component behavior
+   * Tests QfValueRelation component behavior
    *
    * Verifies:
    * - Initial state and display text with undefined value
    * - Value update in editable mode reflects in the combobox
    * - Search popup filtering, result ordering, and highlighting
-   * - Selecting an item updates the ValueRelation correctly
+   * - Selecting an item updates the QfValueRelation correctly
    *
    * TODO: In this test, value is manually set after search selection to continue the test,
    *       but in real usage, value should be set automatically upon item selection.
@@ -1040,7 +1040,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation toggle button UI (similar to ValueMap toggle buttons)
+   * Tests QfValueRelation toggle button UI (similar to QfValueMap toggle buttons)
    *
    * This test verifies:
    * - Toggle buttons are shown when threshold is set and conditions are met:
@@ -1089,7 +1089,7 @@ TestCase {
   }
 
   /**
-   * Tests ValueRelation component behavior (OrderByField = true)
+   * Tests QfValueRelation component behavior (OrderByField = true)
    *
    * Verifies:
    * - Verifies that items in the combobox should be sorted by a field

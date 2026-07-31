@@ -5,7 +5,7 @@ import Theme
 import org.qgis
 import org.qfield
 
-CogoParameterWidgetBase {
+QfCogoParameterWidgetBase {
   id: pointParameter
 
   property var positionInformation: undefined

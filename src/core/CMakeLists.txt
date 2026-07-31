@@ -442,33 +442,33 @@ install(
 
 # QML owned by this library. The /qml prefix keeps resource paths stable.
 set(QFIELD_CORE_QML_FILES
-    qml/3d/FeatureListSelectionHighlight3D.qml
-    qml/3d/MapCanvas3D.qml
-    qml/3d/Rubberband3D.qml
-    qml/3d/TerrainMesh.qml
-    qml/3d/TouchCameraController.qml
-    qml/BookmarkHighlight.qml
-    qml/BookmarkRenderer.qml
-    qml/CogoOperationPreview.qml
-    qml/CoordinateLocator.qml
-    qml/FeatureListSelectionHighlight.qml
-    qml/GeometryHighlighter.qml
-    qml/GeometryRenderer.qml
-    qml/GridRenderer.qml
-    qml/KineticHandler.qml
-    qml/LinePolygon.qml
-    qml/LocationMarker.qml
-    qml/MapCanvas.qml
-    qml/MapCanvasPointHandler.qml
-    qml/MeasuringTool.qml
-    qml/NavigationHighlight.qml
-    qml/NavigationRenderer.qml
-    qml/PositioningSettings.qml
-    qml/ProcessingAlgorithmPreview.qml
-    qml/Rubberband.qml
-    qml/ScaleBar.qml
-    qml/TrackingSession.qml
-    qml/VertexRubberband.qml
+    qml/3d/QfFeatureListSelectionHighlight3D.qml
+    qml/3d/QfMapCanvas3D.qml
+    qml/3d/QfRubberband3D.qml
+    qml/3d/QfTerrainMesh.qml
+    qml/3d/QfTouchCameraController.qml
+    qml/QfBookmarkHighlight.qml
+    qml/QfBookmarkRenderer.qml
+    qml/QfCogoOperationPreview.qml
+    qml/QfCoordinateLocator.qml
+    qml/QfFeatureListSelectionHighlight.qml
+    qml/QfGeometryHighlighter.qml
+    qml/QfGeometryRenderer.qml
+    qml/QfGridRenderer.qml
+    qml/QfKineticHandler.qml
+    qml/QfLinePolygon.qml
+    qml/QfLocationMarker.qml
+    qml/QfMapCanvas.qml
+    qml/QfMapCanvasPointHandler.qml
+    qml/QfMeasuringTool.qml
+    qml/QfNavigationHighlight.qml
+    qml/QfNavigationRenderer.qml
+    qml/QfPositioningSettings.qml
+    qml/QfProcessingAlgorithmPreview.qml
+    qml/QfRubberband.qml
+    qml/QfScaleBar.qml
+    qml/QfTrackingSession.qml
+    qml/QfVertexRubberband.qml
     qml/imports/Theme/QfActionButton.qml
     qml/imports/Theme/QfBadge.qml
     qml/imports/Theme/QfButton.qml

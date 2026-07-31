@@ -9,7 +9,7 @@ import Theme
 import "../.."
 import ".."
 
-RelationEditorBase {
+QfRelationEditorBase {
   id: relationEditor
 
   relationEditorModel: ReferencingFeatureListModel {

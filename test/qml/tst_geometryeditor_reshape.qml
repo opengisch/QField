@@ -62,7 +62,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.Reshape {
+  GeometryEditors.QfReshape {
     id: reshapeTool
     featureModel: featureModel
     mapSettings: mapSettingsItem
@@ -144,7 +144,7 @@ TestCase {
     compare(rubberband.vertexCount, 1);
   }
 
-  // scope objects the tool and DigitizingToolbar expect from the app
+  // scope objects the tool and QfDigitizingToolbar expect from the app
   Item {
     id: mainWindow
     property var contentItem: mainWindow

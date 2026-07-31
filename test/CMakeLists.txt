@@ -95,7 +95,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
     if(NOT WITH_BLUETOOTH)
       file(REMOVE
-           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfBluetoothDeviceChooser.qml")
     endif()
 
     qt_import_qml_plugins(${TESTNAME} PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")

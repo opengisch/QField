@@ -249,7 +249,7 @@ ApplicationWindow {
   }
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
-  property Rubberband currentRubberband
+  property QfRubberband currentRubberband
   property LayerObserver layerObserverAlias: layerObserver
   property QgsGpkgFlusher gpkgFlusherAlias: gpkgFlusher
 
@@ -426,7 +426,7 @@ ApplicationWindow {
           } else {
             gnssButton.followLocation(false);
             // Call followOrientation for movement direction mode
-            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+            if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndDirection) {
               gnssButton.followOrientation();
             }
           }
@@ -437,7 +437,7 @@ ApplicationWindow {
     onOrientationChanged: {
       if (active && gnssButton.followActive) {
         // Call followOrientation for compass mode
-        if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+        if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndCompass) {
           gnssButton.followOrientation();
         }
       }
@@ -476,7 +476,7 @@ ApplicationWindow {
     }
   }
 
-  PositioningSettings {
+  QfPositioningSettings {
     id: positioningSettings
     objectName: "positioningSettings"
 
@@ -683,7 +683,7 @@ ApplicationWindow {
      * changes in unpredictable order.
      *
      * Known issue: Switching between finger and stylus input within 500 milliseconds may break
-     * the stylus binding to the CoordinateLocator.
+     * the stylus binding to the QfCoordinateLocator.
      */
     Timer {
       id: dummyHoverTimer
@@ -758,7 +758,7 @@ ApplicationWindow {
         }
       }
 
-      source: "qrc:/qml/3d/MapCanvas3D.qml"
+      source: "qrc:/qml/3d/QfMapCanvas3D.qml"
 
       onActiveChanged: {
         if (active) {
@@ -835,7 +835,7 @@ ApplicationWindow {
       }
     }
 
-    GridRenderer {
+    QfGridRenderer {
       mapSettings: mapCanvas.mapSettings
       enabled: !gridDecoration.enabled
       indeterminate: true
@@ -844,7 +844,7 @@ ApplicationWindow {
     }
 
     /* The map canvas */
-    MapCanvas {
+    QfMapCanvas {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
@@ -1028,12 +1028,12 @@ ApplicationWindow {
         platformUtilities.setHandleVolumeKeys(qfieldSettings.digitizingVolumeKeys && interactive);
       }
 
-      GridRenderer {
+      QfGridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
       }
 
-      MapCanvasPointHandler {
+      QfMapCanvasPointHandler {
         id: pointHandler
         objectName: "pointHandler"
       }
@@ -1044,7 +1044,7 @@ ApplicationWindow {
    * - Coordinate Locator
    * - Location Marker
    * - Identify Highlight
-   * - Digitizing Rubberband
+   * - Digitizing QfRubberband
    **************************************************/
 
     // Model for pie menu and context menu feature identification
@@ -1082,7 +1082,7 @@ ApplicationWindow {
     }
 
     /** A rubberband for measuring **/
-    MeasuringTool {
+    QfMeasuringTool {
       id: measuringTool
       visible: stateMachine.state === 'measure'
       anchors.fill: parent
@@ -1105,18 +1105,18 @@ ApplicationWindow {
         }
       }
 
-      TrackingSession {}
+      QfTrackingSession {}
     }
 
     /** COGO operation visual guides **/
-    CogoOperationPreview {
+    QfCogoOperationPreview {
       id: cogoOperationPreview
       visible: digitizingToolbar.cogoEnabled
       visualGuides: digitizingToolbar.cogoExecutor.visualGuides
     }
 
     /** A rubberband for ditizing **/
-    Rubberband {
+    QfRubberband {
       id: digitizingRubberband
 
       mapSettings: mapCanvas.mapSettings
@@ -1161,12 +1161,12 @@ ApplicationWindow {
       visible: stateMachine.state === "digitize"
     }
 
-    GeometryRenderer {
+    QfGeometryRenderer {
       id: geometryEditorRenderer
     }
 
     /** A rubberband for the different geometry editors **/
-    Rubberband {
+    QfRubberband {
       id: geometryEditorsRubberband
       color: '#96000000'
 
@@ -1180,7 +1180,7 @@ ApplicationWindow {
       }
     }
 
-    BookmarkHighlight {
+    QfBookmarkHighlight {
       id: bookmarkHighlight
       mapSettings: mapCanvas.mapSettings
     }
@@ -1196,12 +1196,12 @@ ApplicationWindow {
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
     }
 
-    NavigationHighlight {
+    QfNavigationHighlight {
       id: navigationHighlight
       navigation: navigation
     }
 
-    LinePolygon {
+    QfLinePolygon {
       id: elevationProfileHighlight
 
       visible: informationDrawer.elevationProfile.visible
@@ -1215,7 +1215,7 @@ ApplicationWindow {
     }
 
     /** A coordinate locator for digitizing **/
-    CoordinateLocator {
+    QfCoordinateLocator {
       id: coordinateLocator
       objectName: "coordinateLocator"
       anchors.fill: parent
@@ -1238,7 +1238,7 @@ ApplicationWindow {
     }
 
     /* Location marker reflecting the current GNSS position */
-    LocationMarker {
+    QfLocationMarker {
       id: locationMarker
       visible: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
 
@@ -1268,7 +1268,7 @@ ApplicationWindow {
             }
           }
           return false;
-        }, MapCanvasPointHandler.Priority.High);
+        }, QfMapCanvasPointHandler.Priority.High);
         if (!settings.valueBool("/QField/pieMenuOpenedOnce", false)) {
           bubbleText = qsTr("Tap on your location marker\nto show actions");
           bubbleVisible = Qt.binding(() => locationMarker.isOnMapCanvas && locationMarker.visible && !mapCanvasTour.visible);
@@ -1462,9 +1462,9 @@ ApplicationWindow {
             gnssButton.autoRefollow = true;
             gnssButton.followActive = true;
             gnssButton.followLocation(true);
-            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+            if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndCompass) {
               displayToast(qsTr("Map canvas locked to location and compass orientation"));
-            } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+            } else if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndDirection) {
               displayToast(qsTr("Map canvas locked to location and movement direction"));
             } else {
               displayToast(qsTr("Map canvas locked to location"));
@@ -1711,7 +1711,7 @@ ApplicationWindow {
             }
           }
           return false;
-        }, MapCanvasPointHandler.Priority.High);
+        }, QfMapCanvasPointHandler.Priority.High);
       }
 
       QfToolButton {
@@ -1769,17 +1769,17 @@ ApplicationWindow {
       }
     }
 
-    /* Rubberband for vertices  */
+    /* QfRubberband for vertices  */
     Item {
       // highlighting geometry (point, line, surface)
-      Rubberband {
+      QfRubberband {
         id: editingRubberband
         vertexModel: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
       }
 
       // highlighting vertices
-      VertexRubberband {
+      QfVertexRubberband {
         id: vertexRubberband
         model: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
@@ -1787,7 +1787,7 @@ ApplicationWindow {
     }
 
     /* Highlight the currently selected item on the feature list */
-    FeatureListSelectionHighlight {
+    QfFeatureListSelectionHighlight {
       id: featureListHighlight
       visible: !moveFeaturesToolbar.moveFeaturesRequested && !rotateFeaturesToolbar.rotateFeaturesRequested
 
@@ -1801,7 +1801,7 @@ ApplicationWindow {
     }
 
     /* Highlight the currently selected item being moved or rotate */
-    FeatureListSelectionHighlight {
+    QfFeatureListSelectionHighlight {
       id: moveAndRotateFeaturesHighlight
       visible: moveFeaturesToolbar.moveFeaturesRequested || rotateFeaturesToolbar.rotateFeaturesRequested
       showSelectedOnly: true
@@ -1823,7 +1823,7 @@ ApplicationWindow {
     }
 
     /* Highlight features identified by locator or relation editor widgets */
-    GeometryHighlighter {
+    QfGeometryHighlighter {
       id: geometryHighlighter
       objectName: "geometryHighlighter"
     }
@@ -1857,7 +1857,7 @@ ApplicationWindow {
       }
     }
 
-    ProcessingAlgorithmPreview {
+    QfProcessingAlgorithmPreview {
       id: processingAlgorithmPreview
       algorithm: featureListForm.algorithm
       mapSettings: mapCanvas.mapSettings
@@ -1941,7 +1941,7 @@ ApplicationWindow {
     color: Theme.errorColor
   }
 
-  InformationDrawer {
+  QfInformationDrawer {
     id: informationDrawer
 
     navigation: navigation
@@ -2238,7 +2238,7 @@ ApplicationWindow {
       }
     }
 
-    ScaleBar {
+    QfScaleBar {
       visible: qfieldSettings.showScaleBar && stateMachine.state !== '3d'
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
@@ -2326,7 +2326,7 @@ ApplicationWindow {
       }
     }
 
-    LocatorItem {
+    QfLocatorItem {
       id: locatorItem
       objectName: "locatorItem"
 
@@ -3015,7 +3015,7 @@ ApplicationWindow {
         /*
         / When set to true, the map will rotate to match the device's orientation (compass or movement direction based on setting).
         */
-        property bool followOrientationActive: followActive && qfieldSettings.enableMapRotation && positioningSettings.positionFollowMode !== PositioningSettings.FollowMode.PositionOnly
+        property bool followOrientationActive: followActive && qfieldSettings.enableMapRotation && positioningSettings.positionFollowMode !== QfPositioningSettings.FollowMode.PositionOnly
         /*
         / When set to true, map canvas rotation changes will not result in the
         / deactivation of the above followOrientationActive mode.
@@ -3109,9 +3109,9 @@ ApplicationWindow {
           if (!gnssButton.followActive) {
             mapCanvasMap.freeze('follow');
             gnssButton.followActive = true;
-            if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+            if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndCompass) {
               displayToast(qsTr("Map canvas follows location and compass orientation"));
-            } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+            } else if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndDirection) {
               displayToast(qsTr("Map canvas follows location and movement direction"));
             } else {
               displayToast(qsTr("Map canvas follows location"));
@@ -3174,13 +3174,13 @@ ApplicationWindow {
             return;
           }
           let targetRotation;
-          if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndCompass) {
+          if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndCompass) {
             // Follow compass orientation
             if (isNaN(positionSource.orientation)) {
               return;
             }
             targetRotation = -positionSource.orientation;
-          } else if (positioningSettings.positionFollowMode === PositioningSettings.FollowMode.PositionAndDirection) {
+          } else if (positioningSettings.positionFollowMode === QfPositioningSettings.FollowMode.PositionAndDirection) {
             // Follow movement direction
             if (!positionSource.positionInformation || !positionSource.positionInformation.directionValid) {
               return;
@@ -3280,7 +3280,7 @@ ApplicationWindow {
 
       spacing: 4
 
-      DigitizingToolbar {
+      QfDigitizingToolbar {
         id: digitizingToolbar
 
         property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !LayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
@@ -3452,7 +3452,7 @@ ApplicationWindow {
         }
       }
 
-      GeometryEditorsToolbar {
+      QfGeometryEditorsToolbar {
         id: geometryEditorsToolbar
 
         featureModel: geometryEditingFeature
@@ -3468,7 +3468,7 @@ ApplicationWindow {
         }
       }
 
-      ConfirmationToolbar {
+      QfConfirmationToolbar {
         id: moveFeaturesToolbar
 
         property bool moveFeaturesRequested: false
@@ -3506,7 +3506,7 @@ ApplicationWindow {
         }
       }
 
-      ConfirmationToolbar {
+      QfConfirmationToolbar {
         id: rotateFeaturesToolbar
 
         property bool rotateFeaturesRequested: false
@@ -3538,7 +3538,7 @@ ApplicationWindow {
     }
   }
 
-  LocatorSettings {
+  QfLocatorSettings {
     id: locatorSettings
     locatorFiltersModel: locatorItem.locatorFiltersModel
 
@@ -3643,7 +3643,7 @@ ApplicationWindow {
     }
   }
 
-  BookmarkProperties {
+  QfBookmarkProperties {
     id: bookmarkProperties
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -4605,7 +4605,7 @@ ApplicationWindow {
   }
 
   /* The feature form */
-  FeatureListForm {
+  QfFeatureListForm {
     id: featureListForm
     objectName: "featureForm"
 
@@ -4681,7 +4681,7 @@ ApplicationWindow {
     source: featureListForm
   }
 
-  BookmarkList {
+  QfBookmarkList {
     id: bookmarkList
     objectName: "bookmarkList"
 
@@ -4722,7 +4722,7 @@ ApplicationWindow {
     source: bookmarkList
   }
 
-  OverlayFeatureFormDrawer {
+  QfOverlayFeatureFormDrawer {
     id: overlayFeatureFormDrawer
     objectName: "overlayFeatureFormDrawer"
     digitizingToolbar: digitizingToolbar
@@ -5092,7 +5092,7 @@ ApplicationWindow {
     property bool editRights: hasEditRights
   }
 
-  MessageLog {
+  QfMessageLog {
     id: messageLog
     objectName: 'messageLog'
 
@@ -5157,7 +5157,7 @@ ApplicationWindow {
       }
     }
 
-    BrowserPanel {
+    QfBrowserPanel {
       id: browserPopup
       objectName: "browserPopup"
       parent: Overlay.overlay
@@ -5172,7 +5172,7 @@ ApplicationWindow {
       y: (mainWindow.height - height) / 2
       closePolicy: Popup.CloseOnEscape
 
-      LayerLoginDialog {
+      QfLayerLoginDialog {
         id: loginDialog
         anchors.fill: parent
         visible: true
@@ -5199,14 +5199,14 @@ ApplicationWindow {
     }
   }
 
-  TrackerSettings {
+  QfTrackerSettings {
     id: trackerSettings
     objectName: "trackerSettings"
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  TrackerFeatureForm {
+  QfTrackerFeatureForm {
     id: trackerFeatureForm
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
@@ -5321,7 +5321,7 @@ ApplicationWindow {
     url: cloudConnection.url
   }
 
-  WelcomeScreen {
+  QfWelcomeScreen {
     id: welcomeScreen
     objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
@@ -5359,7 +5359,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  ProjectCreationScreen {
+  QfProjectCreationScreen {
     id: projectCreationScreen
     objectName: "projectCreationScreen"
 
@@ -5482,7 +5482,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  Toast {
+  QfToast {
     id: toast
     bottomSpacing: Math.max(60, mainWindow.sceneBottomMargin, informationDrawer.height, overlayFeatureFormDrawer.opened && !overlayFeatureFormDrawer.fullScreenView && overlayFeatureFormDrawer.y > 0 ? overlayFeatureFormDrawer.height : 0, !featureListForm.isFullscreen && !featureListForm.canvasOperationRequested && featureListForm.y > 0 ? featureListForm.height : 0)
   }
@@ -5499,7 +5499,7 @@ ApplicationWindow {
     }
   }
 
-  CodeReader {
+  QfCodeReader {
     id: codeReader
     objectName: 'codeReader'
     visible: false
@@ -5564,7 +5564,7 @@ ApplicationWindow {
     }
   }
 
-  BusyOverlay {
+  QfBusyOverlay {
     id: busyOverlay
     objectName: 'busyOverlay'
     state: iface.hasProjectOnLaunch() ? "visible" : "hidden"

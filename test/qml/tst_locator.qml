@@ -15,7 +15,7 @@ TestCase {
 
   property var searchLayer: null
 
-  QFieldControls.MapCanvas {
+  QFieldControls.QfMapCanvas {
     id: mapCanvas
     objectName: "mapCanvas"
   }

@@ -2237,7 +2237,7 @@ Page {
       }
 
       Item {
-        VariableEditor {
+        QfVariableEditor {
           id: variableEditor
           anchors.fill: parent
           anchors.margins: 4
@@ -2247,7 +2247,7 @@ Page {
     }
   }
 
-  PositioningDeviceSettings {
+  QfPositioningDeviceSettings {
     id: positioningDeviceSettings
 
     property string originalName: ''
@@ -2267,7 +2267,7 @@ Page {
     }
   }
 
-  PositioningNtripSettings {
+  QfPositioningNtripSettings {
     id: positioningNtripSettings
 
     onApply: {
