@@ -119,7 +119,17 @@ Popup {
       bottomLeftRadius: toastContent.radius
       topRightRadius: 0
       bottomRightRadius: 0
-      color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
+      color: {
+        switch (toast.type) {
+        case 'attention':
+          return Theme.mainColor;
+        case 'error':
+          return Theme.errorColor;
+        case 'warning':
+        default:
+          return Theme.warningColor;
+        }
+      }
       visible: toast.type != 'info'
     }
 
