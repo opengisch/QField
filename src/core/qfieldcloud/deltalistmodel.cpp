@@ -19,8 +19,17 @@
 #include <QJsonObject>
 
 
-DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
+DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList, QObject *parent )
   : mJson( deltasStatusList )
+  , QAbstractListModel( parent )
+{
+  if ( !mJson.isEmpty() )
+  {
+    parseJson();
+  }
+}
+
+void DeltaListModel::parseJson()
 {
   if ( !mJson.isArray() )
   {
@@ -29,6 +38,8 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     return;
   }
 
+  beginResetModel();
+
   const QJsonArray deltas = mJson.array();
   for ( const QJsonValue deltaJson : deltas )
   {
@@ -36,7 +47,8 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     {
       mIsValid = false;
       mErrorString = tr( "Expected all array elements to be an object, but the element at #%1 is not" ).arg( mDeltas.size() );
-      return;
+      break;
+      ;
     }
 
     const QJsonObject deltaObject = deltaJson.toObject();
@@ -48,7 +60,7 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     {
       mIsValid = false;
       mErrorString = tr( "Expected all array elements to be an object containing a key \"%1\", but the element at #%2 is not" ).arg( *match ).arg( mDeltas.size() );
-      return;
+      break;
     }
 
     Delta delta;
@@ -87,16 +99,17 @@ DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList )
     mDeltas.append( delta );
   }
 
-  connect( this, &DeltaListModel::rowsInserted, this, &DeltaListModel::rowCountChanged );
-  connect( this, &DeltaListModel::rowsRemoved, this, &DeltaListModel::rowCountChanged );
+  endResetModel();
 }
 
 int DeltaListModel::rowCount( const QModelIndex &parent ) const
 {
-  if ( !parent.isValid() )
-    return static_cast<int>( mDeltas.size() );
-  else
+  if ( parent.isValid() )
+  {
     return 0;
+  }
+
+  return static_cast<int>( mDeltas.size() );
 }
 
 QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
@@ -179,15 +192,57 @@ bool DeltaListModel::allHaveFinalStatus() const
   return isFinalForAll;
 }
 
-QString DeltaListModel::combinedOutput() const
+void DeltaListModel::refresh()
 {
-  QString output;
-
-  for ( const Delta &delta : mDeltas )
+  if ( !mDeltas.isEmpty() )
   {
-    output += delta.output;
-    output += QStringLiteral( "\n" );
+    beginResetModel();
+    mDeltas.clear();
+    mJson = QJsonDocument();
+    endResetModel();
   }
 
-  return output;
+  if ( mCloudProjectId.isEmpty() )
+  {
+    return;
+  }
+
+  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjectId ) );
+  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
+    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
+    deltaStatusReply->deleteLater();
+
+    Q_ASSERT( deltaStatusReply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      return;
+    }
+
+    mJson = QJsonDocument::fromJson( rawReply->readAll() );
+    parseJson();
+  } );
+}
+
+void DeltaListModel::setCloudConnection( QFieldCloudConnection *cloudConnection )
+{
+  if ( mCloudConnection == cloudConnection )
+  {
+    return;
+  }
+
+  mCloudConnection = cloudConnection;
+  emit cloudConnectionChanged();
+}
+
+void DeltaListModel::setCloudProjectId( const QString &cloudProjectId )
+{
+  if ( mCloudProjectId == cloudProjectId )
+  {
+    return;
+  }
+
+  mCloudProjectId = cloudProjectId;
+  emit cloudProjectIdChanged();
 }

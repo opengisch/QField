@@ -75,7 +75,6 @@ class DeltaFileWrapper : public QObject
      */
     ~DeltaFileWrapper();
 
-
     /**
      * Returns a list of field names that have edit form as attachments
      *

@@ -14,7 +14,6 @@
  ***************************************************************************/
 
 #include "deltafilewrapper.h"
-#include "deltalistmodel.h"
 #include "layerobserver.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudprojectsmodel.h"
@@ -468,19 +467,6 @@ void QFieldCloudProjectsModel::projectPush( const QString &projectId, const bool
   project->push( shouldDownloadUpdates );
 }
 
-
-void QFieldCloudProjectsModel::refreshProjectDeltaList( const QString &projectId )
-{
-  const QModelIndex projectIndex = findProjectIndex( projectId );
-  if ( !projectIndex.isValid() )
-  {
-    return;
-  }
-
-  QFieldCloudProject *project = mProjects[projectIndex.row()];
-  project->refreshDeltaList();
-}
-
 void QFieldCloudProjectsModel::connectionStatusChanged()
 {
   refreshProjectsList( false );
@@ -679,7 +665,6 @@ QHash<int, QByteArray> QFieldCloudProjectsModel::roleNames() const
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
-  roles[DeltaListRole] = "DeltaList";
 
   return roles;
 }
@@ -879,13 +864,6 @@ void QFieldCloudProjectsModel::setupProjectConnections( QFieldCloudProject *proj
     const QModelIndex idx = findProjectIndex( p->id() );
     emit dataChanged( idx, idx, QVector<int>() << LocalDeltasCountRole );
   } );
-
-  connect( project, &QFieldCloudProject::deltaListModelChanged, this, [this] {
-    const QFieldCloudProject *p = static_cast<QFieldCloudProject *>( sender() );
-    const QModelIndex idx = findProjectIndex( p->id() );
-    emit dataChanged( idx, idx, QVector<int>() << DeltaListRole );
-    emit deltaListModelChanged();
-  } );
 }
 
 void QFieldCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool skipLocalProjects )
@@ -1069,9 +1047,6 @@ QVariant QFieldCloudProjectsModel::data( const QModelIndex &index, int role ) co
 
     case UserRoleOriginRole:
       return project->userRoleOrigin();
-
-    case DeltaListRole:
-      return QVariant::fromValue<DeltaListModel *>( project->deltaListModel() );
   }
 
   return QVariant();

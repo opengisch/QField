@@ -2101,32 +2101,6 @@ void QFieldCloudProject::refreshData( ProjectRefreshReason reason )
   } );
 }
 
-void QFieldCloudProject::refreshDeltaList()
-{
-  if ( mDeltaListModel )
-  {
-    mDeltaListModel.reset();
-    emit deltaListModelChanged();
-  }
-
-  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mId ) );
-  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
-    QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
-    deltaStatusReply->deleteLater();
-
-    Q_ASSERT( deltaStatusReply->isFinished() );
-    Q_ASSERT( rawReply );
-
-    if ( rawReply->error() != QNetworkReply::NoError )
-    {
-      return;
-    }
-
-    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
-    mDeltaListModel.reset( new DeltaListModel( doc ) );
-    emit deltaListModelChanged();
-  } );
-}
 void QFieldCloudProject::cancelDownload()
 {
   const QStringList fileKeys = mDownloadFileTransfers.keys();

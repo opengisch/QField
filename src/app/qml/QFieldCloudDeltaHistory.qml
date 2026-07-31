@@ -12,7 +12,7 @@ QfPopup {
   id: popup
   focus: true
 
-  property alias model: deltaList.model
+  property alias model: deltaListModel
 
   function deltaStatusColor(status) {
     switch (status) {
@@ -72,14 +72,10 @@ QfPopup {
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
 
-  onOpened: function () {
-    if (cloudProjectsModel.currentProjectId) {
-      cloudProjectsModel.refreshProjectDeltaList(cloudProjectsModel.currentProjectId);
+  onAboutToShow: {
+    if (model.cloudProjectId != "") {
+      model.refresh();
     }
-  }
-
-  onClosed: function () {
-    deltaList.model = null;
   }
 
   Page {
@@ -203,6 +199,10 @@ QfPopup {
         clip: true
         spacing: 5
         ScrollBar.vertical: QfScrollBar {}
+
+        model: DeltaListModel {
+          id: deltaListModel
+        }
 
         delegate: QfCollapsibleMessage {
           width: parent ? parent.width : undefined

@@ -16,6 +16,8 @@
 #ifndef DELTALISTMODEL_H
 #define DELTALISTMODEL_H
 
+#include "qfieldcloudconnection.h"
+
 #include <QAbstractListModel>
 #include <QJsonDocument>
 #include <QUuid>
@@ -26,6 +28,9 @@
 class DeltaListModel : public QAbstractListModel
 {
     Q_OBJECT
+
+    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
+    Q_PROPERTY( QString cloudProjectId READ cloudProjectId WRITE setCloudProjectId NOTIFY cloudProjectIdChanged )
 
   public:
     enum Status
@@ -64,10 +69,7 @@ class DeltaListModel : public QAbstractListModel
         QString output;
     };
 
-    DeltaListModel() = default;
-    explicit DeltaListModel( QJsonDocument deltasStatusList );
-
-    Q_PROPERTY( int rowCount READ rowCount NOTIFY rowCountChanged )
+    explicit DeltaListModel( QJsonDocument deltasStatusList = QJsonDocument(), QObject *parent = nullptr );
 
     //! Returns number of rows.
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
@@ -81,26 +83,40 @@ class DeltaListModel : public QAbstractListModel
     //! Returns the json document used to initialize the model.
     QJsonDocument json() const;
 
-    //! Whether the model is valid and can be used.
-    bool isValid() const;
-
     //! Holds the reason why it is invalid. Null string if not invalid.
     QString errorString() const;
 
-    //! Whether all the deltas are in final status.
-    bool allHaveFinalStatus() const;
+    QFieldCloudConnection *cloudConnection() const { return mCloudConnection; }
 
-    //! Returns a combined output for all deltas, separated by a new line.
-    QString combinedOutput() const;
+    void setCloudConnection( QFieldCloudConnection *cloudConnection );
+
+    QString cloudProjectId() const { return mCloudProjectId; }
+
+    void setCloudProjectId( const QString &cloudProjectId );
+
+    //! Whether the model is valid and can be used.
+    Q_INVOKABLE bool isValid() const;
+
+    //! Whether all the deltas are in final status.
+    Q_INVOKABLE bool allHaveFinalStatus() const;
+
+    //! Refreshes the delta list model
+    Q_INVOKABLE void refresh();
 
   signals:
-    void rowCountChanged();
+    void cloudConnectionChanged();
+    void cloudProjectIdChanged();
 
   private:
+    void parseJson();
+
     QJsonDocument mJson;
     bool mIsValid = false;
     QString mErrorString;
     QList<Delta> mDeltas;
+
+    QFieldCloudConnection *mCloudConnection = nullptr;
+    QString mCloudProjectId;
 };
 
 #endif // DELTALISTMODEL_H

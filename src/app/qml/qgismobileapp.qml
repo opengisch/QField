@@ -5296,10 +5296,8 @@ ApplicationWindow {
       }
     }
 
-    onWarning: message => displayToast(message)
-
-    onDeltaListModelChanged: () => {
-      qfieldCloudDeltaHistory.model = cloudProjectsModel.currentProject.deltaListModel;
+    onWarning: message => {
+      displayToast(message);
     }
   }
 
@@ -5310,6 +5308,8 @@ ApplicationWindow {
     modal: true
     closePolicy: Popup.CloseOnEscape
     parent: Overlay.overlay
+
+    model.cloudConnection: cloudConnection
   }
 
   QFieldCloudStatus {
