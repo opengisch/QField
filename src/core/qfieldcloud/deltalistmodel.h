@@ -47,6 +47,7 @@ class DeltaListModel : public QAbstractListModel
       CreatedAtRole,
       UpdatedAtRole,
       StatusRole,
+      SummaryRole,
       OutputRole,
     };
     Q_ENUM( ColumnRole )

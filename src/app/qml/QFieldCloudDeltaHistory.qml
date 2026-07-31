@@ -211,7 +211,7 @@ QfPopup {
           detailsColor: Theme.secondaryTextColor
           font: Theme.tipFont
           iconSource: popup.deltaStatusIcon(Status)
-          titleText: qsTr("Uploaded by %1 on %2").arg(CreatedBy).arg(CreatedAt.toLocaleString(Qt.locale(), Locale.ShortFormat))
+          titleText: Summary + "\n" + qsTr("Uploaded by %1 on %2").arg(CreatedBy).arg(CreatedAt.toLocaleString(Qt.locale(), Locale.ShortFormat))
           detailsText: Output
         }
       }

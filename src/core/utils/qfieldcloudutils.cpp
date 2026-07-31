@@ -443,6 +443,10 @@ QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDoc
     QFieldCloudDelta delta;
     delta.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
 
+    QList<QJsonObject> deltaObjects;
+    deltaObjects << deltaObject.value( "content" ).toObject();
+    delta.summary = QFieldCloudUtils::summarizeDeltaContent( deltaObjects );
+
     const QString statusString = deltaObject.value( QStringLiteral( "status" ) ).toString();
     if ( statusString == QStringLiteral( "STATUS_APPLIED" ) )
       delta.status = QFieldCloudDelta::AppliedStatus;
@@ -480,4 +484,78 @@ QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDoc
   std::sort( deltas.begin(), deltas.end(), []( const QFieldCloudDelta &a, const QFieldCloudDelta &b ) { return a.createdAt > b.createdAt; } );
 
   return deltas;
+}
+
+QString QFieldCloudUtils::summarizeDeltaContent( const QList<QJsonObject> &deltaObjects, const QString &modificationSeparator, const QString &layerSeparator )
+{
+  QMap<QString, int> createdFeatures;
+  QMap<QString, int> patchedFeatures;
+  QMap<QString, int> deletedFeatures;
+
+  for ( const QJsonObject &deltaObject : deltaObjects )
+  {
+    const QString method = deltaObject.value( QStringLiteral( "method" ) ).toString();
+    const QString layerName = deltaObject.value( QStringLiteral( "localLayerName" ) ).toString();
+
+    if ( !layerName.isEmpty() )
+    {
+      if ( method == QStringLiteral( "create" ) )
+      {
+        if ( createdFeatures.contains( layerName ) )
+        {
+          createdFeatures[layerName]++;
+        }
+        else
+        {
+          createdFeatures[layerName] = 1;
+        }
+      }
+      else if ( method == QStringLiteral( "patch" ) )
+      {
+        if ( patchedFeatures.contains( layerName ) )
+        {
+          patchedFeatures[layerName]++;
+        }
+        else
+        {
+          patchedFeatures[layerName] = 1;
+        }
+      }
+      else if ( method == QStringLiteral( "delete" ) )
+      {
+        if ( deletedFeatures.contains( layerName ) )
+        {
+          deletedFeatures[layerName]++;
+        }
+        else
+        {
+          deletedFeatures[layerName] = 1;
+        }
+      }
+    }
+  }
+
+  QStringList modifiedLayers = createdFeatures.keys() + patchedFeatures.keys() + deletedFeatures.keys();
+  modifiedLayers.removeDuplicates();
+
+  QStringList summary;
+  for ( const QString &modifiedLayer : modifiedLayers )
+  {
+    QStringList modifications;
+    if ( createdFeatures.contains( modifiedLayer ) )
+    {
+      modifications << tr( "%n feature(s) created", "", createdFeatures[modifiedLayer] );
+    }
+    if ( patchedFeatures.contains( modifiedLayer ) )
+    {
+      modifications << tr( "%n feature(s) edited", "", patchedFeatures[modifiedLayer] );
+    }
+    if ( deletedFeatures.contains( modifiedLayer ) )
+    {
+      modifications << tr( "%n feature(s) deleted", "", deletedFeatures[modifiedLayer] );
+    }
+    summary << tr( "%1 in layer %2" ).arg( modifications.join( modificationSeparator ), modifiedLayer );
+  }
+
+  return summary.join( layerSeparator );
 }

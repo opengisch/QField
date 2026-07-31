@@ -102,6 +102,7 @@ struct QFieldCloudDelta
     QDateTime createdAt;
     QDateTime updatedAt;
     Status status = PendingStatus;
+    QString summary;
     QString output;
 };
 
@@ -345,6 +346,8 @@ class QFieldCloudUtils : public QObject
 
 
     static QList<QFieldCloudDelta> parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid );
+
+    static QString summarizeDeltaContent( const QList<QJsonObject> &deltaObjects, const QString &modificationSeparator = QStringLiteral( ", " ), const QString &layerSeparator = QStringLiteral( " / " ) );
 
   private:
     static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection = nullptr );
