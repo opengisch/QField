@@ -92,6 +92,13 @@ void HelpLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
     }
 
     const QString location = details.value( QStringLiteral( "location" ) ).toString();
+#if defined( Q_OS_IOS )
+    if ( title.indexOf( QStringLiteral( "qfieldcloud" ) ) >= 0 || location.startsWith( QStringLiteral( "get-started/faq/" ) ) || location.startsWith( QStringLiteral( "get-started/storage-qfc" ) ) || location.startsWith( QStringLiteral( "get-started/tutorials/get-started-qfc" ) ) )
+    {
+      continue;
+    }
+#endif
+
     QString locationLocale;
     QRegularExpressionMatch rxMatch = rx.match( location );
     if ( rxMatch.hasMatch() )

@@ -645,7 +645,10 @@ Page {
                   }
                 }
               } else {
-                labelText = qsTr("No cloud projects found.") + "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
+                labelText = qsTr("No cloud projects found.");
+                if (Qt.platform !== "ios") {
+                  labelText += "\n\n" + qsTr("To get started, %1read the documentation%2.").arg("<a href=\"https://docs.qfield.org/get-started/tutorials/get-started-qfc/\">").arg("</a>");
+                }
               }
               return labelText;
             }
