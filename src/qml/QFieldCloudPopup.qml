@@ -967,7 +967,7 @@ Popup {
     const critRatio = thresholdCriticalBytes > 0 ? 1.0 - (thresholdCriticalBytes / totalBytes) : 0.95;
     storageMeterBar.value = usageRatio;
     storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
-    storageMeterBar.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username);
+    storageMeterBar.relatedUrl = Qt.platform !== "ios" ? QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username) : "";
     storageMeterBar.warningThreshold = warnRatio;
     storageMeterBar.criticalThreshold = critRatio;
     storageMeterBar.visible = true;
