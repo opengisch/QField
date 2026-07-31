@@ -55,7 +55,7 @@ Item {
     width: parent.width - 10
     anchors.top: parent.top
     anchors.left: parent.left
-    leftPadding: messageIcon.visible ? messageIcon.width + 2 : 8
+    anchors.leftMargin: messageIcon.visible ? messageIcon.width + 2 : 8
     topPadding: 10
     bottomPadding: 10
     clip: true
@@ -105,7 +105,6 @@ Item {
     anchors.top: separator.bottom
     anchors.right: externalLinkButton.left
     anchors.left: titleText.left
-    leftPadding: 8
     topPadding: 10
     bottomPadding: 10
     clip: true
