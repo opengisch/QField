@@ -121,6 +121,19 @@ set(QFIELD_APP_QML_FILES
     qml/Nyuki.qml
     qml/PluginItem.qml
     qml/PluginManagerSettings.qml
+    qml/QFieldCloudDangerZone.qml
+    qml/QFieldCloudDeltaHistory.qml
+    qml/QFieldCloudLogin.qml
+    qml/QFieldCloudPackageLayersFeedback.qml
+    qml/QFieldCloudPopup.qml
+    qml/QFieldCloudProjectDetails.qml
+    qml/QFieldCloudProjectFilter.qml
+    qml/QFieldCloudScreen.qml
+    qml/QFieldCloudStatusBanner.qml
+    qml/QFieldGuide.qml
+    qml/QFieldLocalDataPickerScreen.qml
+    qml/QFieldSettings.qml
+    qml/QFieldSketcher.qml
     qml/ScreenLocker.qml
     qml/qgismobileapp.qml)
 

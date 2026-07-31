@@ -106,19 +106,6 @@ set(QFIELD_GUI_QML_FILES
     qml/ProjectCreationScreen.qml
     qml/QFieldAudioRecorder.qml
     qml/QFieldCamera.qml
-    qml/QFieldCloudDangerZone.qml
-    qml/QFieldCloudDeltaHistory.qml
-    qml/QFieldCloudLogin.qml
-    qml/QFieldCloudPackageLayersFeedback.qml
-    qml/QFieldCloudPopup.qml
-    qml/QFieldCloudProjectDetails.qml
-    qml/QFieldCloudProjectFilter.qml
-    qml/QFieldCloudScreen.qml
-    qml/QFieldCloudStatusBanner.qml
-    qml/QFieldGuide.qml
-    qml/QFieldLocalDataPickerScreen.qml
-    qml/QFieldSettings.qml
-    qml/QFieldSketcher.qml
     qml/RelationCombobox.qml
     qml/SensorInformationView.qml
     qml/SerialPortDeviceChooser.qml
