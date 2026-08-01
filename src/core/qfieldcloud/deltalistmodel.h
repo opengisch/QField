@@ -52,7 +52,7 @@ class DeltaListModel : public QAbstractListModel
     };
     Q_ENUM( ColumnRole )
 
-    explicit DeltaListModel( QJsonDocument deltasStatusList = QJsonDocument(), QObject *parent = nullptr );
+    explicit DeltaListModel();
 
     //! Returns number of rows.
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;

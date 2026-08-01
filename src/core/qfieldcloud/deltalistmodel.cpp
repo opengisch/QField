@@ -19,14 +19,8 @@
 #include <QJsonObject>
 
 
-DeltaListModel::DeltaListModel( QJsonDocument deltasStatusList, QObject *parent )
-  : mJson( deltasStatusList )
-  , QAbstractListModel( parent )
+DeltaListModel::DeltaListModel()
 {
-  if ( !mJson.isEmpty() )
-  {
-    mDeltas = QFieldCloudUtils::parseDeltaJsonDocument( mJson, mErrorString, mIsValid );
-  }
 }
 
 int DeltaListModel::rowCount( const QModelIndex &parent ) const
@@ -111,7 +105,7 @@ void DeltaListModel::refresh()
     endResetModel();
   }
 
-  if ( mCloudProjectId.isEmpty() )
+  if ( !mCloudConnection || mCloudProjectId.isEmpty() )
   {
     setIsRefreshing( false );
     return;
