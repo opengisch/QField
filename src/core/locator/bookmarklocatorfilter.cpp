@@ -51,6 +51,7 @@ void BookmarkLocatorFilter::fetchResults( const QString &string, const QgsLocato
     {
       result.filter = this;
       result.setUserData( i );
+      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Navigate to bookmark" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       emit resultFetched( result );
     }
   }
@@ -61,9 +62,20 @@ void BookmarkLocatorFilter::triggerResult( const QgsLocatorResult &result )
   triggerResultFromAction( result, Normal );
 }
 
-void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
+void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   const int row = result.userData().toInt();
+
+  if ( actionId == Navigation )
+  {
+    if ( !mLocatorBridge->navigation() )
+      return;
+
+    const QgsPoint point = mLocatorBridge->bookmarks()->getBookmarkPoint( row );
+    if ( !point.isEmpty() )
+      mLocatorBridge->navigation()->setDestination( point );
+    return;
+  }
 
   mLocatorBridge->bookmarks()->setExtentFromBookmark( mLocatorBridge->bookmarks()->index( row, 0 ) );
 

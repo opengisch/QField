@@ -149,6 +149,30 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   emit requestJumpToPoint( QgsPoint( transformedRect.center() ), scale, true );
 }
 
+QgsPoint BookmarkModel::getBookmarkPoint( int idx )
+{
+  QModelIndex sourceIndex = mapToSource( index( idx, 0 ) );
+  if ( !sourceIndex.isValid() || !mMapSettings )
+    return QgsPoint();
+
+  const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
+  QgsCoordinateTransform transform( rect.crs(), mMapSettings->destinationCrs(), QgsProject::instance()->transformContext() );
+  try
+  {
+    return QgsPoint( transform.transform( rect.center() ) );
+  }
+  catch ( const QgsException &e )
+  {
+    Q_UNUSED( e )
+    return QgsPoint();
+  }
+  catch ( ... )
+  {
+    // catch any other errors
+    return QgsPoint();
+  }
+}
+
 QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
 {
   if ( !mMapSettings )

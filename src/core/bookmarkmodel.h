@@ -62,6 +62,9 @@ class BookmarkModel : public QSortFilterProxyModel
 
     Q_INVOKABLE void setExtentFromBookmark( const QModelIndex &index );
 
+    //! Returns the center point of the bookmark at row \a idx transformed to the map canvas CRS, or an empty point on failure.
+    Q_INVOKABLE QgsPoint getBookmarkPoint( int idx );
+
     Q_INVOKABLE QString addBookmarkAtPoint( QgsPoint point, const QString &name = QString(), const QString &group = QString() );
 
     Q_INVOKABLE void updateBookmarkDetails( const QString &id, const QString &name, const QString &group );
