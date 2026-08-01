@@ -14,8 +14,10 @@ Popup {
   id: cameraItem
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
-  property bool isCapturing: state == "PhotoCapture" || state == "VideoCapture"
-  property bool isPortraitMode: mainWindow.height > mainWindow.width
+  property bool isCapturing: false
+
+  readonly property bool isReady: isCapturing && (state == "PhotoCapture" || state == "VideoCapture")
+  readonly property bool isPortraitMode: mainWindow.height > mainWindow.width
 
   property string currentPath: ''
   property var currentPosition: PositioningUtils.createEmptyGnssPositionInformation()
@@ -150,6 +152,20 @@ Popup {
       color: "#000000"
     }
 
+    Timer {
+      id: captureFocusTimer
+      interval: 2000
+      repeat: false
+
+      onTriggered: {
+        // Auto-focus fix failing, fail back video frame capture
+        captureLoader.item.videoSinkCapture.saveToFile(qgisProject.homePath + '/DCIM/');
+        // Reset camera to avoid random capture completition
+        captureLoader.item.camera.restarting = true;
+        captureLoader.item.camera.restarting = false;
+      }
+    }
+
     MediaDevices {
       id: mediaDevices
     }
@@ -170,10 +186,28 @@ Popup {
           property alias imageCapture: imageCapture
           property alias recorder: recorder
           property alias videoOutput: videoOutput
+          property alias videoSinkCapture: videoSinkCapture
           property alias orientationNormalizer: orientationNormalizer
 
           CameraOrientationNormalizer {
             id: orientationNormalizer
+          }
+
+          VideoSinkCapture {
+            id: videoSinkCapture
+            videoSink: videoOutput.videoSink
+
+            onImageSaved: path => {
+              captureButtonAnimation.stop();
+              cameraItem.isCapturing = false;
+              if (path !== "") {
+                currentPath = path;
+                photoPreview.source = "file://" + currentPath;
+                cameraItem.state = "PhotoPreview";
+              } else {
+                cameraItem.state = "PhotoCapture";
+              }
+            }
           }
 
           VideoOutput {
@@ -188,8 +222,13 @@ Popup {
 
             camera: Camera {
               id: camera
+
               property bool restarting: false
               active: cameraItem.visible && cameraPermission.status === Qt.PermissionStatus.Granted && !restarting
+
+              onErrorOccurred: (error, errorString) => {
+                console.log('QField Camera error ' + error + ': ' + errorString);
+              }
 
               function applyCameraFormat() {
                 if (cameraSettings.pixelFormat != 0) {
@@ -239,13 +278,24 @@ Popup {
               quality: ImageCapture.VeryHighQuality
 
               onImageSaved: (requestId, path) => {
-                currentPath = path;
-                orientationNormalizer.normalizeImageOrientation(currentPath);
-                photoPreview.source = "file://" + currentPath;
+                if (cameraItem.isCapturing) {
+                  cameraItem.isCapturing = false;
+                  currentPath = path;
+                  orientationNormalizer.normalizeImageOrientation(currentPath);
+                  photoPreview.source = "file://" + currentPath;
+                }
               }
 
               onPreviewChanged: {
-                cameraItem.state = "PhotoPreview";
+                if (cameraItem.state == "PhotoCapture") {
+                  captureFocusTimer.stop();
+                  captureButtonAnimation.stop();
+                  cameraItem.state = "PhotoPreview";
+                }
+              }
+
+              onErrorOccurred: (id, error, errorString) => {
+                console.log('QField ImageCapture error ' + error + ': ' + errorString);
               }
             }
 
@@ -393,7 +443,7 @@ Popup {
 
     PinchArea {
       id: pinchArea
-      enabled: cameraItem.visible && cameraItem.isCapturing && captureLoader.item
+      enabled: cameraItem.visible && cameraItem.isReady && captureLoader.item
       anchors.fill: parent
 
       onPinchUpdated: pinch => {
@@ -406,7 +456,7 @@ Popup {
     }
 
     WheelHandler {
-      enabled: cameraItem.visible && cameraItem.isCapturing && captureLoader.item
+      enabled: cameraItem.visible && cameraItem.isReady && captureLoader.item
       target: null
       grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByItems
 
@@ -423,8 +473,8 @@ Popup {
       id: captureFlash
       anchors.fill: parent
       anchors.margins: 6
-
       color: "transparent"
+
       SequentialAnimation {
         id: captureFlashAnimation
         PropertyAnimation {
@@ -481,6 +531,8 @@ Popup {
 
               anchors.centerIn: parent
               visible: captureLoader.status == Loader.Ready && captureLoader.item
+              enabled: !cameraItem.isCapturing
+              opacity: enabled ? 1 : 0.5
 
               round: true
               roundborder: true
@@ -488,12 +540,51 @@ Popup {
               iconColor: Theme.toolButtonColor
               bgcolor: cameraItem.state == "PhotoPreview" || cameraItem.state == "VideoPreview" ? Theme.mainColor : cameraItem.state == "VideoCapture" ? "red" : "white"
 
+              width: 48
+              height: width
+
+              SequentialAnimation {
+                id: captureButtonAnimation
+                loops: Animation.Infinite
+                PropertyAnimation {
+                  target: captureButton
+                  property: "width"
+                  to: 0
+                  duration: 0
+                }
+                PropertyAnimation {
+                  target: captureButton
+                  property: "width"
+                  to: 48
+                  duration: 2500
+                  easing.type: Easing.OutQuad
+                }
+                PropertyAnimation {
+                  target: captureButton
+                  property: "width"
+                  to: 0
+                  duration: 2500
+                  easing.type: Easing.OutQuad
+                }
+
+                onStopped: {
+                  if (captureButton.width !== 48) {
+                    captureButton.width = 48;
+                  }
+                }
+              }
+
               onClicked: {
-                if (!captureLoader.item)
+                if (!captureLoader.item) {
                   return;
+                }
                 if (cameraItem.state == "PhotoCapture") {
                   platformUtilities.createDir(qgisProject.homePath, 'DCIM');
+                  captureLoader.item.camera.focusMode = Camera.FocusModeAuto;
                   captureLoader.item.imageCapture.captureToFile(qgisProject.homePath + '/DCIM/');
+                  cameraItem.isCapturing = true;
+                  captureFocusTimer.restart();
+                  captureButtonAnimation.start();
                   captureFlashAnimation.start();
                   captureLoader.item.orientationNormalizer.recordCaptureOrientation();
                   if (positionSource.active) {
@@ -539,7 +630,7 @@ Popup {
             readonly property int slotSize: 36
             readonly property int highlightInset: 1
 
-            visible: cameraItem.allowCaptureModeToggle && cameraItem.isCapturing && captureLoader.item && captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState
+            visible: cameraItem.allowCaptureModeToggle && cameraItem.isReady && captureLoader.item && captureLoader.item.recorder.recorderState === MediaRecorder.StoppedState
 
             width: slotSize * 2 + 4
             height: 40
@@ -629,7 +720,7 @@ Popup {
 
           QfToolButton {
             id: zoomButton
-            visible: true//cameraItem.isCapturing && captureLoader.item && (captureLoader.item.camera.maximumZoomFactor !== 1.0 || captureLoader.item.camera.minimumZoomFactor !== 1.0)
+            visible: captureLoader.item && captureLoader.item.camera.maximumZoomFactor !== 1.0
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) - (width / 2) : (parent.width - width) / 2 + cameraItem.captureOffset
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 + cameraItem.captureOffset : (parent.height / 4) * 3 - (height / 2)
@@ -650,14 +741,15 @@ Popup {
 
           QfToolButton {
             id: flashButton
-            visible: true//cameraItem.isCapturing && captureLoader.item && captureLoader.item.camera.isFlashModeSupported(Camera.FlashOn)
+            visible: captureLoader.item && captureLoader.item.camera.isFlashModeSupported(Camera.FlashOn)
 
             x: cameraItem.isPortraitMode ? (parent.width / 4) * 3 - (width / 2) : (parent.width - width) / 2 + cameraItem.captureOffset
             y: cameraItem.isPortraitMode ? (parent.height - height) / 2 + cameraItem.captureOffset : (parent.height / 4) - (height / 2)
 
             iconSource: {
-              if (!captureLoader.item)
+              if (!captureLoader.item) {
                 return '';
+              }
               switch (captureLoader.item.camera.flashMode) {
               case Camera.FlashAuto:
                 return Theme.getThemeVectorIcon('ic_flash_auto_black_24dp');
@@ -674,8 +766,9 @@ Popup {
             round: true
 
             onClicked: {
-              if (!captureLoader.item)
+              if (!captureLoader.item) {
                 return;
+              }
               if (captureLoader.item.camera.flashMode === Camera.FlashOff) {
                 captureLoader.item.camera.flashMode = Camera.FlashOn;
               } else {

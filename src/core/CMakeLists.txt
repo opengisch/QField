@@ -111,6 +111,7 @@ set(QFIELD_CORE_SRCS
     tracker.cpp
     trackingmodel.cpp
     vertexmodel.cpp
+    videosinkcapture.cpp
     viewstatus.cpp
     webdavconnection.cpp)
 
@@ -229,6 +230,7 @@ set(QFIELD_CORE_HDRS
     tracker.h
     trackingmodel.h
     vertexmodel.h
+    videosinkcapture.h
     viewstatus.h
     webdavconnection.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
