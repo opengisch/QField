@@ -5305,11 +5305,9 @@ ApplicationWindow {
     id: qfieldCloudDeltaHistory
     objectName: "qfieldCloudDeltaHistory"
 
-    modal: true
-    closePolicy: Popup.CloseOnEscape
-    parent: Overlay.overlay
-
     model.cloudConnection: cloudConnection
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
   QFieldCloudStatus {
