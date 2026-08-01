@@ -189,9 +189,17 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 2
 
-            CheckBox {
-              checked: itemChecked
+            Item {
+              Layout.preferredWidth: Theme.toolButtonSize
+              Layout.preferredHeight: Theme.toolButtonSize
+              Layout.alignment: Qt.AlignVCenter
               visible: localFilesModel.inSelectionMode
+
+              CheckBox {
+                anchors.centerIn: parent
+                checked: itemChecked
+                padding: 0
+              }
             }
 
             Image {
@@ -250,7 +258,7 @@ Page {
               Layout.preferredHeight: childrenRect.height
               Layout.topMargin: 5
               Layout.bottomMargin: 5
-              Layout.leftMargin: 2
+              Layout.leftMargin: 12
               Layout.rightMargin: 4
               spacing: 1
               Text {
@@ -263,7 +271,8 @@ Page {
 
                 font.pointSize: Theme.defaultFont.pointSize
                 color: Theme.mainTextColor
-                wrapMode: Text.Wrap
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
               }
               Text {
                 id: itemInfo
@@ -299,6 +308,9 @@ Page {
 
               Layout.topMargin: 5
               Layout.bottomMargin: 5
+              Layout.preferredWidth: Theme.toolButtonSize
+              Layout.preferredHeight: Theme.toolButtonSize
+              Layout.alignment: Qt.AlignVCenter
 
               bgcolor: "transparent"
               iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
@@ -314,6 +326,12 @@ Page {
                 itemMenu.itemHasWebdavConfiguration = ItemHasWebdavConfiguration;
                 itemMenu.popup(gc.x + width - itemMenu.width, gc.y - height);
               }
+            }
+
+            Item {
+              visible: !itemMenuVisible && !localFilesModel.inSelectionMode
+              Layout.preferredWidth: Theme.toolButtonSize
+              Layout.preferredHeight: 1
             }
           }
         }
