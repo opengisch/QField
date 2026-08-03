@@ -75,10 +75,8 @@
 #include "qgismobileapp.h"
 #include "qgsproviderregistry.h"
 #include "qgsprovidersublayerdetails.h"
-#include "qgsquickelevationprofilecanvas.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
-#include "qgsquickmaptransform.h"
 #include "quick3dterrainprovider.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
@@ -125,17 +123,13 @@
 #include <qgslayoutpagecollection.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgslocator.h>
-#include <qgslocatorcontext.h>
-#include <qgslocatormodel.h>
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstyle.h>
-#include <qgsmapthemecollection.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgsofflineediting.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
-#include <qgsprojectdisplaysettings.h>
 #include <qgsprojectelevationproperties.h>
 #include <qgsprojectstorage.h>
 #include <qgsprojectstorageregistry.h>
@@ -143,15 +137,12 @@
 #include <qgsprojectviewsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
-#include <qgsrelationmanager.h>
 #include <qgssettingsregistrycore.h>
 #include <qgssinglesymbolrenderer.h>
-#include <qgssnappingutils.h>
 #include <qgstemporalutils.h>
 #include <qgsterrainprovider.h>
 #include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
-#include <qgsvectorlayereditbuffer.h>
 #include <qgsvectorlayertemporalproperties.h>
 #include <qgsvectortilelayer.h>
 
@@ -351,13 +342,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
 
-  // Register QGIS QML types
-  qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
-  qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
-  qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
-  qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
-  qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
-
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
   qRegisterMetaType<QgsFeatureRequest>( "QgsFeatureRequest" );
@@ -390,24 +374,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
   qRegisterMetaType<Qgis::SnappingMode>( "Qgis::SnappingMode" );
 
-  qmlRegisterUncreatableMetaObject( Qgis::staticMetaObject, "org.qgis", 1, 0, "Qgis", "Used to access enum values" );
-
-  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
-  qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
-  qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
-  qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
-  qmlRegisterUncreatableType<QgsRasterLayer>( "org.qgis", 1, 0, "RasterLayer", "" );
-  qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
-
-  // Register QgsQuick QML types
-  qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
-  qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
-  qmlRegisterType<QgsQuickElevationProfileCanvas>( "org.qgis", 1, 0, "ElevationProfileCanvas" );
-  qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
-
-  // Register 3D QML types
-
-  // Register QField QML types
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
   qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
   qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
@@ -440,10 +406,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
-
-
-  qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
-
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 

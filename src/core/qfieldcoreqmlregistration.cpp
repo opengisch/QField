@@ -77,6 +77,10 @@
 #include "qgsgeometrywrapper.h"
 #include "qgsgpkgflusher.h"
 #include "qgsquick/qgsquickcoordinatetransformer.h"
+#include "qgsquick/qgsquickelevationprofilecanvas.h"
+#include "qgsquick/qgsquickmapcanvasmap.h"
+#include "qgsquick/qgsquickmapsettings.h"
+#include "qgsquick/qgsquickmaptransform.h"
 #include "resourcesource.h"
 #include "rubberbandmodel.h"
 #include "rubberbandshape.h"
@@ -109,6 +113,18 @@
 #include <QGuiApplication>
 #include <QScreen>
 #include <QtQml>
+#include <qgis.h>
+#include <qgslocatorcontext.h>
+#include <qgslocatormodel.h>
+#include <qgsmaplayer.h>
+#include <qgsmapthemecollection.h>
+#include <qgsproject.h>
+#include <qgsprojectdisplaysettings.h>
+#include <qgsrasterlayer.h>
+#include <qgsrelationmanager.h>
+#include <qgssnappingutils.h>
+#include <qgsvectorlayer.h>
+#include <qgsvectorlayereditbuffer.h>
 
 #ifdef WITH_BLUETOOTH
 #include "positioning/bluetoothdevicemodel.h"
@@ -125,6 +141,27 @@ namespace QFieldCore
 {
   void registerQmlTypes()
   {
+    qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
+    qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
+    qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
+    qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
+    qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
+
+    qmlRegisterUncreatableMetaObject( Qgis::staticMetaObject, "org.qgis", 1, 0, "Qgis", "Used to access enum values" );
+
+    qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
+    qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
+    qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
+    qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
+    qmlRegisterUncreatableType<QgsRasterLayer>( "org.qgis", 1, 0, "RasterLayer", "" );
+    qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
+    qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
+
+    qmlRegisterType<QgsQuickElevationProfileCanvas>( "org.qgis", 1, 0, "ElevationProfileCanvas" );
+    qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
+    qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
+    qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
+
     qmlRegisterType<AppExpressionContextScopesGenerator>( "org.qfield.core", 1, 0, "AppExpressionContextScopesGenerator" );
     qmlRegisterType<AudioAnalyzer>( "org.qfield.core", 1, 0, "AudioAnalyzer" );
     qmlRegisterType<AudioRecorder>( "org.qfield.core", 1, 0, "AudioRecorder" );
