@@ -200,6 +200,7 @@ Popup {
 
           CameraOrientationNormalizer {
             id: orientationNormalizer
+            cameraPosition: camera.cameraDevice.position
           }
 
           VideoSinkCapture {
