@@ -94,6 +94,7 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
 
   if ( needsRotation || needsFlip || needsFrontFlip )
   {
+    QTransform transform;
     int angle = 0;
     if ( needsRotation )
     {
@@ -110,8 +111,14 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
     angle %= 360;
     if ( angle != 0 )
     {
-      QTransform transform;
       transform.rotate( angle );
+    }
+    if ( needsFrontFlip )
+    {
+      transform.scale( -1, 1 );
+    }
+    if ( !transform.isIdentity() )
+    {
       image = image.transformed( transform, Qt::SmoothTransformation );
     }
   }
