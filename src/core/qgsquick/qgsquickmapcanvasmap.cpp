@@ -907,6 +907,12 @@ void QgsQuickMapCanvasMap::startPreviewJob( int number )
   QgsMapSettings jobSettings = mImageMapSettings;
   jobSettings.setExtent( jobExtent );
 
+#if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
+  //reduce quality of preview tiles to cut memory usage (by half)
+  jobSettings.setOutputSize( mapSettings.outputSize() * ( 0.5 / mQuality ) );
+  jobSettings.setOutputDpi( mapSettings.outputDpi() * ( 0.5 / mQuality ) );
+#endif
+
   jobSettings.setFlag( Qgis::MapSettingsFlag::DrawLabeling, false );
   jobSettings.setFlag( Qgis::MapSettingsFlag::RenderPreviewJob, true );
   jobSettings.setFlag( Qgis::MapSettingsFlag::RecordProfile, false );
