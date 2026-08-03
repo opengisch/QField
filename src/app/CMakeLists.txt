@@ -192,8 +192,9 @@ function(create_executable)
         "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfBluetoothDeviceChooser.qml")
     endif()
     if(NOT WITH_SERIALPORT)
-      file(REMOVE
-           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/SerialPortChooser.qml")
+      file(
+        REMOVE
+        "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfSerialPortDeviceChooser.qml")
     endif()
 
     # Will be no longer needed for Qt6
@@ -295,6 +296,8 @@ if(IOS)
     VERBOSE)
 
   set_target_properties(
-    qfield PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
-                      "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements")
+    qfield
+    PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
+               "${PROJECT_SOURCE_DIR}/platform/ios/qfield.entitlements"
+               XCODE_GENERATE_SCHEME TRUE)
 endif()
