@@ -13,7 +13,7 @@ TestCase {
     property var mSelectedLayer: qgisProject.mapLayersByName('Apiary')[0]
     property var mSelectedFeature: qgisProject.mapLayersByName('Apiary')[0].getFeature("64")
 
-    model: AttributeFormModel {
+    model: QFieldControls.AttributeFormModel {
       featureModel: FeatureModel {
         project: qgisProject
         currentLayer: featureForm.mSelectedLayer
