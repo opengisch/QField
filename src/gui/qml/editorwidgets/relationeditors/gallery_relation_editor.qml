@@ -28,7 +28,7 @@ RelationEditorBase {
     }
   }
 
-  property bool isCardView: settings.valueBool("/QField/RelationEditor/GalleryCardView", true)
+  property bool isCardView: !settings || settings.valueBool("/QField/RelationEditor/GalleryCardView", true)
   property string imagePrefix: {
     if (qgisProject == undefined)
       return "";
