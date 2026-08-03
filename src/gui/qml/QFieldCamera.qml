@@ -174,7 +174,13 @@ Popup {
 
           CameraOrientationNormalizer {
             id: orientationNormalizer
-            cameraPosition: camera.cameraDevice.position
+            cameraPosition: {
+              let device = camera.cameraDevice;
+              if (device.position !== CameraDevice.UnspecifiedPosition) {
+                return device.position;
+              }
+              return device.description.toLowerCase().includes("front") ? CameraDevice.FrontFace : CameraDevice.BackFace;
+            }
           }
 
           VideoOutput {
@@ -890,8 +896,10 @@ Popup {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               if (captureLoader.item) {
+                captureLoader.item.camera.restarting = true;
                 captureLoader.item.camera.cameraDevice = modelData;
                 captureLoader.item.camera.applyCameraFormat();
+                captureLoader.item.camera.restarting = false;
               }
             }
           }
