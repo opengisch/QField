@@ -27,6 +27,7 @@ CameraOrientationNormalizer::CameraOrientationNormalizer( QObject *parent )
   : QObject( parent )
 {
   QScreen *screen = QGuiApplication::primaryScreen();
+
   if ( screen )
   {
     mCurrentOrientation = screen->orientation();
@@ -37,6 +38,23 @@ CameraOrientationNormalizer::CameraOrientationNormalizer( QObject *parent )
 int CameraOrientationNormalizer::previewRotation() const
 {
   return mPreviewRotation;
+}
+
+int CameraOrientationNormalizer::cameraPosition() const
+{
+  return mCameraPosition;
+}
+
+void CameraOrientationNormalizer::setCameraPosition( int position )
+{
+  if ( mCameraPosition == position )
+  {
+    return;
+  }
+
+  mCameraPosition = position;
+  emit cameraPositionChanged();
+  updatePreviewRotation();
 }
 
 void CameraOrientationNormalizer::recordCaptureOrientation()
@@ -65,18 +83,37 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
   const bool capturedInLandscape = ( mCaptureOrientation == Qt::LandscapeOrientation || mCaptureOrientation == Qt::InvertedLandscapeOrientation );
   const bool pixelsAreLandscape = image.width() > image.height();
   const bool needsRotation = ( capturedInLandscape != pixelsAreLandscape );
+  const bool needsFlip = ( mCaptureOrientation == Qt::LandscapeOrientation );
+  const bool needsFrontFlip = ( mCameraPosition == 2 );
   const bool hasExifTag = ( exifTransform != QImageIOHandler::TransformationNone );
 
-  if ( !needsRotation && !hasExifTag )
+  if ( !needsRotation && !needsFlip && !needsFrontFlip && !hasExifTag )
   {
     return false;
   }
 
-  if ( needsRotation )
+  if ( needsRotation || needsFlip || needsFrontFlip )
   {
-    QTransform transform;
-    transform.rotate( pixelsAreLandscape ? 90 : 270 );
-    image = image.transformed( transform, Qt::SmoothTransformation );
+    int angle = 0;
+    if ( needsRotation )
+    {
+      angle += pixelsAreLandscape ? 90 : 270;
+    }
+    if ( needsFlip )
+    {
+      angle += 180;
+    }
+    if ( needsFrontFlip )
+    {
+      angle += 180;
+    }
+    angle %= 360;
+    if ( angle != 0 )
+    {
+      QTransform transform;
+      transform.rotate( angle );
+      image = image.transformed( transform, Qt::SmoothTransformation );
+    }
   }
 
   QImageWriter writer( path );
@@ -112,7 +149,6 @@ void CameraOrientationNormalizer::updatePreviewRotation()
   const int screenAngle = screen->angleBetween( screen->nativeOrientation(), mCurrentOrientation );
   const bool isLandscape = ( screenAngle == 90 || screenAngle == 270 );
   const int rotation = isLandscape ? 180 : 0;
-
   if ( rotation != mPreviewRotation )
   {
     mPreviewRotation = rotation;
