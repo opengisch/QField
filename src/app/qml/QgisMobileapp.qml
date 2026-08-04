@@ -853,6 +853,7 @@ ApplicationWindow {
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
+      mouseAsTouchScreen: qfieldSettings.mouseAsTouchScreen
       incrementalRendering: true
       quality: qfieldSettings.quality
       smooth: gnssButton.followActive && !mapCanvasMap.jumping
