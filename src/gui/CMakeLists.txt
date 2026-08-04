@@ -150,41 +150,41 @@ set(QFIELD_GUI_QML_FILES
     qml/QfWelcomeAction.qml
     qml/QfWelcomeScreen.qml
     qml/editorwidgets/ExternalResourceUtils.js
-    qml/editorwidgets/QfBinary.qml
-    qml/editorwidgets/QfCheckBox.qml
-    qml/editorwidgets/QfColor.qml
-    qml/editorwidgets/QfDateTime.qml
     qml/editorwidgets/QfEditorWidgetBase.qml
-    qml/editorwidgets/QfExternalResource.qml
-    qml/editorwidgets/QfRange.qml
+    qml/editorwidgets/QfEditorWidgetBinary.qml
+    qml/editorwidgets/QfEditorWidgetCheckBox.qml
+    qml/editorwidgets/QfEditorWidgetColor.qml
+    qml/editorwidgets/QfEditorWidgetDateTime.qml
+    qml/editorwidgets/QfEditorWidgetExternalResource.qml
+    qml/editorwidgets/QfEditorWidgetRange.qml
+    qml/editorwidgets/QfEditorWidgetRelationReference.qml
+    qml/editorwidgets/QfEditorWidgetTextEdit.qml
+    qml/editorwidgets/QfEditorWidgetUuidGenerator.qml
+    qml/editorwidgets/QfEditorWidgetValueMap.qml
+    qml/editorwidgets/QfEditorWidgetValueRelation.qml
     qml/editorwidgets/QfRelationEditorBase.qml
-    qml/editorwidgets/QfRelationReference.qml
-    qml/editorwidgets/QfTextEdit.qml
-    qml/editorwidgets/QfUuidGenerator.qml
-    qml/editorwidgets/QfValueMap.qml
-    qml/editorwidgets/QfValueRelation.qml
     qml/editorwidgets/relationeditors/gallery_relation_editor.qml
     qml/editorwidgets/relationeditors/ordered_relation_editor.qml
     qml/editorwidgets/relationeditors/relation_editor.qml
-    qml/geometryeditors/QfErase.qml
-    qml/geometryeditors/QfFillRing.qml
     qml/geometryeditors/QfGeometryEditorBase.qml
-    qml/geometryeditors/QfReshape.qml
-    qml/geometryeditors/QfSplitFeature.qml
-    qml/geometryeditors/QfVertexEditor.qml
+    qml/geometryeditors/QfGeometryEditorErase.qml
+    qml/geometryeditors/QfGeometryEditorFillRing.qml
+    qml/geometryeditors/QfGeometryEditorReshape.qml
+    qml/geometryeditors/QfGeometryEditorSplitFeature.qml
+    qml/geometryeditors/QfGeometryEditorVertexEditor.qml
+    qml/cogoparameterwidgets/QfCogoParameterAngle.qml
+    qml/cogoparameterwidgets/QfCogoParameterDistance.qml
+    qml/cogoparameterwidgets/QfCogoParameterElevation.qml
+    qml/cogoparameterwidgets/QfCogoParameterEnum.qml
+    qml/cogoparameterwidgets/QfCogoParameterPoint.qml
     qml/cogoparameterwidgets/QfCogoParameterWidgetBase.qml
-    qml/cogoparameterwidgets/angle.qml
-    qml/cogoparameterwidgets/distance.qml
-    qml/cogoparameterwidgets/elevation.qml
-    qml/cogoparameterwidgets/enum.qml
-    qml/cogoparameterwidgets/point.qml
-    qml/processingparameterwidgets/QfProcessingParameterWidgetBase.qml
-    qml/processingparameterwidgets/area.qml
-    qml/processingparameterwidgets/boolean.qml
-    qml/processingparameterwidgets/distance.qml
-    qml/processingparameterwidgets/enum.qml
-    qml/processingparameterwidgets/number.qml
-    qml/processingparameterwidgets/source.qml)
+    qml/processingparameterwidgets/QfProcessingParameterArea.qml
+    qml/processingparameterwidgets/QfProcessingParameterBoolean.qml
+    qml/processingparameterwidgets/QfProcessingParameterDistance.qml
+    qml/processingparameterwidgets/QfProcessingParameterEnum.qml
+    qml/processingparameterwidgets/QfProcessingParameterNumber.qml
+    qml/processingparameterwidgets/QfProcessingParameterSource.qml
+    qml/processingparameterwidgets/QfProcessingParameterWidgetBase.qml)
 
 # A plain script, not a component to expose.
 set_source_files_properties(qml/editorwidgets/ExternalResourceUtils.js

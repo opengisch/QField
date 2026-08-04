@@ -103,37 +103,37 @@ TestCase {
       {
         "containerName": "Number of Boxes",
         "widgetType": "Range",
-        "source": "editorwidgets/QfRange.qml",
+        "source": "editorwidgets/QfEditorWidgetRange.qml",
         "value": 7
       },
       {
         "containerName": "Species of Bees",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/QfValueMap.qml",
+        "source": "editorwidgets/QfEditorWidgetValueMap.qml",
         "value": "Apis Mellifera Carnica"
       },
       {
         "containerName": "Amount of Bees",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/QfValueMap.qml",
+        "source": "editorwidgets/QfEditorWidgetValueMap.qml",
         "value": "1000"
       },
       {
         "containerName": "Beekeeper",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/QfTextEdit.qml",
+        "source": "editorwidgets/QfEditorWidgetTextEdit.qml",
         "value": "Stephen Hawking"
       },
       {
         "containerName": "Yearly Harvest (kg)",
         "widgetType": "Range",
-        "source": "editorwidgets/QfRange.qml",
+        "source": "editorwidgets/QfEditorWidgetRange.qml",
         "value": 10
       },
       {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
-        "source": "editorwidgets/QfValueRelation.qml",
+        "source": "editorwidgets/QfEditorWidgetValueRelation.qml",
         "value": ""
       }
     ];
@@ -184,19 +184,19 @@ TestCase {
       {
         "containerName": "Proprietor",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/QfValueMap.qml",
+        "source": "editorwidgets/QfEditorWidgetValueMap.qml",
         "value": "national"
       },
       {
         "containerName": "Plants",
         "widgetType": "ValueMap",
-        "source": "editorwidgets/QfValueMap.qml",
+        "source": "editorwidgets/QfEditorWidgetValueMap.qml",
         "value": "taraxacum"
       },
       {
         "containerName": "Owner",
         "widgetType": "ValueRelation",
-        "source": "editorwidgets/QfValueRelation.qml",
+        "source": "editorwidgets/QfEditorWidgetValueRelation.qml",
         "value": "2"
       }
     ];
@@ -242,19 +242,19 @@ TestCase {
       {
         "containerName": "Track Name",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/QfTextEdit.qml",
+        "source": "editorwidgets/QfEditorWidgetTextEdit.qml",
         "value": "Munt Sura"
       },
       {
         "containerName": "Region",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/QfTextEdit.qml",
+        "source": "editorwidgets/QfEditorWidgetTextEdit.qml",
         "value": ""
       },
       {
         "containerName": "Editor Name",
         "widgetType": "TextEdit",
-        "source": "editorwidgets/QfTextEdit.qml",
+        "source": "editorwidgets/QfEditorWidgetTextEdit.qml",
         "value": "Linda Camathiias"
       }
     ];
@@ -436,7 +436,7 @@ TestCase {
     textEditLoader.value = initialTextValue;
     wait(50);
 
-    // Test QfValueMap widget
+    // Test QfEditorWidgetValueMap widget
     const valueMapLoader = Utils.findChildren(featureForm, "attributeEditorLoader" + fieldItem.itemAt(1).children[0].children[0].text);
     compare(valueMapLoader.widget, "ValueMap");
 

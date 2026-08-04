@@ -43,11 +43,11 @@ QfVisibilityFadingRow {
   }
 
   Component.onCompleted: {
-    editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "geometryeditors/QfVertexEditor.qml");
-    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/QfSplitFeature.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
-    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/QfReshape.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
-    editors.addEditor(qsTr("Erase Tool"), "ic_erase_tool_white_24dp", "geometryeditors/QfErase.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
-    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/QfFillRing.qml", GeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "geometryeditors/QfGeometryEditorVertexEditor.qml");
+    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/QfGeometryEditorSplitFeature.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/QfGeometryEditorReshape.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Erase Tool"), "ic_erase_tool_white_24dp", "geometryeditors/QfGeometryEditorErase.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/QfGeometryEditorFillRing.qml", GeometryEditorsModelSingleton.Polygon);
   }
 
   function init() {

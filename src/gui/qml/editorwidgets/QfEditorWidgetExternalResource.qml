@@ -167,7 +167,7 @@ QfEditorWidgetBase {
       mediaFrame.height = 48;
 
       image.source = '';
-      image.visible = documentViewer == QfExternalResource.DocumentImage;
+      image.visible = documentViewer == QfEditorWidgetExternalResource.DocumentImage;
       image.opacity = 0.15;
       geoTagBadge.visible = false;
 
@@ -594,7 +594,7 @@ QfEditorWidgetBase {
     height: Theme.toolButtonSize
 
     // QField has historically handled no viewer type as image, let's carry that on
-    visible: documentViewer == QfExternalResource.DocumentImage && isEnabled
+    visible: documentViewer == QfEditorWidgetExternalResource.DocumentImage && isEnabled
 
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
@@ -611,7 +611,7 @@ QfEditorWidgetBase {
     width: visible ? Theme.toolButtonSize : 0
     height: Theme.toolButtonSize
 
-    visible: documentViewer == QfExternalResource.DocumentVideo && isEnabled
+    visible: documentViewer == QfEditorWidgetExternalResource.DocumentVideo && isEnabled
 
     anchors.right: microphoneButton.left
     anchors.top: parent.top
@@ -628,7 +628,7 @@ QfEditorWidgetBase {
     width: visible ? Theme.toolButtonSize : 0
     height: Theme.toolButtonSize
 
-    visible: documentViewer == QfExternalResource.DocumentAudio && isEnabled
+    visible: documentViewer == QfEditorWidgetExternalResource.DocumentAudio && isEnabled
 
     anchors.right: fileButton.left
     anchors.top: parent.top
@@ -645,7 +645,7 @@ QfEditorWidgetBase {
     width: visible ? Theme.toolButtonSize : 0
     height: Theme.toolButtonSize
 
-    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == QfExternalResource.DocumentFile && isEnabled
+    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -789,7 +789,7 @@ QfEditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (documentViewer == QfExternalResource.DocumentAudio) {
+    if (documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
     } else {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "*/*", this);
@@ -800,7 +800,7 @@ QfEditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (documentViewer == QfExternalResource.DocumentVideo) {
+    if (documentViewer == QfEditorWidgetExternalResource.DocumentVideo) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
       __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);

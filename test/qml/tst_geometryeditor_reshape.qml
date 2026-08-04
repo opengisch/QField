@@ -61,7 +61,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.QfReshape {
+  GeometryEditors.QfGeometryEditorReshape {
     id: reshapeTool
     featureModel: featureModel
     mapSettings: mapSettingsItem

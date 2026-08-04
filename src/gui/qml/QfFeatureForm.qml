@@ -833,7 +833,7 @@ Page {
               if (widget === 'RelationEditor') {
                 return 'editorwidgets/relationeditors/' + (RelationEditorWidget || 'relation_editor') + '.qml';
               }
-              return 'editorwidgets/Qf' + (widget || 'TextEdit') + '.qml';
+              return 'editorwidgets/QfEditorWidget' + (widget || 'TextEdit') + '.qml';
             }
 
             onLoaded: {
@@ -842,7 +842,7 @@ Page {
 
             onStatusChanged: {
               if (attributeEditorLoader.status === Loader.Error) {
-                source = (widget === 'RelationEditor') ? 'editorwidgets/relationeditors/relation_editor.qml' : 'editorwidgets/QfTextEdit.qml';
+                source = (widget === 'RelationEditor') ? 'editorwidgets/relationeditors/relation_editor.qml' : 'editorwidgets/QfEditorWidgetTextEdit.qml';
               }
             }
           }

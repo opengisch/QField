@@ -65,7 +65,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.QfVertexEditor {
+  GeometryEditors.QfGeometryEditorVertexEditor {
     id: vertexTool
     featureModel: featureModel
     mapSettings: mapSettingsItem

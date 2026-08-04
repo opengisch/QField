@@ -73,7 +73,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.QfSplitFeature {
+  GeometryEditors.QfGeometryEditorSplitFeature {
     id: splitTool
     featureModel: featureModel
     mapSettings: mapSettingsItem

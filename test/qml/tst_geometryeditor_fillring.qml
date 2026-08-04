@@ -60,7 +60,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.QfFillRing {
+  GeometryEditors.QfGeometryEditorFillRing {
     id: fillRingTool
     featureModel: featureModel
     mapSettings: mapSettingsItem

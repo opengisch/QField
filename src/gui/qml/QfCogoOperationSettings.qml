@@ -58,7 +58,10 @@ QfOverlayContainer {
 
           y: 2
           width: parent.width
-          source: "cogoparameterwidgets/" + modelData.type + ".qml"
+          source: {
+            const type = modelData.type;
+            return "cogoparameterwidgets/QfCogoParameter" + type.charAt(0).toUpperCase() + type.slice(1) + ".qml";
+          }
         }
 
         Connections {

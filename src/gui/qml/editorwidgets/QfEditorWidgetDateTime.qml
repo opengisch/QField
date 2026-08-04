@@ -13,7 +13,7 @@ import org.qfield.gui
 
   If the calendar_popup is enabled, no direct editing is possible in the TextField.
   If not, it will try to match the display_format with the best possible InputMask.
-  A Date/Time object (Date in QML) is used even with text field as source (not QfDateTime)
+  A Date/Time object (Date in QML) is used even with text field as source (not QfEditorWidgetDateTime)
   to allow a full flexibility of field and display formats.
 
  */

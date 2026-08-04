@@ -234,7 +234,7 @@ Item {
 
             active: true
             source: {
-              return 'processingparameterwidgets/' + widget + '.qml';
+              return 'processingparameterwidgets/QfProcessingParameter' + widget.charAt(0).toUpperCase() + widget.slice(1) + '.qml';
             }
           }
 

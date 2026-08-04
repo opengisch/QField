@@ -49,15 +49,22 @@ AttributeFormModelBase::AttributeFormModelBase( QObject *parent )
 
   if ( sSupportedEditorWidgets->isEmpty() )
   {
+    // Our QML files carry a QfEditorWidget prefix, the widget names QGIS hands us don't
+    const QString prefix = QStringLiteral( "QfEditorWidget" );
     QDirIterator it( QStringLiteral( ":/qt/qml/org/qfield/gui/editorwidgets" ) );
     while ( it.hasNext() )
     {
       it.next();
       const QFileInfo fileInfo = it.fileInfo();
-      if ( fileInfo.isFile() )
+      if ( !fileInfo.isFile() )
       {
-        // Our QML files carry a Qf prefix, the widget names QGIS hands us don't
-        sSupportedEditorWidgets->append( fileInfo.baseName().mid( 2 ) );
+        continue;
+      }
+
+      const QString baseName = fileInfo.baseName();
+      if ( baseName.startsWith( prefix ) && baseName != prefix + QStringLiteral( "Base" ) )
+      {
+        sSupportedEditorWidgets->append( baseName.mid( prefix.length() ) );
       }
     }
     sSupportedEditorWidgets->append( QStringLiteral( "RelationEditor" ) );
