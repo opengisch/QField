@@ -17,7 +17,7 @@
 #ifndef QUICK3DGEOMETRYUTILS_H
 #define QUICK3DGEOMETRYUTILS_H
 
-#include "qfield_core_export.h"
+#include "qfield_3d_export.h"
 
 #include <QVector3D>
 #include <QVector>
@@ -29,7 +29,7 @@
  *
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT Quick3DGeometryUtils
+class QFIELD_3D_EXPORT Quick3DGeometryUtils
 {
   public:
     //! Byte stride of a single vertex: position(3) + normal(3) + rgba(4) = 10 floats.

@@ -87,7 +87,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
-    foreach(qml_target qfield_core qfield_gui qfield_app)
+    foreach(qml_target qfield_core qfield_3d qfield_gui qfield_app)
       get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
       file(COPY ${qfield_qmlfiles}
            DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")

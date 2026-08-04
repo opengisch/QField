@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick3D
-import org.qfield.core
+import org.qfield._3d
 
 /**
  * Wraps Quick3DRubberbandGeometry in a ready-to-use Node with a matte PBR material.

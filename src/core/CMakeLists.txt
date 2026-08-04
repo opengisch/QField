@@ -4,14 +4,6 @@ set(QFIELD_CORE_SRCS
     cogo/cogooperationsmodel.cpp
     cogo/cogoregistry.cpp
     platforms/platformutilities.cpp
-    3d/quick3dterraingeometry.cpp
-    3d/quick3dterrainprovider.cpp
-    3d/quick3dmaptexturedata.cpp
-    3d/quick3drubberbandgeometry.cpp
-    3d/quick3dgeometry.cpp
-    3d/quick3dgeometryconfiguration.cpp
-    3d/quick3dgeometryutils.cpp
-    3d/maptoview3d.cpp
     utils/authutils.cpp
     utils/coordinatereferencesystemutils.cpp
     utils/expressioncontextutils.cpp
@@ -128,14 +120,6 @@ set(QFIELD_CORE_HDRS
     cogo/cogooperationsmodel.h
     cogo/cogoregistry.h
     platforms/platformutilities.h
-    3d/quick3dterraingeometry.h
-    3d/quick3dterrainprovider.h
-    3d/quick3dmaptexturedata.h
-    3d/quick3drubberbandgeometry.h
-    3d/quick3dgeometryutils.h
-    3d/quick3dgeometry.h
-    3d/quick3dgeometryconfiguration.h
-    3d/maptoview3d.h
     utils/authutils.h
     utils/coordinatereferencesystemutils.h
     utils/expressioncontextutils.h
@@ -366,7 +350,6 @@ target_link_libraries(
          Qt::Multimedia
          Qt::RemoteObjects
          Qt::WebSockets
-         Qt::Quick3D
          QGIS::Core
          QGIS::Analysis
          ZXing::ZXing
@@ -463,19 +446,9 @@ set(QFIELD_CORE_QML_FILES
     qml/QfRubberband.qml
     qml/QfScaleBar.qml
     qml/QfTrackingSession.qml
-    qml/QfVertexRubberband.qml
-    qml/_3d/QfFeatureListSelectionHighlight3D.qml
-    qml/_3d/QfMapCanvas3D.qml
-    qml/_3d/QfRubberband3D.qml
-    qml/_3d/QfTerrainMesh.qml
-    qml/_3d/QfTouchCameraController.qml)
+    qml/QfVertexRubberband.qml)
 
-# Generate a qmldir for the _3d subdirectory.
-qt_policy(SET QTP0004 NEW)
-
-# NO_GENERATE_QMLTYPES keeps type registration where it is, in
-# QFieldCore::registerQmlTypes(). Without it the QML_ELEMENT classes under 3d/
-# would also register themselves and end up registered twice.
+# Type registration stays imperative, in QFieldCore::registerQmlTypes().
 qt_add_qml_module(
   qfield_core
   URI

@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick3D
+import org.qfield._3d
 import org.qfield.core
 
 /**

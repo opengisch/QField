@@ -13,13 +13,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "3d/maptoview3d.h"
-#include "3d/quick3dgeometry.h"
-#include "3d/quick3dgeometryconfiguration.h"
-#include "3d/quick3dmaptexturedata.h"
-#include "3d/quick3drubberbandgeometry.h"
-#include "3d/quick3dterraingeometry.h"
-#include "3d/quick3dterrainprovider.h"
 #include "appexpressioncontextscopesgenerator.h"
 #include "appinterface.h"
 #include "audioanalyzer.h"
@@ -187,7 +180,6 @@ namespace QFieldCore
     qmlRegisterType<LocatorModelSuperBridge>( "org.qfield.core", 1, 0, "LocatorModelSuperBridge" );
     qmlRegisterType<MapLayerModel>( "org.qfield.core", 1, 0, "MapLayerModel" );
     qmlRegisterType<MapToScreen>( "org.qfield.core", 1, 0, "MapToScreen" );
-    qmlRegisterType<MapToView3D>( "org.qfield.core", 1, 0, "MapToView3D" );
     qmlRegisterType<MultiFeatureListModel>( "org.qfield.core", 1, 0, "MultiFeatureListModel" );
     qmlRegisterType<Navigation>( "org.qfield.core", 1, 0, "Navigation" );
     qmlRegisterType<NavigationModel>( "org.qfield.core", 1, 0, "NavigationModel" );
@@ -208,12 +200,6 @@ namespace QFieldCore
     qmlRegisterType<QFieldLocatorFilter>( "org.qfield.core", 1, 0, "QFieldLocatorFilter" );
     qmlRegisterType<QgsGeometryWrapper>( "org.qfield.core", 1, 0, "QgsGeometryWrapper" );
     qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield.core", 1, 0, "CoordinateTransformer" );
-    qmlRegisterType<Quick3DGeometry>( "org.qfield.core", 1, 0, "Quick3DGeometry" );
-    qmlRegisterType<Quick3DGeometryConfiguration>( "org.qfield.core", 1, 0, "Quick3DGeometryConfiguration" );
-    qmlRegisterType<Quick3DMapTextureData>( "org.qfield.core", 1, 0, "Quick3DMapTextureData" );
-    qmlRegisterType<Quick3DRubberbandGeometry>( "org.qfield.core", 1, 0, "Quick3DRubberbandGeometry" );
-    qmlRegisterType<Quick3DTerrainGeometry>( "org.qfield.core", 1, 0, "Quick3DTerrainGeometry" );
-    qmlRegisterType<Quick3DTerrainProvider>( "org.qfield.core", 1, 0, "Quick3DTerrainProvider" );
     qmlRegisterType<ResourceSource>( "org.qfield.core", 1, 0, "ResourceSource" );
     qmlRegisterType<RubberbandModel>( "org.qfield.core", 1, 0, "RubberbandModel" );
     qmlRegisterType<RubberbandShape>( "org.qfield.core", 1, 0, "RubberbandShape" );

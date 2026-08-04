@@ -109,7 +109,7 @@ target_compile_features(qfield_app PUBLIC cxx_std_20)
 
 set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
 
-target_link_libraries(qfield_app PUBLIC qfield_gui)
+target_link_libraries(qfield_app PUBLIC qfield_3d qfield_gui)
 
 set(QFIELD_APP_QML_FILES
     qml/About.qml
@@ -216,7 +216,7 @@ function(create_executable)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt6 COMPONENTS QmlImportScanner)
 
-    foreach(qml_target qfield_core qfield_gui qfield_app)
+    foreach(qml_target qfield_core qfield_3d qfield_gui qfield_app)
       get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
       file(COPY ${qfield_qmlfiles}
            DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")

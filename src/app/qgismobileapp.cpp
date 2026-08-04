@@ -64,6 +64,7 @@
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "qfield.h"
+#include "qfield3dqmlregistration.h"
 #include "qfieldappqmlregistration.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
@@ -386,6 +387,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<PositioningSource::NtripState>( "PositioningSource::NtripState" );
 
   QFieldCore::registerQmlTypes();
+  QField3D::registerQmlTypes();
   QFieldGui::registerQmlTypes();
   QFieldApp::registerQmlTypes();
 

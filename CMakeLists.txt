@@ -237,6 +237,7 @@ endif ()
 set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
 
 add_subdirectory(src/core)
+add_subdirectory(src/3d)
 add_subdirectory(src/gui)
 if (ANDROID)
   add_subdirectory(src/service)

@@ -759,7 +759,7 @@ ApplicationWindow {
         }
       }
 
-      source: "qrc:/qt/qml/org/qfield/core/_3d/QfMapCanvas3D.qml"
+      source: "qrc:/qt/qml/org/qfield/_3d/QfMapCanvas3D.qml"
 
       onActiveChanged: {
         if (active) {

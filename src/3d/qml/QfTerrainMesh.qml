@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick3D
-import org.qfield.core
+import org.qfield._3d
 
 Node {
   id: root
