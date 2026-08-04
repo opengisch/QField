@@ -66,26 +66,33 @@ endfunction()
 if(TRUE) # Should possibly have a "static only" check
   find_package(PkgConfig QUIET)
 
-  _find_and_link_library(authmethod_apiheader_a QGIS::Core)
-  _find_and_link_library(authmethod_awss3_a QGIS::Core)
-  _find_and_link_library(authmethod_basic_a QGIS::Core)
-  _find_and_link_library(authmethod_esritoken_a QGIS::Core)
-  _find_and_link_library(authmethod_identcert_a QGIS::Core)
-  _find_and_link_library(authmethod_maptilerhmacsha256_a QGIS::Core)
-  _find_and_link_library(authmethod_oauth2_a QGIS::Core)
-  _find_and_link_library(authmethod_pkcs12_a QGIS::Core)
-  _find_and_link_library(authmethod_pkipaths_a QGIS::Core)
-  _find_and_link_library(authmethod_planetary_computer_a QGIS::Core)
-  _find_and_link_library(provider_postgres_a QGIS::Core)
-  _find_and_link_library(provider_postgresraster_a QGIS::Core)
-  _find_and_link_library(provider_wms_a QGIS::Core)
-  _find_and_link_library(provider_delimitedtext_a QGIS::Core)
-  _find_and_link_library(provider_arcgisfeatureserver_a QGIS::Core)
-  _find_and_link_library(provider_arcgismapserver_a QGIS::Core)
-  _find_and_link_library(provider_spatialite_a QGIS::Core)
-  _find_and_link_library(provider_wfs_a QGIS::Core)
-  _find_and_link_library(provider_wcs_a QGIS::Core)
-  _find_and_link_library(provider_virtuallayer_a QGIS::Core)
+  # The static provider/auth-method archives (authmethod_*_a, provider_*_a)
+  # only exist when QGIS itself is built statically (Android, iOS,
+  # *-windows-static). A dynamic qgis_core.dll loads its providers at runtime
+  # instead, so there is nothing to link into consumers.
+  find_library(QGIS_STATIC_MARKER_LIBRARY NAMES authmethod_apiheader_a)
+  if(QGIS_STATIC_MARKER_LIBRARY)
+    _find_and_link_library(authmethod_apiheader_a QGIS::Core)
+    _find_and_link_library(authmethod_awss3_a QGIS::Core)
+    _find_and_link_library(authmethod_basic_a QGIS::Core)
+    _find_and_link_library(authmethod_esritoken_a QGIS::Core)
+    _find_and_link_library(authmethod_identcert_a QGIS::Core)
+    _find_and_link_library(authmethod_maptilerhmacsha256_a QGIS::Core)
+    _find_and_link_library(authmethod_oauth2_a QGIS::Core)
+    _find_and_link_library(authmethod_pkcs12_a QGIS::Core)
+    _find_and_link_library(authmethod_pkipaths_a QGIS::Core)
+    _find_and_link_library(authmethod_planetary_computer_a QGIS::Core)
+    _find_and_link_library(provider_postgres_a QGIS::Core)
+    _find_and_link_library(provider_postgresraster_a QGIS::Core)
+    _find_and_link_library(provider_wms_a QGIS::Core)
+    _find_and_link_library(provider_delimitedtext_a QGIS::Core)
+    _find_and_link_library(provider_arcgisfeatureserver_a QGIS::Core)
+    _find_and_link_library(provider_arcgismapserver_a QGIS::Core)
+    _find_and_link_library(provider_spatialite_a QGIS::Core)
+    _find_and_link_library(provider_wfs_a QGIS::Core)
+    _find_and_link_library(provider_wcs_a QGIS::Core)
+    _find_and_link_library(provider_virtuallayer_a QGIS::Core)
+  endif()
 
   _qgis_core_add_dependency(PostgreSQL::PostgreSQL PostgreSQL)
 
@@ -101,8 +108,13 @@ if(TRUE) # Should possibly have a "static only" check
   #  endif()
 
   _qgis_core_add_dependency(qca Qca CONFIG)
-  _qgis_core_add_dependency(Protobuf Protobuf)
-  target_link_libraries(QGIS::Core INTERFACE protobuf::libprotobuf-lite)
+  # Dynamic Windows QGIS builds already export the protobuf symbols from
+  # qgis_core.dll; linking libprotobuf-lite again would duplicate them. Static
+  # builds (everything else, including *-windows-static) link it explicitly.
+  if(NOT WIN32 OR QGIS_STATIC_MARKER_LIBRARY)
+    _qgis_core_add_dependency(Protobuf Protobuf)
+    target_link_libraries(QGIS::Core INTERFACE protobuf::libprotobuf-lite)
+  endif()
   # Terrible hack ahead
   # 1. geos and proj add libc++.so to their pkgconfig linker instruction
   # 2. This is propagated through spatialite and GDAL
