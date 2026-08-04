@@ -420,7 +420,12 @@ if(MSVC)
            ${OPENH264_LIBRARY})
 endif()
 
-install(FILES ${QFIELD_CORE_HDRS} DESTINATION ${QFIELD_INCLUDE_DIR})
+# generate_export_header() writes qfield_core_export.h into the build tree, and
+# installed public headers (theme.h, qgsquickmapsettings.h, platformutilities.h,
+# ...) include it, so it has to ship alongside them.
+install(FILES ${QFIELD_CORE_HDRS}
+              "${CMAKE_CURRENT_BINARY_DIR}/qfield_core_export.h"
+        DESTINATION ${QFIELD_INCLUDE_DIR})
 install(
   TARGETS qfield_core
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}
