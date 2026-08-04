@@ -2,7 +2,6 @@ import QtQuick
 import org.qgis
 import org.qfield.core
 import org.qfield.gui
-import org.qfield.gui.geometryeditors
 
 QfGeometryEditorBase {
   id: splitFeatureToolbar

@@ -1,7 +1,7 @@
 import QtQuick
 import QtTest
 import org.qfield.core
-import org.qfield.gui.editorwidgets as EditorWidgets
+import org.qfield.gui as EditorWidgets
 import "Utils.js" as Utils
 
 TestCase {

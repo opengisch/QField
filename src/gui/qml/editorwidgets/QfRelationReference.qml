@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import org.qfield.core
 import org.qfield.gui
-import org.qfield.gui.editorwidgets
 import org.qgis
 
 QfEditorWidgetBase {

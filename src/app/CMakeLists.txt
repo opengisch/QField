@@ -111,8 +111,53 @@ set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_app PUBLIC qfield_gui)
 
-add_subdirectory(qml)
-target_link_libraries(qfield_app PUBLIC qfield_app_qml)
+set(QFIELD_APP_QML_FILES
+    qml/About.qml
+    qml/BadLayerItem.qml
+    qml/Changelog.qml
+    qml/DashBoard.qml
+    qml/Dummy.qml
+    qml/Nyuki.qml
+    qml/PluginItem.qml
+    qml/PluginManagerSettings.qml
+    qml/QFieldCloudDangerZone.qml
+    qml/QFieldCloudDeltaHistory.qml
+    qml/QFieldCloudLogin.qml
+    qml/QFieldCloudPackageLayersFeedback.qml
+    qml/QFieldCloudPopup.qml
+    qml/QFieldCloudProjectDetails.qml
+    qml/QFieldCloudProjectFilter.qml
+    qml/QFieldCloudScreen.qml
+    qml/QFieldCloudStatusBanner.qml
+    qml/QFieldGuide.qml
+    qml/QFieldLocalDataPickerScreen.qml
+    qml/QFieldSettings.qml
+    qml/QFieldSketcher.qml
+    qml/QgisMobileapp.qml
+    qml/ScreenLocker.qml)
+
+qt_add_qml_module(
+  qfield_app
+  URI
+  org.qfield.app
+  VERSION
+  1.0
+  NO_PLUGIN
+  NO_GENERATE_QMLTYPES
+  RESOURCE_PREFIX
+  "/qt/qml"
+  QML_FILES
+  ${QFIELD_APP_QML_FILES})
+
+qt_import_qml_plugins(qfield_app)
+
+# Absolute, because src/app and test copy these from another directory.
+set(QFIELD_APP_QML_FILES_ABS "")
+foreach(qml_file ${QFIELD_APP_QML_FILES})
+  list(APPEND QFIELD_APP_QML_FILES_ABS
+       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
+endforeach()
+set_property(TARGET qfield_app PROPERTY QML_FILES ${QFIELD_APP_QML_FILES_ABS})
 
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
@@ -171,16 +216,7 @@ function(create_executable)
   if(${QT_TARGET_TYPE} STREQUAL "STATIC_LIBRARY")
     find_package(Qt6 COMPONENTS QmlImportScanner)
 
-    foreach(
-      qml_target
-      qfield_core_qml
-      qfield_core_qml_3d
-      qfield_gui_qml
-      qfield_gui_qml_editorwidgets
-      qfield_gui_qml_geometryeditors
-      qfield_gui_qml_cogoparameterwidgets
-      qfield_gui_qml_processingparameterwidgets
-      qfield_app_qml)
+    foreach(qml_target qfield_core qfield_gui qfield_app)
       get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
       file(COPY ${qfield_qmlfiles}
            DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")

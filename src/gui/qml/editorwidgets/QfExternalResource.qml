@@ -6,7 +6,6 @@ import QtMultimedia
 import org.qgis
 import org.qfield.core
 import org.qfield.gui
-import org.qfield.gui.editorwidgets
 import "ExternalResourceUtils.js" as ExternalResourceUtils
 
 QfEditorWidgetBase {

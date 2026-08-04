@@ -5,7 +5,6 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import org.qfield.core
 import org.qfield.gui
-import org.qfield.gui.editorwidgets
 import org.qgis
 
 QfRelationEditorBase {

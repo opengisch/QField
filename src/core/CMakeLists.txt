@@ -440,5 +440,61 @@ install(
   FRAMEWORK DESTINATION ${QFIELD_FW_SUBDIR}
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR})
 
-add_subdirectory(qml)
-target_link_libraries(qfield_core PUBLIC qfield_core_qml qfield_core_qml_3d)
+set(QFIELD_CORE_QML_FILES
+    qml/QfBookmarkHighlight.qml
+    qml/QfBookmarkRenderer.qml
+    qml/QfCogoOperationPreview.qml
+    qml/QfCoordinateLocator.qml
+    qml/QfDropShadow.qml
+    qml/QfFeatureListSelectionHighlight.qml
+    qml/QfGeometryHighlighter.qml
+    qml/QfGeometryRenderer.qml
+    qml/QfGridRenderer.qml
+    qml/QfKineticHandler.qml
+    qml/QfLinePolygon.qml
+    qml/QfLocationMarker.qml
+    qml/QfMapCanvas.qml
+    qml/QfMapCanvasPointHandler.qml
+    qml/QfMeasuringTool.qml
+    qml/QfNavigationHighlight.qml
+    qml/QfNavigationRenderer.qml
+    qml/QfPositioningSettings.qml
+    qml/QfProcessingAlgorithmPreview.qml
+    qml/QfRubberband.qml
+    qml/QfScaleBar.qml
+    qml/QfTrackingSession.qml
+    qml/QfVertexRubberband.qml
+    qml/_3d/QfFeatureListSelectionHighlight3D.qml
+    qml/_3d/QfMapCanvas3D.qml
+    qml/_3d/QfRubberband3D.qml
+    qml/_3d/QfTerrainMesh.qml
+    qml/_3d/QfTouchCameraController.qml)
+
+# Generate a qmldir for the _3d subdirectory.
+qt_policy(SET QTP0004 NEW)
+
+# NO_GENERATE_QMLTYPES keeps type registration where it is, in
+# QFieldCore::registerQmlTypes(). Without it the QML_ELEMENT classes under 3d/
+# would also register themselves and end up registered twice.
+qt_add_qml_module(
+  qfield_core
+  URI
+  org.qfield.core
+  VERSION
+  1.0
+  NO_PLUGIN
+  NO_GENERATE_QMLTYPES
+  RESOURCE_PREFIX
+  "/qt/qml"
+  QML_FILES
+  ${QFIELD_CORE_QML_FILES})
+
+qt_import_qml_plugins(qfield_core)
+
+# Absolute, because src/app and test copy these from another directory.
+set(QFIELD_CORE_QML_FILES_ABS "")
+foreach(qml_file ${QFIELD_CORE_QML_FILES})
+  list(APPEND QFIELD_CORE_QML_FILES_ABS
+       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
+endforeach()
+set_property(TARGET qfield_core PROPERTY QML_FILES ${QFIELD_CORE_QML_FILES_ABS})

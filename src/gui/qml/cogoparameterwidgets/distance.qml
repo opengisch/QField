@@ -4,7 +4,6 @@ import QtQuick.Layouts
 import org.qfield.gui
 import org.qgis
 import org.qfield.core
-import org.qfield.gui.cogoparameterwidgets
 
 QfCogoParameterWidgetBase {
   id: distanceParameter

@@ -3,7 +3,7 @@ import QtTest
 import org.qfield.core
 import org.qgis
 import "Utils.js" as Utils
-import org.qfield.gui.geometryeditors as GeometryEditors
+import org.qfield.gui as GeometryEditors
 
 TestCase {
   id: testCase

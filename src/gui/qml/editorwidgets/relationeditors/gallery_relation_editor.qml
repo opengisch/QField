@@ -5,7 +5,6 @@ import QtQuick.Controls.Material.impl
 import QtMultimedia
 import org.qfield.core
 import org.qfield.gui
-import org.qfield.gui.editorwidgets
 import org.qgis
 import "../ExternalResourceUtils.js" as ExternalResourceUtils
 
