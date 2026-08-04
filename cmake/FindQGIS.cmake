@@ -120,7 +120,9 @@ if(QGIS_FOUND)
 endif()
 
 if(WITH_VCPKG)
-  include("cmake/qgis-cmake-wrapper.cmake")
+  # The two files are siblings, so resolve the companion relative to this one.
+  # A project-relative path only works while QField is the top-level project.
+  include("${CMAKE_CURRENT_LIST_DIR}/qgis-cmake-wrapper.cmake")
 else()
   target_include_directories(QGIS::Core INTERFACE ${GDAL_INCLUDE_DIR})
 endif()
