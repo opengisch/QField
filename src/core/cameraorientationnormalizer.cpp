@@ -111,13 +111,13 @@ bool CameraOrientationNormalizer::applyEditsToImage( const QString &path, int ro
   }
 
   QTransform transform;
-  if ( angle != 0 )
-  {
-    transform.rotate( angle );
-  }
   if ( mirror )
   {
     transform.scale( -1, 1 );
+  }
+  if ( angle != 0 )
+  {
+    transform.rotate( angle );
   }
   image = image.transformed( transform, Qt::SmoothTransformation );
 

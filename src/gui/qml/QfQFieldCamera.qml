@@ -648,9 +648,10 @@ Popup {
             radius: height / 2
             color: Qt.hsla(Theme.toolButtonBackgroundSemiOpaqueColor.hslHue, Theme.toolButtonBackgroundSemiOpaqueColor.hslSaturation, Theme.toolButtonBackgroundSemiOpaqueColor.hslLightness, 0.3)
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 80 + mainWindow.sceneBottomMargin + cameraItem.panelExtraSpace
+            rotation: cameraItem.isPortraitMode ? 0 : -90
+
+            x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2 - (60 + mainWindow.sceneBottomMargin + cameraItem.panelExtraSpace)
+            y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y + captureRing.height / 2 - height / 2
 
             Row {
               id: photoEditButtonsRow
@@ -663,11 +664,17 @@ Popup {
                 height: 40
                 padding: 2
                 round: true
-                iconSource: Theme.getThemeVectorIcon("ic_rotate_grey_24dp")
                 iconColor: Theme.toolButtonColor
                 bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-                rotation: cameraItem.isPortraitMode ? 0 : 90
                 onClicked: cameraItem.userRotation = (cameraItem.userRotation + 270) % 360
+
+                Image {
+                  anchors.centerIn: parent
+                  width: 24
+                  height: 24
+                  source: Theme.getThemeVectorIcon("ic_rotate_grey_24dp")
+                  rotation: cameraItem.isPortraitMode ? 0 : 90
+                }
               }
 
               QfToolButton {
@@ -676,11 +683,17 @@ Popup {
                 height: 40
                 padding: 2
                 round: true
-                iconSource: Theme.getThemeVectorIcon("ic_reflect_grey_24dp")
                 iconColor: Theme.toolButtonColor
                 bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-                rotation: cameraItem.isPortraitMode ? 0 : 90
                 onClicked: cameraItem.userMirror = !cameraItem.userMirror
+
+                Image {
+                  anchors.centerIn: parent
+                  width: 24
+                  height: 24
+                  source: Theme.getThemeVectorIcon("ic_reflect_grey_24dp")
+                  rotation: cameraItem.isPortraitMode ? 0 : 90
+                }
               }
 
               QfToolButton {
@@ -689,15 +702,18 @@ Popup {
                 height: 40
                 padding: 2
                 round: true
-                iconSource: Theme.getThemeVectorIcon("ic_rotate_grey_24dp")
                 iconColor: Theme.toolButtonColor
                 bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
-                rotation: cameraItem.isPortraitMode ? 0 : 90
-                transform: Scale {
-                  origin.x: rotateRightButton.width / 2
-                  xScale: -1
-                }
                 onClicked: cameraItem.userRotation = (cameraItem.userRotation + 90) % 360
+
+                Image {
+                  anchors.centerIn: parent
+                  width: 24
+                  height: 24
+                  source: Theme.getThemeVectorIcon("ic_rotate_grey_24dp")
+                  mirror: true
+                  rotation: cameraItem.isPortraitMode ? 0 : 90
+                }
               }
             }
           }
