@@ -217,7 +217,7 @@ QString IosProjectSource::projectFromFolder(const QString &folder) const {
   folderPath.remove(QStringLiteral("file://"));
   QDir directory(folderPath);
   if (!directory.exists()) {
-    return;
+    return QString();
   }
   const QStringList projects = directory.entryList(QStringList() << "*.qgs"
                                                                  << "*.QGS"
