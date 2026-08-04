@@ -111,53 +111,7 @@ set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_app PUBLIC qfield_3d qfield_gui)
 
-set(QFIELD_APP_QML_FILES
-    qml/About.qml
-    qml/BadLayerItem.qml
-    qml/Changelog.qml
-    qml/DashBoard.qml
-    qml/Dummy.qml
-    qml/Nyuki.qml
-    qml/PluginItem.qml
-    qml/PluginManagerSettings.qml
-    qml/QFieldCloudDangerZone.qml
-    qml/QFieldCloudDeltaHistory.qml
-    qml/QFieldCloudLogin.qml
-    qml/QFieldCloudPackageLayersFeedback.qml
-    qml/QFieldCloudPopup.qml
-    qml/QFieldCloudProjectDetails.qml
-    qml/QFieldCloudProjectFilter.qml
-    qml/QFieldCloudScreen.qml
-    qml/QFieldCloudStatusBanner.qml
-    qml/QFieldGuide.qml
-    qml/QFieldLocalDataPickerScreen.qml
-    qml/QFieldSettings.qml
-    qml/QFieldSketcher.qml
-    qml/QgisMobileapp.qml
-    qml/ScreenLocker.qml)
-
-qt_add_qml_module(
-  qfield_app
-  URI
-  org.qfield.app
-  VERSION
-  1.0
-  NO_PLUGIN
-  NO_GENERATE_QMLTYPES
-  RESOURCE_PREFIX
-  "/qt/qml"
-  QML_FILES
-  ${QFIELD_APP_QML_FILES})
-
-qt_import_qml_plugins(qfield_app)
-
-# Absolute, because src/app and test copy these from another directory.
-set(QFIELD_APP_QML_FILES_ABS "")
-foreach(qml_file ${QFIELD_APP_QML_FILES})
-  list(APPEND QFIELD_APP_QML_FILES_ABS
-       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
-endforeach()
-set_property(TARGET qfield_app PROPERTY QML_FILES ${QFIELD_APP_QML_FILES_ABS})
+add_subdirectory(qml)
 
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})
