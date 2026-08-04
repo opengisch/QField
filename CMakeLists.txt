@@ -199,7 +199,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   # The QmlImportScanner is not discovered on the host path, it should probably be caught by
   # https://github.com/qt/qtbase/blob/8c14b0c/cmake/QtConfig.cmake.in#L104-L122
   # at least we know where to find it:
-  set(Qt6QmlImportScanner_DIR "${VCPKG_INSTALLED_DIR}/share/Qt6QmlImportScanner")
+  set(Qt6QmlImportScanner_DIR "${QT_HOST_PATH}/share/Qt6QmlImportScanner")
   message(STATUS "QT_HOST_PATH: ${QT_HOST_PATH}")
 endif()
 
