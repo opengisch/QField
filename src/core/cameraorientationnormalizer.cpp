@@ -133,6 +133,44 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
 #endif
 }
 
+bool CameraOrientationNormalizer::applyEditsToImage( const QString &path, int rotation, bool mirror )
+{
+  if ( path.isEmpty() )
+  {
+    return false;
+  }
+
+  const int angle = ( ( rotation % 360 ) + 360 ) % 360;
+  if ( angle == 0 && !mirror )
+  {
+    return false;
+  }
+
+  QImageReader reader( path );
+  reader.setAutoTransform( false );
+  QImage image = reader.read();
+  if ( image.isNull() )
+  {
+    return false;
+  }
+
+  QTransform transform;
+  if ( angle != 0 )
+  {
+    transform.rotate( angle );
+  }
+  if ( mirror )
+  {
+    transform.scale( -1, 1 );
+  }
+  image = image.transformed( transform, Qt::SmoothTransformation );
+
+  QImageWriter writer( path );
+  writer.setTransformation( QImageIOHandler::TransformationNone );
+  writer.setQuality( 95 );
+  return writer.write( image );
+}
+
 void CameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrientation orientation )
 {
   if ( mCurrentOrientation == orientation )

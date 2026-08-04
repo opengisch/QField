@@ -63,6 +63,15 @@ class CameraOrientationNormalizer : public QObject
      */
     Q_INVOKABLE bool normalizeImageOrientation( const QString &path );
 
+    /**
+     * Bakes a user-chosen \a rotation (clockwise degrees, multiples of 90)
+     * and optional horizontal \a mirror into the JPEG at \a path, letting
+     * the user manually adjust a photo before saving.
+     *
+     * Returns false without touching the file when there is nothing to apply.
+     */
+    Q_INVOKABLE bool applyEditsToImage( const QString &path, int rotation, bool mirror );
+
   signals:
     void previewRotationChanged();
     void cameraPositionChanged();

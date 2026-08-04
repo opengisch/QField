@@ -27,6 +27,8 @@ Popup {
 
   readonly property int panelExtraSpace: allowCaptureModeToggle ? 70 : 0
   readonly property int captureOffset: allowCaptureModeToggle ? -25 : 0
+  property int userRotation: 0
+  property bool userMirror: false
 
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
@@ -73,6 +75,8 @@ Popup {
     photoPreview.source = "";
     videoPreview.stop();
     videoPreview.source = "";
+    userRotation = 0;
+    userMirror = false;
 
     captureLoaderActivated = false;
 
@@ -396,6 +400,13 @@ Popup {
       fillMode: Image.PreserveAspectFit
       smooth: true
       focus: visible
+
+      rotation: cameraItem.userRotation
+      transform: Scale {
+        origin.x: photoPreview.width / 2
+        origin.y: photoPreview.height / 2
+        xScale: cameraItem.userMirror ? -1 : 1
+      }
     }
 
     PinchArea {
@@ -534,8 +545,74 @@ Popup {
                       FileUtils.addImageStamp(currentPath, stampExpressionEvaluator.evaluate(), iface.readProjectEntry("qfieldsync", "stampingFontStyle"), iface.readProjectNumEntry("qfieldsync", "stampingHorizontalAlignment", 0), iface.readProjectEntry("qfieldsync", "stampingImageDecoration"));
                     }
                   }
+                  if (cameraItem.userRotation !== 0 || cameraItem.userMirror) {
+                    captureLoader.item.orientationNormalizer.applyEditsToImage(currentPath, cameraItem.userRotation, cameraItem.userMirror);
+                  }
                   cameraItem.finished(currentPath);
                 }
+              }
+            }
+          }
+
+          Rectangle {
+            id: photoEditButtons
+            visible: cameraItem.state == "PhotoPreview"
+
+            width: photoEditButtonsRow.width + 8
+            height: photoEditButtonsRow.height + 8
+            radius: height / 2
+            color: Qt.hsla(Theme.toolButtonBackgroundSemiOpaqueColor.hslHue, Theme.toolButtonBackgroundSemiOpaqueColor.hslSaturation, Theme.toolButtonBackgroundSemiOpaqueColor.hslLightness, 0.3)
+
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 80 + mainWindow.sceneBottomMargin + cameraItem.panelExtraSpace
+
+            Row {
+              id: photoEditButtonsRow
+              anchors.centerIn: parent
+              spacing: 4
+
+              QfToolButton {
+                id: rotateLeftButton
+                width: 40
+                height: 40
+                padding: 2
+                round: true
+                iconSource: Theme.getThemeVectorIcon("ic_rotate_grey_24dp")
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                rotation: cameraItem.isPortraitMode ? 0 : 90
+                onClicked: cameraItem.userRotation = (cameraItem.userRotation + 270) % 360
+              }
+
+              QfToolButton {
+                id: reflectButton
+                width: 40
+                height: 40
+                padding: 2
+                round: true
+                iconSource: Theme.getThemeVectorIcon("ic_reflect_grey_24dp")
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                rotation: cameraItem.isPortraitMode ? 0 : 90
+                onClicked: cameraItem.userMirror = !cameraItem.userMirror
+              }
+
+              QfToolButton {
+                id: rotateRightButton
+                width: 40
+                height: 40
+                padding: 2
+                round: true
+                iconSource: Theme.getThemeVectorIcon("ic_rotate_grey_24dp")
+                iconColor: Theme.toolButtonColor
+                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                rotation: cameraItem.isPortraitMode ? 0 : 90
+                transform: Scale {
+                  origin.x: rotateRightButton.width / 2
+                  xScale: -1
+                }
+                onClicked: cameraItem.userRotation = (cameraItem.userRotation + 90) % 360
               }
             }
           }
@@ -746,6 +823,8 @@ Popup {
 
       onClicked: {
         if (cameraItem.state == "PhotoPreview") {
+          cameraItem.userRotation = 0;
+          cameraItem.userMirror = false;
           cameraItem.state = "PhotoCapture";
         } else if (cameraItem.state == "VideoPreview") {
           videoPreview.stop();
@@ -761,6 +840,7 @@ Popup {
 
     QfToolButtonDrawer {
       name: "cameraSettingsDrawer"
+      visible: cameraItem.isCapturing
 
       anchors.left: parent.left
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
