@@ -58,6 +58,7 @@ Popup {
   parent: mainWindow.contentItem
   modal: true
   focus: true
+  closePolicy: Popup.NoAutoClose
 
   property string state: "PhotoCapture"
   onStateChanged: {
@@ -146,6 +147,7 @@ Popup {
     width: parent.width
     height: parent.height
     padding: 0
+    focus: true
 
     background: Rectangle {
       anchors.fill: parent
@@ -438,7 +440,6 @@ Popup {
       cache: false
       fillMode: Image.PreserveAspectFit
       smooth: true
-      focus: visible
     }
 
     PinchArea {
@@ -1063,6 +1064,13 @@ Popup {
             }
           }
         }
+      }
+    }
+
+    Keys.onReleased: event => {
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
+        event.accepted = true;
+        backButton.clicked();
       }
     }
   }
