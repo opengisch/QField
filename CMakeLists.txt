@@ -188,7 +188,13 @@ if(ANDROID)
   get_filename_component(QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI} "${Qt6_DIR}/.." ABSOLUTE)
   message(STATUS "QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}: ${QT_ANDROID_PATH_CMAKE_DIR_${ANDROID_ABI}}")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/${VCPKG_HOST_TRIPLET}")
+  # A caller may already know where the host tools are and pass QT_HOST_PATH in.
+  # Deriving it unconditionally would overwrite that with
+  # "${VCPKG_INSTALLED_DIR}/" whenever VCPKG_HOST_TRIPLET is not set, and
+  # Qt6Config would then fail to find the host Qt.
+  if(NOT QT_HOST_PATH)
+    set(QT_HOST_PATH "${VCPKG_INSTALLED_DIR}/${VCPKG_HOST_TRIPLET}")
+  endif()
   set(QT_HOST_PATH_CMAKE_DIR "${QT_HOST_PATH}/share")
   # The QmlImportScanner is not discovered on the host path, it should probably be caught by
   # https://github.com/qt/qtbase/blob/8c14b0c/cmake/QtConfig.cmake.in#L104-L122
