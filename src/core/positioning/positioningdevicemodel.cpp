@@ -169,10 +169,12 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
       return QString();
 
     case BluetoothDevice:
+#ifdef WITH_BLUETOOTH
       if ( device.settings.value( QStringLiteral( "ble" ) ).toBool() )
       {
         return QStringLiteral( "%1:%2" ).arg( BluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
       }
+#endif
       return QStringLiteral( "%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
 
     case TcpDevice:
