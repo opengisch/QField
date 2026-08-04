@@ -296,34 +296,41 @@ generate_export_header(qfield_core)
 
 configure_file(qfield.h.in ${CMAKE_CURRENT_BINARY_DIR}/qfield.h @ONLY)
 
-target_include_directories(qfield_core SYSTEM
-                           PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(
+  qfield_core SYSTEM PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   target_compile_options(qfield_core PRIVATE "-fobjc-arc")
 endif()
 
+# The public headers are installed flat into ${QFIELD_INCLUDE_SUBDIR}, so a
+# consumer of the installed library needs that one directory, not the source
+# tree. Without the BUILD_INTERFACE wrappers these absolute paths are baked into
+# any exported target and only resolve on the build machine.
 target_include_directories(
   qfield_core
-  PUBLIC ${CMAKE_SOURCE_DIR}/src/core
-         ${CMAKE_SOURCE_DIR}/src/core/cogo
-         ${CMAKE_SOURCE_DIR}/src/core/locator
-         ${CMAKE_SOURCE_DIR}/src/core/platforms
-         ${CMAKE_SOURCE_DIR}/src/core/qgsquick
-         ${CMAKE_SOURCE_DIR}/src/core/3d
-         ${CMAKE_SOURCE_DIR}/src/core/utils
-         ${CMAKE_SOURCE_DIR}/src/core/positioning
-         ${CMAKE_SOURCE_DIR}/src/core/processing
-         ${CMAKE_SOURCE_DIR}/src/core/qfieldcloud)
+  PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/cogo>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/locator>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/platforms>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/qgsquick>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/3d>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/utils>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/positioning>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/processing>
+         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/qfieldcloud>
+         $<INSTALL_INTERFACE:${QFIELD_INCLUDE_SUBDIR}>)
 if(ANDROID)
   string(REPLACE "_" "_1" APP_PACKAGE_JNI_NAME "${APP_PACKAGE_NAME}")
   configure_file(platforms/android/qfield_android.h.in
                  ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h @ONLY)
   target_include_directories(
-    qfield_core PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/android)
+    qfield_core
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/platforms/android>)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  target_include_directories(qfield_core
-                             PUBLIC ${CMAKE_SOURCE_DIR}/src/core/platforms/ios)
+  target_include_directories(
+    qfield_core
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/core/platforms/ios>)
 endif()
 
 target_compile_features(qfield_core PUBLIC cxx_std_20)
