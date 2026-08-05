@@ -36,6 +36,7 @@ namespace QFieldApp
     // registering everything twice, which would duplicate the singletons.
     qmlRegisterModule( "org.qfield", 1, 0 );
     qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield.core", QQmlModuleImportLatest );
+    qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield._3d", QQmlModuleImportLatest );
     qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield.gui", QQmlModuleImportLatest );
     qmlRegisterModuleImport( "org.qfield", QQmlModuleImportModuleAny, "org.qfield.app", QQmlModuleImportLatest );
 
