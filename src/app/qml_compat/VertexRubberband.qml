@@ -1,3 +1,3 @@
 import org.qfield.core
 
-QfVertexRubberBand {}
+QfVertexRubberband {}

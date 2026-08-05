@@ -109,7 +109,6 @@ target_link_libraries(qfield_app PUBLIC qfield_3d qfield_gui qfield_core)
 add_subdirectory(qml)
 
 add_subdirectory(qml_compat)
-target_link_libraries(qfield_app PUBLIC qfield_qml_compat)
 
 function(create_executable)
   cmake_parse_arguments(exe "" "TARGET" "EXTRA_ARGS" "" ${ARGN})

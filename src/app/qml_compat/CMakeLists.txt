@@ -1,36 +1,77 @@
 set(QFIELD_COMPAT_QML_FILES
+    BluetoothDeviceChooser.qml
     BookmarkHighlight.qml
+    BookmarkList.qml
+    BookmarkProperties.qml
     BookmarkRenderer.qml
+    BrowserPanel.qml
+    BusyOverlay.qml
+    CodeReader.qml
+    CogoOperationSettings.qml
+    CogoOperations.qml
+    ConfirmationToolbar.qml
     CoordinateLocator.qml
+    DigitizingToolbar.qml
+    EgenioussDeviceChooser.qml
+    ElevationProfile.qml
+    EmbeddedFeatureForm.qml
+    FeatureForm.qml
+    FeatureListForm.qml
     FeatureListSelectionHighlight.qml
+    FileDeviceChooser.qml
+    GeometryEditorsToolbar.qml
     GeometryHighlighter.qml
     GeometryRenderer.qml
     GridRenderer.qml
+    ImageDial.qml
+    InformationDrawer.qml
+    InformationPopup.qml
     KineticHandler.qml
+    LayerLoginDialog.qml
+    LayerTreeItemProperties.qml
+    Legend.qml
     LinePolygon.qml
     LocationMarker.qml
+    LocatorItem.qml
+    LocatorSettings.qml
     MapCanvas.qml
     MapCanvasPointHandler.qml
+    MessageLog.qml
+    NavigationBar.qml
     NavigationHighlight.qml
+    NavigationInformationView.qml
     NavigationRenderer.qml
+    OverlayFeatureFormDrawer.qml
+    PositioningDeviceSettings.qml
+    PositioningInformationView.qml
+    PositioningNtripSettings.qml
+    PositioningPreciseView.qml
+    ProcessingAlgorithmForm.qml
+    ProcessingAlgorithmsList.qml
+    ProjectCreationScreen.qml
+    QFieldAudioRecorder.qml
+    QFieldCamera.qml
+    RelationCombobox.qml
     Rubberband.qml
     ScaleBar.qml
+    SensorInformationView.qml
+    SerialPortDeviceChooser.qml
+    TcpDeviceChooser.qml
+    TemporalProperties.qml
+    Toast.qml
+    TrackerFeatureForm.qml
+    TrackerSettings.qml
     TrackingSession.qml
+    UdpDeviceChooser.qml
+    VariableEditor.qml
     VertexRubberband.qml)
 
-qt_add_library(qfield_qml_compat STATIC)
-
-set_target_properties(qfield_qml_compat PROPERTIES AUTOMOC TRUE)
-
-qt_add_qml_module(
-  qfield_qml_compat
-  URI
-  org.qfield
-  VERSION
-  1.0
-  NO_PLUGIN
-  NO_GENERATE_QMLTYPES
-  RESOURCE_PREFIX
-  "/qt/qml"
-  QML_FILES
+qt_add_resources(
+  qfield_app
+  "qml_compat"
+  PREFIX
+  "/qml"
+  BASE
+  "${CMAKE_CURRENT_SOURCE_DIR}"
+  FILES
   ${QFIELD_COMPAT_QML_FILES})
