@@ -87,7 +87,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
     file(COPY ${test_qmlfiles}
          DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/test")
-    foreach(qml_target qfield_core qfield_gui qfield_app)
+    foreach(qml_target qfield_core qfield_3d qfield_gui qfield_app)
       get_target_property(qfield_qmlfiles ${qml_target} QML_FILES)
       file(COPY ${qfield_qmlfiles}
            DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
@@ -95,7 +95,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
 
     if(NOT WITH_BLUETOOTH)
       file(REMOVE
-           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/BluetoothDeviceChooser.qml")
+           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app/QfBluetoothDeviceChooser.qml")
     endif()
 
     qt_import_qml_plugins(${TESTNAME} PATH_TO_SCAN "${CMAKE_CURRENT_BINARY_DIR}/qmldrop")
@@ -113,7 +113,7 @@ macro (ADD_QFIELD_QML_TEST TESTNAME TESTSRC)
     Qt::Xml
     Qt::QuickTest
   )
-  add_test(NAME ${TESTNAME} COMMAND ${TESTNAME} -import ${CMAKE_SOURCE_DIR}/src/core/qml/imports -input ${CMAKE_SOURCE_DIR}/test/qml)
+  add_test(NAME ${TESTNAME} COMMAND ${TESTNAME} -import ${CMAKE_BINARY_DIR}/qml -input ${CMAKE_SOURCE_DIR}/test/qml)
 endmacro (ADD_QFIELD_QML_TEST)
 
 if (WITH_SPIX)

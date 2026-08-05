@@ -2,8 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtCore
-import org.qfield
-import Theme
+import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml
@@ -2237,7 +2237,7 @@ Page {
       }
 
       Item {
-        VariableEditor {
+        QfVariableEditor {
           id: variableEditor
           anchors.fill: parent
           anchors.margins: 4
@@ -2247,7 +2247,7 @@ Page {
     }
   }
 
-  PositioningDeviceSettings {
+  QfPositioningDeviceSettings {
     id: positioningDeviceSettings
 
     property string originalName: ''
@@ -2267,7 +2267,7 @@ Page {
     }
   }
 
-  PositioningNtripSettings {
+  QfPositioningNtripSettings {
     id: positioningNtripSettings
 
     onApply: {

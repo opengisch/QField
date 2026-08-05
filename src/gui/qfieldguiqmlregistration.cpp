@@ -40,26 +40,26 @@ namespace QFieldGui
 {
   void registerQmlTypes()
   {
-    qmlRegisterType<AttributeFormModel>( "org.qfield", 1, 0, "AttributeFormModel" );
-    qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
-    qmlRegisterType<ExpressionEvaluator>( "org.qfield", 1, 0, "ExpressionEvaluator" );
-    qmlRegisterType<ExpressionVariableModel>( "org.qfield", 1, 0, "ExpressionVariableModel" );
-    qmlRegisterType<FeatureCheckListModel>( "org.qfield", 1, 0, "FeatureCheckListModel" );
-    qmlRegisterType<FocusStack>( "org.qfield", 1, 0, "FocusStack" );
-    qmlRegisterType<GeometryEditorsModel>( "org.qfield", 1, 0, "GeometryEditorsModel" );
-    qmlRegisterType<LocalFilesModel>( "org.qfield", 1, 0, "LocalFilesModel" );
-    qmlRegisterType<MicrophonePermission>( "org.qfield", 1, 0, "QfMicrophonePermission" );
-    qmlRegisterType<OrderedRelationModel>( "org.qfield", 1, 0, "OrderedRelationModel" );
-    qmlRegisterType<ParameterizedImage>( "org.qfield", 1, 0, "ParameterizedImage" );
-    qmlRegisterType<PrintLayoutListModel>( "org.qfield", 1, 0, "PrintLayoutListModel" );
-    qmlRegisterType<RecentProjectListModel>( "org.qfield", 1, 0, "RecentProjectListModel" );
-    qmlRegisterType<ReferencingFeatureListModel>( "org.qfield", 1, 0, "ReferencingFeatureListModel" );
-    qmlRegisterType<SensorListModel>( "org.qfield", 1, 0, "SensorListModel" );
-    qmlRegisterType<ValueMapModel>( "org.qfield", 1, 0, "ValueMapModel" );
+    qmlRegisterType<AttributeFormModel>( "org.qfield.gui", 1, 0, "AttributeFormModel" );
+    qmlRegisterType<CameraPermission>( "org.qfield.gui", 1, 0, "QfCameraPermission" );
+    qmlRegisterType<ExpressionEvaluator>( "org.qfield.gui", 1, 0, "ExpressionEvaluator" );
+    qmlRegisterType<ExpressionVariableModel>( "org.qfield.gui", 1, 0, "ExpressionVariableModel" );
+    qmlRegisterType<FeatureCheckListModel>( "org.qfield.gui", 1, 0, "FeatureCheckListModel" );
+    qmlRegisterType<FocusStack>( "org.qfield.gui", 1, 0, "FocusStack" );
+    qmlRegisterType<GeometryEditorsModel>( "org.qfield.gui", 1, 0, "GeometryEditorsModel" );
+    qmlRegisterType<LocalFilesModel>( "org.qfield.gui", 1, 0, "LocalFilesModel" );
+    qmlRegisterType<MicrophonePermission>( "org.qfield.gui", 1, 0, "QfMicrophonePermission" );
+    qmlRegisterType<OrderedRelationModel>( "org.qfield.gui", 1, 0, "OrderedRelationModel" );
+    qmlRegisterType<ParameterizedImage>( "org.qfield.gui", 1, 0, "ParameterizedImage" );
+    qmlRegisterType<PrintLayoutListModel>( "org.qfield.gui", 1, 0, "PrintLayoutListModel" );
+    qmlRegisterType<RecentProjectListModel>( "org.qfield.gui", 1, 0, "RecentProjectListModel" );
+    qmlRegisterType<ReferencingFeatureListModel>( "org.qfield.gui", 1, 0, "ReferencingFeatureListModel" );
+    qmlRegisterType<SensorListModel>( "org.qfield.gui", 1, 0, "SensorListModel" );
+    qmlRegisterType<ValueMapModel>( "org.qfield.gui", 1, 0, "ValueMapModel" );
 
-    REGISTER_SINGLETON( "org.qfield", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
+    REGISTER_SINGLETON( "org.qfield.gui", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
 
-    qmlRegisterUncreatableType<MessageLogModel>( "org.qfield", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
+    qmlRegisterUncreatableType<MessageLogModel>( "org.qfield.gui", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
   }
 } // namespace QFieldGui
 

@@ -2,8 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQml.Models
-import org.qfield
-import Theme
+import org.qfield.core
+import org.qfield.gui
+import org.qfield.app
 
 /**
  * \ingroup qml

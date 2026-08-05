@@ -4,8 +4,10 @@ import QtQuick.Layouts
 import QtTest
 import org.qfield
 import org.qgis
-import Theme
-import "qrc:/qml/" as QFieldControls
+import org.qfield.gui
+import org.qfield.app as QFieldControls
+import org.qfield.core as QFieldControls
+import org.qfield.gui as QFieldControls
 
 TestCase {
   id: testCase
@@ -49,14 +51,14 @@ TestCase {
     objectName: "dashBoard"
   }
 
-  QFieldControls.FeatureListForm {
+  QFieldControls.QfFeatureListForm {
     id: featureListForm
     objectName: "featureForm"
 
     model: MultiFeatureListModel {}
   }
 
-  QFieldControls.MapCanvas {
+  QFieldControls.QfMapCanvas {
     id: mapCanvas
     objectName: "mapCanvas"
   }
@@ -68,7 +70,7 @@ TestCase {
     property var point: GeometryUtils.point(0, 0)
   }
 
-  QFieldControls.MapCanvasPointHandler {
+  QFieldControls.QfMapCanvasPointHandler {
     id: pointHandlerItem
     objectName: "pointHandler"
   }
@@ -602,7 +604,7 @@ TestCase {
     compare(qgisProject.mapLayersByName("PluginLoadedLayer").length, 0);
   }
 
-  // Feature lookup at canvas click via MapCanvasPointHandler
+  // Feature lookup at canvas click via QfMapCanvasPointHandler
 
   Component {
     id: canvasClickFeatureLookupPlugin

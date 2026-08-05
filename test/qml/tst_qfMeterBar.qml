@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtTest
 import org.qfield
-import Theme
+import org.qfield.gui
 
 TestCase {
   name: "QfMeterBar"

@@ -3,8 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material.impl
 import QtQuick.Layouts
 import QtQml.Models
-import org.qfield
-import Theme
+import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml

@@ -1,10 +1,9 @@
 import QtQuick
 import QtTest
-import org.qfield
+import org.qfield.core
 import org.qgis
-import Theme
 import "Utils.js" as Utils
-import "qrc:/qml/geometryeditors" as GeometryEditors
+import org.qfield.gui as GeometryEditors
 
 TestCase {
   id: testCase
@@ -66,7 +65,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.VertexEditor {
+  GeometryEditors.QfGeometryEditorVertexEditor {
     id: vertexTool
     featureModel: featureModel
     mapSettings: mapSettingsItem

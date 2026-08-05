@@ -3,8 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 import org.qgis
-import org.qfield
-import Theme
+import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml
@@ -510,7 +510,7 @@ Drawer {
         }
       }
 
-      Legend {
+      QfLegend {
         id: legend
         objectName: "legend"
         isVisible: dashBoard.position > 0
@@ -626,12 +626,12 @@ Drawer {
     }
   }
 
-  TemporalProperties {
+  QfTemporalProperties {
     id: temporalProperties
     mapSettings: dashBoard.mapSettings
   }
 
-  InformationPopup {
+  QfInformationPopup {
     id: informationPopup
   }
 }

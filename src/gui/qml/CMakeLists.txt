@@ -1,0 +1,150 @@
+set(QFIELD_GUI_QML_FILES
+    QfActionButton.qml
+    QfBadge.qml
+    QfBluetoothDeviceChooser.qml
+    QfBookmarkList.qml
+    QfBookmarkProperties.qml
+    QfBrowserPanel.qml
+    QfBusyOverlay.qml
+    QfButton.qml
+    QfCalendarItem.qml
+    QfCalendarPanel.qml
+    QfCodeReader.qml
+    QfCogoOperationSettings.qml
+    QfCogoOperations.qml
+    QfCollapsibleMessage.qml
+    QfComboBox.qml
+    QfConfirmationToolbar.qml
+    QfContainerCard.qml
+    QfDialog.qml
+    QfDigitizingToolbar.qml
+    QfEgenioussDeviceChooser.qml
+    QfElevationProfile.qml
+    QfEmbeddedFeatureForm.qml
+    QfExpandableGroupBox.qml
+    QfFeatureForm.qml
+    QfFeatureListForm.qml
+    QfFileDeviceChooser.qml
+    QfGeometryEditorsToolbar.qml
+    QfImageDial.qml
+    QfInformationDrawer.qml
+    QfInformationPopup.qml
+    QfLayerLoginDialog.qml
+    QfLayerTreeItemProperties.qml
+    QfLegend.qml
+    QfLocatorItem.qml
+    QfLocatorSettings.qml
+    QfMenu.qml
+    QfMessageLog.qml
+    QfMeterBar.qml
+    QfNavigationBar.qml
+    QfNavigationInformationView.qml
+    QfOpacityMask.qml
+    QfOverlayContainer.qml
+    QfOverlayFeatureFormDrawer.qml
+    QfPageHeader.qml
+    QfPaneDrawer.qml
+    QfPopup.qml
+    QfPositioningDeviceSettings.qml
+    QfPositioningInformationView.qml
+    QfPositioningNtripSettings.qml
+    QfPositioningPreciseView.qml
+    QfProcessingAlgorithmForm.qml
+    QfProcessingAlgorithmsList.qml
+    QfProgressRing.qml
+    QfProjectCreationScreen.qml
+    QfProjectThumbnail.qml
+    QfQFieldAudioRecorder.qml
+    QfQFieldCamera.qml
+    QfRelationCombobox.qml
+    QfScrollBar.qml
+    QfSearchBar.qml
+    QfSensorInformationView.qml
+    QfSerialPortDeviceChooser.qml
+    QfSlider.qml
+    QfSwipeAnimator.qml
+    QfSwitch.qml
+    QfTabBar.qml
+    QfTcpDeviceChooser.qml
+    QfTemporalProperties.qml
+    QfTextField.qml
+    QfTimeItem.qml
+    QfToast.qml
+    QfToggleButtonGroup.qml
+    QfToolButton.qml
+    QfToolButtonDrawer.qml
+    QfToolButtonPie.qml
+    QfTrackerFeatureForm.qml
+    QfTrackerSettings.qml
+    QfUdpDeviceChooser.qml
+    QfVariableEditor.qml
+    QfVisibilityFadingRow.qml
+    QfWelcomeAction.qml
+    QfWelcomeScreen.qml
+    editorwidgets/ExternalResourceUtils.js
+    editorwidgets/QfEditorWidgetBase.qml
+    editorwidgets/QfEditorWidgetBinary.qml
+    editorwidgets/QfEditorWidgetCheckBox.qml
+    editorwidgets/QfEditorWidgetColor.qml
+    editorwidgets/QfEditorWidgetDateTime.qml
+    editorwidgets/QfEditorWidgetExternalResource.qml
+    editorwidgets/QfEditorWidgetRange.qml
+    editorwidgets/QfEditorWidgetRelationReference.qml
+    editorwidgets/QfEditorWidgetTextEdit.qml
+    editorwidgets/QfEditorWidgetUuidGenerator.qml
+    editorwidgets/QfEditorWidgetValueMap.qml
+    editorwidgets/QfEditorWidgetValueRelation.qml
+    editorwidgets/QfRelationEditorBase.qml
+    editorwidgets/relationeditors/gallery_relation_editor.qml
+    editorwidgets/relationeditors/ordered_relation_editor.qml
+    editorwidgets/relationeditors/relation_editor.qml
+    geometryeditors/QfGeometryEditorBase.qml
+    geometryeditors/QfGeometryEditorErase.qml
+    geometryeditors/QfGeometryEditorFillRing.qml
+    geometryeditors/QfGeometryEditorReshape.qml
+    geometryeditors/QfGeometryEditorSplitFeature.qml
+    geometryeditors/QfGeometryEditorVertexEditor.qml
+    cogoparameterwidgets/QfCogoParameterAngle.qml
+    cogoparameterwidgets/QfCogoParameterDistance.qml
+    cogoparameterwidgets/QfCogoParameterElevation.qml
+    cogoparameterwidgets/QfCogoParameterEnum.qml
+    cogoparameterwidgets/QfCogoParameterPoint.qml
+    cogoparameterwidgets/QfCogoParameterWidgetBase.qml
+    processingparameterwidgets/QfProcessingParameterArea.qml
+    processingparameterwidgets/QfProcessingParameterBoolean.qml
+    processingparameterwidgets/QfProcessingParameterDistance.qml
+    processingparameterwidgets/QfProcessingParameterEnum.qml
+    processingparameterwidgets/QfProcessingParameterNumber.qml
+    processingparameterwidgets/QfProcessingParameterSource.qml
+    processingparameterwidgets/QfProcessingParameterWidgetBase.qml)
+
+# A plain script, not a component to expose.
+set_source_files_properties(editorwidgets/ExternalResourceUtils.js
+                            PROPERTIES QT_QML_SKIP_QMLDIR_ENTRY TRUE)
+
+# Generate a qmldir for each of the QML subdirectories.
+qt_policy(SET QTP0004 NEW)
+
+# Type registration stays imperative, in QFieldGui::registerQmlTypes().
+qt_add_qml_module(
+  qfield_gui
+  URI
+  org.qfield.gui
+  VERSION
+  1.0
+  NO_PLUGIN
+  NO_GENERATE_QMLTYPES
+  RESOURCE_PREFIX
+  "/qt/qml"
+  QML_FILES
+  ${QFIELD_GUI_QML_FILES})
+
+qt_import_qml_plugins(qfield_gui)
+
+# Absolute, because src/app and test copy these from another directory.
+set(QFIELD_GUI_QML_FILES_ABS "")
+foreach(qml_file ${QFIELD_GUI_QML_FILES})
+  list(APPEND QFIELD_GUI_QML_FILES_ABS
+       "${CMAKE_CURRENT_SOURCE_DIR}/${qml_file}")
+endforeach()
+set_property(TARGET qfield_gui PROPERTY QML_FILES ${QFIELD_GUI_QML_FILES_ABS})

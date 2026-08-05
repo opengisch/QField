@@ -1,10 +1,9 @@
 import QtQuick
 import QtTest
-import org.qfield
+import org.qfield.core
 import org.qgis
-import Theme
 import "Utils.js" as Utils
-import "qrc:/qml/geometryeditors" as GeometryEditors
+import org.qfield.gui as GeometryEditors
 
 TestCase {
   id: testCase
@@ -62,7 +61,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.Reshape {
+  GeometryEditors.QfGeometryEditorReshape {
     id: reshapeTool
     featureModel: featureModel
     mapSettings: mapSettingsItem
@@ -144,7 +143,7 @@ TestCase {
     compare(rubberband.vertexCount, 1);
   }
 
-  // scope objects the tool and DigitizingToolbar expect from the app
+  // scope objects the tool and QfDigitizingToolbar expect from the app
   Item {
     id: mainWindow
     property var contentItem: mainWindow

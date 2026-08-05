@@ -64,6 +64,7 @@
 #include "projectinfo.h"
 #include "projectsimageprovider.h"
 #include "qfield.h"
+#include "qfield3dqmlregistration.h"
 #include "qfieldappqmlregistration.h"
 #include "qfieldcloudconnection.h"
 #include "qfieldcloudproject.h"
@@ -75,10 +76,8 @@
 #include "qgismobileapp.h"
 #include "qgsproviderregistry.h"
 #include "qgsprovidersublayerdetails.h"
-#include "qgsquickelevationprofilecanvas.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
-#include "qgsquickmaptransform.h"
 #include "quick3dterrainprovider.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
@@ -125,17 +124,13 @@
 #include <qgslayoutpagecollection.h>
 #include <qgslocalizeddatapathregistry.h>
 #include <qgslocator.h>
-#include <qgslocatorcontext.h>
-#include <qgslocatormodel.h>
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstyle.h>
-#include <qgsmapthemecollection.h>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
 #include <qgsofflineediting.h>
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
-#include <qgsprojectdisplaysettings.h>
 #include <qgsprojectelevationproperties.h>
 #include <qgsprojectstorage.h>
 #include <qgsprojectstorageregistry.h>
@@ -143,15 +138,12 @@
 #include <qgsprojectviewsettings.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
-#include <qgsrelationmanager.h>
 #include <qgssettingsregistrycore.h>
 #include <qgssinglesymbolrenderer.h>
-#include <qgssnappingutils.h>
 #include <qgstemporalutils.h>
 #include <qgsterrainprovider.h>
 #include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
-#include <qgsvectorlayereditbuffer.h>
 #include <qgsvectorlayertemporalproperties.h>
 #include <qgsvectortilelayer.h>
 
@@ -297,7 +289,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   PlatformUtilities::instance()->setScreenLockPermission( false );
 
-  load( QUrl( "qrc:/qml/qgismobileapp.qml" ) );
+  loadFromModule( "org.qfield.app", "QgisMobileapp" );
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
   Q_ASSERT_X( mMapCanvas, "QML Init", "QgsQuickMapCanvasMap not found. It is likely that we failed to load the QML files. Check debug output for related messages." );
   mMapCanvas->mapSettings()->setProject( mProject );
@@ -348,16 +340,8 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 #if defined( Q_OS_ANDROID )
   QResource::registerResource( QStringLiteral( "assets:/android_rcc_bundle.rcc" ) );
 #endif
-  engine->addImportPath( QStringLiteral( "qrc:/qml/imports" ) );
 
   qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );
-
-  // Register QGIS QML types
-  qmlRegisterType<QgsSnappingUtils>( "org.qgis", 1, 0, "SnappingUtils" );
-  qmlRegisterType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayer" );
-  qmlRegisterType<QgsMapThemeCollection>( "org.qgis", 1, 0, "MapThemeCollection" );
-  qmlRegisterType<QgsLocatorProxyModel>( "org.qgis", 1, 0, "QgsLocatorProxyModel" );
-  qmlRegisterType<QgsVectorLayerEditBuffer>( "org.qgis", 1, 0, "QgsVectorLayerEditBuffer" );
 
   qRegisterMetaType<QgsGeometry>( "QgsGeometry" );
   qRegisterMetaType<QgsFeature>( "QgsFeature" );
@@ -391,24 +375,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
   qRegisterMetaType<Qgis::SnappingMode>( "Qgis::SnappingMode" );
 
-  qmlRegisterUncreatableMetaObject( Qgis::staticMetaObject, "org.qgis", 1, 0, "Qgis", "Used to access enum values" );
-
-  qmlRegisterUncreatableType<QgsProject>( "org.qgis", 1, 0, "Project", "" );
-  qmlRegisterUncreatableType<QgsProjectDisplaySettings>( "org.qgis", 1, 0, "ProjectDisplaySettings", "" );
-  qmlRegisterUncreatableType<QgsRelationManager>( "org.qgis", 1, 0, "RelationManager", "The relation manager is available from the QgsProject. Try `qgisProject.relationManager`" );
-  qmlRegisterUncreatableType<QgsMapLayer>( "org.qgis", 1, 0, "MapLayer", "" );
-  qmlRegisterUncreatableType<QgsRasterLayer>( "org.qgis", 1, 0, "RasterLayer", "" );
-  qmlRegisterUncreatableType<QgsVectorLayer>( "org.qgis", 1, 0, "VectorLayerStatic", "" );
-
-  // Register QgsQuick QML types
-  qmlRegisterType<QgsQuickMapCanvasMap>( "org.qgis", 1, 0, "MapCanvasMap" );
-  qmlRegisterType<QgsQuickMapSettings>( "org.qgis", 1, 0, "MapSettings" );
-  qmlRegisterType<QgsQuickElevationProfileCanvas>( "org.qgis", 1, 0, "ElevationProfileCanvas" );
-  qmlRegisterType<QgsQuickMapTransform>( "org.qgis", 1, 0, "MapTransform" );
-
-  // Register 3D QML types
-
-  // Register QField QML types
   qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
   qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
   qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
@@ -421,6 +387,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<PositioningSource::NtripState>( "PositioningSource::NtripState" );
 
   QFieldCore::registerQmlTypes();
+  QField3D::registerQmlTypes();
   QFieldGui::registerQmlTypes();
   QFieldApp::registerQmlTypes();
 
@@ -441,10 +408,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
-
-
-  qmlRegisterUncreatableType<QgsLocatorContext>( "org.qgis", 1, 0, "locatorContext", "Used as parameter type in invokable function" );
-
 
   qRegisterMetaType<SnappingResult>( "SnappingResult" );
 

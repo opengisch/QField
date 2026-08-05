@@ -1,9 +1,7 @@
 import QtQuick
 import QtTest
 import org.qgis
-import org.qfield
-import Theme
-import "qrc:/qml/" as QFieldControls
+import org.qfield.core
 import "Utils.js" as Utils
 
 TestCase {
@@ -86,7 +84,7 @@ TestCase {
     relation_editor.currentLayer = referencedLayer;
     relation_editor.currentFeature = referencedLayer.getFeature("1");
     relation_editor.relationId = relation.id;
-    relation_editor.source = 'qrc:/qml/editorwidgets/relationeditors/relation_editor.qml';
+    relation_editor.source = 'qrc:/qt/qml/org/qfield/gui/editorwidgets/relationeditors/relation_editor.qml';
     wait(200);
     verify(relation_editor.item !== null);
     verify(relation_editor.item.relationEditorModel !== null);
@@ -228,7 +226,7 @@ TestCase {
     relation_editor.currentLayer = parent1Layer;
     relation_editor.currentFeature = parent1Layer.getFeature("1");
     relation_editor.relationId = polymorphicRelation.id;
-    relation_editor.source = 'qrc:/qml/editorwidgets/relationeditors/relation_editor.qml';
+    relation_editor.source = 'qrc:/qt/qml/org/qfield/gui/editorwidgets/relationeditors/relation_editor.qml';
     wait(200);
     verify(relation_editor.item !== null);
     verify(relation_editor.item.relationEditorModel !== null);

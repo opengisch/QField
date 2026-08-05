@@ -1,11 +1,10 @@
 import QtQuick
 import QtQuick.Window
 import QtTest
-import org.qfield
+import org.qfield.core
 import org.qgis
-import Theme
 import "Utils.js" as Utils
-import "qrc:/qml/geometryeditors" as GeometryEditors
+import org.qfield.gui as GeometryEditors
 
 TestCase {
   id: testCase
@@ -61,7 +60,7 @@ TestCase {
     }
   }
 
-  GeometryEditors.FillRing {
+  GeometryEditors.QfGeometryEditorFillRing {
     id: fillRingTool
     featureModel: featureModel
     mapSettings: mapSettingsItem
