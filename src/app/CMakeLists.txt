@@ -153,7 +153,8 @@ function(create_executable)
     FILES
     ${QM_FILES})
 
-  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_gui qfield_core)
+  target_link_libraries(${exe_TARGET} PRIVATE qfield_app qfield_gui qfield_3d
+                                              qfield_core)
 
   if(ANDROID)
     target_link_libraries(${exe_TARGET} PRIVATE qfield_service)
