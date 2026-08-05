@@ -425,13 +425,22 @@ endif()
 install(FILES ${QFIELD_CORE_HDRS}
               "${CMAKE_CURRENT_BINARY_DIR}/qfield_core_export.h"
         DESTINATION ${QFIELD_INCLUDE_DIR})
+# Before the install() below, so QFIELD_CORE_QML_OUTPUT_TARGETS is set.
+add_subdirectory(qml)
+
+# The OBJECTS destination is required: the QML module's generated *_resources_N
+# targets are OBJECT libraries that qfield_core references as
+# $<TARGET_OBJECTS:...>. Without it install(EXPORT) emits them as INTERFACE
+# IMPORTED libraries with no object files, and consumers then fail at generate
+# time with "Objects of target ... referenced but is not one of the allowed
+# target types".
 install(
-  TARGETS qfield_core
+  TARGETS qfield_core ${QFIELD_CORE_QML_OUTPUT_TARGETS}
+  EXPORT qfield-targets
   BUNDLE DESTINATION ${QFIELD_BIN_DIR}
   RUNTIME DESTINATION ${QFIELD_BIN_DIR}
   LIBRARY DESTINATION ${QFIELD_LIB_DIR}
   ARCHIVE DESTINATION ${QFIELD_LIB_DIR}
+  OBJECTS DESTINATION ${QFIELD_LIB_DIR}
   FRAMEWORK DESTINATION ${QFIELD_FW_SUBDIR}
   PUBLIC_HEADER DESTINATION ${QFIELD_INCLUDE_DIR})
-
-add_subdirectory(qml)

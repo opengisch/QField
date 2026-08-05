@@ -299,6 +299,52 @@ if (WITH_APP)
   add_subdirectory(src/app)
 endif()
 
+#############################################################
+# Export the libraries so QField can be consumed from another
+# CMake project (find_package(QField CONFIG)).
+
+if(WITH_CORE)
+  set(QFIELD_EXPORTED_QT_COMPONENTS
+      Core CorePrivate Gui GuiPrivate Xml Positioning Widgets Network Qml Quick
+      Svg Sensors Sql Concurrent WebView Multimedia WebSockets RemoteObjects)
+  if(WITH_BLUETOOTH)
+    list(APPEND QFIELD_EXPORTED_QT_COMPONENTS Bluetooth)
+  endif()
+  if(WITH_SERIALPORT)
+    list(APPEND QFIELD_EXPORTED_QT_COMPONENTS SerialPort)
+  endif()
+  if(WITH_NFC)
+    list(APPEND QFIELD_EXPORTED_QT_COMPONENTS Nfc)
+  endif()
+  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    list(APPEND QFIELD_EXPORTED_QT_COMPONENTS PrintSupport)
+  endif()
+  string(REPLACE ";" " " QFIELD_EXPORTED_QT_COMPONENTS "${QFIELD_EXPORTED_QT_COMPONENTS}")
+
+  install(
+    EXPORT qfield-targets
+    FILE qfield-targets.cmake
+    NAMESPACE QField::
+    DESTINATION share/qfield)
+
+  include(CMakePackageConfigHelpers)
+  configure_package_config_file(
+    ${CMAKE_SOURCE_DIR}/cmake/qfield-config.cmake.in
+    ${CMAKE_BINARY_DIR}/cmake/qfield-config.cmake
+    INSTALL_DESTINATION share/qfield)
+  install(FILES ${CMAKE_BINARY_DIR}/cmake/qfield-config.cmake
+          DESTINATION share/qfield)
+
+  # The find modules the config file depends on.
+  install(
+    FILES ${CMAKE_SOURCE_DIR}/cmake/FindQGIS.cmake
+          ${CMAKE_SOURCE_DIR}/cmake/qgis-cmake-wrapper.cmake
+          ${CMAKE_SOURCE_DIR}/cmake/FindPROJ.cmake
+          ${CMAKE_SOURCE_DIR}/cmake/FindQca.cmake
+          ${CMAKE_SOURCE_DIR}/cmake/FindSQLite3.cmake
+    DESTINATION share/qfield/cmake)
+endif()
+
 if (ENABLE_TESTS AND WITH_APP)
   set (TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test/testdata")
 

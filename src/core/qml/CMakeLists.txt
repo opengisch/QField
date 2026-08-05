@@ -34,8 +34,14 @@ qt_add_qml_module(
   NO_GENERATE_QMLTYPES
   RESOURCE_PREFIX
   "/qt/qml"
+  OUTPUT_TARGETS
+  qfield_core_qml_output_targets
   QML_FILES
   ${QFIELD_CORE_QML_FILES})
+
+set(QFIELD_CORE_QML_OUTPUT_TARGETS
+    ${qfield_core_qml_output_targets}
+    PARENT_SCOPE)
 
 qt_import_qml_plugins(qfield_core)
 
