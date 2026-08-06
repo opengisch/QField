@@ -305,8 +305,14 @@ endif()
 #############################################################
 # Export the libraries so QField can be consumed from another
 # CMake project (find_package(QField CONFIG)).
+#
+# Not under Xcode: the export needs the QML resource OBJECT libraries
+# installed, and Xcode cannot install the objects of OBJECT libraries, so
+# src/core/CMakeLists.txt drops them from the install there and the export
+# would fail at generate time with "Objects of target ... referenced but is
+# not one of the allowed target types".
 
-if(WITH_CORE)
+if(WITH_CORE AND NOT CMAKE_GENERATOR STREQUAL "Xcode")
   set(QFIELD_EXPORTED_QT_COMPONENTS
       Core CorePrivate Gui GuiPrivate Xml Positioning Widgets Network Qml Quick
       Svg Sensors Sql Concurrent WebView Multimedia WebSockets RemoteObjects)

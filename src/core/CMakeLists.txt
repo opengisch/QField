@@ -428,6 +428,14 @@ install(FILES ${QFIELD_CORE_HDRS}
 # Before the install() below, so QFIELD_CORE_QML_OUTPUT_TARGETS is set.
 add_subdirectory(qml)
 
+# Xcode cannot install the objects of OBJECT libraries ("may not be installed
+# under Xcode with multiple architectures"), so the QML resource targets stay
+# out of the install there; the package export is skipped for Xcode in the
+# top-level CMakeLists.txt for the same reason.
+if(CMAKE_GENERATOR STREQUAL "Xcode")
+  set(QFIELD_CORE_QML_OUTPUT_TARGETS "")
+endif()
+
 # The OBJECTS destination is required: the QML module's generated *_resources_N
 # targets are OBJECT libraries that qfield_core references as
 # $<TARGET_OBJECTS:...>. Without it install(EXPORT) emits them as INTERFACE
