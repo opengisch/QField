@@ -21,7 +21,8 @@ set(QFIELD_APP_QML_FILES
     QFieldSettings.qml
     QFieldSketcher.qml
     QgisMobileapp.qml
-    ScreenLocker.qml)
+    ScreenLocker.qml
+    WelcomeScreen.qml)
 
 # Type registration stays imperative, in QFieldApp::registerQmlTypes().
 qt_add_qml_module(

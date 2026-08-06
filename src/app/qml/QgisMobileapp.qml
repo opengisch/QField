@@ -5323,7 +5323,7 @@ ApplicationWindow {
     url: cloudConnection.url
   }
 
-  QfWelcomeScreen {
+  WelcomeScreen {
     id: welcomeScreen
     objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
