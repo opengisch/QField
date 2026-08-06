@@ -64,6 +64,6 @@ target_compile_features(qfield_gui PUBLIC cxx_std_20)
 set_target_properties(qfield_gui PROPERTIES AUTOMOC TRUE)
 
 target_link_libraries(qfield_gui PUBLIC qfield_core Qt::Core Qt::Gui Qt::Quick
-                                        Qt::Widgets)
+                                        Qt::WebView Qt::Widgets)
 
 add_subdirectory(qml)

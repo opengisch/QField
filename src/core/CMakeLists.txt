@@ -353,7 +353,6 @@ target_link_libraries(
          Qt::Sensors
          Qt::Sql
          Qt::Concurrent
-         Qt::WebView
          Qt::Multimedia
          Qt::RemoteObjects
          Qt::WebSockets
