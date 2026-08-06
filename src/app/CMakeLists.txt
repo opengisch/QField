@@ -57,11 +57,6 @@ endif()
 configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
-find_package(
-  Qt6
-  COMPONENTS Core5Compat
-  REQUIRED)
-
 set(QFIELD_APP_SRCS
     badlayerhandler.cpp
     changelogcontents.cpp
@@ -192,9 +187,7 @@ function(create_executable)
     qt_import_qml_plugins(${exe_TARGET} PATH_TO_SCAN
                           "${CMAKE_CURRENT_BINARY_DIR}/qmldrop/app")
   endif()
-  target_link_libraries(${exe_TARGET} PUBLIC Qt::Core5Compat)
   qt_import_plugins(${exe_TARGET} INCLUDE Qt::QSvgPlugin)
-  qt_import_plugins(${exe_TARGET} INCLUDE Qt::Core5Compat)
 
   if(IOS OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     target_link_libraries(
