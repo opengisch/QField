@@ -274,6 +274,9 @@ file(MAKE_DIRECTORY "${SHARE_DIR}")
 
 if(WITH_SENTRY)
   add_subdirectory(src/sentry)
+else()
+  add_library(qfield_sentry INTERFACE)
+  install(TARGETS qfield_sentry EXPORT qfield-targets)
 endif()
 
 if (WITH_SPIX)
@@ -342,6 +345,7 @@ if(WITH_CORE)
           ${CMAKE_SOURCE_DIR}/cmake/FindPROJ.cmake
           ${CMAKE_SOURCE_DIR}/cmake/FindQca.cmake
           ${CMAKE_SOURCE_DIR}/cmake/FindSQLite3.cmake
+          ${CMAKE_SOURCE_DIR}/cmake/Findsentry.cmake
     DESTINATION share/qfield/cmake)
 endif()
 

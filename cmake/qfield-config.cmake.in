@@ -6,6 +6,8 @@
 # Provides:
 #   QField::qfield_core    the core library, with the org.qfield.core QML module
 #                          linked in
+#   QField::qfield_sentry  the Sentry wrapper qfield_core links against; a stub
+#                          interface library when the build had Sentry disabled
 
 include(CMakeFindDependencyMacro)
 
@@ -26,6 +28,16 @@ find_dependency(LibZip)
 find_dependency(SQLite3)
 find_dependency(ZXing)
 find_dependency(QtWebDAV)
+
+# When the installed build had Sentry enabled, QField::qfield_sentry links the
+# underlying Sentry SDK, so consumers need its imported target too.
+if(@WITH_SENTRY@)
+  if(APPLE)
+    find_dependency(SentryCocoa)
+  else()
+    find_dependency(sentry)
+  endif()
+endif()
 
 include("${CMAKE_CURRENT_LIST_DIR}/qfield-targets.cmake")
 

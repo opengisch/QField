@@ -23,7 +23,17 @@ if(ANDROID)
   target_link_libraries(qfield_sentry PRIVATE Qt::CorePrivate android log)
 endif()
 
-target_include_directories(qfield_sentry PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-                                                ${CMAKE_CURRENT_BINARY_DIR}/)
+target_include_directories(
+  qfield_sentry PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
 
 target_compile_features(qfield_sentry PUBLIC cxx_std_17)
+
+# qfield_core is a static library, so its private qfield_sentry linkage stays in
+# the exported link interface as $<LINK_ONLY:qfield_sentry>; install(EXPORT)
+# therefore requires qfield_sentry in the same export set.
+install(
+  TARGETS qfield_sentry
+  EXPORT qfield-targets
+  LIBRARY DESTINATION ${QFIELD_LIB_DIR}
+  ARCHIVE DESTINATION ${QFIELD_LIB_DIR})
