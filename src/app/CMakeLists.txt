@@ -109,7 +109,7 @@ target_compile_features(qfield_app PUBLIC cxx_std_20)
 
 set_target_properties(qfield_app PROPERTIES AUTOMOC TRUE)
 
-target_link_libraries(qfield_app PUBLIC qfield_3d qfield_gui)
+target_link_libraries(qfield_app PUBLIC qfield_3d qfield_gui qfield_core)
 
 add_subdirectory(qml)
 
