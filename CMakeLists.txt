@@ -205,17 +205,27 @@ if (ANDROID)
 
 endif()
 
-find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors WebView Multimedia Bluetooth Nfc RemoteObjects WebSockets Quick3D REQUIRED)
+if(WITH_CORE)
+  find_package(Qt6 COMPONENTS Concurrent Core Qml Gui Xml Positioning Widgets Network Quick Svg Sql Sensors Multimedia RemoteObjects WebSockets REQUIRED)
 
-if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  find_package(Qt6 COMPONENTS PrintSupport REQUIRED)
+  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    find_package(Qt6 COMPONENTS PrintSupport REQUIRED)
+  endif()
+
+  find_package(QGIS COMPONENTS Core Analysis REQUIRED)
+  find_package(PROJ REQUIRED)
+  find_package(GDAL REQUIRED)
+  find_package(Qca REQUIRED)
+  find_package(LibZip REQUIRED)
 endif()
 
-find_package(QGIS COMPONENTS Core Analysis REQUIRED)
-find_package(PROJ REQUIRED)
-find_package(GDAL REQUIRED)
-find_package(Qca REQUIRED)
-find_package(LibZip REQUIRED)
+if(WITH_GUI)
+  find_package(Qt6 COMPONENTS WebView REQUIRED)
+endif()
+
+if(WITH_3D)
+  find_package(Qt6 COMPONENTS Quick3D REQUIRED)
+endif()
 
 if(ANDROID)
   # Qt by default assumes that cmake files live in `lib/cmake`. Point to `share` instead.
