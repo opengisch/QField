@@ -16,7 +16,7 @@ Popup {
 
   property bool isCapturing: false
 
-  readonly property bool isReady: isCapturing && (state == "PhotoCapture" || state == "VideoCapture")
+  readonly property bool isReady: !isCapturing && (state == "PhotoCapture" || state == "VideoCapture")
   readonly property bool isPortraitMode: mainWindow.height > mainWindow.width
 
   property string currentPath: ''
@@ -139,8 +139,6 @@ Popup {
     expressionText: ""
 
     project: qgisProject
-    layer: null
-    feature: FeatureUtils.createBlankFeature()
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: currentPosition
       cloudUserInformation: appScopesGenerator.cloudUserInformation
@@ -948,7 +946,7 @@ Popup {
 
     QfToolButtonDrawer {
       name: "cameraSettingsDrawer"
-      visible: cameraItem.isCapturing
+      visible: cameraItem.isReady
 
       anchors.left: parent.left
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4

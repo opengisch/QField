@@ -542,12 +542,13 @@ QfRelationEditorBase {
     active: false
 
     property bool isVideo: false
+    property var resourceLayer: attachmentNamingEvaluator.layer
 
     sourceComponent: Component {
       QfCamera {
         allowCaptureModeToggle: true
 
-        currentLayer: attachmentNamingEvaluator.layer
+        currentLayer: resourceLayer
 
         Component.onCompleted: {
           state = relationCameraLoader.isVideo ? 'VideoCapture' : 'PhotoCapture';
