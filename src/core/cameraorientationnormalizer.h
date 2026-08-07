@@ -32,16 +32,29 @@ email                : kaustuv@opengis.ch
  *
  * \ingroup core
  */
+
 class CameraOrientationNormalizer : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( int previewRotation READ previewRotation NOTIFY previewRotationChanged )
+    Q_PROPERTY( int cameraPosition READ cameraPosition WRITE setCameraPosition NOTIFY cameraPositionChanged )
 
   public:
+    //! Camera position, matching the integer values of QCameraDevice::Position.
+    enum CameraPosition
+    {
+      UnspecifiedPosition = 0,
+      BackFace = 1,
+      FrontFace = 2
+    };
+    Q_ENUM( CameraPosition )
+
     explicit CameraOrientationNormalizer( QObject *parent = nullptr );
 
     int previewRotation() const;
+    int cameraPosition() const;
+    void setCameraPosition( int position );
 
     /**
      * Records the current screen orientation. Call at shutter press
@@ -70,6 +83,7 @@ class CameraOrientationNormalizer : public QObject
 
   signals:
     void previewRotationChanged();
+    void cameraPositionChanged();
 
   private slots:
     void handleScreenOrientationChanged( Qt::ScreenOrientation orientation );
@@ -79,6 +93,7 @@ class CameraOrientationNormalizer : public QObject
     Qt::ScreenOrientation mCurrentOrientation = Qt::PortraitOrientation;
     Qt::ScreenOrientation mCaptureOrientation = Qt::PortraitOrientation;
     int mPreviewRotation = 0;
+    CameraPosition mCameraPosition = UnspecifiedPosition;
 };
 
 #endif // CAMERAORIENTATIONNORMALIZER_H

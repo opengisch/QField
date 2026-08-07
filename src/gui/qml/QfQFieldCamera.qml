@@ -197,6 +197,13 @@ Popup {
 
           CameraOrientationNormalizer {
             id: orientationNormalizer
+            cameraPosition: {
+              let device = camera.cameraDevice;
+              if (device.position !== CameraDevice.UnspecifiedPosition) {
+                return device.position;
+              }
+              return device.description.toLowerCase().includes("front") ? CameraDevice.FrontFace : CameraDevice.BackFace;
+            }
           }
 
           VideoSinkCapture {
@@ -1079,8 +1086,15 @@ Popup {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               if (captureLoader.item) {
-                captureLoader.item.camera.cameraDevice = modelData;
-                captureLoader.item.camera.applyCameraFormat();
+                if (Qt.platform.os === "ios") {
+                  captureLoader.item.camera.restarting = true;
+                  captureLoader.item.camera.cameraDevice = modelData;
+                  captureLoader.item.camera.applyCameraFormat();
+                  captureLoader.item.camera.restarting = false;
+                } else {
+                  captureLoader.item.camera.cameraDevice = modelData;
+                  captureLoader.item.camera.applyCameraFormat();
+                }
               }
             }
           }
