@@ -547,6 +547,8 @@ QfRelationEditorBase {
       QfCamera {
         allowCaptureModeToggle: true
 
+        currentLayer: attachmentNamingEvaluator.layer
+
         Component.onCompleted: {
           state = relationCameraLoader.isVideo ? 'VideoCapture' : 'PhotoCapture';
           open();

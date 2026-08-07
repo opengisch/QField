@@ -32,6 +32,9 @@ Popup {
   property int userRotation: 0
   property bool userMirror: false
 
+  property alias currentLayer: stampExpressionEvaluator.layer
+  property alias currentFeature: stampExpressionEvaluator.feature
+
   function requiredPermissionsGranted() {
     if (cameraPermission.status !== Qt.PermissionStatus.Granted) {
       return false;
@@ -136,6 +139,8 @@ Popup {
     expressionText: ""
 
     project: qgisProject
+    layer: null
+    feature: FeatureUtils.createBlankFeature()
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionInformation: currentPosition
       cloudUserInformation: appScopesGenerator.cloudUserInformation
