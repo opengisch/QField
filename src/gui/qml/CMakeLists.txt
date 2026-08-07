@@ -1,5 +1,6 @@
 set(QFIELD_GUI_QML_FILES
     QfActionButton.qml
+    QfAudioRecorder.qml
     QfBadge.qml
     QfBluetoothDeviceChooser.qml
     QfBookmarkList.qml
@@ -9,6 +10,7 @@ set(QFIELD_GUI_QML_FILES
     QfButton.qml
     QfCalendarItem.qml
     QfCalendarPanel.qml
+    QfCamera.qml
     QfCodeReader.qml
     QfCogoOperationSettings.qml
     QfCogoOperations.qml
@@ -54,8 +56,6 @@ set(QFIELD_GUI_QML_FILES
     QfProgressRing.qml
     QfProjectCreationScreen.qml
     QfProjectThumbnail.qml
-    QfQFieldAudioRecorder.qml
-    QfQFieldCamera.qml
     QfRelationCombobox.qml
     QfScrollBar.qml
     QfSearchBar.qml

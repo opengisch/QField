@@ -544,7 +544,7 @@ QfRelationEditorBase {
     property bool isVideo: false
 
     sourceComponent: Component {
-      QfQFieldCamera {
+      QfCamera {
         allowCaptureModeToggle: true
 
         Component.onCompleted: {
@@ -574,7 +574,7 @@ QfRelationEditorBase {
     id: relationAudioRecorderLoader
     active: false
     sourceComponent: Component {
-      QfQFieldAudioRecorder {
+      QfAudioRecorder {
         z: 10000
         visible: false
         Component.onCompleted: open()
