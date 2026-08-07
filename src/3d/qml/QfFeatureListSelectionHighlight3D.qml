@@ -14,7 +14,7 @@ Node {
 
   property color color: "yellow"
   property color focusedColor: "red"
-  property color selectedColor: Theme.mainColor
+  property color selectedColor: "#80cc28"
 
   property real lineWidth: 3.0
   property real heightOffset: 15.0

@@ -775,6 +775,7 @@ ApplicationWindow {
         item.mapSettings = mapCanvas.mapSettings;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
+        item.selectionColor = Qt.binding(() => Theme.mainColor);
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
