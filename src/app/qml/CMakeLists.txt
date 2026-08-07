@@ -24,6 +24,7 @@ set(QFIELD_APP_QML_FILES
     QfFeatureListSelectionHighlight.qml
     QfMeasuringTool.qml
     QfPositioningSettings.qml
+    QfTrackerSettings.qml
     QfTrackingSession.qml
     QgisMobileapp.qml
     ScreenLocker.qml
