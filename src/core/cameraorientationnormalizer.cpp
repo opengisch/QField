@@ -52,7 +52,7 @@ void CameraOrientationNormalizer::setCameraPosition( int position )
     return;
   }
 
-  mCameraPosition = position;
+  mCameraPosition = static_cast<CameraPosition>( position );
   emit cameraPositionChanged();
   updatePreviewRotation();
 }
@@ -84,7 +84,7 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
   const bool pixelsAreLandscape = image.width() > image.height();
   const bool needsRotation = ( capturedInLandscape != pixelsAreLandscape );
   const bool needsFlip = ( mCaptureOrientation == Qt::LandscapeOrientation );
-  const bool needsFrontFlip = ( mCameraPosition == 2 );
+  const bool needsFrontFlip = ( mCameraPosition == FrontFace );
   const bool hasExifTag = ( exifTransform != QImageIOHandler::TransformationNone );
 
   if ( !needsRotation && !needsFlip && !needsFrontFlip && !hasExifTag )

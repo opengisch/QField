@@ -1086,10 +1086,15 @@ Popup {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               if (captureLoader.item) {
-                captureLoader.item.camera.restarting = true;
-                captureLoader.item.camera.cameraDevice = modelData;
-                captureLoader.item.camera.applyCameraFormat();
-                captureLoader.item.camera.restarting = false;
+                if (Qt.platform.os === "ios") {
+                  captureLoader.item.camera.restarting = true;
+                  captureLoader.item.camera.cameraDevice = modelData;
+                  captureLoader.item.camera.applyCameraFormat();
+                  captureLoader.item.camera.restarting = false;
+                } else {
+                  captureLoader.item.camera.cameraDevice = modelData;
+                  captureLoader.item.camera.applyCameraFormat();
+                }
               }
             }
           }

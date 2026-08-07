@@ -41,6 +41,15 @@ class CameraOrientationNormalizer : public QObject
     Q_PROPERTY( int cameraPosition READ cameraPosition WRITE setCameraPosition NOTIFY cameraPositionChanged )
 
   public:
+    //! Camera position, matching the integer values of QCameraDevice::Position.
+    enum CameraPosition
+    {
+      UnspecifiedPosition = 0,
+      BackFace = 1,
+      FrontFace = 2
+    };
+    Q_ENUM( CameraPosition )
+
     explicit CameraOrientationNormalizer( QObject *parent = nullptr );
 
     int previewRotation() const;
@@ -84,7 +93,7 @@ class CameraOrientationNormalizer : public QObject
     Qt::ScreenOrientation mCurrentOrientation = Qt::PortraitOrientation;
     Qt::ScreenOrientation mCaptureOrientation = Qt::PortraitOrientation;
     int mPreviewRotation = 0;
-    int mCameraPosition = 0;
+    CameraPosition mCameraPosition = UnspecifiedPosition;
 };
 
 #endif // CAMERAORIENTATIONNORMALIZER_H
