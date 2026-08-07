@@ -148,3 +148,122 @@ TEST_CASE( "CogoOperationPointAtXYZ" )
     REQUIRE( rubberbandModel.vertexCount() == afterFirst );
   }
 }
+
+/*
+ * CogoOperationPointAtDistanceAngle
+ * Angle is measured clockwise from north: 0 deg points +Y, 90 deg points +X.
+ */
+TEST_CASE( "CogoOperationPointAtDistanceAngle" )
+{
+  cogoRegistry();
+  CogoOperationPointAtDistanceAngle operation;
+
+  SECTION( "parameters include elevation only with Z" )
+  {
+    const QList<CogoParameter> flat = operation.parameters( Qgis::WkbType::Point );
+    QStringList names;
+    for ( const CogoParameter &parameter : flat )
+      names << parameter.name;
+    REQUIRE( names == QStringList( { QStringLiteral( "point" ), QStringLiteral( "distance" ), QStringLiteral( "angle" ) } ) );
+
+    const QList<CogoParameter> withZ = operation.parameters( Qgis::WkbType::PointZ );
+    REQUIRE( withZ.size() == 4 );
+    REQUIRE( withZ.at( 3 ).name == QStringLiteral( "elevation" ) );
+  }
+
+  SECTION( "readiness requires a numeric distance and angle" )
+  {
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
+    REQUIRE( !operation.checkReadiness( parameters ) );
+
+    parameters[QStringLiteral( "distance" )] = QStringLiteral( "ten" );
+    parameters[QStringLiteral( "angle" )] = 90.0;
+    REQUIRE( !operation.checkReadiness( parameters ) );
+
+    parameters[QStringLiteral( "distance" )] = 10.0;
+    REQUIRE( operation.checkReadiness( parameters ) );
+  }
+
+  SECTION( "readiness requires an elevation with Z" )
+  {
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0, 5.0 );
+    parameters[QStringLiteral( "distance" )] = 10.0;
+    parameters[QStringLiteral( "angle" )] = 90.0;
+    REQUIRE( !operation.checkReadiness( parameters, Qgis::WkbType::PointZ ) );
+
+    parameters[QStringLiteral( "elevation" )] = 2.0;
+    REQUIRE( operation.checkReadiness( parameters, Qgis::WkbType::PointZ ) );
+  }
+
+  SECTION( "execute places a vertex east at 90 degrees" )
+  {
+    RubberbandModel rubberbandModel;
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
+    parameters[QStringLiteral( "distance" )] = 10.0;
+    parameters[QStringLiteral( "angle" )] = 90.0;
+
+    REQUIRE( operation.execute( &rubberbandModel, parameters, Qgis::WkbType::Point ) );
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.x() == Approx( 10.0 ) );
+    REQUIRE( added.y() == Approx( 0.0 ).margin( 1e-9 ) );
+  }
+
+  SECTION( "execute places a vertex north at 0 degrees" )
+  {
+    RubberbandModel rubberbandModel;
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
+    parameters[QStringLiteral( "distance" )] = 10.0;
+    parameters[QStringLiteral( "angle" )] = 0.0;
+
+    REQUIRE( operation.execute( &rubberbandModel, parameters, Qgis::WkbType::Point ) );
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.x() == Approx( 0.0 ).margin( 1e-9 ) );
+    REQUIRE( added.y() == Approx( 10.0 ) );
+  }
+
+  SECTION( "an angle past a full turn wraps around" )
+  {
+    RubberbandModel rubberbandModel;
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
+    parameters[QStringLiteral( "distance" )] = 10.0;
+    parameters[QStringLiteral( "angle" )] = 450.0;
+
+    REQUIRE( operation.execute( &rubberbandModel, parameters, Qgis::WkbType::Point ) );
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.x() == Approx( 10.0 ) );
+    REQUIRE( added.y() == Approx( 0.0 ).margin( 1e-9 ) );
+  }
+
+  SECTION( "a zero distance keeps the vertex on the source point" )
+  {
+    RubberbandModel rubberbandModel;
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 5.0, 5.0 );
+    parameters[QStringLiteral( "distance" )] = 0.0;
+    parameters[QStringLiteral( "angle" )] = 90.0;
+
+    REQUIRE( operation.execute( &rubberbandModel, parameters, Qgis::WkbType::Point ) );
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.x() == Approx( 5.0 ) );
+    REQUIRE( added.y() == Approx( 5.0 ) );
+  }
+
+  SECTION( "execute offsets the elevation" )
+  {
+    RubberbandModel rubberbandModel;
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0, 100.0 );
+    parameters[QStringLiteral( "distance" )] = 10.0;
+    parameters[QStringLiteral( "angle" )] = 90.0;
+    parameters[QStringLiteral( "elevation" )] = 2.5;
+
+    REQUIRE( operation.execute( &rubberbandModel, parameters, Qgis::WkbType::PointZ ) );
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.z() == Approx( 102.5 ) );
+  }
+}
