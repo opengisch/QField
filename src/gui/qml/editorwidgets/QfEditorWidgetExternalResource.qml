@@ -707,6 +707,9 @@ QfEditorWidgetBase {
 
       allowCaptureModeToggle: true
 
+      currentLayer: currentLayer
+      currentFeature: currentFeature
+
       Component.onCompleted: {
         qfieldCamera.state = isVideo ? 'VideoCapture' : 'PhotoCapture';
         open();
