@@ -208,7 +208,7 @@ namespace QFieldCore
     qmlRegisterType<SnappingUtils>( "org.qfield.core", 1, 0, "SnappingUtils" );
     qmlRegisterType<SubModel>( "org.qfield.core", 1, 0, "SubModel" );
     qmlRegisterType<VertexModel>( "org.qfield.core", 1, 0, "VertexModel" );
-    qmlRegisterType<VideoSinkCapture>( "org.qfield", 1, 0, "VideoSinkCapture" );
+    qmlRegisterType<VideoSinkCapture>( "org.qfield.core", 1, 0, "VideoSinkCapture" );
     qmlRegisterType<ViewStatus>( "org.qfield.core", 1, 0, "ViewStatus" );
     qmlRegisterType<WebdavConnection>( "org.qfield.core", 1, 0, "WebdavConnection" );
 
