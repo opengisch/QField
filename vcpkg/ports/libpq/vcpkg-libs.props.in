@@ -11,7 +11,7 @@
     <VcpkgTcl90sxLibs>@CURRENT_INSTALLED_DIR@/debug/lib/tcl90sgx.lib</VcpkgTcl90sxLibs>
     <VcpkgXmlLibs>@LIBXML2_LIBS_DEBUG@</VcpkgXmlLibs>
     <VcpkgXsltLibs>@LIBXSLT_LIBS_DEBUG@</VcpkgXsltLibs>
-    <VcpkgZlibLibs>@CURRENT_INSTALLED_DIR@/debug/lib/zlibd.lib</VcpkgZlibLibs>
+    <VcpkgZlibLibs>@CURRENT_INSTALLED_DIR@/debug/lib/@ZLIB_LIB_DEBUG@</VcpkgZlibLibs>
     <VcpkgZstdLibs>@CURRENT_INSTALLED_DIR@/debug/lib/zstd.lib</VcpkgZstdLibs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -25,7 +25,7 @@
     <VcpkgTcl90sxLibs>@CURRENT_INSTALLED_DIR@/lib/tcl90sx.lib</VcpkgTcl90sxLibs>
     <VcpkgXmlLibs>@LIBXML2_LIBS_RELEASE@</VcpkgXmlLibs>
     <VcpkgXsltLibs>@LIBXSLT_LIBS_RELEASE@</VcpkgXsltLibs>
-    <VcpkgZlibLibs>@CURRENT_INSTALLED_DIR@/lib/zlib.lib</VcpkgZlibLibs>
+    <VcpkgZlibLibs>@CURRENT_INSTALLED_DIR@/lib/@ZLIB_LIB_RELEASE@</VcpkgZlibLibs>
     <VcpkgZstdLibs>@CURRENT_INSTALLED_DIR@/lib/zstd.lib</VcpkgZstdLibs>
   </PropertyGroup>
 </Project>
