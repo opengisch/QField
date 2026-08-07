@@ -80,7 +80,6 @@
 #include "scalebarmeasurement.h"
 #include "settings.h"
 #include "submodel.h"
-#include "theme.h"
 #include "tracker.h"
 #include "trackingmodel.h"
 #include "utils/authutils.h"
@@ -103,8 +102,6 @@
 #include "webdavconnection.h"
 
 #include <QAbstractSocket>
-#include <QGuiApplication>
-#include <QScreen>
 #include <QtQml>
 #include <qgis.h>
 #include <qgslocatorcontext.h>
@@ -224,15 +221,6 @@ namespace QFieldCore
     REGISTER_SINGLETON( "org.qfield.core", RelationUtils, "RelationUtils" );
     REGISTER_SINGLETON( "org.qfield.core", StringUtils, "StringUtils" );
     REGISTER_SINGLETON( "org.qfield.core", UrlUtils, "UrlUtils" );
-
-    qmlRegisterSingletonType<Theme>( "org.qfield.core", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject * {
-      QScreen *screen = QGuiApplication::primaryScreen();
-      const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;
-      Theme *theme = new Theme();
-      theme->setScreenPpi( dpi );
-      theme->setSystemFontPointSize( PlatformUtilities::instance()->systemFontPointSize() );
-      return theme;
-    } );
 
     qmlRegisterUncreatableType<AbstractGnssReceiver>( "org.qfield.core", 1, 0, "AbstractGnssReceiver", "" );
     qmlRegisterUncreatableType<AppInterface>( "org.qfield.core", 1, 0, "AppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );

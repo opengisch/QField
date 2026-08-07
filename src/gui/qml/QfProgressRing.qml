@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Shapes
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml

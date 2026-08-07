@@ -17,7 +17,7 @@ email                : kaustuv@opengis.ch
 #ifndef THEME_H
 #define THEME_H
 
-#include "qfield_core_export.h"
+#include "qfield_gui_export.h"
 
 #include <QColor>
 #include <QFont>
@@ -25,14 +25,14 @@ email                : kaustuv@opengis.ch
 #include <QVariantMap>
 
 /**
- * \ingroup core
+ * \ingroup gui
  *
  * \brief Provides all color, font scale, and layout constants used throughout
- * the QField UI. Registered as a QML singleton under URI "Theme" 1.0.
+ * the QField UI. Registered as a QML singleton in org.qfield.gui.
  *
  * \note Default colors are loaded from :/theme/theme.json
  */
-class QFIELD_CORE_EXPORT Theme final : public QObject
+class QFIELD_GUI_EXPORT Theme final : public QObject
 {
     Q_OBJECT
 

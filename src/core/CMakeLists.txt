@@ -107,7 +107,6 @@ set(QFIELD_CORE_SRCS
     settings.cpp
     snappingresult.cpp
     submodel.cpp
-    theme.cpp
     tracker.cpp
     trackingmodel.cpp
     vertexmodel.cpp
@@ -225,7 +224,6 @@ set(QFIELD_CORE_HDRS
     settings.h
     snappingresult.h
     submodel.h
-    theme.h
     tracker.h
     trackingmodel.h
     vertexmodel.h
@@ -420,8 +418,8 @@ if(MSVC)
 endif()
 
 # generate_export_header() writes qfield_core_export.h into the build tree, and
-# installed public headers (theme.h, qgsquickmapsettings.h, platformutilities.h,
-# ...) include it, so it has to ship alongside them.
+# installed public headers (qgsquickmapsettings.h, platformutilities.h, ...)
+# include it, so it has to ship alongside them.
 install(FILES ${QFIELD_CORE_HDRS}
               "${CMAKE_CURRENT_BINARY_DIR}/qfield_core_export.h"
         DESTINATION ${QFIELD_INCLUDE_DIR})

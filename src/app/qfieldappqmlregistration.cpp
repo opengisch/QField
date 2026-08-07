@@ -42,7 +42,6 @@ namespace QFieldApp
 
     // Same for Theme, which used to hold the Qf components now living in gui.
     qmlRegisterModule( "Theme", 1, 0 );
-    qmlRegisterModuleImport( "Theme", QQmlModuleImportModuleAny, "org.qfield.core", QQmlModuleImportLatest );
     qmlRegisterModuleImport( "Theme", QQmlModuleImportModuleAny, "org.qfield.gui", QQmlModuleImportLatest );
   }
 } // namespace QFieldApp
