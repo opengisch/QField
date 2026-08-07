@@ -20,6 +20,11 @@ set(QFIELD_APP_QML_FILES
     QFieldLocalDataPickerScreen.qml
     QFieldSettings.qml
     QFieldSketcher.qml
+    QfCoordinateLocator.qml
+    QfFeatureListSelectionHighlight.qml
+    QfMeasuringTool.qml
+    QfPositioningSettings.qml
+    QfTrackingSession.qml
     QgisMobileapp.qml
     ScreenLocker.qml
     WelcomeScreen.qml)

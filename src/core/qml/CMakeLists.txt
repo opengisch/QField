@@ -1,15 +1,10 @@
 set(QFIELD_CORE_QML_FILES
-    QfCoordinateLocator.qml
-    QfFeatureListSelectionHighlight.qml
     QfGridRenderer.qml
     QfKineticHandler.qml
     QfLinePolygon.qml
     QfMapCanvas.qml
     QfMapCanvasPointHandler.qml
-    QfMeasuringTool.qml
-    QfPositioningSettings.qml
     QfRubberband.qml
-    QfTrackingSession.qml
     QfVertexRubberband.qml)
 
 # Type registration stays imperative, in QFieldCore::registerQmlTypes().

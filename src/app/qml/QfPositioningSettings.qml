@@ -1,5 +1,6 @@
 import QtCore
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml
@@ -28,12 +29,8 @@ Settings {
   property real preciseViewPrecision: 2.5
   property bool preciseViewProximityAlarm: true
 
-  enum RotationSource {
-    Compass,
-    Movement
-  }
   property bool preciseViewAutoRotate: false
-  property int preciseViewRotationSource: QfPositioningSettings.RotationSource.Compass
+  property int preciseViewRotationSource: QfPositioningPreciseView.RotationSource.Compass
 
   property bool accuracyIndicator: false
   property real accuracyBad: 5.0

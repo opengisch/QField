@@ -12,6 +12,11 @@ import org.qfield.gui
 Item {
   id: positioningPreciseView
 
+  enum RotationSource {
+    Compass,
+    Movement
+  }
+
   property real maximumHeight: Math.min(Math.min(mainWindow.height / 3, 250))
 
   property double precision: 1
@@ -22,7 +27,7 @@ Item {
   property bool hasAcceptableAccuracy: positionSource.positionInformation.haccValid && positionSource.positionInformation.hacc < precision / 2.5
   property bool hasReachedTarget: hasAcceptableAccuracy && projectDistance - positionSource.positionInformation.hacc - (precision / 10) <= 0
   property bool hasAlarmSnoozed: false
-  property QfPositioningSettings positioningSettings
+  property QtObject positioningSettings
 
   property alias menu: settingsMenu
 
@@ -33,7 +38,7 @@ Item {
     if (!positioningSettings.preciseViewAutoRotate) {
       return NaN;
     }
-    if (positioningSettings.preciseViewRotationSource === QfPositioningSettings.RotationSource.Movement) {
+    if (positioningSettings.preciseViewRotationSource === QfPositioningPreciseView.RotationSource.Movement) {
       return lastValidDirection;
     }
     return positionSource.orientation;
@@ -564,7 +569,7 @@ Item {
         height: 35
         enabled: !selected
 
-        property bool selected: index === (positioningSettings.preciseViewRotationSource === QfPositioningSettings.RotationSource.Compass ? 0 : 1)
+        property bool selected: index === (positioningSettings.preciseViewRotationSource === QfPositioningPreciseView.RotationSource.Compass ? 0 : 1)
 
         Rectangle {
           anchors.fill: parent
@@ -599,7 +604,7 @@ Item {
             if (sourceDelegate.selected) {
               return;
             }
-            positioningSettings.preciseViewRotationSource = index === 0 ? QfPositioningSettings.RotationSource.Compass : QfPositioningSettings.RotationSource.Movement;
+            positioningSettings.preciseViewRotationSource = index === 0 ? QfPositioningPreciseView.RotationSource.Compass : QfPositioningPreciseView.RotationSource.Movement;
           }
         }
       }
@@ -693,7 +698,7 @@ Item {
 
   Connections {
     target: positionSource
-    enabled: positioningSettings.preciseViewRotationSource === QfPositioningSettings.RotationSource.Movement
+    enabled: positioningSettings.preciseViewRotationSource === QfPositioningPreciseView.RotationSource.Movement
 
     function onPositionInformationChanged() {
       const info = positionSource.positionInformation;
