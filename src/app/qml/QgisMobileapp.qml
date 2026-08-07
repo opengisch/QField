@@ -1111,7 +1111,15 @@ ApplicationWindow {
         }
       }
 
-      QfTrackingSession {}
+      QfTrackingSession {
+        positionSource: positionSource
+        filterAccuracy: positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement
+        project: qgisProject
+        mapSettings: mapCanvas.mapSettings
+        cloudUserInformation: appScopesGenerator.cloudUserInformation
+
+        onFeatureCreated: layer => projectInfo.saveTracker(layer)
+      }
     }
 
     /** COGO operation visual guides **/

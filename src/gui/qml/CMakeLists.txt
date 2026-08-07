@@ -86,6 +86,7 @@ set(QFIELD_GUI_QML_FILES
     QfToolButtonDrawer.qml
     QfToolButtonPie.qml
     QfTrackerFeatureForm.qml
+    QfTrackingSession.qml
     QfUdpDeviceChooser.qml
     QfVariableEditor.qml
     QfVisibilityFadingRow.qml

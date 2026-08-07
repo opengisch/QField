@@ -1,3 +1,3 @@
-import org.qfield.app
+import org.qfield.gui
 
 QfTrackingSession {}
