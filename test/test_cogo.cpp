@@ -267,3 +267,81 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
     REQUIRE( added.z() == Approx( 102.5 ) );
   }
 }
+
+/*
+ * CogoOperationPointAtIntersectionCircles
+ * Circles centred at (0,0) r=5 and (8,0) r=5 intersect at (4, +/-3).
+ */
+TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
+{
+  cogoRegistry();
+  CogoOperationPointAtIntersectionCircles operation;
+
+  auto intersectingParameters = []() {
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point1" )] = pointValue( 0.0, 0.0 );
+    parameters[QStringLiteral( "distance1" )] = 5.0;
+    parameters[QStringLiteral( "point2" )] = pointValue( 8.0, 0.0 );
+    parameters[QStringLiteral( "distance2" )] = 5.0;
+    return parameters;
+  };
+
+  SECTION( "parameters expose the candidate toggle" )
+  {
+    const QList<CogoParameter> parameters = operation.parameters( Qgis::WkbType::Point );
+    const CogoParameter &candidate = parameters.last();
+    REQUIRE( candidate.name == QStringLiteral( "candidate" ) );
+    REQUIRE( candidate.type == QStringLiteral( "enum" ) );
+    REQUIRE( candidate.configuration.value( QStringLiteral( "options" ) ).toStringList() == QStringList( { QStringLiteral( "A" ), QStringLiteral( "B" ) } ) );
+  }
+
+  SECTION( "not ready while a circle is missing" )
+  {
+    QVariantMap parameters;
+    parameters[QStringLiteral( "point1" )] = pointValue( 0.0, 0.0 );
+    parameters[QStringLiteral( "distance1" )] = 5.0;
+    REQUIRE( !operation.checkReadiness( parameters ) );
+  }
+
+  SECTION( "not ready when the circles do not intersect" )
+  {
+    QVariantMap parameters = intersectingParameters();
+    parameters[QStringLiteral( "distance1" )] = 1.0;
+    parameters[QStringLiteral( "distance2" )] = 1.0;
+    REQUIRE( !operation.checkReadiness( parameters ) );
+  }
+
+  SECTION( "ready when the circles intersect" )
+  {
+    REQUIRE( operation.checkReadiness( intersectingParameters() ) );
+  }
+
+  SECTION( "execute defaults to candidate A" )
+  {
+    RubberbandModel rubberbandModel;
+    REQUIRE( operation.execute( &rubberbandModel, intersectingParameters(), Qgis::WkbType::Point ) );
+
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.x() == Approx( 4.0 ) );
+    REQUIRE( std::abs( added.y() ) == Approx( 3.0 ) );
+  }
+
+  SECTION( "candidate selection picks the mirrored intersection" )
+  {
+    RubberbandModel rubberbandModelA;
+    QVariantMap parametersA = intersectingParameters();
+    parametersA[QStringLiteral( "candidate" )] = QStringLiteral( "A" );
+    REQUIRE( operation.execute( &rubberbandModelA, parametersA, Qgis::WkbType::Point ) );
+    const QgsPoint pointA = rubberbandModelA.vertexAt( 0 );
+
+    RubberbandModel rubberbandModelB;
+    QVariantMap parametersB = intersectingParameters();
+    parametersB[QStringLiteral( "candidate" )] = QStringLiteral( "B" );
+    REQUIRE( operation.execute( &rubberbandModelB, parametersB, Qgis::WkbType::Point ) );
+    const QgsPoint pointB = rubberbandModelB.vertexAt( 0 );
+
+    REQUIRE( pointA.x() == Approx( pointB.x() ) );
+    REQUIRE( pointA.y() == Approx( -pointB.y() ) );
+    REQUIRE( pointA.y() != Approx( pointB.y() ) );
+  }
+}
