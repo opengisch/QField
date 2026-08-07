@@ -666,6 +666,8 @@ QfEditorWidgetBase {
   Loader {
     id: cameraLoader
     property bool isVideo: false
+    property var resourceLayer: currentLayer
+    property var resourceFeature: currentFeature
     sourceComponent: cameraComponent
     active: false
   }
@@ -707,8 +709,8 @@ QfEditorWidgetBase {
 
       allowCaptureModeToggle: true
 
-      currentLayer: currentLayer
-      currentFeature: currentFeature
+      currentLayer: resourceLayer
+      currentFeature: resourceFeature
 
       Component.onCompleted: {
         qfieldCamera.state = isVideo ? 'VideoCapture' : 'PhotoCapture';
