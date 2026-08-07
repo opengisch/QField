@@ -444,3 +444,38 @@ TEST_CASE( "CogoExecutor" )
 
   delete layer;
 }
+
+/*
+ * CogoOperationsModel
+ */
+TEST_CASE( "CogoOperationsModel" )
+{
+  cogoRegistry();
+  CogoOperationsModel model;
+
+  SECTION( "rows match the registry" )
+  {
+    REQUIRE( model.rowCount() == cogoRegistry()->availableOperations().count() );
+  }
+
+  SECTION( "role names" )
+  {
+    const QHash<int, QByteArray> roles = model.roleNames();
+    REQUIRE( roles.value( CogoOperationsModel::NameRole ) == QByteArray( "Name" ) );
+    REQUIRE( roles.value( CogoOperationsModel::DisplayNameRole ) == QByteArray( "DisplayName" ) );
+    REQUIRE( roles.value( CogoOperationsModel::IconRole ) == QByteArray( "Icon" ) );
+  }
+
+  SECTION( "get by name returns the operation data" )
+  {
+    const QVariantMap data = model.get( QStringLiteral( "point_at_xyz" ) );
+    REQUIRE( data.value( QStringLiteral( "Name" ) ).toString() == QStringLiteral( "point_at_xyz" ) );
+    REQUIRE( !data.value( QStringLiteral( "DisplayName" ) ).toString().isEmpty() );
+    REQUIRE( !data.value( QStringLiteral( "Icon" ) ).toString().isEmpty() );
+  }
+
+  SECTION( "get by an invalid name returns empty" )
+  {
+    REQUIRE( model.get( QStringLiteral( "no_such_operation" ) ).isEmpty() );
+  }
+}
