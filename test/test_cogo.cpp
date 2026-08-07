@@ -345,3 +345,102 @@ TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
     REQUIRE( pointA.y() != Approx( pointB.y() ) );
   }
 }
+
+/*
+ * CogoExecutor
+ */
+TEST_CASE( "CogoExecutor" )
+{
+  cogoRegistry();
+
+  QgsVectorLayer *layer = new QgsVectorLayer( QStringLiteral( "Point?crs=epsg:4326" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
+  RubberbandModel rubberbandModel;
+  rubberbandModel.setVectorLayer( layer );
+
+  CogoExecutor executor;
+  executor.setRubberbandModel( &rubberbandModel );
+
+  SECTION( "setting the name loads parameters and clears values" )
+  {
+    QSignalSpy parametersSpy( &executor, &CogoExecutor::parametersChanged );
+    executor.setName( QStringLiteral( "point_at_distance_angle" ) );
+
+    REQUIRE( executor.name() == QStringLiteral( "point_at_distance_angle" ) );
+    REQUIRE( parametersSpy.count() >= 1 );
+    REQUIRE( !executor.parameters().isEmpty() );
+    REQUIRE( executor.parameterValues().isEmpty() );
+  }
+
+  SECTION( "readiness tracks the parameter values" )
+  {
+    executor.setName( QStringLiteral( "point_at_xyz" ) );
+    REQUIRE( !executor.isReady() );
+
+    QSignalSpy readySpy( &executor, &CogoExecutor::isReadyChanged );
+    executor.setParameterValues( { { QStringLiteral( "point" ), pointValue( 1.0, 2.0 ) } } );
+    REQUIRE( executor.isReady() );
+    REQUIRE( readySpy.count() == 1 );
+  }
+
+  SECTION( "execute adds a vertex through the rubberband" )
+  {
+    executor.setName( QStringLiteral( "point_at_xyz" ) );
+    executor.setParameterValues( { { QStringLiteral( "point" ), pointValue( 7.0, 8.0 ) } } );
+
+    const int before = rubberbandModel.vertexCount();
+    REQUIRE( executor.execute() );
+    REQUIRE( rubberbandModel.vertexCount() == before + 1 );
+
+    const QgsPoint added = rubberbandModel.vertexAt( 0 );
+    REQUIRE( added.x() == Approx( 7.0 ) );
+    REQUIRE( added.y() == Approx( 8.0 ) );
+  }
+
+  SECTION( "execute fails for an unknown operation" )
+  {
+    executor.setName( QStringLiteral( "no_such_operation" ) );
+    executor.setParameterValues( { { QStringLiteral( "point" ), pointValue( 1.0, 1.0 ) } } );
+    REQUIRE( !executor.execute() );
+  }
+
+  SECTION( "visual guides require map settings" )
+  {
+    executor.setName( QStringLiteral( "point_at_xyz" ) );
+    executor.setParameterValues( { { QStringLiteral( "point" ), pointValue( 1.0, 1.0 ) } } );
+    REQUIRE( executor.visualGuides().isEmpty() );
+
+    QgsQuickMapSettings mapSettings;
+    mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+    mapSettings.setOutputSize( QSize( 1000, 500 ) );
+    mapSettings.setExtent( QgsRectangle( -10.0, -10.0, 10.0, 10.0 ) );
+
+    QSignalSpy guidesSpy( &executor, &CogoExecutor::visualGuidesChanged );
+    executor.setMapSettings( &mapSettings );
+    REQUIRE( guidesSpy.count() >= 1 );
+    REQUIRE( executor.visualGuides().size() == 1 );
+    REQUIRE( executor.visualGuides().at( 0 ).type == CogoVisualGuide::Point );
+  }
+
+  SECTION( "visual guides regenerate when the map extent moves" )
+  {
+    QgsQuickMapSettings mapSettings;
+    mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
+    mapSettings.setOutputSize( QSize( 1000, 500 ) );
+    mapSettings.setExtent( QgsRectangle( -10.0, -10.0, 10.0, 10.0 ) );
+
+    executor.setName( QStringLiteral( "point_at_xyz" ) );
+    executor.setMapSettings( &mapSettings );
+    executor.setParameterValues( { { QStringLiteral( "point" ), pointValue( 1.0, 1.0 ) } } );
+
+    const QPointF before = executor.visualGuides().at( 0 ).details.value( QStringLiteral( "point" ) ).toPointF();
+
+    QSignalSpy guidesSpy( &executor, &CogoExecutor::visualGuidesChanged );
+    mapSettings.setExtent( QgsRectangle( 0.0, 0.0, 20.0, 10.0 ) );
+    REQUIRE( guidesSpy.count() >= 1 );
+
+    const QPointF after = executor.visualGuides().at( 0 ).details.value( QStringLiteral( "point" ) ).toPointF();
+    REQUIRE( before != after );
+  }
+
+  delete layer;
+}
