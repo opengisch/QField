@@ -1,0 +1,44 @@
+@PACKAGE_INIT@
+
+# CMake package for the QField libraries, so QField can be embedded into another
+# application.
+#
+# Provides:
+#   QField::qfield_core    the core library, with the org.qfield.core QML module
+#                          linked in
+#   QField::qfield_sentry  the Sentry wrapper qfield_core links against; a stub
+#                          interface library when the build had Sentry disabled
+
+include(CMakeFindDependencyMacro)
+
+# FindQGIS.cmake and its qgis-cmake-wrapper.cmake companion are installed
+# alongside this file; the wrapper is what attaches QGIS::Core's own
+# dependencies, which static builds cannot link without.
+list(PREPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+if(NOT DEFINED WITH_VCPKG)
+  set(WITH_VCPKG ON)
+endif()
+
+find_dependency(Qt6 COMPONENTS @QFIELD_EXPORTED_QT_COMPONENTS@)
+find_dependency(QGIS COMPONENTS Core Analysis)
+find_dependency(PROJ)
+find_dependency(GDAL)
+find_dependency(Qca)
+find_dependency(LibZip)
+find_dependency(SQLite3)
+find_dependency(ZXing)
+find_dependency(QtWebDAV)
+
+# When the installed build had Sentry enabled, QField::qfield_sentry links the
+# underlying Sentry SDK, so consumers need its imported target too.
+if(@WITH_SENTRY@)
+  if(APPLE)
+    find_dependency(SentryCocoa)
+  else()
+    find_dependency(sentry)
+  endif()
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/qfield-targets.cmake")
+
+check_required_components(qfield)
