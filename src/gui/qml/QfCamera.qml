@@ -16,7 +16,8 @@ Popup {
 
   property bool isCapturing: false
 
-  readonly property bool isReady: !isCapturing && (state == "PhotoCapture" || state == "VideoCapture")
+  readonly property bool isAiming: state == "PhotoCapture" || state == "VideoCapture"
+  readonly property bool isReady: isCapturing && isAiming
   readonly property bool isPortraitMode: mainWindow.height > mainWindow.width
 
   property string currentPath: ''
@@ -202,10 +203,13 @@ Popup {
             id: orientationNormalizer
             cameraPosition: {
               let device = camera.cameraDevice;
-              if (device.position !== CameraDevice.UnspecifiedPosition) {
-                return device.position;
+              if (device.position === CameraDevice.FrontFace) {
+                return CameraOrientationNormalizer.FrontFace;
               }
-              return device.description.toLowerCase().includes("front") ? CameraDevice.FrontFace : CameraDevice.BackFace;
+              if (device.position === CameraDevice.BackFace) {
+                return CameraOrientationNormalizer.BackFace;
+              }
+              return device.description.toLowerCase().includes("front") ? CameraOrientationNormalizer.FrontFace : CameraOrientationNormalizer.BackFace;
             }
           }
 
@@ -229,7 +233,7 @@ Popup {
           VideoOutput {
             id: videoOutput
             anchors.fill: parent
-            visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
+            visible: cameraItem.isAiming
             orientation: orientationNormalizer.previewRotation
           }
 
@@ -660,7 +664,7 @@ Popup {
 
             rotation: cameraItem.isPortraitMode ? 0 : -90
 
-            x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2 - (60 + mainWindow.sceneBottomMargin + cameraItem.panelExtraSpace)
+            x: cameraItem.isPortraitMode ? captureRing.x + captureRing.width / 2 - width / 2 : captureRing.x + captureRing.width / 2 - width / 2 - (20 + mainWindow.sceneBottomMargin + cameraItem.panelExtraSpace)
             y: cameraItem.isPortraitMode ? captureRing.y - height - 20 : captureRing.y + captureRing.height / 2 - height / 2
 
             Row {
@@ -953,7 +957,7 @@ Popup {
 
     QfToolButtonDrawer {
       name: "cameraSettingsDrawer"
-      visible: cameraItem.isReady
+      visible: cameraItem.isAiming
 
       anchors.left: parent.left
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
@@ -1089,10 +1093,15 @@ Popup {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               if (captureLoader.item) {
-                captureLoader.item.camera.restarting = true;
-                captureLoader.item.camera.cameraDevice = modelData;
-                captureLoader.item.camera.applyCameraFormat();
-                captureLoader.item.camera.restarting = false;
+                if (Qt.platform.os === "ios") {
+                  captureLoader.item.camera.restarting = true;
+                  captureLoader.item.camera.cameraDevice = modelData;
+                  captureLoader.item.camera.applyCameraFormat();
+                  captureLoader.item.camera.restarting = false;
+                } else {
+                  captureLoader.item.camera.cameraDevice = modelData;
+                  captureLoader.item.camera.applyCameraFormat();
+                }
               }
             }
           }
