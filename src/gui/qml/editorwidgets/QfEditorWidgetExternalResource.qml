@@ -673,7 +673,7 @@ QfEditorWidgetBase {
   Component {
     id: audioRecorderComponent
 
-    QfQFieldAudioRecorder {
+    QfAudioRecorder {
       z: 10000
       visible: false
 
@@ -701,7 +701,7 @@ QfEditorWidgetBase {
   Component {
     id: cameraComponent
 
-    QfQFieldCamera {
+    QfCamera {
       id: qfieldCamera
       visible: false
 
