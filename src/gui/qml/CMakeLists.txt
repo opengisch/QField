@@ -2,14 +2,17 @@ set(QFIELD_GUI_QML_FILES
     QfActionButton.qml
     QfBadge.qml
     QfBluetoothDeviceChooser.qml
+    QfBookmarkHighlight.qml
     QfBookmarkList.qml
     QfBookmarkProperties.qml
+    QfBookmarkRenderer.qml
     QfBrowserPanel.qml
     QfBusyOverlay.qml
     QfButton.qml
     QfCalendarItem.qml
     QfCalendarPanel.qml
     QfCodeReader.qml
+    QfCogoOperationPreview.qml
     QfCogoOperationSettings.qml
     QfCogoOperations.qml
     QfCollapsibleMessage.qml
@@ -18,6 +21,7 @@ set(QFIELD_GUI_QML_FILES
     QfContainerCard.qml
     QfDialog.qml
     QfDigitizingToolbar.qml
+    QfDropShadow.qml
     QfEgenioussDeviceChooser.qml
     QfElevationProfile.qml
     QfEmbeddedFeatureForm.qml
@@ -26,19 +30,24 @@ set(QFIELD_GUI_QML_FILES
     QfFeatureListForm.qml
     QfFileDeviceChooser.qml
     QfGeometryEditorsToolbar.qml
+    QfGeometryHighlighter.qml
+    QfGeometryRenderer.qml
     QfImageDial.qml
     QfInformationDrawer.qml
     QfInformationPopup.qml
     QfLayerLoginDialog.qml
     QfLayerTreeItemProperties.qml
     QfLegend.qml
+    QfLocationMarker.qml
     QfLocatorItem.qml
     QfLocatorSettings.qml
     QfMenu.qml
     QfMessageLog.qml
     QfMeterBar.qml
     QfNavigationBar.qml
+    QfNavigationHighlight.qml
     QfNavigationInformationView.qml
+    QfNavigationRenderer.qml
     QfOpacityMask.qml
     QfOverlayContainer.qml
     QfOverlayFeatureFormDrawer.qml
@@ -50,6 +59,7 @@ set(QFIELD_GUI_QML_FILES
     QfPositioningNtripSettings.qml
     QfPositioningPreciseView.qml
     QfProcessingAlgorithmForm.qml
+    QfProcessingAlgorithmPreview.qml
     QfProcessingAlgorithmsList.qml
     QfProgressRing.qml
     QfProjectCreationScreen.qml
@@ -57,6 +67,7 @@ set(QFIELD_GUI_QML_FILES
     QfQFieldAudioRecorder.qml
     QfQFieldCamera.qml
     QfRelationCombobox.qml
+    QfScaleBar.qml
     QfScrollBar.qml
     QfSearchBar.qml
     QfSensorInformationView.qml
