@@ -1,3 +1,6 @@
 import org.qfield.core
+import org.qfield.gui
 
-QfGridRenderer {}
+QfGridRenderer {
+  annotationFont: Theme.tinyFont
+}

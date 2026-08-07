@@ -842,6 +842,7 @@ ApplicationWindow {
       indeterminate: true
       prepareLines: true
       autoColor: true
+      annotationFont: Theme.tinyFont
     }
 
     /* The map canvas */
@@ -1033,11 +1034,13 @@ ApplicationWindow {
       QfGridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
+        annotationFont: Theme.tinyFont
       }
 
       QfMapCanvasPointHandler {
         id: pointHandler
         objectName: "pointHandler"
+        coordinateSpace: mainWindow.contentItem
       }
     }
 
@@ -1785,6 +1788,12 @@ ApplicationWindow {
         id: vertexRubberband
         model: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
+        vertexColor: Theme.vertexColorSemiOpaque
+        vertexBorderColor: Theme.vertexColor
+        selectedVertexColor: Theme.vertexSelectedColorSemiOpaque
+        selectedVertexBorderColor: Theme.vertexSelectedColor
+        newVertexColor: Theme.vertexNewColorSemiOpaque
+        newVertexBorderColor: Theme.vertexNewColor
       }
     }
 

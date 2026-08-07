@@ -14,11 +14,13 @@ Item {
     High = 100
   }
 
+  property Item coordinateSpace
+
   function pointInItem(point, item) {
     if (!item || !item.visible) {
       return false;
     }
-    const itemCoordinates = item.mapToItem(mainWindow.contentItem, 0, 0);
+    const itemCoordinates = item.mapToItem(root.coordinateSpace, 0, 0);
     return point.x >= itemCoordinates.x && point.x <= itemCoordinates.x + item.width && point.y >= itemCoordinates.y && point.y <= itemCoordinates.y + item.height;
   }
 
