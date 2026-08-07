@@ -6,6 +6,10 @@
 # Provides:
 #   QField::qfield_core    the core library, with the org.qfield.core QML module
 #                          linked in
+#   QField::qfield_gui     the GUI library with the org.qfield.gui QML module,
+#                          when the build had WITH_GUI enabled
+#   QField::qfield_3d      the 3D library with the org.qfield._3d QML module,
+#                          when the build had WITH_3D enabled
 #   QField::qfield_sentry  the Sentry wrapper qfield_core links against; a stub
 #                          interface library when the build had Sentry disabled
 
