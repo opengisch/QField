@@ -307,10 +307,10 @@ endif()
 # CMake project (find_package(QField CONFIG)).
 #
 # Not under Xcode: the export needs the QML resource OBJECT libraries
-# installed, and Xcode cannot install the objects of OBJECT libraries, so
-# src/core/CMakeLists.txt drops them from the install there and the export
-# would fail at generate time with "Objects of target ... referenced but is
-# not one of the allowed target types".
+# installed, and Xcode cannot install the objects of OBJECT libraries, so the
+# library CMakeLists drop them from the install there and the export would
+# fail at generate time with "Objects of target ... referenced but is not one
+# of the allowed target types".
 
 if(WITH_CORE AND NOT CMAKE_GENERATOR STREQUAL "Xcode")
   set(QFIELD_EXPORTED_QT_COMPONENTS
@@ -324,6 +324,9 @@ if(WITH_CORE AND NOT CMAKE_GENERATOR STREQUAL "Xcode")
   endif()
   if(WITH_NFC)
     list(APPEND QFIELD_EXPORTED_QT_COMPONENTS Nfc)
+  endif()
+  if(WITH_3D)
+    list(APPEND QFIELD_EXPORTED_QT_COMPONENTS Quick3D)
   endif()
   if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
     list(APPEND QFIELD_EXPORTED_QT_COMPONENTS PrintSupport)

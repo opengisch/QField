@@ -13,8 +13,14 @@ qt_add_qml_module(
   NO_GENERATE_QMLTYPES
   RESOURCE_PREFIX
   "/qt/qml"
+  OUTPUT_TARGETS
+  qfield_3d_qml_output_targets
   QML_FILES
   ${QFIELD_3D_QML_FILES})
+
+set(QFIELD_3D_QML_OUTPUT_TARGETS
+    ${qfield_3d_qml_output_targets}
+    PARENT_SCOPE)
 
 qt_import_qml_plugins(qfield_3d)
 

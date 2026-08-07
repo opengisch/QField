@@ -135,8 +135,14 @@ qt_add_qml_module(
   NO_GENERATE_QMLTYPES
   RESOURCE_PREFIX
   "/qt/qml"
+  OUTPUT_TARGETS
+  qfield_gui_qml_output_targets
   QML_FILES
   ${QFIELD_GUI_QML_FILES})
+
+set(QFIELD_GUI_QML_OUTPUT_TARGETS
+    ${qfield_gui_qml_output_targets}
+    PARENT_SCOPE)
 
 qt_import_qml_plugins(qfield_gui)
 
