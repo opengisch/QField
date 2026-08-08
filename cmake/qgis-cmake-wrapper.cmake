@@ -63,9 +63,14 @@ endfunction()
 #  set(CMAKE_USE_PTHREADS_INIT 1)
 #endif()
 
-if(TRUE) # Should possibly have a "static only" check
-  find_package(PkgConfig QUIET)
+find_package(PkgConfig QUIET)
 
+# The static provider/auth-method archives (authmethod_*_a, provider_*_a)
+# only exist when QGIS itself is built statically (Android, iOS,
+# *-windows-static). A dynamic qgis_core.dll loads its providers at runtime
+# instead, so there is nothing to link into consumers.
+find_library(QGIS_STATIC_MARKER_LIBRARY NAMES authmethod_apiheader_a)
+if(QGIS_STATIC_MARKER_LIBRARY)
   _find_and_link_library(authmethod_apiheader_a QGIS::Core)
   _find_and_link_library(authmethod_awss3_a QGIS::Core)
   _find_and_link_library(authmethod_basic_a QGIS::Core)
@@ -86,106 +91,136 @@ if(TRUE) # Should possibly have a "static only" check
   _find_and_link_library(provider_wfs_a QGIS::Core)
   _find_and_link_library(provider_wcs_a QGIS::Core)
   _find_and_link_library(provider_virtuallayer_a QGIS::Core)
+endif()
 
-  _qgis_core_add_dependency(PostgreSQL::PostgreSQL PostgreSQL)
+_qgis_core_add_dependency(PostgreSQL::PostgreSQL PostgreSQL)
 
-  # Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
-  _find_and_link_library(qgis_core QGIS::Core)
+# Relink qgis_core in the end, to make all the qgis plugins happy that need symbols from it
+_find_and_link_library(qgis_core QGIS::Core)
 
-  # Disabled because pkgconfig finds libc++ for the wrong architecture
-  #  and we already link to it through gdal
-  #
-  #  if(PKG_CONFIG_FOUND)
-  #    pkg_check_modules(spatialite REQUIRED IMPORTED_TARGET spatialite)
-  #    target_link_libraries(qgis_core INTERFACE PkgConfig::spatialite)
-  #  endif()
+# Disabled because pkgconfig finds libc++ for the wrong architecture
+#  and we already link to it through gdal
+#
+#  if(PKG_CONFIG_FOUND)
+#    pkg_check_modules(spatialite REQUIRED IMPORTED_TARGET spatialite)
+#    target_link_libraries(qgis_core INTERFACE PkgConfig::spatialite)
+#  endif()
 
-  _qgis_core_add_dependency(qca Qca CONFIG)
+_qgis_core_add_dependency(qca Qca CONFIG)
+# Dynamic Windows QGIS builds already export the protobuf symbols from
+# qgis_core.dll; linking libprotobuf-lite again would duplicate them. Static
+# builds (everything else, including *-windows-static) link it explicitly.
+if(NOT WIN32 OR QGIS_STATIC_MARKER_LIBRARY)
   _qgis_core_add_dependency(Protobuf Protobuf)
   target_link_libraries(QGIS::Core INTERFACE protobuf::libprotobuf-lite)
-  # Terrible hack ahead
-  # 1. geos and proj add libc++.so to their pkgconfig linker instruction
-  # 2. This is propagated through spatialite and GDAL
-  # 3. pkgconfig finds the build system instead of target system lib
-  # The variable pkgcfg_lib_PC_SPATIALITE_c++ is introduced by GDAL's FindSPATIALITE, patched in the gdal portfile
-  if(ANDROID)
-    find_library(libdl dl)
-    get_filename_component(arch_path ${libdl} DIRECTORY)
-    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
-    if(NOT EXISTS ${pkgcfg_lib_PC_SPATIALITE_c++})
-      set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/libc++.so")
-    endif()
-
-    # libspatialite needs log (needed when building with docker)
-    target_link_libraries(QGIS::Core INTERFACE log)
-  endif()
-  # End Terrible hack
-
-  find_library(Qca-ossl_LIBRARIES NAMES qca-ossl PATH_SUFFIXES Qca/crypto)
-  target_link_libraries(QGIS::Core INTERFACE ${Qca-ossl_LIBRARIES})
-
-  _qgis_core_add_dependency(GDAL::GDAL GDAL)
-
-  _qgis_core_add_dependency(draco::draco draco)
-
-  find_package(exiv2 CONFIG REQUIRED)
-  target_link_libraries(QGIS::Core INTERFACE Exiv2::exiv2lib)
-  _qgis_core_add_dependency(libzip::zip libzip)
-  _qgis_core_add_dependency(ZLIB::ZLIB ZLIB)
-  if(MSVC)
-    _find_and_link_library(spatialindex-64 QGIS::Core)
-  else()
-    _find_and_link_library(spatialindex QGIS::Core)
-  endif()
-  find_package(poly2tri CONFIG)
-  target_link_libraries(QGIS::Core INTERFACE poly2tri::poly2tri)
-  find_package(meshoptimizer CONFIG REQUIRED)
-  target_link_libraries(QGIS::Core INTERFACE meshoptimizer::meshoptimizer)
-
-  pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
-  target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
-  _qgis_core_add_dependency(Qt6Keychain::Qt6Keychain Qt6Keychain)
-
-
-  find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat Multimedia)
-  target_link_libraries(QGIS::Core INTERFACE
-      Qt::Gui
-      Qt::Core
-      Qt::Network
-      Qt::Xml
-      Qt::Svg
-      Qt::Concurrent
-      Qt::Sql
-      Qt::Positioning
-      Qt::Core5Compat
-      Qt::Multimedia
-    )
-  if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
-    find_package(Qt6 COMPONENTS SerialPort)
-    target_link_libraries(QGIS::Core INTERFACE
-      Qt::SerialPort
-    )
-  endif()
-  if(APPLE)
-    pkg_check_modules(libtasn1 REQUIRED IMPORTED_TARGET libtasn1)
-    target_link_libraries(QGIS::Core INTERFACE PkgConfig::libtasn1)
-
-    # QtKeychain
-    target_link_libraries(QGIS::Core INTERFACE "-framework Foundation" "-framework Security")
-  endif()
-  if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-     # poppler fixup for linux and macos
-     # _find_and_link_library(lcms2 QGIS::Core)
-
-    # QtKeychain
-    find_package(Qt6 COMPONENTS DBus REQUIRED)
-    target_link_libraries(QGIS::Core INTERFACE
-      Qt::DBus
-    )
-  endif()
-
-  find_package(GSL REQUIRED)
-
-  target_link_libraries(QGIS::Analysis INTERFACE QGIS::Core)
-  target_link_libraries(QGIS::Analysis INTERFACE GSL::gsl)
 endif()
+# Terrible hack ahead
+# 1. geos and proj add libc++.so to their pkgconfig linker instruction
+# 2. This is propagated through spatialite and GDAL
+# 3. pkgconfig finds the build system instead of target system lib
+# The variable pkgcfg_lib_PC_SPATIALITE_c++ is introduced by GDAL's FindSPATIALITE, patched in the gdal portfile
+if(ANDROID)
+  find_library(libdl dl)
+  get_filename_component(arch_path ${libdl} DIRECTORY)
+  set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/${ANDROID_PLATFORM_LEVEL}/libc++.so")
+  if(NOT EXISTS ${pkgcfg_lib_PC_SPATIALITE_c++})
+    set(pkgcfg_lib_PC_SPATIALITE_c++ "${arch_path}/libc++.so")
+  endif()
+
+  # libspatialite needs log (needed when building with docker)
+  target_link_libraries(QGIS::Core INTERFACE log)
+endif()
+# End Terrible hack
+
+# Find qca-ossl with proper debug/release variants
+find_library(Qca-ossl_LIBRARIES_RELEASE NAMES qca-ossl PATH_SUFFIXES Qca/crypto)
+find_library(Qca-ossl_LIBRARIES_DEBUG NAMES qca-ossld PATH_SUFFIXES Qca/crypto)
+if(Qca-ossl_LIBRARIES_DEBUG AND Qca-ossl_LIBRARIES_RELEASE)
+  set(Qca-ossl_LIBRARIES optimized ${Qca-ossl_LIBRARIES_RELEASE} debug ${Qca-ossl_LIBRARIES_DEBUG})
+elseif(Qca-ossl_LIBRARIES_RELEASE)
+  set(Qca-ossl_LIBRARIES ${Qca-ossl_LIBRARIES_RELEASE})
+elseif(Qca-ossl_LIBRARIES_DEBUG)
+  set(Qca-ossl_LIBRARIES ${Qca-ossl_LIBRARIES_DEBUG})
+endif()
+target_link_libraries(QGIS::Core INTERFACE ${Qca-ossl_LIBRARIES})
+
+_qgis_core_add_dependency(GDAL::GDAL GDAL)
+
+_qgis_core_add_dependency(draco::draco draco)
+
+find_package(exiv2 CONFIG REQUIRED)
+target_link_libraries(QGIS::Core INTERFACE Exiv2::exiv2lib)
+_qgis_core_add_dependency(libzip::zip libzip)
+_qgis_core_add_dependency(ZLIB::ZLIB ZLIB)
+if(MSVC)
+  if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    set(_spatialindex_name spatialindex-64)
+  else()
+    set(_spatialindex_name spatialindex-32)
+  endif()
+  # Select the matching spatialindex per config: release lib for Release, -d lib for Debug
+  find_library(SPATIALINDEX_LIBRARY_RELEASE NAMES ${_spatialindex_name})
+  find_library(SPATIALINDEX_LIBRARY_DEBUG NAMES ${_spatialindex_name}d)
+  if(SPATIALINDEX_LIBRARY_RELEASE AND SPATIALINDEX_LIBRARY_DEBUG)
+    target_link_libraries(QGIS::Core INTERFACE optimized ${SPATIALINDEX_LIBRARY_RELEASE} debug ${SPATIALINDEX_LIBRARY_DEBUG})
+  elseif(SPATIALINDEX_LIBRARY_RELEASE)
+    target_link_libraries(QGIS::Core INTERFACE ${SPATIALINDEX_LIBRARY_RELEASE})
+  elseif(SPATIALINDEX_LIBRARY_DEBUG)
+    target_link_libraries(QGIS::Core INTERFACE ${SPATIALINDEX_LIBRARY_DEBUG})
+  else()
+    message(FATAL_ERROR "Fail to find spatialindex library (${_spatialindex_name} / ${_spatialindex_name}d).")
+  endif()
+else()
+  _find_and_link_library(spatialindex QGIS::Core)
+endif()
+find_package(poly2tri CONFIG)
+target_link_libraries(QGIS::Core INTERFACE poly2tri::poly2tri)
+find_package(meshoptimizer CONFIG REQUIRED)
+target_link_libraries(QGIS::Core INTERFACE meshoptimizer::meshoptimizer)
+
+pkg_check_modules(freexl REQUIRED IMPORTED_TARGET freexl)
+target_link_libraries(QGIS::Core INTERFACE PkgConfig::freexl)
+_qgis_core_add_dependency(Qt6Keychain::Qt6Keychain Qt6Keychain)
+
+
+find_package(Qt6 COMPONENTS Core Gui Network Xml Svg Concurrent Sql Positioning Core5Compat Multimedia)
+target_link_libraries(QGIS::Core INTERFACE
+    Qt::Gui
+    Qt::Core
+    Qt::Network
+    Qt::Xml
+    Qt::Svg
+    Qt::Concurrent
+    Qt::Sql
+    Qt::Positioning
+    Qt::Core5Compat
+    Qt::Multimedia
+  )
+if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  find_package(Qt6 COMPONENTS SerialPort)
+  target_link_libraries(QGIS::Core INTERFACE
+    Qt::SerialPort
+  )
+endif()
+if(APPLE)
+  pkg_check_modules(libtasn1 REQUIRED IMPORTED_TARGET libtasn1)
+  target_link_libraries(QGIS::Core INTERFACE PkgConfig::libtasn1)
+
+  # QtKeychain
+  target_link_libraries(QGIS::Core INTERFACE "-framework Foundation" "-framework Security")
+endif()
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+   # poppler fixup for linux and macos
+   # _find_and_link_library(lcms2 QGIS::Core)
+
+  # QtKeychain
+  find_package(Qt6 COMPONENTS DBus REQUIRED)
+  target_link_libraries(QGIS::Core INTERFACE
+    Qt::DBus
+  )
+endif()
+
+find_package(GSL REQUIRED)
+
+target_link_libraries(QGIS::Analysis INTERFACE QGIS::Core)
+target_link_libraries(QGIS::Analysis INTERFACE GSL::gsl)
