@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAudioPeaksGatherer" kind="class" language="C++" prot="public">
+    <compoundname>AudioPeaksGatherer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QThread</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAudioPeaksGatherer_1aa9d18e4157de8ad87c6a3b73369e56dd" prot="private" static="no" mutable="no">
+        <type>QUrl</type>
+        <definition>QUrl AudioPeaksGatherer::mSource</definition>
+        <argsstring></argsstring>
+        <name>mSource</name>
+        <qualifiedname>AudioPeaksGatherer::mSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="46" column="10" bodyfile="src/core/audioanalyzer.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAudioPeaksGatherer_1af7fcd1649227c59b68491549a31ae8fa" prot="private" static="no" mutable="no">
+        <type>QAudioDecoder *</type>
+        <definition>QAudioDecoder* AudioPeaksGatherer::mDecoder</definition>
+        <argsstring></argsstring>
+        <name>mDecoder</name>
+        <qualifiedname>AudioPeaksGatherer::mDecoder</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="47" column="19" bodyfile="src/core/audioanalyzer.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAudioPeaksGatherer_1a12e5c682422e8a0f0eac9a8dde840302" prot="private" static="no" mutable="no">
+        <type>QVector&lt; float &gt;</type>
+        <definition>QVector&lt;float&gt; AudioPeaksGatherer::mRawPeaks</definition>
+        <argsstring></argsstring>
+        <name>mRawPeaks</name>
+        <qualifiedname>AudioPeaksGatherer::mRawPeaks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="48" column="13" bodyfile="src/core/audioanalyzer.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAudioPeaksGatherer_1a45a52c1f60340b4e4790eba79b0efe16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioPeaksGatherer::AudioPeaksGatherer</definition>
+        <argsstring>(const QUrl &amp;source)</argsstring>
+        <name>AudioPeaksGatherer</name>
+        <qualifiedname>AudioPeaksGatherer::AudioPeaksGatherer</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="30" column="5" bodyfile="src/core/audioanalyzer.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioPeaksGatherer_1adbfbd66b6367ad812616d5684418f0f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioPeaksGatherer::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>AudioPeaksGatherer::run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="32" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="127" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioPeaksGatherer_1a99acc4bd6fb79ac3182d05e7633dd1db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioPeaksGatherer::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>AudioPeaksGatherer::stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="34" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="152" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioPeaksGatherer_1a05e4e6ad900fdbd1cb528752a45c364c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; float &gt;</type>
+        <definition>QList&lt; float &gt; AudioPeaksGatherer::rawPeaks</definition>
+        <argsstring>() const</argsstring>
+        <name>rawPeaks</name>
+        <qualifiedname>AudioPeaksGatherer::rawPeaks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="36" column="11" bodyfile="src/core/audioanalyzer.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAudioPeaksGatherer_1aeb87100470517ef0041bdca235abb27b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioPeaksGatherer::collectedRawPeaks</definition>
+        <argsstring>()</argsstring>
+        <name>collectedRawPeaks</name>
+        <qualifiedname>AudioPeaksGatherer::collectedRawPeaks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="39" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classAudioPeaksGatherer_1afce870a4205627fb73b7d304a061e408" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioPeaksGatherer::processBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>processBuffer</name>
+        <qualifiedname>AudioPeaksGatherer::processBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="42" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="160" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="slot" id="classAudioPeaksGatherer_1a2456dcb410a96d48ce9f6bcdbf85a6ae" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioPeaksGatherer::finalize</definition>
+        <argsstring>()</argsstring>
+        <name>finalize</name>
+        <qualifiedname>AudioPeaksGatherer::finalize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="43" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="188" bodyend="192"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AudioPeaksGatherer</label>
+        <link refid="classAudioPeaksGatherer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AudioPeaksGatherer</label>
+        <link refid="classAudioPeaksGatherer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/audioanalyzer.h" line="25" column="1" bodyfile="src/core/audioanalyzer.h" bodystart="26" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classAudioPeaksGatherer_1a45a52c1f60340b4e4790eba79b0efe16" prot="public" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>AudioPeaksGatherer</name></member>
+      <member refid="classAudioPeaksGatherer_1aeb87100470517ef0041bdca235abb27b" prot="public" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>collectedRawPeaks</name></member>
+      <member refid="classAudioPeaksGatherer_1a2456dcb410a96d48ce9f6bcdbf85a6ae" prot="private" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>finalize</name></member>
+      <member refid="classAudioPeaksGatherer_1af7fcd1649227c59b68491549a31ae8fa" prot="private" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>mDecoder</name></member>
+      <member refid="classAudioPeaksGatherer_1a12e5c682422e8a0f0eac9a8dde840302" prot="private" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>mRawPeaks</name></member>
+      <member refid="classAudioPeaksGatherer_1aa9d18e4157de8ad87c6a3b73369e56dd" prot="private" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>mSource</name></member>
+      <member refid="classAudioPeaksGatherer_1afce870a4205627fb73b7d304a061e408" prot="private" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>processBuffer</name></member>
+      <member refid="classAudioPeaksGatherer_1a05e4e6ad900fdbd1cb528752a45c364c" prot="public" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>rawPeaks</name></member>
+      <member refid="classAudioPeaksGatherer_1adbfbd66b6367ad812616d5684418f0f5" prot="public" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>run</name></member>
+      <member refid="classAudioPeaksGatherer_1a99acc4bd6fb79ac3182d05e7633dd1db" prot="public" virt="non-virtual"><scope>AudioPeaksGatherer</scope><name>stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

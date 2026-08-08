@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAndroidViewStatus" kind="class" language="C++" prot="public">
+    <compoundname>AndroidViewStatus</compoundname>
+    <basecompoundref refid="classViewStatus" prot="public" virt="non-virtual">ViewStatus</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAndroidViewStatus_1a8e2585ee590d7dafef0faf42d5a63514" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AndroidViewStatus::AndroidViewStatus</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AndroidViewStatus</name>
+        <qualifiedname>AndroidViewStatus::AndroidViewStatus</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidviewstatus.h" line="25" column="5" bodyfile="src/core/platforms/android/androidviewstatus.cpp" bodystart="20" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classAndroidViewStatus_1a50f227595a20b660e21ea0bdd711938f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AndroidViewStatus::handleResourceOpened</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>handleResourceOpened</name>
+        <qualifiedname>AndroidViewStatus::handleResourceOpened</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidviewstatus.h" line="28" column="10" bodyfile="src/core/platforms/android/androidviewstatus.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="slot" id="classAndroidViewStatus_1a88dc20760d35d654bc8310b273b0de97" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AndroidViewStatus::handleResourceCanceled</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>handleResourceCanceled</name>
+        <qualifiedname>AndroidViewStatus::handleResourceCanceled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/androidviewstatus.h" line="29" column="10" bodyfile="src/core/platforms/android/androidviewstatus.cpp" bodystart="35" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AndroidViewStatus</label>
+        <link refid="classAndroidViewStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>ViewStatus</label>
+        <link refid="classViewStatus"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AndroidViewStatus</label>
+        <link refid="classAndroidViewStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>ViewStatus</label>
+        <link refid="classViewStatus"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/android/androidviewstatus.h" line="22" column="1" bodyfile="src/core/platforms/android/androidviewstatus.h" bodystart="23" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classAndroidViewStatus_1a8e2585ee590d7dafef0faf42d5a63514" prot="public" virt="non-virtual"><scope>AndroidViewStatus</scope><name>AndroidViewStatus</name></member>
+      <member refid="classViewStatus_1ae9b772c954bd3cda12dfe3332665d6f5" prot="public" virt="non-virtual"><scope>AndroidViewStatus</scope><name>finished</name></member>
+      <member refid="classAndroidViewStatus_1a88dc20760d35d654bc8310b273b0de97" prot="private" virt="non-virtual"><scope>AndroidViewStatus</scope><name>handleResourceCanceled</name></member>
+      <member refid="classAndroidViewStatus_1a50f227595a20b660e21ea0bdd711938f" prot="private" virt="non-virtual"><scope>AndroidViewStatus</scope><name>handleResourceOpened</name></member>
+      <member refid="classViewStatus_1a037e9dbdacf732779ed6d112feb43fbf" prot="public" virt="non-virtual"><scope>AndroidViewStatus</scope><name>statusReceived</name></member>
+      <member refid="classViewStatus_1aac57167f8276384440422be797b73685" prot="public" virt="non-virtual"><scope>AndroidViewStatus</scope><name>ViewStatus</name></member>
+      <member refid="classViewStatus_1a6e9edb67c332a2dafe21070c4d081931" prot="public" virt="virtual"><scope>AndroidViewStatus</scope><name>~ViewStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

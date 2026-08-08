@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_4b0af5720da35ca08cf9fbb2fd056889" kind="dir">
+    <compoundname>src/3d</compoundname>
+    <innerdir refid="dir_0f8ad8e65be0e5299208b1ff05c4c6ef">src/3d/qml</innerdir>
+    <innerfile refid="maptoview3d_8cpp">maptoview3d.cpp</innerfile>
+    <innerfile refid="maptoview3d_8h">maptoview3d.h</innerfile>
+    <innerfile refid="qfield3dqmlregistration_8cpp">qfield3dqmlregistration.cpp</innerfile>
+    <innerfile refid="qfield3dqmlregistration_8h">qfield3dqmlregistration.h</innerfile>
+    <innerfile refid="quick3dgeometry_8cpp">quick3dgeometry.cpp</innerfile>
+    <innerfile refid="quick3dgeometry_8h">quick3dgeometry.h</innerfile>
+    <innerfile refid="quick3dgeometryconfiguration_8cpp">quick3dgeometryconfiguration.cpp</innerfile>
+    <innerfile refid="quick3dgeometryconfiguration_8h">quick3dgeometryconfiguration.h</innerfile>
+    <innerfile refid="quick3dgeometryutils_8cpp">quick3dgeometryutils.cpp</innerfile>
+    <innerfile refid="quick3dgeometryutils_8h">quick3dgeometryutils.h</innerfile>
+    <innerfile refid="quick3dmaptexturedata_8cpp">quick3dmaptexturedata.cpp</innerfile>
+    <innerfile refid="quick3dmaptexturedata_8h">quick3dmaptexturedata.h</innerfile>
+    <innerfile refid="quick3drubberbandgeometry_8cpp">quick3drubberbandgeometry.cpp</innerfile>
+    <innerfile refid="quick3drubberbandgeometry_8h">quick3drubberbandgeometry.h</innerfile>
+    <innerfile refid="quick3dterraingeometry_8cpp">quick3dterraingeometry.cpp</innerfile>
+    <innerfile refid="quick3dterraingeometry_8h">quick3dterraingeometry.h</innerfile>
+    <innerfile refid="quick3dterrainprovider_8cpp">quick3dterrainprovider.cpp</innerfile>
+    <innerfile refid="quick3dterrainprovider_8h">quick3dterrainprovider.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/3d/"/>
+  </compounddef>
+</doxygen>

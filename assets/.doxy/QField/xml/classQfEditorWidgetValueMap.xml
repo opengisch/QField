@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetValueMap" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetValueMap</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetValueMap_1a22aa5ca6c2bc3f4a0dd2014b72a4fc6d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueMap::currentKeyValue</definition>
+        <argsstring></argsstring>
+        <name>currentKeyValue</name>
+        <qualifiedname>QfEditorWidgetValueMap::currentKeyValue</qualifiedname>
+        <read>dummyGetter_currentKeyValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" line="10" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetValueMap_1ae5610a4bb6e16a5e08bdfd332b2f1cfc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueMap::onCurrentKeyValueChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentKeyValueChanged</name>
+        <qualifiedname>QfEditorWidgetValueMap::onCurrentKeyValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" line="12" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueMap_1a65ee49772cd2af7c4a6afb83abdda048" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueMap::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetValueMap::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" line="13" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueMap_1a06313da470ea92aa25afcaca98695f71" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueMap::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfEditorWidgetValueMap::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" line="14" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueMap_1a600fcde1b737d15792f33c19582b5136" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueMap::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfEditorWidgetValueMap::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" line="15" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetValueMap</label>
+        <link refid="classQfEditorWidgetValueMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetValueMap</label>
+        <link refid="classQfEditorWidgetValueMap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" line="7" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueMap.qml" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetValueMap_1a22aa5ca6c2bc3f4a0dd2014b72a4fc6d" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>currentKeyValue</name></member>
+      <member refid="classQfEditorWidgetValueMap_1a06313da470ea92aa25afcaca98695f71" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>enabled</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetValueMap_1a65ee49772cd2af7c4a6afb83abdda048" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetValueMap_1ae5610a4bb6e16a5e08bdfd332b2f1cfc" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>onCurrentKeyValueChanged</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetValueMap_1a600fcde1b737d15792f33c19582b5136" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>states</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueMap</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

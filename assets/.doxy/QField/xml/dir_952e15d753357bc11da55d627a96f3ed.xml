@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_952e15d753357bc11da55d627a96f3ed" kind="dir">
+    <compoundname>src/core/locator</compoundname>
+    <innerfile refid="activelayerfeatureslocatorfilter_8cpp">activelayerfeatureslocatorfilter.cpp</innerfile>
+    <innerfile refid="activelayerfeatureslocatorfilter_8h">activelayerfeatureslocatorfilter.h</innerfile>
+    <innerfile refid="bookmarklocatorfilter_8cpp">bookmarklocatorfilter.cpp</innerfile>
+    <innerfile refid="bookmarklocatorfilter_8h">bookmarklocatorfilter.h</innerfile>
+    <innerfile refid="expressioncalculatorlocatorfilter_8cpp">expressioncalculatorlocatorfilter.cpp</innerfile>
+    <innerfile refid="expressioncalculatorlocatorfilter_8h">expressioncalculatorlocatorfilter.h</innerfile>
+    <innerfile refid="featureslocatorfilter_8cpp">featureslocatorfilter.cpp</innerfile>
+    <innerfile refid="featureslocatorfilter_8h">featureslocatorfilter.h</innerfile>
+    <innerfile refid="finlandlocatorfilter_8cpp">finlandlocatorfilter.cpp</innerfile>
+    <innerfile refid="finlandlocatorfilter_8h">finlandlocatorfilter.h</innerfile>
+    <innerfile refid="gotolocatorfilter_8cpp">gotolocatorfilter.cpp</innerfile>
+    <innerfile refid="gotolocatorfilter_8h">gotolocatorfilter.h</innerfile>
+    <innerfile refid="helplocatorfilter_8cpp">helplocatorfilter.cpp</innerfile>
+    <innerfile refid="helplocatorfilter_8h">helplocatorfilter.h</innerfile>
+    <innerfile refid="locatormodelsuperbridge_8cpp">locatormodelsuperbridge.cpp</innerfile>
+    <innerfile refid="locatormodelsuperbridge_8h">locatormodelsuperbridge.h</innerfile>
+    <innerfile refid="qfieldlocatorfilter_8cpp">qfieldlocatorfilter.cpp</innerfile>
+    <innerfile refid="qfieldlocatorfilter_8h">qfieldlocatorfilter.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/locator/"/>
+  </compounddef>
+</doxygen>

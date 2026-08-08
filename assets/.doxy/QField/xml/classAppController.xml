@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAppController" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>AppController</compoundname>
+    <derivedcompoundref refid="classQgisMobileapp" prot="public" virt="non-virtual">QgisMobileapp</derivedcompoundref>
+    <includes refid="appcontroller_8h" local="no">appcontroller.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAppController_1a4afb884afca0d9bba232690deed9cf79" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual AppController::~AppController</definition>
+        <argsstring>()=default</argsstring>
+        <name>~AppController</name>
+        <qualifiedname>AppController::~AppController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="36" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1aca6d8b30a7d963ffb3412dcbba9e26e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool AppController::loadProjectFile</definition>
+        <argsstring>(const QString &amp;path, const QString &amp;name=QString())=0</argsstring>
+        <name>loadProjectFile</name>
+        <qualifiedname>AppController::loadProjectFile</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1ab3fa67880e2e29f2ec61f55bc0591656">loadProjectFile</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+<para>Loads a project file (.qgs/.qgz) or standalone dataset from <emphasis>path</emphasis>, labelled <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="39" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a322e28cb34b43500ac6b85b3d0dc7596" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void AppController::reloadProjectFile</definition>
+        <argsstring>()=0</argsstring>
+        <name>reloadProjectFile</name>
+        <qualifiedname>AppController::reloadProjectFile</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1ac0ffdb1ba0941b171442fb9feb717815">reloadProjectFile</reimplementedby>
+        <briefdescription>
+<para>Reloads the currently opened project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="42" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a9e52842d7ab4a8867c5ff3c9a267fec7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void AppController::readProjectFile</definition>
+        <argsstring>()=0</argsstring>
+        <name>readProjectFile</name>
+        <qualifiedname>AppController::readProjectFile</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1ab0d9f1e445d26a84eb4dabc1ae751097">readProjectFile</reimplementedby>
+        <briefdescription>
+<para>Reads the content of the loaded project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="45" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a163559c4eb61dcc864c338ba2f3fd0cd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>QString</type>
+        <definition>virtual QString AppController::readProjectEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, const QString &amp;def=QString()) const =0</argsstring>
+        <name>readProjectEntry</name>
+        <qualifiedname>AppController::readProjectEntry</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1a8d0304ee293aaf58470d3fe444d50f57">readProjectEntry</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>def</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+<para>Reads a string project entry at <emphasis>scope</emphasis> / <emphasis>key</emphasis> (<emphasis>def</emphasis> if absent). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="48" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1afb132960a546424aed45e766e4d32277" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int AppController::readProjectNumEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, int def=0) const =0</argsstring>
+        <name>readProjectNumEntry</name>
+        <qualifiedname>AppController::readProjectNumEntry</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1a23602fb735ca0820f2b5532916233044">readProjectNumEntry</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>def</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Reads an int project entry at <emphasis>scope</emphasis> / <emphasis>key</emphasis> (<emphasis>def</emphasis> if absent). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="51" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a64f0c3e3bd8a22d9b5f0b508c698f2da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double AppController::readProjectDoubleEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, double def=0.0) const =0</argsstring>
+        <name>readProjectDoubleEntry</name>
+        <qualifiedname>AppController::readProjectDoubleEntry</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1a82857277ee0092fc9b6dd20bf7079c6d">readProjectDoubleEntry</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>def</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+<para>Reads a double project entry at <emphasis>scope</emphasis> / <emphasis>key</emphasis> (<emphasis>def</emphasis> if absent). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="54" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a4eadeae2b7c3de9398080ce4f0150c8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool AppController::readProjectBoolEntry</definition>
+        <argsstring>(const QString &amp;scope, const QString &amp;key, bool def=false) const =0</argsstring>
+        <name>readProjectBoolEntry</name>
+        <qualifiedname>AppController::readProjectBoolEntry</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1ac1b50adc79a96ae574116612c660efc3">readProjectBoolEntry</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>scope</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>def</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Reads a bool project entry at <emphasis>scope</emphasis> / <emphasis>key</emphasis> (<emphasis>def</emphasis> if absent). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="57" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a3743736987f0c2e16b68b4bd3e600dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool AppController::print</definition>
+        <argsstring>(const QString &amp;layoutName)=0</argsstring>
+        <name>print</name>
+        <qualifiedname>AppController::print</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1afc8f39df515b76bc6953b5e912a79361">print</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <briefdescription>
+<para>Prints the project layout matching <emphasis>layoutName</emphasis> to PDF. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="60" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a3816d6208a3fba5b34e9e19f12e903a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool AppController::printAtlasFeatures</definition>
+        <argsstring>(const QString &amp;layoutName, const QList&lt; long long &gt; &amp;featureIds)=0</argsstring>
+        <name>printAtlasFeatures</name>
+        <qualifiedname>AppController::printAtlasFeatures</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1a5b33feef371b10c20f0aaff2668657ff">printAtlasFeatures</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layoutName</declname>
+        </param>
+        <param>
+          <type>const QList&lt; long long &gt; &amp;</type>
+          <declname>featureIds</declname>
+        </param>
+        <briefdescription>
+<para>Prints the atlas-driven layout <emphasis>layoutName</emphasis> for <emphasis>featureIds</emphasis> to PDF. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="63" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a8020120c822cc015e12a4299e1947666" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void AppController::setScreenDimmerTimeout</definition>
+        <argsstring>(int timeoutSeconds)=0</argsstring>
+        <name>setScreenDimmerTimeout</name>
+        <qualifiedname>AppController::setScreenDimmerTimeout</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1a95e40f0e084ae500f1094b53c124e906">setScreenDimmerTimeout</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>timeoutSeconds</declname>
+        </param>
+        <briefdescription>
+<para>Sets the screen dimmer timeout in seconds (0 disables dimming). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="66" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppController_1a8a65fa4e7c227b01e69c01d815ca6b34" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void AppController::clearProject</definition>
+        <argsstring>()=0</argsstring>
+        <name>clearProject</name>
+        <qualifiedname>AppController::clearProject</qualifiedname>
+        <reimplementedby refid="classQgisMobileapp_1a3c6c025fddf278a576f67a24ad807979">clearProject</reimplementedby>
+        <briefdescription>
+<para>Clears the currently opened project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appcontroller.h" line="69" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Application operations that <ref refid="classAppInterface" kindref="compound">AppInterface</ref> delegates to the app. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AppController</label>
+        <link refid="classAppController"/>
+      </node>
+      <node id="2">
+        <label>QgisMobileapp</label>
+        <link refid="classQgisMobileapp"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/core/appcontroller.h" line="33" column="1" bodyfile="src/core/appcontroller.h" bodystart="34" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classAppController_1a8a65fa4e7c227b01e69c01d815ca6b34" prot="public" virt="pure-virtual"><scope>AppController</scope><name>clearProject</name></member>
+      <member refid="classAppController_1aca6d8b30a7d963ffb3412dcbba9e26e0" prot="public" virt="pure-virtual"><scope>AppController</scope><name>loadProjectFile</name></member>
+      <member refid="classAppController_1a3743736987f0c2e16b68b4bd3e600dd3" prot="public" virt="pure-virtual"><scope>AppController</scope><name>print</name></member>
+      <member refid="classAppController_1a3816d6208a3fba5b34e9e19f12e903a4" prot="public" virt="pure-virtual"><scope>AppController</scope><name>printAtlasFeatures</name></member>
+      <member refid="classAppController_1a4eadeae2b7c3de9398080ce4f0150c8b" prot="public" virt="pure-virtual"><scope>AppController</scope><name>readProjectBoolEntry</name></member>
+      <member refid="classAppController_1a64f0c3e3bd8a22d9b5f0b508c698f2da" prot="public" virt="pure-virtual"><scope>AppController</scope><name>readProjectDoubleEntry</name></member>
+      <member refid="classAppController_1a163559c4eb61dcc864c338ba2f3fd0cd" prot="public" virt="pure-virtual"><scope>AppController</scope><name>readProjectEntry</name></member>
+      <member refid="classAppController_1a9e52842d7ab4a8867c5ff3c9a267fec7" prot="public" virt="pure-virtual"><scope>AppController</scope><name>readProjectFile</name></member>
+      <member refid="classAppController_1afb132960a546424aed45e766e4d32277" prot="public" virt="pure-virtual"><scope>AppController</scope><name>readProjectNumEntry</name></member>
+      <member refid="classAppController_1a322e28cb34b43500ac6b85b3d0dc7596" prot="public" virt="pure-virtual"><scope>AppController</scope><name>reloadProjectFile</name></member>
+      <member refid="classAppController_1a8020120c822cc015e12a4299e1947666" prot="public" virt="pure-virtual"><scope>AppController</scope><name>setScreenDimmerTimeout</name></member>
+      <member refid="classAppController_1a4afb884afca0d9bba232690deed9cf79" prot="public" virt="virtual"><scope>AppController</scope><name>~AppController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

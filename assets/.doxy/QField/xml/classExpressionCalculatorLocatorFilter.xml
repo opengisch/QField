@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classExpressionCalculatorLocatorFilter" kind="class" language="C++" prot="public">
+    <compoundname>ExpressionCalculatorLocatorFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorFilter</basecompoundref>
+    <includes refid="expressioncalculatorlocatorfilter_8h" local="no">expressioncalculatorlocatorfilter.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classExpressionCalculatorLocatorFilter_1a79e7ba1c0ed7d51923ea40d8f061afb6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ActionOrigin</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::ActionOrigin</qualifiedname>
+        <enumvalue id="classExpressionCalculatorLocatorFilter_1a79e7ba1c0ed7d51923ea40d8f061afb6a313b70f35590ad60bb85252d2cd70a23" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Origin of the action which triggers the result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="38" column="5" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="39" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classExpressionCalculatorLocatorFilter_1a27a9676ed6ce75f4a7de08c2642ee249" prot="private" static="no" mutable="no">
+        <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+        <definition>LocatorModelSuperBridge* ExpressionCalculatorLocatorFilter::mLocatorBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorBridge</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::mLocatorBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="57" column="29" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1abe7757c642f2b37df044554ae581b47b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExpressionCalculatorLocatorFilter::ExpressionCalculatorLocatorFilter</definition>
+        <argsstring>(LocatorModelSuperBridge *locatorBridge, QObject *parent=nullptr)</argsstring>
+        <name>ExpressionCalculatorLocatorFilter</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::ExpressionCalculatorLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classLocatorModelSuperBridge" kindref="compound">LocatorModelSuperBridge</ref> *</type>
+          <declname>locatorBridge</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="43" column="14" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1ac25f57372aa160a6c451003a164f79f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classExpressionCalculatorLocatorFilter" kindref="compound">ExpressionCalculatorLocatorFilter</ref> *</type>
+        <definition>ExpressionCalculatorLocatorFilter * ExpressionCalculatorLocatorFilter::clone</definition>
+        <argsstring>() const override</argsstring>
+        <name>clone</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="44" column="39" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1ae5497148dae75cb93f699b6f5f859eea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExpressionCalculatorLocatorFilter::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="45" column="13" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a78303c64a6a67a43bf4398a06cef6b5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExpressionCalculatorLocatorFilter::displayName</definition>
+        <argsstring>() const override</argsstring>
+        <name>displayName</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::displayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="46" column="13" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a616f8af9bda2f89be7552c1096fdd1da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExpressionCalculatorLocatorFilter::description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="47" column="13" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a4d1585148b5e0bebce0caed875031be7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Priority</type>
+        <definition>Priority ExpressionCalculatorLocatorFilter::priority</definition>
+        <argsstring>() const override</argsstring>
+        <name>priority</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::priority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="48" column="14" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1af3869a7ec2603acfc353fc8a35912668" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExpressionCalculatorLocatorFilter::prefix</definition>
+        <argsstring>() const override</argsstring>
+        <name>prefix</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="49" column="13" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a3b52b55051a64f9fd8c48a23ce0d581c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsLocatorFilter::Flags</type>
+        <definition>QgsLocatorFilter::Flags ExpressionCalculatorLocatorFilter::flags</definition>
+        <argsstring>() const override</argsstring>
+        <name>flags</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="50" column="29" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a7c98f218fa40e5e048c8ad61925bedbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionCalculatorLocatorFilter::fetchResults</definition>
+        <argsstring>(const QString &amp;string, const QgsLocatorContext &amp;context, QgsFeedback *feedback) override</argsstring>
+        <name>fetchResults</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::fetchResults</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const QgsLocatorContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>QgsFeedback *</type>
+          <declname>feedback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="52" column="10" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.cpp" bodystart="43" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a3153a2494936eafb6d96cc8680689055" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionCalculatorLocatorFilter::triggerResult</definition>
+        <argsstring>(const QgsLocatorResult &amp;result) override</argsstring>
+        <name>triggerResult</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::triggerResult</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="53" column="10" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classExpressionCalculatorLocatorFilter_1a446beba6c57623191eb0b7169e3b5178" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExpressionCalculatorLocatorFilter::triggerResultFromAction</definition>
+        <argsstring>(const QgsLocatorResult &amp;result, const int actionId) override</argsstring>
+        <name>triggerResultFromAction</name>
+        <qualifiedname>ExpressionCalculatorLocatorFilter::triggerResultFromAction</qualifiedname>
+        <param>
+          <type>const QgsLocatorResult &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>actionId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="54" column="10" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.cpp" bodystart="73" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classExpressionCalculatorLocatorFilter" kindref="compound">ExpressionCalculatorLocatorFilter</ref> is a locator filter to type in expressions and copy their returned value. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ExpressionCalculatorLocatorFilter</label>
+        <link refid="classExpressionCalculatorLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ExpressionCalculatorLocatorFilter</label>
+        <link refid="classExpressionCalculatorLocatorFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorFilter</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/expressioncalculatorlocatorfilter.h" line="32" column="1" bodyfile="src/core/locator/expressioncalculatorlocatorfilter.h" bodystart="33" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classExpressionCalculatorLocatorFilter_1a79e7ba1c0ed7d51923ea40d8f061afb6" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>ActionOrigin</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1ac25f57372aa160a6c451003a164f79f1" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>clone</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a616f8af9bda2f89be7552c1096fdd1da" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>description</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a78303c64a6a67a43bf4398a06cef6b5c" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>displayName</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1abe7757c642f2b37df044554ae581b47b" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>ExpressionCalculatorLocatorFilter</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a7c98f218fa40e5e048c8ad61925bedbf" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>fetchResults</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a3b52b55051a64f9fd8c48a23ce0d581c" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>flags</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a27a9676ed6ce75f4a7de08c2642ee249" prot="private" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>mLocatorBridge</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1ae5497148dae75cb93f699b6f5f859eea" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>name</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a79e7ba1c0ed7d51923ea40d8f061afb6a313b70f35590ad60bb85252d2cd70a23" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>Normal</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1af3869a7ec2603acfc353fc8a35912668" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>prefix</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a4d1585148b5e0bebce0caed875031be7" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>priority</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a3153a2494936eafb6d96cc8680689055" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>triggerResult</name></member>
+      <member refid="classExpressionCalculatorLocatorFilter_1a446beba6c57623191eb0b7169e3b5178" prot="public" virt="non-virtual"><scope>ExpressionCalculatorLocatorFilter</scope><name>triggerResultFromAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

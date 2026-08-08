@@ -1,0 +1,881 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfieldguiqmlregistration_8cpp" kind="file" language="C++">
+    <compoundname>qfieldguiqmlregistration.cpp</compoundname>
+    <includes refid="attributeformmodel_8h" local="yes">attributeformmodel.h</includes>
+    <includes refid="expressionevaluator_8h" local="yes">expressionevaluator.h</includes>
+    <includes refid="expressionvariablemodel_8h" local="yes">expressionvariablemodel.h</includes>
+    <includes refid="featurechecklistmodel_8h" local="yes">featurechecklistmodel.h</includes>
+    <includes refid="focusstack_8h" local="yes">focusstack.h</includes>
+    <includes refid="geometryeditorsmodel_8h" local="yes">geometryeditorsmodel.h</includes>
+    <includes refid="localfilesmodel_8h" local="yes">localfilesmodel.h</includes>
+    <includes refid="messagelogmodel_8h" local="yes">messagelogmodel.h</includes>
+    <includes refid="orderedrelationmodel_8h" local="yes">orderedrelationmodel.h</includes>
+    <includes refid="parameterizedimage_8h" local="yes">parameterizedimage.h</includes>
+    <includes refid="permissions_8h" local="yes">permissions.h</includes>
+    <includes refid="platformutilities_8h" local="yes">platformutilities.h</includes>
+    <includes refid="printlayoutlistmodel_8h" local="yes">printlayoutlistmodel.h</includes>
+    <includes refid="qfieldguiqmlregistration_8h" local="yes">qfieldguiqmlregistration.h</includes>
+    <includes refid="recentprojectlistmodel_8h" local="yes">recentprojectlistmodel.h</includes>
+    <includes refid="referencingfeaturelistmodel_8h" local="yes">referencingfeaturelistmodel.h</includes>
+    <includes refid="sensorlistmodel_8h" local="yes">sensorlistmodel.h</includes>
+    <includes refid="theme_8h" local="yes">theme.h</includes>
+    <includes refid="valuemapmodel_8h" local="yes">valuemapmodel.h</includes>
+    <includes local="no">QGuiApplication</includes>
+    <includes local="no">QPermissions</includes>
+    <includes local="no">QScreen</includes>
+    <includes local="no">QtQml</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>appexpressioncontextscopesgenerator.h</label>
+        <link refid="appexpressioncontextscopesgenerator_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>featureexpressionvaluesgatherer.h</label>
+        <link refid="featureexpressionvaluesgatherer_8h_source"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>featurelistmodel.h</label>
+        <link refid="featurelistmodel_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>featuremodel.h</label>
+        <link refid="featuremodel_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>geometry.h</label>
+        <link refid="geometry_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>platformutilities.h</label>
+        <link refid="platformutilities_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>gnsspositioninformation.h</label>
+        <link refid="gnsspositioninformation_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>deltafilewrapper.h</label>
+        <link refid="deltafilewrapper_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>networkmanager.h</label>
+        <link refid="networkmanager_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>networkreply.h</label>
+        <link refid="networkreply_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>qfieldcloudproject.h</label>
+        <link refid="qfieldcloudproject_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>qfieldcloudprojectsmodel.h</label>
+        <link refid="qfieldcloudprojectsmodel_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>rubberbandmodel.h</label>
+        <link refid="rubberbandmodel_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>snappingresult.h</label>
+        <link refid="snappingresult_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>qfieldcloudutils.h</label>
+        <link refid="qfieldcloudutils_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>stringutils.h</label>
+        <link refid="stringutils_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>vertexmodel.h</label>
+        <link refid="vertexmodel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>viewstatus.h</label>
+        <link refid="viewstatus_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>attributeformmodel.h</label>
+        <link refid="attributeformmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>attributeformmodelbase.h</label>
+        <link refid="attributeformmodelbase_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>expressionevaluator.h</label>
+        <link refid="expressionevaluator_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>expressionvariablemodel.h</label>
+        <link refid="expressionvariablemodel_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>featurechecklistmodel.h</label>
+        <link refid="featurechecklistmodel_8h_source"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>focusstack.h</label>
+        <link refid="focusstack_8h_source"/>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>geometryeditorsmodel.h</label>
+        <link refid="geometryeditorsmodel_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>localfilesmodel.h</label>
+        <link refid="localfilesmodel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>messagelogmodel.h</label>
+        <link refid="messagelogmodel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>orderedrelationmodel.h</label>
+        <link refid="orderedrelationmodel_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>parameterizedimage.h</label>
+        <link refid="parameterizedimage_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>permissions.h</label>
+        <link refid="permissions_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>printlayoutlistmodel.h</label>
+        <link refid="printlayoutlistmodel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui/qfieldguiqmlregistration.cpp</label>
+        <link refid="qfieldguiqmlregistration_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>qfieldguiqmlregistration.h</label>
+        <link refid="qfieldguiqmlregistration_8h_source"/>
+      </node>
+      <node id="98">
+        <label>recentprojectlistmodel.h</label>
+        <link refid="recentprojectlistmodel_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>referencingfeaturelistmodel.h</label>
+        <link refid="referencingfeaturelistmodel_8h_source"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>sensorlistmodel.h</label>
+        <link refid="sensorlistmodel_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>theme.h</label>
+        <link refid="theme_8h_source"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>valuemapmodel.h</label>
+        <link refid="valuemapmodel_8h_source"/>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>valuemapmodelbase.h</label>
+        <link refid="valuemapmodelbase_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="32">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="73">
+        <label>QColor</label>
+      </node>
+      <node id="7">
+        <label>QDateTime</label>
+      </node>
+      <node id="103">
+        <label>QFont</label>
+      </node>
+      <node id="107">
+        <label>QGuiApplication</label>
+      </node>
+      <node id="16">
+        <label>QJsonArray</label>
+      </node>
+      <node id="17">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="18">
+        <label>QJsonObject</label>
+      </node>
+      <node id="75">
+        <label>QList</label>
+      </node>
+      <node id="67">
+        <label>QMutex</label>
+      </node>
+      <node id="24">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="25">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="8">
+        <label>QObject</label>
+      </node>
+      <node id="84">
+        <label>QPair</label>
+      </node>
+      <node id="89">
+        <label>QPermission</label>
+      </node>
+      <node id="108">
+        <label>QPermissions</label>
+      </node>
+      <node id="39">
+        <label>QPointF</label>
+      </node>
+      <node id="27">
+        <label>QPointer</label>
+      </node>
+      <node id="76">
+        <label>QQuickItem</label>
+      </node>
+      <node id="87">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="109">
+        <label>QScreen</label>
+      </node>
+      <node id="33">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="51">
+        <label>QStack</label>
+      </node>
+      <node id="52">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="9">
+        <label>QString</label>
+      </node>
+      <node id="30">
+        <label>QThread</label>
+      </node>
+      <node id="34">
+        <label>QTimer</label>
+      </node>
+      <node id="106">
+        <label>QVariant</label>
+      </node>
+      <node id="28">
+        <label>QVariantMap</label>
+      </node>
+      <node id="40">
+        <label>QVector</label>
+      </node>
+      <node id="45">
+        <label>QtPositioning/QGeoCoordinate</label>
+      </node>
+      <node id="110">
+        <label>QtQml</label>
+      </node>
+      <node id="38">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="85">
+        <label>qfield_gui_export.h</label>
+      </node>
+      <node id="10">
+        <label>qgis.h</label>
+      </node>
+      <node id="41">
+        <label>qgsabstractgeometry.h</label>
+      </node>
+      <node id="68">
+        <label>qgsapplication.h</label>
+      </node>
+      <node id="53">
+        <label>qgsattributeeditorcontainer.h</label>
+      </node>
+      <node id="42">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="49">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="58">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="54">
+        <label>qgseditformconfig.h</label>
+      </node>
+      <node id="62">
+        <label>qgsexpression.h</label>
+      </node>
+      <node id="55">
+        <label>qgsexpressioncontext.h</label>
+      </node>
+      <node id="19">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="92">
+        <label>qgsfield.h</label>
+      </node>
+      <node id="43">
+        <label>qgsgeometry.h</label>
+      </node>
+      <node id="94">
+        <label>qgslayoutmanager.h</label>
+      </node>
+      <node id="95">
+        <label>qgslayoutpagecollection.h</label>
+      </node>
+      <node id="20">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="31">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="59">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="60">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="80">
+        <label>qgsmessagelog.h</label>
+      </node>
+      <node id="26">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="44">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="47">
+        <label>qgspointlocator.h</label>
+      </node>
+      <node id="96">
+        <label>qgsprintlayout.h</label>
+      </node>
+      <node id="35">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="61">
+        <label>qgsrectangle.h</label>
+      </node>
+      <node id="82">
+        <label>qgsrelation.h</label>
+      </node>
+      <node id="50">
+        <label>qgsrelationmanager.h</label>
+      </node>
+      <node id="11">
+        <label>qgssatelliteinformation.h</label>
+      </node>
+      <node id="100">
+        <label>qgssensormodel.h</label>
+      </node>
+      <node id="71">
+        <label>qgsstringutils.h</label>
+      </node>
+      <node id="21">
+        <label>qgsvectorlayer.h</label>
+      </node>
+      <node id="69">
+        <label>qgsvectorlayerfeatureiterator.h</label>
+      </node>
+      <node id="101">
+        <label>qobjectuniqueptr.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceQFieldGui">QFieldGui</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="qfieldguiqmlregistration_8cpp_1a39588441e5c2b2db1675d16861aeaaa3" prot="public" static="no">
+        <name>REGISTER_SINGLETON</name>
+        <param><defname>uri</defname></param>
+        <param><defname>_class</defname></param>
+        <param><defname>name</defname></param>
+        <initializer>qmlRegisterSingletonType&lt;_class&gt;( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -&gt; QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfieldguiqmlregistration.cpp" line="41" column="9" bodyfile="src/gui/qfieldguiqmlregistration.cpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfieldguiqmlregistration.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>July<sp/>2026</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;attributeformmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;expressionevaluator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;expressionvariablemodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;featurechecklistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;focusstack.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;geometryeditorsmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;localfilesmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;messagelogmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;orderedrelationmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;parameterizedimage.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;permissions.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;platformutilities.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;printlayoutlistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfieldguiqmlregistration.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;recentprojectlistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;referencingfeaturelistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sensorlistmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;theme.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;valuemapmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QGuiApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPermissions&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QScreen&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtQml&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>REGISTER_SINGLETON(<sp/>uri,<sp/>_class,<sp/>name<sp/>)<sp/>qmlRegisterSingletonType&lt;_class&gt;(<sp/>uri,<sp/>1,<sp/>0,<sp/>name,<sp/>[](<sp/>QQmlEngine<sp/>*engine,<sp/>QJSEngine<sp/>*scriptEngine<sp/>)<sp/>-&gt;<sp/>QObject<sp/>*<sp/>{<sp/>Q_UNUSED(<sp/>engine<sp/>);<sp/>Q_UNUSED(<sp/>scriptEngine<sp/>);<sp/>return<sp/>new<sp/>_class();<sp/>}<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">QFieldGui</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerQmlTypes()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AttributeFormModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;AttributeFormModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;CameraPermission&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfCameraPermission&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ExpressionEvaluator&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ExpressionEvaluator&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ExpressionVariableModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ExpressionVariableModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;FeatureCheckListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FeatureCheckListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;FocusStack&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;FocusStack&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;GeometryEditorsModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;GeometryEditorsModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;LocalFilesModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;LocalFilesModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;MicrophonePermission&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;QfMicrophonePermission&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;OrderedRelationModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;OrderedRelationModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ParameterizedImage&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ParameterizedImage&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;PrintLayoutListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;PrintLayoutListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;RecentProjectListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;RecentProjectListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ReferencingFeatureListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ReferencingFeatureListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;SensorListModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;SensorListModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ValueMapModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;ValueMapModel&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>REGISTER_SINGLETON(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/><ref refid="classGeometryEditorsModel" kindref="compound">GeometryEditorsModel</ref>,<sp/></highlight><highlight class="stringliteral">&quot;GeometryEditorsModelSingleton&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterSingletonType&lt;Theme&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Theme&quot;</highlight><highlight class="normal">,<sp/>[](<sp/>QQmlEngine<sp/>*,<sp/>QJSEngine<sp/>*<sp/>)<sp/>-&gt;<sp/>QObject<sp/>*<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QScreen<sp/>*screen<sp/>=<sp/>QGuiApplication::primaryScreen();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qreal<sp/>dpi<sp/>=<sp/>screen<sp/>?<sp/>screen-&gt;logicalDotsPerInch()<sp/>*<sp/>screen-&gt;devicePixelRatio()<sp/>:<sp/>96.0;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTheme" kindref="compound">Theme</ref><sp/>*theme<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classTheme" kindref="compound">Theme</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>theme-&gt;<ref refid="classTheme_1abfa5333ddd26301ea4360b7393267f71" kindref="member">setScreenPpi</ref>(<sp/>dpi<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>theme-&gt;<ref refid="classTheme_1a37d79ecbe4f81d3ccf7c9d67f97dea9b" kindref="member">setSystemFontPointSize</ref>(<sp/>PlatformUtilities::instance()-&gt;systemFontPointSize()<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>theme;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;MessageLogModel&gt;(<sp/></highlight><highlight class="stringliteral">&quot;org.qfield.gui&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;MessageLogModel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>MessageLogModel<sp/>is<sp/>available<sp/>as<sp/>context<sp/>property<sp/>`messageLogModel`.&quot;</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>QFieldGui</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>REGISTER_SINGLETON</highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qfieldguiqmlregistration.cpp"/>
+  </compounddef>
+</doxygen>

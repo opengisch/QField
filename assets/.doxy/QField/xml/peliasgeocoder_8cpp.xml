@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="peliasgeocoder_8cpp" kind="file" language="C++">
+    <compoundname>peliasgeocoder.cpp</compoundname>
+    <includes refid="peliasgeocoder_8h" local="yes">peliasgeocoder.h</includes>
+    <includes local="no">QDateTime</includes>
+    <includes local="no">QJsonArray</includes>
+    <includes local="no">QJsonDocument</includes>
+    <includes local="no">QMutex</includes>
+    <includes local="no">QNetworkRequest</includes>
+    <includes local="no">QUrl</includes>
+    <includes local="no">QUrlQuery</includes>
+    <includes local="no">qgsblockingnetworkrequest.h</includes>
+    <includes local="no">qgscoordinatetransform.h</includes>
+    <includes local="no">qgsgeocodercontext.h</includes>
+    <includes local="no">qgslogger.h</includes>
+    <includes local="no">qgsnetworkaccessmanager.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/peliasgeocoder.cpp</label>
+        <link refid="peliasgeocoder_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>peliasgeocoder.h</label>
+        <link refid="peliasgeocoder_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QDateTime</label>
+      </node>
+      <node id="8">
+        <label>QJsonArray</label>
+      </node>
+      <node id="9">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="6">
+        <label>QMutex</label>
+      </node>
+      <node id="10">
+        <label>QNetworkRequest</label>
+      </node>
+      <node id="11">
+        <label>QUrl</label>
+      </node>
+      <node id="12">
+        <label>QUrlQuery</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="4">
+        <label>qgis_core.h</label>
+      </node>
+      <node id="13">
+        <label>qgsblockingnetworkrequest.h</label>
+      </node>
+      <node id="14">
+        <label>qgscoordinatetransform.h</label>
+      </node>
+      <node id="5">
+        <label>qgsgeocoder.h</label>
+      </node>
+      <node id="15">
+        <label>qgsgeocodercontext.h</label>
+      </node>
+      <node id="16">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="17">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="peliasgeocoder_8cpp_1a5f68ebb908cd5962f6bb4388da78dfaa" prot="public" static="no">
+        <type>QMap&lt; QUrl, QList&lt; QgsGeocoderResult &gt; &gt;</type>
+        <definition>typedef QMap&lt;QUrl, QList&lt;QgsGeocoderResult&gt; &gt; CachedGeocodeResult</definition>
+        <argsstring></argsstring>
+        <name>CachedGeocodeResult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/peliasgeocoder.cpp" line="31" column="14" bodyfile="src/core/peliasgeocoder.cpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>peliasgeocoder.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>---------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>March<sp/>2021</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>Copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2021<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>Email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;peliasgeocoder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDateTime&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonArray&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QJsonDocument&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkRequest&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QUrl&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QUrlQuery&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsblockingnetworkrequest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgscoordinatetransform.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsgeocodercontext.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgslogger.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsnetworkaccessmanager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>QMap&lt;QUrl,<sp/>QList&lt;QgsGeocoderResult&gt;&gt;<sp/>CachedGeocodeResult;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">Q_GLOBAL_STATIC(<sp/>CachedGeocodeResult,<sp/>sCachedResults<sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">qint64<sp/>PeliasGeocoder::sLastRequestTimestamp<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="classPeliasGeocoder_1a5a950962873dd529dac9fcda8e7cc55a" kindref="member">PeliasGeocoder::PeliasGeocoder</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;endpoint<sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>:<sp/>QgsGeocoderInterface()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>,<sp/>mEndpoint(<sp/>endpoint<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">QgsGeocoderInterface::Flags<sp/>PeliasGeocoder::flags()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="42"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QgsGeocoderInterface::Flag::GeocodesStrings;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">QgsFields<sp/>PeliasGeocoder::appendedFields()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="47"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>QgsFields<sp/>fields;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;gid&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;layer&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;country&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;region&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;localadmin&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;locality&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;neighbourhood&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;street&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;housenumber&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>fields.append(<sp/>QgsField(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;postalcode&quot;</highlight><highlight class="normal"><sp/>),<sp/>QMetaType::QString<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fields;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">Qgis::WkbType<sp/>PeliasGeocoder::wkbType()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="64"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Qgis::WkbType::Point;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">QList&lt;QgsGeocoderResult&gt;<sp/>PeliasGeocoder::geocodeString(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsGeocoderContext<sp/>&amp;context,<sp/>QgsFeedback<sp/>*feedback<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="69"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">.trimmed().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;QgsGeocoderResult&gt;();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>QgsRectangle<sp/>bounds;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!context.areaOfInterest().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsGeometry<sp/>g<sp/>=<sp/>context.areaOfInterest();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsCoordinateTransform<sp/>ct(<sp/>context.areaOfInterestCrs(),<sp/>QgsCoordinateReferenceSystem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;EPSG:4326&quot;</highlight><highlight class="normal"><sp/>)<sp/>),<sp/>context.transformContext()<sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>g.transform(<sp/>ct<sp/>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bounds<sp/>=<sp/>g.boundingBox();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<sp/>QgsCsException<sp/>&amp;<sp/>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>QgsDebugMsgLevel(<sp/></highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>transform<sp/>geocode<sp/>bounds<sp/>to<sp/>WGS84&quot;</highlight><highlight class="normal">,<sp/>2<sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QUrl<sp/>url<sp/>=<sp/><ref refid="classPeliasGeocoder_1af9d1a7bf092ee90b6a863c2c40cf5ef6" kindref="member">requestUrl</ref>(<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">,<sp/>bounds<sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QMutex<sp/>mutex;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>QMutexLocker<sp/>locker(<sp/>&amp;mutex<sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>sCachedResults()-&gt;constFind(<sp/>url<sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>it<sp/>!=<sp/>sCachedResults()-&gt;constEnd()<sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*it;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>QDateTime::currentMSecsSinceEpoch()<sp/>-<sp/>sLastRequestTimestamp<sp/>&lt;<sp/>1000<sp/>/<sp/>mRequestsPerSecond<sp/>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>QThread::msleep(<sp/>50<sp/>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>feedback<sp/>&amp;&amp;<sp/>feedback-&gt;isCanceled()<sp/>)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;QgsGeocoderResult&gt;();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>QNetworkRequest<sp/>request(<sp/>url<sp/>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>QgsBlockingNetworkRequest<sp/>newReq;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsBlockingNetworkRequest::ErrorCode<sp/>errorCode<sp/>=<sp/>newReq.get(<sp/>request,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>feedback<sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>sLastRequestTimestamp<sp/>=<sp/>QDateTime::currentMSecsSinceEpoch();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>errorCode<sp/>!=<sp/>QgsBlockingNetworkRequest::NoError<sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;QgsGeocoderResult&gt;()<sp/>&lt;&lt;<sp/>QgsGeocoderResult::errorResult(<sp/>newReq.errorMessage()<sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Parse<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>QJsonParseError<sp/>err;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>QJsonDocument<sp/>doc<sp/>=<sp/>QJsonDocument::fromJson(<sp/>newReq.reply().content(),<sp/>&amp;err<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>doc.isNull()<sp/>)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;QgsGeocoderResult&gt;()<sp/>&lt;&lt;<sp/>QgsGeocoderResult::errorResult(<sp/>err.errorString()<sp/>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantList<sp/>results<sp/>=<sp/>doc.object().toVariantMap().value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;features&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toList();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>results.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>sCachedResults()-&gt;insert(<sp/>url,<sp/>QList&lt;QgsGeocoderResult&gt;()<sp/>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QList&lt;QgsGeocoderResult&gt;();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>QList&lt;QgsGeocoderResult&gt;<sp/>matches;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>matches.reserve(<sp/>results.size()<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant<sp/>&amp;result<sp/>:<sp/>results<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>matches<sp/>&lt;&lt;<sp/><ref refid="classPeliasGeocoder_1a86fa7dce624172de0dc7d7484c437c1c" kindref="member">jsonToResult</ref>(<sp/>result.toMap()<sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>sCachedResults()-&gt;insert(<sp/>url,<sp/>matches<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>matches;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">QUrl<sp/><ref refid="classPeliasGeocoder_1af9d1a7bf092ee90b6a863c2c40cf5ef6" kindref="member">PeliasGeocoder::requestUrl</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;address,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsRectangle<sp/>&amp;bounds<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="146"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>QUrl<sp/>res(<sp/>mEndpoint<sp/>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>QUrlQuery<sp/>query;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>query.addQueryItem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;sources&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;nlsfi,osm,oa&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>query.addQueryItem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;size&quot;</highlight><highlight class="normal"><sp/>),<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;20&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!bounds.isNull()<sp/>)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>query.addQueryItem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;focus.point.lat&quot;</highlight><highlight class="normal"><sp/>),<sp/>QString::number(<sp/>bounds.center().y()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>query.addQueryItem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;focus.point.lon&quot;</highlight><highlight class="normal"><sp/>),<sp/>QString::number(<sp/>bounds.center().x()<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>query.addQueryItem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal"><sp/>),<sp/>address<sp/>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>res.setQuery(<sp/>query<sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">QgsGeocoderResult<sp/><ref refid="classPeliasGeocoder_1a86fa7dce624172de0dc7d7484c437c1c" kindref="member">PeliasGeocoder::jsonToResult</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;json<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="163"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>properties<sp/>=<sp/>json.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;properties&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toMap();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantList<sp/>coordinates<sp/>=<sp/>json.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;geometry&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toMap().value(<sp/></highlight><highlight class="stringliteral">&quot;coordinates&quot;</highlight><highlight class="normal"><sp/>).toList();</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latitude<sp/>=<sp/>coordinates.at(<sp/>1<sp/>).toDouble();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>longitude<sp/>=<sp/>coordinates.at(<sp/>0<sp/>).toDouble();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsGeometry<sp/>geom<sp/>=<sp/>QgsGeometry::fromPointXY(<sp/>QgsPointXY(<sp/>longitude,<sp/>latitude<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>QgsGeocoderResult<sp/>res(<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;label&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString(),</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>geom,</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QgsCoordinateReferenceSystem(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;EPSG:4326&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>QVariantMap<sp/>attributes;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;gid&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;gid&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;gid&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;layer&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;layer&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;layer&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;country&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;country&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;country&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;region&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;region&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;region&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;localadmin&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;localadmin&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;localadmin&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;locality&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;locality&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;locality&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;neighbourhood&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;neighbourhood&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;neighbourhood&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;street&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;street&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;street&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;housenumber&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;housenumber&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;housenumber&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>properties.contains(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;postalcode&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>attributes.insert(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;postalcode&quot;</highlight><highlight class="normal"><sp/>),<sp/>properties.value(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;postalcode&quot;</highlight><highlight class="normal"><sp/>)<sp/>).toString()<sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>res.setAdditionalAttributes(<sp/>attributes<sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">QString<sp/><ref refid="classPeliasGeocoder_1a2d1b46cf91e2b7b1a3cc63a837bab588" kindref="member">PeliasGeocoder::endpoint</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="206"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mEndpoint;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPeliasGeocoder_1a9ac4a60102d7b66ceb9f16e7b5d9dfb2" kindref="member">PeliasGeocoder::setEndpoint</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;endpoint<sp/>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>mEndpoint<sp/>=<sp/><ref refid="classPeliasGeocoder_1a2d1b46cf91e2b7b1a3cc63a837bab588" kindref="member">endpoint</ref>;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/peliasgeocoder.cpp"/>
+  </compounddef>
+</doxygen>

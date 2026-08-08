@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classDeltaListModel" kind="class" language="C++" prot="public">
+    <compoundname>DeltaListModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ColumnRole</name>
+        <qualifiedname>DeltaListModel::ColumnRole</qualifiedname>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85aa612a0e76fd4851ddebe6f1b75b7876b" prot="public">
+          <name>IdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85a3e5bf445991b613b243e385fc3ddd66e" prot="public">
+          <name>DeltafileIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85ab1787c76af82a9e08ebf696cb8141d8b" prot="public">
+          <name>CreatedByRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85a347ddde18d4567eb51c54e92d34f879f" prot="public">
+          <name>CreatedAtRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85ae5027f68ff64d516b0d0538fb05afe9f" prot="public">
+          <name>UpdatedAtRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85af0471ce89b1d0f66045774f42aaacf8e" prot="public">
+          <name>StatusRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85ab565bbfad5cdeac110e4af63a4fc155f" prot="public">
+          <name>SummaryRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85a4e1d7855c38cdaaea7880a17b609aa65" prot="public">
+          <name>OutputRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="42" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="43" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classDeltaListModel_1af960d7292627f79d75ada7acf1788ae7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DeltaListModel::isValid</definition>
+        <argsstring></argsstring>
+        <name>isValid</name>
+        <qualifiedname>DeltaListModel::isValid</qualifiedname>
+        <read>isValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="33" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaListModel_1a868c5e600bb4af9f88431fba5a022b12" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DeltaListModel::isRefreshing</definition>
+        <argsstring></argsstring>
+        <name>isRefreshing</name>
+        <qualifiedname>DeltaListModel::isRefreshing</qualifiedname>
+        <read>isRefreshing</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="34" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaListModel_1ad8f5f3ac7fd430d193473b08159f809c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> *</type>
+        <definition>QFieldCloudConnection * DeltaListModel::cloudConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>DeltaListModel::cloudConnection</qualifiedname>
+        <read>cloudConnection</read>
+        <write>setCloudConnection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="36" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaListModel_1aec965d6f7ef71cabe0574bdf0117b9e5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::cloudProjectId</definition>
+        <argsstring></argsstring>
+        <name>cloudProjectId</name>
+        <qualifiedname>DeltaListModel::cloudProjectId</qualifiedname>
+        <read>cloudProjectId</read>
+        <write>setCloudProjectId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="37" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classDeltaListModel_1aefb82f2ae876992ed4276f5c48e5706e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::errorString</definition>
+        <argsstring></argsstring>
+        <name>errorString</name>
+        <qualifiedname>DeltaListModel::errorString</qualifiedname>
+        <read>errorString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="39" column="5" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDeltaListModel_1a77cf3ebafc117aedda714bf1cb597adb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeltaListModel::mIsValid</definition>
+        <argsstring></argsstring>
+        <name>mIsValid</name>
+        <qualifiedname>DeltaListModel::mIsValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="101" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaListModel_1aab063d211e1d4f5a39e42e20c3152d7b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeltaListModel::mIsRefreshing</definition>
+        <argsstring></argsstring>
+        <name>mIsRefreshing</name>
+        <qualifiedname>DeltaListModel::mIsRefreshing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="102" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaListModel_1aafa1725d466237a2b3160268fe81ae26" prot="private" static="no" mutable="no">
+        <type>QJsonDocument</type>
+        <definition>QJsonDocument DeltaListModel::mJson</definition>
+        <argsstring></argsstring>
+        <name>mJson</name>
+        <qualifiedname>DeltaListModel::mJson</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="104" column="19" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaListModel_1a07e038708a490e1d13b8b65dd57c4595" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::mErrorString</definition>
+        <argsstring></argsstring>
+        <name>mErrorString</name>
+        <qualifiedname>DeltaListModel::mErrorString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="105" column="13" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaListModel_1adcb075e5a145a5f05dfe449b6adfcbf0" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structQFieldCloudDelta" kindref="compound">QFieldCloudDelta</ref> &gt;</type>
+        <definition>QList&lt;QFieldCloudDelta&gt; DeltaListModel::mDeltas</definition>
+        <argsstring></argsstring>
+        <name>mDeltas</name>
+        <qualifiedname>DeltaListModel::mDeltas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="107" column="11" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaListModel_1a67bdd2bfab976a1d661d4f42307bc212" prot="private" static="no" mutable="no">
+        <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> *</type>
+        <definition>QFieldCloudConnection* DeltaListModel::mCloudConnection</definition>
+        <argsstring></argsstring>
+        <name>mCloudConnection</name>
+        <qualifiedname>DeltaListModel::mCloudConnection</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="109" column="27" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeltaListModel_1a7f454bd9af532d14a7f589ae1736e928" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString DeltaListModel::mCloudProjectId</definition>
+        <argsstring></argsstring>
+        <name>mCloudProjectId</name>
+        <qualifiedname>DeltaListModel::mCloudProjectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="110" column="13" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDeltaListModel_1a78e832a1ea7436814ff1dc81788a9f3e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DeltaListModel::DeltaListModel</definition>
+        <argsstring>()</argsstring>
+        <name>DeltaListModel</name>
+        <qualifiedname>DeltaListModel::DeltaListModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="55" column="14" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1aed39c3051150987034ac4333ddb0aec9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int DeltaListModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>DeltaListModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+<para>Returns number of rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="58" column="9" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="26" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1a4f7e87a9b6087784e82f0060668efb1b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant DeltaListModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>DeltaListModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+<para>Returns the data at given <emphasis>index</emphasis> with given <emphasis>role</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="61" column="14" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="36" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1a566dd9920a2d290d43e97c908ff674d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; DeltaListModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>DeltaListModel::roleNames</qualifiedname>
+        <briefdescription>
+<para>Returns the model role names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="64" column="11" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="64" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1ac43614fa68dc46f0fe81f41546a8cae7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QJsonDocument</type>
+        <definition>QJsonDocument DeltaListModel::json</definition>
+        <argsstring>() const</argsstring>
+        <name>json</name>
+        <qualifiedname>DeltaListModel::json</qualifiedname>
+        <briefdescription>
+<para>Returns the json document used to initialize the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="67" column="19" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1abeefce860b50676d267a04e5d46d130d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaListModel::errorString</definition>
+        <argsstring>() const</argsstring>
+        <name>errorString</name>
+        <qualifiedname>DeltaListModel::errorString</qualifiedname>
+        <briefdescription>
+<para>Holds the reason why it is invalid. Null string if not invalid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="70" column="13" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1ae09ab26276d7edd40466a40fd3a454be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> *</type>
+        <definition>QFieldCloudConnection * DeltaListModel::cloudConnection</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>DeltaListModel::cloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="72" column="27" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1a403e924a6a4bdd490e6d081fbd9beb4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::setCloudConnection</definition>
+        <argsstring>(QFieldCloudConnection *cloudConnection)</argsstring>
+        <name>setCloudConnection</name>
+        <qualifiedname>DeltaListModel::setCloudConnection</qualifiedname>
+        <param>
+          <type><ref refid="classQFieldCloudConnection" kindref="compound">QFieldCloudConnection</ref> *</type>
+          <declname>cloudConnection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="74" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="153" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1a8b8264cdae1dfe14788ef5b768fb9d45" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString DeltaListModel::cloudProjectId</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudProjectId</name>
+        <qualifiedname>DeltaListModel::cloudProjectId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="76" column="13" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1ab560b0de4c1ee5e713c594c905263b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::setCloudProjectId</definition>
+        <argsstring>(const QString &amp;cloudProjectId)</argsstring>
+        <name>setCloudProjectId</name>
+        <qualifiedname>DeltaListModel::setCloudProjectId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>cloudProjectId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="78" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="164" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1a492d5f59e4ed3ceff2bbb251eb23a2af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaListModel::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>DeltaListModel::isValid</qualifiedname>
+        <briefdescription>
+<para>Whether the model is valid and can be used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="81" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1af36a983bb4abc09d9a586a0e700c784e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeltaListModel::isRefreshing</definition>
+        <argsstring>() const</argsstring>
+        <name>isRefreshing</name>
+        <qualifiedname>DeltaListModel::isRefreshing</qualifiedname>
+        <briefdescription>
+<para>Whether the model is refreshing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="84" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeltaListModel_1abef29817ae03cf00847c52a1eb65a278" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void DeltaListModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>DeltaListModel::refresh</qualifiedname>
+        <briefdescription>
+<para>Refreshes the delta list model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="87" column="22" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="98" bodyend="151"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classDeltaListModel_1aedcd8e27a185d8907b22bbda1ef8ebf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::isValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isValidChanged</name>
+        <qualifiedname>DeltaListModel::isValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaListModel_1a096641a90fa76f0522afefd827632fd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::isRefreshingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRefreshingChanged</name>
+        <qualifiedname>DeltaListModel::isRefreshingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaListModel_1a990940e6c3cdbf7e3dc70b0d8497d561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::errorStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>errorStringChanged</name>
+        <qualifiedname>DeltaListModel::errorStringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaListModel_1ac0f9c12f36caa2ddf57bf080f7124ea7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::cloudConnectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudConnectionChanged</name>
+        <qualifiedname>DeltaListModel::cloudConnectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="95" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classDeltaListModel_1a5413fe5ec47dc1c68a093dc6425a1567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::cloudProjectIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudProjectIdChanged</name>
+        <qualifiedname>DeltaListModel::cloudProjectIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="96" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classDeltaListModel_1ac91b3b9b1fe64d920c387b8e73d49a2b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeltaListModel::setIsRefreshing</definition>
+        <argsstring>(bool isRefreshing)</argsstring>
+        <name>setIsRefreshing</name>
+        <qualifiedname>DeltaListModel::setIsRefreshing</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>isRefreshing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/deltalistmodel.h" line="99" column="10" bodyfile="src/core/qfieldcloud/deltalistmodel.cpp" bodystart="175" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DeltaListModel</label>
+        <link refid="classDeltaListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DeltaListModel</label>
+        <link refid="classDeltaListModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/deltalistmodel.h" line="29" column="1" bodyfile="src/core/qfieldcloud/deltalistmodel.h" bodystart="30" bodyend="111"/>
+    <listofallmembers>
+      <member refid="classDeltaListModel_1ad8f5f3ac7fd430d193473b08159f809c" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>cloudConnection</name></member>
+      <member refid="classDeltaListModel_1ae09ab26276d7edd40466a40fd3a454be" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>cloudConnection</name></member>
+      <member refid="classDeltaListModel_1ac0f9c12f36caa2ddf57bf080f7124ea7" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>cloudConnectionChanged</name></member>
+      <member refid="classDeltaListModel_1aec965d6f7ef71cabe0574bdf0117b9e5" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>cloudProjectId</name></member>
+      <member refid="classDeltaListModel_1a8b8264cdae1dfe14788ef5b768fb9d45" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>cloudProjectId</name></member>
+      <member refid="classDeltaListModel_1a5413fe5ec47dc1c68a093dc6425a1567" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>cloudProjectIdChanged</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>ColumnRole</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85a347ddde18d4567eb51c54e92d34f879f" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>CreatedAtRole</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85ab1787c76af82a9e08ebf696cb8141d8b" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>CreatedByRole</name></member>
+      <member refid="classDeltaListModel_1a4f7e87a9b6087784e82f0060668efb1b" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>data</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85a3e5bf445991b613b243e385fc3ddd66e" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>DeltafileIdRole</name></member>
+      <member refid="classDeltaListModel_1a78e832a1ea7436814ff1dc81788a9f3e" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>DeltaListModel</name></member>
+      <member refid="classDeltaListModel_1aefb82f2ae876992ed4276f5c48e5706e" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>errorString</name></member>
+      <member refid="classDeltaListModel_1abeefce860b50676d267a04e5d46d130d" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>errorString</name></member>
+      <member refid="classDeltaListModel_1a990940e6c3cdbf7e3dc70b0d8497d561" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>errorStringChanged</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85aa612a0e76fd4851ddebe6f1b75b7876b" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>IdRole</name></member>
+      <member refid="classDeltaListModel_1a868c5e600bb4af9f88431fba5a022b12" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>isRefreshing</name></member>
+      <member refid="classDeltaListModel_1af36a983bb4abc09d9a586a0e700c784e" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>isRefreshing</name></member>
+      <member refid="classDeltaListModel_1a096641a90fa76f0522afefd827632fd4" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>isRefreshingChanged</name></member>
+      <member refid="classDeltaListModel_1af960d7292627f79d75ada7acf1788ae7" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>isValid</name></member>
+      <member refid="classDeltaListModel_1a492d5f59e4ed3ceff2bbb251eb23a2af" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>isValid</name></member>
+      <member refid="classDeltaListModel_1aedcd8e27a185d8907b22bbda1ef8ebf7" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>isValidChanged</name></member>
+      <member refid="classDeltaListModel_1ac43614fa68dc46f0fe81f41546a8cae7" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>json</name></member>
+      <member refid="classDeltaListModel_1a67bdd2bfab976a1d661d4f42307bc212" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mCloudConnection</name></member>
+      <member refid="classDeltaListModel_1a7f454bd9af532d14a7f589ae1736e928" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mCloudProjectId</name></member>
+      <member refid="classDeltaListModel_1adcb075e5a145a5f05dfe449b6adfcbf0" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mDeltas</name></member>
+      <member refid="classDeltaListModel_1a07e038708a490e1d13b8b65dd57c4595" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mErrorString</name></member>
+      <member refid="classDeltaListModel_1aab063d211e1d4f5a39e42e20c3152d7b" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mIsRefreshing</name></member>
+      <member refid="classDeltaListModel_1a77cf3ebafc117aedda714bf1cb597adb" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mIsValid</name></member>
+      <member refid="classDeltaListModel_1aafa1725d466237a2b3160268fe81ae26" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>mJson</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85a4e1d7855c38cdaaea7880a17b609aa65" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>OutputRole</name></member>
+      <member refid="classDeltaListModel_1abef29817ae03cf00847c52a1eb65a278" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>refresh</name></member>
+      <member refid="classDeltaListModel_1a566dd9920a2d290d43e97c908ff674d2" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>roleNames</name></member>
+      <member refid="classDeltaListModel_1aed39c3051150987034ac4333ddb0aec9" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>rowCount</name></member>
+      <member refid="classDeltaListModel_1a403e924a6a4bdd490e6d081fbd9beb4a" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>setCloudConnection</name></member>
+      <member refid="classDeltaListModel_1ab560b0de4c1ee5e713c594c905263b35" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>setCloudProjectId</name></member>
+      <member refid="classDeltaListModel_1ac91b3b9b1fe64d920c387b8e73d49a2b" prot="private" virt="non-virtual"><scope>DeltaListModel</scope><name>setIsRefreshing</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85af0471ce89b1d0f66045774f42aaacf8e" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>StatusRole</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85ab565bbfad5cdeac110e4af63a4fc155f" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>SummaryRole</name></member>
+      <member refid="classDeltaListModel_1a7c53a87f68e6fefb174d9002232fba85ae5027f68ff64d516b0d0538fb05afe9f" prot="public" virt="non-virtual"><scope>DeltaListModel</scope><name>UpdatedAtRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

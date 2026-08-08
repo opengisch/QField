@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfOverlayContainer" kind="class" language="C++" prot="public">
+    <compoundname>QfOverlayContainer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <derivedcompoundref refid="classQfCogoOperationSettings" prot="public" virt="non-virtual">QfCogoOperationSettings</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfOverlayContainer_1abb3589d5bfff3719dc4f531802fd9e94" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfOverlayContainer::contents</definition>
+        <argsstring></argsstring>
+        <name>contents</name>
+        <qualifiedname>QfOverlayContainer::contents</qualifiedname>
+        <read>dummyGetter_contents_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="12" column="1" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfOverlayContainer_1a8887636d587f985ecc7af8a04a62e45e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfOverlayContainer::layout</definition>
+        <argsstring></argsstring>
+        <name>layout</name>
+        <qualifiedname>QfOverlayContainer::layout</qualifiedname>
+        <read>dummyGetter_layout_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="14" column="1" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfOverlayContainer_1a42c537fc693f1aef9af626be323c663d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfOverlayContainer::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfOverlayContainer::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="16" column="1" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfOverlayContainer_1a79006f5c655184c3e44847b19571507c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfOverlayContainer::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QfOverlayContainer::header</qualifiedname>
+        <read>dummyGetter_header_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="18" column="1" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfOverlayContainer_1a0743897dc37e5e64ac5784df9bd445e9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfOverlayContainer::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfOverlayContainer::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="20" column="5" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1a786e9088f52787694b32c3fcd11bc945" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfOverlayContainer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfOverlayContainer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="21" column="5" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1a7bceb66fb967880f92d22ddf520ea607" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfOverlayContainer::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfOverlayContainer::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="22" column="5" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1aafe9aff8b8f80766e63bfd7e0576266e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfOverlayContainer::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>QfOverlayContainer::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="23" column="5" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1ac103258e81c69d9ba9721357cea6ba5d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfOverlayContainer::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfOverlayContainer::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="24" column="5" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1a89913bba4322903cd784c584f45bfedd" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfOverlayContainer::containerLayout</definition>
+        <argsstring></argsstring>
+        <name>containerLayout</name>
+        <qualifiedname>QfOverlayContainer::containerLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="25" column="8" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1a85dcc6cf649e6b39257c3725949292f6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfOverlayContainer::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfOverlayContainer::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="26" column="6" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOverlayContainer_1afd012fef262785d6ab17ae75e7d30932" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfOverlayContainer::headerLayout</definition>
+        <argsstring></argsstring>
+        <name>headerLayout</name>
+        <qualifiedname>QfOverlayContainer::headerLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfOverlayContainer.qml" line="27" column="11" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>CogoOperationSettings</label>
+        <link refid="classCogoOperationSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfCogoOperationSettings</label>
+        <link refid="classQfCogoOperationSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfOverlayContainer</label>
+        <link refid="classQfOverlayContainer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfOverlayContainer</label>
+        <link refid="classQfOverlayContainer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfOverlayContainer.qml" line="8" column="1" bodyfile="src/gui/qml/QfOverlayContainer.qml" bodystart="8" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classQfOverlayContainer_1ac103258e81c69d9ba9721357cea6ba5d" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>clip</name></member>
+      <member refid="classQfOverlayContainer_1a7bceb66fb967880f92d22ddf520ea607" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>color</name></member>
+      <member refid="classQfOverlayContainer_1a89913bba4322903cd784c584f45bfedd" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>containerLayout</name></member>
+      <member refid="classQfOverlayContainer_1abb3589d5bfff3719dc4f531802fd9e94" prot="public" virt="non-virtual"><scope>QfOverlayContainer</scope><name>contents</name></member>
+      <member refid="classQfOverlayContainer_1a79006f5c655184c3e44847b19571507c" prot="public" virt="non-virtual"><scope>QfOverlayContainer</scope><name>header</name></member>
+      <member refid="classQfOverlayContainer_1afd012fef262785d6ab17ae75e7d30932" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>headerLayout</name></member>
+      <member refid="classQfOverlayContainer_1a786e9088f52787694b32c3fcd11bc945" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>height</name></member>
+      <member refid="classQfOverlayContainer_1a8887636d587f985ecc7af8a04a62e45e" prot="public" virt="non-virtual"><scope>QfOverlayContainer</scope><name>layout</name></member>
+      <member refid="classQfOverlayContainer_1aafe9aff8b8f80766e63bfd7e0576266e" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>radius</name></member>
+      <member refid="classQfOverlayContainer_1a42c537fc693f1aef9af626be323c663d" prot="public" virt="non-virtual"><scope>QfOverlayContainer</scope><name>title</name></member>
+      <member refid="classQfOverlayContainer_1a85dcc6cf649e6b39257c3725949292f6" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>title</name></member>
+      <member refid="classQfOverlayContainer_1a0743897dc37e5e64ac5784df9bd445e9" prot="private" virt="non-virtual"><scope>QfOverlayContainer</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

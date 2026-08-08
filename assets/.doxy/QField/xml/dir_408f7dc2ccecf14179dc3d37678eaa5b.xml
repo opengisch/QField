@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_408f7dc2ccecf14179dc3d37678eaa5b" kind="dir">
+    <compoundname>src/app/qml</compoundname>
+    <innerfile refid="About_8qml">About.qml</innerfile>
+    <innerfile refid="BadLayerItem_8qml">BadLayerItem.qml</innerfile>
+    <innerfile refid="Changelog_8qml">Changelog.qml</innerfile>
+    <innerfile refid="DashBoard_8qml">DashBoard.qml</innerfile>
+    <innerfile refid="Dummy_8qml">Dummy.qml</innerfile>
+    <innerfile refid="Nyuki_8qml">Nyuki.qml</innerfile>
+    <innerfile refid="PluginItem_8qml">PluginItem.qml</innerfile>
+    <innerfile refid="PluginManagerSettings_8qml">PluginManagerSettings.qml</innerfile>
+    <innerfile refid="QfCoordinateLocator_8qml">QfCoordinateLocator.qml</innerfile>
+    <innerfile refid="QfFeatureListSelectionHighlight_8qml">QfFeatureListSelectionHighlight.qml</innerfile>
+    <innerfile refid="QFieldCloudDangerZone_8qml">QFieldCloudDangerZone.qml</innerfile>
+    <innerfile refid="QFieldCloudDeltaHistory_8qml">QFieldCloudDeltaHistory.qml</innerfile>
+    <innerfile refid="QFieldCloudLogin_8qml">QFieldCloudLogin.qml</innerfile>
+    <innerfile refid="QFieldCloudPackageLayersFeedback_8qml">QFieldCloudPackageLayersFeedback.qml</innerfile>
+    <innerfile refid="QFieldCloudPopup_8qml">QFieldCloudPopup.qml</innerfile>
+    <innerfile refid="QFieldCloudProjectDetails_8qml">QFieldCloudProjectDetails.qml</innerfile>
+    <innerfile refid="QFieldCloudProjectFilter_8qml">QFieldCloudProjectFilter.qml</innerfile>
+    <innerfile refid="QFieldCloudScreen_8qml">QFieldCloudScreen.qml</innerfile>
+    <innerfile refid="QFieldCloudStatusBanner_8qml">QFieldCloudStatusBanner.qml</innerfile>
+    <innerfile refid="QFieldGuide_8qml">QFieldGuide.qml</innerfile>
+    <innerfile refid="QFieldLocalDataPickerScreen_8qml">QFieldLocalDataPickerScreen.qml</innerfile>
+    <innerfile refid="QFieldSettings_8qml">QFieldSettings.qml</innerfile>
+    <innerfile refid="QFieldSketcher_8qml">QFieldSketcher.qml</innerfile>
+    <innerfile refid="QfMeasuringTool_8qml">QfMeasuringTool.qml</innerfile>
+    <innerfile refid="QfPositioningSettings_8qml">QfPositioningSettings.qml</innerfile>
+    <innerfile refid="QfTrackerSettings_8qml">QfTrackerSettings.qml</innerfile>
+    <innerfile refid="QgisMobileapp_8qml">QgisMobileapp.qml</innerfile>
+    <innerfile refid="ScreenLocker_8qml">ScreenLocker.qml</innerfile>
+    <innerfile refid="WelcomeScreen_8qml">WelcomeScreen.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/app/qml/"/>
+  </compounddef>
+</doxygen>

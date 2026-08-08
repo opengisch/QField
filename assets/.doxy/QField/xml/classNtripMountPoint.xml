@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNtripMountPoint" kind="class" language="C++" prot="public">
+    <compoundname>NtripMountPoint</compoundname>
+    <includes refid="ntripsourcetablefetcher_8h" local="no">ntripsourcetablefetcher.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classNtripMountPoint_1a4e238b3e98661f485b209898f2f82004" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripMountPoint::mountPoint</definition>
+        <argsstring></argsstring>
+        <name>mountPoint</name>
+        <qualifiedname>NtripMountPoint::mountPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="36" column="5" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripMountPoint_1aa30fb581788d5fd377629dc2af3765d6" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripMountPoint::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>NtripMountPoint::identifier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="37" column="5" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripMountPoint_1ae5dcad2fda067a5c20c52a3458bd8923" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString NtripMountPoint::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <qualifiedname>NtripMountPoint::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="38" column="5" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classNtripMountPoint_1aa8e115ca546fa4fc2da8814ffbf206a4" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint NtripMountPoint::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>NtripMountPoint::point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="39" column="5" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNtripMountPoint_1a56bc18c2e4dff3d644d5640577521eda" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NtripMountPoint::NtripMountPoint</definition>
+        <argsstring>(const QString &amp;mountPoint=QString(), const QString &amp;identifier=QString(), const QString &amp;format=QString(), const QgsPointXY &amp;point=QgsPointXY())</argsstring>
+        <name>NtripMountPoint</name>
+        <qualifiedname>NtripMountPoint::NtripMountPoint</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mountPoint</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>identifier</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>format</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QgsPointXY &amp;</type>
+          <declname>point</declname>
+          <defval>QgsPointXY()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="42" column="14" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripMountPoint_1a74eec17f083a002571ecb66bf5713af1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripMountPoint::operator==</definition>
+        <argsstring>(const NtripMountPoint &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>NtripMountPoint::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classNtripMountPoint" kindref="compound">NtripMountPoint</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="49" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classNtripMountPoint_1a12acafccfeae3f0592688bfb7cca1929" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NtripMountPoint::operator!=</definition>
+        <argsstring>(const NtripMountPoint &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>NtripMountPoint::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classNtripMountPoint" kindref="compound">NtripMountPoint</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/ntripsourcetablefetcher.h" line="53" column="10" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class containing information on an NTRIP mount point. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/ntripsourcetablefetcher.h" line="32" column="1" bodyfile="src/core/positioning/ntripsourcetablefetcher.h" bodystart="33" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classNtripMountPoint_1ae5dcad2fda067a5c20c52a3458bd8923" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>format</name></member>
+      <member refid="classNtripMountPoint_1aa30fb581788d5fd377629dc2af3765d6" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>identifier</name></member>
+      <member refid="classNtripMountPoint_1a4e238b3e98661f485b209898f2f82004" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>mountPoint</name></member>
+      <member refid="classNtripMountPoint_1a56bc18c2e4dff3d644d5640577521eda" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>NtripMountPoint</name></member>
+      <member refid="classNtripMountPoint_1a12acafccfeae3f0592688bfb7cca1929" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>operator!=</name></member>
+      <member refid="classNtripMountPoint_1a74eec17f083a002571ecb66bf5713af1" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>operator==</name></member>
+      <member refid="classNtripMountPoint_1aa8e115ca546fa4fc2da8814ffbf206a4" prot="public" virt="non-virtual"><scope>NtripMountPoint</scope><name>point</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

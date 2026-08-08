@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQuick3DGeometryConfiguration" kind="class" language="C++" prot="public">
+    <compoundname>Quick3DGeometryConfiguration</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <includes refid="quick3dgeometryconfiguration_8h" local="no">quick3dgeometryconfiguration.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQuick3DGeometryConfiguration_1aa60815458ce8b01cecb5fa47a069d557" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Quick3DGeometryConfiguration::wkt</definition>
+        <argsstring></argsstring>
+        <name>wkt</name>
+        <qualifiedname>Quick3DGeometryConfiguration::wkt</qualifiedname>
+        <read>wkt</read>
+        <write>setWkt</write>
+        <briefdescription>
+<para>WKT representation of the geometry to render. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="37" column="5" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DGeometryConfiguration_1af95065c2d4a606ac5700dd67b0b499ac" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Quick3DGeometryConfiguration::heightOffset</definition>
+        <argsstring></argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Quick3DGeometryConfiguration::heightOffset</qualifiedname>
+        <read>heightOffset</read>
+        <write>setHeightOffset</write>
+        <briefdescription>
+<para>Extra vertical offset added on top of the elevation chosen by altitudeClamping. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="39" column="5" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DGeometryConfiguration_1a2f9300e9e61c0bfcb4e5ddf8bcc72537" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQuick3DGeometry_1afeb680d03735887e1126d1356963eb73" kindref="member">Quick3DGeometry::AltitudeClamping</ref></type>
+        <definition>Quick3DGeometry::AltitudeClamping Quick3DGeometryConfiguration::altitudeClamping</definition>
+        <argsstring></argsstring>
+        <name>altitudeClamping</name>
+        <qualifiedname>Quick3DGeometryConfiguration::altitudeClamping</qualifiedname>
+        <read>altitudeClamping</read>
+        <write>setAltitudeClamping</write>
+        <briefdescription>
+<para>How the geometry&apos;s Z values are combined with the terrain elevation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="41" column="5" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DGeometryConfiguration_1a41dbf43cab5182105213fcd0b869d1f8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Quick3DGeometryConfiguration::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>Quick3DGeometryConfiguration::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+<para>Coordinate reference system the geometry is expressed in. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="43" column="5" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DGeometryConfiguration_1ae4fdcc4ddbc7ebee2bb2af74cb763cfe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor Quick3DGeometryConfiguration::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Quick3DGeometryConfiguration::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+<para>Color of the rendered geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="46" column="5" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQuick3DGeometryConfiguration_1a379eb771509699e0596ee162dd79081b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Quick3DGeometryConfiguration::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>Quick3DGeometryConfiguration::lineWidth</qualifiedname>
+        <read>lineWidth</read>
+        <write>setLineWidth</write>
+        <briefdescription>
+<para>Outline tube thickness in scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="48" column="5" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQuick3DGeometryConfiguration_1a8c20c54b29bc7123a1c45a9574087713" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Quick3DGeometryConfiguration::mWkt</definition>
+        <argsstring></argsstring>
+        <name>mWkt</name>
+        <qualifiedname>Quick3DGeometryConfiguration::mWkt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="80" column="13" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DGeometryConfiguration_1a4bc6407215ac3b547a9445d0245ea8b5" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Quick3DGeometryConfiguration::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>Quick3DGeometryConfiguration::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="81" column="34" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DGeometryConfiguration_1a191fe6a6f0b5bbb0cc27c14f81a21b4c" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Quick3DGeometryConfiguration::mHeightOffset</definition>
+        <argsstring></argsstring>
+        <name>mHeightOffset</name>
+        <qualifiedname>Quick3DGeometryConfiguration::mHeightOffset</qualifiedname>
+        <initializer>= 20.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="82" column="11" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DGeometryConfiguration_1a122c7367b39f2f1c19a2ce75ad909968" prot="private" static="no" mutable="no">
+        <type><ref refid="classQuick3DGeometry_1afeb680d03735887e1126d1356963eb73" kindref="member">Quick3DGeometry::AltitudeClamping</ref></type>
+        <definition>Quick3DGeometry::AltitudeClamping Quick3DGeometryConfiguration::mAltitudeClamping</definition>
+        <argsstring></argsstring>
+        <name>mAltitudeClamping</name>
+        <qualifiedname>Quick3DGeometryConfiguration::mAltitudeClamping</qualifiedname>
+        <initializer>= Quick3DGeometry::AltitudeClamping::Ignore</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="83" column="39" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DGeometryConfiguration_1aabace3bf7b6fb819bb0bf8a5ee00d116" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor Quick3DGeometryConfiguration::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>Quick3DGeometryConfiguration::mColor</qualifiedname>
+        <initializer>= QColor( 255, 102, 0 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="84" column="12" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQuick3DGeometryConfiguration_1a95e6d6defb610e4ea2067bc289541312" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Quick3DGeometryConfiguration::mLineWidth</definition>
+        <argsstring></argsstring>
+        <name>mLineWidth</name>
+        <qualifiedname>Quick3DGeometryConfiguration::mLineWidth</qualifiedname>
+        <initializer>= 4.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="85" column="11" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a8c1d76554c3f7ea6db0f82b149216780" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quick3DGeometryConfiguration::Quick3DGeometryConfiguration</definition>
+        <argsstring>(QQuickItem *parent=nullptr)</argsstring>
+        <name>Quick3DGeometryConfiguration</name>
+        <qualifiedname>Quick3DGeometryConfiguration::Quick3DGeometryConfiguration</qualifiedname>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="51" column="14" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a2f6e0cbfdff965ce0212cdb192aa35c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Quick3DGeometryConfiguration::wkt</definition>
+        <argsstring>() const</argsstring>
+        <name>wkt</name>
+        <qualifiedname>Quick3DGeometryConfiguration::wkt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="53" column="13" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a654d55c4015664c9a2ce6983d9fd02de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::setWkt</definition>
+        <argsstring>(const QString &amp;wkt)</argsstring>
+        <name>setWkt</name>
+        <qualifiedname>Quick3DGeometryConfiguration::setWkt</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>wkt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="54" column="10" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="25" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1ac9181d7ab08e8c3bcfe5ce10f98a0620" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem Quick3DGeometryConfiguration::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>Quick3DGeometryConfiguration::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="56" column="34" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1ae5d1965aa1e962822d6a59473aa3a10a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>Quick3DGeometryConfiguration::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="57" column="10" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="36" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a9887c92c07d257f5f26b38d6865fc380" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Quick3DGeometryConfiguration::heightOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>heightOffset</name>
+        <qualifiedname>Quick3DGeometryConfiguration::heightOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="59" column="11" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1ad844e6e9eedc86e4f0c7538b14b464de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::setHeightOffset</definition>
+        <argsstring>(float offset)</argsstring>
+        <name>setHeightOffset</name>
+        <qualifiedname>Quick3DGeometryConfiguration::setHeightOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="60" column="10" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="47" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a7ca5f964940455e89f81cbba56b8b167" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQuick3DGeometry_1afeb680d03735887e1126d1356963eb73" kindref="member">Quick3DGeometry::AltitudeClamping</ref></type>
+        <definition>Quick3DGeometry::AltitudeClamping Quick3DGeometryConfiguration::altitudeClamping</definition>
+        <argsstring>() const</argsstring>
+        <name>altitudeClamping</name>
+        <qualifiedname>Quick3DGeometryConfiguration::altitudeClamping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="62" column="39" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1afa225327cca0e24f31c5f60e877f4e83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::setAltitudeClamping</definition>
+        <argsstring>(Quick3DGeometry::AltitudeClamping clamping)</argsstring>
+        <name>setAltitudeClamping</name>
+        <qualifiedname>Quick3DGeometryConfiguration::setAltitudeClamping</qualifiedname>
+        <param>
+          <type><ref refid="classQuick3DGeometry_1afeb680d03735887e1126d1356963eb73" kindref="member">Quick3DGeometry::AltitudeClamping</ref></type>
+          <declname>clamping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="63" column="10" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="58" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a497a3ff37f23b5fc04e2edc1d0a8b710" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor Quick3DGeometryConfiguration::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>Quick3DGeometryConfiguration::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="65" column="12" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a4787d59c51c23c61d7896bcf1c77ae24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>Quick3DGeometryConfiguration::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="66" column="10" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="69" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a14b493ffec1edfaa847a8647e7a44f48" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float Quick3DGeometryConfiguration::lineWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>Quick3DGeometryConfiguration::lineWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="68" column="11" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQuick3DGeometryConfiguration_1a2778d546061ee09ff778f3d37e93fb99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::setLineWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>setLineWidth</name>
+        <qualifiedname>Quick3DGeometryConfiguration::setLineWidth</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="69" column="10" bodyfile="src/3d/quick3dgeometryconfiguration.cpp" bodystart="80" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQuick3DGeometryConfiguration_1a95524b176e18788f02097d1c9ccb7c48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::wktChanged</definition>
+        <argsstring>()</argsstring>
+        <name>wktChanged</name>
+        <qualifiedname>Quick3DGeometryConfiguration::wktChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="72" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DGeometryConfiguration_1a65f3be779b36d5df5f63e35d0fb59a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>Quick3DGeometryConfiguration::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DGeometryConfiguration_1ac33f94b12bcd780c6509b7feb87917a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::heightOffsetChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightOffsetChanged</name>
+        <qualifiedname>Quick3DGeometryConfiguration::heightOffsetChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="74" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DGeometryConfiguration_1a31643569716576acca0a95277dd08dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::altitudeClampingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>altitudeClampingChanged</name>
+        <qualifiedname>Quick3DGeometryConfiguration::altitudeClampingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DGeometryConfiguration_1a29bd471389a392839a3242a57d559a99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>Quick3DGeometryConfiguration::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQuick3DGeometryConfiguration_1a80fe81658ad3496e9ba25c9e455e30e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Quick3DGeometryConfiguration::lineWidthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineWidthChanged</name>
+        <qualifiedname>Quick3DGeometryConfiguration::lineWidthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/quick3dgeometryconfiguration.h" line="77" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Lightweight data item used by plugins to inject geometry into the 3D map scene. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQuick3DGeometryConfiguration" kindref="compound">Quick3DGeometryConfiguration</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>Quick3DGeometryConfiguration</label>
+        <link refid="classQuick3DGeometryConfiguration"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickItem</label>
+      </node>
+      <node id="1">
+        <label>Quick3DGeometryConfiguration</label>
+        <link refid="classQuick3DGeometryConfiguration"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/quick3dgeometryconfiguration.h" line="32" column="1" bodyfile="src/3d/quick3dgeometryconfiguration.h" bodystart="33" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classQuick3DGeometryConfiguration_1a2f9300e9e61c0bfcb4e5ddf8bcc72537" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>altitudeClamping</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a7ca5f964940455e89f81cbba56b8b167" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>altitudeClamping</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a31643569716576acca0a95277dd08dad" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>altitudeClampingChanged</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1ae4fdcc4ddbc7ebee2bb2af74cb763cfe" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>color</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a497a3ff37f23b5fc04e2edc1d0a8b710" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>color</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a29bd471389a392839a3242a57d559a99" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>colorChanged</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a41dbf43cab5182105213fcd0b869d1f8" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>crs</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1ac9181d7ab08e8c3bcfe5ce10f98a0620" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>crs</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a65f3be779b36d5df5f63e35d0fb59a13" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>crsChanged</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1af95065c2d4a606ac5700dd67b0b499ac" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>heightOffset</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a9887c92c07d257f5f26b38d6865fc380" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>heightOffset</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1ac33f94b12bcd780c6509b7feb87917a8" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>heightOffsetChanged</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a379eb771509699e0596ee162dd79081b" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>lineWidth</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a14b493ffec1edfaa847a8647e7a44f48" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>lineWidth</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a80fe81658ad3496e9ba25c9e455e30e1" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>lineWidthChanged</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a122c7367b39f2f1c19a2ce75ad909968" prot="private" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>mAltitudeClamping</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1aabace3bf7b6fb819bb0bf8a5ee00d116" prot="private" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>mColor</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a4bc6407215ac3b547a9445d0245ea8b5" prot="private" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>mCrs</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a191fe6a6f0b5bbb0cc27c14f81a21b4c" prot="private" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>mHeightOffset</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a95e6d6defb610e4ea2067bc289541312" prot="private" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>mLineWidth</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a8c20c54b29bc7123a1c45a9574087713" prot="private" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>mWkt</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a8c1d76554c3f7ea6db0f82b149216780" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>Quick3DGeometryConfiguration</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1afa225327cca0e24f31c5f60e877f4e83" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>setAltitudeClamping</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a4787d59c51c23c61d7896bcf1c77ae24" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>setColor</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1ae5d1965aa1e962822d6a59473aa3a10a" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>setCrs</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1ad844e6e9eedc86e4f0c7538b14b464de" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>setHeightOffset</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a2778d546061ee09ff778f3d37e93fb99" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>setLineWidth</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a654d55c4015664c9a2ce6983d9fd02de" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>setWkt</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1aa60815458ce8b01cecb5fa47a069d557" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>wkt</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a2f6e0cbfdff965ce0212cdb192aa35c6" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>wkt</name></member>
+      <member refid="classQuick3DGeometryConfiguration_1a95524b176e18788f02097d1c9ccb7c48" prot="public" virt="non-virtual"><scope>Quick3DGeometryConfiguration</scope><name>wktChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

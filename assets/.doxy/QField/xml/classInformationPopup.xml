@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classInformationPopup" kind="class" language="C++" prot="public">
+    <compoundname>InformationPopup</compoundname>
+    <basecompoundref refid="classQfInformationPopup" prot="public" virt="non-virtual">QfInformationPopup</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>InformationPopup</label>
+        <link refid="classInformationPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfInformationPopup</label>
+        <link refid="classQfInformationPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>InformationPopup</label>
+        <link refid="classInformationPopup"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfInformationPopup</label>
+        <link refid="classQfInformationPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/InformationPopup.qml" line="2" column="1" bodyfile="src/app/qml_compat/InformationPopup.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfInformationPopup_1aba4040f131c48df09a985453c117c353" prot="public" virt="non-virtual"><scope>InformationPopup</scope><name>author</name></member>
+      <member refid="classQfInformationPopup_1a5b207476ada1fe6e6068d23546364e2f" prot="public" virt="non-virtual"><scope>InformationPopup</scope><name>description</name></member>
+      <member refid="classQfInformationPopup_1acb84be352eba68ffe5f964b1ad9bb4e7" prot="public" virt="non-virtual"><scope>InformationPopup</scope><name>descriptionFormat</name></member>
+      <member refid="classQfInformationPopup_1a40ea2554f8ec2f1882816507f1a202d1" prot="public" virt="non-virtual"><scope>InformationPopup</scope><name>header</name></member>
+      <member refid="classQfInformationPopup_1a9b4c9b618ee69e854e3d143e352ee407" prot="public" virt="non-virtual"><scope>InformationPopup</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

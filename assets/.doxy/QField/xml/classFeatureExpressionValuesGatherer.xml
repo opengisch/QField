@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classFeatureExpressionValuesGatherer" kind="class" language="C++" prot="public">
+    <compoundname>FeatureExpressionValuesGatherer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QThread</basecompoundref>
+    <includes refid="featureexpressionvaluesgatherer_8h" local="no">featureexpressionvaluesgatherer.h</includes>
+    <innerclass refid="structFeatureExpressionValuesGatherer_1_1Entry" prot="public">FeatureExpressionValuesGatherer::Entry</innerclass>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1a1e86eb2e1cf57e481840b0475cc8664b" prot="protected" static="no" mutable="no">
+        <type>QVector&lt; <ref refid="structFeatureExpressionValuesGatherer_1_1Entry" kindref="compound">Entry</ref> &gt;</type>
+        <definition>QVector&lt;Entry&gt; FeatureExpressionValuesGatherer::mEntries</definition>
+        <argsstring></argsstring>
+        <name>mEntries</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="160" column="13" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1afd2a2203b2b8b3a3c3bb75c40b66f93f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorLayerFeatureSource &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorLayerFeatureSource&gt; FeatureExpressionValuesGatherer::mSource</definition>
+        <argsstring></argsstring>
+        <name>mSource</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="163" column="21" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1a5a7fa188f873fb01f43b00c8431fc812" prot="private" static="no" mutable="no">
+        <type>QgsExpression</type>
+        <definition>QgsExpression FeatureExpressionValuesGatherer::mDisplayExpression</definition>
+        <argsstring></argsstring>
+        <name>mDisplayExpression</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mDisplayExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="164" column="19" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1a31199165d366a4d895c8291b74f4ddde" prot="private" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext FeatureExpressionValuesGatherer::mExpressionContext</definition>
+        <argsstring></argsstring>
+        <name>mExpressionContext</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mExpressionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="165" column="26" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1a7f6c50d224a1bde6cd600020e58f6c2a" prot="private" static="no" mutable="no">
+        <type>QgsFeatureRequest</type>
+        <definition>QgsFeatureRequest FeatureExpressionValuesGatherer::mRequest</definition>
+        <argsstring></argsstring>
+        <name>mRequest</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="166" column="23" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1a6f491bff19a70487404ca5d9e4b4d871" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FeatureExpressionValuesGatherer::mWasCanceled</definition>
+        <argsstring></argsstring>
+        <name>mWasCanceled</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mWasCanceled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="167" column="10" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1ae0ae169ee1cefc89fb17979385fc36d5" prot="private" static="no" mutable="yes">
+        <type>QMutex</type>
+        <definition>QMutex FeatureExpressionValuesGatherer::mCancelMutex</definition>
+        <argsstring></argsstring>
+        <name>mCancelMutex</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mCancelMutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="168" column="20" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1acc492e53fd883d9d6acf2a96d193cea9" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList FeatureExpressionValuesGatherer::mIdentifierFields</definition>
+        <argsstring></argsstring>
+        <name>mIdentifierFields</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mIdentifierFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="169" column="17" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFeatureExpressionValuesGatherer_1ad43cc60066bb865390e2f9e5f78a7a37" prot="private" static="no" mutable="no">
+        <type>QVariant</type>
+        <definition>QVariant FeatureExpressionValuesGatherer::mData</definition>
+        <argsstring></argsstring>
+        <name>mData</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::mData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="170" column="14" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1a48a48288631166dc1e894b4c9e3b99b4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FeatureExpressionValuesGatherer::FeatureExpressionValuesGatherer</definition>
+        <argsstring>(QgsVectorLayer *layer, const QString &amp;displayExpression=QString(), const QgsFeatureRequest &amp;request=QgsFeatureRequest(), const QStringList &amp;identifierFields=QStringList())</argsstring>
+        <name>FeatureExpressionValuesGatherer</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::FeatureExpressionValuesGatherer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>displayExpression</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QgsFeatureRequest &amp;</type>
+          <declname>request</declname>
+          <defval>QgsFeatureRequest()</defval>
+        </param>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>identifierFields</declname>
+          <defval>QStringList()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>displayExpression</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if empty, the display expression is taken from the layer definition </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request to perform </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>identifierFields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional list of fields name to be save in a variant list for an easier reuse </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="46" column="14" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="46" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1ab418c44007056fc430b4c93998a5436b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureExpressionValuesGatherer::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="88" column="10" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="88" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1a974ef83988684c7ea854470f0ababbd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureExpressionValuesGatherer::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::stop</qualifiedname>
+        <briefdescription>
+<para>Informs the gatherer to immediately stop collecting values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="120" column="10" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="120" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1a58dfab813794d77c84e20553cd24a659" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FeatureExpressionValuesGatherer::wasCanceled</definition>
+        <argsstring>() const</argsstring>
+        <name>wasCanceled</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::wasCanceled</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if collection was canceled before completion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="127" column="10" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="127" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1a3a019aadcfc9f4419655533a723a6441" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVector&lt; <ref refid="structFeatureExpressionValuesGatherer_1_1Entry" kindref="compound">Entry</ref> &gt;</type>
+        <definition>QVector&lt; Entry &gt; FeatureExpressionValuesGatherer::entries</definition>
+        <argsstring>() const</argsstring>
+        <name>entries</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::entries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="133" column="13" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1a3cf181fea63e178d36aa3f12888e3a9f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsFeatureRequest</type>
+        <definition>QgsFeatureRequest FeatureExpressionValuesGatherer::request</definition>
+        <argsstring>() const</argsstring>
+        <name>request</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="138" column="23" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="138" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1ae34be6f37f845033eda15575a0d6ed04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant FeatureExpressionValuesGatherer::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal data, use for whatever you want. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="146" column="14" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1a6ae395591792beda0a08ae7fbae75efd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FeatureExpressionValuesGatherer::setData</definition>
+        <argsstring>(const QVariant &amp;data)</argsstring>
+        <name>setData</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::setData</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal data, use for whatever you want. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="154" column="10" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="154" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classFeatureExpressionValuesGatherer_1ab7c36e6421f084030eead225920628e2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structFeatureExpressionValuesGatherer_1_1Entry" kindref="compound">Entry</ref></type>
+        <definition>static Entry FeatureExpressionValuesGatherer::nullEntry</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>nullEntry</name>
+        <qualifiedname>FeatureExpressionValuesGatherer::nullEntry</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/featureexpressionvaluesgatherer.h" line="83" column="18" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="83" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Gathers features with substring matching on an expression. <simplesect kind="note"><para>This is a is an exact copy of QGIS&apos; QgsFeatureExpressionValuesGatherer </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FeatureExpressionValuesGatherer</label>
+        <link refid="classFeatureExpressionValuesGatherer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FeatureExpressionValuesGatherer</label>
+        <link refid="classFeatureExpressionValuesGatherer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/featureexpressionvaluesgatherer.h" line="34" column="1" bodyfile="src/core/featureexpressionvaluesgatherer.h" bodystart="35" bodyend="171"/>
+    <listofallmembers>
+      <member refid="classFeatureExpressionValuesGatherer_1ae34be6f37f845033eda15575a0d6ed04" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>data</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a3a019aadcfc9f4419655533a723a6441" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>entries</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a48a48288631166dc1e894b4c9e3b99b4" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>FeatureExpressionValuesGatherer</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1ae0ae169ee1cefc89fb17979385fc36d5" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mCancelMutex</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1ad43cc60066bb865390e2f9e5f78a7a37" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mData</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a5a7fa188f873fb01f43b00c8431fc812" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mDisplayExpression</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a1e86eb2e1cf57e481840b0475cc8664b" prot="protected" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mEntries</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a31199165d366a4d895c8291b74f4ddde" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mExpressionContext</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1acc492e53fd883d9d6acf2a96d193cea9" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mIdentifierFields</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a7f6c50d224a1bde6cd600020e58f6c2a" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mRequest</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1afd2a2203b2b8b3a3c3bb75c40b66f93f" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mSource</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a6f491bff19a70487404ca5d9e4b4d871" prot="private" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>mWasCanceled</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1ab7c36e6421f084030eead225920628e2" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>nullEntry</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a3cf181fea63e178d36aa3f12888e3a9f" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>request</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1ab418c44007056fc430b4c93998a5436b" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>run</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a6ae395591792beda0a08ae7fbae75efd" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>setData</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a974ef83988684c7ea854470f0ababbd7" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>stop</name></member>
+      <member refid="classFeatureExpressionValuesGatherer_1a58dfab813794d77c84e20553cd24a659" prot="public" virt="non-virtual"><scope>FeatureExpressionValuesGatherer</scope><name>wasCanceled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

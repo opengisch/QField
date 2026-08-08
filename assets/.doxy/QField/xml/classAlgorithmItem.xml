@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAlgorithmItem" kind="class" language="C++" prot="public">
+    <compoundname>AlgorithmItem</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAlgorithmItem_1afad274796eeac632d447f4bdcc4b7973" prot="private" static="no" mutable="no">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm* AlgorithmItem::mAlgorithm</definition>
+        <argsstring></argsstring>
+        <name>mAlgorithm</name>
+        <qualifiedname>AlgorithmItem::mAlgorithm</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="43" column="34" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAlgorithmItem_1a12bbc4ec6fffb9b6e2001f74c1796b58" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AlgorithmItem::AlgorithmItem</definition>
+        <argsstring>(const QgsProcessingAlgorithm *algorithm=nullptr)</argsstring>
+        <name>AlgorithmItem</name>
+        <qualifiedname>AlgorithmItem::AlgorithmItem</qualifiedname>
+        <param>
+          <type>const QgsProcessingAlgorithm *</type>
+          <declname>algorithm</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="37" column="14" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classAlgorithmItem_1af03b0045691795274b6bff7547bd537e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm * AlgorithmItem::algorithm</definition>
+        <argsstring>() const</argsstring>
+        <name>algorithm</name>
+        <qualifiedname>AlgorithmItem::algorithm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/processingalgorithmsmodel.h" line="40" column="34" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/processing/processingalgorithmsmodel.h" line="34" column="1" bodyfile="src/core/processing/processingalgorithmsmodel.h" bodystart="35" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classAlgorithmItem_1af03b0045691795274b6bff7547bd537e" prot="public" virt="non-virtual"><scope>AlgorithmItem</scope><name>algorithm</name></member>
+      <member refid="classAlgorithmItem_1a12bbc4ec6fffb9b6e2001f74c1796b58" prot="public" virt="non-virtual"><scope>AlgorithmItem</scope><name>AlgorithmItem</name></member>
+      <member refid="classAlgorithmItem_1afad274796eeac632d447f4bdcc4b7973" prot="private" virt="non-virtual"><scope>AlgorithmItem</scope><name>mAlgorithm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

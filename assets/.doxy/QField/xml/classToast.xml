@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classToast" kind="class" language="C++" prot="public">
+    <compoundname>Toast</compoundname>
+    <basecompoundref refid="classQfToast" prot="public" virt="non-virtual">QfToast</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfToast</label>
+        <link refid="classQfToast"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Toast</label>
+        <link refid="classToast"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfToast</label>
+        <link refid="classQfToast"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Toast</label>
+        <link refid="classToast"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/Toast.qml" line="2" column="1" bodyfile="src/app/qml_compat/Toast.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfToast_1af5701348da83854fe8a2d267a235ebfe" prot="public" virt="non-virtual"><scope>Toast</scope><name>act</name></member>
+      <member refid="classQfToast_1a6ac724786dbfe4ab6d8165cf4af515c2" prot="public" virt="non-virtual"><scope>Toast</scope><name>bottomSpacing</name></member>
+      <member refid="classQfToast_1a397f3986320430dbce27159681343fb2" prot="public" virt="non-virtual"><scope>Toast</scope><name>edgeSpacing</name></member>
+      <member refid="classQfToast_1a32b6ef440abb4fe833376e5fbc9391d8" prot="public" virt="non-virtual"><scope>Toast</scope><name>show</name></member>
+      <member refid="classQfToast_1a86a7c6842792326d1db182ba51b11999" prot="public" virt="non-virtual"><scope>Toast</scope><name>timeoutAct</name></member>
+      <member refid="classQfToast_1a4c956a310196f2a06065b027f80db083" prot="public" virt="non-virtual"><scope>Toast</scope><name>timeoutFeedback</name></member>
+      <member refid="classQfToast_1acb0d1fc01abebf4d9c9b6184c2751346" prot="public" virt="non-virtual"><scope>Toast</scope><name>type</name></member>
+      <member refid="classQfToast_1ab183f3d699737b910a5f7897b66e48cb" prot="public" virt="non-virtual"><scope>Toast</scope><name>virtualKeyboardHeight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

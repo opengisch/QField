@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAppExpressionContextScopesGenerator" kind="class" language="C++" prot="public">
+    <compoundname>AppExpressionContextScopesGenerator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classAppExpressionContextScopesGenerator_1ad28cb5e29fd79ddc3d0fac61ee818917" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation AppExpressionContextScopesGenerator::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::positionInformation</qualifiedname>
+        <read>positionInformation</read>
+        <write>setPositionInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="34" column="5" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAppExpressionContextScopesGenerator_1a90a5bd179d191717152f75f833568b9e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool AppExpressionContextScopesGenerator::positionLocked</definition>
+        <argsstring></argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::positionLocked</qualifiedname>
+        <read>positionLocked</read>
+        <write>setPositionLocked</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="35" column="5" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAppExpressionContextScopesGenerator_1ab2091fcdd722665d1b966d76e363d9e0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation AppExpressionContextScopesGenerator::cloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::cloudUserInformation</qualifiedname>
+        <read>cloudUserInformation</read>
+        <write>setCloudUserInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="36" column="5" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAppExpressionContextScopesGenerator_1ae9bcc5b6f66f5775d1f01a1eb755a6f2" prot="private" static="no" mutable="no">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation AppExpressionContextScopesGenerator::mPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mPositionInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::mPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="81" column="29" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAppExpressionContextScopesGenerator_1a1dc5d78cff81342a3bfb313ca66ab3c6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AppExpressionContextScopesGenerator::mPositionLocked</definition>
+        <argsstring></argsstring>
+        <name>mPositionLocked</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::mPositionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="82" column="10" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAppExpressionContextScopesGenerator_1ad5b0f71719ba84d71ce9a2c5da7d6150" prot="private" static="no" mutable="no">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation AppExpressionContextScopesGenerator::mCloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>mCloudUserInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::mCloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="83" column="26" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1a7740c368eead9678241aeb44ec3f3949" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AppExpressionContextScopesGenerator::AppExpressionContextScopesGenerator</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AppExpressionContextScopesGenerator</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::AppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="39" column="14" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1a0d9cf89f153ae06f3de1fb4b548d72a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref></type>
+        <definition>GnssPositionInformation AppExpressionContextScopesGenerator::positionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::positionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns position information generated by the TransformedPositionSource according to its provider </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="44" column="29" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1a8418d6386fbe8e3742ec6f40ab0b7163" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppExpressionContextScopesGenerator::setPositionInformation</definition>
+        <argsstring>(const GnssPositionInformation &amp;positionInformation)</argsstring>
+        <name>setPositionInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::setPositionInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="classGnssPositionInformation" kindref="compound">GnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets position information generated by the TransformedPositionSource according to its provider <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positionInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the position information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="50" column="10" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="30" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1a466bbb891d3c71faa3626bc836993d2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AppExpressionContextScopesGenerator::positionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::positionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="55" column="10" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1ac951be1c52ea6d7ea58f10952783fc9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppExpressionContextScopesGenerator::setPositionLocked</definition>
+        <argsstring>(bool positionLocked)</argsstring>
+        <name>setPositionLocked</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::setPositionLocked</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>positionLocked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="60" column="10" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="44" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1ae6e4a8aefb892aeb7ffe88211b60109a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref></type>
+        <definition>CloudUserInformation AppExpressionContextScopesGenerator::cloudUserInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::cloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current cloud user information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="65" column="26" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1a8137188fd0698657ffdb81b0b796b94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppExpressionContextScopesGenerator::setCloudUserInformation</definition>
+        <argsstring>(const CloudUserInformation &amp;cloudUserInformation)</argsstring>
+        <name>setCloudUserInformation</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::setCloudUserInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="structCloudUserInformation" kindref="compound">CloudUserInformation</ref> &amp;</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current cloud user information <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cloudUserInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the cloud user information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="71" column="10" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="59" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classAppExpressionContextScopesGenerator_1a84664012f21063b73fcf037dfcf422e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QgsExpressionContextScope * &gt;</type>
+        <definition>QList&lt; QgsExpressionContextScope * &gt; AppExpressionContextScopesGenerator::generate</definition>
+        <argsstring>()</argsstring>
+        <name>generate</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::generate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="73" column="11" bodyfile="src/core/appexpressioncontextscopesgenerator.cpp" bodystart="68" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAppExpressionContextScopesGenerator_1aaeea03ce6f876e2b6f60b4bdae1f0abb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppExpressionContextScopesGenerator::positionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionInformationChanged</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::positionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="76" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppExpressionContextScopesGenerator_1a04e3af71698e59b8a5d12367d118179f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppExpressionContextScopesGenerator::positionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionLockedChanged</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::positionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAppExpressionContextScopesGenerator_1a954b757cf7935104ea4d64ef29224b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AppExpressionContextScopesGenerator::cloudUserInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudUserInformationChanged</name>
+        <qualifiedname>AppExpressionContextScopesGenerator::cloudUserInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/appexpressioncontextscopesgenerator.h" line="78" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AppExpressionContextScopesGenerator</label>
+        <link refid="classAppExpressionContextScopesGenerator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AppExpressionContextScopesGenerator</label>
+        <link refid="classAppExpressionContextScopesGenerator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/appexpressioncontextscopesgenerator.h" line="30" column="1" bodyfile="src/core/appexpressioncontextscopesgenerator.h" bodystart="31" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classAppExpressionContextScopesGenerator_1a7740c368eead9678241aeb44ec3f3949" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>AppExpressionContextScopesGenerator</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1ab2091fcdd722665d1b966d76e363d9e0" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>cloudUserInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1ae6e4a8aefb892aeb7ffe88211b60109a" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>cloudUserInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a954b757cf7935104ea4d64ef29224b5a" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>cloudUserInformationChanged</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a84664012f21063b73fcf037dfcf422e0" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>generate</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1ad5b0f71719ba84d71ce9a2c5da7d6150" prot="private" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>mCloudUserInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1ae9bcc5b6f66f5775d1f01a1eb755a6f2" prot="private" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>mPositionInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a1dc5d78cff81342a3bfb313ca66ab3c6" prot="private" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>mPositionLocked</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1ad28cb5e29fd79ddc3d0fac61ee818917" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>positionInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a0d9cf89f153ae06f3de1fb4b548d72a7" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>positionInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1aaeea03ce6f876e2b6f60b4bdae1f0abb" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>positionInformationChanged</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a90a5bd179d191717152f75f833568b9e" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>positionLocked</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a466bbb891d3c71faa3626bc836993d2f" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>positionLocked</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a04e3af71698e59b8a5d12367d118179f" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>positionLockedChanged</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a8137188fd0698657ffdb81b0b796b94c" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>setCloudUserInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1a8418d6386fbe8e3742ec6f40ab0b7163" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>setPositionInformation</name></member>
+      <member refid="classAppExpressionContextScopesGenerator_1ac951be1c52ea6d7ea58f10952783fc9a" prot="public" virt="non-virtual"><scope>AppExpressionContextScopesGenerator</scope><name>setPositionLocked</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

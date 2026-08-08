@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAuthenticationProvider" kind="class" language="C++" prot="public">
+    <compoundname>AuthenticationProvider</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classAuthenticationProvider_1a4f35f9f206004ebda57f5096ca0fd681" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString AuthenticationProvider::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>AuthenticationProvider::id</qualifiedname>
+        <read>id</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="39" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAuthenticationProvider_1a18798090733d5d86e71f1cecb2e600fa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString AuthenticationProvider::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>AuthenticationProvider::name</qualifiedname>
+        <read>name</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="40" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classAuthenticationProvider_1acba1299d9f0e1cba097bc1c8fa2881f7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap AuthenticationProvider::details</definition>
+        <argsstring></argsstring>
+        <name>details</name>
+        <qualifiedname>AuthenticationProvider::details</qualifiedname>
+        <read>details</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="41" column="5" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAuthenticationProvider_1a049c515d274c8a8355331257ea122181" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString AuthenticationProvider::mId</definition>
+        <argsstring></argsstring>
+        <name>mId</name>
+        <qualifiedname>AuthenticationProvider::mId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="56" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuthenticationProvider_1ae14085cd77e195ac9e476b0c45182a5f" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString AuthenticationProvider::mName</definition>
+        <argsstring></argsstring>
+        <name>mName</name>
+        <qualifiedname>AuthenticationProvider::mName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="57" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuthenticationProvider_1a7cca029209da46f4da34e060d66ce374" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap AuthenticationProvider::mDetails</definition>
+        <argsstring></argsstring>
+        <name>mDetails</name>
+        <qualifiedname>AuthenticationProvider::mDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="58" column="17" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAuthenticationProvider_1ad2bb054e295cc24a6d67d2929dc3f1ab" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AuthenticationProvider::AuthenticationProvider</definition>
+        <argsstring>(const QString &amp;id=QString(), const QString &amp;name=QString(), const QVariantMap &amp;details=QVariantMap())</argsstring>
+        <name>AuthenticationProvider</name>
+        <qualifiedname>AuthenticationProvider::AuthenticationProvider</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>details</declname>
+          <defval>QVariantMap()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="44" column="14" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="44" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuthenticationProvider_1aed84852853637236f6310e988925688b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString AuthenticationProvider::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <qualifiedname>AuthenticationProvider::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="51" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuthenticationProvider_1af5baefdba8ea749eb098f4a31793b70a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString AuthenticationProvider::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>AuthenticationProvider::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="52" column="13" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuthenticationProvider_1ab6e072e659d6813aad9747f23418b330" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap AuthenticationProvider::details</definition>
+        <argsstring>() const</argsstring>
+        <name>details</name>
+        <qualifiedname>AuthenticationProvider::details</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="53" column="17" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfieldcloudconnection.h" line="35" column="1" bodyfile="src/core/qfieldcloud/qfieldcloudconnection.h" bodystart="36" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classAuthenticationProvider_1ad2bb054e295cc24a6d67d2929dc3f1ab" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>AuthenticationProvider</name></member>
+      <member refid="classAuthenticationProvider_1acba1299d9f0e1cba097bc1c8fa2881f7" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>details</name></member>
+      <member refid="classAuthenticationProvider_1ab6e072e659d6813aad9747f23418b330" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>details</name></member>
+      <member refid="classAuthenticationProvider_1a4f35f9f206004ebda57f5096ca0fd681" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>id</name></member>
+      <member refid="classAuthenticationProvider_1aed84852853637236f6310e988925688b" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>id</name></member>
+      <member refid="classAuthenticationProvider_1a7cca029209da46f4da34e060d66ce374" prot="private" virt="non-virtual"><scope>AuthenticationProvider</scope><name>mDetails</name></member>
+      <member refid="classAuthenticationProvider_1a049c515d274c8a8355331257ea122181" prot="private" virt="non-virtual"><scope>AuthenticationProvider</scope><name>mId</name></member>
+      <member refid="classAuthenticationProvider_1ae14085cd77e195ac9e476b0c45182a5f" prot="private" virt="non-virtual"><scope>AuthenticationProvider</scope><name>mName</name></member>
+      <member refid="classAuthenticationProvider_1a18798090733d5d86e71f1cecb2e600fa" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>name</name></member>
+      <member refid="classAuthenticationProvider_1af5baefdba8ea749eb098f4a31793b70a" prot="public" virt="non-virtual"><scope>AuthenticationProvider</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

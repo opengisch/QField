@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAuthUtils" kind="class" language="C++" prot="public">
+    <compoundname>AuthUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAuthUtils_1a68bee407a716e3dc8bc9d9bc8e79270e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AuthUtils::AuthUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AuthUtils</name>
+        <qualifiedname>AuthUtils::AuthUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/authutils.h" line="30" column="14" bodyfile="src/core/utils/authutils.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classAuthUtils_1a95b8f03964a4be67451045cb6140238d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AuthUtils::hasAuthenticationConfigurations</definition>
+        <argsstring>()</argsstring>
+        <name>hasAuthenticationConfigurations</name>
+        <qualifiedname>AuthUtils::hasAuthenticationConfigurations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the authentication manager has one or more stored configurations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/authutils.h" line="35" column="29" bodyfile="src/core/utils/authutils.cpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuthUtils_1a225af35c3720cd7906f028bd89684c31" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantList</type>
+        <definition>QVariantList AuthUtils::authenticationConfigurationDetails</definition>
+        <argsstring>(const QString &amp;id=QString())</argsstring>
+        <name>authenticationConfigurationDetails</name>
+        <qualifiedname>AuthUtils::authenticationConfigurationDetails</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns authentication configuration <emphasis>id</emphasis> details. If no id is provided, details for all authentication configuration will be returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/authutils.h" line="41" column="37" bodyfile="src/core/utils/authutils.cpp" bodystart="34" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuthUtils_1a28eafed2f790d51da3f339c0bb82c0d3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AuthUtils::isAuthenticationConfigurationAvailable</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>isAuthenticationConfigurationAvailable</name>
+        <qualifiedname>AuthUtils::isAuthenticationConfigurationAvailable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the authentication configuration <emphasis>id</emphasis> is available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/authutils.h" line="46" column="29" bodyfile="src/core/utils/authutils.cpp" bodystart="58" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuthUtils_1aa094f6d31e5e5b8ce1afe379f5d1fcf1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AuthUtils::clearAuthenticationConfigurationCache</definition>
+        <argsstring>(const QString &amp;id=QString())</argsstring>
+        <name>clearAuthenticationConfigurationCache</name>
+        <qualifiedname>AuthUtils::clearAuthenticationConfigurationCache</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears any cache associated to the authentication configuration <emphasis>id</emphasis>. If no id is provided, cache for all authentication configurations will be cleared. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/authutils.h" line="52" column="29" bodyfile="src/core/utils/authutils.cpp" bodystart="65" bodyend="76"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AuthUtils</label>
+        <link refid="classAuthUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AuthUtils</label>
+        <link refid="classAuthUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/authutils.h" line="25" column="1" bodyfile="src/core/utils/authutils.h" bodystart="26" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classAuthUtils_1a225af35c3720cd7906f028bd89684c31" prot="public" virt="non-virtual"><scope>AuthUtils</scope><name>authenticationConfigurationDetails</name></member>
+      <member refid="classAuthUtils_1a68bee407a716e3dc8bc9d9bc8e79270e" prot="public" virt="non-virtual"><scope>AuthUtils</scope><name>AuthUtils</name></member>
+      <member refid="classAuthUtils_1aa094f6d31e5e5b8ce1afe379f5d1fcf1" prot="public" virt="non-virtual"><scope>AuthUtils</scope><name>clearAuthenticationConfigurationCache</name></member>
+      <member refid="classAuthUtils_1a95b8f03964a4be67451045cb6140238d" prot="public" virt="non-virtual"><scope>AuthUtils</scope><name>hasAuthenticationConfigurations</name></member>
+      <member refid="classAuthUtils_1a28eafed2f790d51da3f339c0bb82c0d3" prot="public" virt="non-virtual"><scope>AuthUtils</scope><name>isAuthenticationConfigurationAvailable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

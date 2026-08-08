@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSnappingResult" kind="class" language="C++" prot="public">
+    <compoundname>SnappingResult</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>SnappingResult::Type</qualifiedname>
+        <enumvalue id="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a58b17cdfd14584deac760a55de404b99" prot="public">
+          <name>Invalid</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Invalid. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a9639527869a2ae28ccf12a1787a7bb03" prot="public">
+          <name>Vertex</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Snapped to a vertex. Can be a vertex of the geometry or an intersection. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9ac1c4e599146a8d93623e0bed82f41774" prot="public">
+          <name>Edge</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Snapped to an edge. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a3df75843ee5f9feccd1aed56693cb048" prot="public">
+          <name>Area</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Snapped to an area. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a15c52d9ad1e2505100597654335902d9" prot="public">
+          <name>All</name>
+          <initializer>= Vertex | Edge | Area</initializer>
+          <briefdescription>
+<para>Combination of vertex, edge and area. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The type of a snap result or the filter type for a snap request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="36" column="5" bodyfile="src/core/snappingresult.h" bodystart="37" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classSnappingResult_1a1304b8dc30eb010da6b47c74c2c4159a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint SnappingResult::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>SnappingResult::point</qualifiedname>
+        <read>point</read>
+        <write>setPoint</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="29" column="5" bodyfile="src/core/snappingresult.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classSnappingResult_1adc3556c5259f2729f0bd44e5a96d5ab2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool SnappingResult::isValid</definition>
+        <argsstring></argsstring>
+        <name>isValid</name>
+        <qualifiedname>SnappingResult::isValid</qualifiedname>
+        <read>isValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="30" column="5" bodyfile="src/core/snappingresult.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSnappingResult_1ad8e93b137f03ba3d82bdbeab587fad2e" prot="private" static="no" mutable="no">
+        <type><ref refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9" kindref="member">Type</ref></type>
+        <definition>Type SnappingResult::mType</definition>
+        <argsstring></argsstring>
+        <name>mType</name>
+        <qualifiedname>SnappingResult::mType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="93" column="10" bodyfile="src/core/snappingresult.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingResult_1a6fcd8c43fe096f6dcad8054c8ad542c6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SnappingResult::mDist</definition>
+        <argsstring></argsstring>
+        <name>mDist</name>
+        <qualifiedname>SnappingResult::mDist</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="94" column="12" bodyfile="src/core/snappingresult.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingResult_1a3e198144be1a9bdb8465e8bdec3487c3" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint SnappingResult::mPoint</definition>
+        <argsstring></argsstring>
+        <name>mPoint</name>
+        <qualifiedname>SnappingResult::mPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="95" column="14" bodyfile="src/core/snappingresult.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingResult_1a20a13e1d9241fe0ba5d5bbdbe508e8a4" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; SnappingResult::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>SnappingResult::mLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="96" column="14" bodyfile="src/core/snappingresult.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingResult_1a9985cc86b6f6e91dd38a107c3ea37f50" prot="private" static="no" mutable="no">
+        <type>QgsFeatureId</type>
+        <definition>QgsFeatureId SnappingResult::mFid</definition>
+        <argsstring></argsstring>
+        <name>mFid</name>
+        <qualifiedname>SnappingResult::mFid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="97" column="18" bodyfile="src/core/snappingresult.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingResult_1a097051119858e3ed3544314acdfd5c5c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SnappingResult::mVertexIndex</definition>
+        <argsstring></argsstring>
+        <name>mVertexIndex</name>
+        <qualifiedname>SnappingResult::mVertexIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="98" column="9" bodyfile="src/core/snappingresult.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSnappingResult_1af178232dd4f345b1da3cf9c87989c405" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint SnappingResult::mEdgePoints[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>mEdgePoints</name>
+        <qualifiedname>SnappingResult::mEdgePoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="99" column="14" bodyfile="src/core/snappingresult.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSnappingResult_1a37b21711ae30c0d1be6bb466e20d2a32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SnappingResult::SnappingResult</definition>
+        <argsstring>()</argsstring>
+        <name>SnappingResult</name>
+        <qualifiedname>SnappingResult::SnappingResult</qualifiedname>
+        <briefdescription>
+<para>construct invalid match </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="48" column="5" bodyfile="src/core/snappingresult.cpp" bodystart="23" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a3229cf7e73af187afe6392c948ba3d11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SnappingResult::SnappingResult</definition>
+        <argsstring>(Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &amp;pt, int vertexIndex=0, const QgsPoint *edgePoints=nullptr)</argsstring>
+        <name>SnappingResult</name>
+        <qualifiedname>SnappingResult::SnappingResult</qualifiedname>
+        <param>
+          <type><ref refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9" kindref="member">Type</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>fid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dist</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>pt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vertexIndex</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const QgsPoint *</type>
+          <declname>edgePoints</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="50" column="5" bodyfile="src/core/snappingresult.cpp" bodystart="32" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1ac1e4c22352f6abbed75d3be785f990fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingResult::operator==</definition>
+        <argsstring>(const SnappingResult &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>SnappingResult::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classSnappingResult" kindref="compound">SnappingResult</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="52" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a3ef5508a0e0b6048d7aba5a18e4ddbf9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingResult::operator!=</definition>
+        <argsstring>(const SnappingResult &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>SnappingResult::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classSnappingResult" kindref="compound">SnappingResult</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="53" column="10" bodyfile="src/core/snappingresult.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a2c918f328f60762f85b767ef71a9b791" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SnappingResult::SnappingResult</definition>
+        <argsstring>(const QgsPointLocator::Match &amp;match)</argsstring>
+        <name>SnappingResult</name>
+        <qualifiedname>SnappingResult::SnappingResult</qualifiedname>
+        <param>
+          <type>const QgsPointLocator::Match &amp;</type>
+          <declname>match</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="55" column="14" bodyfile="src/core/snappingresult.cpp" bodystart="47" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a02853a5e288af6d887b4fc832cc1ec28" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9" kindref="member">Type</ref></type>
+        <definition>SnappingResult::Type SnappingResult::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <qualifiedname>SnappingResult::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="57" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1ab37e386617c16bfda7f62996dcf730bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingResult::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>SnappingResult::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="59" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a834b48d65a9bf1196d5b9b91d4569137" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingResult::hasVertex</definition>
+        <argsstring>() const</argsstring>
+        <name>hasVertex</name>
+        <qualifiedname>SnappingResult::hasVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="60" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1ace3dc73fa974fca02fa0ddc0e7eeb600" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingResult::hasEdge</definition>
+        <argsstring>() const</argsstring>
+        <name>hasEdge</name>
+        <qualifiedname>SnappingResult::hasEdge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="61" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a613c71e33123887e824385a093fdf14a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SnappingResult::hasArea</definition>
+        <argsstring>() const</argsstring>
+        <name>hasArea</name>
+        <qualifiedname>SnappingResult::hasArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="62" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a4e5e30e60f062e12d6ec1b008dbcd621" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double SnappingResult::distance</definition>
+        <argsstring>() const</argsstring>
+        <name>distance</name>
+        <qualifiedname>SnappingResult::distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>for vertex / edge match units depending on what class returns it (geom.cache: layer units, map canvas snapper: dest crs units) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="66" column="12" bodyfile="src/core/snappingresult.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a50b531c6c7ff50472909f6681598c5c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint SnappingResult::point</definition>
+        <argsstring>() const</argsstring>
+        <name>point</name>
+        <qualifiedname>SnappingResult::point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>for vertex / edge match coords depending on what class returns it (geom.cache: layer coords, map canvas snapper: dest coords) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="70" column="14" bodyfile="src/core/snappingresult.cpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a91a04cffdc365f73caa0c6097bcce1a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingResult::setPoint</definition>
+        <argsstring>(const QgsPoint point)</argsstring>
+        <name>setPoint</name>
+        <qualifiedname>SnappingResult::setPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>to set the point individually (e.g. after emmiting Z) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="73" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1aa4d797f10c1783b3730dfae546a1f137" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SnappingResult::vertexIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>vertexIndex</name>
+        <qualifiedname>SnappingResult::vertexIndex</qualifiedname>
+        <briefdescription>
+<para>for vertex / edge match (first vertex of the edge) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="76" column="9" bodyfile="src/core/snappingresult.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1aa8b77bf8ff6092c1049e6ca91a0b42bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * SnappingResult::layer</definition>
+        <argsstring>() const</argsstring>
+        <name>layer</name>
+        <qualifiedname>SnappingResult::layer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vector layer where the snap occurred. Will be null if the snap happened on an intersection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="82" column="20" bodyfile="src/core/snappingresult.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1a8043ff2c7038fef8843c2a0d416895b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeatureId</type>
+        <definition>QgsFeatureId SnappingResult::featureId</definition>
+        <argsstring>() const</argsstring>
+        <name>featureId</name>
+        <qualifiedname>SnappingResult::featureId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The id of the feature to which the snapped geometry belongs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="87" column="18" bodyfile="src/core/snappingresult.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classSnappingResult_1ae3a6a780a3731d98eeb7ace4af748d51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SnappingResult::edgePoints</definition>
+        <argsstring>(QgsPoint &amp;pt1, QgsPoint &amp;pt2) const</argsstring>
+        <name>edgePoints</name>
+        <qualifiedname>SnappingResult::edgePoints</qualifiedname>
+        <param>
+          <type>QgsPoint &amp;</type>
+          <declname>pt1</declname>
+        </param>
+        <param>
+          <type>QgsPoint &amp;</type>
+          <declname>pt2</declname>
+        </param>
+        <briefdescription>
+<para>Only for a valid edge match - obtain endpoints of the edge. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/snappingresult.h" line="90" column="10" bodyfile="src/core/snappingresult.cpp" bodystart="117" bodyend="121"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/snappingresult.h" line="26" column="1" bodyfile="src/core/snappingresult.h" bodystart="27" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a15c52d9ad1e2505100597654335902d9" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>All</name></member>
+      <member refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a3df75843ee5f9feccd1aed56693cb048" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>Area</name></member>
+      <member refid="classSnappingResult_1a4e5e30e60f062e12d6ec1b008dbcd621" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>distance</name></member>
+      <member refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9ac1c4e599146a8d93623e0bed82f41774" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>Edge</name></member>
+      <member refid="classSnappingResult_1ae3a6a780a3731d98eeb7ace4af748d51" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>edgePoints</name></member>
+      <member refid="classSnappingResult_1a8043ff2c7038fef8843c2a0d416895b0" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>featureId</name></member>
+      <member refid="classSnappingResult_1a613c71e33123887e824385a093fdf14a" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>hasArea</name></member>
+      <member refid="classSnappingResult_1ace3dc73fa974fca02fa0ddc0e7eeb600" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>hasEdge</name></member>
+      <member refid="classSnappingResult_1a834b48d65a9bf1196d5b9b91d4569137" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>hasVertex</name></member>
+      <member refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a58b17cdfd14584deac760a55de404b99" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>Invalid</name></member>
+      <member refid="classSnappingResult_1adc3556c5259f2729f0bd44e5a96d5ab2" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>isValid</name></member>
+      <member refid="classSnappingResult_1ab37e386617c16bfda7f62996dcf730bf" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>isValid</name></member>
+      <member refid="classSnappingResult_1aa8b77bf8ff6092c1049e6ca91a0b42bc" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>layer</name></member>
+      <member refid="classSnappingResult_1a6fcd8c43fe096f6dcad8054c8ad542c6" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mDist</name></member>
+      <member refid="classSnappingResult_1af178232dd4f345b1da3cf9c87989c405" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mEdgePoints</name></member>
+      <member refid="classSnappingResult_1a9985cc86b6f6e91dd38a107c3ea37f50" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mFid</name></member>
+      <member refid="classSnappingResult_1a20a13e1d9241fe0ba5d5bbdbe508e8a4" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mLayer</name></member>
+      <member refid="classSnappingResult_1a3e198144be1a9bdb8465e8bdec3487c3" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mPoint</name></member>
+      <member refid="classSnappingResult_1ad8e93b137f03ba3d82bdbeab587fad2e" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mType</name></member>
+      <member refid="classSnappingResult_1a097051119858e3ed3544314acdfd5c5c" prot="private" virt="non-virtual"><scope>SnappingResult</scope><name>mVertexIndex</name></member>
+      <member refid="classSnappingResult_1a3ef5508a0e0b6048d7aba5a18e4ddbf9" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>operator!=</name></member>
+      <member refid="classSnappingResult_1ac1e4c22352f6abbed75d3be785f990fd" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>operator==</name></member>
+      <member refid="classSnappingResult_1a1304b8dc30eb010da6b47c74c2c4159a" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>point</name></member>
+      <member refid="classSnappingResult_1a50b531c6c7ff50472909f6681598c5c3" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>point</name></member>
+      <member refid="classSnappingResult_1a91a04cffdc365f73caa0c6097bcce1a6" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>setPoint</name></member>
+      <member refid="classSnappingResult_1a37b21711ae30c0d1be6bb466e20d2a32" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>SnappingResult</name></member>
+      <member refid="classSnappingResult_1a3229cf7e73af187afe6392c948ba3d11" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>SnappingResult</name></member>
+      <member refid="classSnappingResult_1a2c918f328f60762f85b767ef71a9b791" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>SnappingResult</name></member>
+      <member refid="classSnappingResult_1a02853a5e288af6d887b4fc832cc1ec28" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>type</name></member>
+      <member refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>Type</name></member>
+      <member refid="classSnappingResult_1aa47c7bced3966d8e16b411a3fb3f05e9a9639527869a2ae28ccf12a1787a7bb03" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>Vertex</name></member>
+      <member refid="classSnappingResult_1aa4d797f10c1783b3730dfae546a1f137" prot="public" virt="non-virtual"><scope>SnappingResult</scope><name>vertexIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

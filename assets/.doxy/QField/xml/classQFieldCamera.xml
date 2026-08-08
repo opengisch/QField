@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldCamera" kind="class" language="C++" prot="public">
+    <compoundname>QFieldCamera</compoundname>
+    <basecompoundref refid="classQfCamera" prot="public" virt="non-virtual">QfCamera</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldCamera</label>
+        <link refid="classQFieldCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCamera</label>
+        <link refid="classQfCamera"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldCamera</label>
+        <link refid="classQFieldCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCamera</label>
+        <link refid="classQfCamera"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/QFieldCamera.qml" line="2" column="1" bodyfile="src/app/qml_compat/QFieldCamera.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfCamera_1a9688dd267990aad5f0ac8fc626deec31" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>allowCaptureModeToggle</name></member>
+      <member refid="classQfCamera_1a2b3b57cc51aaf72228491e1c48370d06" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>canceled</name></member>
+      <member refid="classQfCamera_1acb39060f9ec3197a83c5105e0ea29906" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>captureLoaderActivated</name></member>
+      <member refid="classQfCamera_1af03f8b51d055c0857626c8291b9289d4" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>captureOffset</name></member>
+      <member refid="classQfCamera_1a1d187a876cabb5bfe836e790ff53b506" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>currentFeature</name></member>
+      <member refid="classQfCamera_1a5b8ccc700dbfc44b23fd7eb1171e295a" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>currentLayer</name></member>
+      <member refid="classQfCamera_1a3b55457492ce915051181ed812785fda" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>currentPath</name></member>
+      <member refid="classQfCamera_1a9146b91817a1d2cfbb52d701c1d323b7" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>currentPosition</name></member>
+      <member refid="classQfCamera_1a68ee05192d861ba7d947c2b8dc8fe448" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>currentProjectedPosition</name></member>
+      <member refid="classQfCamera_1ad06f91bd5bec2f6cec271bfcc5712f0f" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>finished</name></member>
+      <member refid="classQfCamera_1a6c68f208423561f5274c53d4bcc8cca8" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>isCapturing</name></member>
+      <member refid="classQfCamera_1ace6da15869d8509f75b787758fa7ea67" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>isPortraitMode</name></member>
+      <member refid="classQfCamera_1af03c4c79efab9d6c9b14598453a010c4" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>isReady</name></member>
+      <member refid="classQfCamera_1a964a6cdd91f92b388edf8a50d74b7f94" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>panelExtraSpace</name></member>
+      <member refid="classQfCamera_1a88a07a99d96d07e5f53c69fe53c97a2e" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>requiredPermissionsGranted</name></member>
+      <member refid="classQfCamera_1a77f57f3b53e3a75cab94a791a12a61e2" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>state</name></member>
+      <member refid="classQfCamera_1a633bbf723a3818869f1ddd359c5bdf03" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>tryActivateCaptureLoader</name></member>
+      <member refid="classQfCamera_1a5f7ad0502001ea7661889d20d516b39a" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>userMirror</name></member>
+      <member refid="classQfCamera_1a693630c67f4fe09bceb9ff2d0add51ec" prot="public" virt="non-virtual"><scope>QFieldCamera</scope><name>userRotation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

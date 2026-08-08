@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_99d0482cf009f9d97a0877749b817f19" kind="dir">
+    <compoundname>src/gui</compoundname>
+    <innerdir refid="dir_fe94622d8d68495e133d6eeeba479fc2">src/gui/qml</innerdir>
+    <innerfile refid="attributeformmodel_8cpp">attributeformmodel.cpp</innerfile>
+    <innerfile refid="attributeformmodel_8h">attributeformmodel.h</innerfile>
+    <innerfile refid="attributeformmodelbase_8cpp">attributeformmodelbase.cpp</innerfile>
+    <innerfile refid="attributeformmodelbase_8h">attributeformmodelbase.h</innerfile>
+    <innerfile refid="barcodeimageprovider_8cpp">barcodeimageprovider.cpp</innerfile>
+    <innerfile refid="barcodeimageprovider_8h">barcodeimageprovider.h</innerfile>
+    <innerfile refid="drawingtemplatemodel_8cpp">drawingtemplatemodel.cpp</innerfile>
+    <innerfile refid="drawingtemplatemodel_8h">drawingtemplatemodel.h</innerfile>
+    <innerfile refid="expressionevaluator_8cpp">expressionevaluator.cpp</innerfile>
+    <innerfile refid="expressionevaluator_8h">expressionevaluator.h</innerfile>
+    <innerfile refid="expressionvariablemodel_8cpp">expressionvariablemodel.cpp</innerfile>
+    <innerfile refid="expressionvariablemodel_8h">expressionvariablemodel.h</innerfile>
+    <innerfile refid="featurechecklistmodel_8cpp">featurechecklistmodel.cpp</innerfile>
+    <innerfile refid="featurechecklistmodel_8h">featurechecklistmodel.h</innerfile>
+    <innerfile refid="focusstack_8cpp">focusstack.cpp</innerfile>
+    <innerfile refid="focusstack_8h">focusstack.h</innerfile>
+    <innerfile refid="geometryeditorsmodel_8cpp">geometryeditorsmodel.cpp</innerfile>
+    <innerfile refid="geometryeditorsmodel_8h">geometryeditorsmodel.h</innerfile>
+    <innerfile refid="legendimageprovider_8cpp">legendimageprovider.cpp</innerfile>
+    <innerfile refid="legendimageprovider_8h">legendimageprovider.h</innerfile>
+    <innerfile refid="localfilesimageprovider_8cpp">localfilesimageprovider.cpp</innerfile>
+    <innerfile refid="localfilesimageprovider_8h">localfilesimageprovider.h</innerfile>
+    <innerfile refid="localfilesmodel_8cpp">localfilesmodel.cpp</innerfile>
+    <innerfile refid="localfilesmodel_8h">localfilesmodel.h</innerfile>
+    <innerfile refid="messagelogmodel_8cpp">messagelogmodel.cpp</innerfile>
+    <innerfile refid="messagelogmodel_8h">messagelogmodel.h</innerfile>
+    <innerfile refid="orderedrelationmodel_8cpp">orderedrelationmodel.cpp</innerfile>
+    <innerfile refid="orderedrelationmodel_8h">orderedrelationmodel.h</innerfile>
+    <innerfile refid="parameterizedimage_8cpp">parameterizedimage.cpp</innerfile>
+    <innerfile refid="parameterizedimage_8h">parameterizedimage.h</innerfile>
+    <innerfile refid="permissions_8cpp">permissions.cpp</innerfile>
+    <innerfile refid="permissions_8h">permissions.h</innerfile>
+    <innerfile refid="printlayoutlistmodel_8cpp">printlayoutlistmodel.cpp</innerfile>
+    <innerfile refid="printlayoutlistmodel_8h">printlayoutlistmodel.h</innerfile>
+    <innerfile refid="projectsimageprovider_8cpp">projectsimageprovider.cpp</innerfile>
+    <innerfile refid="projectsimageprovider_8h">projectsimageprovider.h</innerfile>
+    <innerfile refid="qfieldguiqmlregistration_8cpp">qfieldguiqmlregistration.cpp</innerfile>
+    <innerfile refid="qfieldguiqmlregistration_8h">qfieldguiqmlregistration.h</innerfile>
+    <innerfile refid="recentprojectlistmodel_8cpp">recentprojectlistmodel.cpp</innerfile>
+    <innerfile refid="recentprojectlistmodel_8h">recentprojectlistmodel.h</innerfile>
+    <innerfile refid="referencingfeaturelistmodel_8cpp">referencingfeaturelistmodel.cpp</innerfile>
+    <innerfile refid="referencingfeaturelistmodel_8h">referencingfeaturelistmodel.h</innerfile>
+    <innerfile refid="sensorlistmodel_8cpp">sensorlistmodel.cpp</innerfile>
+    <innerfile refid="sensorlistmodel_8h">sensorlistmodel.h</innerfile>
+    <innerfile refid="theme_8cpp">theme.cpp</innerfile>
+    <innerfile refid="theme_8h">theme.h</innerfile>
+    <innerfile refid="valuemapmodel_8cpp">valuemapmodel.cpp</innerfile>
+    <innerfile refid="valuemapmodel_8h">valuemapmodel.h</innerfile>
+    <innerfile refid="valuemapmodelbase_8cpp">valuemapmodelbase.cpp</innerfile>
+    <innerfile refid="valuemapmodelbase_8h">valuemapmodelbase.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/"/>
+  </compounddef>
+</doxygen>

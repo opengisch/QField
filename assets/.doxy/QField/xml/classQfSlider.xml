@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSlider" kind="class" language="C++" prot="public">
+    <compoundname>QfSlider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfSlider_1a7c6ae1d6659f742d420a77542eb597d2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSlider::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <qualifiedname>QfSlider::from</qualifiedname>
+        <read>dummyGetter_from_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="12" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSlider_1afa71069542b5b4ca4dd076120435022d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSlider::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <qualifiedname>QfSlider::to</qualifiedname>
+        <read>dummyGetter_to_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="14" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSlider_1aa942904787314fb69d27bc0f461ad287" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSlider::stepSize</definition>
+        <argsstring></argsstring>
+        <name>stepSize</name>
+        <qualifiedname>QfSlider::stepSize</qualifiedname>
+        <read>dummyGetter_stepSize_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="16" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSlider_1a269c9463a4de291ce1dc16c55d691972" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSlider::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>QfSlider::value</qualifiedname>
+        <read>dummyGetter_value_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="18" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSlider_1af6065561e9c650dcdb99157144712be1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfSlider::prefixText</definition>
+        <argsstring></argsstring>
+        <name>prefixText</name>
+        <qualifiedname>QfSlider::prefixText</qualifiedname>
+        <read>dummyGetter_prefixText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="20" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSlider_1a39c3da8ceed3f13e6459e50cffe966ab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfSlider::suffixText</definition>
+        <argsstring></argsstring>
+        <name>suffixText</name>
+        <qualifiedname>QfSlider::suffixText</qualifiedname>
+        <read>dummyGetter_suffixText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="22" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSlider_1a520b9b51dbd86997bf81bcba990b662b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfSlider::showValueLabel</definition>
+        <argsstring></argsstring>
+        <name>showValueLabel</name>
+        <qualifiedname>QfSlider::showValueLabel</qualifiedname>
+        <read>dummyGetter_showValueLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="24" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSlider_1a9a1302877eaca6597e58722b3bafd8e4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfSlider::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfSlider::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="28" column="5" bodyfile="src/gui/qml/QfSlider.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSlider_1a740184e8c60a3a67e0326c727844d360" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfSlider::layout</definition>
+        <argsstring></argsstring>
+        <name>layout</name>
+        <qualifiedname>QfSlider::layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="29" column="11" bodyfile="src/gui/qml/QfSlider.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSlider_1a9d0e8ad9f870404cc84ab318a922be96" prot="private" static="no" mutable="no">
+        <type>Slider</type>
+        <definition>Slider QfSlider::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <qualifiedname>QfSlider::slider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="30" column="8" bodyfile="src/gui/qml/QfSlider.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSlider_1aa154fb84646701c5c5805ce9461738df" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfSlider::suffix</definition>
+        <argsstring></argsstring>
+        <name>suffix</name>
+        <qualifiedname>QfSlider::suffix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="31" column="7" bodyfile="src/gui/qml/QfSlider.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSlider_1aa7779137aeae5351e6766ee568429f86" prot="private" static="no" mutable="no">
+        <type>TextMetrics</type>
+        <definition>TextMetrics QfSlider::suffixMetrics</definition>
+        <argsstring></argsstring>
+        <name>suffixMetrics</name>
+        <qualifiedname>QfSlider::suffixMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="32" column="13" bodyfile="src/gui/qml/QfSlider.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfSlider_1aef2091031cc641f1049007f787d182f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSlider::moved</definition>
+        <argsstring>()</argsstring>
+        <name>moved</name>
+        <qualifiedname>QfSlider::moved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSlider.qml" line="26" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfSlider</label>
+        <link refid="classQfSlider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfSlider</label>
+        <link refid="classQfSlider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfSlider.qml" line="9" column="1" bodyfile="src/gui/qml/QfSlider.qml" bodystart="9" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classQfSlider_1a7c6ae1d6659f742d420a77542eb597d2" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>from</name></member>
+      <member refid="classQfSlider_1a9a1302877eaca6597e58722b3bafd8e4" prot="private" virt="non-virtual"><scope>QfSlider</scope><name>implicitHeight</name></member>
+      <member refid="classQfSlider_1a740184e8c60a3a67e0326c727844d360" prot="private" virt="non-virtual"><scope>QfSlider</scope><name>layout</name></member>
+      <member refid="classQfSlider_1aef2091031cc641f1049007f787d182f8" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>moved</name></member>
+      <member refid="classQfSlider_1af6065561e9c650dcdb99157144712be1" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>prefixText</name></member>
+      <member refid="classQfSlider_1a520b9b51dbd86997bf81bcba990b662b" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>showValueLabel</name></member>
+      <member refid="classQfSlider_1a9d0e8ad9f870404cc84ab318a922be96" prot="private" virt="non-virtual"><scope>QfSlider</scope><name>slider</name></member>
+      <member refid="classQfSlider_1aa942904787314fb69d27bc0f461ad287" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>stepSize</name></member>
+      <member refid="classQfSlider_1aa154fb84646701c5c5805ce9461738df" prot="private" virt="non-virtual"><scope>QfSlider</scope><name>suffix</name></member>
+      <member refid="classQfSlider_1aa7779137aeae5351e6766ee568429f86" prot="private" virt="non-virtual"><scope>QfSlider</scope><name>suffixMetrics</name></member>
+      <member refid="classQfSlider_1a39c3da8ceed3f13e6459e50cffe966ab" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>suffixText</name></member>
+      <member refid="classQfSlider_1afa71069542b5b4ca4dd076120435022d" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>to</name></member>
+      <member refid="classQfSlider_1a269c9463a4de291ce1dc16c55d691972" prot="public" virt="non-virtual"><scope>QfSlider</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMapCanvasPointHandler" kind="class" language="C++" prot="public">
+    <compoundname>MapCanvasPointHandler</compoundname>
+    <basecompoundref refid="classQfMapCanvasPointHandler" prot="public" virt="non-virtual">QfMapCanvasPointHandler</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MapCanvasPointHandler</label>
+        <link refid="classMapCanvasPointHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfMapCanvasPointHandler</label>
+        <link refid="classQfMapCanvasPointHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MapCanvasPointHandler</label>
+        <link refid="classMapCanvasPointHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfMapCanvasPointHandler</label>
+        <link refid="classQfMapCanvasPointHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/MapCanvasPointHandler.qml" line="2" column="1" bodyfile="src/app/qml_compat/MapCanvasPointHandler.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfMapCanvasPointHandler_1af27fc0a46ad63c72e57721d26d8a4a37" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>clicked</name></member>
+      <member refid="classQfMapCanvasPointHandler_1a91988941b9bf007e0db3561f05038ff1" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>coordinateSpace</name></member>
+      <member refid="classQfMapCanvasPointHandler_1abb648f613f3fa81b4be8774f3d9b29c0" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>deregisterHandler</name></member>
+      <member refid="classQfMapCanvasPointHandler_1afa2aa6dec9fba2879e79950db4674f32" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>doubleClicked</name></member>
+      <member refid="classQfMapCanvasPointHandler_1ab4e41fe1c1a7e014ec62cb6ffde725c9" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>handlers</name></member>
+      <member refid="classQfMapCanvasPointHandler_1aabb229f1d178404bc195b2398beb4f69" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>pointInItem</name></member>
+      <member refid="classQfMapCanvasPointHandler_1acfb6e0d7442ec91186ccc1e4fe1f3619" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>pressAndHold</name></member>
+      <member refid="classQfMapCanvasPointHandler_1ab4fcc3c324a67d4dd5df1d80697563f9" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>Priority</name></member>
+      <member refid="classQfMapCanvasPointHandler_1adf5b500c13a47a9a1377cc67daef2fd5" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>processInteraction</name></member>
+      <member refid="classQfMapCanvasPointHandler_1a366efb5657a9c5777a6ba05e5123a0a4" prot="public" virt="non-virtual"><scope>MapCanvasPointHandler</scope><name>registerHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

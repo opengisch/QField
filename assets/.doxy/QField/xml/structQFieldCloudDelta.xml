@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQFieldCloudDelta" kind="struct" language="C++" prot="public">
+    <compoundname>QFieldCloudDelta</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Status</name>
+        <qualifiedname>QFieldCloudDelta::Status</qualifiedname>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da4882a296d07867c1a6bcd632c176fcf4" prot="public">
+          <name>PendingStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da0d50fccce38dd568d99bd161f12979ef" prot="public">
+          <name>BusyStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da316a79f01e1e965e9e6061930bf790f3" prot="public">
+          <name>AppliedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da2c148d796ff6324f287add94cf7a2b0d" prot="public">
+          <name>ConflictStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da2dac4695489648a7c2704c28fa01e053" prot="public">
+          <name>NotAppliedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da02a1faf4f05eb5f752c6f5c810b6785b" prot="public">
+          <name>ErrorStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da3236f45d3a7ef488b011e0f694347fcb" prot="public">
+          <name>IgnoredStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da5b13a1f829068eb02ffa5bc484adb6f3" prot="public">
+          <name>UnpermittedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="85" column="5" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="86" bodyend="95"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQFieldCloudDelta_1a83c078a28652cabd2fa03c8fb4e2d58d" prot="public" static="no" mutable="no">
+        <type>QUuid</type>
+        <definition>QUuid QFieldCloudDelta::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>QFieldCloudDelta::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="99" column="11" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1a204384040a8bf3e4c83d4d2537de060b" prot="public" static="no" mutable="no">
+        <type>QUuid</type>
+        <definition>QUuid QFieldCloudDelta::deltafileId</definition>
+        <argsstring></argsstring>
+        <name>deltafileId</name>
+        <qualifiedname>QFieldCloudDelta::deltafileId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="100" column="11" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1a667801a46da67a60b0a9fcdd86a74f39" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudDelta::createdBy</definition>
+        <argsstring></argsstring>
+        <name>createdBy</name>
+        <qualifiedname>QFieldCloudDelta::createdBy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="101" column="13" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1a2bba7da086c1e86df3dfdc403c58f0f5" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QFieldCloudDelta::createdAt</definition>
+        <argsstring></argsstring>
+        <name>createdAt</name>
+        <qualifiedname>QFieldCloudDelta::createdAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="102" column="15" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1a882647b21505635aebd646cfb01e5325" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QFieldCloudDelta::updatedAt</definition>
+        <argsstring></argsstring>
+        <name>updatedAt</name>
+        <qualifiedname>QFieldCloudDelta::updatedAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="103" column="15" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1afb705ded83c5456e762e2247056285eb" prot="public" static="no" mutable="no">
+        <type>Status</type>
+        <definition>Status QFieldCloudDelta::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QFieldCloudDelta::status</qualifiedname>
+        <initializer>= PendingStatus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="104" column="12" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1a7c495831d54d4258998cd5ba1b481e6b" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudDelta::summary</definition>
+        <argsstring></argsstring>
+        <name>summary</name>
+        <qualifiedname>QFieldCloudDelta::summary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="105" column="13" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQFieldCloudDelta_1aa9166c58c413a1a3af58eef59c517331" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QFieldCloudDelta::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <qualifiedname>QFieldCloudDelta::output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfieldcloudutils.h" line="106" column="13" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/qfieldcloudutils.h" line="80" column="1" bodyfile="src/core/utils/qfieldcloudutils.h" bodystart="81" bodyend="107"/>
+    <listofallmembers>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da316a79f01e1e965e9e6061930bf790f3" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>AppliedStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da0d50fccce38dd568d99bd161f12979ef" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>BusyStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da2c148d796ff6324f287add94cf7a2b0d" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>ConflictStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a2bba7da086c1e86df3dfdc403c58f0f5" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>createdAt</name></member>
+      <member refid="structQFieldCloudDelta_1a667801a46da67a60b0a9fcdd86a74f39" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>createdBy</name></member>
+      <member refid="structQFieldCloudDelta_1a204384040a8bf3e4c83d4d2537de060b" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>deltafileId</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da02a1faf4f05eb5f752c6f5c810b6785b" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>ErrorStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a83c078a28652cabd2fa03c8fb4e2d58d" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>id</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da3236f45d3a7ef488b011e0f694347fcb" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>IgnoredStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da2dac4695489648a7c2704c28fa01e053" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>NotAppliedStatus</name></member>
+      <member refid="structQFieldCloudDelta_1aa9166c58c413a1a3af58eef59c517331" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>output</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da4882a296d07867c1a6bcd632c176fcf4" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>PendingStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510d" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>Status</name></member>
+      <member refid="structQFieldCloudDelta_1afb705ded83c5456e762e2247056285eb" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>status</name></member>
+      <member refid="structQFieldCloudDelta_1a7c495831d54d4258998cd5ba1b481e6b" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>summary</name></member>
+      <member refid="structQFieldCloudDelta_1a5ea0dbae54351a25391c644eb244510da5b13a1f829068eb02ffa5bc484adb6f3" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>UnpermittedStatus</name></member>
+      <member refid="structQFieldCloudDelta_1a882647b21505635aebd646cfb01e5325" prot="public" virt="non-virtual"><scope>QFieldCloudDelta</scope><name>updatedAt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

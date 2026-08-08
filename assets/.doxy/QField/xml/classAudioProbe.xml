@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAudioProbe" kind="class" language="C++" prot="public">
+    <compoundname>AudioProbe</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QIODevice</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAudioProbe_1a5fc9911ccb1cac4bf2c2aeb53690db36" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioProbe::AudioProbe</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AudioProbe</name>
+        <qualifiedname>AudioProbe::AudioProbe</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="32" column="14" bodyfile="src/core/audiorecorder.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioProbe_1a6c77fd538c41bd4338d6a47b24be53ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 AudioProbe::readData</definition>
+        <argsstring>(char *data, qint64 maxlen) override</argsstring>
+        <name>readData</name>
+        <qualifiedname>AudioProbe::readData</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>maxlen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="34" column="12" bodyfile="src/core/audiorecorder.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioProbe_1adc947b8bb01c90dd44404e7eae0d4026" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 AudioProbe::writeData</definition>
+        <argsstring>(const char *data, qint64 len) override</argsstring>
+        <name>writeData</name>
+        <qualifiedname>AudioProbe::writeData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="35" column="12" bodyfile="src/core/audiorecorder.cpp" bodystart="33" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAudioProbe_1aa999707fbd6d241cc2937868319a55b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioProbe::levelCalculated</definition>
+        <argsstring>(double level)</argsstring>
+        <name>levelCalculated</name>
+        <qualifiedname>AudioProbe::levelCalculated</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audiorecorder.h" line="38" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AudioProbe</label>
+        <link refid="classAudioProbe"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QIODevice</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AudioProbe</label>
+        <link refid="classAudioProbe"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QIODevice</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/audiorecorder.h" line="27" column="1" bodyfile="src/core/audiorecorder.h" bodystart="28" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classAudioProbe_1a5fc9911ccb1cac4bf2c2aeb53690db36" prot="public" virt="non-virtual"><scope>AudioProbe</scope><name>AudioProbe</name></member>
+      <member refid="classAudioProbe_1aa999707fbd6d241cc2937868319a55b5" prot="public" virt="non-virtual"><scope>AudioProbe</scope><name>levelCalculated</name></member>
+      <member refid="classAudioProbe_1a6c77fd538c41bd4338d6a47b24be53ff" prot="public" virt="non-virtual"><scope>AudioProbe</scope><name>readData</name></member>
+      <member refid="classAudioProbe_1adc947b8bb01c90dd44404e7eae0d4026" prot="public" virt="non-virtual"><scope>AudioProbe</scope><name>writeData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

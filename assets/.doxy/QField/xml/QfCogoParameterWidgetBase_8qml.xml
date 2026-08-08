@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfCogoParameterWidgetBase_8qml" kind="file" language="C++">
+    <compoundname>QfCogoParameterWidgetBase.qml</compoundname>
+    <innerclass refid="classQfCogoParameterWidgetBase" prot="public">QfCogoParameterWidgetBase</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Controls</highlight></codeline>
+<codeline lineno="3" refid="classQfCogoParameterWidgetBase" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">Item<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>signal<sp/>valueChangeRequested(var<sp/>value)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>signal<sp/>requestPosition(var<sp/>item,<sp/>bool<sp/>fromCoordinateLocator)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterWidgetBase.qml"/>
+  </compounddef>
+</doxygen>

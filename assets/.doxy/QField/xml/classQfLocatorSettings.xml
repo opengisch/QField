@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocatorSettings" kind="class" language="C++" prot="public">
+    <compoundname>QfLocatorSettings</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classLocatorSettings" prot="public" virt="non-virtual">LocatorSettings</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLocatorSettings_1a5c18ff2d9f28a87342891b2d02d31db8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfLocatorSettings::locatorFiltersModel</definition>
+        <argsstring></argsstring>
+        <name>locatorFiltersModel</name>
+        <qualifiedname>QfLocatorSettings::locatorFiltersModel</qualifiedname>
+        <read>dummyGetter_locatorFiltersModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="13" column="1" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLocatorSettings_1af21b4a3965471a271e712dc820f7fd4c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorSettings::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfLocatorSettings::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="15" column="5" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1afcb4cdc70571153f77032e54cc60e31b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorSettings::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfLocatorSettings::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="16" column="5" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1a9737130fd10db4eb82732f1ecfcbab67" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorSettings::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfLocatorSettings::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="17" column="5" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1ae76f91dcefc2c301859afa2b3d87d273" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorSettings::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfLocatorSettings::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="18" column="5" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1af0fd114d7f0da9b42fd24101b37e0b43" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorSettings::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfLocatorSettings::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="19" column="5" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1ab6d3c9973e8e40faf2376335d2a5856e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorSettings::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfLocatorSettings::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="20" column="5" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1ab1afd9fd3aae10cd3a8a7095bf4ff772" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfLocatorSettings::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>QfLocatorSettings::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="21" column="6" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorSettings_1a734d1c01555a87805be9cfa60979e9dc" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfLocatorSettings::locatorfiltersList</definition>
+        <argsstring></argsstring>
+        <name>locatorfiltersList</name>
+        <qualifiedname>QfLocatorSettings::locatorfiltersList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorSettings.qml" line="22" column="10" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>LocatorSettings</label>
+        <link refid="classLocatorSettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfLocatorSettings</label>
+        <link refid="classQfLocatorSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfLocatorSettings</label>
+        <link refid="classQfLocatorSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLocatorSettings.qml" line="10" column="1" bodyfile="src/gui/qml/QfLocatorSettings.qml" bodystart="10" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classQfLocatorSettings_1ae76f91dcefc2c301859afa2b3d87d273" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>closePolicy</name></member>
+      <member refid="classQfLocatorSettings_1ab6d3c9973e8e40faf2376335d2a5856e" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>focus</name></member>
+      <member refid="classQfLocatorSettings_1a734d1c01555a87805be9cfa60979e9dc" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>locatorfiltersList</name></member>
+      <member refid="classQfLocatorSettings_1a5c18ff2d9f28a87342891b2d02d31db8" prot="public" virt="non-virtual"><scope>QfLocatorSettings</scope><name>locatorFiltersModel</name></member>
+      <member refid="classQfLocatorSettings_1ab1afd9fd3aae10cd3a8a7095bf4ff772" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>page</name></member>
+      <member refid="classQfLocatorSettings_1af0fd114d7f0da9b42fd24101b37e0b43" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>parent</name></member>
+      <member refid="classQfLocatorSettings_1af21b4a3965471a271e712dc820f7fd4c" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>width</name></member>
+      <member refid="classQfLocatorSettings_1afcb4cdc70571153f77032e54cc60e31b" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>x</name></member>
+      <member refid="classQfLocatorSettings_1a9737130fd10db4eb82732f1ecfcbab67" prot="private" virt="non-virtual"><scope>QfLocatorSettings</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

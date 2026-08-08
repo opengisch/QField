@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_4a4823380b8154b853061c3a6b746fec" kind="dir">
+    <compoundname>src/core/platforms/android</compoundname>
+    <innerfile refid="androidplatformutilities_8cpp">androidplatformutilities.cpp</innerfile>
+    <innerfile refid="androidplatformutilities_8h">androidplatformutilities.h</innerfile>
+    <innerfile refid="androidprojectsource_8cpp">androidprojectsource.cpp</innerfile>
+    <innerfile refid="androidprojectsource_8h">androidprojectsource.h</innerfile>
+    <innerfile refid="androidresourcesource_8cpp">androidresourcesource.cpp</innerfile>
+    <innerfile refid="androidresourcesource_8h">androidresourcesource.h</innerfile>
+    <innerfile refid="androidviewstatus_8cpp">androidviewstatus.cpp</innerfile>
+    <innerfile refid="androidviewstatus_8h">androidviewstatus.h</innerfile>
+    <innerfile refid="qfield__android_8h_8in">qfield_android.h.in</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/platforms/android/"/>
+  </compounddef>
+</doxygen>

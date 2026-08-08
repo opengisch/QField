@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfToolButton" kind="class" language="C++" prot="public">
+    <compoundname>QfToolButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">RoundButton</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfToolButton_1a0d278387a2234f62440594135638dd18" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButton::iconSource</definition>
+        <argsstring></argsstring>
+        <name>iconSource</name>
+        <qualifiedname>QfToolButton::iconSource</qualifiedname>
+        <read>dummyGetter_iconSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="13" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a7a3f56683199baca48768e5e2a31fd73" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButton::iconColor</definition>
+        <argsstring></argsstring>
+        <name>iconColor</name>
+        <qualifiedname>QfToolButton::iconColor</qualifiedname>
+        <read>dummyGetter_iconColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="15" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a37ff6fcaaa343fab4e03376181fd9c63" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButton::statusBadge</definition>
+        <argsstring></argsstring>
+        <name>statusBadge</name>
+        <qualifiedname>QfToolButton::statusBadge</qualifiedname>
+        <read>dummyGetter_statusBadge_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="17" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1ae4f815347cb97ee7412a0e351290ccde" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfToolButton::bottomRightIndicatorText</definition>
+        <argsstring></argsstring>
+        <name>bottomRightIndicatorText</name>
+        <qualifiedname>QfToolButton::bottomRightIndicatorText</qualifiedname>
+        <read>dummyGetter_bottomRightIndicatorText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="19" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a5e53dd20b0d9df6447e6a839a539df1e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfToolButton::bottomRightIndicatorBgColor</definition>
+        <argsstring></argsstring>
+        <name>bottomRightIndicatorBgColor</name>
+        <qualifiedname>QfToolButton::bottomRightIndicatorBgColor</qualifiedname>
+        <read>dummyGetter_bottomRightIndicatorBgColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="21" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a9557465e7decd51c01d6366f9dd94adc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfToolButton::bottomRightIndicatorFgColor</definition>
+        <argsstring></argsstring>
+        <name>bottomRightIndicatorFgColor</name>
+        <qualifiedname>QfToolButton::bottomRightIndicatorFgColor</qualifiedname>
+        <read>dummyGetter_bottomRightIndicatorFgColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="23" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a12baca6e18be7b67d055df74fb2bacdf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfToolButton::round</definition>
+        <argsstring></argsstring>
+        <name>round</name>
+        <qualifiedname>QfToolButton::round</qualifiedname>
+        <read>dummyGetter_round_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="25" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1aa63b6b9ef110d313b4d1c1c74228f8af" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfToolButton::roundborder</definition>
+        <argsstring></argsstring>
+        <name>roundborder</name>
+        <qualifiedname>QfToolButton::roundborder</qualifiedname>
+        <read>dummyGetter_roundborder_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="27" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a950ad8b69e18e07096e9e94ee03de4b4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButton::bgcolor</definition>
+        <argsstring></argsstring>
+        <name>bgcolor</name>
+        <qualifiedname>QfToolButton::bgcolor</qualifiedname>
+        <read>dummyGetter_bgcolor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="29" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButton_1a82274d07b7561b39f0e1a9b6d49bce98" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfToolButton::borderColor</definition>
+        <argsstring></argsstring>
+        <name>borderColor</name>
+        <qualifiedname>QfToolButton::borderColor</qualifiedname>
+        <read>dummyGetter_borderColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="31" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfToolButton_1abb1f7313b3e1e88ebc9a1c53879ff06b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfToolButton::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="33" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a1e94e124427cbb25d9f0cda7a4bb0c3c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfToolButton::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="34" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a7a7a53872a640dd9c543fd7e790014f6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::implicitWidth</definition>
+        <argsstring></argsstring>
+        <name>implicitWidth</name>
+        <qualifiedname>QfToolButton::implicitWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="35" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1abe015fb7e9b4a684b7efa190509fd92d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfToolButton::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="36" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1abb8b7ec442fdddd30d449c37e583c4e0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::focusPolicy</definition>
+        <argsstring></argsstring>
+        <name>focusPolicy</name>
+        <qualifiedname>QfToolButton::focusPolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="37" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a6cd06ea5417cf733b86566005f01a451" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::topInset</definition>
+        <argsstring></argsstring>
+        <name>topInset</name>
+        <qualifiedname>QfToolButton::topInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="38" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a55e247a1c5f6b02caa0009052984c368" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::bottomInset</definition>
+        <argsstring></argsstring>
+        <name>bottomInset</name>
+        <qualifiedname>QfToolButton::bottomInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="39" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1ab93e95009c9a2432407dc3aad647f032" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::leftInset</definition>
+        <argsstring></argsstring>
+        <name>leftInset</name>
+        <qualifiedname>QfToolButton::leftInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="40" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1ac0e8d711251339e43384fbaff05af63c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::rightInset</definition>
+        <argsstring></argsstring>
+        <name>rightInset</name>
+        <qualifiedname>QfToolButton::rightInset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="41" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a9d6b5363bee39f9e59fa7eb3f2f22cfa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfToolButton::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="42" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a9cb4e77658af5eb7e10197d8d503bd96" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfToolButton::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="43" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a36913850cb4addc9c80c981022d3caff" prot="private" static="no" mutable="no">
+        <type>var icon</type>
+        <definition>var icon QfToolButton::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>QfToolButton::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="44" column="9" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a767bba754205a514e8e487bee432e581" prot="private" static="no" mutable="no">
+        <type>var icon</type>
+        <definition>var icon QfToolButton::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfToolButton::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="45" column="9" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a055e5ef8491df4e9e9502e316d322fe2" prot="private" static="no" mutable="no">
+        <type>var icon</type>
+        <definition>var icon QfToolButton::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfToolButton::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="47" column="9" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1ac62b8c6d7ab61c1cc777a3b3c9415c0d" prot="private" static="no" mutable="no">
+        <type>var icon</type>
+        <definition>var icon QfToolButton::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfToolButton::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="48" column="9" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a9901555d18e5597b21bdba05972cf6af" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material QfToolButton::foreground</definition>
+        <argsstring></argsstring>
+        <name>foreground</name>
+        <qualifiedname>QfToolButton::foreground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="49" column="13" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a0ba477b4bdff6ceeb373b54c5c465441" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButton::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>QfToolButton::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="50" column="5" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButton_1a9b6d6be230335cacc9f04f1be76291a3" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfBadge" kindref="compound">QfBadge</ref></type>
+        <definition>QfBadge QfToolButton::badge</definition>
+        <argsstring></argsstring>
+        <name>badge</name>
+        <qualifiedname>QfToolButton::badge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButton.qml" line="51" column="9" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfToolButton</label>
+        <link refid="classQfToolButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RoundButton</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfToolButton</label>
+        <link refid="classQfToolButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RoundButton</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfToolButton.qml" line="10" column="1" bodyfile="src/gui/qml/QfToolButton.qml" bodystart="10" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classQfToolButton_1a9cb4e77658af5eb7e10197d8d503bd96" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>background</name></member>
+      <member refid="classQfToolButton_1a9b6d6be230335cacc9f04f1be76291a3" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>badge</name></member>
+      <member refid="classQfToolButton_1a950ad8b69e18e07096e9e94ee03de4b4" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>bgcolor</name></member>
+      <member refid="classQfToolButton_1a82274d07b7561b39f0e1a9b6d49bce98" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>borderColor</name></member>
+      <member refid="classQfToolButton_1a55e247a1c5f6b02caa0009052984c368" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>bottomInset</name></member>
+      <member refid="classQfToolButton_1a5e53dd20b0d9df6447e6a839a539df1e" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>bottomRightIndicatorBgColor</name></member>
+      <member refid="classQfToolButton_1a9557465e7decd51c01d6366f9dd94adc" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>bottomRightIndicatorFgColor</name></member>
+      <member refid="classQfToolButton_1ae4f815347cb97ee7412a0e351290ccde" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>bottomRightIndicatorText</name></member>
+      <member refid="classQfToolButton_1a767bba754205a514e8e487bee432e581" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>color</name></member>
+      <member refid="classQfToolButton_1abb8b7ec442fdddd30d449c37e583c4e0" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>focusPolicy</name></member>
+      <member refid="classQfToolButton_1a0ba477b4bdff6ceeb373b54c5c465441" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>font</name></member>
+      <member refid="classQfToolButton_1a9901555d18e5597b21bdba05972cf6af" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>foreground</name></member>
+      <member refid="classQfToolButton_1a1e94e124427cbb25d9f0cda7a4bb0c3c" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>height</name></member>
+      <member refid="classQfToolButton_1ac62b8c6d7ab61c1cc777a3b3c9415c0d" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>height</name></member>
+      <member refid="classQfToolButton_1a7a3f56683199baca48768e5e2a31fd73" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>iconColor</name></member>
+      <member refid="classQfToolButton_1a0d278387a2234f62440594135638dd18" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>iconSource</name></member>
+      <member refid="classQfToolButton_1abe015fb7e9b4a684b7efa190509fd92d" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>implicitHeight</name></member>
+      <member refid="classQfToolButton_1a7a7a53872a640dd9c543fd7e790014f6" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>implicitWidth</name></member>
+      <member refid="classQfToolButton_1ab93e95009c9a2432407dc3aad647f032" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>leftInset</name></member>
+      <member refid="classQfToolButton_1a9d6b5363bee39f9e59fa7eb3f2f22cfa" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>padding</name></member>
+      <member refid="classQfToolButton_1ac0e8d711251339e43384fbaff05af63c" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>rightInset</name></member>
+      <member refid="classQfToolButton_1a12baca6e18be7b67d055df74fb2bacdf" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>round</name></member>
+      <member refid="classQfToolButton_1aa63b6b9ef110d313b4d1c1c74228f8af" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>roundborder</name></member>
+      <member refid="classQfToolButton_1a36913850cb4addc9c80c981022d3caff" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>source</name></member>
+      <member refid="classQfToolButton_1a37ff6fcaaa343fab4e03376181fd9c63" prot="public" virt="non-virtual"><scope>QfToolButton</scope><name>statusBadge</name></member>
+      <member refid="classQfToolButton_1a6cd06ea5417cf733b86566005f01a451" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>topInset</name></member>
+      <member refid="classQfToolButton_1abb1f7313b3e1e88ebc9a1c53879ff06b" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>width</name></member>
+      <member refid="classQfToolButton_1a055e5ef8491df4e9e9502e316d322fe2" prot="private" virt="non-virtual"><scope>QfToolButton</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

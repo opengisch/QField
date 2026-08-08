@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAudioAnalyzer" kind="class" language="C++" prot="public">
+    <compoundname>AudioAnalyzer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="audioanalyzer_8h" local="no">audioanalyzer.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classAudioAnalyzer_1aa6c43a3090e5368c80c2206b337f89d4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int AudioAnalyzer::barCount</definition>
+        <argsstring></argsstring>
+        <name>barCount</name>
+        <qualifiedname>AudioAnalyzer::barCount</qualifiedname>
+        <read>barCount</read>
+        <write>setBarCount</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="60" column="5" bodyfile="src/core/audioanalyzer.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAudioAnalyzer_1a2a0baf904208b8041b1dc65104ea0e8c" prot="private" static="no" mutable="no">
+        <type><ref refid="classAudioPeaksGatherer" kindref="compound">AudioPeaksGatherer</ref> *</type>
+        <definition>AudioPeaksGatherer* AudioAnalyzer::mGatherer</definition>
+        <argsstring></argsstring>
+        <name>mGatherer</name>
+        <qualifiedname>AudioAnalyzer::mGatherer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="99" column="24" bodyfile="src/core/audioanalyzer.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAudioAnalyzer_1ac3930f5d4ce248d6a134af57eafc61c0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AudioAnalyzer::mBarCount</definition>
+        <argsstring></argsstring>
+        <name>mBarCount</name>
+        <qualifiedname>AudioAnalyzer::mBarCount</qualifiedname>
+        <initializer>= 80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="101" column="9" bodyfile="src/core/audioanalyzer.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAudioAnalyzer_1a9038a7f9cfbc4de1585ffa77e0a91e75" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioAnalyzer::AudioAnalyzer</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AudioAnalyzer</name>
+        <qualifiedname>AudioAnalyzer::AudioAnalyzer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="63" column="14" bodyfile="src/core/audioanalyzer.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioAnalyzer_1a580b7be7c67719ba91405ccdeca832fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int AudioAnalyzer::barCount</definition>
+        <argsstring>() const</argsstring>
+        <name>barCount</name>
+        <qualifiedname>AudioAnalyzer::barCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the bar count that will be returned upon successful audio clip analysis. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="68" column="9" bodyfile="src/core/audioanalyzer.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioAnalyzer_1a816570acd9609745a8b48ca9893d5b0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioAnalyzer::setBarCount</definition>
+        <argsstring>(int barCount)</argsstring>
+        <name>setBarCount</name>
+        <qualifiedname>AudioAnalyzer::setBarCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>barCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the bar count that will be returned upon successful audio clip analysis. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="73" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="35" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classAudioAnalyzer_1aea44a6d31522a376820bdfedf6aba846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AudioAnalyzer::analyze</definition>
+        <argsstring>(const QUrl &amp;source)</argsstring>
+        <name>analyze</name>
+        <qualifiedname>AudioAnalyzer::analyze</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run an analysis of the audio <emphasis>source</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="78" column="22" bodyfile="src/core/audioanalyzer.cpp" bodystart="46" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classAudioAnalyzer_1a39c8f99c182c57cdefdcde3a232141fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioAnalyzer::ready</definition>
+        <argsstring>(const QList&lt; qreal &gt; &amp;bars)</argsstring>
+        <name>ready</name>
+        <qualifiedname>AudioAnalyzer::ready</qualifiedname>
+        <param>
+          <type>const QList&lt; qreal &gt; &amp;</type>
+          <declname>bars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when an analysis is over. <simplesect kind="note"><para>If the analysis failed, the list will be empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classAudioAnalyzer_1a3dccea9cf26fbe56286c988740f32e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioAnalyzer::barCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>barCountChanged</name>
+        <qualifiedname>AudioAnalyzer::barCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the bar count property has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="91" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classAudioAnalyzer_1a927f2a433d92a759db3aa29ea6cb795f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioAnalyzer::finalize</definition>
+        <argsstring>()</argsstring>
+        <name>finalize</name>
+        <qualifiedname>AudioAnalyzer::finalize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="95" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="64" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="slot" id="classAudioAnalyzer_1aefc91302e73675c457e2b701c25d5ad6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioAnalyzer::gathererThreadFinished</definition>
+        <argsstring>()</argsstring>
+        <name>gathererThreadFinished</name>
+        <qualifiedname>AudioAnalyzer::gathererThreadFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/audioanalyzer.h" line="96" column="10" bodyfile="src/core/audioanalyzer.cpp" bodystart="111" bodyend="120"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class analyzes the peaks of audio clips and generate a list of bars that can be used to visualize the audio&apos;s overall texture. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AudioAnalyzer</label>
+        <link refid="classAudioAnalyzer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AudioAnalyzer</label>
+        <link refid="classAudioAnalyzer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/audioanalyzer.h" line="56" column="1" bodyfile="src/core/audioanalyzer.h" bodystart="57" bodyend="102"/>
+    <listofallmembers>
+      <member refid="classAudioAnalyzer_1aea44a6d31522a376820bdfedf6aba846" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>analyze</name></member>
+      <member refid="classAudioAnalyzer_1a9038a7f9cfbc4de1585ffa77e0a91e75" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>AudioAnalyzer</name></member>
+      <member refid="classAudioAnalyzer_1aa6c43a3090e5368c80c2206b337f89d4" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>barCount</name></member>
+      <member refid="classAudioAnalyzer_1a580b7be7c67719ba91405ccdeca832fa" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>barCount</name></member>
+      <member refid="classAudioAnalyzer_1a3dccea9cf26fbe56286c988740f32e6c" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>barCountChanged</name></member>
+      <member refid="classAudioAnalyzer_1a927f2a433d92a759db3aa29ea6cb795f" prot="private" virt="non-virtual"><scope>AudioAnalyzer</scope><name>finalize</name></member>
+      <member refid="classAudioAnalyzer_1aefc91302e73675c457e2b701c25d5ad6" prot="private" virt="non-virtual"><scope>AudioAnalyzer</scope><name>gathererThreadFinished</name></member>
+      <member refid="classAudioAnalyzer_1ac3930f5d4ce248d6a134af57eafc61c0" prot="private" virt="non-virtual"><scope>AudioAnalyzer</scope><name>mBarCount</name></member>
+      <member refid="classAudioAnalyzer_1a2a0baf904208b8041b1dc65104ea0e8c" prot="private" virt="non-virtual"><scope>AudioAnalyzer</scope><name>mGatherer</name></member>
+      <member refid="classAudioAnalyzer_1a39c8f99c182c57cdefdcde3a232141fd" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>ready</name></member>
+      <member refid="classAudioAnalyzer_1a816570acd9609745a8b48ca9893d5b0a" prot="public" virt="non-virtual"><scope>AudioAnalyzer</scope><name>setBarCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
