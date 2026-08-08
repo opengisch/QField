@@ -4,6 +4,7 @@ import QtQuick.Controls.Material
 import QtQuick.Layouts
 import QtQuick.Shapes
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml

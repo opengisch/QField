@@ -27,6 +27,7 @@ Item {
   property alias annotationOutlineColor: gridModel.annotationOutlineColor
   property alias annotationHasOutline: gridModel.annotationHasOutline
   property alias annotationPrecision: gridModel.annotationPrecision
+  property font annotationFont
 
   property alias prepareLines: gridModel.prepareLines
   property alias prepareMarkers: gridModel.prepareMarkers
@@ -121,7 +122,7 @@ Item {
         anchors.horizontalCenter: modelData.position === GridAnnotation.Top || modelData.position === GridAnnotation.Bottom ? parent.horizontalCenter : undefined
         anchors.verticalCenter: modelData.position === GridAnnotation.Left || modelData.position === GridAnnotation.Right ? parent.verticalCenter : undefined
 
-        font: Theme.tinyFont
+        font: gridRenderer.annotationFont
         color: annotationColor
         style: annotationHasOutline ? Text.Outline : Text.Normal
         styleColor: annotationOutlineColor

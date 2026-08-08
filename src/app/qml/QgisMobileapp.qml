@@ -775,6 +775,7 @@ ApplicationWindow {
         item.mapSettings = mapCanvas.mapSettings;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
+        item.selectionColor = Qt.binding(() => Theme.mainColor);
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
@@ -842,6 +843,7 @@ ApplicationWindow {
       indeterminate: true
       prepareLines: true
       autoColor: true
+      annotationFont: Theme.tinyFont
     }
 
     /* The map canvas */
@@ -1033,11 +1035,13 @@ ApplicationWindow {
       QfGridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
+        annotationFont: Theme.tinyFont
       }
 
       QfMapCanvasPointHandler {
         id: pointHandler
         objectName: "pointHandler"
+        coordinateSpace: mainWindow.contentItem
       }
     }
 
@@ -1107,7 +1111,15 @@ ApplicationWindow {
         }
       }
 
-      QfTrackingSession {}
+      QfTrackingSession {
+        positionSource: positionSource
+        filterAccuracy: positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement
+        project: qgisProject
+        mapSettings: mapCanvas.mapSettings
+        cloudUserInformation: appScopesGenerator.cloudUserInformation
+
+        onFeatureCreated: layer => projectInfo.saveTracker(layer)
+      }
     }
 
     /** COGO operation visual guides **/
@@ -1785,6 +1797,12 @@ ApplicationWindow {
         id: vertexRubberband
         model: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
+        vertexColor: Theme.vertexColorSemiOpaque
+        vertexBorderColor: Theme.vertexColor
+        selectedVertexColor: Theme.vertexSelectedColorSemiOpaque
+        selectedVertexBorderColor: Theme.vertexSelectedColor
+        newVertexColor: Theme.vertexNewColorSemiOpaque
+        newVertexBorderColor: Theme.vertexNewColor
       }
     }
 

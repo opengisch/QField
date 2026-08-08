@@ -15,6 +15,13 @@ Repeater {
   property bool isCycling: model.currentVertexIndex !== -1
   property bool isAddingVertex: model.editingMode === VertexModel.AddVertex
 
+  property color vertexColor: "#40FF0000"
+  property color vertexBorderColor: "#FF0000"
+  property color selectedVertexColor: "#200000FF"
+  property color selectedVertexBorderColor: "#0000FF"
+  property color newVertexColor: "#404CAF50"
+  property color newVertexBorderColor: "#4CAF50"
+
   delegate: Rectangle {
     MapToScreen {
       id: mapToScreen
@@ -47,8 +54,8 @@ Repeater {
       anchors.fill: parent
       anchors.margins: 1
       radius: ExistingVertex ? width / 2 : 0
-      color: CurrentVertex ? isAddingVertex ? Theme.vertexNewColorSemiOpaque : Theme.vertexSelectedColorSemiOpaque : Theme.vertexColorSemiOpaque
-      border.color: CurrentVertex ? isAddingVertex ? Theme.vertexNewColor : Theme.vertexSelectedColor : Theme.vertexColor
+      color: CurrentVertex ? isAddingVertex ? vertexRubberband.newVertexColor : vertexRubberband.selectedVertexColor : vertexRubberband.vertexColor
+      border.color: CurrentVertex ? isAddingVertex ? vertexRubberband.newVertexBorderColor : vertexRubberband.selectedVertexBorderColor : vertexRubberband.vertexBorderColor
       border.width: (VertexModel.ExistingVertex ? 4 : 2) * (CurrentVertex ? 1.5 : 1)
     }
   }

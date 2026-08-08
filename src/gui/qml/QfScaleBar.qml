@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Shapes
 import org.qfield.core
+import org.qfield.gui
 import org.qgis
 
 /**

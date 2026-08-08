@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml

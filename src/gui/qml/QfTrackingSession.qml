@@ -12,31 +12,31 @@ Item {
 
   property var tracker: model.tracker
 
+  property Positioning positionSource
+  property bool filterAccuracy: false
+  property var project
+  property MapSettings mapSettings
+  property var cloudUserInformation
+
+  signal featureCreated(var layer)
+
   Component.onCompleted: {
     tracker.rubberbandModel = rubberbandModel;
     tracker.featureModel = featureModel;
-    tracker.filterAccuracy = positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement;
+    tracker.filterAccuracy = filterAccuracy;
+  }
+
+  onFilterAccuracyChanged: {
+    tracker.filterAccuracy = filterAccuracy;
   }
 
   Connections {
-    target: positioningSettings
-
-    function onAccuracyIndicatorChanged() {
-      tracker.filterAccuracy = positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement;
-    }
-
-    function onAccuracyRequirementChanged() {
-      tracker.filterAccuracy = positioningSettings.accuracyIndicator && positioningSettings.accuracyRequirement;
-    }
-  }
-
-  Connections {
-    target: positionSource
+    target: trackingSession.positionSource
     enabled: tracker.isActive
 
     function onPositionInformationChanged() {
-      featureModel.appExpressionContextScopesGenerator.positionInformation = positionSource.positionInformation;
-      tracker.processPositionInformation(positionSource.positionInformation, positionSource.projectedPosition);
+      featureModel.appExpressionContextScopesGenerator.positionInformation = trackingSession.positionSource.positionInformation;
+      tracker.processPositionInformation(trackingSession.positionSource.positionInformation, trackingSession.positionSource.projectedPosition);
     }
   }
 
@@ -45,7 +45,7 @@ Item {
 
     function onFeatureCreated() {
       if (tracker.isActive) {
-        projectInfo.saveTracker(featureModel.currentLayer);
+        trackingSession.featureCreated(featureModel.currentLayer);
       }
     }
   }
@@ -54,7 +54,7 @@ Item {
     id: rubberbandModel
     frozen: false
     vectorLayer: tracker.vectorLayer
-    crs: mapCanvas.mapSettings.destinationCrs
+    crs: trackingSession.mapSettings.destinationCrs
   }
 
   QfRubberband {
@@ -65,13 +65,13 @@ Item {
     color: tracker.color
     geometryType: Qgis.GeometryType.Line
 
-    mapSettings: mapCanvas.mapSettings
+    mapSettings: trackingSession.mapSettings
     model: rubberbandModel
   }
 
   FeatureModel {
     id: featureModel
-    project: qgisProject
+    project: trackingSession.project
     currentLayer: tracker.vectorLayer
     feature: tracker.feature
 
@@ -89,7 +89,7 @@ Item {
 
     appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
       positionLocked: true
-      cloudUserInformation: appScopesGenerator.cloudUserInformation
+      cloudUserInformation: trackingSession.cloudUserInformation
     }
   }
 }

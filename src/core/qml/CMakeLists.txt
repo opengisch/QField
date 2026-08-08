@@ -1,26 +1,10 @@
 set(QFIELD_CORE_QML_FILES
-    QfBookmarkHighlight.qml
-    QfBookmarkRenderer.qml
-    QfCogoOperationPreview.qml
-    QfCoordinateLocator.qml
-    QfDropShadow.qml
-    QfFeatureListSelectionHighlight.qml
-    QfGeometryHighlighter.qml
-    QfGeometryRenderer.qml
     QfGridRenderer.qml
     QfKineticHandler.qml
     QfLinePolygon.qml
-    QfLocationMarker.qml
     QfMapCanvas.qml
     QfMapCanvasPointHandler.qml
-    QfMeasuringTool.qml
-    QfNavigationHighlight.qml
-    QfNavigationRenderer.qml
-    QfPositioningSettings.qml
-    QfProcessingAlgorithmPreview.qml
     QfRubberband.qml
-    QfScaleBar.qml
-    QfTrackingSession.qml
     QfVertexRubberband.qml)
 
 # Type registration stays imperative, in QFieldCore::registerQmlTypes().

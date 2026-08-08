@@ -39,7 +39,7 @@ Item {
 
   // QfPositioningPreciseView
   property alias positioningPreciseView: positioningPreciseView
-  property QfPositioningSettings positioningSettings
+  property QtObject positioningSettings
   property Positioning positionSource
   property bool positioningPreciseEnabled: !elevationProfile.visible && !isNaN(navigation.distance) && navigation.isActive && (positioningSettings.alwaysShowPreciseView || (positioningPreciseView.hasAcceptableAccuracy && positioningPreciseView.projectDistance < positioningPreciseView.precision))
 

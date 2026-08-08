@@ -24,14 +24,18 @@
 #include "orderedrelationmodel.h"
 #include "parameterizedimage.h"
 #include "permissions.h"
+#include "platformutilities.h"
 #include "printlayoutlistmodel.h"
 #include "qfieldguiqmlregistration.h"
 #include "recentprojectlistmodel.h"
 #include "referencingfeaturelistmodel.h"
 #include "sensorlistmodel.h"
+#include "theme.h"
 #include "valuemapmodel.h"
 
+#include <QGuiApplication>
 #include <QPermissions>
+#include <QScreen>
 #include <QtQml>
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )
@@ -58,6 +62,15 @@ namespace QFieldGui
     qmlRegisterType<ValueMapModel>( "org.qfield.gui", 1, 0, "ValueMapModel" );
 
     REGISTER_SINGLETON( "org.qfield.gui", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
+
+    qmlRegisterSingletonType<Theme>( "org.qfield.gui", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject * {
+      QScreen *screen = QGuiApplication::primaryScreen();
+      const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;
+      Theme *theme = new Theme();
+      theme->setScreenPpi( dpi );
+      theme->setSystemFontPointSize( PlatformUtilities::instance()->systemFontPointSize() );
+      return theme;
+    } );
 
     qmlRegisterUncreatableType<MessageLogModel>( "org.qfield.gui", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
   }

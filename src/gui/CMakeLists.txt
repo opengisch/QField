@@ -21,6 +21,7 @@ set(QFIELD_GUI_SRCS
     recentprojectlistmodel.cpp
     referencingfeaturelistmodel.cpp
     sensorlistmodel.cpp
+    theme.cpp
     valuemapmodel.cpp
     valuemapmodelbase.cpp)
 
@@ -47,6 +48,7 @@ set(QFIELD_GUI_HDRS
     recentprojectlistmodel.h
     referencingfeaturelistmodel.h
     sensorlistmodel.h
+    theme.h
     valuemapmodel.h
     valuemapmodelbase.h)
 

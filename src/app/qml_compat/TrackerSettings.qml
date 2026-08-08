@@ -1,3 +1,3 @@
-import org.qfield.gui
+import org.qfield.app
 
 QfTrackerSettings {}

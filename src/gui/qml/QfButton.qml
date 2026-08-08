@@ -6,6 +6,7 @@ import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
 import org.qfield.core
+import org.qfield.gui
 
 /**
  * \ingroup qml
