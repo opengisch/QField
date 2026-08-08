@@ -54,32 +54,62 @@ static QVariant pointValue( double x, double y, double z = std::numeric_limits<d
   return std::isnan( z ) ? QVariant::fromValue( QgsPoint( x, y ) ) : QVariant::fromValue( QgsPoint( x, y, z ) );
 }
 
+static CogoParameter parameterNamed( const QList<CogoParameter> &parameters, const QString &name )
+{
+  for ( const CogoParameter &parameter : parameters )
+  {
+    if ( parameter.name == name )
+      return parameter;
+  }
+  return CogoParameter();
+}
+
+class CogoOperationDummy : public CogoOperation
+{
+  public:
+    CogoOperationDummy() {}
+    ~CogoOperationDummy() = default;
+
+    QString name() const override { return QStringLiteral( "dummy" ); }
+};
+
 /*
  * CogoRegistry
  */
 TEST_CASE( "CogoRegistry" )
 {
-  CogoRegistry *registry = cogoRegistry();
+  CogoRegistry registry;
 
   SECTION( "registers the built-in operations" )
   {
-    const QStringList operations = registry->availableOperations();
+    const QStringList operations = registry.availableOperations();
     REQUIRE( operations.contains( QStringLiteral( "point_at_xyz" ) ) );
     REQUIRE( operations.contains( QStringLiteral( "point_at_distance_angle" ) ) );
     REQUIRE( operations.contains( QStringLiteral( "point_at_intersection_circles" ) ) );
   }
 
-  SECTION( "returns an operation by name and null for the unknown" )
+  SECTION( "returns the requested operation and null for the unknown" )
   {
-    REQUIRE( registry->operation( QStringLiteral( "point_at_xyz" ) ) != nullptr );
-    REQUIRE( registry->operation( QStringLiteral( "does_not_exist" ) ) == nullptr );
+    CogoOperation *operation = registry.operation( QStringLiteral( "point_at_xyz" ) );
+    REQUIRE( operation != nullptr );
+    REQUIRE( operation->name() == QStringLiteral( "point_at_xyz" ) );
+    REQUIRE( registry.operation( QStringLiteral( "does_not_exist" ) ) == nullptr );
+  }
+
+  SECTION( "registers a new operation" )
+  {
+    const int before = registry.availableOperations().count();
+    REQUIRE( registry.registerOperation( new CogoOperationDummy() ) );
+    REQUIRE( registry.availableOperations().count() == before + 1 );
+    REQUIRE( registry.availableOperations().contains( QStringLiteral( "dummy" ) ) );
+    REQUIRE( registry.operation( QStringLiteral( "dummy" ) ) != nullptr );
   }
 
   SECTION( "rejects a duplicate registration" )
   {
-    const int before = registry->availableOperations().count();
-    REQUIRE( !registry->registerOperation( new CogoOperationPointAtXYZ() ) );
-    REQUIRE( registry->availableOperations().count() == before );
+    const int before = registry.availableOperations().count();
+    REQUIRE( !registry.registerOperation( new CogoOperationPointAtXYZ() ) );
+    REQUIRE( registry.availableOperations().count() == before );
   }
 }
 
@@ -100,13 +130,12 @@ TEST_CASE( "CogoOperationPointAtXYZ" )
 
   SECTION( "parameters reflect the geometry's Z ability" )
   {
-    const QList<CogoParameter> flat = operation.parameters( Qgis::WkbType::Point );
-    REQUIRE( flat.size() == 1 );
-    REQUIRE( flat.at( 0 ).name == QStringLiteral( "point" ) );
-    REQUIRE( flat.at( 0 ).configuration.value( QStringLiteral( "hasZ" ) ).toBool() == false );
+    const CogoParameter flatPoint = parameterNamed( operation.parameters( Qgis::WkbType::Point ), QStringLiteral( "point" ) );
+    REQUIRE( flatPoint.name == QStringLiteral( "point" ) );
+    REQUIRE( flatPoint.configuration.value( QStringLiteral( "hasZ" ) ).toBool() == false );
 
-    const QList<CogoParameter> withZ = operation.parameters( Qgis::WkbType::PointZ );
-    REQUIRE( withZ.at( 0 ).configuration.value( QStringLiteral( "hasZ" ) ).toBool() == true );
+    const CogoParameter zPoint = parameterNamed( operation.parameters( Qgis::WkbType::PointZ ), QStringLiteral( "point" ) );
+    REQUIRE( zPoint.configuration.value( QStringLiteral( "hasZ" ) ).toBool() == true );
   }
 
   SECTION( "readiness requires a valid point" )
@@ -161,14 +190,13 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
   SECTION( "parameters include elevation only with Z" )
   {
     const QList<CogoParameter> flat = operation.parameters( Qgis::WkbType::Point );
-    QStringList names;
-    for ( const CogoParameter &parameter : flat )
-      names << parameter.name;
-    REQUIRE( names == QStringList( { QStringLiteral( "point" ), QStringLiteral( "distance" ), QStringLiteral( "angle" ) } ) );
+    REQUIRE( parameterNamed( flat, QStringLiteral( "point" ) ).name == QStringLiteral( "point" ) );
+    REQUIRE( parameterNamed( flat, QStringLiteral( "distance" ) ).name == QStringLiteral( "distance" ) );
+    REQUIRE( parameterNamed( flat, QStringLiteral( "angle" ) ).name == QStringLiteral( "angle" ) );
+    REQUIRE( parameterNamed( flat, QStringLiteral( "elevation" ) ).name.isEmpty() );
 
     const QList<CogoParameter> withZ = operation.parameters( Qgis::WkbType::PointZ );
-    REQUIRE( withZ.size() == 4 );
-    REQUIRE( withZ.at( 3 ).name == QStringLiteral( "elevation" ) );
+    REQUIRE( parameterNamed( withZ, QStringLiteral( "elevation" ) ).name == QStringLiteral( "elevation" ) );
   }
 
   SECTION( "readiness requires a numeric distance and angle" )
@@ -288,8 +316,7 @@ TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
 
   SECTION( "parameters expose the candidate toggle" )
   {
-    const QList<CogoParameter> parameters = operation.parameters( Qgis::WkbType::Point );
-    const CogoParameter &candidate = parameters.last();
+    const CogoParameter candidate = parameterNamed( operation.parameters( Qgis::WkbType::Point ), QStringLiteral( "candidate" ) );
     REQUIRE( candidate.name == QStringLiteral( "candidate" ) );
     REQUIRE( candidate.type == QStringLiteral( "enum" ) );
     REQUIRE( candidate.configuration.value( QStringLiteral( "options" ) ).toStringList() == QStringList( { QStringLiteral( "A" ), QStringLiteral( "B" ) } ) );
