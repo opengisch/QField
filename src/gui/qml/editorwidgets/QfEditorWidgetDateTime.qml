@@ -157,12 +157,10 @@ QfEditorWidgetBase {
       QfToolButton {
         id: clearButton
         anchors.right: parent.right
-        anchors.rightMargin: 4
-        anchors.verticalCenter: parent.verticalCenter
-        width: 24
-        height: 24
+        width: 40
+        height: label.height
         padding: 0
-        iconSource: Theme.getThemeVectorIcon("ic_clear_black_18dp")
+        iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
         iconColor: Theme.mainTextColor
         visible: (value !== undefined) && enabled && (config['allow_null'] === undefined || config['allow_null'])
 
