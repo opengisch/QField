@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import org.qfield.core
-import org.qfield.gui
 
 /**
  * \ingroup qml
@@ -13,6 +12,7 @@ ToolButton {
 
   property string toolImage: ''
   property string toolText: qsTr("close")
+  property bool backgroundless: false
   property alias innerActionIcon: innerAction
 
   height: Theme.toolButtonSize
@@ -28,7 +28,7 @@ ToolButton {
   background: Rectangle {
     width: parent.width
     height: Theme.toolButtonSize
-    color: Theme.toolButtonBackgroundSemiOpaqueColor
+    color: backgroundless ? "transparent" : Theme.toolButtonBackgroundSemiOpaqueColor
     radius: height / 2
 
     QfToolButton {
@@ -39,8 +39,8 @@ ToolButton {
       enabled: false
       round: true
       iconSource: button.toolImage
-      iconColor: Theme.toolButtonColor
-      bgcolor: Theme.toolButtonBackgroundColor
+      iconColor: button.backgroundless ? Theme.mainTextColor : Theme.toolButtonColor
+      bgcolor: button.backgroundless ? "transparent" : Theme.toolButtonBackgroundColor
     }
 
     Ripple {
@@ -68,7 +68,7 @@ ToolButton {
       anchors.verticalCenter: parent.verticalCenter
       verticalAlignment: Text.AlignVCenter
       text: button.toolText
-      color: Theme.toolButtonColor
+      color: button.backgroundless ? Theme.mainTextColor : Theme.toolButtonColor
       font: Theme.strongFont
     }
 
