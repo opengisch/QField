@@ -830,7 +830,8 @@ Page {
     QfActionButton {
       id: currentProjectButton
       toolImage: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-      toolText: welcomeScreen.width > 420 ? qsTr('Return to map') : ""
+      toolText: qsTr('Return to map')
+      backgroundless: true
       visible: qgisProject && !!qgisProject.homePath
       innerActionIcon.visible: false
 
