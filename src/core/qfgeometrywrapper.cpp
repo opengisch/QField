@@ -1,5 +1,5 @@
 /***************************************************************************
-  qgsgeometrywrapper.cpp - QgsGeometryWrapper
+  qfgeometrywrapper.cpp - QgsGeometryWrapper
 
  ---------------------
  begin                : 18.08.2018
@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qgsgeometrywrapper.h"
+#include "qfgeometrywrapper.h"
 
 QVariantList QgsGeometryWrapper::pointList() const
 {

@@ -99,7 +99,7 @@ set(QFIELD_CORE_SRCS
     qfprojectsource.cpp
     qfieldcoreqmlregistration.cpp
     qfxmlhttprequest.cpp
-    qgsgeometrywrapper.cpp
+    qfgeometrywrapper.cpp
     qgsgpkgflusher.cpp
     qfrubberbandshape.cpp
     qfrubberbandmodel.cpp
@@ -217,7 +217,7 @@ set(QFIELD_CORE_HDRS
     qfprojectsource.h
     qfieldcoreqmlregistration.h
     qfxmlhttprequest.h
-    qgsgeometrywrapper.h
+    qfgeometrywrapper.h
     qgsgpkgflusher.h
     qfrubberbandshape.h
     qfrubberbandmodel.h

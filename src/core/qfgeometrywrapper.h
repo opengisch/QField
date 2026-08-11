@@ -1,5 +1,5 @@
 /***************************************************************************
-  qgsgeometrywrapper.h - QgsGeometryWrapper
+  qfgeometrywrapper.h - QgsGeometryWrapper
 
  ---------------------
  begin                : 18.08.2018
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QGSGEOMETRYWRAPPER_H
-#define QGSGEOMETRYWRAPPER_H
+#ifndef QFGEOMETRYWRAPPER_H
+#define QFGEOMETRYWRAPPER_H
 
 #include <QObject>
 #include <QStandardItemModel>
@@ -68,4 +68,4 @@ class QgsGeometryWrapper : public QObject
 
 Q_DECLARE_METATYPE( QgsGeometryWrapper * )
 
-#endif // QGSGEOMETRYWRAPPER_H
+#endif // QFGEOMETRYWRAPPER_H

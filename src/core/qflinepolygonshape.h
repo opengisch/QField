@@ -16,7 +16,7 @@
 #ifndef QFLINEPOLYGONSHAPE_H
 #define QFLINEPOLYGONSHAPE_H
 
-#include "qgsgeometrywrapper.h"
+#include "qfgeometrywrapper.h"
 #include "qgsquickmapsettings.h"
 
 #include <QQuickItem>
