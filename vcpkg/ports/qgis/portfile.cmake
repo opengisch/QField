@@ -192,6 +192,17 @@ vcpkg_configure_cmake(
 
 vcpkg_install_cmake()
 
+if(VCPKG_TARGET_IS_WINDOWS AND VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+    # Copy debug static libs from build output to installed debug lib dir
+    file(GLOB QGIS_DEBUG_LIBS
+        "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg/src/*/Debug/*.lib"
+        "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg/src/Debug/*.lib"
+    )
+    foreach(LIB_FILE IN LISTS QGIS_DEBUG_LIBS)
+        file(COPY "${LIB_FILE}" DESTINATION "${CURRENT_PACKAGES_DIR}/debug/lib")
+    endforeach()
+endif()
+
 if(VCPKG_TARGET_IS_WINDOWS)
     function(copy_path basepath targetdir)
         file(GLOB ${basepath}_PATH ${CURRENT_PACKAGES_DIR}/${basepath}/*)
