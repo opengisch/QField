@@ -1,5 +1,5 @@
-set(QGIS_REF 78f7d8ead2945dbef61eaa0f14f5733b79dbc225)
-set(QGIS_SHA512 e6d7ff7a34557c9b20f54c6b82a23f6bb579f19be49514dd52fdbdf14e4aa8a47f065ff07003baff06ad1d27c11cd0fc59e27b14d59672fff28f9dd476e21b47)
+set(QGIS_REF 3a92eb30c83d7d52751a330628d72b8eb9e64876)
+set(QGIS_SHA512 3d1a9f5acafd8e6a3e00904872b7ae8176a26e6ea8c41d8ae6b8659d00f6fa5b7e9e88e7779723e1175401e559d376bd6d1de1285fc45f527228fab56dbfb871)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -191,6 +191,17 @@ vcpkg_configure_cmake(
 )
 
 vcpkg_install_cmake()
+
+if(VCPKG_TARGET_IS_WINDOWS AND VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+    # Copy debug static libs from build output to installed debug lib dir
+    file(GLOB QGIS_DEBUG_LIBS
+        "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg/src/*/Debug/*.lib"
+        "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg/src/Debug/*.lib"
+    )
+    foreach(LIB_FILE IN LISTS QGIS_DEBUG_LIBS)
+        file(COPY "${LIB_FILE}" DESTINATION "${CURRENT_PACKAGES_DIR}/debug/lib")
+    endforeach()
+endif()
 
 if(VCPKG_TARGET_IS_WINDOWS)
     function(copy_path basepath targetdir)
