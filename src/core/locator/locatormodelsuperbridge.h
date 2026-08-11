@@ -60,6 +60,9 @@ class LocatorModelSuperBridge : public QgsLocatorModelBridge
 {
     Q_OBJECT
 
+    // moc needs the full definition to build the metaobject.
+    Q_MOC_INCLUDE( "featurelistextentcontroller.h" )
+
     //! The current project's map settings
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     //! The locator highlight geometry object through which locator actions can highhlight features

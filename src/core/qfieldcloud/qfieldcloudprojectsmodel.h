@@ -39,6 +39,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    // moc needs the full definition to build the metaobject.
+    Q_MOC_INCLUDE( "layerobserver.h" )
+
     //! The current cloud connection.
     Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
     //! The current layer observer.
