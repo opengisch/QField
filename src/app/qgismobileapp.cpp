@@ -237,11 +237,8 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     }
   }
 
-#if defined( Q_OS_IOS )
-  QgsFontManager::settingsDownloadMissingFonts->setValue( false );
-#else
+  QgsFontManager::settingsDownloadMissingFonts->setValue( true );
   QgsApplication::fontManager()->enableFontDownloadsForSession();
-#endif
 
   mProject = QgsProject::instance();
   connect( mProject, &QgsProject::aboutToBeCleared, this, [this] {
