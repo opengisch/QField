@@ -67,7 +67,7 @@ Item {
   readonly property alias snappedPoint: snappingUtils.snappedPoint // In screen coordinates, derived from snappinResult
   readonly property alias topSnappingResult: snappingUtils.snappingResult // The snappingResult itself, only one (compared to QGIS where it's usually a list)
 
-  SnappingUtils {
+  QfSnappingUtils {
     id: snappingUtils
 
     enabled: locator.visible
@@ -173,7 +173,7 @@ Item {
       anchors.leftMargin: 1.2
       height: parent.height - 2.4
       width: (positioningSettings.averagedPositioning ? Math.min(parent.width, (parent.width * (averagedPositionCount / positioningSettings.averagedPositioningMinimumCount))) : parent.width) - 2.4
-      color: positioningSettings.accuracyIndicator ? !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? Theme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? Theme.accuracyTolerated : Theme.accuracyExcellent : Theme.positionColor
+      color: positioningSettings.accuracyIndicator ? !positionSource.positionInformation || !positionSource.positionInformation.haccValid || positionSource.positionInformation.hacc > positioningSettings.accuracyBad ? QfTheme.accuracyBad : positionSource.positionInformation.hacc > positioningSettings.accuracyExcellent ? QfTheme.accuracyTolerated : QfTheme.accuracyExcellent : QfTheme.positionColor
 
       transitions: [
         Transition {
@@ -190,7 +190,7 @@ Item {
       anchors.centerIn: parent
       text: averagedPositionCount
       color: mainColor
-      font.pointSize: Theme.tinyFont.pointSize - 2
+      font.pointSize: QfTheme.tinyFont.pointSize - 2
       style: Text.Outline
       styleColor: highlightColor
     }
@@ -238,7 +238,7 @@ Item {
 
     ShapePath {
       id: crosshairPath
-      strokeColor: !!overrideLocation && overrideLocation.x ? Qt.darker(Theme.positionColor, 1.25) : locator.cursorFillColor
+      strokeColor: !!overrideLocation && overrideLocation.x ? Qt.darker(QfTheme.positionColor, 1.25) : locator.cursorFillColor
       strokeWidth: 2
       fillColor: "transparent"
 

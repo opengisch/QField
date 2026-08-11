@@ -19,13 +19,13 @@ ColumnLayout {
   QfToolButton {
     id: actionButton
     Layout.alignment: Qt.AlignHCenter
-    Layout.minimumWidth: Theme.toolButtonSize
-    Layout.minimumHeight: Theme.toolButtonSize
+    Layout.minimumWidth: QfTheme.toolButtonSize
+    Layout.minimumHeight: QfTheme.toolButtonSize
     Layout.preferredWidth: Math.min(Screen.height / 4, root.width / 1.5)
     Layout.preferredHeight: Layout.preferredWidth
     icon.width: width / 2.2
     icon.height: height / 2.2
-    bgcolor: Theme.controlBackgroundAlternateColor
+    bgcolor: QfTheme.controlBackgroundAlternateColor
     round: false
     roundborder: true
     iconSource: root.iconSource
@@ -40,7 +40,7 @@ ColumnLayout {
     text: root.label
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
-    color: Theme.mainTextColor
-    font: Theme.tipFont
+    color: QfTheme.mainTextColor
+    font: QfTheme.tipFont
   }
 }

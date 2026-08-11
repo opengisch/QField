@@ -65,8 +65,8 @@ Rectangle {
       anchors.verticalCenter: parent.verticalCenter
       anchors.verticalCenterOffset: -8
       sourceComponent: QfToolButton {
-        iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_tune_white_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         round: true
       }
@@ -78,12 +78,12 @@ Rectangle {
       height: thumbnailContentRectangle.height
       pressed: thumbnail.isPressed
       active: thumbnail.isPressed
-      color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.15)
+      color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.15)
     }
 
     Rectangle {
       id: detailsContainer
-      color: Qt.hsla(Theme.mainBackgroundColor.hslHue, Theme.mainBackgroundColor.hslSaturation, Theme.mainBackgroundColor.hslLightness, Theme.darkTheme ? 0.75 : 0.95)
+      color: Qt.hsla(QfTheme.mainBackgroundColor.hslHue, QfTheme.mainBackgroundColor.hslSaturation, QfTheme.mainBackgroundColor.hslLightness, QfTheme.darkTheme ? 0.75 : 0.95)
       width: parent.width
       height: details.childrenRect.height + details.topPadding + details.bottomPadding
       anchors.bottom: parent.bottom
@@ -95,14 +95,14 @@ Rectangle {
         bottomPadding: 3
         spacing: 0
 
-        ParameterizedImage {
+        QfParameterizedImage {
           id: type
           anchors.verticalCenter: parent.verticalCenter
           width: 40
           height: visible ? 40 : 0
-          strokeColor: Theme.mainColor
+          strokeColor: QfTheme.mainColor
           parameters: {
-            "cloud": Theme.cloudColor
+            "cloud": QfTheme.cloudColor
           }
           visible: source !== ""
 
@@ -130,8 +130,8 @@ Rectangle {
             topPadding: 4
             leftPadding: type.visible ? 3 : 10
             bottomPadding: projectNote.visible ? 0 : 5
-            font.pointSize: Theme.tipFont.pointSize
-            color: Theme.mainTextColor
+            font.pointSize: QfTheme.tipFont.pointSize
+            color: QfTheme.mainTextColor
             opacity: thumbnail.isPressed ? 0.8 : 1
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
@@ -142,8 +142,8 @@ Rectangle {
             leftPadding: 3
             bottomPadding: 4
             visible: text !== ""
-            font.pointSize: Theme.tipFont.pointSize - 2
-            color: Theme.secondaryTextColor
+            font.pointSize: QfTheme.tipFont.pointSize - 2
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
@@ -154,7 +154,7 @@ Rectangle {
     Rectangle {
       anchors.fill: parent
       color: "transparent"
-      border.color: Theme.controlBorderColor
+      border.color: QfTheme.controlBorderColor
       radius: 10
     }
 
@@ -165,14 +165,14 @@ Rectangle {
       sourceComponent: Rectangle {
         anchors.fill: parent
         color: "transparent"
-        border.color: Theme.mainColor
+        border.color: QfTheme.mainColor
         radius: 10
 
         Rectangle {
           width: 25
           height: width
           radius: width / 2
-          color: Theme.mainColor
+          color: QfTheme.mainColor
           anchors.top: parent.top
           anchors.right: parent.right
           anchors.margins: 8

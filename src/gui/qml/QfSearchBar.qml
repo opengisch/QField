@@ -45,7 +45,7 @@ Item {
       if (colonIdx > 0 && parameterKeys.indexOf(part.slice(0, colonIdx)) !== -1) {
         const key = part.slice(0, colonIdx + 1);
         const val = part.slice(colonIdx + 1);
-        html += '<span style="color:' + Theme.mainColor + '">' + key + '</span>' + val;
+        html += '<span style="color:' + QfTheme.mainColor + '">' + key + '</span>' + val;
       } else {
         html += part;
       }
@@ -58,8 +58,8 @@ Item {
     width: parent.width
     height: searchField.height + (filterActive ? filterContainer.childrenRect.height + filterContainer.anchors.margins + 8 : 0)
     radius: 6
-    color: Theme.mainBackgroundColor
-    border.color: filterActive || searchField.activeFocus ? Theme.mainColor : "transparent"
+    color: QfTheme.mainBackgroundColor
+    border.color: filterActive || searchField.activeFocus ? QfTheme.mainColor : "transparent"
     border.width: 2
 
     Behavior on height {
@@ -74,8 +74,8 @@ Item {
       anchors.right: filterButton.visible ? filterButton.left : parent.right
       width: 40
       height: searchField.height
-      iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon('ic_clear_white_24dp')
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: searchField.text !== ""
       onClicked: {
@@ -88,8 +88,8 @@ Item {
       anchors.right: parent.right
       width: 40
       height: searchField.height
-      iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
-      iconColor: searchBar.filterActive ? Theme.mainColor : Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_tune_white_24dp")
+      iconColor: searchBar.filterActive ? QfTheme.mainColor : QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: searchBar.enableFilterButton
       onClicked: searchBar.filterClicked()
@@ -101,8 +101,8 @@ Item {
       width: 40
       height: searchField.height
       bgcolor: "transparent"
-      iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_baseline_search_white")
+      iconColor: QfTheme.mainTextColor
       onClicked: {
         if (searchField.text !== "") {
           searchBar.searchTriggered();
@@ -123,8 +123,8 @@ Item {
       selectByMouse: true
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
       placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
-      font: Theme.defaultFont
-      color: highlightOverlay.visible ? "transparent" : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: highlightOverlay.visible ? "transparent" : QfTheme.mainTextColor
 
       background: Item {}
 
@@ -148,7 +148,7 @@ Item {
       visible: !searchField.activeFocus && searchField.text !== ""
       textFormat: Text.RichText
       font: searchField.font
-      color: Theme.mainTextColor
+      color: QfTheme.mainTextColor
       elide: Text.ElideRight
       clip: true
       text: searchBar.highlightedText(searchField.text)

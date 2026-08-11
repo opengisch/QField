@@ -21,12 +21,12 @@ QfEditorWidgetBase {
 
     topPadding: 10
     bottomPadding: 10
-    font: Theme.defaultFont
-    color: Theme.mainTextDisabledColor
+    font: QfTheme.defaultFont
+    color: QfTheme.mainTextDisabledColor
     text: {
       var displayValue = value !== undefined ? value : '';
       if (isLoaded && isAdding && (value == undefined || value === '')) {
-        displayValue = StringUtils.createUuid();
+        displayValue = QfStringUtils.createUuid();
         valueChangeRequested(displayValue, false);
       }
       return displayValue;

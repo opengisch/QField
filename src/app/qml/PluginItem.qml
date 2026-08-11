@@ -50,8 +50,8 @@ Rectangle {
       Label {
         id: pluginName
         Layout.fillWidth: true
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
         wrapMode: Text.WordWrap
 
         MouseArea {
@@ -66,10 +66,10 @@ Rectangle {
     QfToolButton {
       id: configureEnabledPlugin
       enabled: Configurable
-      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
+      Layout.preferredWidth: enabled ? QfTheme.toolButtonSize : 0
 
-      iconSource: Theme.getThemeVectorIcon("ic_tune_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_tune_white_24dp")
+      iconColor: QfTheme.mainTextColor
 
       onClicked: {
         configClicked();
@@ -79,10 +79,10 @@ Rectangle {
     QfToolButton {
       id: updatePlugin
       enabled: InstalledLocally && AvailableUpdate
-      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
+      Layout.preferredWidth: enabled ? QfTheme.toolButtonSize : 0
 
-      iconSource: Theme.getThemeVectorIcon("ic_update_white_24dp")
-      iconColor: Theme.mainColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_update_white_24dp")
+      iconColor: QfTheme.mainColor
 
       onClicked: {
         updateClicked();
@@ -92,10 +92,10 @@ Rectangle {
     QfToolButton {
       id: downloadPlugin
       enabled: !InstalledLocally && !itemDownloading
-      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
+      Layout.preferredWidth: enabled ? QfTheme.toolButtonSize : 0
       visible: enabled
-      iconSource: Theme.getThemeVectorIcon('ic_download_white_24dp')
-      iconColor: Theme.mainColor
+      iconSource: QfTheme.getThemeVectorIcon('ic_download_white_24dp')
+      iconColor: QfTheme.mainColor
 
       onClicked: {
         downloadClicked();
@@ -127,8 +127,8 @@ Rectangle {
       Label {
         Layout.fillWidth: true
         text: qsTr('Authored by %1%2%3').arg('<a href="details">').arg(Author).arg(Trusted ? '' : ' ⚠</a>')
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.secondaryTextColor
         wrapMode: Text.WordWrap
         onLinkActivated: link => {
           authorDetailsClicked();
@@ -138,16 +138,16 @@ Rectangle {
       Label {
         Layout.fillWidth: true
         text: Description
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.secondaryTextColor
         wrapMode: Text.WordWrap
       }
 
       Label {
         Layout.fillWidth: true
         text: "<a href='delete'>" + (Version != "" ? qsTr("Uninstall version %1").arg(Version) : qsTr("Uninstall plugin")) + "</a>"
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.secondaryTextColor
         wrapMode: Text.WordWrap
         visible: InstalledLocally && !Bundled
 

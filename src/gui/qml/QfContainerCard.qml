@@ -17,7 +17,7 @@ Rectangle {
   property alias description: descriptionLabel.text
   property alias footnote: footnoteLabel.text
 
-  property color accentColor: Theme.mainColor
+  property color accentColor: QfTheme.mainColor
   property alias iconSource: cardIcon.iconSource
 
   property bool indicatorVisible: false
@@ -27,9 +27,9 @@ Rectangle {
 
   implicitHeight: cardColumn.implicitHeight + 32
   radius: 12
-  color: Theme.groupBoxBackgroundColor
+  color: QfTheme.groupBoxBackgroundColor
   border.width: 1
-  border.color: Theme.controlBorderColor
+  border.color: QfTheme.controlBorderColor
 
   ColumnLayout {
     id: cardColumn
@@ -61,8 +61,8 @@ Rectangle {
       Text {
         id: titleLabel
         Layout.fillWidth: true
-        font: Theme.strongFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongFont
+        color: QfTheme.mainTextColor
         wrapMode: Text.WordWrap
       }
 
@@ -78,8 +78,8 @@ Rectangle {
         Text {
           id: badgeLabel
           anchors.centerIn: parent
-          font: Theme.tinyFont
-          color: Theme.light
+          font: QfTheme.tinyFont
+          color: QfTheme.light
           text: containerCard.indicatorCount
           visible: containerCard.indicatorCount > 0
         }
@@ -89,9 +89,9 @@ Rectangle {
     Text {
       id: descriptionLabel
       Layout.fillWidth: true
-      font: Theme.tipFont
-      color: Theme.secondaryTextColor
-      linkColor: Theme.mainColor
+      font: QfTheme.tipFont
+      color: QfTheme.secondaryTextColor
+      linkColor: QfTheme.mainColor
       wrapMode: Text.WordWrap
       visible: text !== ""
       textFormat: Text.StyledText
@@ -102,8 +102,8 @@ Rectangle {
     Text {
       id: footnoteLabel
       Layout.fillWidth: true
-      font: Theme.tipFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.tipFont
+      color: QfTheme.secondaryTextColor
       opacity: 0.75
       wrapMode: Text.WordWrap
       visible: text !== ""

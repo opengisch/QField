@@ -7,7 +7,7 @@ import org.qfield.gui
 QfEditorWidgetBase {
   id: topItem
 
-  readonly property bool isEditable: isEnabled && LayerUtils.fieldType(field) !== 'QStringList' && LayerUtils.fieldType(field) !== 'QVariantList' && LayerUtils.fieldType(field) !== 'QVariantMap'
+  readonly property bool isEditable: isEnabled && QfLayerUtils.fieldType(field) !== 'QStringList' && QfLayerUtils.fieldType(field) !== 'QVariantList' && QfLayerUtils.fieldType(field) !== 'QVariantMap'
 
   height: childrenRect.height
 
@@ -21,11 +21,11 @@ QfEditorWidgetBase {
     visible: height !== 0 && !isEditing
     anchors.left: parent.left
     anchors.right: parent.right
-    font: Theme.defaultFont
-    color: isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    font: QfTheme.defaultFont
+    color: isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
     opacity: 1
     wrapMode: Text.Wrap
-    textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || StringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
+    textFormat: (config['IsMultiline'] === true && config['UseHtml'] === true) || QfStringUtils.hasLinks(value) ? TextEdit.RichText : TextEdit.AutoText
 
     text: {
       if (isEmpty) {
@@ -36,9 +36,9 @@ QfEditorWidgetBase {
         if (config['UseHtml'] === true) {
           return value;
         }
-        return StringUtils.hasLinks(value) ? StringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
+        return QfStringUtils.hasLinks(value) ? QfStringUtils.insertLinks(value).replace(/\n/g, '<br>') : value;
       } else {
-        return StringUtils.insertLinks(value).replace(/\n/g, '');
+        return QfStringUtils.insertLinks(value).replace(/\n/g, '');
       }
     }
 
@@ -54,8 +54,8 @@ QfEditorWidgetBase {
     enabled: isEditable
     anchors.left: parent.left
     anchors.right: parent.right
-    font: Theme.defaultFont
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    font: QfTheme.defaultFont
+    color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
     maximumLength: field != undefined && field.length > 0 ? field.length : -1
     wrapMode: TextInput.Wrap
     background.visible: enabled || (!isEditable && isEditing)
@@ -64,7 +64,7 @@ QfEditorWidgetBase {
 
     validator: {
       if (field && field.isNumeric)
-        if (LayerUtils.fieldType(field) === 'double') {
+        if (QfLayerUtils.fieldType(field) === 'double') {
           doubleValidator;
         } else {
           intValidator;
@@ -101,8 +101,8 @@ QfEditorWidgetBase {
     anchors.left: parent.left
     anchors.right: parent.right
     wrapMode: Text.Wrap
-    font: Theme.defaultFont
-    color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    font: QfTheme.defaultFont
+    color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
 
     text: isNull ? '' : value
     textFormat: config['UseHtml'] ? TextEdit.RichText : TextEdit.PlainText
@@ -136,10 +136,10 @@ QfEditorWidgetBase {
       id: copyTextItem
       text: qsTr('Copy Text')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         platformUtilities.copyTextToClipboard(value);
@@ -150,10 +150,10 @@ QfEditorWidgetBase {
       id: pasteTextItem
       text: qsTr('Paste Text')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_paste_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         var text = platformUtilities.getTextFromClipboard();
@@ -171,10 +171,10 @@ QfEditorWidgetBase {
       id: scanCodeItem
       text: qsTr('Scan Code')
 
-      font: Theme.defaultFont
-      icon.source: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: withNfc ? QfTheme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         requestBarcode(topItem);

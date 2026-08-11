@@ -54,7 +54,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    color: Theme.mainBackgroundColorSemiOpaque
+    color: QfTheme.mainBackgroundColorSemiOpaque
   }
 
   Row {
@@ -69,8 +69,8 @@ Item {
       Text {
         id: labelTarget
         anchors.centerIn: parent
-        font: Theme.tinyFont
-        color: Theme.navigationColor
+        font: QfTheme.tinyFont
+        color: QfTheme.navigationColor
         text: positiveLabel
       }
     }
@@ -83,7 +83,7 @@ Item {
 
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationColorSemiOpaque
+        strokeColor: QfTheme.navigationColorSemiOpaque
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(5.49779)
@@ -95,7 +95,7 @@ Item {
       }
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationColorSemiOpaque
+        strokeColor: QfTheme.navigationColorSemiOpaque
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: (preciseTarget.width / 2) + (preciseTarget.width / 2) * Math.cos(0.78539)
@@ -107,7 +107,7 @@ Item {
       }
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationColorSemiOpaque
+        strokeColor: QfTheme.navigationColorSemiOpaque
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: preciseTarget.width / 2
@@ -119,7 +119,7 @@ Item {
       }
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationColorSemiOpaque
+        strokeColor: QfTheme.navigationColorSemiOpaque
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -131,7 +131,7 @@ Item {
       }
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationBackgroundColor
+        strokeColor: QfTheme.navigationBackgroundColor
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -147,7 +147,7 @@ Item {
       }
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationBackgroundColor
+        strokeColor: QfTheme.navigationBackgroundColor
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -163,7 +163,7 @@ Item {
       }
       ShapePath {
         strokeWidth: 1
-        strokeColor: Theme.navigationBackgroundColor
+        strokeColor: QfTheme.navigationBackgroundColor
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -179,7 +179,7 @@ Item {
       }
       ShapePath {
         strokeWidth: hasReachedTarget ? 3 : 1
-        strokeColor: hasReachedTarget ? Theme.mainColor : Theme.mainTextColor
+        strokeColor: hasReachedTarget ? QfTheme.mainColor : QfTheme.mainTextColor
         strokeStyle: ShapePath.SolidLine
         fillColor: "transparent"
         startX: 0
@@ -198,40 +198,40 @@ Item {
         anchors.top: parent.top
         anchors.topMargin: 2
         anchors.horizontalCenter: parent.horizontalCenter
-        color: Theme.navigationColor
-        font: Theme.tinyFont
+        color: QfTheme.navigationColor
+        font: QfTheme.tinyFont
         style: Text.Outline
-        styleColor: Theme.mainBackgroundColor
+        styleColor: QfTheme.mainBackgroundColor
         text: '0'
       }
       Text {
         anchors.right: parent.right
         anchors.rightMargin: 2
         anchors.verticalCenter: parent.verticalCenter
-        color: Theme.navigationColor
-        font: Theme.tinyFont
+        color: QfTheme.navigationColor
+        font: QfTheme.tinyFont
         style: Text.Outline
-        styleColor: Theme.mainBackgroundColor
+        styleColor: QfTheme.mainBackgroundColor
         text: '90'
       }
       Text {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 2
         anchors.horizontalCenter: parent.horizontalCenter
-        color: Theme.navigationColor
-        font: Theme.tinyFont
+        color: QfTheme.navigationColor
+        font: QfTheme.tinyFont
         style: Text.Outline
-        styleColor: Theme.mainBackgroundColor
+        styleColor: QfTheme.mainBackgroundColor
         text: '180'
       }
       Text {
         anchors.left: parent.left
         anchors.leftMargin: 2
         anchors.verticalCenter: parent.verticalCenter
-        color: Theme.navigationColor
-        font: Theme.tinyFont
+        color: QfTheme.navigationColor
+        font: QfTheme.tinyFont
         style: Text.Outline
-        styleColor: Theme.mainBackgroundColor
+        styleColor: QfTheme.mainBackgroundColor
         text: '270'
       }
     }
@@ -247,16 +247,16 @@ Item {
         id: labelElevationTop
         anchors.top: parent.top
         anchors.right: parent.right
-        font: Theme.tinyFont
-        color: hasZ ? Theme.navigationColor : Theme.secondaryTextColor
+        font: QfTheme.tinyFont
+        color: hasZ ? QfTheme.navigationColor : QfTheme.secondaryTextColor
         text: positiveLabel
       }
       Text {
         id: labelElevationBottom
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        font: Theme.tinyFont
-        color: hasZ ? Theme.navigationColor : Theme.secondaryTextColor
+        font: QfTheme.tinyFont
+        color: hasZ ? QfTheme.navigationColor : QfTheme.secondaryTextColor
         text: negativeLabel
       }
     }
@@ -268,7 +268,7 @@ Item {
       radius: 7
       opacity: hasZ ? 1 : 0.25
       color: "transparent"
-      border.color: Theme.mainTextColor
+      border.color: QfTheme.mainTextColor
       border.width: 1
 
       Rectangle {
@@ -276,7 +276,7 @@ Item {
         y: parent.height / 2
         width: parent.width - 2
         height: 1
-        color: hasZ ? Theme.navigationColorSemiOpaque : Theme.mainTextColor
+        color: hasZ ? QfTheme.navigationColorSemiOpaque : QfTheme.mainTextColor
       }
 
       Shape {
@@ -292,7 +292,7 @@ Item {
           strokeWidth: 0
           strokeColor: "transparent"
           strokeStyle: ShapePath.SolidLine
-          fillColor: Theme.positionColor
+          fillColor: QfTheme.positionColor
           fillRule: ShapePath.WindingFill
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
@@ -312,7 +312,7 @@ Item {
           strokeWidth: 0
           strokeColor: "transparent"
           strokeStyle: ShapePath.SolidLine
-          fillColor: Theme.positionColor
+          fillColor: QfTheme.positionColor
           fillRule: ShapePath.WindingFill
           joinStyle: ShapePath.MiterJoin
           startX: preciseVerticalPosition.width / 2
@@ -338,10 +338,10 @@ Item {
         x: -contentWidth - 10
         y: (preciseElevation.height - height) / 2 + positionZ
         visible: hasZ
-        color: Theme.mainTextColor
-        font: Theme.strongTipFont
+        color: QfTheme.mainTextColor
+        font: QfTheme.strongTipFont
         style: Text.Outline
-        styleColor: Theme.mainBackgroundColor
+        styleColor: QfTheme.mainBackgroundColor
 
         property int decimals: projectVerticalDistance >= 1000 ? 3 : projectVerticalDistance >= 0.1 ? 2 : 1
         text: projectVerticalDistance != 0.0 ? UnitTypes.formatDistance(projectVerticalDistance, decimals, projectInfo.distanceUnits) : 0
@@ -362,7 +362,7 @@ Item {
       strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: hasReachedTarget ? Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.4) : Theme.positionColor
+      fillColor: hasReachedTarget ? Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.4) : QfTheme.positionColor
       fillRule: ShapePath.WindingFill
       startX: preciseHorizontalPosition.width / 2
       startY: startX
@@ -381,7 +381,7 @@ Item {
       strokeWidth: 1
       strokeColor: "transparent"
       strokeStyle: ShapePath.SolidLine
-      fillColor: Theme.positionColor
+      fillColor: QfTheme.positionColor
       fillRule: ShapePath.WindingFill
       joinStyle: ShapePath.MiterJoin
       startX: preciseHorizontalPosition.width / 2
@@ -412,7 +412,7 @@ Item {
 
     ShapePath {
       strokeWidth: 2
-      strokeColor: Theme.mainTextColor
+      strokeColor: QfTheme.mainTextColor
       strokeStyle: ShapePath.SolidLine
       fillColor: "transparent"
       startX: preciseHorizontalPosition.width / 2
@@ -440,10 +440,10 @@ Item {
     x: positionCenter.x + positionX + (positionX >= 0 ? -contentWidth - 10 : preciseHorizontalPosition.width / 2)
     y: positionCenter.y + positionY + (positionY >= 0 ? -preciseHorizontalPosition.height : preciseHorizontalPosition.height / 2)
 
-    color: Theme.mainTextColor
-    font: Theme.strongTipFont
+    color: QfTheme.mainTextColor
+    font: QfTheme.strongTipFont
     style: Text.Outline
-    styleColor: Theme.mainBackgroundColor
+    styleColor: QfTheme.mainBackgroundColor
 
     property int decimals: projectDistance >= 1000 ? 3 : projectDistance >= 0.10 ? 2 : 1
     text: qsTr('Dist.') + ': ' + UnitTypes.formatDistance(projectDistance, decimals, projectInfo.distanceUnits)
@@ -466,13 +466,13 @@ Item {
       id: accuracyWarningLabel
       anchors.centerIn: parent
       width: parent.width
-      color: Theme.warningColor
-      font: Theme.tinyFont
+      color: QfTheme.warningColor
+      font: QfTheme.tinyFont
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
       text: qsTr('Positioning accuracy too low for this precision level')
       style: Text.Outline
-      styleColor: Theme.mainBackgroundColor
+      styleColor: QfTheme.mainBackgroundColor
     }
   }
 
@@ -487,8 +487,8 @@ Item {
     enabled: visible
 
     round: true
-    bgcolor: positioningPreciseView.hasAlarmSnoozed ? "transparent" : Theme.navigationColor
-    iconSource: positioningPreciseView.hasAlarmSnoozed ? Theme.getThemeVectorIcon('ic_alarm_purple_24dp') : Theme.getThemeVectorIcon('ic_alarm_white_24dp')
+    bgcolor: positioningPreciseView.hasAlarmSnoozed ? "transparent" : QfTheme.navigationColor
+    iconSource: positioningPreciseView.hasAlarmSnoozed ? QfTheme.getThemeVectorIcon('ic_alarm_purple_24dp') : QfTheme.getThemeVectorIcon('ic_alarm_white_24dp')
 
     onClicked: {
       positioningPreciseView.hasAlarmSnoozed = !positioningPreciseView.hasAlarmSnoozed;
@@ -501,10 +501,10 @@ Item {
 
     MenuItem {
       text: qsTr("Audio proximity feedback")
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      rightPadding: Theme.menuItemCheckLeftPadding
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      rightPadding: QfTheme.menuItemCheckLeftPadding
       checkable: true
       checked: positioningSettings.preciseViewProximityAlarm
       indicator.height: 20
@@ -516,10 +516,10 @@ Item {
 
     MenuItem {
       text: qsTr("Rotate view")
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      rightPadding: Theme.menuItemCheckLeftPadding
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      rightPadding: QfTheme.menuItemCheckLeftPadding
       checkable: true
       checked: positioningSettings.preciseViewAutoRotate
       indicator.height: 20
@@ -540,9 +540,9 @@ Item {
 
     Text {
       text: qsTr("Rotation source")
-      color: Theme.mainTextColor
-      font: Theme.defaultFont
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      color: QfTheme.mainTextColor
+      font: QfTheme.defaultFont
+      leftPadding: QfTheme.menuItemIconlessLeftPadding
     }
 
     Item {
@@ -556,8 +556,8 @@ Item {
       anchors {
         left: parent.left
         right: parent.right
-        leftMargin: Theme.menuItemIconlessLeftPadding
-        rightMargin: Theme.menuItemCheckLeftPadding
+        leftMargin: QfTheme.menuItemIconlessLeftPadding
+        rightMargin: QfTheme.menuItemCheckLeftPadding
       }
       spacing: 3
       orientation: ListView.Horizontal
@@ -574,14 +574,14 @@ Item {
         Rectangle {
           anchors.fill: parent
           radius: 4
-          color: sourceDelegate.selected ? Theme.mainColor : "transparent"
+          color: sourceDelegate.selected ? QfTheme.mainColor : "transparent"
         }
 
         Text {
           text: modelData
-          font: sourceDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+          font: sourceDelegate.selected ? QfTheme.strongTipFont : QfTheme.tipFont
           anchors.centerIn: parent
-          color: sourceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+          color: sourceDelegate.selected ? QfTheme.buttonColor : QfTheme.mainTextColor
           elide: Text.ElideRight
           width: parent.width - 8
           horizontalAlignment: Text.AlignHCenter
@@ -617,9 +617,9 @@ Item {
 
     Text {
       text: qsTr("Precision")
-      color: Theme.mainTextColor
-      font: Theme.defaultFont
-      leftPadding: Theme.menuItemIconlessLeftPadding
+      color: QfTheme.mainTextColor
+      font: QfTheme.defaultFont
+      leftPadding: QfTheme.menuItemIconlessLeftPadding
     }
 
     Item {
@@ -632,8 +632,8 @@ Item {
       anchors {
         left: parent.left
         right: parent.right
-        leftMargin: Theme.menuItemIconlessLeftPadding
-        rightMargin: Theme.menuItemCheckLeftPadding
+        leftMargin: QfTheme.menuItemIconlessLeftPadding
+        rightMargin: QfTheme.menuItemCheckLeftPadding
       }
       columns: 4
       rowSpacing: 4
@@ -655,15 +655,15 @@ Item {
           Rectangle {
             anchors.fill: parent
             radius: 4
-            color: precisionDelegate.selected ? Theme.mainColor : "transparent"
+            color: precisionDelegate.selected ? QfTheme.mainColor : "transparent"
           }
 
           Text {
             id: precisionText
             text: UnitTypes.formatDistance(modelData, modelData < 1 ? 2 : 1, projectInfo.distanceUnits)
-            font: precisionDelegate.selected ? Theme.strongTipFont : Theme.tipFont
+            font: precisionDelegate.selected ? QfTheme.strongTipFont : QfTheme.tipFont
             anchors.centerIn: parent
-            color: precisionDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+            color: precisionDelegate.selected ? QfTheme.buttonColor : QfTheme.mainTextColor
           }
 
           Ripple {

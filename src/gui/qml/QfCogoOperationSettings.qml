@@ -12,7 +12,7 @@ QfOverlayContainer {
   property var parameterValues: ({})
 
   property var positionInformations: ({})
-  property gnssPositionInformation positionInformation: PositioningUtils.createEmptyGnssPositionInformation()
+  property gnssPositionInformation positionInformation: QfPositioningUtils.createEmptyGnssPositionInformation()
 
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
@@ -26,7 +26,7 @@ QfOverlayContainer {
   Rectangle {
     width: parent.width
     height: cogoOperationSettingsView.height
-    color: Theme.mainBackgroundColorSemiOpaque
+    color: QfTheme.mainBackgroundColorSemiOpaque
 
     ListView {
       id: cogoOperationSettingsView
@@ -96,9 +96,9 @@ QfOverlayContainer {
       }
     }
     if (canAverage && pis.length > 0) {
-      cogoOperationSettings.positionInformation = PositioningUtils.averagedPositionInformation(pis);
+      cogoOperationSettings.positionInformation = QfPositioningUtils.averagedPositionInformation(pis);
     } else {
-      cogoOperationSettings.positionInformation = PositioningUtils.createEmptyGnssPositionInformation();
+      cogoOperationSettings.positionInformation = QfPositioningUtils.createEmptyGnssPositionInformation();
     }
   }
 

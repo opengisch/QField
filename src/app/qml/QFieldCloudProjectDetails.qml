@@ -41,8 +41,8 @@ ColumnLayout {
       if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
         lastSubscriptionUser = projectDetails.cloudProject.owner;
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
-        detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
-        detailsStorageMeter.relatedUrl = Qt.platform !== "ios" ? QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, subscriptionInformation.plan, projectDetails.cloudProject.owner, cloudConnection.username) : "";
+        detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(QfFileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(QfFileUtils.representFileSize(subscriptionInformation.storageTotal, true));
+        detailsStorageMeter.relatedUrl = Qt.platform !== "ios" ? QfCloudUtils.subscriptionManagementUrl(cloudConnection.url, subscriptionInformation.plan, projectDetails.cloudProject.owner, cloudConnection.username) : "";
         detailsStorageMeter.warningThreshold = subscriptionInformation.storageThresholdWarning > 0 ? 1.0 - (subscriptionInformation.storageThresholdWarning / subscriptionInformation.storageTotal) : 0.8;
         detailsStorageMeter.criticalThreshold = subscriptionInformation.storageThresholdCritical > 0 ? 1.0 - (subscriptionInformation.storageThresholdCritical / subscriptionInformation.storageTotal) : 0.95;
         detailsStorageMeter.visible = true;
@@ -51,7 +51,7 @@ ColumnLayout {
   }
 
   function updateStorageMeter() {
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProject.localPath !== "") {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn && cloudProject.localPath !== "") {
       if (cloudProject.owner === lastSubscriptionUser || cloudProject.owner === cloudConnection.username) {
         detailsStorageMeter.visible = true;
         detailsStorageMeter.loading = true;
@@ -79,9 +79,9 @@ ColumnLayout {
       Text {
         id: projectDetailsName
         Layout.fillWidth: true
-        font.pointSize: Theme.titleFont.pointSize * 1.25
+        font.pointSize: QfTheme.titleFont.pointSize * 1.25
         font.bold: true
-        color: Theme.mainTextColor
+        color: QfTheme.mainTextColor
         wrapMode: Text.Wrap
 
         text: cloudProject != undefined ? cloudProject.name : ""
@@ -94,7 +94,7 @@ ColumnLayout {
         width: 48
         height: 48
         radius: width / 2
-        color: Theme.controlBackgroundAlternateColor
+        color: QfTheme.controlBackgroundAlternateColor
         layer.enabled: true
 
         Rectangle {
@@ -143,8 +143,8 @@ ColumnLayout {
         Text {
           id: projectDetailsDescription
           Layout.fillWidth: true
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           textFormat: Text.MarkdownText
           visible: text !== ""
@@ -163,8 +163,8 @@ ColumnLayout {
           Text {
             id: projectDetailsStorageSizeLabel
             Layout.fillWidth: true
-            font: Theme.strongFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongFont
+            color: QfTheme.mainTextColor
 
             text: qsTr("Storage size")
           }
@@ -172,11 +172,11 @@ ColumnLayout {
           Text {
             id: projectDetailsStorageSize
             Layout.fillWidth: true
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
 
-            text: cloudProject != undefined ? FileUtils.representFileSize(cloudProject.remoteSizeBytes) : ""
+            text: cloudProject != undefined ? QfFileUtils.representFileSize(cloudProject.remoteSizeBytes) : ""
           }
         }
 
@@ -187,8 +187,8 @@ ColumnLayout {
           Text {
             id: projectDetailsOwnerLabel
             Layout.fillWidth: true
-            font: Theme.strongFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongFont
+            color: QfTheme.mainTextColor
 
             text: qsTr("Owner")
           }
@@ -196,8 +196,8 @@ ColumnLayout {
           Text {
             id: projectDetailsOwner
             Layout.fillWidth: true
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
 
             text: cloudProject != undefined ? cloudProject.owner : ""
@@ -218,8 +218,8 @@ ColumnLayout {
           Text {
             id: projectDetailsCreationDateLabel
             Layout.fillWidth: true
-            font: Theme.strongFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongFont
+            color: QfTheme.mainTextColor
 
             text: qsTr("Creation date")
           }
@@ -227,8 +227,8 @@ ColumnLayout {
           Text {
             id: projectDetailsCreationDate
             Layout.fillWidth: true
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
 
             text: cloudProject != undefined ? Qt.formatDateTime(new Date(cloudProject.createdAt), "dddd, MMMM dd, yyyy - hh:mm") : ""
@@ -243,8 +243,8 @@ ColumnLayout {
             id: projectDetailsUpdateDateLabel
             Layout.fillWidth: true
             visible: cloudProject != undefined && !isNaN(cloudProject.dataLastUpdatedAt.getTime())
-            font: Theme.strongFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongFont
+            color: QfTheme.mainTextColor
 
             text: qsTr("Latest update date")
           }
@@ -252,8 +252,8 @@ ColumnLayout {
           Text {
             id: projectDetailsUpdateDate
             Layout.fillWidth: true
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
 
             text: cloudProject != undefined ? Qt.formatDateTime(new Date(cloudProject.dataLastUpdatedAt), "dddd, MMMM dd, yyyy - hh:mm") : ""
@@ -275,17 +275,17 @@ ColumnLayout {
 
             sourceSize.width: desiredWidth * Screen.devicePixelRatio
             sourceSize.height: desiredWidth * Screen.devicePixelRatio
-            source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
+            source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(QfUrlUtils.createActionUrl("qfield", "cloud", {
               "project": cloudProject.owner + '/' + cloudProject.name
-            })) + "&color=" + encodeURIComponent(Theme.mainColor) : ""
+            })) + "&color=" + encodeURIComponent(QfTheme.mainColor) : ""
             property int desiredWidth: Math.min(mainWindow.width - 40, 250)
           }
 
           Text {
             id: projectDetailsCodeLabel
             Layout.preferredWidth: projectDetailsCode.desiredWidth - 20
-            font: Theme.tinyFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tinyFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
 
@@ -304,9 +304,9 @@ ColumnLayout {
       id: syncButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
-      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== null && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== null && cloudProject.status === QfCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
       progressValue: cloudProject != undefined && cloudProject.localPath !== "" ? cloudProject.downloadProgress : 0
-      showProgress: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
+      showProgress: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QfCloudProject.ProjectStatus.Downloading
       text: {
         if (showProgress) {
           if (cloudProject.downloadProgress > 0) {
@@ -327,7 +327,7 @@ ColumnLayout {
       id: pushButton
       Layout.fillWidth: true
       Layout.preferredWidth: 1
-      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.deltasCount > 0 && cloudProject.status === QFieldCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
+      enabled: cloudProject != undefined && cloudProject.deltaFileWrapper !== undefined && cloudProject.deltasCount > 0 && cloudProject.status === QfCloudProject.Idle && !cloudProject.deltaFileWrapper.hasError
       visible: cloudProject != undefined && cloudProject.userRole !== "reader"
       text: qsTr('Upload local changes')
 
@@ -342,10 +342,10 @@ ColumnLayout {
     Layout.fillWidth: true
     dropdown: !showProgress
     progressValue: cloudProject ? cloudProject.downloadProgress : 0
-    showProgress: cloudProject != undefined && cloudProject.status === QFieldCloudProject.ProjectStatus.Downloading
+    showProgress: cloudProject != undefined && cloudProject.status === QfCloudProject.ProjectStatus.Downloading
     text: {
       if (showProgress) {
-        if (cloudProject.packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
+        if (cloudProject.packagingStatus === QfCloudProject.PackagingBusyStatus) {
           return qsTr("QFieldCloud is packaging project, hold tight");
         } else {
           if (cloudProject.downloadProgress > 0) {
@@ -358,7 +358,7 @@ ColumnLayout {
       return qsTr("Download project");
     }
     visible: cloudProject != undefined && cloudProject.localPath === ""
-    enabled: cloudProject != undefined && cloudProject.status !== QFieldCloudProject.ProjectStatus.Downloading
+    enabled: cloudProject != undefined && cloudProject.status !== QfCloudProject.ProjectStatus.Downloading
 
     onClicked: {
       if (cloudProject != undefined) {
@@ -378,7 +378,7 @@ ColumnLayout {
     dropdown: true
     text: qsTr("Open project")
     visible: cloudProject != undefined && cloudProject.localPath !== ""
-    enabled: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QFieldCloudProject.Idle
+    enabled: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QfCloudProject.Idle
 
     onClicked: {
       if (cloudProject != undefined) {
@@ -398,10 +398,10 @@ ColumnLayout {
     id: projectDetailsMenu
 
     MenuItem {
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
       text: qsTr("Clone project")
       onTriggered: {
         cloneProjectDialog.sourceProjectId = cloudProject.id;

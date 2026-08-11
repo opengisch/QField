@@ -64,7 +64,7 @@ QfEditorWidgetBase {
   property bool useToggleButtons: comboBox.count < toggleButtonsThreshold
   state: useToggleButtons ? "toggleButtonsView" : "comboBoxItemView"
 
-  ValueMapModel {
+  QfValueMapModel {
     id: listModel
     filterCaseSensitivity: Qt.CaseInsensitive
     onMapChanged: {
@@ -104,14 +104,14 @@ QfEditorWidgetBase {
     QfComboBox {
       id: comboBox
       Layout.fillWidth: true
-      font: Theme.defaultFont
-      popup.font: Theme.defaultFont
+      font: QfTheme.defaultFont
+      popup.font: QfTheme.defaultFont
       popup.topMargin: mainWindow.sceneTopMargin
       popup.bottomMargin: mainWindow.sceneTopMargin
       currentIndex: model.keyToIndex(value)
       model: listModel
       textRole: 'value'
-      text.color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      text.color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
       background.visible: isEnabled || (!isEditable && isEditing)
       indicator.visible: isEnabled || (!isEditable && isEditing)
       text.leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
@@ -152,12 +152,12 @@ QfEditorWidgetBase {
     QfToolButton {
       id: searchButton
 
-      Layout.preferredWidth: enabled ? Theme.toolButtonSize : 0
-      Layout.preferredHeight: Theme.toolButtonSize
+      Layout.preferredWidth: enabled ? QfTheme.toolButtonSize : 0
+      Layout.preferredHeight: QfTheme.toolButtonSize
 
       bgcolor: "transparent"
-      iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_baseline_search_white")
+      iconColor: QfTheme.mainTextColor
 
       onClicked: {
         searchFeaturePopup.open();
@@ -168,9 +168,9 @@ QfEditorWidgetBase {
       id: searchFeaturePopup
 
       parent: mainWindow.contentItem
-      width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
-      height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-      x: Theme.popupScreenEdgeHorizontalMargin
+      width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+      height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: QfTheme.popupScreenEdgeHorizontalMargin
       y: (mainWindow.height - height) / 2
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
       closePolicy: Popup.CloseOnEscape
@@ -240,7 +240,7 @@ QfEditorWidgetBase {
             anchors.margins: 10
             height: radioButton.height
             width: parent ? parent.width : undefined
-            color: itemChecked ? Theme.mainColor : searchFeaturePopup.Material ? searchFeaturePopup.Material.dialogColor : Theme.mainBackgroundColor
+            color: itemChecked ? QfTheme.mainColor : searchFeaturePopup.Material ? searchFeaturePopup.Material.dialogColor : QfTheme.mainBackgroundColor
 
             RadioButton {
               id: radioButton
@@ -249,14 +249,14 @@ QfEditorWidgetBase {
               width: resultsList.width - padding * 2
               padding: 12
 
-              font.pointSize: Theme.defaultFont.pointSize
+              font.pointSize: QfTheme.defaultFont.pointSize
               font.weight: itemChecked ? Font.DemiBold : Font.Normal
               font.italic: value ? false : true
 
               checked: itemChecked
               indicator: Rectangle {}
 
-              text: StringUtils.highlightText(itemText, searchBar.searchTerm, Theme.mainTextColor)
+              text: QfStringUtils.highlightText(itemText, searchBar.searchTerm, QfTheme.mainTextColor)
 
               contentItem: Text {
                 text: parent.text
@@ -265,7 +265,7 @@ QfEditorWidgetBase {
                 verticalAlignment: Text.AlignVCenter
                 leftPadding: parent.indicator.width + parent.spacing
                 elide: Text.ElideRight
-                color: searchBar.searchTerm !== '' ? Theme.secondaryTextColor : Theme.mainTextColor
+                color: searchBar.searchTerm !== '' ? QfTheme.secondaryTextColor : QfTheme.mainTextColor
                 textFormat: Text.RichText
               }
             }
@@ -274,7 +274,7 @@ QfEditorWidgetBase {
             Rectangle {
               anchors.bottom: parent.bottom
               height: 1
-              color: Theme.controlBorderColor
+              color: QfTheme.controlBorderColor
               width: resultsList.width
             }
 

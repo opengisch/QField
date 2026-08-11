@@ -63,9 +63,9 @@ QfGeometryEditorBase {
       if (!featureModel.currentLayer.editBuffer()) {
         featureModel.currentLayer.startEditing();
       }
-      var result = GeometryUtils.eraseFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
-      if (result !== GeometryUtils.Success) {
-        if (result === GeometryUtils.AddPartNotMultiGeometry) {
+      var result = QfGeometryUtils.eraseFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
+      if (result !== QfGeometryUtils.Success) {
+        if (result === QfGeometryUtils.AddPartNotMultiGeometry) {
           displayToast(qsTr('The geometry could not be modified into multiple parts'), 'error');
         } else {
           displayToast(qsTr('The geometry could not be modified'), 'error');
@@ -89,7 +89,7 @@ QfGeometryEditorBase {
 
     onVertexCountChanged: {
       editorRenderer.geometryWrapper.crs = featureModel.currentLayer.crs;
-      editorRenderer.geometryWrapper.qgsGeometry = GeometryUtils.variableWidthBufferByMFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs);
+      editorRenderer.geometryWrapper.qgsGeometry = QfGeometryUtils.variableWidthBufferByMFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs);
     }
   }
 
@@ -108,11 +108,11 @@ QfGeometryEditorBase {
     property int sizeMedium: 6
     property int sizeLarge: 12
 
-    iconSource: eraseToolbar.size == sizeSmall ? Theme.getThemeVectorIcon("ic_size_small_white_24dp") : eraseToolbar.size == sizeMedium ? Theme.getThemeVectorIcon("ic_size_medium_white_24dp") : Theme.getThemeVectorIcon("ic_size_large_white_24dp")
-    iconColor: Theme.toolButtonColor
+    iconSource: eraseToolbar.size == sizeSmall ? QfTheme.getThemeVectorIcon("ic_size_small_white_24dp") : eraseToolbar.size == sizeMedium ? QfTheme.getThemeVectorIcon("ic_size_medium_white_24dp") : QfTheme.getThemeVectorIcon("ic_size_large_white_24dp")
+    iconColor: QfTheme.toolButtonColor
     round: true
     visible: true
-    bgcolor: Theme.toolButtonBackgroundColor
+    bgcolor: QfTheme.toolButtonBackgroundColor
 
     onClicked: {
       if (eraseToolbar.size == sizeSmall) {

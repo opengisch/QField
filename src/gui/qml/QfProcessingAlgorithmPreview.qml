@@ -9,10 +9,10 @@ import org.qfield.gui
 Repeater {
   id: processingAlgorithmPreview
 
-  property ProcessingAlgorithm algorithm
+  property QfProcessingAlgorithm algorithm
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  property color color: Theme.processingPreview
+  property color color: QfTheme.processingPreview
 
   model: algorithm.previewGeometries
 

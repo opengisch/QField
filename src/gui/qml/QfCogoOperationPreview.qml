@@ -126,11 +126,11 @@ Item {
       property var visualGuideDetails: modelData.details
 
       sourceComponent: {
-        if (modelData.type === CogoVisualGuide.Circle) {
+        if (modelData.type === QfCogoVisualGuide.Circle) {
           return circleVisualGuide;
-        } else if (modelData.type === CogoVisualGuide.Line) {
+        } else if (modelData.type === QfCogoVisualGuide.Line) {
           return lineVisualGuide;
-        } else if (modelData.type === CogoVisualGuide.Label) {
+        } else if (modelData.type === QfCogoVisualGuide.Label) {
           return labelVisualGuide;
         } else {
           return pointVisualGuide;

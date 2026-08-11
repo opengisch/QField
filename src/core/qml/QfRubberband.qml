@@ -6,7 +6,7 @@ import org.qgis
 /**
  * \ingroup qml
  */
-RubberbandShape {
+QfRubberbandShape {
   id: rubberbandShape
 
   property bool showVertices: false

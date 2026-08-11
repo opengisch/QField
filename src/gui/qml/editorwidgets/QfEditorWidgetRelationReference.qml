@@ -15,9 +15,9 @@ QfEditorWidgetBase {
   height: Math.max(48, relationReference.height) + 4
 
   property bool showOpenFormButton: config['ShowOpenFormButton'] === undefined || config['ShowOpenFormButton'] === true
-  property var _rel: RelationUtils.resolveReferencingRelation(qgisProject, currentLayer, field.name, config['Relation'])
+  property var _rel: QfRelationUtils.resolveReferencingRelation(qgisProject, currentLayer, field.name, config['Relation'])
 
-  FeatureCheckListModel {
+  QfFeatureCheckListModel {
     id: listModel
 
     currentLayer: _rel.referencedLayer
@@ -70,11 +70,11 @@ QfEditorWidgetBase {
       Layout.alignment: Qt.AlignTop
       visible: isVisible
       enabled: relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-      width: isVisible && enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: isVisible && enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
-      iconSource: Theme.getThemeVectorIcon("ic_view_black_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_view_black_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
 
       onClicked: {
@@ -82,7 +82,7 @@ QfEditorWidgetBase {
           var feature = listModel.getFeatureFromKeyValue(relationReference.currentKeyValue);
           geometryHighlighter.geometryWrapper.qgsGeometry = feature.geometry;
           geometryHighlighter.geometryWrapper.crs = listModel.currentLayer.crs;
-          const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature);
+          const extentRect = QfFeatureUtils.extent(mapCanvas.mapSettings, listModel.currentLayer, feature);
           const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
           requestJumpToPoint(extentRect.center, scale, true);
         }
@@ -94,11 +94,11 @@ QfEditorWidgetBase {
 
       Layout.alignment: Qt.AlignTop
       enabled: showOpenFormButton && relationReference.currentKeyValue !== undefined && relationReference.currentKeyValue !== ''
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
-      iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
-      iconColor: Theme.mainTextColor
+      iconSource: isEnabled ? QfTheme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : QfTheme.getThemeVectorIcon('ic_baseline-list_white_24dp')
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
 
       onClicked: {

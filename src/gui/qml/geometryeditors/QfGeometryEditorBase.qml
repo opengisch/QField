@@ -5,7 +5,7 @@ import org.qfield.core
 import org.qfield.gui
 
 QfVisibilityFadingRow {
-  property FeatureModel featureModel
+  property QfFeatureModel featureModel
   property QfGeometryRenderer editorRenderer
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings

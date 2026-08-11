@@ -30,7 +30,7 @@ Rectangle {
   radius: width / 2
 
   border.width: 1.5
-  border.color: Theme.mainBackgroundColor
+  border.color: QfTheme.mainBackgroundColor
 
   anchors {
     top: (alignment === QfBadge.Alignment.TopLeft || alignment === QfBadge.Alignment.TopRight) ? parent.top : undefined
@@ -62,19 +62,19 @@ Rectangle {
     orientation: Gradient.Horizontal
     GradientStop {
       position: 0.0
-      color: Theme.mainColor
+      color: QfTheme.mainColor
     }
     GradientStop {
       position: 0.4999
-      color: Theme.mainColor
+      color: QfTheme.mainColor
     }
     GradientStop {
       position: 0.5
-      color: Theme.cloudColor
+      color: QfTheme.cloudColor
     }
     GradientStop {
       position: 1.0
-      color: Theme.cloudColor
+      color: QfTheme.cloudColor
     }
   }
 }

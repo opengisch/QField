@@ -16,7 +16,7 @@ Rectangle {
 
   width: parent.width
   height: childrenRect.height
-  color: Theme.mainBackgroundColorSemiOpaque
+  color: QfTheme.mainBackgroundColorSemiOpaque
   radius: 8
   clip: true
 
@@ -37,8 +37,8 @@ Rectangle {
         Layout.leftMargin: 6
         Layout.rightMargin: 6
         text: qsTr("Positioning")
-        font: Theme.strongTipFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongTipFont
+        color: QfTheme.mainTextColor
       }
 
       RowLayout {

@@ -14,8 +14,8 @@ QfEditorWidgetBase {
     bottomPadding: 10
     anchors.left: parent.left
     anchors.right: parent.right
-    font: Theme.defaultFont
-    color: Theme.mainTextColor
+    font: QfTheme.defaultFont
+    color: QfTheme.mainTextColor
     opacity: 0.45
     wrapMode: Text.Wrap
 

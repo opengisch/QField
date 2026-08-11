@@ -41,8 +41,8 @@ QfGeometryEditorBase {
       rubberbandModel.frozen = true;
       if (!featureModel.currentLayer.editBuffer())
         featureModel.currentLayer.startEditing();
-      var result = GeometryUtils.reshapeFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
-      if (result !== GeometryUtils.Success) {
+      var result = QfGeometryUtils.reshapeFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
+      if (result !== QfGeometryUtils.Success) {
         displayToast(qsTr('The geometry could not be reshaped'), 'error');
         featureModel.currentLayer.rollBack();
         rubberbandModel.reset();

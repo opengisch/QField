@@ -16,15 +16,15 @@ Rectangle {
   property int ceilsCount: 4
   property double cellHeight: 26
   property double cellPadding: 6
-  property color backgroundColor: Theme.mainBackgroundColor
-  property color alternateBackgroundColor: Theme.sensorBackgroundColor
-  property color textColor: Theme.mainTextColor
+  property color backgroundColor: QfTheme.mainBackgroundColor
+  property color alternateBackgroundColor: QfTheme.sensorBackgroundColor
+  property color textColor: QfTheme.mainTextColor
   property real contentHeight: parent.width > 620 ? cellHeight * Math.ceil(grid.count / 3) : cellHeight * Math.ceil(grid.count / 2)
 
   width: parent.width
   anchors.margins: 20
 
-  color: Theme.mainBackgroundColor
+  color: QfTheme.mainBackgroundColor
 
   GridView {
     id: grid
@@ -36,7 +36,7 @@ Rectangle {
     cellHeight: sensorInformationView.cellHeight
     flow: GridLayout.TopToBottom
 
-    model: SensorListModel {
+    model: QfSensorListModel {
       project: qgisProject
       showConnectedOnly: true
     }
@@ -54,14 +54,14 @@ Rectangle {
 
         Text {
           Layout.fillWidth: false
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
           text: SensorName
         }
 
         Text {
           Layout.fillWidth: true
-          font: Theme.tipFont
+          font: QfTheme.tipFont
           color: sensorInformationView.textColor
           text: SensorLastValue ? (SensorLastValue + '').trim() : qsTr("N/A")
           verticalAlignment: Text.AlignVCenter

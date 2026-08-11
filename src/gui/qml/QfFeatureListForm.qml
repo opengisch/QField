@@ -29,9 +29,9 @@ import org.qfield.gui
 QfPaneDrawer {
   id: featureFormList
 
-  property ProcessingAlgorithm algorithm: processingAlgorithm
+  property QfProcessingAlgorithm algorithm: processingAlgorithm
 
-  property FeatureListModelSelection selection
+  property QfFeatureListModelSelection selection
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property QfDigitizingToolbar digitizingToolbar
@@ -40,9 +40,9 @@ QfPaneDrawer {
   property QfCodeReader codeReader
 
   property color selectionColor
-  /// type:MultiFeatureListModel
+  /// type:QfMultiFeatureListModel
   property alias model: globalFeaturesList.model
-  /// type:FeaturelistExtentController
+  /// type:QfFeatureListExtentController
   property alias extentController: featureListToolBar.extentController
 
   property bool allowEdit
@@ -247,15 +247,15 @@ QfPaneDrawer {
       Rectangle {
         width: parent.width
         height: 30
-        color: Theme.controlBorderColor
+        color: QfTheme.controlBorderColor
 
         Text {
           anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
           }
-          font: Theme.strongResultFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongResultFont
+          color: QfTheme.mainTextColor
           text: section
         }
       }
@@ -299,12 +299,12 @@ QfPaneDrawer {
           right: parent.right
           verticalCenter: parent.verticalCenter
         }
-        font.pointSize: Theme.resultFont.pointSize
+        font.pointSize: QfTheme.resultFont.pointSize
         font.bold: conditionalFontBold
         font.italic: conditionalFontItalic
         font.underline: conditionalFontUnderline
         font.strikeout: conditionalFontStrikeOut
-        color: conditionalTextColor !== undefined ? conditionalTextColor : Theme.mainTextColor
+        color: conditionalTextColor !== undefined ? conditionalTextColor : QfTheme.mainTextColor
         text: display
         wrapMode: Text.WordWrap
       }
@@ -330,12 +330,12 @@ QfPaneDrawer {
           if (featureFormList.multiSelection) {
             featureFormList.selection.toggleSelectedItem(index);
             if (featureFormList.selection.model.selectedCount == 0) {
-              featureForm.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+              featureForm.model.featureModel.modelMode = QfFeatureModel.SingleFeatureModel;
               featureFormList.multiSelection = false;
             }
             featureFormList.selection.focusedItem = featureFormList.selection.model.selectedCount > 0 ? index : -1;
           } else {
-            featureForm.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+            featureForm.model.featureModel.modelMode = QfFeatureModel.SingleFeatureModel;
             featureFormList.state = "FeatureForm";
             featureFormList.selection.focusedItem = index;
             featureFormList.multiSelection = false;
@@ -344,7 +344,7 @@ QfPaneDrawer {
         }
 
         onPressAndHold: {
-          featureForm.model.featureModel.modelMode = FeatureModel.MultiFeatureModel;
+          featureForm.model.featureModel.modelMode = QfFeatureModel.MultiFeatureModel;
           featureFormList.selection.focusedItem = index;
           featureFormList.selection.toggleSelectedItem(index);
           featureFormList.multiSelection = true;
@@ -355,7 +355,7 @@ QfPaneDrawer {
       Rectangle {
         anchors.bottom: parent.bottom
         height: 1
-        color: Theme.controlBorderColor
+        color: QfTheme.controlBorderColor
         width: parent.width
       }
     }
@@ -364,7 +364,7 @@ QfPaneDrawer {
       let sections = {};
       for (let i = 0; i < globalFeaturesList.model.count; ++i) {
         const idx = globalFeaturesList.model.index(i, 0);
-        let sectionVal = globalFeaturesList.model.data(idx, MultiFeatureListModel.LayerNameRole);
+        let sectionVal = globalFeaturesList.model.data(idx, QfMultiFeatureListModel.LayerNameRole);
         sections[sectionVal] = true;
       }
       return Object.keys(sections).length;
@@ -374,7 +374,7 @@ QfPaneDrawer {
     Rectangle {
       anchors.bottom: parent.bottom
       height: 1
-      color: Theme.controlBorderColor
+      color: QfTheme.controlBorderColor
       width: parent.width
     }
 
@@ -402,8 +402,8 @@ QfPaneDrawer {
     digitizingToolbar: featureFormList.digitizingToolbar
     codeReader: featureFormList.codeReader
 
-    model: AttributeFormModel {
-      featureModel: FeatureModel {
+    model: QfAttributeFormModel {
+      featureModel: QfFeatureModel {
         project: qgisProject
         currentLayer: featureFormList.selection.focusedLayer
         feature: featureFormList.selection.focusedFeature
@@ -463,7 +463,7 @@ QfPaneDrawer {
     visible: false
   }
 
-  ProcessingAlgorithm {
+  QfProcessingAlgorithm {
     id: processingAlgorithm
 
     parameters: processingAlgorithmForm.algorithmParametersModel.parameters
@@ -486,7 +486,7 @@ QfPaneDrawer {
     selection: featureFormList.selection
     multiSelection: featureFormList.multiSelection
     isVertical: featureListForm.isVertical
-    extentController: FeaturelistExtentController {
+    extentController: QfFeatureListExtentController {
       model: globalFeaturesList.model
       selection: featureFormList.selection
       mapSettings: featureFormList.mapSettings
@@ -604,11 +604,11 @@ QfPaneDrawer {
         if (featureFormList.state == "ProcessingAlgorithmsList" || featureFormList.state == "ProcessingAlgorithmForm") {
           featureFormList.state = "FeatureList";
         }
-        featureForm.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+        featureForm.model.featureModel.modelMode = QfFeatureModel.SingleFeatureModel;
         featureForm.model.applyFeatureModel();
         featureFormList.selection.model.clearSelection();
       } else {
-        featureForm.model.featureModel.modelMode = FeatureModel.MultiFeatureModel;
+        featureForm.model.featureModel.modelMode = QfFeatureModel.MultiFeatureModel;
       }
       featureFormList.multiSelection = !featureFormList.multiSelection;
       featureFormList.focus = true;
@@ -797,7 +797,7 @@ QfPaneDrawer {
     isFullscreen = qfieldSettings.fullScreenIdentifyView;
     if (!featureFormList.canvasOperationRequested) {
       featureFormList.multiSelection = false;
-      featureForm.model.featureModel.modelMode = FeatureModel.SingleFeatureModel;
+      featureForm.model.featureModel.modelMode = QfFeatureModel.SingleFeatureModel;
       featureFormList.selection.clear();
       if (featureFormList.selection.model) {
         featureFormList.selection.model.clearSelection();
@@ -842,7 +842,7 @@ QfPaneDrawer {
     function show() {
       this.isMerged = false;
       this.selectedCount = featureFormList.model.selectedCount;
-      this.featureDisplayName = FeatureUtils.displayName(featureFormList.selection.focusedLayer, featureFormList.model.selectedFeatures[0]);
+      this.featureDisplayName = QfFeatureUtils.displayName(featureFormList.selection.focusedLayer, featureFormList.model.selectedFeatures[0]);
       this.open();
     }
   }
@@ -868,15 +868,15 @@ QfPaneDrawer {
         width: mainWindow.width - 60 < transferLabelMetrics.width ? mainWindow.width - 60 : transferLabelMetrics.width
         text: qsTr("Select a feature below from which attributes will be transfered onto the currently opened feature.")
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
       }
 
       QfComboBox {
         id: transferComboBox
         width: transferLabel.width
 
-        model: FeatureListModel {
+        model: QfFeatureListModel {
           id: transferFeatureListModel
         }
 

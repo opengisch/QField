@@ -16,7 +16,7 @@ SwitchDelegate {
     x: control.text ? (control.mirrored ? control.leftPadding : control.width - width - control.rightPadding) : control.leftPadding + (control.availableWidth - width) / 2
     y: control.topPadding + (control.availableHeight - height) / 2
 
-    color: control.enabled ? (control.checked ? Theme.mainColor : Theme.controlBorderColor) : (control.checked ? Theme.mainTextDisabledColor : Theme.controlBorderColor)
-    border.color: control.enabled ? (control.checked ? Theme.mainColor : control.Material.switchUncheckedHandleColor) : (control.checked ? control.Material.switchDisabledCheckedTrackColor : control.Material.switchDisabledUncheckedTrackBorderColor)
+    color: control.enabled ? (control.checked ? QfTheme.mainColor : QfTheme.controlBorderColor) : (control.checked ? QfTheme.mainTextDisabledColor : QfTheme.controlBorderColor)
+    border.color: control.enabled ? (control.checked ? QfTheme.mainColor : control.Material.switchUncheckedHandleColor) : (control.checked ? control.Material.switchDisabledCheckedTrackColor : control.Material.switchDisabledUncheckedTrackBorderColor)
   }
 }

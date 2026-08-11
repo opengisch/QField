@@ -14,8 +14,8 @@ import org.qfield.gui
 Button {
   id: button
 
-  property color bgcolor: Theme.buttonBackgroundColor
-  property color color: button.enabled ? Theme.buttonColor : Theme.mainTextDisabledColor
+  property color bgcolor: QfTheme.buttonBackgroundColor
+  property color color: button.enabled ? QfTheme.buttonColor : QfTheme.mainTextDisabledColor
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false
@@ -34,15 +34,15 @@ Button {
   focusPolicy: Qt.NoFocus
 
   icon.color: button.color
-  font: Theme.defaultFont
+  font: QfTheme.defaultFont
 
   background: Rectangle {
     id: backgroundRectangle
     anchors.fill: parent
-    color: !button.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor
+    color: !button.enabled ? QfTheme.controlBackgroundDisabledColor : button.bgcolor
     radius: 12
     border.width: 1
-    border.color: !parent.enabled ? Theme.controlBackgroundDisabledColor : button.bgcolor != "#00000000" ? button.bgcolor : button.color
+    border.color: !parent.enabled ? QfTheme.controlBackgroundDisabledColor : button.bgcolor != "#00000000" ? button.bgcolor : button.color
     clip: true
 
     Ripple {
@@ -52,7 +52,7 @@ Button {
       pressed: button.down
       anchor: parent
       active: button.down
-      color: Theme.darkTheme ? "#22000000" : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+      color: QfTheme.darkTheme ? "#22000000" : button.bgcolor == "#ffffff" || button.bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
     }
 
     Loader {
@@ -68,7 +68,7 @@ Button {
         y: progressPath.strokeWidth / 2
         ShapePath {
           id: progressPath
-          strokeColor: Theme.mainColor
+          strokeColor: QfTheme.mainColor
           strokeWidth: 2
           strokeStyle: ShapePath.DashLine
           fillColor: "transparent"

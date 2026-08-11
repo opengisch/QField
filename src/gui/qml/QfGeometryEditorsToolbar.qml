@@ -26,38 +26,38 @@ import org.qfield.gui
 QfVisibilityFadingRow {
   id: geometryEditorsToolbar
 
-  property FeatureModel featureModel //<! the feature which has its geometry being edited
+  property QfFeatureModel featureModel //<! the feature which has its geometry being edited
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  property RubberbandModel editorRubberbandModel //<! an additional QfRubberband model for the tools (when drawing lines in split or add ring tools)
+  property QfRubberbandModel editorRubberbandModel //<! an additional QfRubberband model for the tools (when drawing lines in split or add ring tools)
   property QfGeometryRenderer editorRenderer
   property bool screenHovering: false //<! if the stylus pen is used, one should not use the add button
 
-  property string image: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
+  property string image: QfTheme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
 
   signal editorChanged
   signal requestJumpToPoint(var center, real scale, bool handleMargins)
 
-  GeometryEditorsModel {
+  QfGeometryEditorsModel {
     id: editors
   }
 
   Component.onCompleted: {
     editors.addEditor(qsTr("Vertex Tool"), "ic_vertex_tool_white_24dp", "geometryeditors/QfGeometryEditorVertexEditor.qml");
-    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/QfGeometryEditorSplitFeature.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
-    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/QfGeometryEditorReshape.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
-    editors.addEditor(qsTr("Erase Tool"), "ic_erase_tool_white_24dp", "geometryeditors/QfGeometryEditorErase.qml", GeometryEditorsModelSingleton.Line | GeometryEditorsModelSingleton.Polygon);
-    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/QfGeometryEditorFillRing.qml", GeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Split Tool"), "ic_split_tool_white_24dp", "geometryeditors/QfGeometryEditorSplitFeature.qml", QfGeometryEditorsModelSingleton.Line | QfGeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Reshape Tool"), "ic_reshape_tool_white_24dp", "geometryeditors/QfGeometryEditorReshape.qml", QfGeometryEditorsModelSingleton.Line | QfGeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Erase Tool"), "ic_erase_tool_white_24dp", "geometryeditors/QfGeometryEditorErase.qml", QfGeometryEditorsModelSingleton.Line | QfGeometryEditorsModelSingleton.Polygon);
+    editors.addEditor(qsTr("Fill Ring Tool"), "ic_ring_tool_white_24dp", "geometryeditors/QfGeometryEditorFillRing.qml", QfGeometryEditorsModelSingleton.Polygon);
   }
 
   function init() {
     var lastUsed = settings.value("/QField/GeometryEditorLastUsed", -1);
     if (lastUsed >= 0 && lastUsed < editors.rowCount()) {
       selectorRow.stateVisible = false;
-      var toolbarQml = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.ToolbarRole);
-      var iconPath = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.IconPathRole);
-      var name = editors.data(editors.index(lastUsed, 0), GeometryEditorsModelSingleton.NameRole);
-      geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath);
+      var toolbarQml = editors.data(editors.index(lastUsed, 0), QfGeometryEditorsModelSingleton.ToolbarRole);
+      var iconPath = editors.data(editors.index(lastUsed, 0), QfGeometryEditorsModelSingleton.IconPathRole);
+      var name = editors.data(editors.index(lastUsed, 0), QfGeometryEditorsModelSingleton.NameRole);
+      geometryEditorsToolbar.image = QfTheme.getThemeVectorIcon(iconPath);
       toolbarRow.load(toolbarQml, iconPath, name);
     }
   }
@@ -109,16 +109,16 @@ QfVisibilityFadingRow {
       model: editors
       delegate: QfToolButton {
         round: true
-        bgcolor: Theme.mainColor
-        iconSource: Theme.getThemeVectorIcon(iconPath)
-        visible: GeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
+        bgcolor: QfTheme.mainColor
+        iconSource: QfTheme.getThemeVectorIcon(iconPath)
+        visible: QfGeometryEditorsModelSingleton.supportsGeometry(featureModel.vertexModel.geometry, supportedGeometries)
         onClicked: {
           // close current tool
           if (toolbarRow.item) {
             toolbarRow.item.cancel();
           }
           selectorRow.stateVisible = false;
-          geometryEditorsToolbar.image = Theme.getThemeVectorIcon(iconPath);
+          geometryEditorsToolbar.image = QfTheme.getThemeVectorIcon(iconPath);
           toolbarRow.load(toolbar, iconPath, name);
           settings.setValue("/QField/GeometryEditorLastUsed", index);
         }
@@ -170,17 +170,17 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: activeToolButton
-    iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
-    iconColor: Theme.toolButtonColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+    iconColor: QfTheme.toolButtonColor
     round: true
     visible: !selectorRow.stateVisible && !(toolbarRow.item && toolbarRow.item.stateVisible && toolbarRow.item.blocking)
-    bgcolor: Theme.mainColor
+    bgcolor: QfTheme.mainColor
     onClicked: {
       toolbarRow.item.cancel();
       toolbarRow.source = '';
       vertexRubberband.isVisible = false;
       selectorRow.stateVisible = true;
-      image = Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp");
+      image = QfTheme.getThemeVectorIcon("ic_edit_geometry_white_24dp");
       settings.setValue("/QField/GeometryEditorLastUsed", -1);
     }
   }

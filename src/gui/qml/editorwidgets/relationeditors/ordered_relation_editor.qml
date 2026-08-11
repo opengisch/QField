@@ -14,7 +14,7 @@ QfRelationEditorBase {
   showAllItems: true
   showSortButton: false
 
-  relationEditorModel: OrderedRelationModel {
+  relationEditorModel: QfOrderedRelationModel {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     id: orderedRelationModel
@@ -75,7 +75,7 @@ QfRelationEditorBase {
           if (orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && orderedRelationModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
             geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
             geometryHighlighter.geometryWrapper.crs = orderedRelationModel.relation.referencingLayer.crs;
-            mapCanvas.mapSettings.extent = FeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+            mapCanvas.mapSettings.extent = QfFeatureUtils.extent(mapCanvas.mapSettings, orderedRelationModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
           } else {
             viewButton.click();
           }
@@ -128,10 +128,10 @@ QfRelationEditorBase {
 
           Image {
             id: featureImage
-            source: ImagePath ? UrlUtils.fromString(ImagePath) : Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
+            source: ImagePath ? QfUrlUtils.fromString(ImagePath) : QfTheme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
             anchors.verticalCenter: parent.verticalCenter
-            width: Theme.toolButtonSize
-            height: Theme.toolButtonSize
+            width: QfTheme.toolButtonSize
+            height: QfTheme.toolButtonSize
             fillMode: Image.PreserveAspectFit
             mipmap: true
             visible: !!ImagePath
@@ -144,8 +144,8 @@ QfRelationEditorBase {
             topPadding: 5
             bottomPadding: 5
             leftPadding: featureImage.visible ? 5 : 0
-            font: Theme.resultFont
-            color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+            font: QfTheme.resultFont
+            color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
             elide: Text.ElideRight
             wrapMode: Text.WordWrap
             text: Description || model.displayString
@@ -154,12 +154,12 @@ QfRelationEditorBase {
           QfToolButton {
             id: viewButton
             anchors.verticalCenter: parent.verticalCenter
-            width: Theme.toolButtonSize
-            height: Theme.toolButtonSize
+            width: QfTheme.toolButtonSize
+            height: QfTheme.toolButtonSize
 
             round: false
-            iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
-            iconColor: Theme.mainTextColor
+            iconSource: isEnabled ? QfTheme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : QfTheme.getThemeVectorIcon('ic_baseline-list_white_24dp')
+            iconColor: QfTheme.mainTextColor
             bgcolor: 'transparent'
 
             onClicked: {
@@ -171,13 +171,13 @@ QfRelationEditorBase {
             id: moveDownButton
             anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? Theme.toolButtonSize : 0
-            height: Theme.toolButtonSize
+            width: visible ? QfTheme.toolButtonSize : 0
+            height: QfTheme.toolButtonSize
             opacity: (index === listView.count - 1) ? 0.3 : 1
 
             round: false
-            iconSource: Theme.getThemeVectorIcon('ic_chevron_down')
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon('ic_chevron_down')
+            iconColor: QfTheme.mainTextColor
             bgcolor: 'transparent'
 
             onClicked: {
@@ -192,13 +192,13 @@ QfRelationEditorBase {
             id: moveUpButton
             anchors.verticalCenter: parent.verticalCenter
             visible: isEnabled
-            width: visible ? Theme.toolButtonSize : 0
-            height: Theme.toolButtonSize
+            width: visible ? QfTheme.toolButtonSize : 0
+            height: QfTheme.toolButtonSize
             opacity: (index === 0) ? 0.3 : 1
 
             round: false
-            iconSource: Theme.getThemeVectorIcon('ic_chevron_up')
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon('ic_chevron_up')
+            iconColor: QfTheme.mainTextColor
             bgcolor: 'transparent'
 
             onClicked: {
@@ -212,12 +212,12 @@ QfRelationEditorBase {
           QfToolButton {
             id: menuButton
             anchors.verticalCenter: parent.verticalCenter
-            width: Theme.toolButtonSize
-            height: Theme.toolButtonSize
+            width: QfTheme.toolButtonSize
+            height: QfTheme.toolButtonSize
 
             round: false
-            iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+            iconColor: QfTheme.mainTextColor
             bgcolor: 'transparent'
 
             onClicked: {

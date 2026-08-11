@@ -103,7 +103,7 @@ Popup {
           width: animationProgressBar.visualPosition * parent.width
           height: parent.height
           radius: 2
-          color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.5)
+          color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.5)
           visible: !animationProgressBar.indeterminate
         }
       }
@@ -122,12 +122,12 @@ Popup {
       color: {
         switch (toast.type) {
         case 'attention':
-          return Theme.mainColor;
+          return QfTheme.mainColor;
         case 'error':
-          return Theme.errorColor;
+          return QfTheme.errorColor;
         case 'warning':
         default:
-          return Theme.warningColor;
+          return QfTheme.warningColor;
         }
       }
       visible: toast.type != 'info'
@@ -148,9 +148,9 @@ Popup {
         id: toastMessage
         Layout.fillWidth: true
         wrapMode: Text.Wrap
-        color: Theme.light
+        color: QfTheme.light
 
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         horizontalAlignment: Text.AlignLeft
       }
 
@@ -160,8 +160,8 @@ Popup {
         visible: text != ''
         radius: 4
         bgcolor: "#00000000"
-        color: Theme.mainColor
-        font.pointSize: Theme.tipFont.pointSize
+        color: QfTheme.mainColor
+        font.pointSize: QfTheme.tipFont.pointSize
 
         onClicked: {
           if (toast.act !== undefined) {

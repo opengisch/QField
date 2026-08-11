@@ -7,7 +7,7 @@ import org.qfield.gui
 QfEditorWidgetBase {
   id: colorControl
 
-  property double desiredHeight: Theme.toolButtonSize
+  property double desiredHeight: QfTheme.toolButtonSize
 
   height: desiredHeight
 
@@ -38,25 +38,25 @@ QfEditorWidgetBase {
     RowLayout {
       id: currentColorView
       width: colorControl.width
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
       spacing: 5
 
       Rectangle {
         id: colorArea
         Layout.fillWidth: true
-        Layout.preferredHeight: Theme.toolButtonSize
-        height: Theme.toolButtonSize
+        Layout.preferredHeight: QfTheme.toolButtonSize
+        height: QfTheme.toolButtonSize
         radius: height / 2
 
         color: value == null ? "transparent" : value
 
         QfToolButton {
           anchors.right: parent.right
-          width: Theme.toolButtonSize
-          height: Theme.toolButtonSize
+          width: QfTheme.toolButtonSize
+          height: QfTheme.toolButtonSize
           visible: isEnabled
           enabled: false
-          iconSource: Theme.getThemeVectorIcon("ic_ellipsis_black_24dp")
+          iconSource: QfTheme.getThemeVectorIcon("ic_ellipsis_black_24dp")
           iconColor: "white"
           bgcolor: "transparent"
         }
@@ -75,12 +75,12 @@ QfEditorWidgetBase {
     RowLayout {
       id: selectColorView
       width: colorControl.width
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
       spacing: 5
 
       ListView {
         Layout.fillWidth: true
-        Layout.preferredHeight: Theme.toolButtonSize
+        Layout.preferredHeight: QfTheme.toolButtonSize
         orientation: ListView.Horizontal
         spacing: 10
         model: ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00"]
@@ -88,12 +88,12 @@ QfEditorWidgetBase {
         clip: true
 
         delegate: QfToolButton {
-          Layout.preferredWidth: Theme.toolButtonSize
-          Layout.preferredHeight: Theme.toolButtonSize
+          Layout.preferredWidth: QfTheme.toolButtonSize
+          Layout.preferredHeight: QfTheme.toolButtonSize
           bgcolor: modelData
           round: true
 
-          iconSource: modelData === value ? Theme.getThemeVectorIcon("ic_check_white_24dp") : ""
+          iconSource: modelData === value ? QfTheme.getThemeVectorIcon("ic_check_white_24dp") : ""
           iconColor: "#ffffff"
 
           onClicked: {

@@ -14,7 +14,7 @@ QfPopup {
 
   property bool availablePluginsFetched: false
 
-  width: Math.min(500, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  width: Math.min(500, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
   height: mainWindow.height - 120
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
@@ -97,7 +97,7 @@ QfPopup {
 
         delegate: PluginItem {
           width: parent ? parent.width : 10
-          icon: Icon !== '' ? UrlUtils.fromString(Icon) : ''
+          icon: Icon !== '' ? QfUrlUtils.fromString(Icon) : ''
           name: Name
           itemEnabled: Enabled
           itemDownloading: pluginsList.downloadingUuids.indexOf(Uuid) > -1
@@ -159,7 +159,7 @@ QfPopup {
         visible: pluginsList.count === 0
 
         text: pluginManager.pluginModel.isRefreshing ? qsTr('Fetching available plugins') : qsTr('No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.<br><br>For more information, %2read the documentation%3.').arg('<a href="#">').arg('<a href="https://docs.qfield.org/ro/how-to/advanced-how-tos/plugins/">').arg('</a>')
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -214,7 +214,7 @@ QfPopup {
         visible: false
 
         radius: 8
-        color: Theme.groupBoxBackgroundColor
+        color: QfTheme.groupBoxBackgroundColor
         clip: true
 
         RowLayout {
@@ -228,7 +228,7 @@ QfPopup {
             Layout.fillWidth: true
 
             text: qsTr("The currently opened project has loaded a project plugin")
-            font: Theme.tipFont
+            font: QfTheme.tipFont
             wrapMode: Text.WordWrap
           }
 
@@ -236,8 +236,8 @@ QfPopup {
             text: qsTr("Deny permission")
             radius: 4
             bgcolor: "#00000000"
-            color: Theme.mainColor
-            font: Theme.tipFont
+            color: QfTheme.mainColor
+            font: QfTheme.tipFont
 
             onClicked: {
               pluginManager.denyProjectPluginPermission(qgisProject.fileName);
@@ -256,9 +256,9 @@ QfPopup {
     MenuItem {
       text: qsTr('Clear remembered permissions')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         pluginManager.clearPluginPermissions();
@@ -292,8 +292,8 @@ QfPopup {
         width: parent.width
         text: "<a href='" + authorDetails.authorHomepage + "'>" + authorDetails.authorHomepage + "</a>"
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
 
         onLinkActivated: link => {
           Qt.openUrlExternally(link);
@@ -306,8 +306,8 @@ QfPopup {
         visible: !authorDetails.authorTrusted
         text: "⚠ " + qsTr("The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin's origin.")
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
       }
     }
 
@@ -342,8 +342,8 @@ QfPopup {
         width: mainWindow.width - 60 < installFromUrlLabelMetrics.width ? mainWindow.width - 60 : installFromUrlLabelMetrics.width
         text: qsTr("Type a URL below to download and install a plugin:")
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
       }
 
       TextArea {
@@ -358,8 +358,8 @@ QfPopup {
           anchors.verticalCenter: parent.verticalCenter
 
           bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
+          iconColor: QfTheme.mainTextColor
 
           onClicked: {
             codeReaderConnection.enabled = true;
@@ -398,8 +398,8 @@ QfPopup {
         width: mainWindow.width - 60 < uninstallLabelMetrics.width ? mainWindow.width - 60 : uninstallLabelMetrics.width
         text: qsTr("Are you sure you want to uninstall `%1`?").arg(uninstallConfirmation.pluginName)
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
       }
     }
 

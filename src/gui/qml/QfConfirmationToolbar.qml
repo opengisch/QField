@@ -23,20 +23,20 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: cancelButton
-    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
+    iconSource: QfTheme.getThemeVectorIcon("ic_clear_white_24dp")
     visible: true
     round: true
-    bgcolor: Theme.darkRed
+    bgcolor: QfTheme.darkRed
 
     onClicked: cancel()
   }
 
   QfToolButton {
     id: confirmButton
-    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
+    iconSource: QfTheme.getThemeVectorIcon("ic_check_white_24dp")
     visible: true
     round: true
-    bgcolor: Theme.mainColor
+    bgcolor: QfTheme.mainColor
 
     onClicked: confirm()
   }

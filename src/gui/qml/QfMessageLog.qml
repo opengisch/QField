@@ -43,8 +43,8 @@ Page {
     Rectangle {
       Layout.fillWidth: true
       Layout.fillHeight: true
-      color: Theme.controlBackgroundColor
-      border.color: Theme.controlBorderColor
+      color: QfTheme.controlBackgroundColor
+      border.color: QfTheme.controlBorderColor
       border.width: 1
 
       ListView {
@@ -72,8 +72,8 @@ Page {
               objectName: 'dateText'
               padding: 5
               text: MessageDateTime.replace(' ', '\n')
-              font: Theme.tipFont
-              color: Theme.secondaryTextColor
+              font: QfTheme.tipFont
+              color: QfTheme.secondaryTextColor
             }
             Rectangle {
               id: separator
@@ -84,9 +84,9 @@ Page {
               objectName: 'tagText'
               padding: MessageTag ? 5 : 0
               text: MessageTag
-              font.pointSize: Theme.tipFont.pointSize
+              font.pointSize: QfTheme.tipFont.pointSize
               font.bold: true
-              color: Theme.secondaryTextColor
+              color: QfTheme.secondaryTextColor
             }
             Text {
               id: messagetext
@@ -94,8 +94,8 @@ Page {
               padding: 5
               width: rectangle.width - datetext.width - tagtext.width - separator.width - 3 * line.spacing
               text: Message.replace(new RegExp('\n', "gi"), '<br>')
-              font: Theme.tipFont
-              color: Theme.mainTextColor
+              font: QfTheme.tipFont
+              color: QfTheme.mainTextColor
               wrapMode: Text.WordWrap
               textFormat: Text.RichText
 
@@ -143,7 +143,7 @@ Page {
       id: submitLog
       Layout.fillWidth: true
       text: qsTr("Send application log")
-      visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & PlatformUtilities.SentryFramework
+      visible: qfieldSettings.enableInfoCollection && platformUtilities.capabilities & QfPlatformUtilities.SentryFramework
 
       onClicked: {
         applicationLogDialog.open();
@@ -177,8 +177,8 @@ Page {
         width: mainWindow.width - 60 < applicationLogLabelMetrics.width ? mainWindow.width - 60 : applicationLogLabelMetrics.width
         text: qsTr("This will send a log of your current session to the development team. You only need to do this when you are asked for it.")
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
       }
 
       TextField {
@@ -193,9 +193,9 @@ Page {
         topPadding: 5
         bottomPadding: 5
         text: qsTr('Include cloud user details')
-        font: Theme.defaultFont
-        visible: cloudConnection.status === QFieldCloudConnection.LoggedIn
-        checked: cloudConnection.status === QFieldCloudConnection.LoggedIn
+        font: QfTheme.defaultFont
+        visible: cloudConnection.status === QfCloudConnection.LoggedIn
+        checked: cloudConnection.status === QfCloudConnection.LoggedIn
         indicator.height: 16
         indicator.width: 16
         indicator.implicitHeight: 24

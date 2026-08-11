@@ -32,14 +32,14 @@ QfCogoParameterWidgetBase {
       }
 
       Label {
-        color: Theme.mainTextColor
-        font: Theme.tipFont
+        color: QfTheme.mainTextColor
+        font: QfTheme.tipFont
         text: parameterLabel
       }
 
       Label {
-        color: Theme.secondaryTextColor
-        font: Theme.tipFont
+        color: QfTheme.secondaryTextColor
+        font: QfTheme.tipFont
         text: {
           let content = '';
           if (mapSettings.destinationCrs.isGeographic) {
@@ -61,7 +61,7 @@ QfCogoParameterWidgetBase {
     QfTextField {
       id: pointField
       Layout.fillWidth: true
-      font: Theme.tipFont
+      font: QfTheme.tipFont
 
       onTextEdited: {
         processValue();
@@ -69,8 +69,8 @@ QfCogoParameterWidgetBase {
     }
 
     QfToolButton {
-      iconSource: Theme.getThemeVectorIcon("ic_list_black_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_list_black_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       round: true
 
@@ -81,8 +81,8 @@ QfCogoParameterWidgetBase {
     }
 
     QfToolButton {
-      iconSource: Theme.getThemeVectorIcon("ic_coordinate_locator_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_coordinate_locator_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       round: true
 
@@ -92,8 +92,8 @@ QfCogoParameterWidgetBase {
     }
 
     QfToolButton {
-      iconSource: Theme.getThemeVectorIcon("ic_location_valid_white_24dp")
-      iconColor: Theme.positionColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_location_valid_white_24dp")
+      iconColor: QfTheme.positionColor
       bgcolor: "transparent"
       round: true
 
@@ -109,12 +109,12 @@ QfCogoParameterWidgetBase {
 
     sourceComponent: QfPopup {
       id: pointPickerPopup
-      readonly property int minimumHeight: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      readonly property int minimumHeight: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
 
       parent: mainWindow.contentItem
-      width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
+      width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
       height: minimumHeight > 0 ? minimumHeight : 200
-      x: Theme.popupScreenEdgeHorizontalMargin
+      x: QfTheme.popupScreenEdgeHorizontalMargin
       y: (mainWindow.height - height) / 2
       z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
       closePolicy: Popup.CloseOnEscape
@@ -147,7 +147,7 @@ QfCogoParameterWidgetBase {
           QfComboBox {
             id: layersComboBox
             Layout.fillWidth: true
-            model: MapLayerModel {
+            model: QfMapLayerModel {
               id: layersModel
               enabled: true
               project: qgisProject
@@ -168,7 +168,7 @@ QfCogoParameterWidgetBase {
             id: pointsList
             Layout.fillWidth: true
             Layout.fillHeight: true
-            model: FeatureCheckListModel {
+            model: QfFeatureCheckListModel {
               id: featureListModel
               searchTerm: searchBar.searchTerm
               currentLayer: layersComboBox.currentValue
@@ -183,12 +183,12 @@ QfCogoParameterWidgetBase {
               id: rectangle
 
               property int fid: featureId
-              property string itemText: StringUtils.highlightText(displayString, featureListModel.searchTerm, Theme.mainTextColor)
+              property string itemText: QfStringUtils.highlightText(displayString, featureListModel.searchTerm, QfTheme.mainTextColor)
 
               anchors.margins: 10
               width: parent ? parent.width : undefined
               height: line.height + 20
-              color: pointPickerPopup.Material ? pointPickerPopup.Material.dialogColor : Theme.mainBackgroundColor
+              color: pointPickerPopup.Material ? pointPickerPopup.Material.dialogColor : QfTheme.mainBackgroundColor
 
               Row {
                 id: line
@@ -200,10 +200,10 @@ QfCogoParameterWidgetBase {
                   width: rectangle.width - 10
                   anchors.verticalCenter: parent.verticalCenter
                   leftPadding: 5
-                  font: Theme.defaultFont
+                  font: QfTheme.defaultFont
                   elide: Text.ElideRight
                   wrapMode: Text.WordWrap
-                  color: featureListModel.searchTerm != '' ? Theme.secondaryTextColor : Theme.mainTextColor
+                  color: featureListModel.searchTerm != '' ? QfTheme.secondaryTextColor : QfTheme.mainTextColor
                   textFormat: Text.RichText
                   text: itemText
                 }
@@ -212,7 +212,7 @@ QfCogoParameterWidgetBase {
               Rectangle {
                 anchors.bottom: parent.bottom
                 height: 1
-                color: Theme.controlBorderColor
+                color: QfTheme.controlBorderColor
                 width: parent.width
               }
             }
@@ -228,8 +228,8 @@ QfCogoParameterWidgetBase {
                 }
                 const feature = featureListModel.currentLayer.getFeature(item.fid);
                 if (feature) {
-                  let point = GeometryUtils.centroid(feature.geometry);
-                  point = GeometryUtils.reprojectPoint(point, featureListModel.currentLayer.crs, mapSettings.destinationCrs);
+                  let point = QfGeometryUtils.centroid(feature.geometry);
+                  point = QfGeometryUtils.reprojectPoint(point, featureListModel.currentLayer.crs, mapSettings.destinationCrs);
                   applyPoint(point);
                 }
                 pointPickerLoader.active = false;
@@ -253,7 +253,7 @@ QfCogoParameterWidgetBase {
       const y = parseFloat(parts[isGeographic ? 0 : 1]);
       const z = parts.length === 3 ? parseFloat(parts[3]) : NaN;
       if (!isNaN(x) && !isNaN(y)) {
-        valueChangeRequested(GeometryUtils.point(x, y, z));
+        valueChangeRequested(QfGeometryUtils.point(x, y, z));
         return;
       }
     }

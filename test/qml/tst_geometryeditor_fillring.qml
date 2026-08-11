@@ -16,7 +16,7 @@ TestCase {
 
   function init() {
     lastToastType = "";
-    testLayer = LayerUtils.memoryLayerFromJsonString("fillring_test", squareJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
+    testLayer = QfLayerUtils.memoryLayerFromJsonString("fillring_test", squareJson, QfCoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
   }
 
   function cleanup() {
@@ -33,7 +33,7 @@ TestCase {
   }
 
   function addToolVertex(toolbar, x, y) {
-    rubberband.currentCoordinate = GeometryUtils.point(x, y);
+    rubberband.currentCoordinate = QfGeometryUtils.point(x, y);
     toolbar.addVertex();
   }
 
@@ -43,19 +43,19 @@ TestCase {
 
   MapSettings {
     id: mapSettingsItem
-    destinationCrs: CoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
+    destinationCrs: QfCoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
   }
 
-  RubberbandModel {
+  QfRubberbandModel {
     id: rubberband
-    crs: CoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
+    crs: QfCoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
   }
 
-  FeatureModel {
+  QfFeatureModel {
     id: featureModel
     project: qgisProject
 
-    vertexModel: VertexModel {
+    vertexModel: QfVertexModel {
       id: geometryEditingVertexModel
     }
   }
@@ -184,7 +184,7 @@ TestCase {
 
   Item {
     id: coordinateLocator
-    property var currentCoordinate: GeometryUtils.point(0, 0)
+    property var currentCoordinate: QfGeometryUtils.point(0, 0)
     property string positionInformation: ""
     property string topSnappingResult: ""
     property bool positionLocked: false
@@ -197,7 +197,7 @@ TestCase {
     property string cloudUserInformation: ""
   }
 
-  AppExpressionContextScopesGenerator {
+  QfAppExpressionContextScopesGenerator {
     id: appScopesGenerator
     objectName: "appScopesGenerator"
     positionInformation: positionSource.positionInformation

@@ -28,7 +28,7 @@ Rectangle {
     elevationProfileCanvas.clear();
   }
 
-  color: Theme.mainBackgroundColorSemiOpaque
+  color: QfTheme.mainBackgroundColorSemiOpaque
   radius: 0
 
   ElevationProfileCanvas {
@@ -39,10 +39,10 @@ Rectangle {
 
     tolerance: crs.isGeographic ? 0.00005 : 5
 
-    backgroundColor: Theme.mainBackgroundColorSemiOpaque
-    borderColor: Theme.controlBackgroundAlternateColor
-    axisLabelColor: Theme.secondaryTextColor
-    axisLabelSize: Theme.tipFont.pointSize
+    backgroundColor: QfTheme.mainBackgroundColorSemiOpaque
+    borderColor: QfTheme.controlBackgroundAlternateColor
+    axisLabelColor: QfTheme.secondaryTextColor
+    axisLabelSize: QfTheme.tipFont.pointSize
   }
 
   ProgressBar {
@@ -108,12 +108,12 @@ Rectangle {
     visible: elevationProfileCanvas.isRendering || elevationProfileCanvas.profileCurve.isNull
     anchors.centerIn: parent
     width: parent.width
-    color: Theme.mainTextColor
-    font: Theme.tinyFont
+    color: QfTheme.mainTextColor
+    font: QfTheme.tinyFont
     horizontalAlignment: Text.AlignHCenter
     wrapMode: Text.WordWrap
     text: elevationProfileCanvas.isRendering ? qsTr('Rendering elevation profile…') : qsTr('Digitize a path to render the elevation profile')
     style: Text.Outline
-    styleColor: Theme.mainBackgroundColorSemiOpaque
+    styleColor: QfTheme.mainBackgroundColorSemiOpaque
   }
 }

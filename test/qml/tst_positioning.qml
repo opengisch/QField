@@ -5,16 +5,16 @@ import org.qfield.core
 TestCase {
   name: "Positioning"
 
-  Positioning {
+  QfPositioning {
     id: positioning
     deviceId: 'udp:localhost:1958'
     active: true
-    elevationCorrectionMode: Positioning.ElevationCorrectionMode.None
+    elevationCorrectionMode: QfPositioning.ElevationCorrectionMode.None
 
     coordinateTransformer: CoordinateTransformer {
       id: coordinateTransformer
-      destinationCrs: CoordinateReferenceSystemUtils.wgs84Crs()
-      transformContext: CoordinateReferenceSystemUtils.emptyTransformContext()
+      destinationCrs: QfCoordinateReferenceSystemUtils.wgs84Crs()
+      transformContext: QfCoordinateReferenceSystemUtils.emptyTransformContext()
       deltaZ: 0
       skipAltitudeTransformation: false
       verticalGrid: ''
@@ -23,7 +23,7 @@ TestCase {
 
   Repeater {
     id: positioningInformations
-    model: PositioningInformationModel {
+    model: QfPositioningInformationModel {
       distanceUnits: qgisProject.distanceUnits
       positioningSource: positioning
     }
@@ -33,11 +33,11 @@ TestCase {
     }
   }
 
-  FeatureModel {
+  QfFeatureModel {
     id: featureModel
     project: qgisProject
     currentLayer: qgisProject.mapLayersByName('Apiary')[0]
-    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+    appExpressionContextScopesGenerator: QfAppExpressionContextScopesGenerator {
       positionInformation: positioning.positionInformation
       positionLocked: false
     }
@@ -93,7 +93,7 @@ TestCase {
   }
 
   function test_01_ellipsoidalElevation() {
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = '';
     // wait a few seconds so positioning can catch some NMEA strings
@@ -106,7 +106,7 @@ TestCase {
   }
 
   function test_02_orthometricElevation() {
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.OrthometricFromDevice;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.OrthometricFromDevice;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = '';
     // wait a few seconds so positioning can catch some NMEA strings
@@ -119,7 +119,7 @@ TestCase {
   }
 
   function test_03_deltaZ() {
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = -100;
     coordinateTransformer.verticalGrid = '';
     // wait a few seconds so positioning can catch some NMEA strings
@@ -132,7 +132,7 @@ TestCase {
   }
 
   function test_04_verticalGrid() {
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.OrthometricFromGeoidFile;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = dataDir + '/testgrid.tif';
     // wait a few seconds so positioning can catch some NMEA strings
@@ -146,7 +146,7 @@ TestCase {
 
   function test_05_tcpReceiver() {
     positioning.deviceId = 'tcp:localhost:11111';
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = '';
     // wait a few seconds so positioning can catch some NMEA strings
@@ -161,7 +161,7 @@ TestCase {
 
   function test_06_happyIMU() {
     positioning.deviceId = 'udp:localhost:1959';
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = '';
 
@@ -187,7 +187,7 @@ TestCase {
 
   function test_07_happyMonch2IMU() {
     positioning.deviceId = 'udp:localhost:1960';
-    positioning.elevationCorrectionMode = Positioning.ElevationCorrectionMode.None;
+    positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = '';
 

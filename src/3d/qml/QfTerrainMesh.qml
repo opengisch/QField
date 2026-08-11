@@ -7,7 +7,7 @@ Node {
 
   property alias mapTerrainGeometry: mapTerrainGeometry
   property alias mapTexture: mapTexture
-  property Quick3DMapTextureData mapTextureData
+  property Qf3DMapTextureData mapTextureData
 
   Texture {
     id: neutralTexture
@@ -39,7 +39,7 @@ Node {
     id: terrainModel
     pickable: true
 
-    geometry: Quick3DTerrainGeometry {
+    geometry: Qf3DTerrainGeometry {
       id: mapTerrainGeometry
     }
 

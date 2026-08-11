@@ -20,9 +20,9 @@ Item {
   property alias usageText: usageLabel.text
   property string relatedUrl: ""
 
-  property color normalColor: Theme.qfieldcloudBlue
-  property color warningColor: Theme.warningColor
-  property color criticalColor: Theme.bookmarkRed
+  property color normalColor: QfTheme.qfieldcloudBlue
+  property color warningColor: QfTheme.warningColor
+  property color criticalColor: QfTheme.bookmarkRed
   property double warningThreshold: 0.8
   property double criticalThreshold: 0.95
   property int animationDuration: 1000
@@ -48,8 +48,8 @@ Item {
           }
           return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
         }
-        font: Theme.tipFont
-        color: Theme.mainTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.mainTextColor
         wrapMode: Text.WordWrap
         opacity: meterBar.loading ? 0.4 : 1.0
       }
@@ -66,7 +66,7 @@ Item {
 
           ShapePath {
             strokeWidth: 1.5
-            strokeColor: Theme.mainTextColor
+            strokeColor: QfTheme.mainTextColor
             fillColor: "transparent"
             capStyle: ShapePath.RoundCap
             joinStyle: ShapePath.RoundJoin
@@ -80,7 +80,7 @@ Item {
 
           ShapePath {
             strokeWidth: 1.5
-            strokeColor: Theme.mainTextColor
+            strokeColor: QfTheme.mainTextColor
             fillColor: "transparent"
             capStyle: ShapePath.RoundCap
             joinStyle: ShapePath.RoundJoin
@@ -118,7 +118,7 @@ Item {
       background: Rectangle {
         implicitHeight: meterBar.barHeight
         radius: height / 2
-        color: Theme.controlBackgroundAlternateColor
+        color: QfTheme.controlBackgroundAlternateColor
       }
 
       contentItem: Item {
@@ -148,7 +148,7 @@ Item {
           width: parent.width
           height: parent.height
           radius: height / 2
-          color: Theme.controlBackgroundAlternateColor
+          color: QfTheme.controlBackgroundAlternateColor
           clip: true
 
           Rectangle {
@@ -165,7 +165,7 @@ Item {
               }
               GradientStop {
                 position: 0.5
-                color: Theme.mainBackgroundColor
+                color: QfTheme.mainBackgroundColor
               }
               GradientStop {
                 position: 1.0
@@ -200,8 +200,8 @@ Item {
     Label {
       id: usageLabel
       Layout.fillWidth: true
-      font: Theme.tipFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.tipFont
+      color: QfTheme.secondaryTextColor
       wrapMode: Text.WordWrap
       visible: !meterBar.loading
     }
@@ -211,7 +211,7 @@ Item {
       width: 150
       height: usageLabel.font.pointSize
       radius: 3
-      color: Theme.controlBackgroundAlternateColor
+      color: QfTheme.controlBackgroundAlternateColor
       clip: true
 
       Rectangle {
@@ -227,7 +227,7 @@ Item {
           }
           GradientStop {
             position: 0.5
-            color: Theme.mainBackgroundColor
+            color: QfTheme.mainBackgroundColor
           }
           GradientStop {
             position: 1.0

@@ -39,8 +39,8 @@ Item {
 
       QfToolButton {
         enabled: true
-        iconSource: Theme.getThemeVectorIcon('ic_doublearrow_left_black_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_doublearrow_left_black_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         roundborder: true
 
@@ -60,8 +60,8 @@ Item {
 
       QfToolButton {
         enabled: true
-        iconSource: Theme.getThemeVectorIcon('ic_arrow_left_black_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_arrow_left_black_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         roundborder: true
 
@@ -86,8 +86,8 @@ Item {
       Layout.column: 1
       Layout.row: 0
       Layout.fillWidth: true
-      font: Theme.tipFont
-      color: Theme.mainTextColor
+      font: QfTheme.tipFont
+      color: QfTheme.mainTextColor
     }
 
     Row {
@@ -96,8 +96,8 @@ Item {
 
       QfToolButton {
         enabled: true
-        iconSource: Theme.getThemeVectorIcon('ic_arrow_right_black_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_arrow_right_black_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         roundborder: true
 
@@ -116,8 +116,8 @@ Item {
       }
       QfToolButton {
         enabled: true
-        iconSource: Theme.getThemeVectorIcon('ic_doublearrow_right_black_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_doublearrow_right_black_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         roundborder: true
 
@@ -146,8 +146,8 @@ Item {
 
       delegate: Text {
         text: model.shortName
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.secondaryTextColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
       }
@@ -193,7 +193,7 @@ Item {
       delegate: Rectangle {
         property bool isSelectedDate: initialDate.getFullYear() === model.date.getFullYear() && initialDate.getMonth() === model.date.getMonth() && initialDate.getDate() === model.date.getDate()
         property bool isNow: calendar.today.getFullYear() === model.date.getFullYear() && calendar.today.getMonth() === model.date.getMonth() && calendar.today.getDate() === model.date.getDate()
-        color: isSelectedDate ? Theme.mainColor : "transparent"
+        color: isSelectedDate ? QfTheme.mainColor : "transparent"
         width: 18
         height: 18
         radius: 10
@@ -204,10 +204,10 @@ Item {
           verticalAlignment: Text.AlignVCenter
           opacity: model.month !== calendar.month ? 0.5 : 1
           text: model.day
-          font.pointSize: Theme.tipFont.pointSize
+          font.pointSize: QfTheme.tipFont.pointSize
           font.bold: parent.isSelectedDate ? true : false
           font.underline: parent.isNow ? true : false
-          color: parent.isSelectedDate ? Theme.mainOverlayColor : Theme.mainTextColor
+          color: parent.isSelectedDate ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
         }
       }
 

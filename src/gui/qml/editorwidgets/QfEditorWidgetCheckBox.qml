@@ -42,16 +42,16 @@ QfEditorWidgetBase {
 
   Label {
     id: checkValue
-    height: Math.max(Theme.toolButtonSize, fontMetrics.height + 20)
+    height: Math.max(QfTheme.toolButtonSize, fontMetrics.height + 20)
     anchors {
       left: parent.left
       right: checkBox.left
     }
 
-    font.pointSize: Theme.defaultFont.pointSize
-    font.bold: Theme.defaultFont.bold
+    font.pointSize: QfTheme.defaultFont.pointSize
+    font.bold: QfTheme.defaultFont.bold
     verticalAlignment: Text.AlignVCenter
-    color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
 
     text: isEmpty ? qsTr("Empty") : isNull ? qsTr('NULL') : checkBox.checked ? checkedLabel : uncheckedLabel
   }

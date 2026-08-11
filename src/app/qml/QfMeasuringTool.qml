@@ -13,10 +13,10 @@ Item {
   property bool isClosingArea: rubberband.model.vertexCount > 2 && vertexFirstLastDistance.screenDistance < 10
   property bool isArea: false
 
-  MapToScreen {
+  QfMapToScreen {
     id: vertexFirstLastDistance
     mapSettings: rubberband.mapSettings
-    mapDistance: GeometryUtils.distanceBetweenPoints(rubberband.model.firstCoordinate, rubberband.model.currentCoordinate)
+    mapDistance: QfGeometryUtils.distanceBetweenPoints(rubberband.model.firstCoordinate, rubberband.model.currentCoordinate)
   }
 
   Repeater {
@@ -24,7 +24,7 @@ Item {
     model: rubberband.model.vertices
     delegate: Shape {
       id: shape
-      MapToScreen {
+      QfMapToScreen {
         id: vertexToScreen
         mapSettings: rubberband.mapSettings
         mapPoint: modelData
@@ -71,7 +71,7 @@ Item {
     id: rubberband
     color: '#96000000'
 
-    model: RubberbandModel {
+    model: QfRubberbandModel {
       frozen: false
       geometryType: isClosingArea || isArea ? Qgis.GeometryType.Polygon : Qgis.GeometryType.Line
       crs: rubberband.mapSettings.destinationCrs

@@ -39,7 +39,7 @@ Item {
     TextField {
       id: tcpDeviceAddress
       Layout.fillWidth: true
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       placeholderText: qsTr("IP address")
       text: '127.0.0.1'
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
@@ -48,7 +48,7 @@ Item {
     TextField {
       id: tcpDevicePort
       Layout.fillWidth: true
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       placeholderText: qsTr("Port")
       text: '9000'
       inputMethodHints: Qt.ImhFormattedNumbersOnly

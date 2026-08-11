@@ -19,7 +19,7 @@ QfPopup {
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2)
+  width: Math.min(400, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2)
   height: page.height + padding * 2
 
   onAboutToShow: {
@@ -41,7 +41,7 @@ QfPopup {
     width: parent.width
     height: {
       const headerHeight = toolBar.childrenRect.height + 20;
-      const maximumHeight = mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4);
+      const maximumHeight = mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4);
       let contentHeight = 0;
       if (popup.model.isRefreshing || deltaList.count === 0) {
         contentHeight = loadingIndicator.height;
@@ -54,7 +54,7 @@ QfPopup {
     padding: 5
     header: ToolBar {
       id: toolBar
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
 
       topPadding: 0
       leftPadding: 0
@@ -67,12 +67,12 @@ QfPopup {
 
       Label {
         anchors.centerIn: parent
-        leftPadding: Theme.toolButtonSize
-        rightPadding: Theme.toolButtonSize
+        leftPadding: QfTheme.toolButtonSize
+        rightPadding: QfTheme.toolButtonSize
         width: parent.width - 20
         text: qsTr("Upload History")
-        font: Theme.strongFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongFont
+        color: QfTheme.mainTextColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
       }
@@ -83,9 +83,9 @@ QfPopup {
           top: parent.top
           right: parent.right
         }
-        iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
-        iconColor: Theme.mainTextColor
-        bgcolor: Theme.mainBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+        iconColor: QfTheme.mainTextColor
+        bgcolor: QfTheme.mainBackgroundColor
 
         onClicked: {
           popup.close();
@@ -119,8 +119,8 @@ QfPopup {
 
           Label {
             width: parent.width
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
             text: qsTr("Fetching upload history…")
@@ -135,8 +135,8 @@ QfPopup {
         rightPadding: 48
         visible: !popup.model.isRefreshing && deltaList.count === 0
 
-        font: Theme.tipFont
-        color: Theme.mainTextDisabledColor
+        font: QfTheme.tipFont
+        color: QfTheme.mainTextDisabledColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         text: qsTr("No changes have been uploaded yet!")
@@ -151,15 +151,15 @@ QfPopup {
         spacing: 5
         ScrollBar.vertical: QfScrollBar {}
 
-        model: DeltaListModel {
+        model: QfDeltaListModel {
           id: deltaListModel
         }
 
         delegate: QfCollapsibleMessage {
           width: parent ? parent.width : undefined
           color: popup.deltaStatusColor(Status)
-          detailsColor: Theme.secondaryTextColor
-          font: Theme.tipFont
+          detailsColor: QfTheme.secondaryTextColor
+          font: QfTheme.tipFont
           iconSource: popup.deltaStatusIcon(Status)
           titleText: Summary + "\n" + qsTr("Uploaded by %1 on %2").arg(CreatedBy).arg(CreatedAt.toLocaleString(Qt.locale(), Locale.ShortFormat))
           detailsText: Output
@@ -170,39 +170,39 @@ QfPopup {
 
   function deltaStatusColor(status) {
     switch (status) {
-    case QFieldCloudDelta.AppliedStatus:
-      return Theme.mainColor;
-    case QFieldCloudDelta.PendingStatus:
-    case QFieldCloudDelta.BusyStatus:
-      return Theme.cloudColor;
-    case QFieldCloudDelta.ConflictStatus:
-    case QFieldCloudDelta.NotAppliedStatus:
-      return Theme.warningColor;
-    case QFieldCloudDelta.ErrorStatus:
-    case QFieldCloudDelta.UnpermittedStatus:
-      return Theme.errorColor;
+    case QfCloudDelta.AppliedStatus:
+      return QfTheme.mainColor;
+    case QfCloudDelta.PendingStatus:
+    case QfCloudDelta.BusyStatus:
+      return QfTheme.cloudColor;
+    case QfCloudDelta.ConflictStatus:
+    case QfCloudDelta.NotAppliedStatus:
+      return QfTheme.warningColor;
+    case QfCloudDelta.ErrorStatus:
+    case QfCloudDelta.UnpermittedStatus:
+      return QfTheme.errorColor;
     default:
-      return Theme.secondaryTextColor;
+      return QfTheme.secondaryTextColor;
     }
   }
 
   function deltaStatusLabel(status) {
     switch (status) {
-    case QFieldCloudDelta.AppliedStatus:
+    case QfCloudDelta.AppliedStatus:
       return qsTr('Applied');
-    case QFieldCloudDelta.PendingStatus:
+    case QfCloudDelta.PendingStatus:
       return qsTr('Pending');
-    case QFieldCloudDelta.BusyStatus:
+    case QfCloudDelta.BusyStatus:
       return qsTr('Busy');
-    case QFieldCloudDelta.ConflictStatus:
+    case QfCloudDelta.ConflictStatus:
       return qsTr('Conflict');
-    case QFieldCloudDelta.NotAppliedStatus:
+    case QfCloudDelta.NotAppliedStatus:
       return qsTr('Not applied');
-    case QFieldCloudDelta.ErrorStatus:
+    case QfCloudDelta.ErrorStatus:
       return qsTr('Error');
-    case QFieldCloudDelta.IgnoredStatus:
+    case QfCloudDelta.IgnoredStatus:
       return qsTr('Ignored');
-    case QFieldCloudDelta.UnpermittedStatus:
+    case QfCloudDelta.UnpermittedStatus:
       return qsTr('Unpermitted');
     default:
       return qsTr('Unknown');
@@ -211,13 +211,13 @@ QfPopup {
 
   function deltaStatusIcon(status) {
     switch (status) {
-    case QFieldCloudDelta.AppliedStatus:
-      return Theme.getThemeVectorIcon('ic_check_white_24dp');
-    case QFieldCloudDelta.PendingStatus:
-    case QFieldCloudDelta.BusyStatus:
-      return Theme.getThemeVectorIcon('ic_hourglass_black_24dp');
+    case QfCloudDelta.AppliedStatus:
+      return QfTheme.getThemeVectorIcon('ic_check_white_24dp');
+    case QfCloudDelta.PendingStatus:
+    case QfCloudDelta.BusyStatus:
+      return QfTheme.getThemeVectorIcon('ic_hourglass_black_24dp');
     default:
-      return Theme.getThemeVectorIcon('ic_error_outline_24dp');
+      return QfTheme.getThemeVectorIcon('ic_error_outline_24dp');
     }
   }
 }

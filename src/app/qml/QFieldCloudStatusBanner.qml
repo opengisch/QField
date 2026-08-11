@@ -11,7 +11,7 @@ import org.qfield.gui
 QfCollapsibleMessage {
   id: statusBanner
 
-  property QFieldCloudStatus cloudServiceStatus: null
+  property QfCloudStatus cloudServiceStatus: null
 
   visible: cloudServiceStatus && cloudServiceStatus.hasProblem
 
@@ -20,22 +20,22 @@ QfCollapsibleMessage {
 
   color: {
     if (!cloudServiceStatus)
-      return Theme.secondaryTextColor;
+      return QfTheme.secondaryTextColor;
     switch (cloudServiceStatus.statusType) {
-    case QFieldCloudStatus.Incident:
-      return Theme.errorColor;
-    case QFieldCloudStatus.Degraded:
-      return Theme.warningColor;
-    case QFieldCloudStatus.Maintenance:
-      return Theme.cloudColor;
+    case QfCloudStatus.Incident:
+      return QfTheme.errorColor;
+    case QfCloudStatus.Degraded:
+      return QfTheme.warningColor;
+    case QfCloudStatus.Maintenance:
+      return QfTheme.cloudColor;
     default:
-      return Theme.secondaryTextColor;
+      return QfTheme.secondaryTextColor;
     }
   }
 
-  detailsColor: Theme.secondaryTextColor
-  font: Theme.tipFont
-  iconSource: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+  detailsColor: QfTheme.secondaryTextColor
+  font: QfTheme.tipFont
+  iconSource: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
   titleText: cloudServiceStatus ? cloudServiceStatus.statusMessage : ''
   detailsText: cloudServiceStatus ? cloudServiceStatus.detailsMessage : ''
   externalLink: cloudServiceStatus ? cloudServiceStatus.statusPageUrl : ''

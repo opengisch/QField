@@ -13,7 +13,7 @@ Repeater {
   property MapSettings mapSettings
   property bool isVisible: false
   property bool isCycling: model.currentVertexIndex !== -1
-  property bool isAddingVertex: model.editingMode === VertexModel.AddVertex
+  property bool isAddingVertex: model.editingMode === QfVertexModel.AddVertex
 
   property color vertexColor: "#40FF0000"
   property color vertexBorderColor: "#FF0000"
@@ -23,7 +23,7 @@ Repeater {
   property color newVertexBorderColor: "#4CAF50"
 
   delegate: Rectangle {
-    MapToScreen {
+    QfMapToScreen {
       id: mapToScreen
       mapSettings: vertexRubberband.mapSettings
       mapPoint: Point
@@ -47,7 +47,7 @@ Repeater {
       radius: ExistingVertex ? width / 2 : 0
       color: "transparent"
       border.color: "#90FFFFFF"
-      border.width: (VertexModel.ExistingVertex ? 4 : 2) * (CurrentVertex ? 1.5 : 1) + 2
+      border.width: (QfVertexModel.ExistingVertex ? 4 : 2) * (CurrentVertex ? 1.5 : 1) + 2
     }
 
     Rectangle {
@@ -56,7 +56,7 @@ Repeater {
       radius: ExistingVertex ? width / 2 : 0
       color: CurrentVertex ? isAddingVertex ? vertexRubberband.newVertexColor : vertexRubberband.selectedVertexColor : vertexRubberband.vertexColor
       border.color: CurrentVertex ? isAddingVertex ? vertexRubberband.newVertexBorderColor : vertexRubberband.selectedVertexBorderColor : vertexRubberband.vertexBorderColor
-      border.width: (VertexModel.ExistingVertex ? 4 : 2) * (CurrentVertex ? 1.5 : 1)
+      border.width: (QfVertexModel.ExistingVertex ? 4 : 2) * (CurrentVertex ? 1.5 : 1)
     }
   }
 }

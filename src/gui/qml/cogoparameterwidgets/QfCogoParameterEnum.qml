@@ -29,8 +29,8 @@ QfCogoParameterWidgetBase {
 
       Label {
         Layout.fillWidth: true
-        color: Theme.mainTextColor
-        font: Theme.tipFont
+        color: QfTheme.mainTextColor
+        font: QfTheme.tipFont
         text: parameterLabel
       }
     }
@@ -40,7 +40,7 @@ QfCogoParameterWidgetBase {
       Layout.fillWidth: true
       visible: !!parameterConfiguration["toggle"]
       model: parameterConfiguration["options"]
-      font: Theme.tipFont
+      font: QfTheme.tipFont
       buttonMininumWidth: parent.width / 2 - buttonSpacing
       selectedIndex: 0
 

@@ -16,7 +16,7 @@ Item {
 
   height: childrenRect.height
 
-  ScaleBarMeasurement {
+  QfScaleBarMeasurement {
     id: measurement
     project: qgisProject
     referenceScreenLength: 300
@@ -26,10 +26,10 @@ Item {
     id: label
     anchors.horizontalCenter: bar.horizontalCenter
     anchors.left: undefined
-    font: Theme.defaultFont
-    color: Theme.toolButtonBackgroundColor
+    font: QfTheme.defaultFont
+    color: QfTheme.toolButtonBackgroundColor
     style: Text.Outline
-    styleColor: Qt.hsla(Theme.toolButtonColor.hslHue, Theme.toolButtonColor.hslSaturation, Theme.toolButtonColor.hslLightness, 0.8)
+    styleColor: Qt.hsla(QfTheme.toolButtonColor.hslHue, QfTheme.toolButtonColor.hslSaturation, QfTheme.toolButtonColor.hslLightness, 0.8)
 
     states: State {
       name: "narrow"
@@ -53,7 +53,7 @@ Item {
 
     ShapePath {
       strokeWidth: barLine.strokeWidth + 1.5
-      strokeColor: Qt.hsla(Theme.toolButtonColor.hslHue, Theme.toolButtonColor.hslSaturation, Theme.toolButtonColor.hslLightness, 0.8)
+      strokeColor: Qt.hsla(QfTheme.toolButtonColor.hslHue, QfTheme.toolButtonColor.hslSaturation, QfTheme.toolButtonColor.hslLightness, 0.8)
       fillColor: "transparent"
       startX: 0
       startY: 0
@@ -75,7 +75,7 @@ Item {
     ShapePath {
       id: barLine
       strokeWidth: scaleBar.lineWidth
-      strokeColor: Theme.toolButtonBackgroundColor
+      strokeColor: QfTheme.toolButtonBackgroundColor
       fillColor: "transparent"
       startX: 0
       startY: 0

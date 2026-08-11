@@ -44,11 +44,11 @@ TestCase {
     }
   }
 
-  QFieldCloudConnection {
+  QfCloudConnection {
     id: cloudConnection
   }
 
-  QFieldCloudProjectsModel {
+  QfCloudProjectsModel {
     id: cloudProjectsModel
     cloudConnection: cloudConnection
   }
@@ -119,9 +119,9 @@ TestCase {
   }
 
   function cleanup() {
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn) {
       cloudConnection.logout();
-      tryCompare(cloudConnection, "status", QFieldCloudConnection.Disconnected, 5000);
+      tryCompare(cloudConnection, "status", QfCloudConnection.Disconnected, 5000);
     }
     cloudConnection.username = "";
     cloudConnection.url = "";
@@ -176,7 +176,7 @@ TestCase {
     cloudConnection.url = data.url;
     cloudConnection.username = data.username;
     cloudConnection.login(data.password);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 30000);
+    tryCompare(cloudConnection, "status", QfCloudConnection.LoggedIn, 30000);
   }
 
   // Helper: Login and refresh projects list
@@ -193,10 +193,10 @@ TestCase {
     let projectInfo = null;
     for (let i = 0; i < table.model.rowCount(); i++) {
       const index = table.model.index(i, 0);
-      const name = table.model.data(index, QFieldCloudProjectsModel.NameRole);
+      const name = table.model.data(index, QfCloudProjectsModel.NameRole);
       if (name === projectName) {
         projectInfo = {
-          id: table.model.data(index, QFieldCloudProjectsModel.IdRole),
+          id: table.model.data(index, QfCloudProjectsModel.IdRole),
           rowIndex: i
         };
         break;
@@ -215,9 +215,9 @@ TestCase {
   function findProjectIdByName(projectName) {
     for (let i = 0; i < cloudProjectsModel.rowCount(); i++) {
       const index = cloudProjectsModel.index(i, 0);
-      const name = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+      const name = cloudProjectsModel.data(index, QfCloudProjectsModel.NameRole);
       if (name === projectName) {
-        return cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole);
+        return cloudProjectsModel.data(index, QfCloudProjectsModel.IdRole);
       }
     }
     return "";
@@ -232,7 +232,7 @@ TestCase {
     return serverConfigs();
   }
   function test_01_viewVisibilityByConnectionStatus(data) {
-    compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
+    compare(cloudConnection.status, QfCloudConnection.Disconnected);
     verify(connectionSettings.visible);
     compare(projectsSwipeView.visible, false);
     loginToServer(data);
@@ -254,14 +254,14 @@ TestCase {
     loginToServer(data);
     wait(500);
     compare(filterBar.currentIndex, 0);
-    compare(table.model.filter, QFieldCloudProjectsFilterModel.PrivateProjects);
+    compare(table.model.filter, QfCloudProjectsFilterModel.PrivateProjects);
     filterBar.currentIndex = 1;
     wait(200);
     compare(filterBar.currentIndex, 1);
-    compare(table.model.filter, QFieldCloudProjectsFilterModel.PublicProjects);
+    compare(table.model.filter, QfCloudProjectsFilterModel.PublicProjects);
     filterBar.currentIndex = 0;
     wait(200);
-    compare(table.model.filter, QFieldCloudProjectsFilterModel.PrivateProjects);
+    compare(table.model.filter, QfCloudProjectsFilterModel.PrivateProjects);
   }
 
   /**
@@ -303,7 +303,7 @@ TestCase {
     verify(projectsSwipeView.visible);
     compare(connectionSettings.visible, false);
     cloudConnection.logout();
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.Disconnected, 5000);
+    tryCompare(cloudConnection, "status", QfCloudConnection.Disconnected, 5000);
     tryCompare(table, "count", 0, 5000);
     verify(connectionSettings.visible);
   }
@@ -354,7 +354,7 @@ TestCase {
     const projectInfo = prepareProjectForDownload("QFieldCloudTesting");
     let project = cloudProjectsModel.findProject(projectInfo.id);
     compare(project.localPath, "");
-    compare(project.status, QFieldCloudProject.Idle);
+    compare(project.status, QfCloudProject.Idle);
     compare(project.downloadProgress, 0);
     table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
     wait(500);
@@ -367,7 +367,7 @@ TestCase {
     wait(3000);
     project = cloudProjectsModel.findProject(projectInfo.id);
     verify(project !== null);
-    tryCompare(project, "status", QFieldCloudProject.Idle, 180000);
+    tryCompare(project, "status", QfCloudProject.Idle, 180000);
     verify(project.localPath !== "");
     compare(project.downloadProgress, 1);
     cloudProjectsModel.removeLocalProject(projectInfo.id);
@@ -387,7 +387,7 @@ TestCase {
     const projectInfo = prepareProjectForDownload("TestCloudLargeProject");
     let project = cloudProjectsModel.findProject(projectInfo.id);
     compare(project.localPath, "");
-    compare(project.status, QFieldCloudProject.Idle);
+    compare(project.status, QfCloudProject.Idle);
     table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
     wait(500);
     const delegate = table.itemAtIndex(projectInfo.rowIndex);
@@ -399,11 +399,11 @@ TestCase {
     wait(1000);
     project = cloudProjectsModel.findProject(projectInfo.id);
     verify(project !== null);
-    tryCompare(project, "status", QFieldCloudProject.Downloading, 5000);
+    tryCompare(project, "status", QfCloudProject.Downloading, 5000);
     downloadButton.clicked();
     wait(1000);
     project = cloudProjectsModel.findProject(projectInfo.id);
-    compare(project.status, QFieldCloudProject.Idle);
+    compare(project.status, QfCloudProject.Idle);
     compare(project.localPath, "");
   }
 
@@ -444,8 +444,8 @@ TestCase {
 
     project1 = cloudProjectsModel.findProject(project1Info.id);
     project2 = cloudProjectsModel.findProject(project2Info.id);
-    tryCompare(project1, "status", QFieldCloudProject.Idle, 180000);
-    tryCompare(project2, "status", QFieldCloudProject.Idle, 180000);
+    tryCompare(project1, "status", QfCloudProject.Idle, 180000);
+    tryCompare(project2, "status", QfCloudProject.Idle, 180000);
     verify(project1.localPath !== "");
     verify(project2.localPath !== "");
     compare(project1.downloadProgress, 1);
@@ -483,7 +483,7 @@ TestCase {
       project = cloudProjectsModel.findProject(projectInfo.id);
       // The download may complete before we observe the Downloading state;
       // only attempt cancel if still downloading.
-      if (project.status === QFieldCloudProject.Downloading) {
+      if (project.status === QfCloudProject.Downloading) {
         table.positionViewAtIndex(projectInfo.rowIndex, ListView.Center);
         tryVerify(() => table.itemAtIndex(projectInfo.rowIndex) !== null, 5000);
         delegate = table.itemAtIndex(projectInfo.rowIndex);
@@ -494,7 +494,7 @@ TestCase {
         wait(1000);
         project = cloudProjectsModel.findProject(projectInfo.id);
       }
-      tryCompare(project, "status", QFieldCloudProject.Idle, 180000);
+      tryCompare(project, "status", QfCloudProject.Idle, 180000);
       if (project.localPath !== "") {
         cloudProjectsModel.removeLocalProject(projectInfo.id);
         wait(1000);
@@ -514,7 +514,7 @@ TestCase {
     wait(3000);
     project = cloudProjectsModel.findProject(projectInfo.id);
     verify(project !== null);
-    tryCompare(project, "status", QFieldCloudProject.Idle, 180000);
+    tryCompare(project, "status", QfCloudProject.Idle, 180000);
     verify(project.localPath !== "");
     compare(project.downloadProgress, 1);
     cloudProjectsModel.removeLocalProject(projectInfo.id);
@@ -534,8 +534,8 @@ TestCase {
     loginAndRefresh(data);
     verify(cloudProjectsModel.rowCount() > 0);
     const index = cloudProjectsModel.index(0, 0);
-    const projectId = cloudProjectsModel.data(index, QFieldCloudProjectsModel.IdRole);
-    const projectName = cloudProjectsModel.data(index, QFieldCloudProjectsModel.NameRole);
+    const projectId = cloudProjectsModel.data(index, QfCloudProjectsModel.IdRole);
+    const projectName = cloudProjectsModel.data(index, QfCloudProjectsModel.NameRole);
     verify(projectId !== "");
     currentProjectIdSpy.clear();
     currentProjectSpy.clear();

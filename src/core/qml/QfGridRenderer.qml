@@ -33,7 +33,7 @@ Item {
   property alias prepareMarkers: gridModel.prepareMarkers
   property alias prepareAnnotations: gridModel.prepareAnnotations
 
-  GridModel {
+  QfGridModel {
     id: gridModel
   }
 
@@ -115,12 +115,12 @@ Item {
 
       Text {
         id: annotation
-        anchors.top: modelData.position === GridAnnotation.Top ? parent.bottom : undefined
-        anchors.bottom: modelData.position === GridAnnotation.Bottom ? parent.top : undefined
-        anchors.left: modelData.position === GridAnnotation.Left ? parent.right : undefined
-        anchors.right: modelData.position === GridAnnotation.Right ? parent.left : undefined
-        anchors.horizontalCenter: modelData.position === GridAnnotation.Top || modelData.position === GridAnnotation.Bottom ? parent.horizontalCenter : undefined
-        anchors.verticalCenter: modelData.position === GridAnnotation.Left || modelData.position === GridAnnotation.Right ? parent.verticalCenter : undefined
+        anchors.top: modelData.position === QfGridAnnotation.Top ? parent.bottom : undefined
+        anchors.bottom: modelData.position === QfGridAnnotation.Bottom ? parent.top : undefined
+        anchors.left: modelData.position === QfGridAnnotation.Left ? parent.right : undefined
+        anchors.right: modelData.position === QfGridAnnotation.Right ? parent.left : undefined
+        anchors.horizontalCenter: modelData.position === QfGridAnnotation.Top || modelData.position === QfGridAnnotation.Bottom ? parent.horizontalCenter : undefined
+        anchors.verticalCenter: modelData.position === QfGridAnnotation.Left || modelData.position === QfGridAnnotation.Right ? parent.verticalCenter : undefined
 
         font: gridRenderer.annotationFont
         color: annotationColor

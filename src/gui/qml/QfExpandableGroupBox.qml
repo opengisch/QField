@@ -12,9 +12,9 @@ Rectangle {
   implicitHeight: checked ? header.height + body.childrenRect.height + 30 : 60
 
   radius: 12
-  color: Theme.groupBoxBackgroundColor
+  color: QfTheme.groupBoxBackgroundColor
   border.width: 1
-  border.color: Theme.controlBorderColor
+  border.color: QfTheme.controlBorderColor
   clip: true
 
   property alias title: headerText.text
@@ -63,8 +63,8 @@ Rectangle {
 
       Label {
         id: headerText
-        font: Theme.strongTitleFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongTitleFont
+        color: QfTheme.mainTextColor
         wrapMode: Text.WordWrap
         anchors.left: headerIcon.right
         anchors.margins: headerIcon.visible ? 8 : 0
@@ -95,7 +95,7 @@ Rectangle {
     width: parent.width
     height: 1
     anchors.top: header.bottom
-    color: Theme.controlBorderColor
+    color: QfTheme.controlBorderColor
   }
 
   Item {

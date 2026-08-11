@@ -40,11 +40,11 @@ Page {
     gradient: Gradient {
       GradientStop {
         position: 0.0
-        color: Theme.darkTheme ? "#99000000" : "#99A5A5A5"
+        color: QfTheme.darkTheme ? "#99000000" : "#99A5A5A5"
       }
       GradientStop {
         position: 0.33
-        color: Theme.mainBackgroundColor
+        color: QfTheme.mainBackgroundColor
       }
     }
   }
@@ -129,7 +129,7 @@ Page {
 
           font.pointSize: welcomeScreenLogo.imageSize * 0.5
           font.bold: true
-          color: Theme.mainTextColor
+          color: QfTheme.mainTextColor
           text: appName
           wrapMode: Text.WordWrap
         }
@@ -169,11 +169,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -189,8 +189,8 @@ Page {
               Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("We're sorry to hear that. Click on the button below to comment or seek support.")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
               wrapMode: Text.WordWrap
             }
@@ -207,7 +207,7 @@ Page {
                 rightPadding: 10
 
                 text: qsTr("Reach out")
-                icon.source: Theme.getThemeVectorIcon('ic_create_white_24dp')
+                icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
 
                 onClicked: {
                   Qt.openUrlExternally("https://www.qfield.org/");
@@ -226,11 +226,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -246,8 +246,8 @@ Page {
               Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("Hey there, how do you like your experience with %1 so far?").arg(appName)
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
               wrapMode: Text.WordWrap
             }
@@ -257,9 +257,9 @@ Page {
               Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
               Layout.bottomMargin: 10
               QfToolButton {
-                iconSource: Theme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
-                iconColor: Theme.mainOverlayColor
-                bgcolor: Theme.mainColor
+                iconSource: QfTheme.getThemeVectorIcon('ic_dissatisfied_white_24dp')
+                iconColor: QfTheme.mainOverlayColor
+                bgcolor: QfTheme.mainColor
                 round: true
 
                 onClicked: {
@@ -267,9 +267,9 @@ Page {
                 }
               }
               QfToolButton {
-                iconSource: Theme.getThemeVectorIcon('ic_satisfied_white_24dp')
-                iconColor: Theme.mainOverlayColor
-                bgcolor: Theme.mainColor
+                iconSource: QfTheme.getThemeVectorIcon('ic_satisfied_white_24dp')
+                iconColor: QfTheme.mainOverlayColor
+                bgcolor: QfTheme.mainColor
                 round: true
 
                 onClicked: {
@@ -291,11 +291,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -311,8 +311,8 @@ Page {
               Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
               text: qsTr("That's great! We'd love for you to click on the button below and leave a review.")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
               wrapMode: Text.WordWrap
             }
@@ -329,7 +329,7 @@ Page {
                 rightPadding: 10
 
                 text: qsTr("Rate us")
-                icon.source: Theme.getThemeVectorIcon('ic_star_white_24dp')
+                icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
 
                 onClicked: {
                   if (Qt.platform.os === "windows") {
@@ -376,11 +376,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -396,8 +396,8 @@ Page {
               Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
               text: qsTr("Anonymized metrics collection has been disabled. You can re-enable through the settings panel.")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
               wrapMode: Text.WordWrap
             }
@@ -412,11 +412,11 @@ Page {
             gradient: Gradient {
               GradientStop {
                 position: 0.0
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.26)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.26)
               }
               GradientStop {
                 position: 0.88
-                color: Qt.hsla(Theme.mainColor.hslHue, Theme.mainColor.hslSaturation, Theme.mainColor.hslLightness, 0.02)
+                color: Qt.hsla(QfTheme.mainColor.hslHue, QfTheme.mainColor.hslSaturation, QfTheme.mainColor.hslLightness, 0.02)
               }
             }
 
@@ -432,8 +432,8 @@ Page {
               Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
               text: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(appName)
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
               wrapMode: Text.WordWrap
             }
@@ -464,7 +464,7 @@ Page {
 
                 text: qsTr('I prefer not')
                 bgcolor: "transparent"
-                color: Theme.mainColor
+                color: QfTheme.mainColor
 
                 onClicked: {
                   qfieldSettings.enableInfoCollection = false;
@@ -486,8 +486,8 @@ Page {
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         text: ""
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
       }
@@ -534,8 +534,8 @@ Page {
               id: welcomeActionCloud
               objectName: "welcomeActionCloud"
               width: welcomeActionsContainer.itemWidth
-              iconSource: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
-              iconColor: Theme.cloudColor
+              iconSource: QfTheme.getThemeVectorIcon("ic_cloud_active_24dp")
+              iconColor: QfTheme.cloudColor
               label: qsTr("QFieldCloud\nprojects")
               onClicked: showQFieldCloudScreen()
             }
@@ -544,8 +544,8 @@ Page {
               id: welcomeActionLocalProjects
               objectName: "welcomeActionLocalProjects"
               width: welcomeActionsContainer.itemWidth
-              iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
-              iconColor: Theme.mainColor
+              iconSource: QfTheme.getThemeVectorIcon("ic_folder_open_black_24dp")
+              iconColor: QfTheme.mainColor
               label: qsTr("Local projects and\n datasets")
               onClicked: {
                 platformUtilities.requestStoragePermission();
@@ -557,8 +557,8 @@ Page {
               id: welcomeActionNewProject
               objectName: "welcomeActionNewProject"
               width: welcomeActionsContainer.itemWidth
-              iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
-              iconColor: Theme.mainColor
+              iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+              iconColor: QfTheme.mainColor
               label: qsTr("Create new\nproject")
               onClicked: showProjectCreationScreen()
             }
@@ -570,9 +570,9 @@ Page {
             Layout.topMargin: 18
             visible: table.count > 0
             text: qsTr("Recently Opened")
-            font.pointSize: Theme.tipFont.pointSize
+            font.pointSize: QfTheme.tipFont.pointSize
             font.bold: true
-            color: Theme.mainTextColor
+            color: QfTheme.mainTextColor
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
           }
@@ -595,7 +595,7 @@ Page {
                 property string path: ProjectPath
                 property var type: ProjectType
                 property int changesCount: {
-                  const cloudProjectId = QFieldCloudUtils.getProjectId(ProjectPath);
+                  const cloudProjectId = QfCloudUtils.getProjectId(ProjectPath);
                   if (cloudProjectId !== "") {
                     const project = cloudProjectsModel.findProject(cloudProjectId);
                     if (project) {
@@ -605,7 +605,7 @@ Page {
                   return 0;
                 }
                 property bool isOutdated: {
-                  const cloudProjectId = QFieldCloudUtils.getProjectId(ProjectPath);
+                  const cloudProjectId = QfCloudUtils.getProjectId(ProjectPath);
                   if (cloudProjectId !== "") {
                     const project = cloudProjectsModel.findProject(cloudProjectId);
                     if (project) {
@@ -618,24 +618,24 @@ Page {
                 readonly property bool showPush: changesCount > 0
 
                 objectName: "loadProjectItem_1" // todo, suffix with e.g. ProjectTitle
-                previewImageSource: welcomeScreen.visible ? ProjectThumbnail !== "" ? UrlUtils.fromString(ProjectThumbnail) : 'image://projects/' + ProjectPath : ''
+                previewImageSource: welcomeScreen.visible ? ProjectThumbnail !== "" ? QfUrlUtils.fromString(ProjectThumbnail) : 'image://projects/' + ProjectPath : ''
                 showType: true
 
                 primaryBadge.badgeText.text: changesCount > 0 ? changesCount : ''
-                primaryBadge.badgeText.color: Theme.light
+                primaryBadge.badgeText.color: QfTheme.light
                 primaryBadge.visible: showSync || showPush
-                primaryBadge.color: showSync ? Theme.mainColor : Theme.cloudColor
-                primaryBadge.border.color: Theme.mainBackgroundColor
+                primaryBadge.color: showSync ? QfTheme.mainColor : QfTheme.cloudColor
+                primaryBadge.border.color: QfTheme.mainBackgroundColor
                 primaryBadge.border.width: 1
                 primaryBadge.enableGradient: showSync && showPush
 
                 projectTypeSource: switch (ProjectType) {
                 case 0:
-                  return Theme.getThemeVectorIcon('ic_map_param_48dp');     // local project
+                  return QfTheme.getThemeVectorIcon('ic_map_param_48dp');     // local project
                 case 1:
-                  return Theme.getThemeVectorIcon('ic_cloud_project_param_48dp'); // cloud project
+                  return QfTheme.getThemeVectorIcon('ic_cloud_project_param_48dp'); // cloud project
                 case 2:
-                  return Theme.getThemeVectorIcon('ic_file_param_48dp');    // local dataset
+                  return QfTheme.getThemeVectorIcon('ic_file_param_48dp');    // local dataset
                 default:
                   return '';
                 }
@@ -668,15 +668,15 @@ Page {
                   var item = table.itemAt(mouse.x, mouse.y);
                   if (item) {
                     switch (item.type) {
-                    case RecentProjectListModel.CloudProject:
-                    case RecentProjectListModel.LocalProject:
-                    case RecentProjectListModel.LocalDataset:
-                      if (item.type === RecentProjectListModel.CloudProject && cloudConnection.hasToken && cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
+                    case QfRecentProjectListModel.CloudProject:
+                    case QfRecentProjectListModel.LocalProject:
+                    case QfRecentProjectListModel.LocalDataset:
+                      if (item.type === QfRecentProjectListModel.CloudProject && cloudConnection.hasToken && cloudConnection.status !== QfCloudConnection.LoggedIn) {
                         cloudConnection.login();
                       }
                       iface.loadFile(item.path, item.projectTitle.text);
                       break;
-                    case RecentProjectListModel.LinkProject:
+                    case QfRecentProjectListModel.LinkProject:
                       iface.importUrl(item.path, item.projectTitle.text, true);
                       break;
                     }
@@ -726,10 +726,10 @@ Page {
                   id: defaultProject
                   visible: recentProjectActions.recentProjectType != 2
 
-                  font: Theme.defaultFont
+                  font: QfTheme.defaultFont
                   width: parent.width
                   height: visible ? 48 : 0
-                  leftPadding: Theme.menuItemCheckLeftPadding
+                  leftPadding: QfTheme.menuItemCheckLeftPadding
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.defaultProject
 
@@ -743,10 +743,10 @@ Page {
                   id: baseMapProject
                   visible: recentProjectActions.recentProjectType != 2
 
-                  font: Theme.defaultFont
+                  font: QfTheme.defaultFont
                   width: parent.width
                   height: visible ? 48 : 0
-                  leftPadding: Theme.menuItemCheckLeftPadding
+                  leftPadding: QfTheme.menuItemCheckLeftPadding
                   checkable: true
                   checked: recentProjectActions.recentProjectPath === registry.baseMapProject
 
@@ -765,10 +765,10 @@ Page {
                 MenuItem {
                   id: removeProject
 
-                  font: Theme.defaultFont
+                  font: QfTheme.defaultFont
                   width: parent.width
                   height: visible ? 48 : 0
-                  leftPadding: Theme.menuItemIconlessLeftPadding
+                  leftPadding: QfTheme.menuItemIconlessLeftPadding
 
                   text: qsTr("Remove from recently opened")
                   onTriggered: {
@@ -789,9 +789,9 @@ Page {
               Layout.alignment: Qt.AlignVCenter
               topPadding: 10
               bottomPadding: 10
-              font: Theme.tipFont
+              font: QfTheme.tipFont
               wrapMode: Text.WordWrap
-              color: Theme.mainTextColor
+              color: QfTheme.mainTextColor
 
               text: registry.defaultProject != '' ? qsTr('Load default project on launch') : qsTr('Load last opened project on launch')
 
@@ -829,7 +829,7 @@ Page {
 
     QfActionButton {
       id: currentProjectButton
-      toolImage: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      toolImage: QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
       toolText: qsTr('Return to map')
       backgroundless: true
       visible: qgisProject && !!qgisProject.homePath
@@ -842,8 +842,8 @@ Page {
 
     QfToolButton {
       id: settingsButton
-      iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon('ic_tune_white_24dp')
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       round: true
 
@@ -862,8 +862,8 @@ Page {
       topMargin: mainWindow.sceneTopMargin + 4
       rightMargin: mainWindow.sceneRightMargin + 4
     }
-    iconSource: Theme.getThemeVectorIcon('ic_shutdown_24dp')
-    iconColor: Theme.mainTextColor
+    iconSource: QfTheme.getThemeVectorIcon('ic_shutdown_24dp')
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
     round: true
 
@@ -1013,7 +1013,7 @@ Page {
         settings.setValue("/QField/FirstRunDate", now.toISOString());
       }
     }
-    if (platformUtilities.capabilities & PlatformUtilities.SentryFramework) {
+    if (platformUtilities.capabilities & QfPlatformUtilities.SentryFramework) {
       var collectionFormShown = settings.value("/QField/CollectionFormShownV2", false);
       if (!collectionFormShown) {
         collectionView.visible = true;
@@ -1022,7 +1022,7 @@ Page {
     }
     settings.setValue("/QField/RunCount", runCount + 1);
     if (registry.defaultProject != '') {
-      if (!FileUtils.fileExists(registry.defaultProject)) {
+      if (!QfFileUtils.fileExists(registry.defaultProject)) {
         registry.defaultProject = '';
       }
     }

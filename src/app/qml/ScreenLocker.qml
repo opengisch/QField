@@ -77,7 +77,7 @@ Item {
     width: screenLocker.threshold * 2
     height: screenLocker.threshold * 2
     color: "transparent"
-    border.color: unlockHandler.unlocked ? Theme.mainColor : Theme.darkGray
+    border.color: unlockHandler.unlocked ? QfTheme.mainColor : QfTheme.darkGray
     border.width: 2
     radius: width / 2
     opacity: unlockHandler.entered ? 1 : 0
@@ -100,7 +100,7 @@ Item {
 
     width: 60
     height: 60
-    color: Theme.darkGraySemiOpaque
+    color: QfTheme.darkGraySemiOpaque
     radius: 30
     opacity: 0
 
@@ -110,7 +110,7 @@ Item {
       height: 36
       fillMode: Image.PreserveAspectFit
       smooth: true
-      source: unlockHandler.unlocked ? Theme.getThemeVectorIcon('ic_lock_open_green_24dp') : unlockHandler.entered ? Theme.getThemeVectorIcon('ic_lock_open_white_24dp') : Theme.getThemeVectorIcon('ic_lock_white_24dp')
+      source: unlockHandler.unlocked ? QfTheme.getThemeVectorIcon('ic_lock_open_green_24dp') : unlockHandler.entered ? QfTheme.getThemeVectorIcon('ic_lock_open_white_24dp') : QfTheme.getThemeVectorIcon('ic_lock_white_24dp')
       sourceSize.width: 96
       sourceSize.height: 96
     }

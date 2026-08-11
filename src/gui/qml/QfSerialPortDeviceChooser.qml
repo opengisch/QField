@@ -43,7 +43,7 @@ Item {
     Label {
       Layout.fillWidth: true
       text: serialPortComboBox.count > 0 ? qsTr("Select the serial port from the list below:") : qsTr("No serial ports detected, refresh the list once a device is connected.")
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
 
       wrapMode: Text.WordWrap
     }
@@ -52,14 +52,14 @@ Item {
       id: serialPortComboBox
       Layout.fillWidth: true
       visible: serialPortComboBox.count
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
 
-      popup.font: Theme.defaultFont
+      popup.font: QfTheme.defaultFont
       popup.topMargin: mainWindow.sceneTopMargin
       popup.bottomMargin: mainWindow.sceneTopMargin
 
       textRole: 'display'
-      model: SerialPortModel {
+      model: QfSerialPortModel {
         id: serialPortModel
       }
 
@@ -68,7 +68,7 @@ Item {
       onCurrentIndexChanged: {
         var modelIndex = serialPortModel.index(currentIndex, 0);
         deviceName = serialPortModel.data(modelIndex, Qt.DisplayRole);
-        deviceAddress = serialPortModel.data(modelIndex, SerialPortModel.PortNameRole);
+        deviceAddress = serialPortModel.data(modelIndex, QfSerialPortModel.PortNameRole);
         selectedSerialPort = serialPortAddress.text;
       }
     }
@@ -88,8 +88,8 @@ Item {
       Layout.fillWidth: true
       Layout.leftMargin: 10
       visible: deviceAddress != ''
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       text: qsTr('Serial port display name:') + '\n ' + deviceName
       wrapMode: Text.WordWrap
     }
@@ -99,8 +99,8 @@ Item {
       Layout.fillWidth: true
       Layout.leftMargin: 10
       visible: deviceAddress != ''
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       text: qsTr('Serial port address:') + '\n ' + deviceAddress
       wrapMode: Text.WordWrap
     }

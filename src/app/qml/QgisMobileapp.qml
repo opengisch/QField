@@ -49,8 +49,8 @@ ApplicationWindow {
   leftPadding: 0
   rightPadding: 0
 
-  Material.theme: Theme.darkTheme ? Material.Dark : Material.Light
-  Material.accent: Theme.mainColor
+  Material.theme: QfTheme.darkTheme ? Material.Dark : Material.Light
+  Material.accent: QfTheme.mainColor
 
   property bool sceneLoaded: false
   property bool sceneBorderless: false
@@ -122,19 +122,19 @@ ApplicationWindow {
   }
 
   palette {
-    link: Theme.mainColor
-    linkVisited: Theme.mainColor
+    link: QfTheme.mainColor
+    linkVisited: QfTheme.mainColor
   }
 
   Connections {
-    target: Theme
+    target: QfTheme
 
     function onDarkThemeChanged() {
-      Application.styleHints.colorScheme = Theme.darkTheme ? Qt.ColorScheme.Dark : Qt.ColorScheme.Light;
+      Application.styleHints.colorScheme = QfTheme.darkTheme ? Qt.ColorScheme.Dark : Qt.ColorScheme.Light;
     }
   }
 
-  LocatorModelSuperBridge {
+  QfLocatorModelSuperBridge {
     id: locatorBridge
     objectName: "locatorBridge"
 
@@ -251,7 +251,7 @@ ApplicationWindow {
 
   //currentRubberband provides the rubberband depending on the current state (digitize or measure)
   property QfRubberband currentRubberband
-  property LayerObserver layerObserverAlias: layerObserver
+  property QfLayerObserver layerObserverAlias: layerObserver
   property QgsGpkgFlusher gpkgFlusherAlias: gpkgFlusher
 
   signal closeMeasureTool
@@ -371,11 +371,11 @@ ApplicationWindow {
   /**
    * The position source to access GNSS devices
    */
-  Positioning {
+  QfPositioning {
     id: positionSource
     objectName: "positionSource"
 
-    serviceMode: trackings.count > 0// && (platformUtilities.capabilities & PlatformUtilities.PositioningService)
+    serviceMode: trackings.count > 0// && (platformUtilities.capabilities & QfPlatformUtilities.PositioningService)
     deviceId: positioningSettings.positioningDevice
     badAccuracyThreshold: positioningSettings.accuracyBad
     excellentAccuracyThreshold: positioningSettings.accuracyExcellent
@@ -390,7 +390,7 @@ ApplicationWindow {
 
     coordinateTransformer: CoordinateTransformer {
       destinationCrs: mapCanvas.mapSettings.destinationCrs
-      transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
+      transformContext: qgisProject ? qgisProject.transformContext : QfCoordinateReferenceSystemUtils.emptyTransformContext()
       deltaZ: 0
       skipAltitudeTransformation: positioningSettings.skipAltitudeCorrection
       verticalGrid: positioningSettings.verticalGrid
@@ -403,7 +403,7 @@ ApplicationWindow {
     logging: positioningSettings.logging
 
     enableNtrip: positioningSettings.enableNtrip
-    ntripSettings: PositioningUtils.createNtripSettings(positioningSettings.ntripSettings)
+    ntripSettings: QfPositioningUtils.createNtripSettings(positioningSettings.ntripSettings)
 
     onPositionInformationChanged: {
       if (active) {
@@ -411,7 +411,7 @@ ApplicationWindow {
           jumpToPosition = false;
           gnssButton.jumpToLocation();
         }
-        bearingTrueNorth = PositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
+        bearingTrueNorth = QfPositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
           if (stateMachine.state === '3d') {
             if (mapCanvas3DLoader.item) {
@@ -519,7 +519,7 @@ ApplicationWindow {
           geocoderLocatorFiltersChecked = true;
         }
       }
-      if (positionSource.ntripState === Positioning.NtripState.Connected) {
+      if (positionSource.ntripState === QfPositioning.NtripState.Connected) {
         positionSource.ntripCurrentness = ((Date.now() - positionSource.ntripLastBytesReceivedUtcDateTime.getTime()) / 1000) < 10;
       }
     }
@@ -775,7 +775,7 @@ ApplicationWindow {
         item.mapSettings = mapCanvas.mapSettings;
         item.trackingModel = trackingModel;
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
-        item.selectionColor = Qt.binding(() => Theme.mainColor);
+        item.selectionColor = Qt.binding(() => QfTheme.mainColor);
 
         // Bind GNSS position updates
         item.gnssActive = Qt.binding(() => positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid);
@@ -843,7 +843,7 @@ ApplicationWindow {
       indeterminate: true
       prepareLines: true
       autoColor: true
-      annotationFont: Theme.tinyFont
+      annotationFont: QfTheme.tinyFont
     }
 
     /* The map canvas */
@@ -1035,7 +1035,7 @@ ApplicationWindow {
       QfGridRenderer {
         id: gridDecoration
         mapSettings: mapCanvas.mapSettings
-        annotationFont: Theme.tinyFont
+        annotationFont: QfTheme.tinyFont
       }
 
       QfMapCanvasPointHandler {
@@ -1054,12 +1054,12 @@ ApplicationWindow {
    **************************************************/
 
     // Model for pie menu and context menu feature identification
-    MultiFeatureListModel {
+    QfMultiFeatureListModel {
       id: menuFeatureListModel
     }
 
     /** The identify tool **/
-    IdentifyTool {
+    QfIdentifyTool {
       id: identifyTool
 
       property bool isMenuRequest: false
@@ -1136,9 +1136,9 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
       showVertices: digitizingToolbar.cogoEnabled
 
-      model: RubberbandModel {
+      model: QfRubberbandModel {
         frozen: false
-        currentCoordinate: digitizingToolbar.cogoEnabled ? GeometryUtils.emptyPoint() : coordinateLocator.currentCoordinate
+        currentCoordinate: digitizingToolbar.cogoEnabled ? QfGeometryUtils.emptyPoint() : coordinateLocator.currentCoordinate
         measureValue: {
           let pi;
           if (digitizingToolbar.cogoEnabled) {
@@ -1149,21 +1149,21 @@ ApplicationWindow {
             return Number.NaN;
           }
           switch (positioningSettings.digitizingMeasureType) {
-          case Tracker.Timestamp:
+          case QfTracker.Timestamp:
             return pi.utcDateTime.getTime();
-          case Tracker.GroundSpeed:
+          case QfTracker.GroundSpeed:
             return pi.speed;
-          case Tracker.Bearing:
+          case QfTracker.Bearing:
             return pi.direction;
-          case Tracker.HorizontalAccuracy:
+          case QfTracker.HorizontalAccuracy:
             return pi.hacc;
-          case Tracker.VerticalAccuracy:
+          case QfTracker.VerticalAccuracy:
             return pi.vacc;
-          case Tracker.PDOP:
+          case QfTracker.PDOP:
             return pi.pdop;
-          case Tracker.HDOP:
+          case QfTracker.HDOP:
             return pi.hdop;
-          case Tracker.VDOP:
+          case QfTracker.VDOP:
             return pi.vdop;
           }
           return Number.NaN;
@@ -1186,7 +1186,7 @@ ApplicationWindow {
 
       mapSettings: mapCanvas.mapSettings
 
-      model: RubberbandModel {
+      model: QfRubberbandModel {
         frozen: false
         currentCoordinate: coordinateLocator.currentCoordinate
         crs: mapCanvas.mapSettings.destinationCrs
@@ -1199,12 +1199,12 @@ ApplicationWindow {
       mapSettings: mapCanvas.mapSettings
     }
 
-    Navigation {
+    QfNavigation {
       id: navigation
       objectName: "navigation"
 
       mapSettings: mapCanvas.mapSettings
-      location: positionSource.active ? positionSource.projectedPosition : GeometryUtils.emptyPoint()
+      location: positionSource.active ? positionSource.projectedPosition : QfGeometryUtils.emptyPoint()
 
       proximityAlarm: positioningSettings.preciseViewProximityAlarm && informationDrawer.positioningPreciseView.visible && informationDrawer.positioningPreciseView.hasAcceptableAccuracy && !informationDrawer.positioningPreciseView.hasAlarmSnoozed
       proximityAlarmThreshold: positioningSettings.preciseViewPrecision
@@ -1220,7 +1220,7 @@ ApplicationWindow {
 
       visible: informationDrawer.elevationProfile.visible
       mapSettings: mapCanvas.mapSettings
-      geometry: QgsGeometryWrapper {
+      geometry: QfGeometryWrapper {
         qgsGeometry: informationDrawer.elevationProfile.profileCurve
         crs: informationDrawer.elevationProfile.crs
       }
@@ -1356,19 +1356,19 @@ ApplicationWindow {
           height: width
           padding: 2
           round: true
-          iconSource: Theme.getThemeVectorIcon("ic_geometry_mixed_24dp")
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_geometry_mixed_24dp")
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundColor
 
           QfBadge {
             width: identifyFeaturesButton.width / 2.5
             topMargin: identifyFeaturesButton.width / 20
             rightMargin: identifyFeaturesButton.width / 20
-            color: Theme.toolButtonColor
+            color: QfTheme.toolButtonColor
             border.width: 1
-            border.color: Theme.toolButtonColor
+            border.color: QfTheme.toolButtonColor
             badgeText.text: actionsPieMenu.identifiedCount > 9 ? "+" : actionsPieMenu.identifiedCount
-            badgeText.color: Theme.toolButtonBackgroundColor
+            badgeText.color: QfTheme.toolButtonBackgroundColor
             z: 2
           }
 
@@ -1391,7 +1391,7 @@ ApplicationWindow {
         checked: positioningSettings.positioningCoordinateLock
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle
-        iconSource: Theme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("ic_location_cursor_lock_white_24dp")
         opacity: enabled ? 1 : 0.4
 
         states: [
@@ -1399,16 +1399,16 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: gnssCursorLockButton
-              iconColor: Theme.light
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconColor: QfTheme.light
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: gnssCursorLockButton
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
+              iconColor: QfTheme.positionColor
+              bgcolor: QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1444,23 +1444,23 @@ ApplicationWindow {
         checked: gnssButton.autoRefollow
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 2
-        iconSource: Theme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("ic_location_canvas_lock_white_24dp")
 
         states: [
           State {
             name: "Off"
             PropertyChanges {
               target: gnssCanvasLockButton
-              iconColor: Theme.light
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconColor: QfTheme.light
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: gnssCanvasLockButton
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
+              iconColor: QfTheme.positionColor
+              bgcolor: QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1497,13 +1497,13 @@ ApplicationWindow {
         width: actionsPieMenu.bandWidth - 8
         height: width
         padding: 2
-        iconSource: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
         round: true
         checkable: false
         checked: false
         enabled: true
-        iconColor: Theme.light
-        bgcolor: Theme.toolButtonBackgroundColor
+        iconColor: QfTheme.light
+        bgcolor: QfTheme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 3
         onClicked: {
           var name = qsTr('My location') + ' (' + new Date().toLocaleString() + ')';
@@ -1524,21 +1524,21 @@ ApplicationWindow {
         width: actionsPieMenu.bandWidth - 8
         height: width
         padding: 2
-        iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
         round: true
         checkable: false
         checked: false
         enabled: true
-        iconColor: Theme.light
-        bgcolor: Theme.toolButtonBackgroundColor
+        iconColor: QfTheme.light
+        bgcolor: QfTheme.toolButtonBackgroundColor
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 4
         onClicked: {
           if (!positionSource.positionInformation) {
             return;
           }
 
-          const point = GeometryUtils.reprojectPoint(positionSource.sourcePosition, CoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
-          let coordinates = StringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
+          const point = QfGeometryUtils.reprojectPoint(positionSource.sourcePosition, QfCoordinateReferenceSystemUtils.wgs84Crs(), projectInfo.coordinateDisplayCrs);
+          let coordinates = QfStringUtils.pointInformation(point, projectInfo.coordinateDisplayCrs);
 
           let appendAccuracy = projectInfo.coordinateDisplayCrs.authid !== "EPSG:4326";
           if (projectInfo.coordinateDisplayCrs.authid === "EPSG:4326") {
@@ -1561,13 +1561,13 @@ ApplicationWindow {
         width: actionsPieMenu.bandWidth - 8
         height: width
         padding: 2
-        iconSource: Theme.getThemeVectorIcon("ic_info_white_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("ic_info_white_24dp")
         round: true
         checkable: true
         checked: positioningSettings.showPositionInformation
         enabled: true
-        iconColor: Theme.light
-        bgcolor: Theme.toolButtonBackgroundColor
+        iconColor: QfTheme.light
+        bgcolor: QfTheme.toolButtonBackgroundColor
         state: checked ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 5
 
@@ -1576,16 +1576,16 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: showGnssInformation
-              iconColor: Theme.light
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconColor: QfTheme.light
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: showGnssInformation
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
+              iconColor: QfTheme.positionColor
+              bgcolor: QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1601,13 +1601,13 @@ ApplicationWindow {
         width: actionsPieMenu.bandWidth - 8
         height: width
         padding: 2
-        iconSource: Theme.getThemeVectorIcon("directions_walk_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("directions_walk_24dp")
         round: true
         checkable: false
         checked: false
         enabled: true
-        iconColor: Theme.light
-        bgcolor: Theme.toolButtonBackgroundColor
+        iconColor: QfTheme.light
+        bgcolor: QfTheme.toolButtonBackgroundColor
         state: trackings.count ? "On" : "Off"
         visible: actionsPieMenu.openingAngle >= actionsPieMenu.segmentAngle * 6
 
@@ -1616,16 +1616,16 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: trackingButton
-              iconColor: Theme.light
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconColor: QfTheme.light
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: trackingButton
-              iconColor: Theme.positionColor
-              bgcolor: Theme.toolButtonBackgroundColor
+              iconColor: QfTheme.positionColor
+              bgcolor: QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1685,7 +1685,7 @@ ApplicationWindow {
       height: width
 
       showConnectionLine: visible && (nearToEdge || destinationOutsidePieMenu)
-      linkColor: Theme.navigationColor
+      linkColor: QfTheme.navigationColor
 
       function openPieMenu(screenLocation) {
         targetPoint = screenLocation;
@@ -1734,9 +1734,9 @@ ApplicationWindow {
         height: width
         padding: 2
         round: true
-        iconSource: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
-        iconColor: Theme.light
-        bgcolor: Theme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+        iconColor: QfTheme.light
+        bgcolor: QfTheme.toolButtonBackgroundColor
         visible: destinationActionsPieMenu.openingAngle >= destinationActionsPieMenu.segmentAngle
 
         onClicked: {
@@ -1755,23 +1755,23 @@ ApplicationWindow {
         checked: positioningSettings.alwaysShowPreciseView
         state: checked ? "On" : "Off"
         visible: destinationActionsPieMenu.openingAngle >= destinationActionsPieMenu.segmentAngle * 2
-        iconSource: Theme.getThemeVectorIcon("ic_radar_grey_24dp")
+        iconSource: QfTheme.getThemeVectorIcon("ic_radar_grey_24dp")
 
         states: [
           State {
             name: "Off"
             PropertyChanges {
               target: alwaysShowPreciseViewButton
-              iconColor: Theme.light
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconColor: QfTheme.light
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: alwaysShowPreciseViewButton
-              iconColor: Theme.navigationColor
-              bgcolor: Theme.toolButtonBackgroundColor
+              iconColor: QfTheme.navigationColor
+              bgcolor: QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -1797,12 +1797,12 @@ ApplicationWindow {
         id: vertexRubberband
         model: geometryEditingVertexModel
         mapSettings: mapCanvas.mapSettings
-        vertexColor: Theme.vertexColorSemiOpaque
-        vertexBorderColor: Theme.vertexColor
-        selectedVertexColor: Theme.vertexSelectedColorSemiOpaque
-        selectedVertexBorderColor: Theme.vertexSelectedColor
-        newVertexColor: Theme.vertexNewColorSemiOpaque
-        newVertexBorderColor: Theme.vertexNewColor
+        vertexColor: QfTheme.vertexColorSemiOpaque
+        vertexBorderColor: QfTheme.vertexColor
+        selectedVertexColor: QfTheme.vertexSelectedColorSemiOpaque
+        selectedVertexBorderColor: QfTheme.vertexSelectedColor
+        newVertexColor: QfTheme.vertexNewColorSemiOpaque
+        newVertexBorderColor: QfTheme.vertexNewColor
       }
     }
 
@@ -1816,7 +1816,7 @@ ApplicationWindow {
 
       color: "yellow"
       focusedColor: "#ff7777"
-      selectedColor: Theme.mainColor
+      selectedColor: QfTheme.mainColor
       width: 5
     }
 
@@ -1838,7 +1838,7 @@ ApplicationWindow {
 
       color: "yellow"
       focusedColor: "#ff7777"
-      selectedColor: Theme.mainColor
+      selectedColor: QfTheme.mainColor
       width: 5
     }
 
@@ -1848,7 +1848,7 @@ ApplicationWindow {
       objectName: "geometryHighlighter"
     }
 
-    MapToScreen {
+    QfMapToScreen {
       id: mapToScreenTranslateX
       mapSettings: mapCanvas.mapSettings
       mapDistance: {
@@ -1862,7 +1862,7 @@ ApplicationWindow {
         return 0;
       }
     }
-    MapToScreen {
+    QfMapToScreen {
       id: mapToScreenTranslateY
       mapSettings: mapCanvas.mapSettings
       mapDistance: {
@@ -1884,7 +1884,7 @@ ApplicationWindow {
     }
   }
 
-  Geofencer {
+  QfGeofencer {
     id: geofencer
 
     position: positionSource.projectedPosition
@@ -1894,13 +1894,13 @@ ApplicationWindow {
     readonly property int shortVibration: 500
 
     onIsWithinChanged: {
-      if (behavior == Geofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
+      if (behavior == QfGeofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
         platformUtilities.vibrate(longVibration);
         displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error');
-      } else if (behavior == Geofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
+      } else if (behavior == QfGeofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
         platformUtilities.vibrate(longVibration);
         displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error');
-      } else if (behavior == Geofencer.InformWhenEnteringLeavingGeofencedArea) {
+      } else if (behavior == QfGeofencer.InformWhenEnteringLeavingGeofencedArea) {
         if (isWithin) {
           platformUtilities.vibrate(shortVibration);
           displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName));
@@ -1958,7 +1958,7 @@ ApplicationWindow {
     x: parent.width - width / 2
     y: locationToolbar.y + gnssButton.y + (gnssButton.height / 2) - height / 2
 
-    color: Theme.errorColor
+    color: QfTheme.errorColor
   }
 
   QfInformationDrawer {
@@ -1982,9 +1982,9 @@ ApplicationWindow {
     anchors.fill: mapCanvas
     anchors.bottomMargin: informationDrawer.height
 
-    ExpressionEvaluator {
+    QfExpressionEvaluator {
       id: decorationExpressionEvaluator
-      mode: ExpressionEvaluator.ExpressionTemplateMode
+      mode: QfExpressionEvaluator.ExpressionTemplateMode
       mapSettings: mapCanvas.mapSettings
       project: qgisProject
       appExpressionContextScopesGenerator: appScopesGenerator
@@ -2059,7 +2059,7 @@ ApplicationWindow {
         wrapMode: Text.WordWrap
         elide: Text.ElideRight
 
-        font: Theme.strongFont
+        font: QfTheme.strongFont
         fontSizeMode: Text.Fit
 
         text: ''
@@ -2101,13 +2101,13 @@ ApplicationWindow {
         wrapMode: Text.WordWrap
         elide: Text.ElideRight
 
-        font: Theme.tinyFont
+        font: QfTheme.tinyFont
 
         text: ''
       }
     }
 
-    ParameterizedImage {
+    QfParameterizedImage {
       id: imageDecoration
 
       visible: source != ''
@@ -2127,17 +2127,17 @@ ApplicationWindow {
     Text {
       id: coordinateLocatorInformationOverlay
 
-      property bool coordinatesIsXY: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
+      property bool coordinatesIsXY: QfCoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
       property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
 
-      DistanceArea {
+      QfDistanceArea {
         id: digitizingGeometryMeasure
 
         property VectorLayer currentLayer: dashBoard.activeLayer
 
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         project: qgisProject
-        crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
+        crs: qgisProject ? qgisProject.crs : QfCoordinateReferenceSystemUtils.invalidCrs()
       }
 
       // The position is dynamically calculated to follow the coordinate locator
@@ -2157,7 +2157,7 @@ ApplicationWindow {
       textFormat: Text.PlainText
       text: {
         if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize") || stateMachine.state === 'measure') {
-          var point = GeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
+          var point = QfGeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
           var coordinates;
           if (coordinatesIsXY) {
             coordinates = '%1: %2\n%3: %4\n'.arg(coordinatesIsGeographic ? qsTr('Lon') : 'X').arg(point.x.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2)).arg(coordinatesIsGeographic ? qsTr('Lat') : 'Y').arg(point.y.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2));
@@ -2170,9 +2170,9 @@ ApplicationWindow {
         }
       }
 
-      font: Theme.strongTipFont
+      font: QfTheme.strongTipFont
       style: Text.Outline
-      styleColor: Theme.light
+      styleColor: QfTheme.light
     }
 
     QfToolButton {
@@ -2184,7 +2184,7 @@ ApplicationWindow {
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.bottomMargin: 54
       round: true
-      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+      bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
       Shape {
         width: compassArrow.width
@@ -2194,7 +2194,7 @@ ApplicationWindow {
           strokeWidth: 3
           strokeColor: "transparent"
           strokeStyle: ShapePath.SolidLine
-          fillColor: Theme.mainColor
+          fillColor: QfTheme.mainColor
           joinStyle: ShapePath.MiterJoin
           startX: compassArrow.width / 2
           startY: 8
@@ -2220,7 +2220,7 @@ ApplicationWindow {
           strokeWidth: 3
           strokeColor: "transparent"
           strokeStyle: ShapePath.SolidLine
-          fillColor: Theme.toolButtonColor
+          fillColor: QfTheme.toolButtonColor
           joinStyle: ShapePath.MiterJoin
           startX: compassArrow.width / 2
           startY: compassArrow.height - 8
@@ -2273,7 +2273,7 @@ ApplicationWindow {
 
       anchors.right: locatorItem.right
       anchors.top: locatorItem.top
-      anchors.topMargin: Theme.toolButtonSize + 4
+      anchors.topMargin: QfTheme.toolButtonSize + 4
       spacing: 4
     }
 
@@ -2291,9 +2291,9 @@ ApplicationWindow {
         round: true
         anchors.right: parent.right
 
-        bgcolor: Theme.toolButtonBackgroundColor
-        iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
-        iconColor: Theme.toolButtonColor
+        bgcolor: QfTheme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+        iconColor: QfTheme.toolButtonColor
 
         width: 36
         height: 36
@@ -2320,9 +2320,9 @@ ApplicationWindow {
         round: true
         anchors.right: parent.right
 
-        bgcolor: Theme.toolButtonBackgroundColor
-        iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
-        iconColor: Theme.toolButtonColor
+        bgcolor: QfTheme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+        iconColor: QfTheme.toolButtonColor
 
         width: 36
         height: 36
@@ -2393,9 +2393,9 @@ ApplicationWindow {
       QfToolButton {
         id: menuButton
         round: true
-        iconSource: Theme.getThemeVectorIcon("ic_menu_white_24dp")
-        iconColor: Theme.toolButtonColor
-        bgcolor: dashBoard.opened ? Theme.mainColor : Theme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_menu_white_24dp")
+        iconColor: QfTheme.toolButtonColor
+        bgcolor: dashBoard.opened ? QfTheme.mainColor : QfTheme.toolButtonBackgroundColor
 
         onClicked: dashBoard.opened ? dashBoard.close() : dashBoard.open()
 
@@ -2409,7 +2409,7 @@ ApplicationWindow {
           topMargin: menuButton.width / 24
           rightMargin: menuButton.width / 24
           visible: showSync || showPush
-          color: showSync ? Theme.mainColor : Theme.cloudColor
+          color: showSync ? QfTheme.mainColor : QfTheme.cloudColor
           enableGradient: showSync && showPush
 
           readonly property bool showSync: cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.isOutdated : false
@@ -2420,7 +2420,7 @@ ApplicationWindow {
       QfActionButton {
         id: closeMeasureTool
         visible: stateMachine.state === 'measure'
-        toolImage: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
+        toolImage: QfTheme.getThemeVectorIcon("ic_measurement_black_24dp")
         toolText: qsTr('Close measure tool')
 
         onClicked: mainWindow.closeMeasureTool()
@@ -2429,7 +2429,7 @@ ApplicationWindow {
       QfActionButton {
         id: close3DView
         visible: stateMachine.state === '3d'
-        toolImage: Theme.getThemeVectorIcon("ic_3d_white_24dp")
+        toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
         toolText: qsTr('Close 3D view')
 
         onClicked: {
@@ -2455,7 +2455,7 @@ ApplicationWindow {
       QfActionButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
-        toolImage: Theme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
+        toolImage: QfTheme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
         toolText: qsTr('Cancel addition')
 
         onClicked: digitizingToolbar.cancel()
@@ -2475,22 +2475,22 @@ ApplicationWindow {
         objectName: "digitizingDrawer"
         name: "digitizingDrawer"
         round: true
-        bgcolor: Theme.toolButtonBackgroundColor
-        iconSource: Theme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
-        iconColor: Theme.toolButtonColor
+        bgcolor: QfTheme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_digitizing_settings_black_24dp')
+        iconColor: QfTheme.toolButtonColor
         spacing: 4
         visible: stateMachine.state === "digitize" && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Point)
 
         QfToolButton {
           id: cogoButton
-          width: Theme.toolButtonSize * 5 / 6
-          height: Theme.toolButtonSize * 5 / 6
+          width: QfTheme.toolButtonSize * 5 / 6
+          height: QfTheme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: digitizingToolbar.cogoEnabled ? "On" : "Off"
-          iconSource: Theme.getThemeVectorIcon("ic_cogo_white_24dp")
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_cogo_white_24dp")
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -2498,16 +2498,16 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: cogoButton
-                iconColor: Theme.toolButtonColor
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                iconColor: QfTheme.toolButtonColor
+                bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
               name: "On"
               PropertyChanges {
                 target: cogoButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
+                iconColor: QfTheme.mainColor
+                bgcolor: QfTheme.toolButtonBackgroundColor
               }
             }
           ]
@@ -2520,14 +2520,14 @@ ApplicationWindow {
 
         QfToolButton {
           id: snappingButton
-          width: Theme.toolButtonSize * 5 / 6
-          height: Theme.toolButtonSize * 5 / 6
+          width: QfTheme.toolButtonSize * 5 / 6
+          height: QfTheme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: qgisProject && qgisProject.snappingConfig.enabled ? "On" : "Off"
-          iconSource: Theme.getThemeVectorIcon("ic_snapping_white_24dp")
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_snapping_white_24dp")
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -2535,16 +2535,16 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: snappingButton
-                iconColor: Theme.toolButtonColor
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                iconColor: QfTheme.toolButtonColor
+                bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
               name: "On"
               PropertyChanges {
                 target: snappingButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
+                iconColor: QfTheme.mainColor
+                bgcolor: QfTheme.toolButtonBackgroundColor
               }
             }
           ]
@@ -2560,14 +2560,14 @@ ApplicationWindow {
 
         QfToolButton {
           id: topologyButton
-          width: Theme.toolButtonSize * 5 / 6
-          height: Theme.toolButtonSize * 5 / 6
+          width: QfTheme.toolButtonSize * 5 / 6
+          height: QfTheme.toolButtonSize * 5 / 6
           padding: 2
           round: true
           state: qgisProject && qgisProject.topologicalEditing ? "On" : "Off"
-          iconSource: Theme.getThemeVectorIcon("ic_topology_white_24dp")
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_topology_white_24dp")
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
           states: [
             State {
@@ -2575,16 +2575,16 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: topologyButton
-                iconColor: Theme.toolButtonColor
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                iconColor: QfTheme.toolButtonColor
+                bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
               name: "On"
               PropertyChanges {
                 target: topologyButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
+                iconColor: QfTheme.mainColor
+                bgcolor: QfTheme.toolButtonBackgroundColor
               }
             }
           ]
@@ -2597,14 +2597,14 @@ ApplicationWindow {
 
         QfToolButton {
           id: freehandButton
-          width: visible ? Theme.toolButtonSize * 5 / 6 : 0
-          height: visible ? Theme.toolButtonSize * 5 / 6 : 0
+          width: visible ? QfTheme.toolButtonSize * 5 / 6 : 0
+          height: visible ? QfTheme.toolButtonSize * 5 / 6 : 0
           padding: 2
           round: true
           visible: hoverHandler.hasBeenHovered && !(positionSource.active && coordinateLocator.positionLocked) && stateMachine.state === "digitize" && ((digitizingToolbar.geometryRequested && digitizingToolbar.geometryRequestedLayer && digitizingToolbar.geometryRequestedLayer.isValid && (digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Polygon || digitizingToolbar.geometryRequestedLayer.geometryType() === Qgis.GeometryType.Line)) || (!digitizingToolbar.geometryRequested && dashBoard.activeLayer && dashBoard.activeLayer.isValid && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)))
-          iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_freehand_white_24dp")
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
           property bool freehandDigitizing: false
           state: freehandDigitizing ? "On" : "Off"
@@ -2614,16 +2614,16 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: freehandButton
-                iconColor: Theme.toolButtonColor
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                iconColor: QfTheme.toolButtonColor
+                bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
               name: "On"
               PropertyChanges {
                 target: freehandButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
+                iconColor: QfTheme.mainColor
+                bgcolor: QfTheme.toolButtonBackgroundColor
               }
             }
           ]
@@ -2645,13 +2645,13 @@ ApplicationWindow {
         QfToolButton {
           id: snapToCommonAngleButton
 
-          width: visible ? Theme.toolButtonSize * 5 / 6 : 0
-          height: visible ? Theme.toolButtonSize * 5 / 6 : 0
+          width: visible ? QfTheme.toolButtonSize * 5 / 6 : 0
+          height: visible ? QfTheme.toolButtonSize * 5 / 6 : 0
           round: true
           visible: dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line)
-          iconSource: Theme.getThemeVectorIcon("ic_common_angle_white_24dp")
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_common_angle_white_24dp")
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
           state: qfieldSettings.snapToCommonAngleIsEnabled ? "On" : "Off"
 
@@ -2660,16 +2660,16 @@ ApplicationWindow {
               name: "Off"
               PropertyChanges {
                 target: snapToCommonAngleButton
-                iconColor: Theme.toolButtonColor
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                iconColor: QfTheme.toolButtonColor
+                bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
               name: "On"
               PropertyChanges {
                 target: snapToCommonAngleButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
+                iconColor: QfTheme.mainColor
+                bgcolor: QfTheme.toolButtonBackgroundColor
               }
             }
           ]
@@ -2685,13 +2685,13 @@ ApplicationWindow {
 
           Menu {
             id: snapToCommonAngleMenu
-            width: Theme.menuItemIconlessLeftPadding + Math.max(angles.count * 35, tolorences.count * 55) + 24
+            width: QfTheme.menuItemIconlessLeftPadding + Math.max(angles.count * 35, tolorences.count * 55) + 24
 
             MenuItem {
               text: qsTr("Relative angle")
-              font: Theme.defaultFont
+              font: QfTheme.defaultFont
               height: 48
-              leftPadding: Theme.menuItemCheckLeftPadding
+              leftPadding: QfTheme.menuItemCheckLeftPadding
 
               checkable: true
               checked: qfieldSettings.snapToCommonAngleIsRelative
@@ -2707,9 +2707,9 @@ ApplicationWindow {
 
             Text {
               text: qsTr("Snapping to every")
-              color: Theme.mainTextColor
-              font: Theme.defaultFont
-              leftPadding: Theme.menuItemIconlessLeftPadding
+              color: QfTheme.mainTextColor
+              font: QfTheme.defaultFont
+              leftPadding: QfTheme.menuItemIconlessLeftPadding
             }
 
             Item {
@@ -2722,7 +2722,7 @@ ApplicationWindow {
               height: 35
               anchors {
                 left: parent.left
-                leftMargin: Theme.menuItemIconlessLeftPadding
+                leftMargin: QfTheme.menuItemIconlessLeftPadding
                 rightMargin: 4
               }
               spacing: 3
@@ -2734,7 +2734,7 @@ ApplicationWindow {
               highlight: Rectangle {
                 width: 35
                 height: parent.height
-                color: Theme.mainColor
+                color: QfTheme.mainColor
                 radius: width / 2
               }
 
@@ -2747,9 +2747,9 @@ ApplicationWindow {
 
                 Text {
                   text: qsTr("%1°").arg(modelData)
-                  font: parent.selected ? Theme.strongTipFont : Theme.tipFont
+                  font: parent.selected ? QfTheme.strongTipFont : QfTheme.tipFont
                   anchors.centerIn: parent
-                  color: parent.selected ? Theme.buttonColor : Theme.mainTextColor
+                  color: parent.selected ? QfTheme.buttonColor : QfTheme.mainTextColor
                 }
 
                 Ripple {
@@ -2784,9 +2784,9 @@ ApplicationWindow {
 
             Text {
               text: qsTr("Snapping tolerance")
-              color: Theme.mainTextColor
-              font: Theme.defaultFont
-              leftPadding: Theme.menuItemIconlessLeftPadding
+              color: QfTheme.mainTextColor
+              font: QfTheme.defaultFont
+              leftPadding: QfTheme.menuItemIconlessLeftPadding
             }
 
             Item {
@@ -2799,7 +2799,7 @@ ApplicationWindow {
               height: 35
               anchors {
                 left: parent.left
-                leftMargin: Theme.menuItemIconlessLeftPadding
+                leftMargin: QfTheme.menuItemIconlessLeftPadding
                 rightMargin: 4
               }
               spacing: 3
@@ -2808,7 +2808,7 @@ ApplicationWindow {
               highlight: Rectangle {
                 width: 35
                 height: parent.height
-                color: Theme.mainColor
+                color: QfTheme.mainColor
                 radius: 4
               }
               currentIndex: qfieldSettings.snapToCommonAngleTolerance
@@ -2824,9 +2824,9 @@ ApplicationWindow {
                 Text {
                   id: tolorenceText
                   text: modelData
-                  font: parent.selected ? Theme.strongTipFont : Theme.tipFont
+                  font: parent.selected ? QfTheme.strongTipFont : QfTheme.tipFont
                   anchors.centerIn: parent
-                  color: tolorenceDelegate.selected ? Theme.buttonColor : Theme.mainTextColor
+                  color: tolorenceDelegate.selected ? QfTheme.buttonColor : QfTheme.mainTextColor
                   elide: Text.ElideRight
                   width: parent.width
                   horizontalAlignment: Text.AlignHCenter
@@ -2864,9 +2864,9 @@ ApplicationWindow {
         id: elevationProfileButton
         round: true
         visible: stateMachine.state === 'measure'
-        iconSource: Theme.getThemeVectorIcon("ic_elevation_white_24dp")
-        iconColor: Theme.toolButtonColor
-        bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_elevation_white_24dp")
+        iconColor: QfTheme.toolButtonColor
+        bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
         property bool elevationProfileActive: false
         state: elevationProfileActive ? "On" : "Off"
@@ -2876,16 +2876,16 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: elevationProfileButton
-              iconColor: Theme.toolButtonColor
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconColor: QfTheme.toolButtonColor
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: elevationProfileButton
-              iconColor: Theme.mainColor
-              bgcolor: Theme.toolButtonBackgroundColor
+              iconColor: QfTheme.mainColor
+              bgcolor: QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -2897,7 +2897,7 @@ ApplicationWindow {
           if (digitizingToolbar.rubberbandModel.vertexCount > 2) {
             // Clear the pre-existing profile to trigger a zoom to full updated profile curve
             informationDrawer.elevationProfile.clear();
-            informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, informationDrawer.elevationProfile.crs);
+            informationDrawer.elevationProfile.profileCurve = QfGeometryUtils.lineFromRubberband(digitizingToolbar.rubberbandModel, informationDrawer.elevationProfile.crs);
             informationDrawer.elevationProfile.refresh();
           }
           settings.setValue("/QField/Measuring/ElevationProfile", elevationProfileActive);
@@ -2912,9 +2912,9 @@ ApplicationWindow {
         name: "3dDrawer"
         round: true
         collapsed: false
-        bgcolor: Theme.toolButtonBackgroundColor
-        iconSource: Theme.getThemeVectorIcon('ic_3d_settings_white_24dp')
-        iconColor: Theme.toolButtonColor
+        bgcolor: QfTheme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_3d_settings_white_24dp')
+        iconColor: QfTheme.toolButtonColor
         spacing: 4
         visible: stateMachine.state === '3d' && mapCanvas3DLoader.item
 
@@ -2924,9 +2924,9 @@ ApplicationWindow {
           height: 40
           padding: 2
           round: true
-          iconSource: Theme.getThemeVectorIcon("ic_move_white_24dp")
-          iconColor: checked ? Theme.mainColor : Theme.toolButtonColor
-          bgcolor: checked ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_move_white_24dp")
+          iconColor: checked ? QfTheme.mainColor : QfTheme.toolButtonColor
+          bgcolor: checked ? QfTheme.toolButtonBackgroundColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
           checkable: true
           checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.extentMode : false
 
@@ -2943,9 +2943,9 @@ ApplicationWindow {
           height: 40
           padding: 2
           round: true
-          iconSource: Theme.getThemeVectorIcon("ic_eye_dome_lighting_white_24dp")
-          iconColor: checked ? Theme.mainColor : Theme.toolButtonColor
-          bgcolor: checked ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_eye_dome_lighting_white_24dp")
+          iconColor: checked ? QfTheme.mainColor : QfTheme.toolButtonColor
+          bgcolor: checked ? QfTheme.toolButtonBackgroundColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
           checkable: true
           checked: mapCanvas3DLoader.item ? mapCanvas3DLoader.item.eyeDomeLightingMode : false
 
@@ -2985,9 +2985,9 @@ ApplicationWindow {
         anchors.right: parent.right
 
         property bool isFollowLocationActive: positionSource.active && gnssButton.followActive && followIncludeDestination
-        iconSource: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
-        iconColor: isFollowLocationActive ? Theme.toolButtonColor : Theme.navigationColor
-        bgcolor: isFollowLocationActive ? Theme.navigationColor : Theme.toolButtonBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+        iconColor: isFollowLocationActive ? QfTheme.toolButtonColor : QfTheme.navigationColor
+        bgcolor: isFollowLocationActive ? QfTheme.navigationColor : QfTheme.toolButtonBackgroundColor
 
         /*
         / When set to true, when the map follows the device's current position, the extent
@@ -3051,18 +3051,18 @@ ApplicationWindow {
             name: "Off"
             PropertyChanges {
               target: gnssButton
-              iconSource: Theme.getThemeVectorIcon("ic_location_disabled_white_24dp")
-              iconColor: Theme.toolButtonColor
-              bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+              iconSource: QfTheme.getThemeVectorIcon("ic_location_disabled_white_24dp")
+              iconColor: QfTheme.toolButtonColor
+              bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
             }
           },
           State {
             name: "On"
             PropertyChanges {
               target: gnssButton
-              iconSource: trackings.count > 0 ? Theme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Theme.getThemeVectorIcon("ic_location_valid_white_24dp") : Theme.getThemeVectorIcon("ic_location_white_24dp")
-              iconColor: followActive ? Theme.toolButtonColor : Theme.positionColor
-              bgcolor: followActive ? Theme.positionColor : Theme.toolButtonBackgroundColor
+              iconSource: trackings.count > 0 ? QfTheme.getThemeVectorIcon("ic_location_tracking_white_24dp") : positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? QfTheme.getThemeVectorIcon("ic_location_valid_white_24dp") : QfTheme.getThemeVectorIcon("ic_location_white_24dp")
+              iconColor: followActive ? QfTheme.toolButtonColor : QfTheme.positionColor
+              bgcolor: followActive ? QfTheme.positionColor : QfTheme.toolButtonBackgroundColor
             }
           }
         ]
@@ -3224,19 +3224,19 @@ ApplicationWindow {
           width: gnssButton.width / 4
           topMargin: gnssButton.width / 24
           rightMargin: gnssButton.width / 24
-          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != GnssPositionInformation.AccuracyUndetermined
+          visible: positioningSettings.accuracyIndicator && gnssButton.state === "On" && positionSource.positionInformation.accuracyQuality != QfGnssPositionInformation.AccuracyUndetermined
           color: {
             if (!positionSource.positionInformation || !positionSource.positionInformation.haccValid)
-              return Theme.accuracyBad;
+              return QfTheme.accuracyBad;
             switch (positionSource.positionInformation.accuracyQuality) {
-            case GnssPositionInformation.AccuracyExcellent:
-              return Theme.accuracyExcellent;
-            case GnssPositionInformation.AccuracyOk:
-              return Theme.accuracyTolerated;
-            case GnssPositionInformation.AccuracyBad:
-            case GnssPositionInformation.AccuracyUndetermined:
+            case QfGnssPositionInformation.AccuracyExcellent:
+              return QfTheme.accuracyExcellent;
+            case QfGnssPositionInformation.AccuracyOk:
+              return QfTheme.accuracyTolerated;
+            case QfGnssPositionInformation.AccuracyBad:
+            case QfGnssPositionInformation.AccuracyUndetermined:
             default:
-              return Theme.accuracyBad;
+              return QfTheme.accuracyBad;
             }
           }
         }
@@ -3303,7 +3303,7 @@ ApplicationWindow {
       QfDigitizingToolbar {
         id: digitizingToolbar
 
-        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !LayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
+        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !QfLayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
         property string previousStateMachineState: ''
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
@@ -3316,13 +3316,13 @@ ApplicationWindow {
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
 
-        FeatureModel {
+        QfFeatureModel {
           id: digitizingFeature
           project: qgisProject
           currentLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
           appExpressionContextScopesGenerator: appScopesGenerator
           topSnappingResult: coordinateLocator.topSnappingResult
-          geometry: Geometry {
+          geometry: QfGeometry {
             id: digitizingGeometry
             rubberbandModel: digitizingRubberband.model
             vectorLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : dashBoard.activeLayer
@@ -3334,7 +3334,7 @@ ApplicationWindow {
             if (rubberbandModel.vertexCount > 2) {
               // Clear the pre-existing profile to trigger a zoom to full updated profile curve
               informationDrawer.elevationProfile.clear();
-              informationDrawer.elevationProfile.profileCurve = GeometryUtils.lineFromRubberband(rubberbandModel, informationDrawer.elevationProfile.crs);
+              informationDrawer.elevationProfile.profileCurve = QfGeometryUtils.lineFromRubberband(rubberbandModel, informationDrawer.elevationProfile.crs);
               informationDrawer.elevationProfile.refresh();
             }
           } else if (qfieldSettings.autoSave && stateMachine.state === "digitize") {
@@ -3461,10 +3461,10 @@ ApplicationWindow {
           } else {
             if (!positionSource.active) {
               displayToast(qsTr("Enable positioning service to get points at your location"));
-              item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
+              item.requestedPositionReceived(QfGeometryUtils.emptyPoint(), undefined);
             } else if (!positionSource.positionInformation.latitudeValid) {
               displayToast(qsTr("Positioning service has not yet received a valid location"));
-              item.requestedPositionReceived(GeometryUtils.emptyPoint(), undefined);
+              item.requestedPositionReceived(QfGeometryUtils.emptyPoint(), undefined);
             } else {
               item.requestedPositionReceived(positionSource.projectedPosition, positionSource.positionInformation);
             }
@@ -3516,8 +3516,8 @@ ApplicationWindow {
           moveFeaturesRequested = true;
           if (featureListForm && featureListForm.selection.model.selectedCount === 1) {
             featureListForm.extentController.zoomToSelected();
-            let centroid = GeometryUtils.reprojectPoint(GeometryUtils.boundingBox(featureListForm.selection.model.selectedFeatures[0].geometry).center, featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
-            centroid = GeometryUtils.point(centroid.x, centroid.y);
+            let centroid = QfGeometryUtils.reprojectPoint(QfGeometryUtils.boundingBox(featureListForm.selection.model.selectedFeatures[0].geometry).center, featureListForm.selection.model.selectedLayer.crs, mapCanvas.mapSettings.destinationCrs);
+            centroid = QfGeometryUtils.point(centroid.x, centroid.y);
             startPoint = centroid;
           } else {
             startPoint = mapCanvas.mapSettings.getCenter(true);
@@ -3644,12 +3644,12 @@ ApplicationWindow {
       for (var i = 0; i < layerTree.rowCount(); i++) {
         var index = layerTree.index(i, 0);
         if (firstEditableLayer === null) {
-          if (layerTree.data(index, FlatLayerTreeModel.Type) === FlatLayerTreeModel.Layer && layerTree.data(index, FlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked) === false) {
-            firstEditableLayer = layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer);
+          if (layerTree.data(index, QfFlatLayerTreeModel.Type) === QfFlatLayerTreeModel.Layer && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === false) {
+            firstEditableLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
           }
         }
-        if (activeLayer != null && activeLayer === layerTree.data(index, FlatLayerTreeModel.VectorLayerPointer)) {
-          if (layerTree.data(index, FlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, FlatLayerTreeModel.FeatureAdditionLocked) === true) {
+        if (activeLayer != null && activeLayer === layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer)) {
+          if (layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === true) {
             activeLayerLocked = true;
           } else {
             break;
@@ -3720,9 +3720,9 @@ ApplicationWindow {
         width: parent.width / 2
         anchors.left: parent.left
         text: qsTr("Undo")
-        font: Theme.defaultFont
-        icon.source: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-        leftPadding: Theme.menuItemLeftPadding
+        font: QfTheme.defaultFont
+        icon.source: QfTheme.getThemeVectorIcon("ic_undo_black_24dp")
+        leftPadding: QfTheme.menuItemLeftPadding
 
         onClicked: {
           if (enabled) {
@@ -3747,8 +3747,8 @@ ApplicationWindow {
         width: parent.width / 2
         anchors.right: parent.right
         text: qsTr("Redo")
-        font: Theme.defaultFont
-        icon.source: Theme.getThemeVectorIcon("ic_redo_black_24dp")
+        font: QfTheme.defaultFont
+        icon.source: QfTheme.getThemeVectorIcon("ic_redo_black_24dp")
 
         contentItem: IconLabel {
           leftPadding: undoButton.leftPadding
@@ -3780,11 +3780,11 @@ ApplicationWindow {
       id: sensorItem
       text: qsTr("Sensors")
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_sensor_on_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_sensor_on_black_24dp")
       height: visible ? 48 : 0
       visible: sensorListInstantiator.count > 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
       rightPadding: 40
 
       arrow: Shape {
@@ -3799,7 +3799,7 @@ ApplicationWindow {
 
         ShapePath {
           strokeWidth: 2
-          strokeColor: Theme.mainColor
+          strokeColor: QfTheme.mainColor
           fillColor: "transparent"
 
           startX: sensorItemArrowShape.width * 0.35
@@ -3838,10 +3838,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Bookmarks")
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_bookmark_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_bookmark_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         mainMenu.close();
@@ -3854,10 +3854,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Plugin Manager")
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_plugin_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_plugin_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -3868,10 +3868,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Settings")
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_tune_white_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_tune_white_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -3884,10 +3884,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Message Log")
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      icon.source: Theme.getThemeVectorIcon("ic_message_log_black_24dp")
-      leftPadding: Theme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon("ic_message_log_black_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -3902,9 +3902,9 @@ ApplicationWindow {
         rightMargin: 5
         alignment: QfBadge.Alignment.TopRight
         visible: messageLog.unreadMessages
-        color: Theme.mainColor
+        color: QfTheme.mainColor
         badgeText.text: messageLog.unreadMessagesCount >= 10 ? "+" : messageLog.unreadMessagesCount
-        badgeText.color: Theme.light
+        badgeText.color: QfTheme.light
         border.color: "transparent"
       }
     }
@@ -3912,10 +3912,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Lock Screen")
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_lock_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         mainMenu.close();
@@ -3931,10 +3931,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("About %1").arg(appName)
 
-      font: Theme.defaultFont
-      icon.source: appName === "QField" ? Theme.getThemeVectorIcon("ic_qfield_black_24dp") : ""
+      font: QfTheme.defaultFont
+      icon.source: appName === "QField" ? QfTheme.getThemeVectorIcon("ic_qfield_black_24dp") : ""
       height: 48
-      leftPadding: appName === "QField" ? Theme.menuItemLeftPadding : Theme.menuItemIconlessLeftPadding
+      leftPadding: appName === "QField" ? QfTheme.menuItemLeftPadding : QfTheme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -3958,9 +3958,9 @@ ApplicationWindow {
     MenuItem {
       text: qsTr('Select sensor below')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       enabled: false
     }
@@ -3968,7 +3968,7 @@ ApplicationWindow {
     Instantiator {
       id: sensorListInstantiator
 
-      model: SensorListModel {
+      model: QfSensorListModel {
         project: qgisProject
 
         onSensorErrorOccurred: errorString => {
@@ -3978,10 +3978,10 @@ ApplicationWindow {
 
       MenuItem {
         text: SensorName
-        icon.source: SensorStatus == Qgis.DeviceConnectionStatus.Connected ? Theme.getThemeVectorIcon("ic_sensor_on_black_24dp") : Theme.getThemeVectorIcon("ic_sensor_off_black_24dp")
+        icon.source: SensorStatus == Qgis.DeviceConnectionStatus.Connected ? QfTheme.getThemeVectorIcon("ic_sensor_on_black_24dp") : QfTheme.getThemeVectorIcon("ic_sensor_off_black_24dp")
 
-        font: Theme.defaultFont
-        leftPadding: Theme.menuItemLeftPadding
+        font: QfTheme.defaultFont
+        leftPadding: QfTheme.menuItemLeftPadding
         height: 48
 
         onTriggered: {
@@ -4020,9 +4020,9 @@ ApplicationWindow {
     MenuItem {
       text: qsTr('Select layout below')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       enabled: false
     }
@@ -4030,15 +4030,15 @@ ApplicationWindow {
     Instantiator {
       id: layoutListInstantiator
 
-      model: PrintLayoutListModel {
+      model: QfPrintLayoutListModel {
         project: qgisProject
       }
 
       MenuItem {
         text: Title
 
-        font: Theme.defaultFont
-        leftPadding: Theme.menuItemLeftPadding
+        font: QfTheme.defaultFont
+        leftPadding: QfTheme.menuItemLeftPadding
         height: 48
 
         onTriggered: {
@@ -4072,12 +4072,12 @@ ApplicationWindow {
     objectName: "canvasMenu"
 
     title: qsTr("Map Canvas Options")
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
 
     property var point
     onPointChanged: {
-      var displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
-      var isXY = CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs);
+      var displayPoint = QfGeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
+      var isXY = QfCoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs);
       var isGeographic = projectInfo.coordinateDisplayCrs.isGeographic;
       var xLabel = isGeographic ? qsTr('Lon') : 'X';
       var xValue = Number(displayPoint.x).toLocaleString(Qt.locale(), 'f', isGeographic ? 7 : 3);
@@ -4095,7 +4095,7 @@ ApplicationWindow {
 
     // Tweak the default delegate to align left padding and height of submenu items
     delegate: MenuItem {
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
       height: 48
     }
 
@@ -4127,7 +4127,7 @@ ApplicationWindow {
       height: children.length > 0 ? addBookmarkItem.height : 0
       clip: true
 
-      property color hoveredColor: Qt.hsla(Theme.mainTextColor.hslHue, Theme.mainTextColor.hslSaturation, Theme.mainTextColor.hslLightness, 0.2)
+      property color hoveredColor: Qt.hsla(QfTheme.mainTextColor.hslHue, QfTheme.mainTextColor.hslSaturation, QfTheme.mainTextColor.hslLightness, 0.2)
     }
 
     MenuSeparator {
@@ -4139,13 +4139,13 @@ ApplicationWindow {
       id: cordinateItem
       text: ""
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
 
       onTriggered: {
-        const displayPoint = GeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
-        platformUtilities.copyTextToClipboard(StringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs));
+        const displayPoint = QfGeometryUtils.reprojectPoint(canvasMenu.point, mapCanvas.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
+        platformUtilities.copyTextToClipboard(QfStringUtils.pointInformation(displayPoint, projectInfo.coordinateDisplayCrs));
         displayToast(qsTr('Coordinates copied to clipboard'));
       }
     }
@@ -4157,10 +4157,10 @@ ApplicationWindow {
     MenuItem {
       id: addBookmarkItem
       text: qsTr("Add Bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemLeftPadding
+      font: QfTheme.defaultFont
 
       onTriggered: {
         var name = qsTr('Untitled bookmark');
@@ -4178,10 +4178,10 @@ ApplicationWindow {
     MenuItem {
       id: setDestinationItem
       text: qsTr("Set as Destination")
-      icon.source: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemLeftPadding
+      font: QfTheme.defaultFont
 
       onTriggered: {
         navigation.destination = canvasMenu.point;
@@ -4196,8 +4196,8 @@ ApplicationWindow {
       id: lockMapRotation
       text: qsTr("Enable Map Rotation")
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
       checkable: true
       checked: qfieldSettings.enableMapRotation
       indicator.height: 20
@@ -4211,10 +4211,10 @@ ApplicationWindow {
     MenuItem {
       text: qsTr('Lock Screen')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_lock_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_lock_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         screenLocker.enabled = true;
@@ -4245,7 +4245,7 @@ ApplicationWindow {
         bottomMargin: sceneBottomMargin
 
         title: layerName + ': ' + featureName
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
 
         icon.source: iconForGeometry(feature.geometry.type)
 
@@ -4265,9 +4265,9 @@ ApplicationWindow {
 
         MenuItem {
           text: qsTr('Open Feature Form')
-          font: Theme.defaultFont
-          icon.source: Theme.getThemeVectorIcon("ic_baseline-list_white_24dp")
-          leftPadding: Theme.menuItemLeftPadding
+          font: QfTheme.defaultFont
+          icon.source: QfTheme.getThemeVectorIcon("ic_baseline-list_white_24dp")
+          leftPadding: QfTheme.menuItemLeftPadding
           height: 48
 
           onTriggered: {
@@ -4279,9 +4279,9 @@ ApplicationWindow {
 
         MenuItem {
           text: qsTr('Cut Feature')
-          font: Theme.defaultFont
-          icon.source: Theme.getThemeVectorIcon("ic_cut_black_24dp")
-          leftPadding: Theme.menuItemLeftPadding
+          font: QfTheme.defaultFont
+          icon.source: QfTheme.getThemeVectorIcon("ic_cut_black_24dp")
+          leftPadding: QfTheme.menuItemLeftPadding
           height: 48
 
           onTriggered: {
@@ -4291,9 +4291,9 @@ ApplicationWindow {
 
         MenuItem {
           text: qsTr('Copy Feature')
-          font: Theme.defaultFont
-          icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
-          leftPadding: Theme.menuItemLeftPadding
+          font: QfTheme.defaultFont
+          icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
+          leftPadding: QfTheme.menuItemLeftPadding
           height: 48
 
           onTriggered: {
@@ -4303,10 +4303,10 @@ ApplicationWindow {
 
         MenuItem {
           text: qsTr('Duplicate Feature')
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           enabled: projectInfo.insertRights
-          icon.source: Theme.getThemeVectorIcon("ic_duplicate_black_24dp")
-          leftPadding: Theme.menuItemLeftPadding
+          icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
+          leftPadding: QfTheme.menuItemLeftPadding
           height: 48
 
           onTriggered: {
@@ -4350,16 +4350,16 @@ ApplicationWindow {
       bottomMargin: sceneBottomMargin
 
       title: qsTr("Paste Into Layer")
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
 
-      icon.source: Theme.getThemeVectorIcon("ic_paste_black_24dp")
-      icon.color: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+      icon.source: QfTheme.getThemeVectorIcon("ic_paste_black_24dp")
+      icon.color: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
 
       onAboutToShow: {
         layersModel.clear();
         const feature = clipboardManager.pasteFeatureFromClipboard();
         const featureGeometryType = feature.geometry.type;
-        const mapLayers = ProjectUtils.mapLayers(qgisProject);
+        const mapLayers = QfProjectUtils.mapLayers(qgisProject);
         for (let layerId in mapLayers) {
           const layer = mapLayers[layerId];
           if (layer.type === Qgis.LayerType.Vector) {
@@ -4383,10 +4383,10 @@ ApplicationWindow {
 
         delegate: MenuItem {
           text: Layer.name
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
 
           height: 48
-          leftPadding: Theme.menuItemLeftPadding
+          leftPadding: QfTheme.menuItemLeftPadding
 
           icon.source: iconForGeometry(LayerType)
 
@@ -4409,13 +4409,13 @@ ApplicationWindow {
   function iconForGeometry(type) {
     switch (type) {
     case Qgis.GeometryType.Point:
-      return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+      return QfTheme.getThemeVectorIcon('ic_geometry_point_24dp');
     case Qgis.GeometryType.Line:
-      return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+      return QfTheme.getThemeVectorIcon('ic_geometry_line_24dp');
     case Qgis.GeometryType.Polygon:
-      return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+      return QfTheme.getThemeVectorIcon('ic_geometry_polygon_24dp');
     default:
-      return Theme.getThemeVectorIcon('ic_info_white_24dp');
+      return QfTheme.getThemeVectorIcon('ic_info_white_24dp');
     }
   }
 
@@ -4424,7 +4424,7 @@ ApplicationWindow {
     objectName: "navigationMenu"
 
     title: qsTr("Navigation Options")
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
@@ -4432,8 +4432,8 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Always Show Precise View")
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
 
       checkable: true
       checked: positioningSettings.alwaysShowPreciseView
@@ -4452,8 +4452,8 @@ ApplicationWindow {
       id: cancelNavigationItem
       text: qsTr("Clear Destination")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemIconlessLeftPadding
+      font: QfTheme.defaultFont
 
       onTriggered: {
         navigation.clear();
@@ -4466,7 +4466,7 @@ ApplicationWindow {
     objectName: "gnssMenu"
 
     title: qsTr("Positioning Options")
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
 
     topMargin: sceneTopMargin
     bottomMargin: sceneBottomMargin
@@ -4475,7 +4475,7 @@ ApplicationWindow {
       id: positioningDeviceName
       text: positioningSettings.positioningDeviceName
       height: 48
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       enabled: false
     }
 
@@ -4487,8 +4487,8 @@ ApplicationWindow {
       id: positioningItem
       text: qsTr("Enable Positioning")
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
 
       checkable: true
       checked: positioningSettings.positioningActivated
@@ -4502,13 +4502,13 @@ ApplicationWindow {
 
     MenuItem {
       text: qsTr("Enable NTRIP Corrections")
-      visible: positionSource.ntripSettings.isValid && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
-      height: positionSource.ntripSettings.isValid && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection ? 48 : 0
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      visible: positionSource.ntripSettings.isValid && positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection
+      height: positionSource.ntripSettings.isValid && positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection ? 48 : 0
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
 
       checkable: true
-      checked: positioningSettings.enableNtrip && positionSource.ntripState !== Positioning.NtripState.Disconnected
+      checked: positioningSettings.enableNtrip && positionSource.ntripState !== QfPositioning.NtripState.Disconnected
       indicator.height: 20
       indicator.width: 20
       indicator.implicitHeight: 24
@@ -4516,7 +4516,7 @@ ApplicationWindow {
 
       onClicked: {
         if (positioningSettings.enableNtrip) {
-          if (positionSource.ntripSettings.isValid && positionSource.ntripState === Positioning.NtripState.Disconnected) {
+          if (positionSource.ntripSettings.isValid && positionSource.ntripState === QfPositioning.NtripState.Disconnected) {
             // The server has disconnected, tapping on the toggle must indicate an intent to reconnect
             positioningSettings.enableNtrip = false;
             positioningSettings.enableNtrip = true;
@@ -4532,8 +4532,8 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Positioning Settings")
       height: 48
-      leftPadding: Theme.menuItemIconlessLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemIconlessLeftPadding
+      font: QfTheme.defaultFont
 
       onTriggered: {
         qfieldSettings.currentPanel = 1;
@@ -4548,8 +4548,8 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Show Position Information")
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
 
       checkable: true
       checked: positioningSettings.showPositionInformation
@@ -4564,8 +4564,8 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Lock Coordinate Cursor to Location")
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
       enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       checkable: true
       checked: positioningSettings.positioningCoordinateLock
@@ -4582,8 +4582,8 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Lock Map Canvas to Location")
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemCheckLeftPadding
+      font: QfTheme.defaultFont
       enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
       checkable: true
       checked: gnssButton.autoRefollow
@@ -4599,10 +4599,10 @@ ApplicationWindow {
 
     MenuItem {
       text: qsTr("Add Bookmark at Location")
-      icon.source: Theme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_add_bookmark_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
+      leftPadding: QfTheme.menuItemLeftPadding
+      font: QfTheme.defaultFont
       enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
 
       onTriggered: {
@@ -4613,9 +4613,9 @@ ApplicationWindow {
     MenuItem {
       text: qsTr("Copy Location Coordinates")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
       enabled: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid
 
       onTriggered: {
@@ -4645,9 +4645,9 @@ ApplicationWindow {
     allowEdit: stateMachine.state === "digitize"
     allowDelete: stateMachine.state === "digitize"
 
-    model: MultiFeatureListModel {}
+    model: QfMultiFeatureListModel {}
 
-    selection: FeatureListModelSelection {
+    selection: QfFeatureListModelSelection {
       id: featureListModelSelection
       model: featureListForm.model
     }
@@ -4788,7 +4788,7 @@ ApplicationWindow {
     target: iface
 
     function onExecuteAction(action) {
-      const details = UrlUtils.getActionDetails(action);
+      const details = QfUrlUtils.getActionDetails(action);
       if (details.type === "local" && details.import !== undefined && details.import !== "") {
         importPermissionDialog.url = details.import;
         importPermissionDialog.open();
@@ -4829,7 +4829,7 @@ ApplicationWindow {
     function onImportEnded(path, originalUrl) {
       busyOverlay.state = "hidden";
       if (path !== '') {
-        if (FileUtils.fileExists(path)) {
+        if (QfFileUtils.fileExists(path)) {
           // A project or dataset path is provided, load it
           iface.loadFile(path);
           welcomeScreen.model.removeRecentProject(originalUrl);
@@ -4942,7 +4942,7 @@ ApplicationWindow {
       gridDecoration.annotationOutlineColor = gridDecorationConfiguration["annotationOutlineColor"];
       gridDecoration.enabled = gridDecorationConfiguration["hasLines"] || gridDecorationConfiguration["hasMarkers"];
       recentProjectListModel.reloadModel();
-      const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
+      const cloudProjectId = QfCloudUtils.getProjectId(qgisProject.fileName);
       cloudProjectsModel.currentProjectId = cloudProjectId;
       if (cloudProjectsModel.currentProject) {
         const forceAutoPush = iface.readProjectBoolEntry("qfieldsync", "forceAutoPush", false);
@@ -4977,7 +4977,7 @@ ApplicationWindow {
         if (cloudProjectsModel.layerObserver.deltaFileWrapper.hasError) {
           qfieldCloudPopup.show();
         }
-        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        if (cloudConnection.status === QfCloudConnection.LoggedIn) {
           projectInfo.cloudUserInformation = cloudConnection.userInformation;
           // Refresh cloud project details
           cloudProjectsModel.appendProject(cloudProjectId);
@@ -5000,7 +5000,7 @@ ApplicationWindow {
       if (qgisProject.displaySettings) {
         projectInfo.coordinateDisplayCrs = qgisProject.displaySettings.coordinateCrs;
       } else {
-        projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU" ? CoordinateReferenceSystemUtils.wgs84Crs() : mapCanvas.mapSettings.destinationCrs;
+        projectInfo.coordinateDisplayCrs = !mapCanvas.mapSettings.destinationCrs.isGeographic && iface.readProjectEntry("PositionPrecision", "/DegreeFormat", "MU") !== "MU" ? QfCoordinateReferenceSystemUtils.wgs84Crs() : mapCanvas.mapSettings.destinationCrs;
       }
       layoutListInstantiator.model.reloadModel();
       geofencer.applyProjectSettings(qgisProject);
@@ -5011,7 +5011,7 @@ ApplicationWindow {
       if (locationArrowFillColor !== "") {
         locationMarker.color = locationArrowFillColor;
       } else {
-        locationMarker.color = Qt.darker(Theme.positionColor, 1.25);
+        locationMarker.color = Qt.darker(QfTheme.positionColor, 1.25);
       }
       const locationArrowOutlineColor = iface.readProjectEntry("qfieldsync", "/locationArrowOutlineColor", "");
       if (locationArrowOutlineColor !== "") {
@@ -5093,7 +5093,7 @@ ApplicationWindow {
     }
   }
 
-  ProjectInfo {
+  QfProjectInfo {
     id: projectInfo
     objectName: "projectInfo"
 
@@ -5103,7 +5103,7 @@ ApplicationWindow {
 
     property var distanceUnits: Qgis.DistanceUnit.Meters
     property var areaUnits: Qgis.AreaUnit.SquareMeters
-    property var coordinateDisplayCrs: CoordinateReferenceSystemUtils.wgs84Crs()
+    property var coordinateDisplayCrs: QfCoordinateReferenceSystemUtils.wgs84Crs()
 
     property bool hasInsertRights: true
     property bool hasEditRights: true
@@ -5186,9 +5186,9 @@ ApplicationWindow {
     QfPopup {
       id: loginDialogPopup
       parent: Overlay.overlay
-      width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
-      height: parent.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-      x: Theme.popupScreenEdgeHorizontalMargin
+      width: parent.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+      height: parent.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+      x: QfTheme.popupScreenEdgeHorizontalMargin
       y: (mainWindow.height - height) / 2
       closePolicy: Popup.CloseOnEscape
 
@@ -5234,25 +5234,25 @@ ApplicationWindow {
     }
   }
 
-  QFieldCloudConnection {
+  QfCloudConnection {
     id: cloudConnection
     objectName: "cloudConnection"
 
-    property int previousStatus: QFieldCloudConnection.Disconnected
+    property int previousStatus: QfCloudConnection.Disconnected
 
     onStatusChanged: {
-      if (cloudConnection.status === QFieldCloudConnection.Disconnected && previousStatus === QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QfCloudConnection.Disconnected && previousStatus === QfCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed out'));
         qfieldCloudStatus.refresh();
-      } else if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+      } else if (cloudConnection.status === QfCloudConnection.Connecting) {
         displayToast(qsTr('Connecting...'));
-      } else if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      } else if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         displayToast(qsTr('Signed in'));
-        if (QFieldCloudUtils.hasPendingAttachments(cloudConnection.username)) {
+        if (QfCloudUtils.hasPendingAttachments(cloudConnection.username)) {
           // Go ahead and upload pending attachments in the background
           platformUtilities.uploadPendingAttachments(cloudConnection);
         }
-        const cloudProjectId = QFieldCloudUtils.getProjectId(qgisProject.fileName);
+        const cloudProjectId = QfCloudUtils.getProjectId(qgisProject.fileName);
         if (cloudProjectId) {
           projectInfo.cloudUserInformation = userInformation;
           // Refresh cloud project details
@@ -5270,7 +5270,7 @@ ApplicationWindow {
     }
   }
 
-  QFieldCloudProjectsModel {
+  QfCloudProjectsModel {
     id: cloudProjectsModel
     objectName: "cloudProjectsModel"
 
@@ -5315,7 +5315,7 @@ ApplicationWindow {
       if (!isDownloadingProject && (qfieldCloudScreen.visible || qfieldCloudPopup.visible || welcomeScreen.visible)) {
         displayToast(qsTr("Changes successfully pushed to QFieldCloud"));
       }
-      if (QFieldCloudUtils.hasPendingAttachments(cloudConnection.username)) {
+      if (QfCloudUtils.hasPendingAttachments(cloudConnection.username)) {
         // Go ahead and upload pending attachments in the background
         platformUtilities.uploadPendingAttachments(cloudConnection);
       }
@@ -5335,7 +5335,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  QFieldCloudStatus {
+  QfCloudStatus {
     id: qfieldCloudStatus
     objectName: "qfieldCloudStatus"
     url: cloudConnection.url
@@ -5346,7 +5346,7 @@ ApplicationWindow {
     objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
 
-    model: RecentProjectListModel {
+    model: QfRecentProjectListModel {
       id: recentProjectListModel
     }
 
@@ -5396,7 +5396,7 @@ ApplicationWindow {
     onTriggerCloudify: (title, path) => {
       iface.clearProject();
       cloudProjectsModel.currentProjectId = "";
-      qfieldCloudPopup.cloudify(title, FileUtils.absolutePath(path));
+      qfieldCloudPopup.cloudify(title, QfFileUtils.absolutePath(path));
     }
 
     onTriggerProjectLoad: (title, path) => {
@@ -5533,7 +5533,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  AppExpressionContextScopesGenerator {
+  QfAppExpressionContextScopesGenerator {
     id: appScopesGenerator
     objectName: "appScopesGenerator"
 
@@ -5617,7 +5617,7 @@ ApplicationWindow {
   }
 
   // ! MODELS !
-  FeatureModel {
+  QfFeatureModel {
     id: geometryEditingFeature
     project: qgisProject
     currentLayer: null
@@ -5625,7 +5625,7 @@ ApplicationWindow {
     vertexModel: geometryEditingVertexModel
   }
 
-  VertexModel {
+  QfVertexModel {
     id: geometryEditingVertexModel
     currentPoint: coordinateLocator.currentCoordinate
     mapSettings: mapCanvas.mapSettings
@@ -5643,17 +5643,17 @@ ApplicationWindow {
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
-    width: Math.min(mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2, 400)
+    width: Math.min(mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2, 400)
 
     property string url: ""
     property string serverName: ""
     property string fileName: ""
 
     onAboutToShow: {
-      serverName = UrlUtils.urlDetail(url, "authority");
-      fileName = UrlUtils.urlDetail(url, "filename");
+      serverName = QfUrlUtils.urlDetail(url, "authority");
+      fileName = QfUrlUtils.urlDetail(url, "filename");
       if (fileName === "") {
-        fileName = UrlUtils.urlDetail(url, "path");
+        fileName = QfUrlUtils.urlDetail(url, "path");
       }
     }
 
@@ -5681,7 +5681,7 @@ ApplicationWindow {
     parent: mainWindow.contentItem
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
-    width: Math.min(mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2, 400)
+    width: Math.min(mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2, 400)
 
     property string pluginName: ""
     property bool isProjectPlugin: false
@@ -5700,7 +5700,7 @@ ApplicationWindow {
       CheckBox {
         id: permanentCheckBox
         text: qsTr('Remember my choice')
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
       }
     }
 
@@ -5722,7 +5722,7 @@ ApplicationWindow {
 
     visible: false
     modal: true
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
 
     z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
 
@@ -5747,7 +5747,7 @@ ApplicationWindow {
     target: pluginManager
 
     function onPluginPermissionRequested(pluginName, isProjectPlugin) {
-      pluginPermissionDialog.pluginName = isProjectPlugin ? ProjectUtils.title(qgisProject) : pluginName;
+      pluginPermissionDialog.pluginName = isProjectPlugin ? QfProjectUtils.title(qgisProject) : pluginName;
       pluginPermissionDialog.isProjectPlugin = isProjectPlugin;
       pluginPermissionDialog.open();
     }

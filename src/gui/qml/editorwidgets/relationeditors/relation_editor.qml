@@ -10,7 +10,7 @@ import org.qgis
 QfRelationEditorBase {
   id: relationEditor
 
-  relationEditorModel: ReferencingFeatureListModel {
+  relationEditorModel: QfReferencingFeatureListModel {
     //containing the current (parent) feature, the relation to the children
     //and the relation from the children to the other parent (if it's nm and cardinality is set)
     //if cardinality is not set, the nmRelationId is empty
@@ -68,7 +68,7 @@ QfRelationEditorBase {
             if (referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Null && referencingFeatureListModel.relation.referencingLayer.geometryType() !== Qgis.GeometryType.Unknown) {
               geometryHighlighter.geometryWrapper.qgsGeometry = nmRelationId ? model.nmReferencingFeature.geometry : model.referencingFeature.geometry;
               geometryHighlighter.geometryWrapper.crs = referencingFeatureListModel.relation.referencingLayer.crs;
-              const extentRect = FeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
+              const extentRect = QfFeatureUtils.extent(mapCanvas.mapSettings, referencingFeatureListModel.relation.referencingLayer, nmRelationId ? model.nmReferencingFeature : model.referencingFeature);
               const scale = mapCanvas.mapSettings.computeScaleForExtent(extentRect, true);
               relationEditor.requestJumpToPoint(extentRect.center, scale, true);
             } else {
@@ -91,8 +91,8 @@ QfRelationEditorBase {
           width: parent.width - viewButton.width - menuButton.width
           topPadding: 5
           bottomPadding: 5
-          font: Theme.resultFont
-          color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+          font: QfTheme.resultFont
+          color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
           elide: Text.ElideRight
           wrapMode: Text.WordWrap
           text: nmRelationId ? model.nmDisplayString : model.displayString
@@ -101,12 +101,12 @@ QfRelationEditorBase {
         QfToolButton {
           id: viewButton
           anchors.verticalCenter: parent.verticalCenter
-          width: Theme.toolButtonSize
-          height: Theme.toolButtonSize
+          width: QfTheme.toolButtonSize
+          height: QfTheme.toolButtonSize
 
           round: false
-          iconSource: isEnabled ? Theme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
-          iconColor: Theme.mainTextColor
+          iconSource: isEnabled ? QfTheme.getThemeVectorIcon('ic_edit_attributes_white_24dp') : QfTheme.getThemeVectorIcon('ic_baseline-list_white_24dp')
+          iconColor: QfTheme.mainTextColor
           bgcolor: 'transparent'
 
           onClicked: {
@@ -117,12 +117,12 @@ QfRelationEditorBase {
         QfToolButton {
           id: menuButton
           anchors.verticalCenter: parent.verticalCenter
-          width: Theme.toolButtonSize
-          height: Theme.toolButtonSize
+          width: QfTheme.toolButtonSize
+          height: QfTheme.toolButtonSize
 
           round: false
-          iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+          iconColor: QfTheme.mainTextColor
           bgcolor: 'transparent'
 
           onClicked: {

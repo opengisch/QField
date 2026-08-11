@@ -12,9 +12,9 @@ QfPopup {
   id: changelogPopup
 
   parent: mainWindow.contentItem
-  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeHorizontalMargin
+  width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: QfTheme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape
   focus: visible
@@ -68,8 +68,8 @@ QfPopup {
             Layout.maximumHeight: contentHeight
             visible: changelogContents.status != ChangelogContents.LoadingStatus
 
-            color: Theme.mainTextColor
-            font: Theme.tipFont
+            color: QfTheme.mainTextColor
+            font: QfTheme.tipFont
 
             fontSizeMode: Text.VerticalFit
             textFormat: Text.MarkdownText
@@ -103,7 +103,7 @@ QfPopup {
       QfButton {
         id: sponsorshipButton
         Layout.fillWidth: true
-        icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
+        icon.source: QfTheme.getThemeVectorIcon('ic_sponsor_white_24dp')
 
         text: qsTr('Support QField')
         onClicked: Qt.openUrlExternally("https://github.com/sponsors/opengisch")

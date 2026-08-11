@@ -17,7 +17,7 @@ QfPopup {
   property bool bookmarkDeleted: false
 
   parent: mainWindow.contentItem
-  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  width: Math.min(350, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
 
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
@@ -73,7 +73,7 @@ QfPopup {
         Layout.fillWidth: true
         Layout.fillHeight: false
         Layout.preferredHeight: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin - 200, Math.max(144, contentHeight) + 24)
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         wrapMode: Text.Wrap
         placeholderText: qsTr("Description")
         text: ''
@@ -98,7 +98,7 @@ QfPopup {
           }
 
           Layout.fillWidth: true
-          height: Theme.toolButtonSize
+          height: QfTheme.toolButtonSize
 
           clip: true
           interactive: false
@@ -107,33 +107,33 @@ QfPopup {
           RowLayout {
             id: currentColorView
             width: colorContainer.width
-            height: Theme.toolButtonSize
+            height: QfTheme.toolButtonSize
             spacing: 5
 
             Rectangle {
               id: colorArea
               Layout.fillWidth: true
-              Layout.preferredHeight: Theme.toolButtonSize
-              height: Theme.toolButtonSize
+              Layout.preferredHeight: QfTheme.toolButtonSize
+              height: QfTheme.toolButtonSize
               radius: height / 2
 
               color: {
                 switch (colorContainer.value) {
                 case "orange":
-                  return Theme.bookmarkOrange;
+                  return QfTheme.bookmarkOrange;
                 case "red":
-                  return Theme.bookmarkRed;
+                  return QfTheme.bookmarkRed;
                 case "blue":
-                  return Theme.bookmarkBlue;
+                  return QfTheme.bookmarkBlue;
                 }
-                return Theme.bookmarkDefault;
+                return QfTheme.bookmarkDefault;
               }
 
               Label {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: colorPicker.verticalCenter
-                font: Theme.defaultFont
+                font: QfTheme.defaultFont
                 text: qsTr("Change color")
                 color: "white"
               }
@@ -142,11 +142,11 @@ QfPopup {
                 id: colorPicker
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                width: Theme.toolButtonSize
-                height: Theme.toolButtonSize
+                width: QfTheme.toolButtonSize
+                height: QfTheme.toolButtonSize
                 visible: true
                 enabled: false
-                iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
+                iconSource: QfTheme.getThemeVectorIcon("ic_chevron_right_white_24dp")
                 iconColor: "white"
                 bgcolor: "transparent"
               }
@@ -165,12 +165,12 @@ QfPopup {
           RowLayout {
             id: selectColorView
             width: colorContainer.width
-            height: Theme.toolButtonSize
+            height: QfTheme.toolButtonSize
             spacing: 5
 
             ListView {
               Layout.fillWidth: true
-              Layout.preferredHeight: Theme.toolButtonSize
+              Layout.preferredHeight: QfTheme.toolButtonSize
               orientation: ListView.Horizontal
               spacing: 10
               model: ["", "orange", "red", "blue"]
@@ -178,22 +178,22 @@ QfPopup {
               clip: true
 
               delegate: QfToolButton {
-                Layout.preferredWidth: Theme.toolButtonSize
-                Layout.preferredHeight: Theme.toolButtonSize
+                Layout.preferredWidth: QfTheme.toolButtonSize
+                Layout.preferredHeight: QfTheme.toolButtonSize
                 bgcolor: {
                   switch (modelData) {
                   case "orange":
-                    return Theme.bookmarkOrange;
+                    return QfTheme.bookmarkOrange;
                   case "red":
-                    return Theme.bookmarkRed;
+                    return QfTheme.bookmarkRed;
                   case "blue":
-                    return Theme.bookmarkBlue;
+                    return QfTheme.bookmarkBlue;
                   }
-                  return Theme.bookmarkDefault;
+                  return QfTheme.bookmarkDefault;
                 }
                 round: true
 
-                iconSource: modelData === colorContainer.value ? Theme.getThemeVectorIcon("ic_check_white_24dp") : ""
+                iconSource: modelData === colorContainer.value ? QfTheme.getThemeVectorIcon("ic_check_white_24dp") : ""
                 iconColor: "#ffffff"
 
                 onClicked: {
@@ -206,16 +206,16 @@ QfPopup {
         }
 
         QfToolButton {
-          height: Theme.toolButtonSize
-          width: Theme.toolButtonSize
-          iconSource: Theme.getThemeVectorIcon("ic_copy_black_24dp")
-          iconColor: enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+          height: QfTheme.toolButtonSize
+          width: QfTheme.toolButtonSize
+          iconSource: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
+          iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
           bgcolor: "transparent"
 
           onClicked: {
             const point = bookmarkModel.getBookmarkPoint(bookmarkProperties.bookmarkId);
             const crs = bookmarkModel.getBookmarkCrs(bookmarkProperties.bookmarkId);
-            const coordinates = StringUtils.pointInformation(point, crs);
+            const coordinates = QfStringUtils.pointInformation(point, crs);
             platformUtilities.copyTextToClipboard(nameField.text + '\n' + coordinates);
             displayToast(qsTr('Bookmark details copied to clipboard'));
           }

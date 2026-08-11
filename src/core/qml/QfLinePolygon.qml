@@ -6,7 +6,7 @@ import org.qgis
 /**
  * \ingroup qml
  */
-LinePolygonShape {
+QfLinePolygonShape {
   id: linePolygonShape
 
   onPolylinesChanged: {

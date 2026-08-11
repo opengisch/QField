@@ -51,15 +51,15 @@ QfGeometryEditorBase {
     onConfirmed: {
       digitizingLogger.writeCoordinates();
       rubberbandModel.frozen = true;
-      var result = GeometryUtils.addRingFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
-      if (result !== GeometryUtils.Success) {
-        if (result === GeometryUtils.AddRingNotClosed)
+      var result = QfGeometryUtils.addRingFromRubberband(featureModel.currentLayer, featureModel.feature.id, rubberbandModel);
+      if (result !== QfGeometryUtils.Success) {
+        if (result === QfGeometryUtils.AddRingNotClosed)
           displayToast(qsTr('The ring is not closed'), 'error');
-        else if (result === GeometryUtils.AddRingNotValid)
+        else if (result === QfGeometryUtils.AddRingNotValid)
           displayToast(qsTr('The ring is not valid'), 'error');
-        else if (result === GeometryUtils.AddRingCrossesExistingRings)
+        else if (result === QfGeometryUtils.AddRingCrossesExistingRings)
           displayToast(qsTr('The ring crosses existing rings (it is not disjoint)'), 'error');
-        else if (result === GeometryUtils.AddRingNotInExistingFeature)
+        else if (result === QfGeometryUtils.AddRingNotInExistingFeature)
           displayToast(qsTr('The ring doesn\'t have any existing ring to fit into'), 'error');
         else
           displayToast(qsTr('Unknown error when creating the ring'), 'error');
@@ -119,8 +119,8 @@ QfGeometryEditorBase {
   }
 
   function fillWithPolygon() {
-    var polygonGeometry = GeometryUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs, featureModel.currentLayer.wkbType());
-    var feature = FeatureUtils.createBlankFeature(featureModel.currentLayer.fields, polygonGeometry);
+    var polygonGeometry = QfGeometryUtils.polygonFromRubberband(drawPolygonToolbar.rubberbandModel, featureModel.currentLayer.crs, featureModel.currentLayer.wkbType());
+    var feature = QfFeatureUtils.createBlankFeature(featureModel.currentLayer.fields, polygonGeometry);
 
     formPopupLoader.onFeatureSaved.connect(commitRingFeature);
     formPopupLoader.onFeatureCancelled.connect(cancelRingFeature);

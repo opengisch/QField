@@ -28,12 +28,12 @@ namespace QField3D
 {
   void registerQmlTypes()
   {
-    qmlRegisterType<QfMapToView3D>( "org.qfield._3d", 1, 0, "MapToView3D" );
-    qmlRegisterType<Qf3DGeometry>( "org.qfield._3d", 1, 0, "Quick3DGeometry" );
-    qmlRegisterType<Qf3DGeometryConfiguration>( "org.qfield._3d", 1, 0, "Quick3DGeometryConfiguration" );
-    qmlRegisterType<Qf3DMapTextureData>( "org.qfield._3d", 1, 0, "Quick3DMapTextureData" );
-    qmlRegisterType<Qf3DRubberbandGeometry>( "org.qfield._3d", 1, 0, "Quick3DRubberbandGeometry" );
-    qmlRegisterType<Qf3DTerrainGeometry>( "org.qfield._3d", 1, 0, "Quick3DTerrainGeometry" );
-    qmlRegisterType<Qf3DTerrainProvider>( "org.qfield._3d", 1, 0, "Quick3DTerrainProvider" );
+    qmlRegisterType<QfMapToView3D>( "org.qfield._3d", 1, 0, "QfMapToView3D" );
+    qmlRegisterType<Qf3DGeometry>( "org.qfield._3d", 1, 0, "Qf3DGeometry" );
+    qmlRegisterType<Qf3DGeometryConfiguration>( "org.qfield._3d", 1, 0, "Qf3DGeometryConfiguration" );
+    qmlRegisterType<Qf3DMapTextureData>( "org.qfield._3d", 1, 0, "Qf3DMapTextureData" );
+    qmlRegisterType<Qf3DRubberbandGeometry>( "org.qfield._3d", 1, 0, "Qf3DRubberbandGeometry" );
+    qmlRegisterType<Qf3DTerrainGeometry>( "org.qfield._3d", 1, 0, "Qf3DTerrainGeometry" );
+    qmlRegisterType<Qf3DTerrainProvider>( "org.qfield._3d", 1, 0, "Qf3DTerrainProvider" );
   }
 } // namespace QField3D

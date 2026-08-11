@@ -20,12 +20,12 @@ QfPopup {
 
   property string decodedString: ''
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
-  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeHorizontalMargin : mainWindow.height - Theme.popupScreenEdgeVerticalMargin
+  property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin : mainWindow.height - QfTheme.popupScreenEdgeVerticalMargin
   property bool openedOnce: false
   property var imageResourceSource: undefined
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + acceptButton.height)
+  height: Math.min(mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + acceptButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
@@ -86,7 +86,7 @@ QfPopup {
     property bool nearfieldActive: true
   }
 
-  BarcodeDecoder {
+  QfBarcodeDecoder {
     id: barcodeDecoder
 
     onDecodedStringChanged: {
@@ -102,7 +102,7 @@ QfPopup {
     active: withNfc && codeReader.visible && settings.nearfieldActive
 
     sourceComponent: Component {
-      NearFieldReader {
+      QfNearFieldReader {
         id: nearFieldReader
         active: true
 
@@ -131,20 +131,20 @@ QfPopup {
 
       background: Rectangle {
         color: "transparent"
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
       }
 
       RowLayout {
         width: parent.width
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
 
         Label {
           Layout.leftMargin: 58
           Layout.fillWidth: true
           Layout.alignment: Qt.AlignVCenter
           text: qsTr('Code Reader')
-          font: Theme.strongFont
-          color: Theme.mainColor
+          font: QfTheme.strongFont
+          color: QfTheme.mainColor
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
         }
@@ -153,8 +153,8 @@ QfPopup {
           id: closeButton
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+          iconColor: QfTheme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -173,7 +173,7 @@ QfPopup {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        color: Theme.mainBackgroundColor
+        color: QfTheme.mainBackgroundColor
         radius: 10
         clip: true
 
@@ -184,7 +184,7 @@ QfPopup {
           width: 120
           height: width
           radius: width / 2
-          color: nearfieldLoader.active && nearfieldLoader.item.targetInRange ? Theme.mainColor : "#44808080"
+          color: nearfieldLoader.active && nearfieldLoader.item.targetInRange ? QfTheme.mainColor : "#44808080"
 
           SequentialAnimation {
             NumberAnimation {
@@ -417,9 +417,9 @@ QfPopup {
           anchors.horizontalCenter: parent.horizontalCenter
           width: buttonsRow.width
           round: true
-          iconSource: Theme.getThemeVectorIcon('ic_flashlight_white_48dp')
-          iconColor: Theme.toolButtonColor
-          bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+          iconSource: QfTheme.getThemeVectorIcon('ic_flashlight_white_48dp')
+          iconColor: QfTheme.toolButtonColor
+          bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
           visible: settings.cameraActive && cameraLoader.active && cameraLoader.item.camera.isTorchModeSupported(Camera.TorchOn)
           state: cameraLoader.active && cameraLoader.item.camera.torchMode === Camera.TorchOn ? "On" : "Off"
@@ -428,16 +428,16 @@ QfPopup {
               name: "Off"
               PropertyChanges {
                 target: flashlightButton
-                iconColor: Theme.toolButtonColor
-                bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                iconColor: QfTheme.toolButtonColor
+                bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
               }
             },
             State {
               name: "On"
               PropertyChanges {
                 target: flashlightButton
-                iconColor: Theme.mainColor
-                bgcolor: Theme.toolButtonBackgroundColor
+                iconColor: QfTheme.mainColor
+                bgcolor: QfTheme.toolButtonBackgroundColor
               }
             }
           ]
@@ -461,9 +461,9 @@ QfPopup {
           QfToolButton {
             id: cameraButton
             round: true
-            iconSource: Theme.getThemeVectorIcon('ic_qr_code_black_24dp')
-            iconColor: Theme.toolButtonColor
-            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            iconSource: QfTheme.getThemeVectorIcon('ic_qr_code_black_24dp')
+            iconColor: QfTheme.toolButtonColor
+            bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
             visible: withNfc
             state: settings.cameraActive ? "On" : "Off"
@@ -472,15 +472,15 @@ QfPopup {
                 name: "Off"
                 PropertyChanges {
                   target: cameraButton
-                  bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                  bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
                 }
               },
               State {
                 name: "On"
                 PropertyChanges {
                   target: cameraButton
-                  iconColor: Theme.mainColor
-                  bgcolor: Theme.toolButtonBackgroundColor
+                  iconColor: QfTheme.mainColor
+                  bgcolor: QfTheme.toolButtonBackgroundColor
                 }
               }
             ]
@@ -493,9 +493,9 @@ QfPopup {
           QfToolButton {
             id: imageButton
             round: true
-            iconSource: Theme.getThemeVectorIcon('ic_gallery_black_24dp')
-            iconColor: Theme.toolButtonColor
-            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            iconSource: QfTheme.getThemeVectorIcon('ic_gallery_black_24dp')
+            iconColor: QfTheme.toolButtonColor
+            bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
             onClicked: {
               codeReader.pickImage();
@@ -505,9 +505,9 @@ QfPopup {
           QfToolButton {
             id: nearfieldButton
             round: true
-            iconSource: Theme.getThemeVectorIcon('ic_nfc_code_black_24dp')
-            iconColor: Theme.toolButtonColor
-            bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+            iconSource: QfTheme.getThemeVectorIcon('ic_nfc_code_black_24dp')
+            iconColor: QfTheme.toolButtonColor
+            bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
             visible: withNfc
             state: settings.nearfieldActive ? "On" : "Off"
@@ -516,15 +516,15 @@ QfPopup {
                 name: "Off"
                 PropertyChanges {
                   target: nearfieldButton
-                  bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+                  bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
                 }
               },
               State {
                 name: "On"
                 PropertyChanges {
                   target: nearfieldButton
-                  iconColor: Theme.mainColor
-                  bgcolor: Theme.toolButtonBackgroundColor
+                  iconColor: QfTheme.mainColor
+                  bgcolor: QfTheme.toolButtonBackgroundColor
                 }
               }
             ]
@@ -544,8 +544,8 @@ QfPopup {
           Layout.fillWidth: true
 
           text: codeReader.decodedString !== '' ? codeReader.decodedString : qsTr('Center your device on a code')
-          font: Theme.tipFont
-          color: Theme.mainTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.mainTextColor
           horizontalAlignment: Text.AlignLeft
           elide: Text.ElideMiddle
           opacity: codeReader.decodedString !== '' ? 1 : 0.45
@@ -556,9 +556,9 @@ QfPopup {
           enabled: codeReader.decodedString !== ''
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-          iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
-          bgcolor: enabled ? Theme.mainColor : "transparent"
+          iconSource: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
+          iconColor: enabled ? QfTheme.toolButtonColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
+          bgcolor: enabled ? QfTheme.mainColor : "transparent"
           round: true
 
           onClicked: {

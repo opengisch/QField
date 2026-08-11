@@ -20,10 +20,10 @@ QfPopup {
   property bool fullscreen: false
   property bool clearCookiesOnOpen: false
 
-  width: mainWindow.width - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeHorizontalMargin * 2)
-  height: mainWindow.height - (browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin * 2)
-  x: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeHorizontalMargin
-  y: browserPanel.fullscreen ? 0 : Theme.popupScreenEdgeVerticalMargin
+  width: mainWindow.width - (browserPanel.fullscreen ? 0 : QfTheme.popupScreenEdgeHorizontalMargin * 2)
+  height: mainWindow.height - (browserPanel.fullscreen ? 0 : QfTheme.popupScreenEdgeVerticalMargin * 2)
+  x: browserPanel.fullscreen ? 0 : QfTheme.popupScreenEdgeHorizontalMargin
+  y: browserPanel.fullscreen ? 0 : QfTheme.popupScreenEdgeVerticalMargin
   padding: fullscreen ? 0 : 5
   closePolicy: Popup.CloseOnEscape
   focus: visible

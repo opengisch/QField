@@ -49,8 +49,8 @@ Item {
 
       text: prefixText + value + suffixText
 
-      font: Theme.tipFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.tipFont
+      color: QfTheme.secondaryTextColor
     }
 
     TextMetrics {

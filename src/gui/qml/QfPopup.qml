@@ -15,7 +15,7 @@ Popup {
 
   background: Rectangle {
     radius: control.Material.roundedScale
-    color: Theme.mainBackgroundColor
+    color: QfTheme.mainBackgroundColor
 
     layer.enabled: control.Material.elevation > 0
     layer.effect: RoundedElevationEffect {

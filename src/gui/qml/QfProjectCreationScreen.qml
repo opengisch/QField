@@ -44,8 +44,8 @@ Page {
 
       Label {
         text: qsTr("This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.")
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
         wrapMode: Text.WordWrap
         width: parent.width
       }
@@ -54,7 +54,7 @@ Page {
         id: projectName
         width: parent.width
         height: 50
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         placeholderText: qsTr("New project name")
         text: ""
       }
@@ -65,8 +65,8 @@ Page {
         width: parent.width
         checked: true
         interactive: false
-        icon: Theme.getThemeVectorIcon("ic_map_white_24dp")
-        iconColor: Theme.mainTextColor
+        icon: QfTheme.getThemeVectorIcon("ic_map_white_24dp")
+        iconColor: QfTheme.mainTextColor
 
         content: Column {
           id: basemapColumn
@@ -76,8 +76,8 @@ Page {
 
           Label {
             text: qsTr("Choose a basemap for your project. Pick from the available options or provide your own custom URL.")
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             width: parent.width
           }
@@ -101,7 +101,7 @@ Page {
               width: 150
               implicitHeight: 95
               radius: 4
-              bgColor: Theme.groupBoxSurfaceColor
+              bgColor: QfTheme.groupBoxSurfaceColor
               previewImageSource: "qrc:/pictures/pictures/colorful.jpg"
               projectTitle.text: qsTr("Colorful")
               showType: false
@@ -132,7 +132,7 @@ Page {
               width: 150
               implicitHeight: 95
               radius: 4
-              bgColor: Theme.groupBoxSurfaceColor
+              bgColor: QfTheme.groupBoxSurfaceColor
               previewImageSource: "qrc:/pictures/pictures/dark.jpg"
               projectTitle.text: qsTr("Darkgray")
               showType: false
@@ -163,7 +163,7 @@ Page {
               width: 150
               implicitHeight: 95
               radius: 4
-              bgColor: Theme.groupBoxSurfaceColor
+              bgColor: QfTheme.groupBoxSurfaceColor
               previewImageSource: "qrc:/pictures/pictures/lightgray.jpg"
               projectTitle.text: qsTr("Lightgray")
               showType: false
@@ -225,7 +225,7 @@ Page {
               width: 150
               implicitHeight: 95
               radius: 4
-              bgColor: Theme.groupBoxSurfaceColor
+              bgColor: QfTheme.groupBoxSurfaceColor
               previewImageSource: ""
               projectTitle.text: qsTr("Custom")
               showType: false
@@ -245,17 +245,17 @@ Page {
 
                   Label {
                     text: qsTr("Custom basemap URL")
-                    font: Theme.defaultFont
-                    color: Theme.mainTextColor
+                    font: QfTheme.defaultFont
+                    color: QfTheme.mainTextColor
                     wrapMode: Text.WordWrap
                     width: parent.width
                   }
 
                   TextField {
                     id: basemapURL
-                    font: Theme.defaultFont
+                    font: QfTheme.defaultFont
                     placeholderText: text === "" && !focus ? "e.g., https://your-map-service.com/{z}/{x}/{y}.png" : ""
-                    placeholderTextColor: Theme.secondaryTextColor
+                    placeholderTextColor: QfTheme.secondaryTextColor
                     width: parent.width
 
                     onTextEdited: {
@@ -268,7 +268,7 @@ Page {
                             "zmin": 0,
                             "zmax": 14
                           };
-                          customSource = UrlUtils.createEncodedUrl(params);
+                          customSource = QfUrlUtils.createEncodedUrl(params);
                           customProvider = "vectortile";
                           return;
                         } else if (text.indexOf("{z}") >= 0 || text.indexOf("{q}") >= 0) {
@@ -279,7 +279,7 @@ Page {
                             "zmin": 0,
                             "zmax": 19
                           };
-                          customSource = UrlUtils.createEncodedUrl(params);
+                          customSource = QfUrlUtils.createEncodedUrl(params);
                           customProvider = "wms";
                           return;
                         }
@@ -317,8 +317,8 @@ Page {
         title: qsTr("Take notes?")
         width: parent.width
         checked: true
-        icon: Theme.getThemeVectorIcon("ic_marker_white_24dp")
-        iconColor: Theme.mainTextColor
+        icon: QfTheme.getThemeVectorIcon("ic_marker_white_24dp")
+        iconColor: QfTheme.mainTextColor
 
         content: Column {
           id: takeNotesColumn
@@ -328,8 +328,8 @@ Page {
 
           Label {
             text: qsTr("Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.")
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             width: parent.width
           }
@@ -341,7 +341,7 @@ Page {
             CheckBox {
               id: takeMediaCheckBox
               Layout.alignment: Qt.AlignVCenter
-              font: Theme.defaultFont
+              font: QfTheme.defaultFont
               indicator.height: 16
               indicator.width: 16
               indicator.implicitHeight: 24
@@ -355,8 +355,8 @@ Page {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
               text: qsTr("Take image and video attachments")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               wrapMode: Text.WordWrap
 
               MouseArea {
@@ -374,7 +374,7 @@ Page {
 
             CheckBox {
               id: notesOnLinesPolygonsCheckBox
-              font: Theme.defaultFont
+              font: QfTheme.defaultFont
               indicator.height: 16
               indicator.width: 16
               indicator.implicitHeight: 24
@@ -388,8 +388,8 @@ Page {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
               text: qsTr("Allow notes on lines and polygons")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               wrapMode: Text.WordWrap
 
               MouseArea {
@@ -412,8 +412,8 @@ Page {
         title: qsTr("Track your position?")
         width: parent.width
         checked: false
-        icon: Theme.getThemeVectorIcon("directions_walk_24dp")
-        iconColor: Theme.mainTextColor
+        icon: QfTheme.getThemeVectorIcon("directions_walk_24dp")
+        iconColor: QfTheme.mainTextColor
 
         content: Column {
           id: trackPositionColumn
@@ -423,8 +423,8 @@ Page {
 
           Label {
             text: qsTr("Record your location every second, along with date and time, to keep a precise track of your movements.")
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             width: parent.width
           }
@@ -435,7 +435,7 @@ Page {
 
             CheckBox {
               id: autoTrackPositionCheckBox
-              font: Theme.defaultFont
+              font: QfTheme.defaultFont
               indicator.height: 16
               indicator.width: 16
               indicator.implicitHeight: 24
@@ -449,8 +449,8 @@ Page {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
               text: qsTr("Begin tracking automatically")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               wrapMode: Text.WordWrap
 
               MouseArea {
@@ -473,7 +473,7 @@ Page {
         title: qsTr("Backup & collaborate?")
         width: parent.width
         checked: false
-        icon: Theme.getThemeVectorIcon("ic_cloud_active_24dp")
+        icon: QfTheme.getThemeVectorIcon("ic_cloud_active_24dp")
 
         content: Column {
           id: databaseAndColabrationColumn
@@ -483,8 +483,8 @@ Page {
 
           Label {
             text: qsTr("QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. ").arg(appName) + (Qt.platform.os !== "ios" ? "<a href=\"https://qfield.cloud/\">" + qsTr("Learn more about QFieldCloud here") + "</a>." : "")
-            font: Theme.defaultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             width: parent.width
             textFormat: Text.RichText
@@ -498,7 +498,7 @@ Page {
             CheckBox {
               id: autoPushCheckBox
               Layout.alignment: Qt.AlignVCenter
-              font: Theme.defaultFont
+              font: QfTheme.defaultFont
               indicator.height: 16
               indicator.width: 16
               indicator.implicitHeight: 24
@@ -512,8 +512,8 @@ Page {
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignVCenter
               text: qsTr("Automatically upload changes on a regular interval")
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               wrapMode: Text.WordWrap
 
               MouseArea {
@@ -540,7 +540,7 @@ Page {
     anchors.right: parent.right
 
     height: childrenRect.height + 20 + mainWindow.sceneBottomMargin
-    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+    color: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
 
     QfButton {
       id: createProjectButton
@@ -548,7 +548,7 @@ Page {
       anchors.left: parent.left
       anchors.right: parent.right
       anchors.margins: 10
-      bgcolor: Theme.mainColor
+      bgcolor: QfTheme.mainColor
 
       text: qsTr("Create Project")
 
@@ -570,15 +570,15 @@ Page {
           "auto_push_to_cloud": qfieldCloudGroupBox.checked && autoPushCheckBox.checked
         };
         if (qfieldCloudGroupBox.checked) {
-          if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
-            const projectFilePath = ProjectUtils.createProject(projectConfig, positionSource.positionInformation);
+          if (cloudConnection.status === QfCloudConnection.LoggedIn) {
+            const projectFilePath = QfProjectUtils.createProject(projectConfig, positionSource.positionInformation);
             triggerCloudify(projectName.text, projectFilePath);
           } else {
             connection.enabled = true;
             triggerConnection();
           }
         } else {
-          const projectFilePath = ProjectUtils.createProject(projectConfig, positionSource.positionInformation);
+          const projectFilePath = QfProjectUtils.createProject(projectConfig, positionSource.positionInformation);
           triggerProjectLoad(projectName.text, projectFilePath);
         }
       }
@@ -591,7 +591,7 @@ Page {
     enabled: false
 
     function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         createProjectButton.click();
       }
     }

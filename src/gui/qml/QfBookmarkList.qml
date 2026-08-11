@@ -48,8 +48,8 @@ QfPaneDrawer {
     anchors.topMargin: topMargin
     anchors.left: parent.left
     anchors.right: parent.right
-    height: topMargin + Theme.toolButtonSize + 10
-    color: Theme.mainBackgroundColor
+    height: topMargin + QfTheme.toolButtonSize + 10
+    color: QfTheme.mainBackgroundColor
     clip: true
 
     property double topMargin: bookmarkList.y === 0 ? mainWindow.sceneTopMargin : 0.0
@@ -65,7 +65,7 @@ QfPaneDrawer {
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 1
 
-      color: Theme.controlBorderColor
+      color: QfTheme.controlBorderColor
     }
 
     Item {
@@ -82,10 +82,10 @@ QfPaneDrawer {
         anchors.top: parent.top
         anchors.leftMargin: balancedMargin + bookmarkListToolBar.leftMargin
         anchors.rightMargin: balancedMargin + bookmarkListToolBar.rightMargin
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
 
-        font: Theme.strongFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongFont
+        color: QfTheme.mainTextColor
         text: qsTr("Bookmarks")
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -131,11 +131,11 @@ QfPaneDrawer {
       anchors.leftMargin: bookmarkListToolBar.leftMargin
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 5
-      width: Theme.toolButtonSize
-      height: Theme.toolButtonSize
+      width: QfTheme.toolButtonSize
+      height: QfTheme.toolButtonSize
       clip: true
-      iconSource: bookmarkList.multiSelection ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_arrow_left_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: bookmarkList.multiSelection ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_arrow_left_white_24dp")
+      iconColor: QfTheme.mainTextColor
 
       onClicked: {
         if (bookmarkList.multiSelection) {
@@ -154,12 +154,12 @@ QfPaneDrawer {
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 5
 
-      width: (bookmarkList.multiSelection && bookmarkList.model ? Theme.toolButtonSize : 0)
+      width: (bookmarkList.multiSelection && bookmarkList.model ? QfTheme.toolButtonSize : 0)
       visible: width > 0
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
       verticalAlignment: Text.AlignVCenter
-      font: Theme.strongFont
-      color: Theme.mainTextColor
+      font: QfTheme.strongFont
+      color: QfTheme.mainTextColor
 
       text: {
         const count = bookmarkList.model ? bookmarkList.model.selectedCount : 0;
@@ -173,12 +173,12 @@ QfPaneDrawer {
       anchors.rightMargin: bookmarkListToolBar.rightMargin
       anchors.top: parent.top
       anchors.topMargin: bookmarkListToolBar.topMargin + 5
-      width: Theme.toolButtonSize
-      height: Theme.toolButtonSize
+      width: QfTheme.toolButtonSize
+      height: QfTheme.toolButtonSize
       clip: true
 
-      iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+      iconColor: QfTheme.mainTextColor
 
       onClicked: {
         bookmarkListMenu.popup(menuButton.x + menuButton.width - bookmarkListMenu.width, menuButton.y);
@@ -199,9 +199,9 @@ QfPaneDrawer {
       checkable: true
       checked: bookmarkList.multiSelection
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
+      leftPadding: QfTheme.menuItemCheckLeftPadding
 
       onTriggered: {
         bookmarkList.setMultiSelection(!bookmarkList.multiSelection);
@@ -217,12 +217,12 @@ QfPaneDrawer {
 
     MenuItem {
       text: bookmarkList.multiSelection ? qsTr('Export Selected Bookmark(s)') : qsTr('Export All User Bookmarks')
-      icon.source: Theme.getThemeVectorIcon("ic_download_white_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_download_white_24dp")
       enabled: !bookmarkList.multiSelection || (bookmarkList.model && bookmarkList.model.selectedCount > 0)
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         bookmarkListMenu.close();
@@ -235,12 +235,12 @@ QfPaneDrawer {
     MenuItem {
       id: deleteSelectedBookmarksBtn
       text: qsTr('Delete Selected Bookmark(s)')
-      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
       enabled: bookmarkList.multiSelection && bookmarkList.model && bookmarkList.model.selectedCount > 0
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         bookmarkListMenu.close();
@@ -264,11 +264,11 @@ QfPaneDrawer {
 
     MenuItem {
       text: qsTr("Edit Bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         bookmarkList.requestBookmarkProperties(itemMenu.itemId, itemMenu.itemName, itemMenu.itemGroup);
@@ -277,11 +277,11 @@ QfPaneDrawer {
 
     MenuItem {
       text: qsTr("Navigate to bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_navigation_flag_purple_24dp")
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         bookmarkList.requestBookmarkNavigation(itemMenu.itemIndex);
@@ -290,16 +290,16 @@ QfPaneDrawer {
 
     MenuItem {
       text: qsTr("Copy Bookmark Details")
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         const point = bookmarkList.model.getBookmarkPoint(itemMenu.itemId);
         const crs = bookmarkList.model.getBookmarkCrs(itemMenu.itemId);
-        const coordinates = StringUtils.pointInformation(point, crs);
+        const coordinates = QfStringUtils.pointInformation(point, crs);
         platformUtilities.copyTextToClipboard(itemMenu.itemName + '\n' + coordinates);
         displayToast(qsTr('Bookmark details copied to clipboard'));
       }
@@ -311,11 +311,11 @@ QfPaneDrawer {
 
     MenuItem {
       text: qsTr("Delete Bookmark")
-      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+      icon.source: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         removeBookmarkDialog.open();
@@ -331,8 +331,8 @@ QfPaneDrawer {
     Label {
       width: mainWindow.width - 60
       wrapMode: Text.WordWrap
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
       text: qsTr("You are about to remove a bookmark, proceed?")
     }
 
@@ -356,8 +356,8 @@ QfPaneDrawer {
     Label {
       width: mainWindow.width - 60
       wrapMode: Text.WordWrap
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
       text: qsTr("Should the %n selected bookmark(s) really be deleted?", "", deleteBookmarksDialog.selectedCount)
     }
 
@@ -395,15 +395,15 @@ QfPaneDrawer {
       Rectangle {
         width: parent.width
         height: 30
-        color: Theme.controlBorderColor
+        color: QfTheme.controlBorderColor
 
         Text {
           anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
           }
-          font: Theme.strongResultFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongResultFont
+          color: QfTheme.mainTextColor
           text: {
             switch (section) {
             case "orange":
@@ -464,8 +464,8 @@ QfPaneDrawer {
           right: parent.right
           verticalCenter: parent.verticalCenter
         }
-        font: Theme.resultFont
-        color: Theme.mainTextColor
+        font: QfTheme.resultFont
+        color: QfTheme.mainTextColor
         text: BookmarkName !== '' ? BookmarkName : qsTr("Untitled bookmark")
         wrapMode: Text.WordWrap
       }
@@ -477,14 +477,14 @@ QfPaneDrawer {
           rightMargin: 5
           verticalCenter: parent.verticalCenter
         }
-        width: Theme.toolButtonSize
-        height: Theme.toolButtonSize
+        width: QfTheme.toolButtonSize
+        height: QfTheme.toolButtonSize
         visible: !bookmarkList.multiSelection && BookmarkUser
         round: true
         opacity: 0.5
         bgcolor: "transparent"
-        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+        iconColor: QfTheme.mainTextColor
 
         onClicked: {
           const gc = mapToItem(bookmarkList, 0, 0);
@@ -522,7 +522,7 @@ QfPaneDrawer {
       Rectangle {
         anchors.bottom: parent.bottom
         height: 1
-        color: Theme.controlBorderColor
+        color: QfTheme.controlBorderColor
         width: parent.width
       }
     }
@@ -536,8 +536,8 @@ QfPaneDrawer {
       visible: bookmarksList.count === 0
       horizontalAlignment: Text.AlignHCenter
       wrapMode: Text.WordWrap
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       text: qsTr("No bookmarks yet")
     }
 

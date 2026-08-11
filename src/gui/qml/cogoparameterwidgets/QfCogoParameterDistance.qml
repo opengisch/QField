@@ -28,15 +28,15 @@ QfCogoParameterWidgetBase {
       }
 
       Label {
-        color: Theme.mainTextColor
-        font: Theme.tipFont
+        color: QfTheme.mainTextColor
+        font: QfTheme.tipFont
         text: parameterLabel
       }
 
       Label {
         Layout.fillWidth: true
-        color: Theme.secondaryTextColor
-        font: Theme.tipFont
+        color: QfTheme.secondaryTextColor
+        font: QfTheme.tipFont
         text: '[' + UnitTypes.toAbbreviatedString(destinationCrs.mapUnits) + ']'
       }
     }
@@ -44,7 +44,7 @@ QfCogoParameterWidgetBase {
     QfTextField {
       id: distanceField
       Layout.fillWidth: true
-      font: Theme.tipFont
+      font: QfTheme.tipFont
       inputMethodHints: Qt.ImhFormattedNumbersOnly
 
       onTextEdited: {

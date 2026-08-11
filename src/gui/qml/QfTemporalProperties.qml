@@ -15,7 +15,7 @@ QfPopup {
   property MapSettings mapSettings
 
   parent: mainWindow.contentItem
-  width: Math.min(350, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  width: Math.min(350, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -48,7 +48,7 @@ QfPopup {
         topPadding: 5
         bottomPadding: 5
         text: qsTr('Enable temporal filter')
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         // visible for all layer tree items but nonspatial vector layer
         indicator.height: 16
         indicator.width: 16
@@ -73,7 +73,7 @@ QfPopup {
           Layout.rightMargin: 20
 
           enabled: mapCanvas.mapSettings.isTemporal
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           horizontalAlignment: TextInput.AlignHCenter
 
           inputMethodHints: Qt.ImhDigitsOnly
@@ -92,8 +92,8 @@ QfPopup {
         }
 
         QfToolButton {
-          iconSource: Theme.getThemeVectorIcon("ic_calendar_month_black_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_calendar_month_black_24dp")
+          iconColor: QfTheme.mainTextColor
           bgcolor: "transparent"
           onClicked: {
             calendarPanel.selectedDate = !isNaN(mapCanvas.mapSettings.temporalBegin) ? mapCanvas.mapSettings.temporalBegin : new Date();
@@ -107,7 +107,7 @@ QfPopup {
         Layout.fillWidth: true
 
         enabled: mapCanvas.mapSettings.isTemporal
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         horizontalAlignment: TextInput.AlignHCenter
         text: '≤ t ≤'
       }
@@ -122,7 +122,7 @@ QfPopup {
           Layout.fillWidth: true
 
           enabled: mapCanvas.mapSettings.isTemporal
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           horizontalAlignment: TextInput.AlignHCenter
 
           inputMethodHints: Qt.ImhDigitsOnly
@@ -141,8 +141,8 @@ QfPopup {
         }
 
         QfToolButton {
-          iconSource: Theme.getThemeVectorIcon("ic_calendar_month_black_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_calendar_month_black_24dp")
+          iconColor: QfTheme.mainTextColor
           bgcolor: "transparent"
           onClicked: {
             calendarPanel.selectedDate = !isNaN(mapCanvas.mapSettings.temporalEnd) ? mapCanvas.mapSettings.temporalEnd : new Date();

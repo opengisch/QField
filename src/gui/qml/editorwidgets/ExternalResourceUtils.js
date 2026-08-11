@@ -27,10 +27,10 @@ function getAttachmentNaming(layer, fieldName) {
  * The documentViewer values correspond to ExternalResource.DocumentViewer enum
  * (0 = file, 1 = image, 3 = audio, 4 = video).
  */
-function getAttachmentFilePath(evaluatedFilepath, documentViewer, FileUtils) {
-  let filepath = FileUtils.sanitizeFilePath(evaluatedFilepath);
+function getAttachmentFilePath(evaluatedFilepath, documentViewer, QfFileUtils) {
+  let filepath = QfFileUtils.sanitizeFilePath(evaluatedFilepath);
 
-  if (FileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
+  if (QfFileUtils.fileSuffix(filepath) === '' && !filepath.endsWith("{extension}") && !filepath.endsWith("{filename}")) {
     let nowStr = (new Date()).toISOString().replace(/[^0-9]/g, '');
 
     if (documentViewer === 1) {

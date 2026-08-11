@@ -8,16 +8,16 @@ import org.qfield.gui
  */
 Item {
   id: navigationHighlight
-  property Navigation navigation
+  property QfNavigation navigation
 
   QfLinePolygon {
     visible: positionSource.active
     mapSettings: navigation.mapSettings
-    geometry: QgsGeometryWrapper {
+    geometry: QfGeometryWrapper {
       qgsGeometry: navigation.path
-      crs: navigation.mapSettings.crs ? navigation.mapSettings.crs : CoordinateReferenceSystemUtils.invalidCrs()
+      crs: navigation.mapSettings.crs ? navigation.mapSettings.crs : QfCoordinateReferenceSystemUtils.invalidCrs()
     }
-    color: Theme.navigationColorSemiOpaque
+    color: QfTheme.navigationColorSemiOpaque
     lineWidth: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? 5 : 1
   }
 
