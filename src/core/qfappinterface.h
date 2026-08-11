@@ -23,24 +23,24 @@
 #include <QQmlComponent>
 #include <QStandardItemModel>
 
-class AppController;
+class QfAppController;
 class QgsRectangle;
 class QgsFeature;
 class QQuickItem;
 class QQmlEngine;
-class QFieldXmlHttpRequest;
+class QfXmlHttpRequest;
 
 /**
  * \brief App interface made available in QML as `iface`.
  * \ingroup core
  */
-class AppInterface : public QObject
+class QfAppInterface : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit AppInterface( QQmlEngine *engine, AppController *controller = nullptr );
-    AppInterface()
+    explicit QfAppInterface( QQmlEngine *engine, QfAppController *controller = nullptr );
+    QfAppInterface()
     {
       // You shouldn't get here, this constructor only exists that we can register it as a QML type
       Q_ASSERT( false );
@@ -213,7 +213,7 @@ class AppInterface : public QObject
 
     /**
      * Returns the positioning item.
-     * \see Positioning
+     * \see QfPositioning
      */
     Q_INVOKABLE QObject *positioning() const;
 
@@ -231,8 +231,8 @@ class AppInterface : public QObject
     //! Reads the content of the loaded project, called on loadProjectTriggered()
     Q_INVOKABLE void readProject();
 
-    static void setInstance( AppInterface *instance ) { sAppInterface = instance; }
-    static AppInterface *instance() { return sAppInterface; }
+    static void setInstance( QfAppInterface *instance ) { sAppInterface = instance; }
+    static QfAppInterface *instance() { return sAppInterface; }
     ///@endcond
 
   signals:
@@ -283,10 +283,10 @@ class AppInterface : public QObject
   private:
     QObject *rootObject() const;
 
-    static AppInterface *sAppInterface;
+    static QfAppInterface *sAppInterface;
 
     QQmlEngine *mEngine = nullptr;
-    AppController *mController = nullptr;
+    QfAppController *mController = nullptr;
 };
 
 #endif // QFAPPINTERFACE_H

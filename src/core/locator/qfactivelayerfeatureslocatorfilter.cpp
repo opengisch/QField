@@ -29,19 +29,19 @@
 #include <math.h>
 
 
-ActiveLayerFeaturesLocatorFilter::ActiveLayerFeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
+QfActiveLayerFeaturesLocatorFilter::QfActiveLayerFeaturesLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
   , mLocatorBridge( locatorBridge )
 {
   setUseWithoutPrefix( false );
 }
 
-ActiveLayerFeaturesLocatorFilter *ActiveLayerFeaturesLocatorFilter::clone() const
+QfActiveLayerFeaturesLocatorFilter *QfActiveLayerFeaturesLocatorFilter::clone() const
 {
-  return new ActiveLayerFeaturesLocatorFilter( mLocatorBridge );
+  return new QfActiveLayerFeaturesLocatorFilter( mLocatorBridge );
 }
 
-QString ActiveLayerFeaturesLocatorFilter::fieldRestriction( QString &searchString, bool *isRestricting )
+QString QfActiveLayerFeaturesLocatorFilter::fieldRestriction( QString &searchString, bool *isRestricting )
 {
   QString _fieldRestriction;
   searchString = searchString.trimmed();
@@ -57,7 +57,7 @@ QString ActiveLayerFeaturesLocatorFilter::fieldRestriction( QString &searchStrin
   return _fieldRestriction;
 }
 
-QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
+QStringList QfActiveLayerFeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
 {
   // Normally skip very short search strings, unless when specifically searching using this filter or try to match fields
   if ( string.length() < 3 && !locatorContext.usingPrefix && !string.startsWith( '@' ) )
@@ -177,7 +177,7 @@ QStringList ActiveLayerFeaturesLocatorFilter::prepare( const QString &string, co
   return completionList;
 }
 
-void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
+void QfActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   QgsFeatureIds featuresFound;
   QgsFeature f;
@@ -220,7 +220,7 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg?color=mainColor" ) );
       if ( mLayerIsSpatial )
       {
-        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
+        result.actions << QgsLocatorResult::ResultAction( QfNavigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       }
 
       emit resultFetched( result );
@@ -275,7 +275,7 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
     result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg?color=mainColor" ) );
     if ( mLayerIsSpatial )
     {
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
+      result.actions << QgsLocatorResult::ResultAction( QfNavigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
     }
 
     emit resultFetched( result );
@@ -286,12 +286,12 @@ void ActiveLayerFeaturesLocatorFilter::fetchResults( const QString &string, cons
   }
 }
 
-void ActiveLayerFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfActiveLayerFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   triggerResultFromAction( result, Normal );
 }
 
-void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void QfActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   const QVariantMap data = result.userData().toMap();
   switch ( data.value( QStringLiteral( "type" ) ).value<ResultType>() )
@@ -324,7 +324,7 @@ void ActiveLayerFeaturesLocatorFilter::triggerResultFromAction( const QgsLocator
         mLocatorBridge->featureListController()->selection()->setFocusedItem( 0 );
         mLocatorBridge->featureListController()->requestFeatureFormState();
       }
-      else if ( actionId == Navigation )
+      else if ( actionId == QfNavigation )
       {
         if ( !mLocatorBridge->navigation() )
           return;

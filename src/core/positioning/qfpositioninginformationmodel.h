@@ -9,11 +9,11 @@
 /**
  * \ingroup core
  */
-class PositioningInformationModel : public QStandardItemModel
+class QfPositioningInformationModel : public QStandardItemModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( Positioning *positioningSource READ positioningSource WRITE setPositioningSource NOTIFY positioningSourceChanged )
+    Q_PROPERTY( QfPositioning *positioningSource READ positioningSource WRITE setPositioningSource NOTIFY positioningSourceChanged )
     Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
     Q_PROPERTY( Qgis::DistanceUnit distanceUnits READ distanceUnits WRITE setDistanceUnits NOTIFY distanceUnitsChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem coordinateDisplayCrs READ coordinateDisplayCrs WRITE setCoordinateDisplayCrs NOTIFY coordinateDisplayCrsChanged )
@@ -25,7 +25,7 @@ class PositioningInformationModel : public QStandardItemModel
       ValueRole = Qt::UserRole + 1,
     };
 
-    PositioningInformationModel( QObject *parent = nullptr );
+    QfPositioningInformationModel( QObject *parent = nullptr );
 
     /**
      * @brief Sets the data for the given index
@@ -55,13 +55,13 @@ class PositioningInformationModel : public QStandardItemModel
     /**
      * @brief Returns the positioning source
      */
-    Positioning *positioningSource() const;
+    QfPositioning *positioningSource() const;
 
     /**
      * @brief Updates the positioning source and reconnects the positionInformationChanged signal to refreshData, while disconnecting the previous connection.
      * @param positioningSource The new positioning source to update with
      */
-    void setPositioningSource( Positioning *positioningSource );
+    void setPositioningSource( QfPositioning *positioningSource );
 
     /**
      * @brief Returns the antenna height
@@ -116,7 +116,7 @@ class PositioningInformationModel : public QStandardItemModel
     QString getVerticalAccuracy( double distanceUnitFactor, const QString &distanceUnitAbbreviation );
 
   private:
-    Positioning *mPositioningSource = nullptr;
+    QfPositioning *mPositioningSource = nullptr;
     double mAntennaHeight = -1;
     Qgis::DistanceUnit mDistanceUnits;
     QgsCoordinateReferenceSystem mCoordinateDisplayCrs;

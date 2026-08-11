@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectutils.cpp - ProjectUtils
+  qfprojectutils.cpp - QfProjectUtils
 
  ---------------------
  begin                : 19.04.2024
@@ -31,12 +31,12 @@
 #include <qgsvectortilelayer.h>
 #include <qgsvectortileutils.h>
 
-ProjectUtils::ProjectUtils( QObject *parent )
+QfProjectUtils::QfProjectUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QVariantMap ProjectUtils::mapLayers( QgsProject *project )
+QVariantMap QfProjectUtils::mapLayers( QgsProject *project )
 {
   if ( !project )
     return QVariantMap();
@@ -51,7 +51,7 @@ QVariantMap ProjectUtils::mapLayers( QgsProject *project )
   return mapLayers;
 }
 
-bool ProjectUtils::addMapLayer( QgsProject *project, QgsMapLayer *layer )
+bool QfProjectUtils::addMapLayer( QgsProject *project, QgsMapLayer *layer )
 {
   if ( !project )
     return false;
@@ -59,7 +59,7 @@ bool ProjectUtils::addMapLayer( QgsProject *project, QgsMapLayer *layer )
   return ( project->addMapLayer( layer ) );
 }
 
-void ProjectUtils::removeMapLayer( QgsProject *project, QgsMapLayer *layer )
+void QfProjectUtils::removeMapLayer( QgsProject *project, QgsMapLayer *layer )
 {
   if ( !project || !layer )
     return;
@@ -67,7 +67,7 @@ void ProjectUtils::removeMapLayer( QgsProject *project, QgsMapLayer *layer )
   project->removeMapLayer( layer );
 }
 
-void ProjectUtils::removeMapLayer( QgsProject *project, const QString &layerId )
+void QfProjectUtils::removeMapLayer( QgsProject *project, const QString &layerId )
 {
   if ( !project || layerId.isEmpty() )
     return;
@@ -75,7 +75,7 @@ void ProjectUtils::removeMapLayer( QgsProject *project, const QString &layerId )
   project->removeMapLayer( layerId );
 }
 
-Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
+Qgis::TransactionMode QfProjectUtils::transactionMode( QgsProject *project )
 {
   if ( !project )
     return Qgis::TransactionMode::Disabled;
@@ -83,7 +83,7 @@ Qgis::TransactionMode ProjectUtils::transactionMode( QgsProject *project )
   return project->transactionMode();
 }
 
-QString ProjectUtils::title( QgsProject *project )
+QString QfProjectUtils::title( QgsProject *project )
 {
   if ( !project )
     return QString();
@@ -92,13 +92,13 @@ QString ProjectUtils::title( QgsProject *project )
   return !title.isEmpty() ? title : QFileInfo( project->fileName() ).completeBaseName();
 }
 
-QString ProjectUtils::createProject( const QVariantMap &options, const GnssPositionInformation &positionInformation )
+QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssPositionInformation &positionInformation )
 {
   QString projectTitle = options.value( QStringLiteral( "title" ), tr( "Created Project" ) ).toString();
   QString projectFilename = projectTitle.normalized( QString::NormalizationForm_KD );
   projectFilename.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
-  QDir createdProjectsDir( QStringLiteral( "%1/Created Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ) );
+  QDir createdProjectsDir( QStringLiteral( "%1/Created Projects/" ).arg( QfPlatformUtilities::instance()->applicationDirectory() ) );
   QString createdProjectDir = createdProjectsDir.filePath( projectFilename );
   int uniqueSuffix = 2;
   while ( QFileInfo::exists( createdProjectDir ) )
@@ -154,10 +154,10 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesPointLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), notesHasAdditionalGeometries ? QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Point" ) ) : tr( "Notes" ) );
     notesLayers << notesPointLayer;
 
-    LayerUtils::setDefaultRenderer( notesPointLayer, nullptr,
-                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation_%1', 'max', \"media\")" ).arg( notesPointLayer->id() ) : QString(),
-                                    QStringLiteral( "color" ) );
-    LayerUtils::setDefaultLabeling( notesPointLayer );
+    QfLayerUtils::setDefaultRenderer( notesPointLayer, nullptr,
+                                      options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation_%1', 'max', \"media\")" ).arg( notesPointLayer->id() ) : QString(),
+                                      QStringLiteral( "color" ) );
+    QfLayerUtils::setDefaultLabeling( notesPointLayer );
 
     if ( notesHasAdditionalGeometries )
     {
@@ -168,7 +168,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLineLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Line" ) ) );
       notesLayers << notesLineLayer;
 
-      LayerUtils::setDefaultRenderer( notesLineLayer, nullptr, QString(), QStringLiteral( "color" ) );
+      QfLayerUtils::setDefaultRenderer( notesLineLayer, nullptr, QString(), QStringLiteral( "color" ) );
 
       writerOptions.layerName = "notes_polygon";
       writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PolygonZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
@@ -177,7 +177,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesPolygonLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Polygon" ) ) );
       notesLayers << notesPolygonLayer;
 
-      LayerUtils::setDefaultRenderer( notesPolygonLayer, nullptr, QString(), QStringLiteral( "color" ) );
+      QfLayerUtils::setDefaultRenderer( notesPolygonLayer, nullptr, QString(), QStringLiteral( "color" ) );
     }
 
     if ( notesHasAttachments )
@@ -398,7 +398,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     tracksLayer = new QgsVectorLayer( tracksFilepath, tr( "Tracks" ) );
     fields = tracksLayer->fields();
-    LayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QStringLiteral( "color" ) );
+    QfLayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QStringLiteral( "color" ) );
 
     // Set a nice display expression for the feature list
     tracksLayer->setDisplayExpression( "'Track #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' )" );
@@ -488,7 +488,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   QString basemapCustomSource = options.value( QStringLiteral( "basemap_custom_source" ) ).toString();
   if ( basemap.compare( QStringLiteral( "colorful" ) ) == 0 || basemap.compare( QStringLiteral( "darkgray" ) ) == 0 || basemap.compare( QStringLiteral( "lightgray" ) ) == 0 )
   {
-    basemapLayer = LayerUtils::createBasemap( basemap );
+    basemapLayer = QfLayerUtils::createBasemap( basemap );
     if ( basemap.compare( QStringLiteral( "darkgray" ) ) == 0 )
     {
       createdProject->setBackgroundColor( QColor( 15, 15, 15 ) );
@@ -593,7 +593,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
       node.appendChild( canvasElement );
 
-      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject->crs(), createdProjectExtent );
+      QgsRectangle extent = QfPositioningUtils::createExtentForDevice( positionInformation, createdProject->crs(), createdProjectExtent );
       if ( !extent.isEmpty() )
       {
         QgsMapSettings mapSettings;

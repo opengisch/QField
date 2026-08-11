@@ -1,5 +1,5 @@
 /***************************************************************************
- qffilereceiver.h - FileReceiver
+ qffilereceiver.h - QfFileReceiver
 
  ---------------------
  begin                : August 2025
@@ -23,17 +23,17 @@
 #include <QTimer>
 
 /**
- * The FileReceiver replays a provided NMEA log file in a loop. Useful to
+ * The QfFileReceiver replays a provided NMEA log file in a loop. Useful to
  * debug external GNSS devices.
  * \ingroup core
  */
-class FileReceiver : public NmeaGnssReceiver
+class QfFileReceiver : public QfNmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit FileReceiver( const QString &filePath = QString(), const int interval = 0, QObject *parent = nullptr );
-    ~FileReceiver();
+    explicit QfFileReceiver( const QString &filePath = QString(), const int interval = 0, QObject *parent = nullptr );
+    ~QfFileReceiver();
 
     static QLatin1String identifier;
 

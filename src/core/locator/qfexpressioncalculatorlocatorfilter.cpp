@@ -28,19 +28,19 @@
 #include <qgsproject.h>
 
 
-ExpressionCalculatorLocatorFilter::ExpressionCalculatorLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
+QfExpressionCalculatorLocatorFilter::QfExpressionCalculatorLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
   , mLocatorBridge( locatorBridge )
 {
   setUseWithoutPrefix( false );
 }
 
-ExpressionCalculatorLocatorFilter *ExpressionCalculatorLocatorFilter::clone() const
+QfExpressionCalculatorLocatorFilter *QfExpressionCalculatorLocatorFilter::clone() const
 {
-  return new ExpressionCalculatorLocatorFilter( mLocatorBridge );
+  return new QfExpressionCalculatorLocatorFilter( mLocatorBridge );
 }
 
-void ExpressionCalculatorLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback * )
+void QfExpressionCalculatorLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback * )
 {
   QgsExpressionContext context;
   context << QgsExpressionContextUtils::globalScope()
@@ -65,19 +65,19 @@ void ExpressionCalculatorLocatorFilter::fetchResults( const QString &string, con
   return;
 }
 
-void ExpressionCalculatorLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfExpressionCalculatorLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   triggerResultFromAction( result, Normal );
 }
 
-void ExpressionCalculatorLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void QfExpressionCalculatorLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   switch ( actionId )
   {
     case Normal:
     {
       const QString resultString = result.userData().toString();
-      PlatformUtilities::instance()->copyTextToClipboard( resultString );
+      QfPlatformUtilities::instance()->copyTextToClipboard( resultString );
     }
   }
 

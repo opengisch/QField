@@ -21,13 +21,13 @@
 #include <QDir>
 #include <QFile>
 
-DrawingTemplateModel::DrawingTemplateModel( QObject *parent )
+QfDrawingTemplateModel::QfDrawingTemplateModel( QObject *parent )
   : QAbstractListModel( parent )
 {
   reloadModel();
 }
 
-QHash<int, QByteArray> DrawingTemplateModel::roleNames() const
+QHash<int, QByteArray> QfDrawingTemplateModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[TemplateTypeRole] = "templateType";
@@ -37,7 +37,7 @@ QHash<int, QByteArray> DrawingTemplateModel::roleNames() const
   return roles;
 }
 
-void DrawingTemplateModel::reloadModel()
+void QfDrawingTemplateModel::reloadModel()
 {
   beginResetModel();
   mTemplates.clear();
@@ -55,7 +55,7 @@ void DrawingTemplateModel::reloadModel()
   }
 
   // App-wide templates
-  dirs << PlatformUtilities::instance()->appDataDirs();
+  dirs << QfPlatformUtilities::instance()->appDataDirs();
   for ( const QString &dir : dirs )
   {
     QDir templateDir( dir + QStringLiteral( "drawing_templates/" ) );
@@ -65,7 +65,7 @@ void DrawingTemplateModel::reloadModel()
       for ( const QString &templateFile : templates )
       {
         const QFileInfo templateInfo( dir + QStringLiteral( "drawing_templates/" ) + templateFile );
-        if ( FileUtils::isImageMimeTypeSupported( FileUtils::mimeTypeName( templateInfo.absoluteFilePath() ) ) )
+        if ( QfFileUtils::isImageMimeTypeSupported( QfFileUtils::mimeTypeName( templateInfo.absoluteFilePath() ) ) )
         {
           const TemplateType type = !projectPath.isEmpty() && templateDir == projectPath ? ProjectTemplate : AppTemplate;
           mTemplates << Template( type, templateInfo.baseName(), templateInfo.absoluteFilePath() );
@@ -100,12 +100,12 @@ void DrawingTemplateModel::reloadModel()
   }
 }
 
-int DrawingTemplateModel::rowCount( const QModelIndex &parent ) const
+int QfDrawingTemplateModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mTemplates.size() ) : 0;
 }
 
-QVariant DrawingTemplateModel::data( const QModelIndex &index, int role ) const
+QVariant QfDrawingTemplateModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mTemplates.size() || index.row() < 0 )
   {
@@ -125,12 +125,12 @@ QVariant DrawingTemplateModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QString DrawingTemplateModel::projectFilePath() const
+QString QfDrawingTemplateModel::projectFilePath() const
 {
   return mProjectFilePath;
 }
 
-void DrawingTemplateModel::setProjectFilePath( const QString &path )
+void QfDrawingTemplateModel::setProjectFilePath( const QString &path )
 {
   if ( mProjectFilePath == path )
   {
@@ -143,7 +143,7 @@ void DrawingTemplateModel::setProjectFilePath( const QString &path )
   reloadModel();
 }
 
-bool DrawingTemplateModel::hasProjectTemplate() const
+bool QfDrawingTemplateModel::hasProjectTemplate() const
 {
   return mHasProjectTemplate;
 }

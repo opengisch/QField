@@ -1,5 +1,5 @@
 /***************************************************************************
- qfvideosinkcapture.h - VideoSinkCapture
+ qfvideosinkcapture.h - QfVideoSinkCapture
 
  ---------------------
  begin                : 02.08.2026
@@ -22,7 +22,7 @@
 #include <QVideoFrame>
 
 
-void VideoSinkCapture::setVideoSink( QVideoSink *videoSink )
+void QfVideoSinkCapture::setVideoSink( QVideoSink *videoSink )
 {
   if ( mVideoSink == videoSink )
   {
@@ -33,7 +33,7 @@ void VideoSinkCapture::setVideoSink( QVideoSink *videoSink )
   emit videoSinkChanged();
 }
 
-void VideoSinkCapture::saveToFile( const QString &location )
+void QfVideoSinkCapture::saveToFile( const QString &location )
 {
   if ( !mVideoSink )
   {

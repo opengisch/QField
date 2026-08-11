@@ -47,36 +47,36 @@
 
 #if defined( Q_OS_ANDROID )
 #include "qfandroidplatformutilities.h"
-Q_GLOBAL_STATIC( AndroidPlatformUtilities, sPlatformUtils )
+Q_GLOBAL_STATIC( QfAndroidPlatformUtilities, sPlatformUtils )
 #elif defined( Q_OS_IOS )
 #include "ios/qfiosplatformutilities.h"
-Q_GLOBAL_STATIC( IosPlatformUtilities, sPlatformUtils )
+Q_GLOBAL_STATIC( QfIosPlatformUtilities, sPlatformUtils )
 #else
-Q_GLOBAL_STATIC( PlatformUtilities, sPlatformUtils )
+Q_GLOBAL_STATIC( QfPlatformUtilities, sPlatformUtils )
 #endif
 
-PlatformUtilities::~PlatformUtilities()
+QfPlatformUtilities::~QfPlatformUtilities()
 {
 }
 
-PlatformUtilities::Capabilities PlatformUtilities::capabilities() const
+QfPlatformUtilities::Capabilities QfPlatformUtilities::capabilities() const
 {
-  PlatformUtilities::Capabilities capabilities = PlatformUtilities::Capabilities() | CustomSend | FilePicker | NativeLocalDataPicker | UpdateProjectFromArchive;
+  QfPlatformUtilities::Capabilities capabilities = QfPlatformUtilities::Capabilities() | CustomSend | FilePicker | NativeLocalDataPicker | UpdateProjectFromArchive;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
   return capabilities;
 }
 
-void PlatformUtilities::copySampleProjects()
+void QfPlatformUtilities::copySampleProjects()
 {
   if ( QFileInfo::exists( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ) ) )
   {
-    FileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ), systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+    QfFileUtils::copyRecursively( systemSharedDataLocation() + QLatin1String( "/qfield/sample_projects" ), systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
   }
 }
 
-void PlatformUtilities::initSystem()
+void QfPlatformUtilities::initSystem()
 {
   const QString appDataLocation = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
   QFile gitRevFile( appDataLocation + QStringLiteral( "/gitRev" ) );
@@ -100,7 +100,7 @@ void PlatformUtilities::initSystem()
   }
 }
 
-void PlatformUtilities::afterUpdate()
+void QfPlatformUtilities::afterUpdate()
 {
   const QStringList dirs = appDataDirs();
   for ( const QString &dir : dirs )
@@ -120,7 +120,7 @@ void PlatformUtilities::afterUpdate()
   applicationDir.mkpath( QStringLiteral( "Imported Datasets" ) );
 }
 
-QString PlatformUtilities::systemSharedDataLocation() const
+QString QfPlatformUtilities::systemSharedDataLocation() const
 {
   /**
    * By default, assume that we have a layout like this:
@@ -146,40 +146,40 @@ QString PlatformUtilities::systemSharedDataLocation() const
   return !environmentSharePath.isEmpty() ? QDir( environmentSharePath ).absolutePath() : sharePath;
 }
 
-QString PlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
+QString QfPlatformUtilities::systemLocalDataLocation( const QString &subDir ) const
 {
   return QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + ( !subDir.isEmpty() ? '/' + subDir : QString() );
 }
 
-bool PlatformUtilities::hasQgsProject() const
+bool QfPlatformUtilities::hasQgsProject() const
 {
   return qApp->arguments().count() > 1 && !qApp->arguments().last().isEmpty();
 }
 
-void PlatformUtilities::loadQgsProject() const
+void QfPlatformUtilities::loadQgsProject() const
 {
   if ( hasQgsProject() )
   {
-    AppInterface::instance()->loadFile( qApp->arguments().last() );
+    QfAppInterface::instance()->loadFile( qApp->arguments().last() );
   }
 }
 
-bool PlatformUtilities::hasQfAction() const
+bool QfPlatformUtilities::hasQfAction() const
 {
   return false;
 }
 
-void PlatformUtilities::executeQfAction() const
+void QfPlatformUtilities::executeQfAction() const
 {
   return;
 }
 
-QStringList PlatformUtilities::appDataDirs() const
+QStringList QfPlatformUtilities::appDataDirs() const
 {
   return QStringList() << QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/QField/" );
 }
 
-QStringList PlatformUtilities::availableGrids() const
+QStringList QfPlatformUtilities::availableGrids() const
 {
   QStringList dataDirs = appDataDirs();
   QStringList grids;
@@ -194,19 +194,19 @@ QStringList PlatformUtilities::availableGrids() const
   return grids;
 }
 
-bool PlatformUtilities::createDir( const QString &path, const QString &dirname ) const
+bool QfPlatformUtilities::createDir( const QString &path, const QString &dirname ) const
 {
   QDir parentDir( path );
   return parentDir.mkdir( dirname );
 }
 
-bool PlatformUtilities::rmFile( const QString &filename ) const
+bool QfPlatformUtilities::rmFile( const QString &filename ) const
 {
   QFile file( filename );
   return file.remove( filename );
 }
 
-bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite ) const
+bool QfPlatformUtilities::renameFile( const QString &oldFilePath, const QString &newFilePath, bool overwrite ) const
 {
   QFileInfo oldFi( oldFilePath );
   QFileInfo newFi( newFilePath );
@@ -246,17 +246,17 @@ bool PlatformUtilities::renameFile( const QString &oldFilePath, const QString &n
   return ok;
 }
 
-QString PlatformUtilities::applicationDirectory() const
+QString QfPlatformUtilities::applicationDirectory() const
 {
   return QStandardPaths::standardLocations( QStandardPaths::DocumentsLocation ).first() + QStringLiteral( "/QField Documents/" );
 }
 
-QStringList PlatformUtilities::additionalApplicationDirectories() const
+QStringList QfPlatformUtilities::additionalApplicationDirectories() const
 {
   return QStringList() << QString();
 }
 
-QStringList PlatformUtilities::rootDirectories() const
+QStringList QfPlatformUtilities::rootDirectories() const
 {
   QStringList rootDirectories;
   rootDirectories << QDir::homePath();
@@ -273,16 +273,16 @@ QStringList PlatformUtilities::rootDirectories() const
   return rootDirectories;
 }
 
-void PlatformUtilities::importProjectFolder() const
+void QfPlatformUtilities::importProjectFolder() const
 {}
 
-void PlatformUtilities::importProjectArchive() const
+void QfPlatformUtilities::importProjectArchive() const
 {}
 
-void PlatformUtilities::importDatasets() const
+void QfPlatformUtilities::importDatasets() const
 {}
 
-void PlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
+void QfPlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
 {
   const QString zipFilePath = QFileDialog::getOpenFileName( nullptr,
                                                             tr( "Select ZIP Archive" ),
@@ -293,26 +293,26 @@ void PlatformUtilities::updateProjectFromArchive( const QString &projectPath ) c
     return;
   }
 
-  AppInterface::instance()->clearProject();
+  QfAppInterface::instance()->clearProject();
 
   QStringList extractedFiles;
   const QString projectFolder = QFileInfo( projectPath ).absolutePath();
-  ( void ) FileUtils::unzip( zipFilePath, projectFolder, extractedFiles, false );
+  ( void ) QfFileUtils::unzip( zipFilePath, projectFolder, extractedFiles, false );
 
-  AppInterface::instance()->loadFile( projectPath );
+  QfAppInterface::instance()->loadFile( projectPath );
 }
 
-void PlatformUtilities::exportFolderTo( const QString &path ) const
+void QfPlatformUtilities::exportFolderTo( const QString &path ) const
 {
   Q_UNUSED( path )
 }
 
-void PlatformUtilities::exportDatasetTo( const QString &path ) const
+void QfPlatformUtilities::exportDatasetTo( const QString &path ) const
 {
   Q_UNUSED( path )
 }
 
-void PlatformUtilities::sendDatasetTo( const QString &path ) const
+void QfPlatformUtilities::sendDatasetTo( const QString &path ) const
 {
   const QString directory = QFileDialog::getExistingDirectory( nullptr, tr( "Select Destination Folder" ) );
   if ( directory.isEmpty() )
@@ -334,7 +334,7 @@ void PlatformUtilities::sendDatasetTo( const QString &path ) const
   }
 }
 
-void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
+void QfPlatformUtilities::sendCompressedFolderTo( const QString &path ) const
 {
   const QString tempZipPath = QStringLiteral( "%1/%2.zip" ).arg( QDir::tempPath(), QFileInfo( path ).fileName() );
   QFile::remove( tempZipPath );
@@ -354,7 +354,7 @@ void PlatformUtilities::sendCompressedFolderTo( const QString &path ) const
   sendDatasetTo( tempZipPath );
 }
 
-void PlatformUtilities::sendCompressedFilesTo( const QStringList &paths ) const
+void QfPlatformUtilities::sendCompressedFilesTo( const QStringList &paths ) const
 {
   const QString tempZipPath = QStringLiteral( "%1/qfield_files_%2.zip" ).arg( QDir::tempPath(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
   QFile::remove( tempZipPath );
@@ -377,7 +377,7 @@ void PlatformUtilities::sendCompressedFilesTo( const QStringList &paths ) const
   sendDatasetTo( tempZipPath );
 }
 
-void PlatformUtilities::removeDataset( const QString &path ) const
+void QfPlatformUtilities::removeDataset( const QString &path ) const
 {
   const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
   if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&path]( const QString &directory ) { return path.startsWith( directory ); } ) )
@@ -393,7 +393,7 @@ void PlatformUtilities::removeDataset( const QString &path ) const
   }
 }
 
-void PlatformUtilities::removeFolder( const QString &path ) const
+void QfPlatformUtilities::removeFolder( const QString &path ) const
 {
   const QStringList allowedDirectories = QStringList() << applicationDirectory() << additionalApplicationDirectories();
   if ( std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&path]( const QString &directory ) { return path.startsWith( directory ); } ) )
@@ -409,17 +409,17 @@ void PlatformUtilities::removeFolder( const QString &path ) const
   }
 }
 
-ResourceSource *PlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
+QfResourceSource *QfPlatformUtilities::getCameraPicture( const QString &, const QString &, const QString &, QObject * )
 {
   return nullptr;
 }
 
-ResourceSource *PlatformUtilities::getCameraVideo( const QString &, const QString &, const QString &, QObject * )
+QfResourceSource *QfPlatformUtilities::getCameraVideo( const QString &, const QString &, const QString &, QObject * )
 {
   return nullptr;
 }
 
-ResourceSource *PlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent )
+QfResourceSource *QfPlatformUtilities::createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent )
 {
   QFileInfo fi( fileName );
   if ( fi.exists() )
@@ -427,41 +427,41 @@ ResourceSource *PlatformUtilities::createResource( const QString &prefix, const 
     // if the file is already in the prefixed path, no need to copy
     if ( fileName.startsWith( prefix ) )
     {
-      return new ResourceSource( parent, prefix, fileName );
+      return new QfResourceSource( parent, prefix, fileName );
     }
     else
     {
-      QString finalFilePath = StringUtils::replaceFilenameTags( filePath, fi.fileName() );
+      QString finalFilePath = QfStringUtils::replaceFilenameTags( filePath, fi.fileName() );
       QString destinationFile = prefix + finalFilePath;
       QFileInfo destinationInfo( destinationFile );
       QDir prefixDir( prefix );
       if ( prefixDir.mkpath( destinationInfo.absolutePath() ) && QFile::copy( fileName, destinationFile ) )
       {
-        return new ResourceSource( parent, prefix, destinationFile );
+        return new QfResourceSource( parent, prefix, destinationFile );
       }
     }
 
     QgsMessageLog::logMessage( tr( "Failed to save file resource" ), "QField", Qgis::Critical );
   }
 
-  return new ResourceSource( parent, prefix, QString() );
+  return new QfResourceSource( parent, prefix, QString() );
 }
 
-ResourceSource *PlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent )
+QfResourceSource *QfPlatformUtilities::getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent )
 {
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Image File" ), prefix,
                                                    tr( "All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)" ) );
   return createResource( prefix, pictureFilePath, fileName, parent );
 }
 
-ResourceSource *PlatformUtilities::getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent )
+QfResourceSource *QfPlatformUtilities::getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent )
 {
   QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Video File" ), prefix,
                                                    tr( "All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)" ) );
   return createResource( prefix, videoFilePath, fileName, parent );
 }
 
-ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
+QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
 {
   QFileDialog fileDialog( nullptr, tr( "Select File" ), prefix );
   fileDialog.setMimeTypeFilters( { mimeType } );
@@ -472,16 +472,16 @@ ResourceSource *PlatformUtilities::getFile( const QString &prefix, const QString
   return nullptr;
 }
 
-ViewStatus *PlatformUtilities::open( const QString &uri, bool, QObject * )
+QfViewStatus *QfPlatformUtilities::open( const QString &uri, bool, QObject * )
 {
-  QDesktopServices::openUrl( UrlUtils::fromString( uri ) );
+  QDesktopServices::openUrl( QfUrlUtils::fromString( uri ) );
   return nullptr;
 }
 
-ProjectSource *PlatformUtilities::openProject( QObject * )
+QfProjectSource *QfPlatformUtilities::openProject( QObject * )
 {
   QSettings settings;
-  ProjectSource *source = new ProjectSource();
+  QfProjectSource *source = new QfProjectSource();
   QString fileName { QFileDialog::getOpenFileName( nullptr,
                                                    tr( "Open File" ),
                                                    settings.value( QStringLiteral( "QField/lastOpenDir" ), QString() ).toString(),
@@ -494,37 +494,37 @@ ProjectSource *PlatformUtilities::openProject( QObject * )
   return source;
 }
 
-bool PlatformUtilities::checkPositioningPermissions() const
+bool QfPlatformUtilities::checkPositioningPermissions() const
 {
   return true;
 }
 
-bool PlatformUtilities::checkCameraPermissions() const
+bool QfPlatformUtilities::checkCameraPermissions() const
 {
   return true;
 }
 
-bool PlatformUtilities::checkMicrophonePermissions() const
+bool QfPlatformUtilities::checkMicrophonePermissions() const
 {
   return true;
 }
 
-void PlatformUtilities::copyTextToClipboard( const QString &string ) const
+void QfPlatformUtilities::copyTextToClipboard( const QString &string ) const
 {
   QGuiApplication::clipboard()->setText( string );
 }
 
-QString PlatformUtilities::getTextFromClipboard() const
+QString QfPlatformUtilities::getTextFromClipboard() const
 {
   return QGuiApplication::clipboard()->text();
 }
 
-double PlatformUtilities::systemFontPointSize() const
+double QfPlatformUtilities::systemFontPointSize() const
 {
   return QApplication::font().pointSizeF() + 2.0;
 }
 
-void PlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connection ) const
+void QfPlatformUtilities::uploadPendingAttachments( QfCloudConnection *connection ) const
 {
   QTimer::singleShot( 500, [connection]() {
     if ( connection )
@@ -534,35 +534,35 @@ void PlatformUtilities::uploadPendingAttachments( QFieldCloudConnection *connect
   } );
 }
 
-bool PlatformUtilities::isSystemDarkTheme() const
+bool QfPlatformUtilities::isSystemDarkTheme() const
 {
   return false;
 }
 
-PlatformUtilities *PlatformUtilities::instance()
+QfPlatformUtilities *QfPlatformUtilities::instance()
 {
   return sPlatformUtils;
 }
 
-Qt::PermissionStatus PlatformUtilities::checkCameraPermission() const
+Qt::PermissionStatus QfPlatformUtilities::checkCameraPermission() const
 {
   QCameraPermission cameraPermission;
   return qApp->checkPermission( cameraPermission );
 }
 
-void PlatformUtilities::requestCameraPermission( std::function<void( Qt::PermissionStatus )> func )
+void QfPlatformUtilities::requestCameraPermission( std::function<void( Qt::PermissionStatus )> func )
 {
   QCameraPermission cameraPermission;
   qApp->requestPermission( cameraPermission, [this, func]( const QPermission &permission ) { func( permission.status() ); } );
 }
 
-Qt::PermissionStatus PlatformUtilities::checkMicrophonePermission() const
+Qt::PermissionStatus QfPlatformUtilities::checkMicrophonePermission() const
 {
   QMicrophonePermission microphonePermission;
   return qApp->checkPermission( microphonePermission );
 }
 
-void PlatformUtilities::requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func )
+void QfPlatformUtilities::requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func )
 {
   QMicrophonePermission microphonePermission;
   qApp->requestPermission( microphonePermission, [this, func]( const QPermission &permission ) { func( permission.status() ); } );

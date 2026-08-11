@@ -28,23 +28,23 @@
 /**
  * \ingroup core
  */
-class MultiFeatureListModelBase : public QAbstractItemModel
+class QfMultiFeatureListModelBase : public QAbstractItemModel
 {
     Q_OBJECT
 
   public:
-    explicit MultiFeatureListModelBase( QObject *parent = nullptr );
+    explicit QfMultiFeatureListModelBase( QObject *parent = nullptr );
 
-    //! \copydoc MultiFeatureListModel::setFeatures
+    //! \copydoc QfMultiFeatureListModel::setFeatures
     void setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests );
 
-    //! \copydoc MultiFeatureListModel::appendFeatures
-    void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
+    //! \copydoc QfMultiFeatureListModel::appendFeatures
+    void appendFeatures( const QList<QfIdentifyTool::IdentifyResult> &results );
 
-    //! \copydoc MultiFeatureListModel::clear
+    //! \copydoc QfMultiFeatureListModel::clear
     void clear( const bool keepSelected = false );
 
-    //! \copydoc MultiFeatureListModel::clearSelection
+    //! \copydoc QfMultiFeatureListModel::clearSelection
     void clearSelection();
 
     QHash<int, QByteArray> roleNames() const override;
@@ -64,34 +64,34 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     virtual bool removeRows( int row, int count, const QModelIndex &parent ) override;
 
-    //! \copydoc MultiFeatureListModel::count
+    //! \copydoc QfMultiFeatureListModel::count
     int count() const;
 
-    //! \copydoc MultiFeatureListModel::selectedCount
+    //! \copydoc QfMultiFeatureListModel::selectedCount
     int selectedCount() const;
 
-    //! \copydoc MultiFeatureListModel::canEditAttributesSelection
+    //! \copydoc QfMultiFeatureListModel::canEditAttributesSelection
     bool canEditAttributesSelection() const;
 
-    //! \copydoc MultiFeatureListModel::canMergeSelection
+    //! \copydoc QfMultiFeatureListModel::canMergeSelection
     bool canMergeSelection() const;
 
-    //! \copydoc MultiFeatureListModel::canDeleteSelection
+    //! \copydoc QfMultiFeatureListModel::canDeleteSelection
     bool canDeleteSelection() const;
 
-    //! \copydoc MultiFeatureListModel::canDuplicateSelection
+    //! \copydoc QfMultiFeatureListModel::canDuplicateSelection
     bool canDuplicateSelection() const;
 
-    //! \copydoc MultiFeatureListModel::canMoveSelection
+    //! \copydoc QfMultiFeatureListModel::canMoveSelection
     bool canMoveSelection() const;
 
-    //! \copydoc MultiFeatureListModel::canRotateSelection
+    //! \copydoc QfMultiFeatureListModel::canRotateSelection
     bool canRotateSelection() const;
 
-    //! \copydoc MultiFeatureListModel::canProcessSelection
+    //! \copydoc QfMultiFeatureListModel::canProcessSelection
     bool canProcessSelection() const;
 
-    //! \copydoc MultiFeatureListModel::mergeSelection
+    //! \copydoc QfMultiFeatureListModel::mergeSelection
     bool mergeSelection();
 
     /**
@@ -103,28 +103,28 @@ class MultiFeatureListModelBase : public QAbstractItemModel
      */
     bool deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction = false );
 
-    //! \copydoc MultiFeatureListModel::deleteSelection
+    //! \copydoc QfMultiFeatureListModel::deleteSelection
     bool deleteSelection();
 
-    //! \copydoc MultiFeatureListModel::duplicateFeature
+    //! \copydoc QfMultiFeatureListModel::duplicateFeature
     bool duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature );
 
-    //! \copydoc MultiFeatureListModel::duplicateSelection
+    //! \copydoc QfMultiFeatureListModel::duplicateSelection
     bool duplicateSelection();
 
-    //! \copydoc MultiFeatureListModel::moveSelection
+    //! \copydoc QfMultiFeatureListModel::moveSelection
     bool moveSelection( const double x, const double y, const QgsPoint &destinationPoint );
 
-    //! \copydoc MultiFeatureListModel::rotateSelection
+    //! \copydoc QfMultiFeatureListModel::rotateSelection
     bool rotateSelection( const double angle );
 
-    //! \copydoc MultiFeatureListModel::toggleSelectedItem
+    //! \copydoc QfMultiFeatureListModel::toggleSelectedItem
     void toggleSelectedItem( int item );
 
-    //! \copydoc MultiFeatureListModel::selectedFeatures
+    //! \copydoc QfMultiFeatureListModel::selectedFeatures
     QList<QgsFeature> selectedFeatures() const;
 
-    //! \copydoc MultiFeatureListModel::selectedLayer
+    //! \copydoc QfMultiFeatureListModel::selectedLayer
     QgsVectorLayer *selectedLayer() const;
 
   signals:

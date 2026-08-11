@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingalgorithmparametersmodel.h - ProcessingAlgorithmParametersModel
+  qfprocessingalgorithmparametersmodel.h - QfProcessingAlgorithmParametersModel
 
  ---------------------
  begin                : 21.06.2024
@@ -24,17 +24,17 @@
 #include <qgsprocessingregistry.h>
 #include <qgsunittypes.h>
 
-ProcessingAlgorithmParametersModel::ProcessingAlgorithmParametersModel( QObject *parent )
+QfProcessingAlgorithmParametersModel::QfProcessingAlgorithmParametersModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mModel( new ProcessingAlgorithmParametersModelBase( parent ) )
+  , mModel( new QfProcessingAlgorithmParametersModelBase( parent ) )
 {
   setSourceModel( mModel );
-  connect( mModel, &ProcessingAlgorithmParametersModelBase::algorithmIdChanged, this, &ProcessingAlgorithmParametersModel::algorithmIdChanged );
-  connect( mModel, &ProcessingAlgorithmParametersModelBase::inPlaceLayerChanged, this, &ProcessingAlgorithmParametersModel::inPlaceLayerChanged );
-  connect( mModel, &ProcessingAlgorithmParametersModelBase::parametersChanged, this, &ProcessingAlgorithmParametersModel::parametersChanged );
+  connect( mModel, &QfProcessingAlgorithmParametersModelBase::algorithmIdChanged, this, &QfProcessingAlgorithmParametersModel::algorithmIdChanged );
+  connect( mModel, &QfProcessingAlgorithmParametersModelBase::inPlaceLayerChanged, this, &QfProcessingAlgorithmParametersModel::inPlaceLayerChanged );
+  connect( mModel, &QfProcessingAlgorithmParametersModelBase::parametersChanged, this, &QfProcessingAlgorithmParametersModel::parametersChanged );
 }
 
-void ProcessingAlgorithmParametersModel::setFilters( ProcessingAlgorithmParametersModel::Filters filters )
+void QfProcessingAlgorithmParametersModel::setFilters( QfProcessingAlgorithmParametersModel::Filters filters )
 {
   if ( mFilters == filters )
   {
@@ -48,62 +48,62 @@ void ProcessingAlgorithmParametersModel::setFilters( ProcessingAlgorithmParamete
   emit filtersChanged();
 }
 
-QString ProcessingAlgorithmParametersModel::algorithmId() const
+QString QfProcessingAlgorithmParametersModel::algorithmId() const
 {
   return mModel->algorithmId();
 }
 
-void ProcessingAlgorithmParametersModel::setAlgorithmId( const QString &id )
+void QfProcessingAlgorithmParametersModel::setAlgorithmId( const QString &id )
 {
   mModel->setAlgorithmId( id );
 }
 
-QgsVectorLayer *ProcessingAlgorithmParametersModel::inPlaceLayer() const
+QgsVectorLayer *QfProcessingAlgorithmParametersModel::inPlaceLayer() const
 {
   return mModel->inPlaceLayer();
 }
 
-void ProcessingAlgorithmParametersModel::setInPlaceLayer( QgsVectorLayer *layer )
+void QfProcessingAlgorithmParametersModel::setInPlaceLayer( QgsVectorLayer *layer )
 {
   mModel->setInPlaceLayer( layer );
 }
 
-bool ProcessingAlgorithmParametersModel::isValid() const
+bool QfProcessingAlgorithmParametersModel::isValid() const
 {
   return mModel->isValid();
 }
 
-bool ProcessingAlgorithmParametersModel::hasParameters() const
+bool QfProcessingAlgorithmParametersModel::hasParameters() const
 {
   return mModel->hasParameters();
 }
 
-bool ProcessingAlgorithmParametersModel::hasAdvancedParameters() const
+bool QfProcessingAlgorithmParametersModel::hasAdvancedParameters() const
 {
   return mModel->hasAdvancedParameters();
 }
 
-QString ProcessingAlgorithmParametersModel::algorithmDisplayName() const
+QString QfProcessingAlgorithmParametersModel::algorithmDisplayName() const
 {
   return mModel->algorithmDisplayName();
 }
 
-QString ProcessingAlgorithmParametersModel::algorithmShortHelp() const
+QString QfProcessingAlgorithmParametersModel::algorithmShortHelp() const
 {
   return mModel->algorithmShortHelp();
 }
 
-QVariantMap ProcessingAlgorithmParametersModel::parameters()
+QVariantMap QfProcessingAlgorithmParametersModel::parameters()
 {
   return mModel->parameters();
 }
 
-void ProcessingAlgorithmParametersModel::setParameters( const QVariantMap &parameters )
+void QfProcessingAlgorithmParametersModel::setParameters( const QVariantMap &parameters )
 {
   mModel->setParameters( parameters );
 }
 
-bool ProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool QfProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
   if ( ( mFilters & Filter::GeneralParameterFilter ) && ( mFilters & Filter::AdvancedParameterFilter ) )
@@ -112,13 +112,13 @@ bool ProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const 
   }
   else if ( mFilters & Filter::GeneralParameterFilter )
   {
-    const bool advancedParameter = mModel->data( sourceIndex, ProcessingAlgorithmParametersModelBase::ParameterFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingParameterFlag::Advanced );
+    const bool advancedParameter = mModel->data( sourceIndex, QfProcessingAlgorithmParametersModelBase::ParameterFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingParameterFlag::Advanced );
     if ( advancedParameter )
       return false;
   }
   else if ( mFilters & Filter::AdvancedParameterFilter )
   {
-    const bool advancedParameter = mModel->data( sourceIndex, ProcessingAlgorithmParametersModelBase::ParameterFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingParameterFlag::Advanced );
+    const bool advancedParameter = mModel->data( sourceIndex, QfProcessingAlgorithmParametersModelBase::ParameterFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingParameterFlag::Advanced );
     if ( !advancedParameter )
       return false;
   }
@@ -127,12 +127,12 @@ bool ProcessingAlgorithmParametersModel::filterAcceptsRow( int sourceRow, const 
 }
 
 
-ProcessingAlgorithmParametersModelBase::ProcessingAlgorithmParametersModelBase( QObject *parent )
+QfProcessingAlgorithmParametersModelBase::QfProcessingAlgorithmParametersModelBase( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-void ProcessingAlgorithmParametersModelBase::rebuild()
+void QfProcessingAlgorithmParametersModelBase::rebuild()
 {
   beginResetModel();
   mHasAdvancedParameters = false;
@@ -164,7 +164,7 @@ void ProcessingAlgorithmParametersModelBase::rebuild()
   endResetModel();
 }
 
-void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
+void QfProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
 {
   if ( mAlgorithmId == id )
   {
@@ -180,7 +180,7 @@ void ProcessingAlgorithmParametersModelBase::setAlgorithmId( const QString &id )
   emit parametersChanged();
 }
 
-void ProcessingAlgorithmParametersModelBase::setInPlaceLayer( QgsVectorLayer *layer )
+void QfProcessingAlgorithmParametersModelBase::setInPlaceLayer( QgsVectorLayer *layer )
 {
   if ( mInPlaceLayer == layer )
   {
@@ -195,17 +195,17 @@ void ProcessingAlgorithmParametersModelBase::setInPlaceLayer( QgsVectorLayer *la
   emit parametersChanged();
 }
 
-QString ProcessingAlgorithmParametersModelBase::algorithmDisplayName() const
+QString QfProcessingAlgorithmParametersModelBase::algorithmDisplayName() const
 {
   return mAlgorithm ? mAlgorithm->displayName() : QString();
 }
 
-QString ProcessingAlgorithmParametersModelBase::algorithmShortHelp() const
+QString QfProcessingAlgorithmParametersModelBase::algorithmShortHelp() const
 {
   return mAlgorithm ? mAlgorithm->shortHelpString() : QString();
 }
 
-QVariantMap ProcessingAlgorithmParametersModelBase::parameters()
+QVariantMap QfProcessingAlgorithmParametersModelBase::parameters()
 {
   QVariantMap parameters;
   for ( int i = 0; i < mParameters.size(); i++ )
@@ -215,7 +215,7 @@ QVariantMap ProcessingAlgorithmParametersModelBase::parameters()
   return parameters;
 }
 
-void ProcessingAlgorithmParametersModelBase::setParameters( const QVariantMap &parameters )
+void QfProcessingAlgorithmParametersModelBase::setParameters( const QVariantMap &parameters )
 {
   for ( int i = 0; i < mParameters.size(); i++ )
   {
@@ -228,7 +228,7 @@ void ProcessingAlgorithmParametersModelBase::setParameters( const QVariantMap &p
   emit parametersChanged();
 }
 
-QHash<int, QByteArray> ProcessingAlgorithmParametersModelBase::roleNames() const
+QHash<int, QByteArray> QfProcessingAlgorithmParametersModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[ParameterTypeRole] = "ParameterType";
@@ -241,12 +241,12 @@ QHash<int, QByteArray> ProcessingAlgorithmParametersModelBase::roleNames() const
   return roles;
 }
 
-int ProcessingAlgorithmParametersModelBase::rowCount( const QModelIndex &parent ) const
+int QfProcessingAlgorithmParametersModelBase::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mParameters.size() ) : 0;
 }
 
-QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfProcessingAlgorithmParametersModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mParameters.size() || index.row() < 0 || !mParameters.at( index.row() ) )
     return QVariant();
@@ -320,7 +320,7 @@ QVariant ProcessingAlgorithmParametersModelBase::data( const QModelIndex &index,
   return QVariant();
 }
 
-bool ProcessingAlgorithmParametersModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfProcessingAlgorithmParametersModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( index.row() >= mParameters.size() || index.row() < 0 || !mParameters.at( index.row() ) )
     return false;

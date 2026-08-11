@@ -34,17 +34,17 @@
 #include <qgsvectorlayereditutils.h>
 #include <qgsvectorlayerutils.h>
 
-typedef QMap<QgsVectorLayer *, FeatureModel::RememberValues> Rememberings;
+typedef QMap<QgsVectorLayer *, QfFeatureModel::RememberValues> Rememberings;
 Q_GLOBAL_STATIC( Rememberings, sRememberings )
 Q_GLOBAL_STATIC( QMutex, sMutex )
 
-FeatureModel::FeatureModel( QObject *parent )
+QfFeatureModel::QfFeatureModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  connect( this, &FeatureModel::modelReset, this, &FeatureModel::featureChanged );
+  connect( this, &QfFeatureModel::modelReset, this, &QfFeatureModel::featureChanged );
 }
 
-void FeatureModel::setModelMode( const ModelModes mode )
+void QfFeatureModel::setModelMode( const ModelModes mode )
 {
   if ( mModelMode == mode )
     return;
@@ -55,12 +55,12 @@ void FeatureModel::setModelMode( const ModelModes mode )
   endResetModel();
 }
 
-FeatureModel::ModelModes FeatureModel::modelMode() const
+QfFeatureModel::ModelModes QfFeatureModel::modelMode() const
 {
   return mModelMode;
 }
 
-void FeatureModel::setFeature( const QgsFeature &feature )
+void QfFeatureModel::setFeature( const QgsFeature &feature )
 {
   if ( mModelMode != SingleFeatureModel || feature == mFeature )
   {
@@ -78,7 +78,7 @@ void FeatureModel::setFeature( const QgsFeature &feature )
   updatePermissions();
 }
 
-void FeatureModel::setFeatures( const QList<QgsFeature> &features )
+void QfFeatureModel::setFeatures( const QList<QgsFeature> &features )
 {
   if ( mModelMode != MultiFeatureModel )
   {
@@ -126,7 +126,7 @@ void FeatureModel::setFeatures( const QList<QgsFeature> &features )
   endResetModel();
 }
 
-void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
+void QfFeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 {
   if ( layer == mLayer )
     return;
@@ -135,7 +135,7 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
 
   if ( mLayer )
   {
-    connect( mLayer, &QgsVectorLayer::destroyed, this, &FeatureModel::removeLayer, Qt::UniqueConnection );
+    connect( mLayer, &QgsVectorLayer::destroyed, this, &QfFeatureModel::removeLayer, Qt::UniqueConnection );
 
     //load remember values or create new entry
     if ( sRememberings->contains( mLayer ) )
@@ -236,17 +236,17 @@ void FeatureModel::setCurrentLayer( QgsVectorLayer *layer )
   emit currentLayerChanged();
 }
 
-QgsVectorLayer *FeatureModel::layer() const
+QgsVectorLayer *QfFeatureModel::layer() const
 {
   return mLayer.data();
 }
 
-AppExpressionContextScopesGenerator *FeatureModel::appExpressionContextScopesGenerator() const
+QfAppExpressionContextScopesGenerator *QfFeatureModel::appExpressionContextScopesGenerator() const
 {
   return mAppExpressionContextScopesGenerator.data();
 }
 
-void FeatureModel::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
+void QfFeatureModel::setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator )
 {
   if ( mAppExpressionContextScopesGenerator == generator )
     return;
@@ -255,12 +255,12 @@ void FeatureModel::setAppExpressionContextScopesGenerator( AppExpressionContextS
   emit appExpressionContextScopesGeneratorChanged();
 }
 
-Geometry *FeatureModel::geometry()
+QfGeometry *QfFeatureModel::geometry()
 {
   return mGeometry;
 }
 
-void FeatureModel::setGeometry( Geometry *geometry )
+void QfFeatureModel::setGeometry( QfGeometry *geometry )
 {
   if ( mGeometry == geometry )
     return;
@@ -269,12 +269,12 @@ void FeatureModel::setGeometry( Geometry *geometry )
   emit geometryChanged();
 }
 
-VertexModel *FeatureModel::vertexModel()
+QfVertexModel *QfFeatureModel::vertexModel()
 {
   return mVertexModel;
 }
 
-void FeatureModel::setVertexModel( VertexModel *model )
+void QfFeatureModel::setVertexModel( QfVertexModel *model )
 {
   if ( model == mVertexModel )
     return;
@@ -283,17 +283,17 @@ void FeatureModel::setVertexModel( VertexModel *model )
   emit vertexModelChanged();
 }
 
-QgsFeature FeatureModel::feature() const
+QgsFeature QfFeatureModel::feature() const
 {
   return mFeature;
 }
 
-QList<QgsFeature> FeatureModel::features() const
+QList<QgsFeature> QfFeatureModel::features() const
 {
   return mFeatures;
 }
 
-void FeatureModel::setLinkedFeatureValues()
+void QfFeatureModel::setLinkedFeatureValues()
 {
   beginResetModel();
   mLinkedAttributeIndexes.clear();
@@ -331,7 +331,7 @@ void FeatureModel::setLinkedFeatureValues()
   emit featureChanged();
 }
 
-void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
+void QfFeatureModel::setLinkedParentFeature( const QgsFeature &feature )
 {
   if ( mLinkedParentFeature == feature )
     return;
@@ -343,12 +343,12 @@ void FeatureModel::setLinkedParentFeature( const QgsFeature &feature )
     setLinkedFeatureValues();
 }
 
-QgsFeature FeatureModel::linkedParentFeature() const
+QgsFeature QfFeatureModel::linkedParentFeature() const
 {
   return mLinkedParentFeature;
 }
 
-void FeatureModel::setLinkedRelation( const QgsRelation &relation )
+void QfFeatureModel::setLinkedRelation( const QgsRelation &relation )
 {
   mLinkedRelation = relation;
 
@@ -356,17 +356,17 @@ void FeatureModel::setLinkedRelation( const QgsRelation &relation )
     setLinkedFeatureValues();
 }
 
-QgsRelation FeatureModel::linkedRelation() const
+QgsRelation QfFeatureModel::linkedRelation() const
 {
   return mLinkedRelation;
 }
 
-QString FeatureModel::linkedRelationOrderingField() const
+QString QfFeatureModel::linkedRelationOrderingField() const
 {
   return mLinkedRelationOrderingField;
 }
 
-void FeatureModel::setLinkedRelationOrderingField( const QString &orderingField )
+void QfFeatureModel::setLinkedRelationOrderingField( const QString &orderingField )
 {
   if ( orderingField == mLinkedRelationOrderingField )
     return;
@@ -376,7 +376,7 @@ void FeatureModel::setLinkedRelationOrderingField( const QString &orderingField 
   emit linkedRelationOrderingFieldChanged();
 }
 
-QHash<int, QByteArray> FeatureModel::roleNames() const
+QHash<int, QByteArray> QfFeatureModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[AttributeName] = "AttributeName";
@@ -390,7 +390,7 @@ QHash<int, QByteArray> FeatureModel::roleNames() const
 }
 
 
-int FeatureModel::rowCount( const QModelIndex &parent ) const
+int QfFeatureModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
     return 0;
@@ -398,7 +398,7 @@ int FeatureModel::rowCount( const QModelIndex &parent ) const
   return static_cast<int>( mFeature.attributes().count() );
 }
 
-QVariant FeatureModel::data( const QModelIndex &index, int role ) const
+QVariant QfFeatureModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 )
     return QVariant();
@@ -431,7 +431,7 @@ QVariant FeatureModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfFeatureModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( index.row() < 0 )
     return false;
@@ -504,7 +504,7 @@ bool FeatureModel::setData( const QModelIndex &index, const QVariant &value, int
   return false;
 }
 
-void FeatureModel::updatePermissions()
+void QfFeatureModel::updatePermissions()
 {
   const bool readOnly = mLayer ? mLayer->readOnly() : false;
 
@@ -569,7 +569,7 @@ void FeatureModel::updatePermissions()
   }
 }
 
-void FeatureModel::updateDefaultValues()
+void QfFeatureModel::updateDefaultValues()
 {
   if ( !mLayer )
     return;
@@ -596,7 +596,7 @@ void FeatureModel::updateDefaultValues()
   }
 }
 
-QgsExpressionContext FeatureModel::createExpressionContext() const
+QgsExpressionContext QfFeatureModel::createExpressionContext() const
 {
   QgsExpressionContext expressionContext;
   if ( mLayer )
@@ -615,7 +615,7 @@ QgsExpressionContext FeatureModel::createExpressionContext() const
 
   if ( mTopSnappingResult.isValid() )
   {
-    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
+    expressionContext << QfExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
   }
 
   if ( mLinkedParentFeature.isValid() )
@@ -626,7 +626,7 @@ QgsExpressionContext FeatureModel::createExpressionContext() const
   return expressionContext;
 }
 
-bool FeatureModel::changeGeometry( const QgsGeometry &geometry )
+bool QfFeatureModel::changeGeometry( const QgsGeometry &geometry )
 {
   if ( !mLayer )
   {
@@ -645,7 +645,7 @@ bool FeatureModel::changeGeometry( const QgsGeometry &geometry )
   return true;
 }
 
-bool FeatureModel::save( bool flushBuffer )
+bool QfFeatureModel::save( bool flushBuffer )
 {
   if ( !mLayer )
   {
@@ -808,7 +808,7 @@ bool FeatureModel::save( bool flushBuffer )
   return isSuccess;
 }
 
-void FeatureModel::reset()
+void QfFeatureModel::reset()
 {
   if ( !mLayer )
     return;
@@ -816,7 +816,7 @@ void FeatureModel::reset()
   mLayer->rollBack();
 }
 
-void FeatureModel::refresh()
+void QfFeatureModel::refresh()
 {
   if ( !mLayer || FID_IS_NEW( mFeature.id() ) )
     return;
@@ -828,7 +828,7 @@ void FeatureModel::refresh()
   }
 }
 
-bool FeatureModel::suppressFeatureForm() const
+bool QfFeatureModel::suppressFeatureForm() const
 {
   if ( !mLayer )
     return false;
@@ -836,7 +836,7 @@ bool FeatureModel::suppressFeatureForm() const
   return mLayer->editFormConfig().suppress() == Qgis::AttributeFormSuppression::On;
 }
 
-void FeatureModel::resetFeature()
+void QfFeatureModel::resetFeature()
 {
   if ( !mLayer )
     return;
@@ -852,7 +852,7 @@ void FeatureModel::resetFeature()
   mSavedFeature = QgsFeature( mLayer->fields() );
 }
 
-void FeatureModel::resetFeatureId()
+void QfFeatureModel::resetFeatureId()
 {
   if ( !mLayer )
     return;
@@ -867,7 +867,7 @@ void FeatureModel::resetFeatureId()
   mFeature.setId( FID_NULL );
 }
 
-void FeatureModel::resetAttributes( bool partialReset )
+void QfFeatureModel::resetAttributes( bool partialReset )
 {
   if ( !mLayer )
     return;
@@ -919,7 +919,7 @@ void FeatureModel::resetAttributes( bool partialReset )
   updatePermissions();
 }
 
-bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
+bool QfFeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
 {
   bool updated = false;
   QList<int> primaryKeyAttributes;
@@ -982,7 +982,7 @@ bool FeatureModel::updateAttributesFromFeature( const QgsFeature &feature )
   return updated;
 }
 
-void FeatureModel::applyGeometry( bool fromVertexModel, bool skipTopologicalEditing )
+void QfFeatureModel::applyGeometry( bool fromVertexModel, bool skipTopologicalEditing )
 {
   if ( ( !fromVertexModel && !mGeometry ) || ( fromVertexModel && !mVertexModel ) )
   {
@@ -1149,12 +1149,12 @@ void FeatureModel::applyGeometry( bool fromVertexModel, bool skipTopologicalEdit
   mFeature.setGeometry( geometry );
 }
 
-void FeatureModel::removeLayer( QObject *layer )
+void QfFeatureModel::removeLayer( QObject *layer )
 {
   sRememberings->remove( static_cast<QgsVectorLayer *>( layer ) );
 }
 
-void FeatureModel::setBatchMode( bool batchMode )
+void QfFeatureModel::setBatchMode( bool batchMode )
 {
   if ( mBatchMode == batchMode )
     return;
@@ -1180,7 +1180,7 @@ void FeatureModel::setBatchMode( bool batchMode )
   emit batchModeChanged();
 }
 
-bool FeatureModel::create( bool flushBuffer )
+bool QfFeatureModel::create( bool flushBuffer )
 {
   if ( !mLayer || mFeatureAdditionLocked )
     return false;
@@ -1314,12 +1314,12 @@ bool FeatureModel::create( bool flushBuffer )
   return isSuccess;
 }
 
-bool FeatureModel::deleteFeature()
+bool QfFeatureModel::deleteFeature()
 {
-  return LayerUtils::deleteFeature( mProject, mLayer, mFeature.id(), true );
+  return QfLayerUtils::deleteFeature( mProject, mLayer, mFeature.id(), true );
 }
 
-bool FeatureModel::commit( bool stopEditing )
+bool QfFeatureModel::commit( bool stopEditing )
 {
   if ( !mLayer->commitChanges( stopEditing ) )
   {
@@ -1333,12 +1333,12 @@ bool FeatureModel::commit( bool stopEditing )
   }
 }
 
-bool FeatureModel::isEditing() const
+bool QfFeatureModel::isEditing() const
 {
   return mLayer->editBuffer();
 }
 
-bool FeatureModel::startEditing()
+bool QfFeatureModel::startEditing()
 {
   // Already an edit session active
   if ( isEditing() )
@@ -1355,17 +1355,17 @@ bool FeatureModel::startEditing()
   return true;
 }
 
-SnappingResult FeatureModel::topSnappingResult() const
+QfSnappingResult QfFeatureModel::topSnappingResult() const
 {
   return mTopSnappingResult;
 }
 
-void FeatureModel::setTopSnappingResult( const SnappingResult &topSnappingResult )
+void QfFeatureModel::setTopSnappingResult( const QfSnappingResult &topSnappingResult )
 {
   mTopSnappingResult = topSnappingResult;
 }
 
-void FeatureModel::applyGeometryToVertexModel()
+void QfFeatureModel::applyGeometryToVertexModel()
 {
   if ( !mVertexModel )
     return;
@@ -1373,7 +1373,7 @@ void FeatureModel::applyGeometryToVertexModel()
   mVertexModel->setGeometry( mFeature.geometry() );
 }
 
-void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
+void QfFeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
 {
   const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
   QgsRectangle bbox = geometry.boundingBox();
@@ -1411,7 +1411,7 @@ void FeatureModel::applyGeometryTopography( const QgsGeometry &geometry )
   }
 }
 
-QgsFeatureIds FeatureModel::applyVertexModelTopography()
+QgsFeatureIds QfFeatureModel::applyVertexModelTopography()
 {
   QgsFeatureIds modifiedFeatureIds;
   if ( !mVertexModel )
@@ -1422,7 +1422,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
   const QVector<QgsPoint> pointsAdded = mVertexModel->verticesAdded();
   const QVector<QPair<QgsPoint, QgsPoint>> pointsMoved = mVertexModel->verticesMoved();
   const QVector<QgsPoint> pointsDeleted = mVertexModel->verticesDeleted();
-  QList<VertexModel::VertexChange> history = mVertexModel->history( true );
+  QList<QfVertexModel::VertexChange> history = mVertexModel->history( true );
 
   QgsRectangle bbox;
   const double searchRadius = mLayer ? QgsVectorLayerEditUtils::getTopologicalSearchRadius( mLayer ) : 0.0;
@@ -1477,17 +1477,17 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
 
     QgsPointLocator loc( vectorLayer );
     const double searchTolerance = QgsTolerance::vertexSearchRadius( vectorLayer, mVertexModel->mapSettings()->mapSettings() );
-    for ( const VertexModel::VertexChange &change : history )
+    for ( const QfVertexModel::VertexChange &change : history )
     {
       switch ( change.type )
       {
-        case VertexModel::VertexAddition:
+        case QfVertexModel::VertexAddition:
         {
           vectorLayer->addTopologicalPoints( change.vertex.point );
           break;
         }
 
-        case VertexModel::VertexMove:
+        case QfVertexModel::VertexMove:
         {
           QgsPointLocator::MatchList matches = loc.verticesInRect( change.vertex.originalPoint, searchTolerance );
           for ( int i = 0; i < matches.size(); i++ )
@@ -1497,7 +1497,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
           break;
         }
 
-        case VertexModel::VertexDeletion:
+        case QfVertexModel::VertexDeletion:
         {
           QgsPointLocator::MatchList matches = loc.verticesInRect( change.vertex.point, searchTolerance );
           for ( int i = 0; i < matches.size(); i++ )
@@ -1507,7 +1507,7 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
           break;
         }
 
-        case VertexModel::NoChange:
+        case QfVertexModel::NoChange:
           break;
       }
     }
@@ -1523,17 +1523,17 @@ QgsFeatureIds FeatureModel::applyVertexModelTopography()
   return modifiedFeatureIds;
 }
 
-QVector<bool> FeatureModel::rememberedAttributes() const
+QVector<bool> QfFeatureModel::rememberedAttributes() const
 {
   return sRememberings->value( mLayer ).rememberedAttributes;
 }
 
-void FeatureModel::updateRubberband() const
+void QfFeatureModel::updateRubberband() const
 {
   mGeometry->updateRubberband( mFeature.geometry() );
 }
 
-void FeatureModel::setProject( QgsProject *project )
+void QfFeatureModel::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;

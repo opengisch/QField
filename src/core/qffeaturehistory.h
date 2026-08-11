@@ -22,14 +22,14 @@
 #include <QTimer>
 #include <qgsproject.h>
 
-class TrackingModel;
+class QfTrackingModel;
 
 typedef QPair<QgsFeature, QgsFeature> OldNewFeaturePair;
 
 /**
  * \ingroup core
  */
-class FeatureHistory : public QObject
+class QfFeatureHistory : public QObject
 {
     Q_OBJECT
 
@@ -56,7 +56,7 @@ class FeatureHistory : public QObject
      * @param project the current project instance
      * @param trackingModel the tracking model
      */
-    explicit FeatureHistory( const QgsProject *project, TrackingModel *trackingModel = nullptr );
+    explicit QfFeatureHistory( const QgsProject *project, QfTrackingModel *trackingModel = nullptr );
 
     //! Perform undo of the most recent modification step
     Q_INVOKABLE bool undo();
@@ -122,7 +122,7 @@ class FeatureHistory : public QObject
     const QgsProject *mProject = nullptr;
 
     //! Tracking model. Used to check if the currently modified layer is in tracking, so all changes should be ignored to prevent cluttering the undo history.
-    TrackingModel *mTrackingModel = nullptr;
+    QfTrackingModel *mTrackingModel = nullptr;
 
     //! If currently applying undo or redo feature modifications.
     bool mIsApplyingModifications = false;

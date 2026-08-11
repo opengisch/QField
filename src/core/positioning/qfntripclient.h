@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfntripclient.h - NtripClient
+  qfntripclient.h - QfNtripClient
 
  ---------------------
  begin                : 05.02.2026
@@ -26,23 +26,23 @@
 #include <QSslSocket>
 #include <QTimer>
 
-class NtripSocket;
+class QfNtripSocket;
 
 
 /**
  * \brief A simple NTRIP client
  * \ingroup core
  */
-class NtripClient : public QObject
+class QfNtripClient : public QObject
 {
     Q_OBJECT
 
   public:
     //! The NTRIP client constructor
-    explicit NtripClient( QObject *parent = nullptr );
+    explicit QfNtripClient( QObject *parent = nullptr );
 
     //! The NTRIP client destructor
-    ~NtripClient() noexcept override;
+    ~QfNtripClient() noexcept override;
 
     /**
      * Starts a connection to an NTRIP server
@@ -50,7 +50,7 @@ class NtripClient : public QObject
      * \param receiver the GNSS receiver that will receive corrections and,
      * optionally, forward NMEA sentence from
      */
-    void start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver );
+    void start( const QfNtripSettings &ntripSettings, QfAbstractGnssReceiver *receiver );
 
     //! Stops any ongoing connection to an NTRIP server
     void stop();
@@ -105,7 +105,7 @@ class NtripClient : public QObject
   private:
     void logData( const QByteArray &data );
 
-    NtripSocket *mSocket = nullptr;
+    QfNtripSocket *mSocket = nullptr;
     qint64 mBytesSent = 0;
     qint64 mBytesReceived = 0;
 
@@ -115,7 +115,7 @@ class NtripClient : public QObject
 
     qint64 mLastNtripGgaSent = 0;
 
-    QPointer<AbstractGnssReceiver> mReceiver;
+    QPointer<QfAbstractGnssReceiver> mReceiver;
 };
 
 
@@ -123,22 +123,22 @@ class NtripClient : public QObject
  * \brief A simple NTRIP socket
  * \ingroup core
  */
-class NtripSocket : public QObject
+class QfNtripSocket : public QObject
 {
     Q_OBJECT
 
   public:
     //! The NTRIP socket constructor
-    explicit NtripSocket( QObject *parent = nullptr );
+    explicit QfNtripSocket( QObject *parent = nullptr );
 
     //! The NTRIP socket destructor
-    ~NtripSocket() noexcept override;
+    ~QfNtripSocket() noexcept override;
 
     /**
      * Connects the socket to an NTRIP server
      * \param ntripSettings the NTRIP settings object
      */
-    qint64 connectToHost( const NtripSettings &ntripSettings );
+    qint64 connectToHost( const QfNtripSettings &ntripSettings );
 
     //! Write  an NMEA \a sentence to the NTRIP server
     qint64 writeNmeaSentence( const QByteArray &sentence );
@@ -180,7 +180,7 @@ class NtripSocket : public QObject
     QString mUsername;
     QString mPassword;
     bool mPendingError = false;
-    NtripSettings::Protocol mProtocol = NtripSettings::NtripVersion1;
+    QfNtripSettings::Protocol mProtocol = QfNtripSettings::NtripVersion1;
     bool mChunkedEncoding = false;
     QByteArray mChunkBuffer;
     int mChunkRemaining = -1;

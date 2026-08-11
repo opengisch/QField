@@ -24,20 +24,20 @@
 /**
  * \ingroup core
  */
-class Geometry : public QObject
+class QfGeometry : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
 
   public:
-    explicit Geometry( QObject *parent = nullptr );
+    explicit QfGeometry( QObject *parent = nullptr );
 
     QgsGeometry asQgsGeometry() const;
 
-    RubberbandModel *rubberbandModel() const;
-    void setRubberbandModel( RubberbandModel *rubberbandModel );
+    QfRubberbandModel *rubberbandModel() const;
+    void setRubberbandModel( QfRubberbandModel *rubberbandModel );
     void updateRubberband( const QgsGeometry &geometry );
 
     Q_INVOKABLE void applyRubberband();
@@ -50,7 +50,7 @@ class Geometry : public QObject
     void vectorLayerChanged();
 
   private:
-    RubberbandModel *mRubberbandModel = nullptr;
+    QfRubberbandModel *mRubberbandModel = nullptr;
     QPointer<QgsVectorLayer> mVectorLayer;
 };
 

@@ -31,16 +31,16 @@
 /**
  * \ingroup core
  */
-class ExpressionContextUtils : public QObject
+class QfExpressionContextUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit ExpressionContextUtils( QObject *parent = nullptr );
+    explicit QfExpressionContextUtils( QObject *parent = nullptr );
 
-    static QgsExpressionContextScope *positionScope( const GnssPositionInformation &positionInformation, bool positionLocked );
-    static QgsExpressionContextScope *mapToolCaptureScope( const SnappingResult &topSnappingResult );
-    static QgsExpressionContextScope *cloudUserScope( const CloudUserInformation &cloudUserInformation );
+    static QgsExpressionContextScope *positionScope( const QfGnssPositionInformation &positionInformation, bool positionLocked );
+    static QgsExpressionContextScope *mapToolCaptureScope( const QfSnappingResult &topSnappingResult );
+    static QgsExpressionContextScope *cloudUserScope( const QfCloudUserInformation &cloudUserInformation );
 
     /**
       * Returns a layer context variables.

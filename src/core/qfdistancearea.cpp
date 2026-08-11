@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfdistancearea.cpp - DistanceArea
+  qfdistancearea.cpp - QfDistanceArea
 
  ---------------------
  begin                : 23.2.2017
@@ -23,14 +23,14 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
-DistanceArea::DistanceArea( QObject *parent )
+QfDistanceArea::QfDistanceArea( QObject *parent )
   : QObject( parent )
   , mRubberbandModel( nullptr )
   , mProject( nullptr )
 {
 }
 
-void DistanceArea::init()
+void QfDistanceArea::init()
 {
   if ( mProject )
   {
@@ -46,68 +46,68 @@ void DistanceArea::init()
   emit areaUnitsChanged();
 }
 
-QgsProject *DistanceArea::project() const
+QgsProject *QfDistanceArea::project() const
 {
   return mProject;
 }
 
-void DistanceArea::setProject( QgsProject *project )
+void QfDistanceArea::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
 
   if ( mProject )
-    disconnect( mProject, &QgsProject::readProject, this, &DistanceArea::init );
+    disconnect( mProject, &QgsProject::readProject, this, &QfDistanceArea::init );
 
   mProject = project;
 
   if ( mProject )
-    connect( mProject, &QgsProject::readProject, this, &DistanceArea::init );
+    connect( mProject, &QgsProject::readProject, this, &QfDistanceArea::init );
 
   init();
 
   emit projectChanged();
 }
 
-RubberbandModel *DistanceArea::rubberbandModel() const
+QfRubberbandModel *QfDistanceArea::rubberbandModel() const
 {
   return mRubberbandModel;
 }
 
-void DistanceArea::setRubberbandModel( RubberbandModel *rubberbandModel )
+void QfDistanceArea::setRubberbandModel( QfRubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
     return;
 
   if ( mRubberbandModel )
   {
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::lengthChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::perimeterChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::areaChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::segmentLengthChanged );
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::azimuthChanged );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::lengthChanged );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::perimeterChanged );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::areaChanged );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::segmentLengthChanged );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::azimuthChanged );
   }
 
   mRubberbandModel = rubberbandModel;
 
   if ( mRubberbandModel )
   {
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::lengthChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::perimeterChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::areaChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::segmentLengthChanged );
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &DistanceArea::azimuthChanged );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::lengthChanged );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::perimeterChanged );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::areaChanged );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::segmentLengthChanged );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfDistanceArea::azimuthChanged );
   }
 
   emit rubberbandModelChanged();
 }
 
-QgsCoordinateReferenceSystem DistanceArea::crs() const
+QgsCoordinateReferenceSystem QfDistanceArea::crs() const
 {
   return mCrs;
 }
 
-void DistanceArea::setCrs( const QgsCoordinateReferenceSystem &crs )
+void QfDistanceArea::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
     return;
@@ -117,19 +117,19 @@ void DistanceArea::setCrs( const QgsCoordinateReferenceSystem &crs )
   emit crsChanged();
 }
 #if 0
-void DistanceArea::setGeometry( Geometry *geometry )
+void QfDistanceArea::setGeometry( QfGeometry *geometry )
 {
   if ( mGeometry == geometry )
     return;
 
   if ( mGeometry )
-    disconnect( mGeometry, &Geometry::rubberbandModelChanged, this, &DistanceArea::rubberbandModelChanged );
+    disconnect( mGeometry, &QfGeometry::rubberbandModelChanged, this, &QfDistanceArea::rubberbandModelChanged );
 
   mGeometry = geometry;
   rubberbandModelChanged();
 
   if ( mGeometry )
-    connect( mGeometry, &Geometry::rubberbandModelChanged, this, &DistanceArea::rubberbandModelChanged );
+    connect( mGeometry, &QfGeometry::rubberbandModelChanged, this, &QfDistanceArea::rubberbandModelChanged );
 
   init();
 
@@ -137,7 +137,7 @@ void DistanceArea::setGeometry( Geometry *geometry )
 }
 #endif
 
-qreal DistanceArea::length() const
+qreal QfDistanceArea::length() const
 {
   double length = std::numeric_limits<double>::quiet_NaN();
   if ( mRubberbandModel )
@@ -155,7 +155,7 @@ qreal DistanceArea::length() const
   return length;
 }
 
-bool DistanceArea::lengthValid() const
+bool QfDistanceArea::lengthValid() const
 {
   if ( !mRubberbandModel )
     return false;
@@ -175,7 +175,7 @@ bool DistanceArea::lengthValid() const
   }
 }
 
-qreal DistanceArea::perimeter() const
+qreal QfDistanceArea::perimeter() const
 {
   if ( mRubberbandModel )
   {
@@ -186,7 +186,7 @@ qreal DistanceArea::perimeter() const
   return qQNaN();
 }
 
-bool DistanceArea::perimeterValid() const
+bool QfDistanceArea::perimeterValid() const
 {
   if ( !mRubberbandModel )
     return false;
@@ -206,7 +206,7 @@ bool DistanceArea::perimeterValid() const
   }
 }
 
-qreal DistanceArea::area() const
+qreal QfDistanceArea::area() const
 {
   double area = std::numeric_limits<double>::quiet_NaN();
   if ( mRubberbandModel )
@@ -224,7 +224,7 @@ qreal DistanceArea::area() const
   return area;
 }
 
-bool DistanceArea::areaValid() const
+bool QfDistanceArea::areaValid() const
 {
   if ( !mRubberbandModel )
     return false;
@@ -245,7 +245,7 @@ bool DistanceArea::areaValid() const
   }
 }
 
-qreal DistanceArea::segmentLength() const
+qreal QfDistanceArea::segmentLength() const
 {
   if ( !mRubberbandModel )
     return qQNaN();
@@ -275,7 +275,7 @@ qreal DistanceArea::segmentLength() const
   return length;
 }
 
-qreal DistanceArea::azimuth() const
+qreal QfDistanceArea::azimuth() const
 {
   if ( !mRubberbandModel )
     return qQNaN();
@@ -290,22 +290,22 @@ qreal DistanceArea::azimuth() const
   return startPoint.azimuth( endPoint );
 }
 
-Qgis::DistanceUnit DistanceArea::lengthUnits() const
+Qgis::DistanceUnit QfDistanceArea::lengthUnits() const
 {
   return mDistanceArea.lengthUnits();
 }
 
-Qgis::AreaUnit DistanceArea::areaUnits() const
+Qgis::AreaUnit QfDistanceArea::areaUnits() const
 {
   return mDistanceArea.areaUnits();
 }
 
-double DistanceArea::convertLengthMeansurement( double length, Qgis::DistanceUnit toUnits ) const
+double QfDistanceArea::convertLengthMeansurement( double length, Qgis::DistanceUnit toUnits ) const
 {
   return mDistanceArea.convertLengthMeasurement( length, toUnits );
 }
 
-double DistanceArea::convertAreaMeansurement( double area, Qgis::AreaUnit toUnits ) const
+double QfDistanceArea::convertAreaMeansurement( double area, Qgis::AreaUnit toUnits ) const
 {
   return mDistanceArea.convertAreaMeasurement( area, toUnits );
 }

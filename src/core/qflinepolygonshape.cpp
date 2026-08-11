@@ -23,7 +23,7 @@
 #include <qgsproject.h>
 
 
-LinePolygonShape::LinePolygonShape( QQuickItem *parent )
+QfLinePolygonShape::QfLinePolygonShape( QQuickItem *parent )
   : QQuickItem( parent )
 {
   setFlags( QQuickItem::ItemHasContents );
@@ -31,7 +31,7 @@ LinePolygonShape::LinePolygonShape( QQuickItem *parent )
   setAntialiasing( true );
 }
 
-void LinePolygonShape::createPolylines()
+void QfLinePolygonShape::createPolylines()
 {
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
@@ -110,12 +110,12 @@ void LinePolygonShape::createPolylines()
   emit polylinesChanged();
 }
 
-float LinePolygonShape::lineWidth() const
+float QfLinePolygonShape::lineWidth() const
 {
   return mWidth;
 }
 
-void LinePolygonShape::setLineWidth( float width )
+void QfLinePolygonShape::setLineWidth( float width )
 {
   if ( mWidth == width )
     return;
@@ -126,12 +126,12 @@ void LinePolygonShape::setLineWidth( float width )
   emit lineWidthChanged();
 }
 
-QColor LinePolygonShape::color() const
+QColor QfLinePolygonShape::color() const
 {
   return mColor;
 }
 
-void LinePolygonShape::setColor( const QColor &color )
+void QfLinePolygonShape::setColor( const QColor &color )
 {
   if ( mColor == color )
     return;
@@ -142,28 +142,28 @@ void LinePolygonShape::setColor( const QColor &color )
   emit colorChanged();
 }
 
-QgsQuickMapSettings *LinePolygonShape::mapSettings() const
+QgsQuickMapSettings *QfLinePolygonShape::mapSettings() const
 {
   return mMapSettings;
 }
 
-void LinePolygonShape::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfLinePolygonShape::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonShape::mapCrsChanged );
-    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonShape::visibleExtentChanged );
-    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &LinePolygonShape::rotationChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfLinePolygonShape::mapCrsChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfLinePolygonShape::visibleExtentChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfLinePolygonShape::rotationChanged );
   }
 
   mMapSettings = mapSettings;
 
-  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &LinePolygonShape::mapCrsChanged );
-  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &LinePolygonShape::visibleExtentChanged );
-  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &LinePolygonShape::rotationChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfLinePolygonShape::mapCrsChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfLinePolygonShape::visibleExtentChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfLinePolygonShape::rotationChanged );
 
   mDirty = true;
   updateTransform();
@@ -171,7 +171,7 @@ void LinePolygonShape::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-void LinePolygonShape::updateTransform()
+void QfLinePolygonShape::updateTransform()
 {
   if ( !mMapSettings )
     return;
@@ -194,52 +194,52 @@ void LinePolygonShape::updateTransform()
   setRotation( mMapSettings->rotation() );
 }
 
-void LinePolygonShape::rotationChanged()
+void QfLinePolygonShape::rotationChanged()
 {
   updateTransform();
 }
 
-void LinePolygonShape::visibleExtentChanged()
+void QfLinePolygonShape::visibleExtentChanged()
 {
   const double scaleChange = mGeometryMUPP / mMapSettings->mapUnitsPerPoint();
   mDirty = mDirty || mGeometryMUPP == 0.0 || scaleChange > 1.75 || scaleChange < 0.25;
   updateTransform();
 }
 
-void LinePolygonShape::mapCrsChanged()
+void QfLinePolygonShape::mapCrsChanged()
 {
   mDirty = true;
   updateTransform();
 }
 
-void LinePolygonShape::makeDirty()
+void QfLinePolygonShape::makeDirty()
 {
   mDirty = true;
   updateTransform();
 }
 
-QgsGeometryWrapper *LinePolygonShape::geometry() const
+QgsGeometryWrapper *QfLinePolygonShape::geometry() const
 {
   return mGeometry;
 }
 
-void LinePolygonShape::setGeometry( QgsGeometryWrapper *geometry )
+void QfLinePolygonShape::setGeometry( QgsGeometryWrapper *geometry )
 {
   if ( mGeometry == geometry )
     return;
 
   if ( mGeometry )
   {
-    disconnect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &LinePolygonShape::makeDirty );
-    disconnect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonShape::makeDirty );
+    disconnect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
+    disconnect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
   }
 
   mGeometry = geometry;
 
   if ( mGeometry )
   {
-    connect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &LinePolygonShape::makeDirty );
-    connect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &LinePolygonShape::makeDirty );
+    connect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
+    connect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
   }
 
   mDirty = true;

@@ -28,7 +28,7 @@
  * A model that manages the key/value pairs for a ValueMap widget.
  * \ingroup core
  */
-class ValueMapModel : public QSortFilterProxyModel
+class QfValueMapModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -55,7 +55,7 @@ class ValueMapModel : public QSortFilterProxyModel
     /**
      * Create a new value map model
      */
-    explicit ValueMapModel( QObject *parent = nullptr );
+    explicit QfValueMapModel( QObject *parent = nullptr );
 
     /**
      * The map, see the property description
@@ -87,7 +87,7 @@ class ValueMapModel : public QSortFilterProxyModel
     void mapChanged();
 
   private:
-    ValueMapModelBase *mSourceModel = nullptr;
+    QfValueMapModelBase *mSourceModel = nullptr;
 };
 
 #endif // QFVALUEMAPMODEL_H

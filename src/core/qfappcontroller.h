@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfappcontroller.h - AppController
+  qfappcontroller.h - QfAppController
 
 ---------------------
 begin                : 19.7.2026
@@ -26,14 +26,14 @@ email                : info@opengis.ch
  */
 
 /**
- * \brief Application operations that AppInterface delegates to the app.
+ * \brief Application operations that QfAppInterface delegates to the app.
  *
  * \ingroup core
  */
-class AppController
+class QfAppController
 {
   public:
-    virtual ~AppController() = default;
+    virtual ~QfAppController() = default;
 
     //! Loads a project file (.qgs/.qgz) or standalone dataset from \a path, labelled \a name.
     virtual bool loadProjectFile( const QString &path, const QString &name = QString() ) = 0;

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeaturechecklistmodel.cpp - FeatureCheckListModel
+  qffeaturechecklistmodel.cpp - QfFeatureCheckListModel
 
  ---------------------
  begin                : August 2019
@@ -18,12 +18,12 @@
 #include "qgspostgresstringutils.h"
 #include "qgsvaluerelationfieldformatter.h"
 
-FeatureCheckListModelBase::FeatureCheckListModelBase( QObject *parent )
-  : FeatureListModel( parent )
+QfFeatureCheckListModelBase::QfFeatureCheckListModelBase( QObject *parent )
+  : QfFeatureListModel( parent )
 {
 }
 
-QVariant FeatureCheckListModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfFeatureCheckListModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( role == CheckedRole )
   {
@@ -34,18 +34,18 @@ QVariant FeatureCheckListModelBase::data( const QModelIndex &index, int role ) c
 
     if ( keyField().isEmpty() )
     {
-      return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::FeatureIdRole ).toString() );
+      return mCheckedEntries.contains( QfFeatureListModel::data( index, QfFeatureListModel::FeatureIdRole ).toString() );
     }
 
-    return mCheckedEntries.contains( FeatureListModel::data( index, FeatureListModel::KeyFieldRole ).toString() );
+    return mCheckedEntries.contains( QfFeatureListModel::data( index, QfFeatureListModel::KeyFieldRole ).toString() );
   }
   else
   {
-    return FeatureListModel::data( index, role );
+    return QfFeatureListModel::data( index, role );
   }
 }
 
-bool FeatureCheckListModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfFeatureCheckListModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( data( index, role ) == value )
     return true;
@@ -68,16 +68,16 @@ bool FeatureCheckListModelBase::setData( const QModelIndex &index, const QVarian
   return true;
 }
 
-QHash<int, QByteArray> FeatureCheckListModelBase::roleNames() const
+QHash<int, QByteArray> QfFeatureCheckListModelBase::roleNames() const
 {
-  QHash<int, QByteArray> roles = FeatureListModel::roleNames();
+  QHash<int, QByteArray> roles = QfFeatureListModel::roleNames();
 
   roles[CheckedRole] = "checked";
 
   return roles;
 }
 
-QVariant FeatureCheckListModelBase::attributeValue() const
+QVariant QfFeatureCheckListModelBase::attributeValue() const
 {
   QVariantList vl;
   //store as QVariantList because the field type supports data structure
@@ -130,7 +130,7 @@ QVariant FeatureCheckListModelBase::attributeValue() const
   return value;
 }
 
-void FeatureCheckListModelBase::setAttributeValue( const QVariant &attributeValue )
+void QfFeatureCheckListModelBase::setAttributeValue( const QVariant &attributeValue )
 {
   QStringList checkedEntries;
 
@@ -179,12 +179,12 @@ void FeatureCheckListModelBase::setAttributeValue( const QVariant &attributeValu
   emit attributeValueChanged();
 }
 
-QgsField FeatureCheckListModelBase::attributeField() const
+QgsField QfFeatureCheckListModelBase::attributeField() const
 {
   return mAttributeField;
 }
 
-void FeatureCheckListModelBase::setAttributeField( const QgsField &field )
+void QfFeatureCheckListModelBase::setAttributeField( const QgsField &field )
 {
   if ( mAttributeField == field )
     return;
@@ -192,12 +192,12 @@ void FeatureCheckListModelBase::setAttributeField( const QgsField &field )
   mAttributeField = field;
 }
 
-bool FeatureCheckListModelBase::allowMulti() const
+bool QfFeatureCheckListModelBase::allowMulti() const
 {
   return mAllowMulti;
 }
 
-void FeatureCheckListModelBase::setAllowMulti( bool allowMulti )
+void QfFeatureCheckListModelBase::setAllowMulti( bool allowMulti )
 {
   if ( mAllowMulti == allowMulti )
     return;
@@ -207,7 +207,7 @@ void FeatureCheckListModelBase::setAllowMulti( bool allowMulti )
   emit allowMultiChanged();
 }
 
-void FeatureCheckListModelBase::toggleCheckAll( const bool toggleChecked )
+void QfFeatureCheckListModelBase::toggleCheckAll( const bool toggleChecked )
 {
   if ( toggleChecked )
   {
@@ -216,11 +216,11 @@ void FeatureCheckListModelBase::toggleCheckAll( const bool toggleChecked )
     {
       if ( keyField().isEmpty() )
       {
-        checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::FeatureIdRole ).toString() );
+        checkedEntries.append( QfFeatureListModel::data( createIndex( i, 0 ), QfFeatureListModel::FeatureIdRole ).toString() );
       }
       else
       {
-        checkedEntries.append( FeatureListModel::data( createIndex( i, 0 ), FeatureListModel::KeyFieldRole ).toString() );
+        checkedEntries.append( QfFeatureListModel::data( createIndex( i, 0 ), QfFeatureListModel::KeyFieldRole ).toString() );
       }
     }
 
@@ -240,7 +240,7 @@ void FeatureCheckListModelBase::toggleCheckAll( const bool toggleChecked )
   }
 }
 
-void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
+void QfFeatureCheckListModelBase::setChecked( const QModelIndex &idx )
 {
   const bool wasEmpty = mCheckedEntries.isEmpty();
   if ( !mAllowMulti )
@@ -251,11 +251,11 @@ void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
 
   if ( keyField().isEmpty() )
   {
-    mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::FeatureIdRole ).toString() );
+    mCheckedEntries.append( QfFeatureListModel::data( idx, QfFeatureListModel::FeatureIdRole ).toString() );
   }
   else
   {
-    mCheckedEntries.append( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+    mCheckedEntries.append( QfFeatureListModel::data( idx, QfFeatureListModel::KeyFieldRole ).toString() );
   }
   emit dataChanged( idx, idx, QList<int>() << CheckedRole );
 
@@ -267,16 +267,16 @@ void FeatureCheckListModelBase::setChecked( const QModelIndex &idx )
   emit listUpdated();
 }
 
-void FeatureCheckListModelBase::setUnchecked( const QModelIndex &idx )
+void QfFeatureCheckListModelBase::setUnchecked( const QModelIndex &idx )
 {
   const bool wasEmpty = mCheckedEntries.isEmpty();
   if ( keyField().isEmpty() )
   {
-    mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::FeatureIdRole ).toString() );
+    mCheckedEntries.removeAll( QfFeatureListModel::data( idx, QfFeatureListModel::FeatureIdRole ).toString() );
   }
   else
   {
-    mCheckedEntries.removeAll( FeatureListModel::data( idx, FeatureListModel::KeyFieldRole ).toString() );
+    mCheckedEntries.removeAll( QfFeatureListModel::data( idx, QfFeatureListModel::KeyFieldRole ).toString() );
   }
   emit dataChanged( idx, idx, QList<int>() << CheckedRole );
 
@@ -288,7 +288,7 @@ void FeatureCheckListModelBase::setUnchecked( const QModelIndex &idx )
   emit listUpdated();
 }
 
-QMetaType::Type FeatureCheckListModelBase::fkType() const
+QMetaType::Type QfFeatureCheckListModelBase::fkType() const
 {
   if ( currentLayer() )
   {
@@ -303,99 +303,99 @@ QMetaType::Type FeatureCheckListModelBase::fkType() const
 }
 
 
-FeatureCheckListModel::FeatureCheckListModel( QObject *parent )
+QfFeatureCheckListModel::QfFeatureCheckListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mSourceModel( new FeatureCheckListModelBase( parent ) )
+  , mSourceModel( new QfFeatureCheckListModelBase( parent ) )
 {
-  connect( mSourceModel, &FeatureListModel::currentLayerChanged, this, &FeatureCheckListModel::currentLayerChanged );
-  connect( mSourceModel, &FeatureListModel::keyFieldChanged, this, &FeatureCheckListModel::keyFieldChanged );
-  connect( mSourceModel, &FeatureListModel::displayValueFieldChanged, this, &FeatureCheckListModel::displayValueFieldChanged );
-  connect( mSourceModel, &FeatureListModel::groupFieldChanged, this, &FeatureCheckListModel::groupFieldChanged );
-  connect( mSourceModel, &FeatureListModel::displayGroupNameChanged, this, &FeatureCheckListModel::displayGroupNameChanged );
-  connect( mSourceModel, &FeatureListModel::orderByValueChanged, this, &FeatureCheckListModel::orderByValueChanged );
-  connect( mSourceModel, &FeatureListModel::orderByFieldChanged, this, &FeatureCheckListModel::orderByFieldChanged );
-  connect( mSourceModel, &FeatureListModel::orderByFieldNameChanged, this, &FeatureCheckListModel::orderByFieldNameChanged );
-  connect( mSourceModel, &FeatureListModel::addNullChanged, this, &FeatureCheckListModel::addNullChanged );
-  connect( mSourceModel, &FeatureListModel::filterExpressionChanged, this, &FeatureCheckListModel::filterExpressionChanged );
-  connect( mSourceModel, &FeatureListModel::searchTermChanged, this, &FeatureCheckListModel::searchTermChanged );
-  connect( mSourceModel, &FeatureListModel::currentFormFeatureChanged, this, &FeatureCheckListModel::currentFormFeatureChanged );
-  connect( mSourceModel, &FeatureListModel::appExpressionContextScopesGeneratorChanged, this, &FeatureCheckListModel::appExpressionContextScopesGeneratorChanged );
-  connect( mSourceModel, &FeatureCheckListModelBase::attributeValueChanged, this, &FeatureCheckListModel::attributeValueChanged );
-  connect( mSourceModel, &FeatureCheckListModelBase::attributeFieldChanged, this, &FeatureCheckListModel::attributeFieldChanged );
-  connect( mSourceModel, &FeatureCheckListModelBase::allowMultiChanged, this, &FeatureCheckListModel::allowMultiChanged );
-  connect( mSourceModel, &FeatureCheckListModelBase::listUpdated, this, &FeatureCheckListModel::listUpdated );
+  connect( mSourceModel, &QfFeatureListModel::currentLayerChanged, this, &QfFeatureCheckListModel::currentLayerChanged );
+  connect( mSourceModel, &QfFeatureListModel::keyFieldChanged, this, &QfFeatureCheckListModel::keyFieldChanged );
+  connect( mSourceModel, &QfFeatureListModel::displayValueFieldChanged, this, &QfFeatureCheckListModel::displayValueFieldChanged );
+  connect( mSourceModel, &QfFeatureListModel::groupFieldChanged, this, &QfFeatureCheckListModel::groupFieldChanged );
+  connect( mSourceModel, &QfFeatureListModel::displayGroupNameChanged, this, &QfFeatureCheckListModel::displayGroupNameChanged );
+  connect( mSourceModel, &QfFeatureListModel::orderByValueChanged, this, &QfFeatureCheckListModel::orderByValueChanged );
+  connect( mSourceModel, &QfFeatureListModel::orderByFieldChanged, this, &QfFeatureCheckListModel::orderByFieldChanged );
+  connect( mSourceModel, &QfFeatureListModel::orderByFieldNameChanged, this, &QfFeatureCheckListModel::orderByFieldNameChanged );
+  connect( mSourceModel, &QfFeatureListModel::addNullChanged, this, &QfFeatureCheckListModel::addNullChanged );
+  connect( mSourceModel, &QfFeatureListModel::filterExpressionChanged, this, &QfFeatureCheckListModel::filterExpressionChanged );
+  connect( mSourceModel, &QfFeatureListModel::searchTermChanged, this, &QfFeatureCheckListModel::searchTermChanged );
+  connect( mSourceModel, &QfFeatureListModel::currentFormFeatureChanged, this, &QfFeatureCheckListModel::currentFormFeatureChanged );
+  connect( mSourceModel, &QfFeatureListModel::appExpressionContextScopesGeneratorChanged, this, &QfFeatureCheckListModel::appExpressionContextScopesGeneratorChanged );
+  connect( mSourceModel, &QfFeatureCheckListModelBase::attributeValueChanged, this, &QfFeatureCheckListModel::attributeValueChanged );
+  connect( mSourceModel, &QfFeatureCheckListModelBase::attributeFieldChanged, this, &QfFeatureCheckListModel::attributeFieldChanged );
+  connect( mSourceModel, &QfFeatureCheckListModelBase::allowMultiChanged, this, &QfFeatureCheckListModel::allowMultiChanged );
+  connect( mSourceModel, &QfFeatureCheckListModelBase::listUpdated, this, &QfFeatureCheckListModel::listUpdated );
 
   setSourceModel( mSourceModel );
   setDynamicSortFilter( false );
   sort( 0 );
 }
 
-QgsFeature FeatureCheckListModel::getFeatureFromKeyValue( const QVariant &value ) const
+QgsFeature QfFeatureCheckListModel::getFeatureFromKeyValue( const QVariant &value ) const
 {
   return mSourceModel->getFeatureFromKeyValue( value );
 }
 
-QgsFeature FeatureCheckListModel::getFeatureById( QgsFeatureId id ) const
+QgsFeature QfFeatureCheckListModel::getFeatureById( QgsFeatureId id ) const
 {
   return mSourceModel->getFeatureById( id );
 }
 
-QgsVectorLayer *FeatureCheckListModel::currentLayer() const
+QgsVectorLayer *QfFeatureCheckListModel::currentLayer() const
 {
   return mSourceModel->currentLayer();
 }
 
-void FeatureCheckListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
+void QfFeatureCheckListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 {
   mSourceModel->setCurrentLayer( currentLayer );
 }
 
-QString FeatureCheckListModel::keyField() const
+QString QfFeatureCheckListModel::keyField() const
 {
   return mSourceModel->keyField();
 }
 
-void FeatureCheckListModel::setKeyField( const QString &keyField )
+void QfFeatureCheckListModel::setKeyField( const QString &keyField )
 {
   mSourceModel->setKeyField( keyField );
 }
 
-QString FeatureCheckListModel::displayValueField() const
+QString QfFeatureCheckListModel::displayValueField() const
 {
   return mSourceModel->displayValueField();
 }
 
-void FeatureCheckListModel::setDisplayValueField( const QString &displayValueField )
+void QfFeatureCheckListModel::setDisplayValueField( const QString &displayValueField )
 {
   mSourceModel->setDisplayValueField( displayValueField );
 }
 
-QString FeatureCheckListModel::groupField() const
+QString QfFeatureCheckListModel::groupField() const
 {
   return mSourceModel->groupField();
 }
 
-void FeatureCheckListModel::setGroupField( const QString &groupField )
+void QfFeatureCheckListModel::setGroupField( const QString &groupField )
 {
   mSourceModel->setGroupField( groupField );
 }
 
-bool FeatureCheckListModel::displayGroupName() const
+bool QfFeatureCheckListModel::displayGroupName() const
 {
   return mSourceModel->displayGroupName();
 }
-void FeatureCheckListModel::setDisplayGroupName( bool displayGroupName )
+void QfFeatureCheckListModel::setDisplayGroupName( bool displayGroupName )
 {
   mSourceModel->setDisplayGroupName( displayGroupName );
 }
 
-int FeatureCheckListModel::findKey( const QVariant &key ) const
+int QfFeatureCheckListModel::findKey( const QVariant &key ) const
 {
   const int sourceRow = mSourceModel->findKey( key );
   return mapFromSource( mSourceModel->index( sourceRow, 0, QModelIndex() ) ).row();
 }
 
-QList<int> FeatureCheckListModel::findDisplayValueMatches( const QString &filter ) const
+QList<int> QfFeatureCheckListModel::findDisplayValueMatches( const QString &filter ) const
 {
   const QList<int> sourceRows = mSourceModel->findDisplayValueMatches( filter );
   QList<int> rows;
@@ -406,127 +406,127 @@ QList<int> FeatureCheckListModel::findDisplayValueMatches( const QString &filter
   return rows;
 }
 
-bool FeatureCheckListModel::orderByValue() const
+bool QfFeatureCheckListModel::orderByValue() const
 {
   return mSourceModel->orderByValue();
 }
 
-void FeatureCheckListModel::setOrderByValue( bool orderByValue )
+void QfFeatureCheckListModel::setOrderByValue( bool orderByValue )
 {
   mSourceModel->setOrderByValue( orderByValue );
 }
 
-bool FeatureCheckListModel::orderByField() const
+bool QfFeatureCheckListModel::orderByField() const
 {
   return mSourceModel->orderByField();
 }
 
-void FeatureCheckListModel::setOrderByField( bool orderByField )
+void QfFeatureCheckListModel::setOrderByField( bool orderByField )
 {
   mSourceModel->setOrderByField( orderByField );
 }
 
-QString FeatureCheckListModel::orderByFieldName() const
+QString QfFeatureCheckListModel::orderByFieldName() const
 {
   return mSourceModel->orderByFieldName();
 }
 
-void FeatureCheckListModel::setOrderByFieldName( const QString &orderByFieldName )
+void QfFeatureCheckListModel::setOrderByFieldName( const QString &orderByFieldName )
 {
   mSourceModel->setOrderByFieldName( orderByFieldName );
 }
 
-bool FeatureCheckListModel::addNull() const
+bool QfFeatureCheckListModel::addNull() const
 {
   return mSourceModel->addNull();
 }
 
-void FeatureCheckListModel::setAddNull( bool addNull )
+void QfFeatureCheckListModel::setAddNull( bool addNull )
 {
   mSourceModel->setAddNull( addNull );
 }
 
-QString FeatureCheckListModel::filterExpression() const
+QString QfFeatureCheckListModel::filterExpression() const
 {
   return mSourceModel->filterExpression();
 }
 
-void FeatureCheckListModel::setFilterExpression( const QString &filterExpression )
+void QfFeatureCheckListModel::setFilterExpression( const QString &filterExpression )
 {
   mSourceModel->setFilterExpression( filterExpression );
 }
 
-QgsFeature FeatureCheckListModel::currentFormFeature() const
+QgsFeature QfFeatureCheckListModel::currentFormFeature() const
 {
   return mSourceModel->currentFormFeature();
 }
 
-void FeatureCheckListModel::setCurrentFormFeature( const QgsFeature &feature )
+void QfFeatureCheckListModel::setCurrentFormFeature( const QgsFeature &feature )
 {
   mSourceModel->setCurrentFormFeature( feature );
 }
 
-AppExpressionContextScopesGenerator *FeatureCheckListModel::appExpressionContextScopesGenerator() const
+QfAppExpressionContextScopesGenerator *QfFeatureCheckListModel::appExpressionContextScopesGenerator() const
 {
   return mSourceModel->appExpressionContextScopesGenerator();
 }
 
-void FeatureCheckListModel::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
+void QfFeatureCheckListModel::setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator )
 {
   mSourceModel->setAppExpressionContextScopesGenerator( generator );
 }
 
-QVariant FeatureCheckListModel::attributeValue() const
+QVariant QfFeatureCheckListModel::attributeValue() const
 {
   return mSourceModel->attributeValue();
 }
 
-void FeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
+void QfFeatureCheckListModel::setAttributeValue( const QVariant &attributeValue )
 {
   mSourceModel->setAttributeValue( attributeValue );
 }
 
-QgsField FeatureCheckListModel::attributeField() const
+QgsField QfFeatureCheckListModel::attributeField() const
 {
   return mSourceModel->attributeField();
 }
 
-void FeatureCheckListModel::setAttributeField( const QgsField &field )
+void QfFeatureCheckListModel::setAttributeField( const QgsField &field )
 {
   mSourceModel->setAttributeField( field );
 }
 
-bool FeatureCheckListModel::allowMulti() const
+bool QfFeatureCheckListModel::allowMulti() const
 {
   return mSourceModel->allowMulti();
 }
 
-void FeatureCheckListModel::setAllowMulti( bool allowMulti )
+void QfFeatureCheckListModel::setAllowMulti( bool allowMulti )
 {
   mSourceModel->setAllowMulti( allowMulti );
 }
 
-void FeatureCheckListModel::toggleCheckAll( bool toggleChecked )
+void QfFeatureCheckListModel::toggleCheckAll( bool toggleChecked )
 {
   mSourceModel->toggleCheckAll( toggleChecked );
 }
 
-QString FeatureCheckListModel::searchTerm() const
+QString QfFeatureCheckListModel::searchTerm() const
 {
   return mSourceModel->searchTerm();
 }
 
-void FeatureCheckListModel::setSearchTerm( const QString &searchTerm )
+void QfFeatureCheckListModel::setSearchTerm( const QString &searchTerm )
 {
   mSourceModel->setSearchTerm( searchTerm );
 }
 
-bool FeatureCheckListModel::sortCheckedFirst() const
+bool QfFeatureCheckListModel::sortCheckedFirst() const
 {
   return mSortCheckedFirst;
 }
 
-void FeatureCheckListModel::setSortCheckedFirst( bool enabled )
+void QfFeatureCheckListModel::setSortCheckedFirst( bool enabled )
 {
   if ( mSortCheckedFirst == enabled )
   {
@@ -539,17 +539,17 @@ void FeatureCheckListModel::setSortCheckedFirst( bool enabled )
   sort( 0 );
 }
 
-int FeatureCheckListModel::rowCount( const QModelIndex &parent ) const
+int QfFeatureCheckListModel::rowCount( const QModelIndex &parent ) const
 {
   return QSortFilterProxyModel::rowCount( parent );
 }
 
-bool FeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool QfFeatureCheckListModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   return true;
 }
 
-bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
+bool QfFeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
   if ( addNull() && ( left.row() == 0 || right.row() == 0 ) )
   {
@@ -558,8 +558,8 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
 
   if ( ( mSourceModel->mSearchTerm.isEmpty() && mSortCheckedFirst ) )
   {
-    const FeatureListModel::Entry entryLeft = mSourceModel->entryFromRow( left.row() );
-    const FeatureListModel::Entry entryRight = mSourceModel->entryFromRow( right.row() );
+    const QfFeatureListModel::Entry entryLeft = mSourceModel->entryFromRow( left.row() );
+    const QfFeatureListModel::Entry entryRight = mSourceModel->entryFromRow( right.row() );
 
     if ( !groupField().isEmpty() )
     {
@@ -579,8 +579,8 @@ bool FeatureCheckListModel::lessThan( const QModelIndex &left, const QModelIndex
       }
     }
 
-    const bool leftItemSelected = sourceModel()->data( left, FeatureCheckListModelBase::CheckedRole ).toBool();
-    const bool rightItemSelected = sourceModel()->data( right, FeatureCheckListModelBase::CheckedRole ).toBool();
+    const bool leftItemSelected = sourceModel()->data( left, QfFeatureCheckListModelBase::CheckedRole ).toBool();
+    const bool rightItemSelected = sourceModel()->data( right, QfFeatureCheckListModelBase::CheckedRole ).toBool();
 
     if ( rightItemSelected && !leftItemSelected )
     {

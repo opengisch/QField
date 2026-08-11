@@ -18,7 +18,7 @@
 #include "qfappinterface.h"
 #include "qfieldurlhandler.h"
 
-QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )
+QFieldUrlHandler::QFieldUrlHandler( QfAppInterface *iface, QObject *parent )
   : QObject( parent ), mIface( iface )
 {
 }

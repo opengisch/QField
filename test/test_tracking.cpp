@@ -47,36 +47,36 @@ TEST_CASE( "Tracking" )
   coordinateTransformer->setTransformContext( project->transformContext() );
 
   // Setup positioning
-  Positioning *positioning = new Positioning();
+  QfPositioning *positioning = new QfPositioning();
   positioning->setDeviceId( QStringLiteral( "file:%1/../nmea_server/TrimbleR1.txt:100" ).arg( TEST_DATA_DIR ) );
   positioning->setCoordinateTransformer( coordinateTransformer.get() );
 
   // Setup the rubberband model to be used by the tracker
-  std::unique_ptr<RubberbandModel> rubberbandModel = std::make_unique<RubberbandModel>();
+  std::unique_ptr<QfRubberbandModel> rubberbandModel = std::make_unique<QfRubberbandModel>();
   rubberbandModel->setCrs( project->crs() );
   rubberbandModel->setVectorLayer( vl.get() );
   rubberbandModel->setGeometryType( Qgis::GeometryType::Line );
 
   // Setup the geometry object that ties the rubberband model and the feature model together
-  std::unique_ptr<Geometry> geometry = std::make_unique<Geometry>();
+  std::unique_ptr<QfGeometry> geometry = std::make_unique<QfGeometry>();
   geometry->setRubberbandModel( rubberbandModel.get() );
   geometry->setVectorLayer( vl.get() );
 
   // Setup the feature model to be used by the tracker
-  std::unique_ptr<FeatureModel> featureModel = std::make_unique<FeatureModel>();
+  std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
   featureModel->setCurrentLayer( vl.get() );
   featureModel->setGeometry( geometry.get() );
 
   // Setup the tracking model and create a tracker on the line layer
-  std::unique_ptr<TrackingModel> trackingModel = std::make_unique<TrackingModel>();
+  std::unique_ptr<QfTrackingModel> trackingModel = std::make_unique<QfTrackingModel>();
   QModelIndex idx = trackingModel->createTracker( vl.get() );
-  Tracker *tracker = trackingModel->data( idx, TrackingModel::TrackerPointer ).value<Tracker *>();
+  QfTracker *tracker = trackingModel->data( idx, QfTrackingModel::TrackerPointer ).value<QfTracker *>();
   REQUIRE( tracker );
   tracker->setFeatureModel( featureModel.get() );
   tracker->setRubberbandModel( rubberbandModel.get() );
 
 
-  QObject::connect( positioning, &Positioning::positionInformationChanged, [=]() {
+  QObject::connect( positioning, &QfPositioning::positionInformationChanged, [=]() {
     tracker->processPositionInformation( positioning->positionInformation(), positioning->projectedPosition() );
   } );
 

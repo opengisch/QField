@@ -21,13 +21,13 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-UrlUtils::UrlUtils( QObject *parent )
+QfUrlUtils::QfUrlUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
 
-bool UrlUtils::isRelativeOrFileUrl( const QString &url )
+bool QfUrlUtils::isRelativeOrFileUrl( const QString &url )
 {
   if ( url.startsWith( QStringLiteral( "file://" ) ) )
     return true;
@@ -35,7 +35,7 @@ bool UrlUtils::isRelativeOrFileUrl( const QString &url )
   return QUrl( url ).isRelative();
 }
 
-QUrl UrlUtils::fromString( const QString &url )
+QUrl QfUrlUtils::fromString( const QString &url )
 {
   if ( QFileInfo::exists( url ) )
   {
@@ -45,7 +45,7 @@ QUrl UrlUtils::fromString( const QString &url )
   return QUrl( url );
 }
 
-QString UrlUtils::toLocalFile( const QString &url )
+QString QfUrlUtils::toLocalFile( const QString &url )
 {
   if ( url.startsWith( QStringLiteral( "file://" ) ) )
   {
@@ -56,7 +56,7 @@ QString UrlUtils::toLocalFile( const QString &url )
   return url;
 }
 
-QString UrlUtils::urlDetail( const QString &url, const QString &detail )
+QString QfUrlUtils::urlDetail( const QString &url, const QString &detail )
 {
   QUrl urlInterface( url );
   if ( detail.compare( QStringLiteral( "scheme" ), Qt::CaseInsensitive ) == 0 )
@@ -83,7 +83,7 @@ QString UrlUtils::urlDetail( const QString &url, const QString &detail )
 }
 
 
-QVariantMap UrlUtils::getActionDetails( const QString &url )
+QVariantMap QfUrlUtils::getActionDetails( const QString &url )
 {
   QVariantMap details;
   if ( url.trimmed().isEmpty() )
@@ -118,7 +118,7 @@ QVariantMap UrlUtils::getActionDetails( const QString &url )
   return details;
 }
 
-QString UrlUtils::createActionUrl( const QString &scheme, const QString &type, const QVariantMap &details )
+QString QfUrlUtils::createActionUrl( const QString &scheme, const QString &type, const QVariantMap &details )
 {
   QUrl url;
   if ( scheme == QStringLiteral( "qfield" ) )
@@ -143,7 +143,7 @@ QString UrlUtils::createActionUrl( const QString &scheme, const QString &type, c
   return url.toString();
 }
 
-QString UrlUtils::createEncodedUrl( const QVariantMap &parameters )
+QString QfUrlUtils::createEncodedUrl( const QVariantMap &parameters )
 {
   QUrlQuery url;
 

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dgeometry.cpp - Quick3DGeometry
+  qf3dgeometry.cpp - Qf3DGeometry
 
  ---------------------
  begin                : 20.4.2026
@@ -25,12 +25,12 @@
 #include <algorithm>
 #include <cmath>
 
-Quick3DGeometry::Quick3DGeometry( QQuick3DObject *parent )
+Qf3DGeometry::Qf3DGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
 }
 
-void Quick3DGeometry::setQgsGeometry( const QgsGeometry &geometry )
+void Qf3DGeometry::setQgsGeometry( const QgsGeometry &geometry )
 {
   if ( mGeometry.isExactlyEqual( geometry ) )
   {
@@ -43,7 +43,7 @@ void Quick3DGeometry::setQgsGeometry( const QgsGeometry &geometry )
   updateGeometry();
 }
 
-void Quick3DGeometry::setCrs( const QgsCoordinateReferenceSystem &crs )
+void Qf3DGeometry::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
   {
@@ -63,7 +63,7 @@ void Quick3DGeometry::setCrs( const QgsCoordinateReferenceSystem &crs )
   updateGeometry();
 }
 
-void Quick3DGeometry::setTerrainProvider( Quick3DTerrainProvider *provider )
+void Qf3DGeometry::setTerrainProvider( Qf3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
   {
@@ -79,8 +79,8 @@ void Quick3DGeometry::setTerrainProvider( Quick3DTerrainProvider *provider )
 
   if ( mTerrainProvider )
   {
-    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &Quick3DGeometry::markDirtyAndUpdate );
-    connect( mTerrainProvider, &Quick3DTerrainProvider::normalizedDataChanged, this, &Quick3DGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &Qf3DGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &Qf3DGeometry::markDirtyAndUpdate );
 
     if ( mTerrainProvider->mapSettings() && mCrs.isValid() )
     {
@@ -95,7 +95,7 @@ void Quick3DGeometry::setTerrainProvider( Quick3DTerrainProvider *provider )
   updateGeometry();
 }
 
-void Quick3DGeometry::setLineWidth( float width )
+void Qf3DGeometry::setLineWidth( float width )
 {
   width = std::max( 0.1f, width );
   if ( qFuzzyCompare( mLineWidth, width ) )
@@ -109,7 +109,7 @@ void Quick3DGeometry::setLineWidth( float width )
   updateGeometry();
 }
 
-void Quick3DGeometry::setColor( const QColor &color )
+void Qf3DGeometry::setColor( const QColor &color )
 {
   if ( mColor == color )
   {
@@ -122,7 +122,7 @@ void Quick3DGeometry::setColor( const QColor &color )
   updateGeometry();
 }
 
-void Quick3DGeometry::setHeightOffset( float offset )
+void Qf3DGeometry::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
   {
@@ -135,7 +135,7 @@ void Quick3DGeometry::setHeightOffset( float offset )
   updateGeometry();
 }
 
-void Quick3DGeometry::setFillPolygons( bool fill )
+void Qf3DGeometry::setFillPolygons( bool fill )
 {
   if ( mFillPolygons == fill )
   {
@@ -148,7 +148,7 @@ void Quick3DGeometry::setFillPolygons( bool fill )
   updateGeometry();
 }
 
-void Quick3DGeometry::setAltitudeClamping( AltitudeClamping clamping )
+void Qf3DGeometry::setAltitudeClamping( AltitudeClamping clamping )
 {
   if ( mAltitudeClamping == clamping )
   {
@@ -161,7 +161,7 @@ void Quick3DGeometry::setAltitudeClamping( AltitudeClamping clamping )
   updateGeometry();
 }
 
-void Quick3DGeometry::setExtrusion( float extrusion )
+void Qf3DGeometry::setExtrusion( float extrusion )
 {
   extrusion = std::max( 0.0f, extrusion );
   if ( qFuzzyCompare( mExtrusion, extrusion ) )
@@ -175,13 +175,13 @@ void Quick3DGeometry::setExtrusion( float extrusion )
   updateGeometry();
 }
 
-void Quick3DGeometry::markDirtyAndUpdate()
+void Qf3DGeometry::markDirtyAndUpdate()
 {
   mDirty = true;
   updateGeometry();
 }
 
-QVector3D Quick3DGeometry::vertexTo3D( double geoX, double geoY, double geoZ ) const
+QVector3D Qf3DGeometry::vertexTo3D( double geoX, double geoY, double geoZ ) const
 {
   switch ( mAltitudeClamping )
   {
@@ -208,7 +208,7 @@ QVector3D Quick3DGeometry::vertexTo3D( double geoX, double geoY, double geoZ ) c
   return mTerrainProvider->geoTo3D( geoX, geoY, mHeightOffset );
 }
 
-QVector<QVector3D> Quick3DGeometry::lineToPath( const QgsLineString *lineString ) const
+QVector<QVector3D> Qf3DGeometry::lineToPath( const QgsLineString *lineString ) const
 {
   QVector<QVector3D> path;
   path.reserve( lineString->numPoints() );
@@ -225,7 +225,7 @@ QVector<QVector3D> Quick3DGeometry::lineToPath( const QgsLineString *lineString 
   return path;
 }
 
-QVector<QVector<QVector3D>> Quick3DGeometry::buildPaths( const QgsAbstractGeometry *geom ) const
+QVector<QVector<QVector3D>> Qf3DGeometry::buildPaths( const QgsAbstractGeometry *geom ) const
 {
   QVector<QVector<QVector3D>> result;
   if ( !geom || !mTerrainProvider )
@@ -283,7 +283,7 @@ QVector<QVector<QVector3D>> Quick3DGeometry::buildPaths( const QgsAbstractGeomet
   return result;
 }
 
-void Quick3DGeometry::resetGeometry()
+void Qf3DGeometry::resetGeometry()
 {
   clear();
   setPrimitiveType( QQuick3DGeometry::PrimitiveType::Triangles );
@@ -291,12 +291,12 @@ void Quick3DGeometry::resetGeometry()
   update();
 }
 
-void Quick3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &minBound, const QVector3D &maxBound )
+void Qf3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &indexData, const QVector3D &minBound, const QVector3D &maxBound )
 {
   clear();
   setVertexData( vertexData );
   setIndexData( indexData );
-  setStride( Quick3DGeometryUtils::VERTEX_STRIDE );
+  setStride( Qf3DGeometryUtils::VERTEX_STRIDE );
   addAttribute( QQuick3DGeometry::Attribute::PositionSemantic, 0, QQuick3DGeometry::Attribute::F32Type );
   addAttribute( QQuick3DGeometry::Attribute::NormalSemantic, 3 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
   addAttribute( QQuick3DGeometry::Attribute::ColorSemantic, 6 * sizeof( float ), QQuick3DGeometry::Attribute::F32Type );
@@ -307,7 +307,7 @@ void Quick3DGeometry::finalize( const QByteArray &vertexData, const QByteArray &
   update();
 }
 
-void Quick3DGeometry::updateGeometry()
+void Qf3DGeometry::updateGeometry()
 {
   if ( !mDirty )
   {
@@ -354,8 +354,8 @@ void Quick3DGeometry::updateGeometry()
   const int sphereStacks = 6;
   const int sphereSlices = 8;
   const float sphereRadius = mLineWidth * 2.25f;
-  const int singleSphereVertexCount = Quick3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
-  const int singleSphereIndexCount = Quick3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
+  const int singleSphereVertexCount = Qf3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
+  const int singleSphereIndexCount = Qf3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
 
   const float r = mColor.redF();
   const float g = mColor.greenF();
@@ -365,7 +365,7 @@ void Quick3DGeometry::updateGeometry()
 
   QVector3D minBound( std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), std::numeric_limits<float>::max() );
   QVector3D maxBound( std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest() );
-  const int stride = Quick3DGeometryUtils::VERTEX_STRIDE;
+  const int stride = Qf3DGeometryUtils::VERTEX_STRIDE;
 
   if ( geomType == Qgis::GeometryType::Point )
   {
@@ -403,7 +403,7 @@ void Quick3DGeometry::updateGeometry()
     const float pointSphereRadius = mLineWidth * 3.5f;
     for ( const QVector3D &center : points )
     {
-      Quick3DGeometryUtils::generateSphere( center, pointSphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+      Qf3DGeometryUtils::generateSphere( center, pointSphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
     }
 
     finalize( vertexData, indexData, minBound, maxBound );
@@ -440,8 +440,8 @@ void Quick3DGeometry::updateGeometry()
       totalFillIndices += ( ringSize - 2 ) * 3;
       if ( mExtrusion > 0.0f )
       {
-        totalFillVertices += Quick3DGeometryUtils::polygonWallsVertexCount( ringSize );
-        totalFillIndices += Quick3DGeometryUtils::polygonWallsIndexCount( ringSize );
+        totalFillVertices += Qf3DGeometryUtils::polygonWallsVertexCount( ringSize );
+        totalFillIndices += Qf3DGeometryUtils::polygonWallsIndexCount( ringSize );
       }
     }
   }
@@ -465,14 +465,14 @@ void Quick3DGeometry::updateGeometry()
 
   for ( const QVector<QVector3D> &path : paths )
   {
-    Quick3DGeometryUtils::generateTube( path, segments, mLineWidth, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+    Qf3DGeometryUtils::generateTube( path, segments, mLineWidth, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
   }
 
   for ( const QVector<QVector3D> &path : paths )
   {
     for ( const QVector3D &center : path )
     {
-      Quick3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+      Qf3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
     }
   }
 
@@ -484,10 +484,10 @@ void Quick3DGeometry::updateGeometry()
       {
         if ( mExtrusion > 0.0f )
         {
-          Quick3DGeometryUtils::generatePolygonWalls( path, mExtrusion, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
+          Qf3DGeometryUtils::generatePolygonWalls( path, mExtrusion, r, g, b, a, vptr, iptr, vertexOffset, minBound, maxBound );
         }
         const float capAlpha = mExtrusion > 0.0f ? a : fillAlpha;
-        Quick3DGeometryUtils::generatePolygonFill( path, r, g, b, capAlpha, vptr, iptr, vertexOffset, minBound, maxBound, mExtrusion );
+        Qf3DGeometryUtils::generatePolygonFill( path, r, g, b, capAlpha, vptr, iptr, vertexOffset, minBound, maxBound, mExtrusion );
       }
     }
   }

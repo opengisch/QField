@@ -27,7 +27,7 @@
 
 #include <algorithm>
 
-BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
+QfBookmarkModel::QfBookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager, QObject *parent )
   : QSortFilterProxyModel( parent )
   , mModel( new QgsBookmarkManagerModel( manager, projectManager, this ) )
   , mManager( manager )
@@ -35,11 +35,11 @@ BookmarkModel::BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *p
   setSourceModel( mModel.get() );
 
   // Bookmarks are always grouped by section so the list can render color sections.
-  setSortRole( BookmarkModel::BookmarkSection );
+  setSortRole( QfBookmarkModel::BookmarkSection );
   sort( 0 );
 }
 
-QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
+QVariant QfBookmarkModel::data( const QModelIndex &index, int role ) const
 {
   QModelIndex sourceIndex = mapToSource( index );
   if ( !sourceIndex.isValid() )
@@ -47,43 +47,43 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
 
   switch ( role )
   {
-    case BookmarkModel::BookmarkId:
+    case QfBookmarkModel::BookmarkId:
       return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) );
 
-    case BookmarkModel::BookmarkName:
+    case QfBookmarkModel::BookmarkName:
       return mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Name ) );
 
-    case BookmarkModel::BookmarkGroup:
+    case QfBookmarkModel::BookmarkGroup:
     {
       const QString group = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString();
       return group.isEmpty() ? QStringLiteral( "green" ) : group;
     }
 
-    case BookmarkModel::BookmarkPoint:
+    case QfBookmarkModel::BookmarkPoint:
     {
       const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
       const QgsGeometry geom( new QgsPoint( rect.center() ) );
       return geom;
     }
 
-    case BookmarkModel::BookmarkCrs:
+    case QfBookmarkModel::BookmarkCrs:
     {
       const QgsReferencedRectangle rect = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Extent ) ).value<QgsReferencedRectangle>();
       return rect.crs();
     }
 
-    case BookmarkModel::BookmarkUser:
+    case QfBookmarkModel::BookmarkUser:
     {
       return isUserBookmark( sourceIndex.row() );
     }
 
-    case BookmarkModel::BookmarkSelected:
+    case QfBookmarkModel::BookmarkSelected:
     {
       const QString id = mModel->data( sourceIndex, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Id ) ).toString();
       return mSelectedIds.contains( id );
     }
 
-    case BookmarkModel::BookmarkSection:
+    case QfBookmarkModel::BookmarkSection:
     {
       if ( !isUserBookmark( sourceIndex.row() ) )
       {
@@ -97,21 +97,21 @@ QVariant BookmarkModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> BookmarkModel::roleNames() const
+QHash<int, QByteArray> QfBookmarkModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QAbstractProxyModel::roleNames();
-  roleNames[BookmarkModel::BookmarkId] = "BookmarkId";
-  roleNames[BookmarkModel::BookmarkName] = "BookmarkName";
-  roleNames[BookmarkModel::BookmarkGroup] = "BookmarkGroup";
-  roleNames[BookmarkModel::BookmarkPoint] = "BookmarkPoint";
-  roleNames[BookmarkModel::BookmarkCrs] = "BookmarkCrs";
-  roleNames[BookmarkModel::BookmarkUser] = "BookmarkUser";
-  roleNames[BookmarkModel::BookmarkSelected] = "BookmarkSelected";
-  roleNames[BookmarkModel::BookmarkSection] = "BookmarkSection";
+  roleNames[QfBookmarkModel::BookmarkId] = "BookmarkId";
+  roleNames[QfBookmarkModel::BookmarkName] = "BookmarkName";
+  roleNames[QfBookmarkModel::BookmarkGroup] = "BookmarkGroup";
+  roleNames[QfBookmarkModel::BookmarkPoint] = "BookmarkPoint";
+  roleNames[QfBookmarkModel::BookmarkCrs] = "BookmarkCrs";
+  roleNames[QfBookmarkModel::BookmarkUser] = "BookmarkUser";
+  roleNames[QfBookmarkModel::BookmarkSelected] = "BookmarkSelected";
+  roleNames[QfBookmarkModel::BookmarkSection] = "BookmarkSection";
   return roleNames;
 }
 
-void BookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfBookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
@@ -121,7 +121,7 @@ void BookmarkModel::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
+void QfBookmarkModel::setExtentFromBookmark( const QModelIndex &index )
 {
   QModelIndex sourceIndex = mapToSource( index );
   if ( !sourceIndex.isValid() || !mMapSettings )
@@ -149,7 +149,7 @@ void BookmarkModel::setExtentFromBookmark( const QModelIndex &index )
   emit requestJumpToPoint( QgsPoint( transformedRect.center() ), scale, true );
 }
 
-QgsPoint BookmarkModel::getBookmarkPoint( int idx )
+QgsPoint QfBookmarkModel::getBookmarkPoint( int idx )
 {
   QModelIndex sourceIndex = mapToSource( index( idx, 0 ) );
   if ( !sourceIndex.isValid() || !mMapSettings )
@@ -173,7 +173,7 @@ QgsPoint BookmarkModel::getBookmarkPoint( int idx )
   }
 }
 
-QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
+QString QfBookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, const QString &group )
 {
   if ( !mMapSettings )
     return QString();
@@ -200,7 +200,7 @@ QString BookmarkModel::addBookmarkAtPoint( QgsPoint point, const QString &name, 
   return uuid;
 }
 
-void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &name, const QString &group )
+void QfBookmarkModel::updateBookmarkDetails( const QString &id, const QString &name, const QString &group )
 {
   QgsBookmark bookmark = mManager->bookmarkById( id );
   bookmark.setName( name );
@@ -208,25 +208,25 @@ void BookmarkModel::updateBookmarkDetails( const QString &id, const QString &nam
   mManager->updateBookmark( bookmark );
 }
 
-void BookmarkModel::removeBookmark( const QString &id )
+void QfBookmarkModel::removeBookmark( const QString &id )
 {
   mManager->removeBookmark( id );
   store();
 }
 
-QgsPoint BookmarkModel::getBookmarkPoint( const QString &id )
+QgsPoint QfBookmarkModel::getBookmarkPoint( const QString &id )
 {
   const QgsBookmark bookmark = mManager->bookmarkById( id );
   return QgsPoint( bookmark.extent().center() );
 }
 
-QgsCoordinateReferenceSystem BookmarkModel::getBookmarkCrs( const QString &id )
+QgsCoordinateReferenceSystem QfBookmarkModel::getBookmarkCrs( const QString &id )
 {
   const QgsBookmark bookmark = mManager->bookmarkById( id );
   return bookmark.extent().crs();
 }
 
-void BookmarkModel::store()
+void QfBookmarkModel::store()
 {
   const QString filePath = QStringLiteral( "%1/bookmarks.xml" ).arg( QgsApplication::qgisSettingsDirPath() );
   if ( !filePath.isEmpty() )
@@ -247,7 +247,7 @@ void BookmarkModel::store()
   }
 }
 
-void BookmarkModel::setHideProjectBookmarks( bool hideProjectBookmarks )
+void QfBookmarkModel::setHideProjectBookmarks( bool hideProjectBookmarks )
 {
   if ( mHideProjectBookmarks == hideProjectBookmarks )
     return;
@@ -259,12 +259,12 @@ void BookmarkModel::setHideProjectBookmarks( bool hideProjectBookmarks )
   emit hideProjectBookmarksChanged();
 }
 
-bool BookmarkModel::isUserBookmark( int sourceRow ) const
+bool QfBookmarkModel::isUserBookmark( int sourceRow ) const
 {
   return mModel->data( mModel->index( sourceRow, QgsBookmarkManagerModel::ColumnStore ), Qt::CheckStateRole ).value<Qt::CheckState>() != Qt::Checked;
 }
 
-bool BookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
+bool QfBookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
 {
   if ( !mHideProjectBookmarks )
     return true;
@@ -273,7 +273,7 @@ bool BookmarkModel::filterAcceptsRow( int sourceRow, const QModelIndex & ) const
   return isUserBookmark( sourceRow );
 }
 
-void BookmarkModel::toggleSelected( const QString &id )
+void QfBookmarkModel::toggleSelected( const QString &id )
 {
   if ( id.isEmpty() )
     return;
@@ -294,12 +294,12 @@ void BookmarkModel::toggleSelected( const QString &id )
   const int count = rowCount();
   if ( count > 0 )
   {
-    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { QfBookmarkModel::BookmarkSelected } );
   }
   emit selectedCountChanged();
 }
 
-void BookmarkModel::clearSelection()
+void QfBookmarkModel::clearSelection()
 {
   if ( mSelectedIds.isEmpty() )
     return;
@@ -309,12 +309,12 @@ void BookmarkModel::clearSelection()
   const int count = rowCount();
   if ( count > 0 )
   {
-    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { BookmarkModel::BookmarkSelected } );
+    emit dataChanged( index( 0, 0 ), index( count - 1, 0 ), { QfBookmarkModel::BookmarkSelected } );
   }
   emit selectedCountChanged();
 }
 
-int BookmarkModel::deleteSelected()
+int QfBookmarkModel::deleteSelected()
 {
   if ( mSelectedIds.isEmpty() )
   {
@@ -334,7 +334,7 @@ int BookmarkModel::deleteSelected()
   return deleted;
 }
 
-bool BookmarkModel::exportBookmarks( bool selectedOnly )
+bool QfBookmarkModel::exportBookmarks( bool selectedOnly )
 {
   QgsFields fields;
   fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
@@ -396,11 +396,11 @@ bool BookmarkModel::exportBookmarks( bool selectedOnly )
     return false;
   }
 
-  PlatformUtilities::instance()->sendDatasetTo( filePath );
+  QfPlatformUtilities::instance()->sendDatasetTo( filePath );
   return true;
 }
 
-int BookmarkModel::groupRank( const QString &group ) const
+int QfBookmarkModel::groupRank( const QString &group ) const
 {
   if ( group == QLatin1String( "orange" ) )
   {
@@ -419,7 +419,7 @@ int BookmarkModel::groupRank( const QString &group ) const
   return 0;
 }
 
-bool BookmarkModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+bool QfBookmarkModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
   // Project bookmarks form their own section, listed before the user bookmark color groups.
   const int leftRank = isUserBookmark( sourceLeft.row() ) ? groupRank( mModel->data( sourceLeft, static_cast<int>( QgsBookmarkManagerModel::CustomRole::Group ) ).toString() ) : -1;

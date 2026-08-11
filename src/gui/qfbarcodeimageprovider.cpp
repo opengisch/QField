@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfbarcodeimageprovider.cpp - BarcodeImageProvider
+  qfbarcodeimageprovider.cpp - QfBarcodeImageProvider
 
  ---------------------
  begin                : 26.04.2025
@@ -24,12 +24,12 @@
 #include <ZXing/BitMatrix.h>
 #include <ZXing/MultiFormatWriter.h>
 
-BarcodeImageProvider::BarcodeImageProvider()
+QfBarcodeImageProvider::QfBarcodeImageProvider()
   : QQuickImageProvider( Image )
 {
 }
 
-QImage BarcodeImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
+QImage QfBarcodeImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
 {
   // the id is passed on as an encoded URL string which needs decoding
   const QUrlQuery urlQuery = QUrlQuery( QUrl( id.toUtf8() ) );

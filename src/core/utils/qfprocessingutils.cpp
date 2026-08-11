@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingutils.cpp - ProcessingUtils
+  qfprocessingutils.cpp - QfProcessingUtils
 
  ---------------------
  begin                : 20.08.2025
@@ -18,12 +18,12 @@
 
 #include <qgsunittypes.h>
 
-ProcessingUtils::ProcessingUtils( QObject *parent )
+QfProcessingUtils::QfProcessingUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-double ProcessingUtils::fromAreaUnitToAreaUnitFactor( Qgis::AreaUnit fromUnit, Qgis::AreaUnit toUnit )
+double QfProcessingUtils::fromAreaUnitToAreaUnitFactor( Qgis::AreaUnit fromUnit, Qgis::AreaUnit toUnit )
 {
   return QgsUnitTypes::fromUnitToUnitFactor( fromUnit, toUnit );
 }

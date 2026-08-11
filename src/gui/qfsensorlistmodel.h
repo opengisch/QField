@@ -26,7 +26,7 @@ class QgsVectorLayer;
 /**
  * \ingroup core
  */
-class SensorListModel : public QSortFilterProxyModel
+class QfSensorListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -34,7 +34,7 @@ class SensorListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showConnectedOnly READ showConnectedOnly WRITE setShowConnectedOnly NOTIFY showConnectedOnlyChanged )
 
   public:
-    explicit SensorListModel( QObject *parent = nullptr );
+    explicit QfSensorListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

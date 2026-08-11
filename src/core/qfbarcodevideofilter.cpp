@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbarcodevideofilter.cpp - BarcodeVideoFilter
+ qfbarcodevideofilter.cpp - QfBarcodeVideoFilter
 
  ---------------------
  begin                : 22.07.2022
@@ -16,10 +16,10 @@
 
 #include "qfbarcodevideofilter.h"
 
-class BarcodeVideoFilterRunnable : public QVideoFilterRunnable
+class QfBarcodeVideoFilterRunnable : public QVideoFilterRunnable
 {
   public:
-    explicit BarcodeVideoFilterRunnable( BarcodeVideoFilter *filter = nullptr )
+    explicit QfBarcodeVideoFilterRunnable( QfBarcodeVideoFilter *filter = nullptr )
       : mFilter( filter )
     {
     }
@@ -40,14 +40,14 @@ class BarcodeVideoFilterRunnable : public QVideoFilterRunnable
     }
 
   private:
-    BarcodeVideoFilter *mFilter;
+    QfBarcodeVideoFilter *mFilter;
 };
 
-BarcodeVideoFilter::BarcodeVideoFilter()
+QfBarcodeVideoFilter::QfBarcodeVideoFilter()
 {
 }
 
-void BarcodeVideoFilter::setDecoder( BarcodeDecoder *decoder )
+void QfBarcodeVideoFilter::setDecoder( QfBarcodeDecoder *decoder )
 {
   if ( mDecoder == decoder )
   {
@@ -59,7 +59,7 @@ void BarcodeVideoFilter::setDecoder( BarcodeDecoder *decoder )
   emit decoderChanged();
 }
 
-void BarcodeVideoFilter::decodeVideoFrame( QVideoFrame *input )
+void QfBarcodeVideoFilter::decodeVideoFrame( QVideoFrame *input )
 {
   if ( !mDecoder || isDecoding() )
   {
@@ -72,7 +72,7 @@ void BarcodeVideoFilter::decodeVideoFrame( QVideoFrame *input )
     image = image.convertToFormat( QImage::Format_ARGB32 );
   }
 
-  mDecodingThread = new BarcodeDecoderThread( mDecoder, image );
+  mDecodingThread = new QfBarcodeDecoderThread( mDecoder, image );
   connect( mDecodingThread, &QThread::finished, this, [=] {
     mDecodingThread->deleteLater();
     mDecodingThread = nullptr;
@@ -80,7 +80,7 @@ void BarcodeVideoFilter::decodeVideoFrame( QVideoFrame *input )
   mDecodingThread->start();
 }
 
-QVideoFilterRunnable *BarcodeVideoFilter::createFilterRunnable()
+QVideoFilterRunnable *QfBarcodeVideoFilter::createFilterRunnable()
 {
-  return new BarcodeVideoFilterRunnable( this );
+  return new QfBarcodeVideoFilterRunnable( this );
 }

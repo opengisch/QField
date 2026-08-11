@@ -1,5 +1,5 @@
 /***************************************************************************
- qftracker.cpp - Tracker
+ qftracker.cpp - QfTracker
   ---------------------
  begin                : 20.02.2020
  copyright            : (C) 2020 by David Signer
@@ -24,7 +24,7 @@
 
 #define MAXIMUM_DISTANCE_FAILURES 20
 
-Tracker::Tracker( QgsVectorLayer *vectorLayer )
+QfTracker::QfTracker( QgsVectorLayer *vectorLayer )
   : mVectorLayer( vectorLayer )
 {
   QRandomGenerator *rng = QRandomGenerator::global();
@@ -34,7 +34,7 @@ Tracker::Tracker( QgsVectorLayer *vectorLayer )
   mDa.setSourceCrs( QgsProject::instance()->crs(), QgsProject::instance()->transformContext() );
 }
 
-void Tracker::setColor( const QColor &color )
+void QfTracker::setColor( const QColor &color )
 {
   if ( mColor == color )
   {
@@ -45,7 +45,7 @@ void Tracker::setColor( const QColor &color )
   emit colorChanged();
 }
 
-void Tracker::setVisible( bool visible )
+void QfTracker::setVisible( bool visible )
 {
   if ( mVisible == visible )
     return;
@@ -54,7 +54,7 @@ void Tracker::setVisible( bool visible )
   emit visibleChanged();
 }
 
-void Tracker::setVectorLayer( QgsVectorLayer *vectorLayer )
+void QfTracker::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
   if ( mVectorLayer == vectorLayer )
     return;
@@ -63,37 +63,37 @@ void Tracker::setVectorLayer( QgsVectorLayer *vectorLayer )
   emit vectorLayerChanged();
 }
 
-RubberbandModel *Tracker::rubberbandModel() const
+QfRubberbandModel *QfTracker::rubberbandModel() const
 {
   return mRubberbandModel;
 }
 
-void Tracker::setRubberbandModel( RubberbandModel *rubberbandModel )
+void QfTracker::setRubberbandModel( QfRubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
     return;
 
   if ( mRubberbandModel )
   {
-    disconnect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Tracker::rubberbandModelVertexCountChanged );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexCountChanged, this, &QfTracker::rubberbandModelVertexCountChanged );
   }
 
   mRubberbandModel = rubberbandModel;
 
   if ( mRubberbandModel )
   {
-    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Tracker::rubberbandModelVertexCountChanged );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexCountChanged, this, &QfTracker::rubberbandModelVertexCountChanged );
   }
 
   emit rubberbandModelChanged();
 }
 
-FeatureModel *Tracker::featureModel() const
+QfFeatureModel *QfTracker::featureModel() const
 {
   return mFeatureModel;
 }
 
-void Tracker::setFeatureModel( FeatureModel *featureModel )
+void QfTracker::setFeatureModel( QfFeatureModel *featureModel )
 {
   if ( mFeatureModel == featureModel )
     return;
@@ -102,12 +102,12 @@ void Tracker::setFeatureModel( FeatureModel *featureModel )
   emit featureModelChanged();
 }
 
-QgsFeature Tracker::feature() const
+QgsFeature QfTracker::feature() const
 {
   return mFeature;
 }
 
-void Tracker::setFeature( const QgsFeature &feature )
+void QfTracker::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
     return;
@@ -116,7 +116,7 @@ void Tracker::setFeature( const QgsFeature &feature )
   emit featureChanged();
 }
 
-void Tracker::setTimeInterval( double timeInterval )
+void QfTracker::setTimeInterval( double timeInterval )
 {
   if ( mTimeInterval == timeInterval )
     return;
@@ -125,7 +125,7 @@ void Tracker::setTimeInterval( double timeInterval )
   emit timeIntervalChanged();
 }
 
-void Tracker::setMinimumDistance( double minimumDistance )
+void QfTracker::setMinimumDistance( double minimumDistance )
 {
   if ( mMinimumDistance == minimumDistance )
     return;
@@ -134,7 +134,7 @@ void Tracker::setMinimumDistance( double minimumDistance )
   emit minimumDistanceChanged();
 }
 
-void Tracker::setMaximumDistance( double maximumDistance )
+void QfTracker::setMaximumDistance( double maximumDistance )
 {
   if ( mMaximumDistance == maximumDistance )
     return;
@@ -143,7 +143,7 @@ void Tracker::setMaximumDistance( double maximumDistance )
   emit maximumDistanceChanged();
 }
 
-void Tracker::setSensorCapture( bool capture )
+void QfTracker::setSensorCapture( bool capture )
 {
   if ( mSensorCapture == capture )
     return;
@@ -152,7 +152,7 @@ void Tracker::setSensorCapture( bool capture )
   emit sensorCaptureChanged();
 }
 
-void Tracker::setConjunction( bool conjunction )
+void QfTracker::setConjunction( bool conjunction )
 {
   if ( mConjunction == conjunction )
     return;
@@ -161,7 +161,7 @@ void Tracker::setConjunction( bool conjunction )
   emit conjunctionChanged();
 }
 
-void Tracker::setMeasureType( MeasureType type )
+void QfTracker::setMeasureType( MeasureType type )
 {
   if ( mMeasureType == type )
     return;
@@ -170,7 +170,7 @@ void Tracker::setMeasureType( MeasureType type )
   emit measureTypeChanged();
 }
 
-void Tracker::trackPosition()
+void QfTracker::trackPosition()
 {
   if ( !mRubberbandModel || std::isnan( mRubberbandModel->currentCoordinate().x() ) || std::isnan( mRubberbandModel->currentCoordinate().y() ) )
   {
@@ -197,7 +197,7 @@ void Tracker::trackPosition()
   mSensorCaptureFulfilled = !mSensorCapture;
 }
 
-void Tracker::positionReceived()
+void QfTracker::positionReceived()
 {
   if ( mSkipPositionReceived )
   {
@@ -256,7 +256,7 @@ void Tracker::positionReceived()
   }
 }
 
-void Tracker::sensorDataReceived()
+void QfTracker::sensorDataReceived()
 {
   mSensorCaptureFulfilled = true;
 
@@ -266,7 +266,7 @@ void Tracker::sensorDataReceived()
   }
 }
 
-void Tracker::start( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
+void QfTracker::start( const QfGnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
   mIsActive = true;
   emit isActiveChanged();
@@ -275,14 +275,14 @@ void Tracker::start( const GnssPositionInformation &positionInformation, const Q
 
   if ( mMinimumDistance > 0 || mTimeInterval > 0 || !mSensorCapture )
   {
-    connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+    connect( mRubberbandModel, &QfRubberbandModel::currentCoordinateChanged, this, &QfTracker::positionReceived );
   }
   if ( mSensorCapture )
   {
-    connect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
+    connect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &QfTracker::sensorDataReceived );
   }
 
-  if ( mMeasureType == Tracker::SecondsSinceStart )
+  if ( mMeasureType == QfTracker::SecondsSinceStart )
   {
     mRubberbandModel->setMeasureValue( 0 );
   }
@@ -307,7 +307,7 @@ void Tracker::start( const GnssPositionInformation &positionInformation, const Q
   }
 }
 
-void Tracker::stop()
+void QfTracker::stop()
 {
   //track last position
   trackPosition();
@@ -319,20 +319,20 @@ void Tracker::stop()
 
   if ( mMinimumDistance > 0 || mTimeInterval > 0 || !mSensorCapture )
   {
-    disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+    disconnect( mRubberbandModel, &QfRubberbandModel::currentCoordinateChanged, this, &QfTracker::positionReceived );
   }
   if ( mSensorCapture )
   {
-    disconnect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &Tracker::sensorDataReceived );
+    disconnect( QgsProject::instance()->sensorManager(), &QgsSensorManager::sensorDataCaptured, this, &QfTracker::sensorDataReceived );
   }
 }
 
-void Tracker::processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
+void QfTracker::processPositionInformation( const QfGnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
   if ( !mIsActive && !mIsReplaying )
     return;
 
-  if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+  if ( mFilterAccuracy && positionInformation.accuracyQuality() == QfGnssPositionInformation::AccuracyBad )
   {
     mSkipBadPositionReceived = true;
   }
@@ -342,31 +342,31 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   double measureValue = 0.0;
   switch ( mMeasureType )
   {
-    case Tracker::SecondsSinceStart:
+    case QfTracker::SecondsSinceStart:
       measureValue = positionInformation.utcDateTime().toSecsSinceEpoch() - mStartPositionTimestamp.toSecsSinceEpoch();
       break;
-    case Tracker::Timestamp:
+    case QfTracker::Timestamp:
       measureValue = positionInformation.utcDateTime().toSecsSinceEpoch();
       break;
-    case Tracker::GroundSpeed:
+    case QfTracker::GroundSpeed:
       measureValue = positionInformation.speed();
       break;
-    case Tracker::Bearing:
+    case QfTracker::Bearing:
       measureValue = positionInformation.direction();
       break;
-    case Tracker::HorizontalAccuracy:
+    case QfTracker::HorizontalAccuracy:
       measureValue = positionInformation.hacc();
       break;
-    case Tracker::VerticalAccuracy:
+    case QfTracker::VerticalAccuracy:
       measureValue = positionInformation.vacc();
       break;
-    case Tracker::PDOP:
+    case QfTracker::PDOP:
       measureValue = positionInformation.pdop();
       break;
-    case Tracker::HDOP:
+    case QfTracker::HDOP:
       measureValue = positionInformation.hdop();
       break;
-    case Tracker::VDOP:
+    case QfTracker::VDOP:
       measureValue = positionInformation.vdop();
       break;
   }
@@ -375,7 +375,7 @@ void Tracker::processPositionInformation( const GnssPositionInformation &positio
   mRubberbandModel->setCurrentCoordinate( projectedPosition );
 }
 
-void Tracker::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
+void QfTracker::replayPositionInformationList( const QList<QfGnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
 {
   const qint64 startTime = QDateTime::currentMSecsSinceEpoch();
 
@@ -388,10 +388,10 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   const bool isPointGeometry = geometryType == Qgis::GeometryType::Point;
   mFeatureModel->setBatchMode( isPointGeometry );
 
-  connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
-  for ( const GnssPositionInformation &positionInformation : positionInformationList )
+  connect( mRubberbandModel, &QfRubberbandModel::currentCoordinateChanged, this, &QfTracker::positionReceived );
+  for ( const QfGnssPositionInformation &positionInformation : positionInformationList )
   {
-    if ( mFilterAccuracy && positionInformation.accuracyQuality() == GnssPositionInformation::AccuracyBad )
+    if ( mFilterAccuracy && positionInformation.accuracyQuality() == QfGnssPositionInformation::AccuracyBad )
       continue;
 
     if ( isPointGeometry && mFeatureModel->appExpressionContextScopesGenerator() )
@@ -401,7 +401,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
     processPositionInformation( positionInformation,
                                 coordinateTransformer ? coordinateTransformer->transformPosition( QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) ) : QgsPoint() );
   }
-  disconnect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Tracker::positionReceived );
+  disconnect( mRubberbandModel, &QfRubberbandModel::currentCoordinateChanged, this, &QfTracker::positionReceived );
 
   mFeatureModel->setBatchMode( false );
   const int vertexCount = mRubberbandModel->vertexCount();
@@ -437,7 +437,7 @@ void Tracker::replayPositionInformationList( const QList<GnssPositionInformation
   qInfo() << QStringLiteral( "Tracker position information replay duration: %1ms" ).arg( endTime - startTime ); // cppcheck-suppress [knownArgument,duplicateExpression]
 }
 
-void Tracker::suspendUntilReplay()
+void QfTracker::suspendUntilReplay()
 {
   if ( mIsActive )
   {
@@ -447,7 +447,7 @@ void Tracker::suspendUntilReplay()
   }
 }
 
-void Tracker::rubberbandModelVertexCountChanged()
+void QfTracker::rubberbandModelVertexCountChanged()
 {
   if ( ( !mIsActive && !mIsReplaying ) || mRubberbandModel->vertexCount() == 0 )
   {
@@ -496,12 +496,12 @@ void Tracker::rubberbandModelVertexCountChanged()
   }
 }
 
-bool Tracker::filterAccuracy() const
+bool QfTracker::filterAccuracy() const
 {
   return mFilterAccuracy;
 }
 
-void Tracker::setFilterAccuracy( bool enabled )
+void QfTracker::setFilterAccuracy( bool enabled )
 {
   if ( mFilterAccuracy == enabled )
     return;

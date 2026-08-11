@@ -41,7 +41,7 @@
  * \brief A COGO operation parameter
  * \ingroup core
  */
-class CogoParameter
+class QfCogoParameter
 {
     Q_GADGET
 
@@ -71,7 +71,7 @@ class CogoParameter
     Q_PROPERTY( QVariantMap configuration MEMBER configuration )
 
   public:
-    explicit CogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QColor &color = Qt::transparent, const QVariantMap &configuration = QVariantMap() )
+    explicit QfCogoParameter( const QString &type = QString(), const QString &name = QString(), const QString &label = QString(), const QColor &color = Qt::transparent, const QVariantMap &configuration = QVariantMap() )
       : type( type )
       , name( name )
       , label( label )
@@ -85,12 +85,12 @@ class CogoParameter
     QColor color;
     QVariantMap configuration;
 
-    bool operator==( const CogoParameter &other ) const
+    bool operator==( const QfCogoParameter &other ) const
     {
       return type == other.type && name == other.name && label == other.label && color == other.color && configuration == other.configuration;
     }
 
-    bool operator!=( const CogoParameter &other ) const { return !operator==( other ); }
+    bool operator!=( const QfCogoParameter &other ) const { return !operator==( other ); }
 };
 
 
@@ -98,7 +98,7 @@ class CogoParameter
  * \brief A COGO visual guide.
  * \ingroup core
  */
-class CogoVisualGuide
+class QfCogoVisualGuide
 {
     Q_GADGET
 
@@ -132,7 +132,7 @@ class CogoVisualGuide
     };
     Q_ENUM( Type )
 
-    explicit CogoVisualGuide( Type type = Point, const QVariantMap &details = QVariantMap(), const QColor &color = COLOR_NEUTRAL, const QColor &outlineColor = QColor( 255, 255, 255, 127 ) )
+    explicit QfCogoVisualGuide( Type type = Point, const QVariantMap &details = QVariantMap(), const QColor &color = COLOR_NEUTRAL, const QColor &outlineColor = QColor( 255, 255, 255, 127 ) )
       : type( type )
       , details( details )
       , color( color )
@@ -150,14 +150,14 @@ class CogoVisualGuide
  * \brief A COGO operation.
  * \ingroup core
  */
-class CogoOperation
+class QfCogoOperation
 {
   public:
     /**
      * The COGO operation constructor.
      */
-    CogoOperation() {}
-    virtual ~CogoOperation() = default;
+    QfCogoOperation() {}
+    virtual ~QfCogoOperation() = default;
 
     /**
      * Returns the name string identifier.
@@ -178,14 +178,14 @@ class CogoOperation
      * Returns the list of available parameters to configure the operation.
      * \param wkbType An optional WKB type to reflect ability of the geometry being digitized
      */
-    virtual QList<CogoParameter> parameters( Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return QList<CogoParameter>(); }
+    virtual QList<QfCogoParameter> parameters( Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return QList<QfCogoParameter>(); }
 
     /**
      * Returns a list of visual guides based on provided parameters.
      * \param parameters the parameters used to generate the visual guides
      * \param mapSettings the map settings object used to georeference the visual guides
      */
-    virtual QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const { return QList<CogoVisualGuide>(); }
+    virtual QList<QfCogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const { return QList<QfCogoVisualGuide>(); }
 
     /**
      * Returns TRUE is the provided parameters allow for the operation to be executed.
@@ -200,7 +200,7 @@ class CogoOperation
      * \param parameters the parameters used to execute the operation
      * \param wkbType An optional WKB type to reflect ability of the geometry being digitized
      */
-    virtual bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return false; }
+    virtual bool execute( QfRubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const { return false; }
 };
 
 
@@ -208,19 +208,19 @@ class CogoOperation
  * \brief A COGO operation to generate a point at a given XY location.
  * \ingroup core
  */
-class CogoOperationPointAtXYZ : public CogoOperation
+class QfCogoOperationPointAtXYZ : public QfCogoOperation
 {
   public:
-    CogoOperationPointAtXYZ() {}
-    ~CogoOperationPointAtXYZ() = default;
+    QfCogoOperationPointAtXYZ() {}
+    ~QfCogoOperationPointAtXYZ() = default;
 
     QString name() const override { return QStringLiteral( "point_at_xyz" ); }
     QString displayName() const override { return QObject::tr( "XYZ Parameters" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_xy_white_24dp" ); }
-    QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
-    QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
+    QList<QfCogoParameter> parameters( Qgis::WkbType wkbType ) const override;
+    QList<QfCogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
-    bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
+    bool execute( QfRubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
 };
 
 
@@ -228,19 +228,19 @@ class CogoOperationPointAtXYZ : public CogoOperation
  * \brief A COGO operation to generate a point at a given distance and angle from a provided point.
  * \ingroup core
  */
-class CogoOperationPointAtDistanceAngle : public CogoOperation
+class QfCogoOperationPointAtDistanceAngle : public QfCogoOperation
 {
   public:
-    CogoOperationPointAtDistanceAngle() {}
-    ~CogoOperationPointAtDistanceAngle() = default;
+    QfCogoOperationPointAtDistanceAngle() {}
+    ~QfCogoOperationPointAtDistanceAngle() = default;
 
     QString name() const override { return QStringLiteral( "point_at_distance_angle" ); }
     QString displayName() const override { return QObject::tr( "Distance/Angle from Point" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_angle_distance_white_24dp" ); }
-    QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
-    QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
+    QList<QfCogoParameter> parameters( Qgis::WkbType wkbType ) const override;
+    QList<QfCogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
-    bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
+    bool execute( QfRubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
 };
 
 
@@ -248,22 +248,22 @@ class CogoOperationPointAtDistanceAngle : public CogoOperation
  * \brief A COGO operation to generate a point at the intersection of two defined circles.
  * \ingroup core
  */
-class CogoOperationPointAtIntersectionCircles : public CogoOperation
+class QfCogoOperationPointAtIntersectionCircles : public QfCogoOperation
 {
   public:
-    CogoOperationPointAtIntersectionCircles() {}
-    ~CogoOperationPointAtIntersectionCircles() = default;
+    QfCogoOperationPointAtIntersectionCircles() {}
+    ~QfCogoOperationPointAtIntersectionCircles() = default;
 
     QString name() const override { return QStringLiteral( "point_at_intersection_circles" ); }
     QString displayName() const override { return QObject::tr( "Circles Intersection" ); }
     QString icon() const override { return QStringLiteral( "ic_cogo_intersection_circles_white_24dp" ); }
-    QList<CogoParameter> parameters( Qgis::WkbType wkbType ) const override;
-    QList<CogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
+    QList<QfCogoParameter> parameters( Qgis::WkbType wkbType ) const override;
+    QList<QfCogoVisualGuide> visualGuides( const QVariantMap &parameters, QgsQuickMapSettings *mapSettings ) const override;
     bool checkReadiness( const QVariantMap &parameters, Qgis::WkbType wkbType = Qgis::WkbType::Unknown ) const override;
-    bool execute( RubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
+    bool execute( QfRubberbandModel *rubberbandModel, const QVariantMap &parameters, Qgis::WkbType wkbType ) const override;
 };
-Q_DECLARE_METATYPE( CogoOperation )
-Q_DECLARE_METATYPE( CogoParameter )
-Q_DECLARE_METATYPE( CogoVisualGuide )
+Q_DECLARE_METATYPE( QfCogoOperation )
+Q_DECLARE_METATYPE( QfCogoParameter )
+Q_DECLARE_METATYPE( QfCogoVisualGuide )
 
 #endif // QFCOGOOPERATION_H

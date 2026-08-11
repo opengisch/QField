@@ -22,13 +22,13 @@
 #include <qgslocatorfilter.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * HelpLocatorFilter is a locator filter to search
+ * QfHelpLocatorFilter is a locator filter to search
  * for and display QField documentation pages.
  */
-class HelpLocatorFilter : public QgsLocatorFilter
+class QfHelpLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -39,8 +39,8 @@ class HelpLocatorFilter : public QgsLocatorFilter
       Normal,
     };
 
-    explicit HelpLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-    HelpLocatorFilter *clone() const override;
+    explicit QfHelpLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    QfHelpLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "optionpages" ); }
     QString displayName() const override { return tr( "QField Documentation" ); }
     QString description() const override { return tr( "Returns QField documentation pages matching terms." ); }
@@ -55,7 +55,7 @@ class HelpLocatorFilter : public QgsLocatorFilter
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   private:
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
     QString mSearchUrl = QStringLiteral( "https://docs.qfield.org/search/search_index.json" );
 };
 

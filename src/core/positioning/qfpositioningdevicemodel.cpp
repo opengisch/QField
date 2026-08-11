@@ -28,13 +28,13 @@
 
 #include <QSettings>
 
-PositioningDeviceModel::PositioningDeviceModel( QObject *parent )
+QfPositioningDeviceModel::QfPositioningDeviceModel( QObject *parent )
   : QAbstractListModel( parent )
 {
   reloadModel();
 }
 
-QHash<int, QByteArray> PositioningDeviceModel::roleNames() const
+QHash<int, QByteArray> QfPositioningDeviceModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[DeviceType] = "DeviceType";
@@ -45,7 +45,7 @@ QHash<int, QByteArray> PositioningDeviceModel::roleNames() const
   return roles;
 }
 
-void PositioningDeviceModel::reloadModel()
+void QfPositioningDeviceModel::reloadModel()
 {
   beginResetModel();
   mDevices.clear();
@@ -69,12 +69,12 @@ void PositioningDeviceModel::reloadModel()
   endResetModel();
 }
 
-int PositioningDeviceModel::rowCount( const QModelIndex &parent ) const
+int QfPositioningDeviceModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mDevices.size() ) : 0;
 }
 
-QVariant PositioningDeviceModel::data( const QModelIndex &index, int role ) const
+QVariant QfPositioningDeviceModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mDevices.size() || index.row() < 0 )
     return QVariant();
@@ -100,7 +100,7 @@ QVariant PositioningDeviceModel::data( const QModelIndex &index, int role ) cons
   return QVariant();
 }
 
-int PositioningDeviceModel::addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings )
+int QfPositioningDeviceModel::addDevice( const Type &type, const QString &name, const QVariantMap &deviceSettings )
 {
   if ( name.isEmpty() )
     return -1;
@@ -132,7 +132,7 @@ int PositioningDeviceModel::addDevice( const Type &type, const QString &name, co
   return index;
 }
 
-void PositioningDeviceModel::removeDevice( const QString &name )
+void QfPositioningDeviceModel::removeDevice( const QString &name )
 {
   if ( name.isEmpty() )
     return;
@@ -161,7 +161,7 @@ void PositioningDeviceModel::removeDevice( const QString &name )
   }
 }
 
-const QString PositioningDeviceModel::deviceId( const Device &device ) const
+const QString QfPositioningDeviceModel::deviceId( const Device &device ) const
 {
   switch ( device.type )
   {
@@ -172,33 +172,33 @@ const QString PositioningDeviceModel::deviceId( const Device &device ) const
 #ifdef WITH_BLUETOOTH
       if ( device.settings.value( QStringLiteral( "ble" ) ).toBool() )
       {
-        return QStringLiteral( "%1:%2" ).arg( BluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
+        return QStringLiteral( "%1:%2" ).arg( QfBluetoothLowEnergyReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
       }
 #endif
       return QStringLiteral( "%1" ).arg( device.settings.value( QStringLiteral( "address" ) ).toString() );
 
     case TcpDevice:
-      return QStringLiteral( "%1:%2:%3" ).arg( TcpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+      return QStringLiteral( "%1:%2:%3" ).arg( QfTcpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
 
     case UdpDevice:
-      return QStringLiteral( "%1:%2:%3" ).arg( UdpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+      return QStringLiteral( "%1:%2:%3" ).arg( QfUdpReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
 
     case FileDevice:
-      return QStringLiteral( "%1:%2:%3" ).arg( FileReceiver::identifier, device.settings.value( QStringLiteral( "filePath" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "interval" ) ).toInt() ) );
+      return QStringLiteral( "%1:%2:%3" ).arg( QfFileReceiver::identifier, device.settings.value( QStringLiteral( "filePath" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "interval" ) ).toInt() ) );
 
 #ifdef WITH_SERIALPORT
     case SerialPortDevice:
-      return QStringLiteral( "%1:%2" ).arg( SerialPortReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
+      return QStringLiteral( "%1:%2" ).arg( QfSerialPortReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString() );
 #endif
 
     case EgenioussDevice:
-      return QStringLiteral( "%1:%2:%3" ).arg( EgenioussReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
+      return QStringLiteral( "%1:%2:%3" ).arg( QfEgenioussReceiver::identifier, device.settings.value( QStringLiteral( "address" ) ).toString(), QString::number( device.settings.value( QStringLiteral( "port" ) ).toInt() ) );
   }
 
   return QString();
 }
 
-int PositioningDeviceModel::findIndexFromDeviceId( const QString &id )
+int QfPositioningDeviceModel::findIndexFromDeviceId( const QString &id )
 {
   if ( id.isEmpty() )
   {

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeatureutils.h - FeatureUtils
+  qffeatureutils.h - QfFeatureUtils
 
  ---------------------
  begin                : 05.03.2020
@@ -30,7 +30,7 @@ class QgsQuickMapSettings;
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT FeatureUtils : public QObject
+class QFIELD_CORE_EXPORT QfFeatureUtils : public QObject
 {
     Q_OBJECT
   public:
@@ -46,7 +46,7 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
     };
     Q_ENUM( FieldType )
 
-    explicit FeatureUtils( QObject *parent = nullptr );
+    explicit QfFeatureUtils( QObject *parent = nullptr );
 
     /**
      * Returns a new feature with its \a fields completely blank.
@@ -56,7 +56,7 @@ class QFIELD_CORE_EXPORT FeatureUtils : public QObject
     /**
      * Returns a new feature with its fields set to default values.
      */
-    static Q_INVOKABLE QgsFeature createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry = QgsGeometry(), const GnssPositionInformation &positionInformation = GnssPositionInformation(), const CloudUserInformation &cloudUserInformation = CloudUserInformation() );
+    static Q_INVOKABLE QgsFeature createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry = QgsGeometry(), const QfGnssPositionInformation &positionInformation = QfGnssPositionInformation(), const QfCloudUserInformation &cloudUserInformation = QfCloudUserInformation() );
 
     /**
     * Returns the display name of a given feature.

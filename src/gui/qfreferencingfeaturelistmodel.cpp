@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfreferencingfeaturelistmodel.cpp - ReferencingFeatureListModel
+  qfreferencingfeaturelistmodel.cpp - QfReferencingFeatureListModel
 
  ---------------------
  begin                : 1.3.2019
@@ -21,12 +21,12 @@
 #include <qgsmessagelog.h>
 #include <qgsproject.h>
 
-ReferencingFeatureListModelBase::ReferencingFeatureListModelBase( QObject *parent )
+QfReferencingFeatureListModelBase::QfReferencingFeatureListModelBase( QObject *parent )
   : QAbstractItemModel( parent )
 {
 }
 
-QHash<int, QByteArray> ReferencingFeatureListModelBase::roleNames() const
+QHash<int, QByteArray> QfReferencingFeatureListModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
@@ -39,7 +39,7 @@ QHash<int, QByteArray> ReferencingFeatureListModelBase::roleNames() const
   return roles;
 }
 
-QModelIndex ReferencingFeatureListModelBase::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex QfReferencingFeatureListModelBase::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( column )
   Q_UNUSED( parent )
@@ -47,26 +47,26 @@ QModelIndex ReferencingFeatureListModelBase::index( int row, int column, const Q
   return createIndex( row, column, 1000 );
 }
 
-QModelIndex ReferencingFeatureListModelBase::parent( const QModelIndex &index ) const
+QModelIndex QfReferencingFeatureListModelBase::parent( const QModelIndex &index ) const
 {
   Q_UNUSED( index )
 
   return QModelIndex();
 }
 
-int ReferencingFeatureListModelBase::rowCount( const QModelIndex &parent ) const
+int QfReferencingFeatureListModelBase::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mEntries.size() );
 }
 
-int ReferencingFeatureListModelBase::columnCount( const QModelIndex &parent ) const
+int QfReferencingFeatureListModelBase::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant ReferencingFeatureListModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfReferencingFeatureListModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( role == DisplayString )
   {
@@ -95,7 +95,7 @@ QVariant ReferencingFeatureListModelBase::data( const QModelIndex &index, int ro
   return QVariant();
 }
 
-void ReferencingFeatureListModelBase::setFeature( const QgsFeature &feature )
+void QfReferencingFeatureListModelBase::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
   {
@@ -117,24 +117,24 @@ void ReferencingFeatureListModelBase::setFeature( const QgsFeature &feature )
   reload();
 }
 
-QgsFeature ReferencingFeatureListModelBase::feature() const
+QgsFeature QfReferencingFeatureListModelBase::feature() const
 {
   return mFeature;
 }
 
-void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
+void QfReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
   if ( mRelation.isValid() )
   {
     // Parent layer
-    disconnect( mRelation.referencedLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
-    disconnect( mRelation.referencedLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+    disconnect( mRelation.referencedLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    disconnect( mRelation.referencedLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
 
     // Child layer
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesAdded );
-    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesRemoved );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &QfReferencingFeatureListModelBase::layerCommittedFeaturesAdded );
+    disconnect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &QfReferencingFeatureListModelBase::layerCommittedFeaturesRemoved );
   }
 
   mRelation = relation;
@@ -143,14 +143,14 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
   if ( mRelation.isValid() )
   {
     // Parent layer
-    connect( mRelation.referencedLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
-    connect( mRelation.referencedLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+    connect( mRelation.referencedLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    connect( mRelation.referencedLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
 
     // Child layer
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &ReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesAdded );
-    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &ReferencingFeatureListModelBase::layerCommittedFeaturesRemoved );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedAttributeValuesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedGeometriesChanges, this, &QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesAdded, this, &QfReferencingFeatureListModelBase::layerCommittedFeaturesAdded );
+    connect( mRelation.referencingLayer(), &QgsVectorLayer::committedFeaturesRemoved, this, &QfReferencingFeatureListModelBase::layerCommittedFeaturesRemoved );
   }
 
   mLastGathererFeaturesFilter.clear();
@@ -159,17 +159,17 @@ void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
   reload();
 }
 
-QgsRelation ReferencingFeatureListModelBase::relation() const
+QgsRelation QfReferencingFeatureListModelBase::relation() const
 {
   return mRelation;
 }
 
-QString ReferencingFeatureListModelBase::currentRelationId() const
+QString QfReferencingFeatureListModelBase::currentRelationId() const
 {
   return mRelation.isValid() ? mRelation.id() : QString();
 }
 
-void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relationId )
+void QfReferencingFeatureListModelBase::setCurrentRelationId( const QString &relationId )
 {
   if ( relationId == currentRelationId() )
   {
@@ -179,7 +179,7 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
   setRelation( QgsProject::instance()->relationManager()->relation( relationId ) );
 }
 
-void ReferencingFeatureListModelBase::setNmRelation( const QgsRelation &relation )
+void QfReferencingFeatureListModelBase::setNmRelation( const QgsRelation &relation )
 {
   mNmRelation = relation;
   emit nmRelationChanged();
@@ -190,17 +190,17 @@ void ReferencingFeatureListModelBase::setNmRelation( const QgsRelation &relation
   reload();
 }
 
-QgsRelation ReferencingFeatureListModelBase::nmRelation() const
+QgsRelation QfReferencingFeatureListModelBase::nmRelation() const
 {
   return mNmRelation;
 }
 
-QString ReferencingFeatureListModelBase::currentNmRelationId() const
+QString QfReferencingFeatureListModelBase::currentNmRelationId() const
 {
   return mNmRelation.isValid() ? mNmRelation.id() : QString();
 }
 
-void ReferencingFeatureListModelBase::setCurrentNmRelationId( const QString &nmRelationId )
+void QfReferencingFeatureListModelBase::setCurrentNmRelationId( const QString &nmRelationId )
 {
   if ( nmRelationId == currentNmRelationId() )
   {
@@ -210,17 +210,17 @@ void ReferencingFeatureListModelBase::setCurrentNmRelationId( const QString &nmR
   setNmRelation( QgsProject::instance()->relationManager()->relation( nmRelationId ) );
 }
 
-void ReferencingFeatureListModelBase::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
+void QfReferencingFeatureListModelBase::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
 {
   mParentPrimariesAvailable = parentPrimariesAvailable;
 }
 
-bool ReferencingFeatureListModelBase::parentPrimariesAvailable() const
+bool QfReferencingFeatureListModelBase::parentPrimariesAvailable() const
 {
   return mParentPrimariesAvailable;
 }
 
-void ReferencingFeatureListModelBase::updateModel()
+void QfReferencingFeatureListModelBase::updateModel()
 {
   beginResetModel();
 
@@ -234,7 +234,7 @@ void ReferencingFeatureListModelBase::updateModel()
   emit modelUpdated();
 }
 
-void ReferencingFeatureListModelBase::gathererThreadFinished()
+void QfReferencingFeatureListModelBase::gathererThreadFinished()
 {
   //ignore spooky signals from ancestor threads
   if ( sender() != mGatherer )
@@ -247,61 +247,61 @@ void ReferencingFeatureListModelBase::gathererThreadFinished()
   emit isLoadingChanged();
 }
 
-void ReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues )
+void QfReferencingFeatureListModelBase::layerCommittedAttributeValuesChanges( const QString &layerId, const QgsChangedAttributesMap &changedAttributesValues )
 {
   const QList<QgsFeatureId> featureIds = changedAttributesValues.keys();
   if ( mRelation.referencingLayerId() == layerId )
   {
     if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
     {
-      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+      QTimer::singleShot( 50, this, &QfReferencingFeatureListModelBase::reload );
     }
   }
   else if ( mRelation.referencedLayerId() == layerId )
   {
     if ( featureIds.contains( mFeature.id() ) )
     {
-      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+      QTimer::singleShot( 50, this, &QfReferencingFeatureListModelBase::reload );
     }
   }
 }
 
-void ReferencingFeatureListModelBase::layerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries )
+void QfReferencingFeatureListModelBase::layerCommittedGeometriesChanges( const QString &layerId, const QgsGeometryMap &changedGeometries )
 {
   const QList<QgsFeatureId> featureIds = changedGeometries.keys();
   if ( mRelation.referencingLayerId() == layerId )
   {
     if ( std::any_of( mEntries.begin(), mEntries.end(), [&featureIds]( const Entry &entry ) { return featureIds.contains( entry.referencingFeature.id() ); } ) )
     {
-      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+      QTimer::singleShot( 50, this, &QfReferencingFeatureListModelBase::reload );
     }
   }
   else if ( mRelation.referencedLayerId() == layerId )
   {
     if ( featureIds.contains( mFeature.id() ) )
     {
-      QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+      QTimer::singleShot( 50, this, &QfReferencingFeatureListModelBase::reload );
     }
   }
 }
 
-void ReferencingFeatureListModelBase::layerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures )
+void QfReferencingFeatureListModelBase::layerCommittedFeaturesAdded( const QString &layerId, const QgsFeatureList &addedFeatures )
 {
   if ( mRelation.referencingLayerId() == layerId )
   {
-    QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    QTimer::singleShot( 50, this, &QfReferencingFeatureListModelBase::reload );
   }
 }
 
-void ReferencingFeatureListModelBase::layerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
+void QfReferencingFeatureListModelBase::layerCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
 {
   if ( std::any_of( mEntries.begin(), mEntries.end(), [&deletedFeatureIds]( const Entry &entry ) { return deletedFeatureIds.contains( entry.referencingFeature.id() ); } ) )
   {
-    QTimer::singleShot( 50, this, &ReferencingFeatureListModelBase::reload );
+    QTimer::singleShot( 50, this, &QfReferencingFeatureListModelBase::reload );
   }
 }
 
-void ReferencingFeatureListModelBase::reload()
+void QfReferencingFeatureListModelBase::reload()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
   {
@@ -316,18 +316,18 @@ void ReferencingFeatureListModelBase::reload()
     {
       // Send the gatherer thread to the graveyard:
       //   forget about it, tell it to stop and delete when finished
-      disconnect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModelBase::updateModel );
-      disconnect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModelBase::gathererThreadFinished );
-      connect( mGatherer, &FeatureGatherer::finished, mGatherer, &FeatureGatherer::deleteLater );
+      disconnect( mGatherer, &QfFeatureGatherer::collectedValues, this, &QfReferencingFeatureListModelBase::updateModel );
+      disconnect( mGatherer, &QfFeatureGatherer::finished, this, &QfReferencingFeatureListModelBase::gathererThreadFinished );
+      connect( mGatherer, &QfFeatureGatherer::finished, mGatherer, &QfFeatureGatherer::deleteLater );
       mGatherer->stop();
       wasLoading = true;
     }
 
-    mGatherer = new FeatureGatherer( mFeature, mRelation, mNmRelation );
+    mGatherer = new QfFeatureGatherer( mFeature, mRelation, mNmRelation );
     mLastGathererFeaturesFilter = mRelation.getRelatedFeaturesFilter( mFeature );
 
-    connect( mGatherer, &FeatureGatherer::collectedValues, this, &ReferencingFeatureListModelBase::updateModel );
-    connect( mGatherer, &FeatureGatherer::finished, this, &ReferencingFeatureListModelBase::gathererThreadFinished );
+    connect( mGatherer, &QfFeatureGatherer::collectedValues, this, &QfReferencingFeatureListModelBase::updateModel );
+    connect( mGatherer, &QfFeatureGatherer::finished, this, &QfReferencingFeatureListModelBase::gathererThreadFinished );
 
     mGatherer->start();
     if ( !wasLoading )
@@ -347,7 +347,7 @@ void ReferencingFeatureListModelBase::reload()
   setParentPrimariesAvailable( checkParentPrimaries() );
 }
 
-bool ReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFeatureId )
+bool QfReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFeatureId )
 {
   QgsVectorLayer *referencingLayer = mRelation.referencingLayer();
 
@@ -362,7 +362,7 @@ bool ReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFea
     return false;
   }
 
-  if ( !LayerUtils::deleteFeature( QgsProject::instance(), referencingLayer, referencingFeatureId, true ) )
+  if ( !QfLayerUtils::deleteFeature( QgsProject::instance(), referencingLayer, referencingFeatureId, true ) )
   {
     QgsMessageLog::logMessage( tr( "Cannot delete feature" ), "QField", Qgis::Critical );
 
@@ -372,7 +372,7 @@ bool ReferencingFeatureListModelBase::deleteFeature( QgsFeatureId referencingFea
   return true;
 }
 
-int ReferencingFeatureListModelBase::getFeatureIdRow( QgsFeatureId featureId )
+int QfReferencingFeatureListModelBase::getFeatureIdRow( QgsFeatureId featureId )
 {
   int row = 0;
   for ( const Entry &entry : mEntries )
@@ -387,37 +387,37 @@ int ReferencingFeatureListModelBase::getFeatureIdRow( QgsFeatureId featureId )
   return row < mEntries.size() ? row : -1;
 }
 
-bool ReferencingFeatureListModelBase::isLoading() const
+bool QfReferencingFeatureListModelBase::isLoading() const
 {
   return mGatherer;
 }
 
-QString ReferencingFeatureListModelBase::attachmentFieldName() const
+QString QfReferencingFeatureListModelBase::attachmentFieldName() const
 {
   return mAttachmentFieldName;
 }
 
-int ReferencingFeatureListModelBase::attachmentDocumentViewer() const
+int QfReferencingFeatureListModelBase::attachmentDocumentViewer() const
 {
   return mAttachmentDocumentViewer;
 }
 
-QString ReferencingFeatureListModelBase::attachmentStorageType() const
+QString QfReferencingFeatureListModelBase::attachmentStorageType() const
 {
   return mAttachmentStorageType;
 }
 
-QString ReferencingFeatureListModelBase::attachmentStorageAuthConfigId() const
+QString QfReferencingFeatureListModelBase::attachmentStorageAuthConfigId() const
 {
   return mAttachmentStorageAuthConfigId;
 }
 
-QString ReferencingFeatureListModelBase::attachmentStorageUrl() const
+QString QfReferencingFeatureListModelBase::attachmentStorageUrl() const
 {
   return mAttachmentStorageUrl;
 }
 
-void ReferencingFeatureListModelBase::updateAttachmentFieldInfo()
+void QfReferencingFeatureListModelBase::updateAttachmentFieldInfo()
 {
   mAttachmentFieldName.clear();
   mAttachmentFieldIndex = -1;
@@ -452,7 +452,7 @@ void ReferencingFeatureListModelBase::updateAttachmentFieldInfo()
   emit attachmentDetailsChanged();
 }
 
-bool ReferencingFeatureListModelBase::checkParentPrimaries()
+bool QfReferencingFeatureListModelBase::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
   {
@@ -486,145 +486,145 @@ bool ReferencingFeatureListModelBase::checkParentPrimaries()
   return true;
 }
 
-bool ReferencingFeatureListModelBase::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
+bool QfReferencingFeatureListModelBase::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
 {
   Q_UNUSED( referencingLayer );
   Q_UNUSED( referencingFeatureId );
   return true;
 }
 
-ReferencingFeatureListModel::ReferencingFeatureListModel( QObject *parent )
+QfReferencingFeatureListModel::QfReferencingFeatureListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mSourceModel( new ReferencingFeatureListModelBase( parent ) )
+  , mSourceModel( new QfReferencingFeatureListModelBase( parent ) )
 {
-  connect( mSourceModel, &ReferencingFeatureListModelBase::isLoadingChanged, this, &ReferencingFeatureListModel::isLoadingChanged );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::featureChanged, this, &ReferencingFeatureListModel::featureChanged );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::relationChanged, this, &ReferencingFeatureListModel::relationChanged );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::nmRelationChanged, this, &ReferencingFeatureListModel::nmRelationChanged );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::parentPrimariesAvailableChanged, this, &ReferencingFeatureListModel::parentPrimariesAvailableChanged );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::beforeModelUpdated, this, &ReferencingFeatureListModel::beforeModelUpdated );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::modelUpdated, this, &ReferencingFeatureListModel::modelUpdated );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::attributeFormModelChanged, this, &ReferencingFeatureListModel::attributeFormModelChanged );
-  connect( mSourceModel, &ReferencingFeatureListModelBase::attachmentDetailsChanged, this, &ReferencingFeatureListModel::attachmentDetailsChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::isLoadingChanged, this, &QfReferencingFeatureListModel::isLoadingChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::featureChanged, this, &QfReferencingFeatureListModel::featureChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::relationChanged, this, &QfReferencingFeatureListModel::relationChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::nmRelationChanged, this, &QfReferencingFeatureListModel::nmRelationChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::parentPrimariesAvailableChanged, this, &QfReferencingFeatureListModel::parentPrimariesAvailableChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::beforeModelUpdated, this, &QfReferencingFeatureListModel::beforeModelUpdated );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::modelUpdated, this, &QfReferencingFeatureListModel::modelUpdated );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::attributeFormModelChanged, this, &QfReferencingFeatureListModel::attributeFormModelChanged );
+  connect( mSourceModel, &QfReferencingFeatureListModelBase::attachmentDetailsChanged, this, &QfReferencingFeatureListModel::attachmentDetailsChanged );
 
   setSourceModel( mSourceModel );
-  setSortRole( ReferencingFeatureListModelBase::DisplayString );
+  setSortRole( QfReferencingFeatureListModelBase::DisplayString );
   setDynamicSortFilter( true );
   sort( 0, mSortOrder );
 }
 
-QString ReferencingFeatureListModel::currentRelationId() const
+QString QfReferencingFeatureListModel::currentRelationId() const
 {
   return mSourceModel->currentRelationId();
 }
 
-void ReferencingFeatureListModel::setCurrentRelationId( const QString &relationId )
+void QfReferencingFeatureListModel::setCurrentRelationId( const QString &relationId )
 {
   mSourceModel->setCurrentRelationId( relationId );
 }
 
-QString ReferencingFeatureListModel::currentNmRelationId() const
+QString QfReferencingFeatureListModel::currentNmRelationId() const
 {
   return mSourceModel->currentNmRelationId();
 }
 
-void ReferencingFeatureListModel::setCurrentNmRelationId( const QString &nmRelationId )
+void QfReferencingFeatureListModel::setCurrentNmRelationId( const QString &nmRelationId )
 {
   mSourceModel->setCurrentNmRelationId( nmRelationId );
 }
 
-void ReferencingFeatureListModel::setFeature( const QgsFeature &feature )
+void QfReferencingFeatureListModel::setFeature( const QgsFeature &feature )
 {
   mSourceModel->setFeature( feature );
 }
 
-QgsFeature ReferencingFeatureListModel::feature() const
+QgsFeature QfReferencingFeatureListModel::feature() const
 {
   return mSourceModel->feature();
 }
 
-void ReferencingFeatureListModel::setRelation( const QgsRelation &relation )
+void QfReferencingFeatureListModel::setRelation( const QgsRelation &relation )
 {
   mSourceModel->setRelation( relation );
 }
 
-QgsRelation ReferencingFeatureListModel::relation() const
+QgsRelation QfReferencingFeatureListModel::relation() const
 {
   return mSourceModel->relation();
 }
 
-void ReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
+void QfReferencingFeatureListModel::setNmRelation( const QgsRelation &relation )
 {
   mSourceModel->setNmRelation( relation );
 }
 
-QgsRelation ReferencingFeatureListModel::nmRelation() const
+QgsRelation QfReferencingFeatureListModel::nmRelation() const
 {
   return mSourceModel->nmRelation();
 }
 
-void ReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
+void QfReferencingFeatureListModel::setParentPrimariesAvailable( const bool parentPrimariesAvailable )
 {
   mSourceModel->setParentPrimariesAvailable( parentPrimariesAvailable );
 }
 
-bool ReferencingFeatureListModel::parentPrimariesAvailable() const
+bool QfReferencingFeatureListModel::parentPrimariesAvailable() const
 {
   return mSourceModel->parentPrimariesAvailable();
 }
 
-void ReferencingFeatureListModel::reload()
+void QfReferencingFeatureListModel::reload()
 {
   mSourceModel->reload();
 }
 
-bool ReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
+bool QfReferencingFeatureListModel::deleteFeature( QgsFeatureId referencingFeatureId )
 {
   return mSourceModel->deleteFeature( referencingFeatureId );
 }
 
-int ReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
+int QfReferencingFeatureListModel::getFeatureIdRow( QgsFeatureId featureId )
 {
   const QModelIndex sourceIndex = mSourceModel->index( mSourceModel->getFeatureIdRow( featureId ), 0 );
   return mapFromSource( sourceIndex ).row();
 }
 
-bool ReferencingFeatureListModel::isLoading() const
+bool QfReferencingFeatureListModel::isLoading() const
 {
   return mSourceModel->isLoading();
 }
 
-QString ReferencingFeatureListModel::attachmentFieldName() const
+QString QfReferencingFeatureListModel::attachmentFieldName() const
 {
   return mSourceModel->attachmentFieldName();
 }
 
-int ReferencingFeatureListModel::attachmentDocumentViewer() const
+int QfReferencingFeatureListModel::attachmentDocumentViewer() const
 {
   return mSourceModel->attachmentDocumentViewer();
 }
 
-QString ReferencingFeatureListModel::attachmentStorageType() const
+QString QfReferencingFeatureListModel::attachmentStorageType() const
 {
   return mSourceModel->attachmentStorageType();
 }
 
-QString ReferencingFeatureListModel::attachmentStorageAuthConfigId() const
+QString QfReferencingFeatureListModel::attachmentStorageAuthConfigId() const
 {
   return mSourceModel->attachmentStorageAuthConfigId();
 }
 
-QString ReferencingFeatureListModel::attachmentStorageUrl() const
+QString QfReferencingFeatureListModel::attachmentStorageUrl() const
 {
   return mSourceModel->attachmentStorageUrl();
 }
 
-Qt::SortOrder ReferencingFeatureListModel::sortOrder() const
+Qt::SortOrder QfReferencingFeatureListModel::sortOrder() const
 {
   return mSortOrder;
 }
 
-void ReferencingFeatureListModel::setSortOrder( Qt::SortOrder sortOrder )
+void QfReferencingFeatureListModel::setSortOrder( Qt::SortOrder sortOrder )
 {
   if ( mSortOrder == sortOrder )
   {
@@ -636,7 +636,7 @@ void ReferencingFeatureListModel::setSortOrder( Qt::SortOrder sortOrder )
   sort( 0, mSortOrder );
 }
 
-bool ReferencingFeatureListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
+bool QfReferencingFeatureListModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
   return Qt::AscendingOrder ? left.row() > right.row() : left.row() < right.row();
 }

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfiosprojectsource.mm - IosProjectSource
+  qfiosprojectsource.mm - QfIosProjectSource
 
   begin                : September 2021
   copyright            : (C) 2020 by Denis Rouzaud
@@ -31,7 +31,7 @@ static NSString *const FIELD_NAME = @"name";
 
 @interface ProjectDelegate
     : NSObject <UIDocumentPickerDelegate, UINavigationControllerDelegate> {
-  IosProjectSource *mIosProjectSource;
+  QfIosProjectSource *mIosProjectSource;
 }
 @end
 
@@ -39,7 +39,7 @@ static NSString *const FIELD_NAME = @"name";
   NSMutableArray *urlsInOpenMode;
 }
 
-- (id)initWithIosProjectSource:(IosProjectSource *)iosProjectSource {
+- (id)initWithIosProjectSource:(QfIosProjectSource *)iosProjectSource {
   self = [super init];
   if (self) {
     mIosProjectSource = iosProjectSource;
@@ -179,20 +179,20 @@ static NSString *const FIELD_NAME = @"name";
 
 @end
 
-class IosProjectSource::ProjectDelegateContainer {
+class QfIosProjectSource::ProjectDelegateContainer {
 public:
   ProjectDelegate *_projectDelegate = nullptr;
 };
 
-IosProjectSource::IosProjectSource(QObject *parent)
-    : ProjectSource(parent), mDelegate(new ProjectDelegateContainer()) {
+QfIosProjectSource::QfIosProjectSource(QObject *parent)
+    : QfProjectSource(parent), mDelegate(new ProjectDelegateContainer()) {
   mParent = qobject_cast<QQuickItem *>(parent);
   Q_ASSERT(mParent);
   mDelegate->_projectDelegate =
       [[ProjectDelegate alloc] initWithIosProjectSource:this];
 }
 
-void IosProjectSource::pickProject() {
+void QfIosProjectSource::pickProject() {
   // Get the UIView that backs our QQuickWindow:
   UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
                                          ->nativeResourceForWindow(
@@ -212,7 +212,7 @@ void IosProjectSource::pickProject() {
   [qtController presentViewController:controller animated:YES completion:nil];
 }
 
-QString IosProjectSource::projectFromFolder(const QString &folder) const {
+QString QfIosProjectSource::projectFromFolder(const QString &folder) const {
   QString folderPath = folder;
   folderPath.remove(QStringLiteral("file://"));
   QDir directory(folderPath);

@@ -28,12 +28,12 @@ class QgsQuickMapSettings;
 /**
  * \ingroup core
  */
-class FlatLayerTreeModelBase : public QAbstractProxyModel
+class QfFlatLayerTreeModelBase : public QAbstractProxyModel
 {
     Q_OBJECT
 
   public:
-    explicit FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
+    explicit QfFlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
     void setSourceModel( QAbstractItemModel *sourceModel ) override;
     QModelIndex mapToSource( const QModelIndex &proxyIndex ) const override;
@@ -134,7 +134,7 @@ class FlatLayerTreeModelBase : public QAbstractProxyModel
 /**
  * \ingroup core
  */
-class FlatLayerTreeModel : public QSortFilterProxyModel
+class QfFlatLayerTreeModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -192,7 +192,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     };
     Q_ENUM( Types )
 
-    explicit FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
+    explicit QfFlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent = nullptr );
 
     Q_INVOKABLE QVariant data( const QModelIndex &index, int role ) const override;
     Q_INVOKABLE bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
@@ -247,7 +247,7 @@ class FlatLayerTreeModel : public QSortFilterProxyModel
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-    FlatLayerTreeModelBase *mSourceModel = nullptr;
+    QfFlatLayerTreeModelBase *mSourceModel = nullptr;
 };
 
 

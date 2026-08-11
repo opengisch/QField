@@ -15,12 +15,12 @@
  ***************************************************************************/
 #include "qffocusstack.h"
 
-FocusStack::FocusStack( QObject *parent )
+QfFocusStack::QfFocusStack( QObject *parent )
   : QObject( parent )
 {
 }
 
-void FocusStack::addFocusTaker( QObject *object )
+void QfFocusStack::addFocusTaker( QObject *object )
 {
   const QVariant visible = object->property( "visible" );
   const QVariant opened = object->property( "opened" );
@@ -39,17 +39,17 @@ void FocusStack::addFocusTaker( QObject *object )
   }
 }
 
-void FocusStack::popupOpened()
+void QfFocusStack::popupOpened()
 {
   setFocused( sender() );
 }
 
-void FocusStack::popupClosed()
+void QfFocusStack::popupClosed()
 {
   setUnfocused( sender() );
 }
 
-void FocusStack::visibleChanged()
+void QfFocusStack::visibleChanged()
 {
   const QVariant visible = sender()->property( "visible" );
   if ( visible.toBool() )
@@ -62,14 +62,14 @@ void FocusStack::visibleChanged()
   }
 }
 
-void FocusStack::setFocused( QObject *object )
+void QfFocusStack::setFocused( QObject *object )
 {
   mStackList.removeAll( object );
   mStackList.append( object );
   QMetaObject::invokeMethod( object, "forceActiveFocus", Qt::DirectConnection );
 }
 
-void FocusStack::setUnfocused( QObject *object )
+void QfFocusStack::setUnfocused( QObject *object )
 {
   const QVariant visible = object->property( "visible" );
   const QVariant opened = object->property( "opened" );
@@ -101,7 +101,7 @@ void FocusStack::setUnfocused( QObject *object )
   }
 }
 
-void FocusStack::forceActiveFocusOnLastTaker()
+void QfFocusStack::forceActiveFocusOnLastTaker()
 {
   mStackList.removeIf( []( const QPointer<QObject> &pointer ) { return pointer.isNull(); } );
   if ( mStackList.isEmpty() )

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeaturelistmodel.h - FeatureListModel
+  qffeaturelistmodel.h - QfFeatureListModel
 
  ---------------------
  begin                : 1.2.2017
@@ -35,7 +35,7 @@ class QgsVectorLayer;
  * If a displayValueField is set it replaces the display expression of the layer.
  * \ingroup core
  */
-class FeatureListModel : public QAbstractItemModel
+class QfFeatureListModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -102,7 +102,7 @@ class FeatureListModel : public QAbstractItemModel
     /**
      * The application expression context scope generator used when filtering by expression
      */
-    Q_PROPERTY( AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
+    Q_PROPERTY( QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
 
   public:
     enum FeatureListRoles
@@ -115,8 +115,8 @@ class FeatureListModel : public QAbstractItemModel
 
     Q_ENUM( FeatureListRoles )
 
-    explicit FeatureListModel( QObject *parent = nullptr );
-    ~FeatureListModel();
+    explicit QfFeatureListModel( QObject *parent = nullptr );
+    ~QfFeatureListModel();
 
     virtual QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
     virtual QModelIndex parent( const QModelIndex &child ) const override;
@@ -236,12 +236,12 @@ class FeatureListModel : public QAbstractItemModel
     /**
      * Returns the application expression context scope generator used when filtering by expression
      */
-    AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
+    QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
 
     /**
      * Sets the application expression context scope generator used when filtering by expression
      */
-    void setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator );
+    void setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator );
 
   signals:
     void currentLayerChanged();
@@ -307,7 +307,7 @@ class FeatureListModel : public QAbstractItemModel
 
     QPointer<QgsVectorLayer> mCurrentLayer;
 
-    FeatureExpressionValuesGatherer *mGatherer = nullptr;
+    QfFeatureExpressionValuesGatherer *mGatherer = nullptr;
 
     QList<Entry> mEntries;
     QString mKeyField;
@@ -321,12 +321,12 @@ class FeatureListModel : public QAbstractItemModel
     QString mFilterExpression;
     QString mSearchTerm;
     QgsFeature mCurrentFormFeature;
-    QPointer<AppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
+    QPointer<QfAppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
 
     QTimer mReloadTimer;
 
-    friend class FeatureCheckListModel;
-    friend class FeatureCheckListModelBase;
+    friend class QfFeatureCheckListModel;
+    friend class QfFeatureCheckListModelBase;
 };
 
 #endif // QFFEATURELISTMODEL_H

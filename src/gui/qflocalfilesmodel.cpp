@@ -24,13 +24,13 @@
 #include <QFile>
 #include <QImageReader>
 
-LocalFilesModel::LocalFilesModel( QObject *parent )
+QfLocalFilesModel::QfLocalFilesModel( QObject *parent )
   : QAbstractListModel( parent )
 {
   QSettings settings;
   mFavorites = settings.value( QStringLiteral( "qfieldFavorites" ), QStringList() ).toStringList();
 
-  const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+  const QString applicationDirectory = QfPlatformUtilities::instance()->applicationDirectory();
   mCreatedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Created Projects" ).arg( applicationDirectory ) );
   mImportedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory ) );
   mImportedDatasetsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory ) );
@@ -61,7 +61,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   }
 
   // Remove obsolete sample projects path
-  const QString sampleProjectsPath = QDir::cleanPath( PlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
+  const QString sampleProjectsPath = QDir::cleanPath( QfPlatformUtilities::instance()->systemLocalDataLocation( QLatin1String( "sample_projects" ) ) );
   if ( mFavorites.contains( sampleProjectsPath ) )
   {
     removeFromFavorites( sampleProjectsPath );
@@ -70,7 +70,7 @@ LocalFilesModel::LocalFilesModel( QObject *parent )
   resetToRoot();
 }
 
-QHash<int, QByteArray> LocalFilesModel::roleNames() const
+QHash<int, QByteArray> QfLocalFilesModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[ItemMetaTypeRole] = "ItemMetaType";
@@ -86,7 +86,7 @@ QHash<int, QByteArray> LocalFilesModel::roleNames() const
   return roles;
 }
 
-void LocalFilesModel::resetToRoot()
+void QfLocalFilesModel::resetToRoot()
 {
   mHistory.clear();
   mHistory << QLatin1String( "root" );
@@ -96,7 +96,7 @@ void LocalFilesModel::resetToRoot()
   reloadModel();
 }
 
-void LocalFilesModel::resetToPath( const QString &path )
+void QfLocalFilesModel::resetToPath( const QString &path )
 {
   mHistory.clear();
   setCurrentPath( path );
@@ -107,12 +107,12 @@ void LocalFilesModel::resetToPath( const QString &path )
   }
 }
 
-bool LocalFilesModel::isPathFavoriteEditable( const QString & )
+bool QfLocalFilesModel::isPathFavoriteEditable( const QString & )
 {
   return true;
 }
 
-void LocalFilesModel::addToFavorites( const QString &path )
+void QfLocalFilesModel::addToFavorites( const QString &path )
 {
   if ( !mFavorites.contains( path ) )
   {
@@ -122,7 +122,7 @@ void LocalFilesModel::addToFavorites( const QString &path )
   }
 }
 
-void LocalFilesModel::removeFromFavorites( const QString &path )
+void QfLocalFilesModel::removeFromFavorites( const QString &path )
 {
   if ( mFavorites.removeAll( path ) )
   {
@@ -131,18 +131,18 @@ void LocalFilesModel::removeFromFavorites( const QString &path )
   }
 }
 
-QString LocalFilesModel::currentTitle() const
+QString QfLocalFilesModel::currentTitle() const
 {
   return getCurrentTitleFromPath( currentPath() );
 }
 
-const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) const
+const QString QfLocalFilesModel::getCurrentTitleFromPath( const QString &path ) const
 {
   if ( path == QLatin1String( "root" ) )
   {
     return tr( "Home" );
   }
-  else if ( path == PlatformUtilities::instance()->applicationDirectory() )
+  else if ( path == QfPlatformUtilities::instance()->applicationDirectory() )
   {
     return tr( "QField files directory" );
   }
@@ -158,23 +158,23 @@ const QString LocalFilesModel::getCurrentTitleFromPath( const QString &path ) co
   {
     return tr( "Imported datasets" );
   }
-  else if ( PlatformUtilities::instance()->additionalApplicationDirectories().contains( path ) )
+  else if ( QfPlatformUtilities::instance()->additionalApplicationDirectories().contains( path ) )
   {
     return tr( "Additional files directory" );
   }
   else
   {
-    const QString cloudProjectId = QFieldCloudUtils::getProjectId( path );
+    const QString cloudProjectId = QfCloudUtils::getProjectId( path );
     if ( !cloudProjectId.isEmpty() )
     {
-      return QFieldCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "name" ), QString() ).toString();
+      return QfCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "name" ), QString() ).toString();
     }
   }
 
   return QFileInfo( path ).fileName();
 }
 
-void LocalFilesModel::setCurrentPath( const QString &path )
+void QfLocalFilesModel::setCurrentPath( const QString &path )
 {
   QFileInfo fi( path );
   if ( fi.exists() )
@@ -191,22 +191,22 @@ void LocalFilesModel::setCurrentPath( const QString &path )
   }
 }
 
-QString LocalFilesModel::currentPath() const
+QString QfLocalFilesModel::currentPath() const
 {
   return ( !mHistory.isEmpty() ? mHistory.last() : QString() );
 }
 
-bool LocalFilesModel::isDeletedAllowedInCurrentPath() const
+bool QfLocalFilesModel::isDeletedAllowedInCurrentPath() const
 {
   const QString path = currentPath();
-  const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+  const QString applicationDirectory = QfPlatformUtilities::instance()->applicationDirectory();
   if ( !applicationDirectory.isEmpty() && path.startsWith( applicationDirectory ) )
   {
     return true;
   }
   else
   {
-    const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
+    const QStringList additionalApplicationDirectories = QfPlatformUtilities::instance()->additionalApplicationDirectories();
     if ( std::any_of( additionalApplicationDirectories.begin(), additionalApplicationDirectories.end(), [&path]( const QString &directory ) { return ( !directory.isEmpty() && path.startsWith( directory ) ); } ) )
     {
       return true;
@@ -216,7 +216,7 @@ bool LocalFilesModel::isDeletedAllowedInCurrentPath() const
   return false;
 }
 
-void LocalFilesModel::moveUp()
+void QfLocalFilesModel::moveUp()
 {
   mHistory.removeLast();
 
@@ -225,7 +225,7 @@ void LocalFilesModel::moveUp()
   reloadModel();
 }
 
-void LocalFilesModel::reloadModel()
+void QfLocalFilesModel::reloadModel()
 {
   beginResetModel();
   mItems.clear();
@@ -233,41 +233,41 @@ void LocalFilesModel::reloadModel()
   const QString path = currentPath();
   if ( path == QLatin1String( "root" ) )
   {
-    QList<LocalFileItem> favoriteItems;
+    QList<QfLocalFileItem> favoriteItems;
     for ( const QString &item : mFavorites )
     {
       if ( QFileInfo::exists( item ) )
       {
-        favoriteItems << LocalFileItem( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
+        favoriteItems << QfLocalFileItem( ItemMetaType::Favorite, ItemType::SimpleFolder, getCurrentTitleFromPath( item ), QString(), item );
       }
     }
 
-    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const LocalFileItem &a, const LocalFileItem &b ) { return a.title() < b.title(); } );
+    std::sort( favoriteItems.begin(), favoriteItems.end(), []( const QfLocalFileItem &a, const QfLocalFileItem &b ) { return a.title() < b.title(); } );
     mItems.append( favoriteItems );
 
-    const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+    const QString applicationDirectory = QfPlatformUtilities::instance()->applicationDirectory();
     if ( !applicationDirectory.isEmpty() )
     {
-      mItems << LocalFileItem( ItemMetaType::Folder, ItemType::ApplicationFolder, tr( "QField files directory" ), QString(), applicationDirectory );
+      mItems << QfLocalFileItem( ItemMetaType::Folder, ItemType::ApplicationFolder, tr( "QField files directory" ), QString(), applicationDirectory );
     }
 
-    const QStringList additionalApplicationDirectories = PlatformUtilities::instance()->additionalApplicationDirectories();
+    const QStringList additionalApplicationDirectories = QfPlatformUtilities::instance()->additionalApplicationDirectories();
     for ( const QString &item : additionalApplicationDirectories )
     {
       QFileInfo fi( item );
       if ( fi.exists() )
       {
-        mItems << LocalFileItem( ItemMetaType::Folder, ItemType::ExternalStorage, tr( "Additional files directory" ), QString(), fi.absoluteFilePath() );
+        mItems << QfLocalFileItem( ItemMetaType::Folder, ItemType::QfExternalStorage, tr( "Additional files directory" ), QString(), fi.absoluteFilePath() );
       }
     }
 
-    const QStringList rootDirectories = PlatformUtilities::instance()->rootDirectories();
+    const QStringList rootDirectories = QfPlatformUtilities::instance()->rootDirectories();
     for ( const QString &item : rootDirectories )
     {
       QFileInfo fi( item );
       if ( fi.exists() )
       {
-        mItems << LocalFileItem( ItemMetaType::Folder, ItemType::SimpleFolder, fi.absoluteFilePath(), QString(), fi.absoluteFilePath() );
+        mItems << QfLocalFileItem( ItemMetaType::Folder, ItemType::SimpleFolder, fi.absoluteFilePath(), QString(), fi.absoluteFilePath() );
       }
     }
   }
@@ -277,16 +277,16 @@ void LocalFilesModel::reloadModel()
     if ( dir.exists() )
     {
       const QStringList items = dir.entryList( QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, QDir::DirsFirst | QDir::IgnoreCase );
-      QList<LocalFileItem> folders;
-      QList<LocalFileItem> files;
-      QList<LocalFileItem> projects;
-      QList<LocalFileItem> datasets;
+      QList<QfLocalFileItem> folders;
+      QList<QfLocalFileItem> files;
+      QList<QfLocalFileItem> projects;
+      QList<QfLocalFileItem> datasets;
       for ( const QString &item : items )
       {
         QFileInfo fi( path + QDir::separator() + item );
         if ( fi.isDir() )
         {
-          folders << LocalFileItem( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
+          folders << QfLocalFileItem( ItemMetaType::Folder, ItemType::SimpleFolder, fi.fileName(), QString(), fi.absoluteFilePath() );
         }
         else
         {
@@ -329,19 +329,19 @@ void LocalFilesModel::reloadModel()
 
           if ( SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) )
           {
-            projects << LocalFileItem( ItemMetaType::Project, ItemType::ProjectFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            projects << QfLocalFileItem( ItemMetaType::Project, ItemType::ProjectFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) && suffix != QStringLiteral( "pdf" ) )
           {
-            datasets << LocalFileItem( ItemMetaType::Dataset, ItemType::VectorDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            datasets << QfLocalFileItem( ItemMetaType::Dataset, ItemType::VectorDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
           {
-            datasets << LocalFileItem( ItemMetaType::Dataset, ItemType::RasterDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            datasets << QfLocalFileItem( ItemMetaType::Dataset, ItemType::RasterDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
           else if ( SUPPORTED_FILE_EXTENSIONS.contains( suffix ) )
           {
-            files << LocalFileItem( ItemMetaType::File, ItemType::OtherFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            files << QfLocalFileItem( ItemMetaType::File, ItemType::OtherFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
           }
         }
       }
@@ -352,7 +352,7 @@ void LocalFilesModel::reloadModel()
   endResetModel();
 }
 
-int LocalFilesModel::rowCount( const QModelIndex &parent ) const
+int QfLocalFilesModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !parent.isValid() )
     return static_cast<int>( mItems.size() );
@@ -360,12 +360,12 @@ int LocalFilesModel::rowCount( const QModelIndex &parent ) const
     return 0;
 }
 
-QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
+QVariant QfLocalFilesModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mItems.size() || index.row() < 0 )
     return QVariant();
 
-  const LocalFileItem &item = mItems[index.row()];
+  const QfLocalFileItem &item = mItems[index.row()];
 
   switch ( static_cast<Role>( role ) )
   {
@@ -394,7 +394,7 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
       return mFavorites.contains( item.path() );
 
     case ItemHasWebdavConfigurationRole:
-      return WebdavConnection::hasWebdavConfiguration( item.path() );
+      return QfWebdavConnection::hasWebdavConfiguration( item.path() );
 
     case ItemCheckedRole:
       return item.checked();
@@ -403,23 +403,23 @@ QVariant LocalFilesModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-LocalFileItem LocalFilesModel::get( int index ) const
+QfLocalFileItem QfLocalFilesModel::get( int index ) const
 {
   if ( index < 0 || index >= mItems.size() )
-    return LocalFileItem();
+    return QfLocalFileItem();
 
   return mItems[index];
 }
 
-bool LocalFilesModel::inSelectionMode()
+bool QfLocalFilesModel::inSelectionMode()
 {
   if ( currentTitle() == tr( "Home" ) )
     return false;
 
-  return std::any_of( mItems.begin(), mItems.end(), []( const LocalFileItem &item ) { return item.checked(); } );
+  return std::any_of( mItems.begin(), mItems.end(), []( const QfLocalFileItem &item ) { return item.checked(); } );
 }
 
-void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
+void QfLocalFilesModel::setChecked( const int &mIdx, const bool &checked )
 {
   if ( mIdx < 0 || mIdx >= mItems.size() )
   {
@@ -442,9 +442,9 @@ void LocalFilesModel::setChecked( const int &mIdx, const bool &checked )
   }
 }
 
-void LocalFilesModel::clearSelection()
+void QfLocalFilesModel::clearSelection()
 {
-  for ( LocalFileItem &item : mItems )
+  for ( QfLocalFileItem &item : mItems )
   {
     item.setChecked( false );
   }

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfrelationutils.h - RelationUtils
+  qfrelationutils.h - QfRelationUtils
 
  ---------------------
  begin                : 19.03.2021
@@ -24,12 +24,12 @@
 /**
  * \ingroup core
  */
-class RelationUtils : public QObject
+class QfRelationUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit RelationUtils( QObject *parent = nullptr );
+    explicit QfRelationUtils( QObject *parent = nullptr );
 
     Q_INVOKABLE QgsRelation resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId );
 

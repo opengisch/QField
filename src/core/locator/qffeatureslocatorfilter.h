@@ -24,14 +24,14 @@
 #include <qgsvectorlayerfeatureiterator.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * FeaturesLocatorFilter is a locator filter to search
+ * QfFeaturesLocatorFilter is a locator filter to search
  * for features across layers in the project.
  * Reimplemented from QGIS code (app).
  */
-class FeaturesLocatorFilter : public QgsLocatorFilter
+class QfFeaturesLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -41,7 +41,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     {
       Normal,
       OpenForm,
-      Navigation,
+      QfNavigation,
     };
 
     struct PreparedLayer
@@ -57,8 +57,8 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
         Qgis::GeometryType layerGeometryType;
     };
 
-    explicit FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-    FeaturesLocatorFilter *clone() const override;
+    explicit QfFeaturesLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    QfFeaturesLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "allfeatures" ); }
     QString displayName() const override { return tr( "Features in all layers" ); }
     QString description() const override { return tr( "Returns a list of features accross all searchable layers with matching display name." ); }
@@ -74,7 +74,7 @@ class FeaturesLocatorFilter : public QgsLocatorFilter
     int mMaxResultsPerLayer = 12;
     int mMaxTotalResults = 16;
     QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // QFFEATURESLOCATORFILTER_H

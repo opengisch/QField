@@ -20,12 +20,12 @@
 #include <qgsproject.h>
 #include <qgssensormanager.h>
 
-SensorListModel::SensorListModel( QObject *parent )
+QfSensorListModel::QfSensorListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
 {
 }
 
-QHash<int, QByteArray> SensorListModel::roleNames() const
+QHash<int, QByteArray> QfSensorListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[static_cast<int>( QgsSensorModel::CustomRole::SensorId )] = "SensorId";
@@ -37,19 +37,19 @@ QHash<int, QByteArray> SensorListModel::roleNames() const
   return roles;
 }
 
-QgsProject *SensorListModel::project() const
+QgsProject *QfSensorListModel::project() const
 {
   return mProject;
 }
 
-void SensorListModel::setProject( QgsProject *project )
+void QfSensorListModel::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
 
   if ( mProject )
   {
-    disconnect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &SensorListModel::handleSensorError );
+    disconnect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &QfSensorListModel::handleSensorError );
   }
 
   mProject = project;
@@ -57,7 +57,7 @@ void SensorListModel::setProject( QgsProject *project )
 
   if ( mProject )
   {
-    connect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &SensorListModel::handleSensorError );
+    connect( mProject->sensorManager(), &QgsSensorManager::sensorErrorOccurred, this, &QfSensorListModel::handleSensorError );
     mSensorModel.reset( new QgsSensorModel( mProject->sensorManager() ) );
   }
   else
@@ -68,7 +68,7 @@ void SensorListModel::setProject( QgsProject *project )
   setSourceModel( mSensorModel.get() );
 }
 
-void SensorListModel::setShowConnectedOnly( bool showConnectedOnly )
+void QfSensorListModel::setShowConnectedOnly( bool showConnectedOnly )
 {
   if ( mShowConnectedOnly == showConnectedOnly )
     return;
@@ -80,7 +80,7 @@ void SensorListModel::setShowConnectedOnly( bool showConnectedOnly )
   emit showConnectedOnlyChanged();
 }
 
-bool SensorListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
+bool QfSensorListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   if ( mShowConnectedOnly )
   {
@@ -90,7 +90,7 @@ bool SensorListModel::filterAcceptsRow( int source_row, const QModelIndex &sourc
   return true;
 }
 
-void SensorListModel::connectSensorId( const QString &id ) const
+void QfSensorListModel::connectSensorId( const QString &id ) const
 {
   if ( mProject && mProject->sensorManager()->sensor( id ) )
   {
@@ -98,7 +98,7 @@ void SensorListModel::connectSensorId( const QString &id ) const
   }
 }
 
-void SensorListModel::disconnectSensorId( const QString &id ) const
+void QfSensorListModel::disconnectSensorId( const QString &id ) const
 {
   if ( mProject && mProject->sensorManager()->sensor( id ) )
   {
@@ -106,7 +106,7 @@ void SensorListModel::disconnectSensorId( const QString &id ) const
   }
 }
 
-void SensorListModel::handleSensorError( const QString &id )
+void QfSensorListModel::handleSensorError( const QString &id )
 {
   if ( mProject )
   {

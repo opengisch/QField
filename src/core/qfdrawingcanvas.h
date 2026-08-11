@@ -1,5 +1,5 @@
 /***************************************************************************
- qfdrawingcanvas.h - DrawingCanvas
+ qfdrawingcanvas.h - QfDrawingCanvas
 
  ---------------------
  begin                : 24.03.2024
@@ -26,7 +26,7 @@
 /**
  * \ingroup core
  */
-struct DrawingStroke
+struct QfDrawingStroke
 {
     Q_GADGET
 
@@ -48,7 +48,7 @@ struct DrawingStroke
 /**
  * \ingroup core
  */
-class DrawingCanvas : public QQuickPaintedItem
+class QfDrawingCanvas : public QQuickPaintedItem
 {
     Q_OBJECT
 
@@ -80,45 +80,45 @@ class DrawingCanvas : public QQuickPaintedItem
      */
     Q_PROPERTY( QPointF offset READ offset WRITE setOffset NOTIFY offsetChanged )
 
-    Q_PROPERTY( DrawingStroke currentStroke READ currentStroke NOTIFY currentStrokeChanged )
+    Q_PROPERTY( QfDrawingStroke currentStroke READ currentStroke NOTIFY currentStrokeChanged )
 
   public:
-    DrawingCanvas( QQuickItem *parent = nullptr );
-    ~DrawingCanvas() = default;
+    QfDrawingCanvas( QQuickItem *parent = nullptr );
+    ~QfDrawingCanvas() = default;
 
     void paint( QPainter *painter ) override;
 
-    //! \copydoc DrawingCanvas::isEmpty
+    //! \copydoc QfDrawingCanvas::isEmpty
     bool isEmpty() const;
 
-    //! \copydoc DrawingCanvas::isEmpty
+    //! \copydoc QfDrawingCanvas::isEmpty
     void setIsEmpty( bool empty );
 
-    //! \copydoc DrawingCanvas::isDirty
+    //! \copydoc QfDrawingCanvas::isDirty
     bool isDirty() const;
 
-    //! \copydoc DrawingCanvas::isDirty
+    //! \copydoc QfDrawingCanvas::isDirty
     void setIsDirty( bool dirty );
 
-    //! \copydoc DrawingCanvas::frameColor
+    //! \copydoc QfDrawingCanvas::frameColor
     QColor frameColor() const;
 
-    //! \copydoc DrawingCanvas::frameColor
+    //! \copydoc QfDrawingCanvas::frameColor
     void setFrameColor( const QColor &color );
 
-    //! \copydoc DrawingCanvas::zoomFactor
+    //! \copydoc QfDrawingCanvas::zoomFactor
     double zoomFactor() const;
 
-    //! \copydoc DrawingCanvas::zoomFactor
+    //! \copydoc QfDrawingCanvas::zoomFactor
     void setZoomFactor( double factor );
 
-    //! \copydoc DrawingCanvas::offset
+    //! \copydoc QfDrawingCanvas::offset
     QPointF offset() const;
 
-    //! \copydoc DrawingCanvas::offset
+    //! \copydoc QfDrawingCanvas::offset
     void setOffset( const QPointF &offset );
 
-    DrawingStroke currentStroke() const;
+    QfDrawingStroke currentStroke() const;
 
     /**
      * Creates a blank drawing canvas.
@@ -196,7 +196,7 @@ class DrawingCanvas : public QQuickPaintedItem
     void currentStrokeChanged();
 
   private:
-    void drawStroke( QPainter *painter, const DrawingStroke &stroke, bool onCanvas = true ) const;
+    void drawStroke( QPainter *painter, const QfDrawingStroke &stroke, bool onCanvas = true ) const;
 
     QPointF itemToCanvas( const QPointF &point ) const;
     QPointF canvasToItem( const QPointF &point ) const;
@@ -213,8 +213,8 @@ class DrawingCanvas : public QQuickPaintedItem
     QImage mBackgroundImage;
     QImage mDrawingImage;
 
-    QList<DrawingStroke> mStrokes;
-    DrawingStroke mCurrentStroke;
+    QList<QfDrawingStroke> mStrokes;
+    QfDrawingStroke mCurrentStroke;
 };
 
 #endif // QFDRAWINGCANVAS_H

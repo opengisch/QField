@@ -31,15 +31,15 @@
  *
  * \since QField 1.9
 */
-class QFIELD_CORE_EXPORT PeliasGeocoder : public QgsGeocoderInterface
+class QFIELD_CORE_EXPORT QfPeliasGeocoder : public QgsGeocoderInterface
 {
   public:
     /**
-     * Constructor for PeliasGeocoder.
+     * Constructor for QfPeliasGeocoder.
      *
      * The \a endpoint argument is used to specify an endpoint to use for request.
      */
-    explicit PeliasGeocoder( const QString &endpoint = QString() );
+    explicit QfPeliasGeocoder( const QString &endpoint = QString() );
 
     Flags flags() const override;
     QgsFields appendedFields() const override;

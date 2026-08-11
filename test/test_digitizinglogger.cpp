@@ -40,7 +40,7 @@ TEST_CASE( "DigitizingLogger" )
   std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
   REQUIRE( layer->isValid() );
 
-  std::unique_ptr<DigitizingLogger> digitizingLogger = std::make_unique<DigitizingLogger>();
+  std::unique_ptr<QfDigitizingLogger> digitizingLogger = std::make_unique<QfDigitizingLogger>();
   digitizingLogger->setType( QStringLiteral( "rock" ) );
   digitizingLogger->setProject( QgsProject::instance() );
   digitizingLogger->setDigitizingLayer( layer.get() );

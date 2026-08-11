@@ -20,17 +20,17 @@
 #include "qfvaluemapmodelbase.h"
 #include "qgsvaluemapfieldformatter.h"
 
-ValueMapModelBase::ValueMapModelBase( QObject *parent )
+QfValueMapModelBase::QfValueMapModelBase( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-QVariant ValueMapModelBase::map() const
+QVariant QfValueMapModelBase::map() const
 {
   return mConfiguredMap;
 }
 
-void ValueMapModelBase::setMap( const QVariant &map )
+void QfValueMapModelBase::setMap( const QVariant &map )
 {
   mMap.clear();
 
@@ -74,34 +74,34 @@ void ValueMapModelBase::setMap( const QVariant &map )
   emit mapChanged();
 }
 
-int ValueMapModelBase::rowCount( const QModelIndex &parent ) const
+int QfValueMapModelBase::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mMap.size() );
 }
 
-QVariant ValueMapModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfValueMapModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( index.isValid() == false )
     return QVariant();
 
-  if ( role == ValueMapModel::KeyRole )
+  if ( role == QfValueMapModel::KeyRole )
     return mMap.at( index.row() ).first;
 
   return mMap.at( index.row() ).second;
 }
 
-QHash<int, QByteArray> ValueMapModelBase::roleNames() const
+QHash<int, QByteArray> QfValueMapModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[ValueMapModel::KeyRole] = "key";
-  roles[ValueMapModel::ValueRole] = "value";
+  roles[QfValueMapModel::KeyRole] = "key";
+  roles[QfValueMapModel::ValueRole] = "value";
 
   return roles;
 }
 
-int ValueMapModelBase::keyToIndex( const QVariant &key ) const
+int QfValueMapModelBase::keyToIndex( const QVariant &key ) const
 {
   int i = 0;
   for ( const auto &item : mMap )
@@ -115,7 +115,7 @@ int ValueMapModelBase::keyToIndex( const QVariant &key ) const
   return -1;
 }
 
-QVariant ValueMapModelBase::keyForValue( const QString &value ) const
+QVariant QfValueMapModelBase::keyForValue( const QString &value ) const
 {
   QVariant result;
 

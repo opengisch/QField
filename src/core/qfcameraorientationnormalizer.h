@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfcameraorientationnormalizer.h - CameraOrientationNormalizer
+  qfcameraorientationnormalizer.h - QfCameraOrientationNormalizer
 
 ---------------------
 begin                : 16.4.2026
@@ -44,12 +44,12 @@ email                : kaustuv@opengis.ch
  * \ingroup core
  */
 
-class CameraOrientationNormalizer : public QObject
+class QfCameraOrientationNormalizer : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( int previewRotation READ previewRotation NOTIFY previewRotationChanged )
-    Q_PROPERTY( CameraOrientationNormalizer::CameraPosition cameraPosition READ cameraPosition WRITE setCameraPosition NOTIFY cameraPositionChanged )
+    Q_PROPERTY( QfCameraOrientationNormalizer::CameraPosition cameraPosition READ cameraPosition WRITE setCameraPosition NOTIFY cameraPositionChanged )
 
   public:
     //! Camera position, matching the integer values of QCameraDevice::Position.
@@ -62,7 +62,7 @@ class CameraOrientationNormalizer : public QObject
     Q_ENUM( CameraPosition )
 
     //! Constructs the normalizer and starts tracking screen orientation.
-    explicit CameraOrientationNormalizer( QObject *parent = nullptr );
+    explicit QfCameraOrientationNormalizer( QObject *parent = nullptr );
 
     /**
      * Returns the rotation in degrees that the live camera preview
@@ -76,14 +76,14 @@ class CameraOrientationNormalizer : public QObject
      * used to apply the additional horizontal mirror correction that
      * front-facing cameras require when normalizing saved photos.
      */
-    CameraOrientationNormalizer::CameraPosition cameraPosition() const;
+    QfCameraOrientationNormalizer::CameraPosition cameraPosition() const;
 
     /**
      * Sets the active camera's \a position. Bound from the QML camera's
      * device position so orientation correction can distinguish the
      * front-facing camera.
      */
-    void setCameraPosition( CameraOrientationNormalizer::CameraPosition position );
+    void setCameraPosition( QfCameraOrientationNormalizer::CameraPosition position );
 
     /**
      * Records the current screen orientation. Call at shutter press

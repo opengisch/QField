@@ -24,7 +24,7 @@
  * \brief A model holding the list of COGO operations available in the COGO registry.
  * \ingroup core
  */
-class CogoOperationsModel : public QAbstractListModel
+class QfCogoOperationsModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -40,7 +40,7 @@ class CogoOperationsModel : public QAbstractListModel
     /**
      * The COGO operations model constructor.
      */
-    explicit CogoOperationsModel( QObject *parent = nullptr );
+    explicit QfCogoOperationsModel( QObject *parent = nullptr );
 
     /**
      * Builds the model against the COGO operations available in the COGO registry.

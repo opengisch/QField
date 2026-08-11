@@ -27,7 +27,7 @@
 
 TEST_CASE( "GeometryUtils" )
 {
-  std::unique_ptr<RubberbandModel> model = std::make_unique<RubberbandModel>();
+  std::unique_ptr<QfRubberbandModel> model = std::make_unique<QfRubberbandModel>();
   std::unique_ptr<QgsVectorLayer> mLayer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
 
   QgsFeature f( mLayer->fields(), 1 );
@@ -47,7 +47,7 @@ TEST_CASE( "GeometryUtils" )
     model->addVertexFromPoint( QgsPoint( 2, 1 ) );
     model->addVertexFromPoint( QgsPoint( 1, 2 ) );
 
-    QgsGeometry geom = GeometryUtils::polygonFromRubberband( model.get(), crs );
+    QgsGeometry geom = QfGeometryUtils::polygonFromRubberband( model.get(), crs );
 
     REQUIRE( geom.asWkt() == QStringLiteral( "Polygon ((0 0, 2 1, 1 2, 1 2, 0 0))" ) );
   }
@@ -56,26 +56,26 @@ TEST_CASE( "GeometryUtils" )
   {
     REQUIRE( mLayer.get() );
     REQUIRE( model.get() );
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == GeometryUtils::GeometryOperationResult::AddRingNotValid );
+    REQUIRE( QfGeometryUtils::addRingFromRubberband( mLayer.get(), 100, model.get() ) == QfGeometryUtils::GeometryOperationResult::AddRingNotValid );
 
     model->addVertexFromPoint( QgsPoint( 8.1, 8.1 ) );
     model->addVertexFromPoint( QgsPoint( 8.9, 8.1 ) );
     model->addVertexFromPoint( QgsPoint( 8.1, 8.9 ) );
     mLayer->select( 1 );
 
-    REQUIRE( GeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
+    REQUIRE( QfGeometryUtils::addRingFromRubberband( mLayer.get(), 1, model.get() ) == QfGeometryUtils::GeometryOperationResult::Success );
   }
 
 
   SECTION( "SplitFeatureFromRubberband" )
   {
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::NothingHappened );
+    REQUIRE( QfGeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == QfGeometryUtils::GeometryOperationResult::NothingHappened );
 
     model->addVertexFromPoint( QgsPoint( 7.5, 8.5 ) );
     model->addVertexFromPoint( QgsPoint( 9.5, 8.5 ) );
     mLayer->select( 1 );
 
-    REQUIRE( GeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
+    REQUIRE( QfGeometryUtils::splitFeatureFromRubberband( mLayer.get(), 1, model.get() ) == QfGeometryUtils::GeometryOperationResult::Success );
   }
 
   SECTION( "ReshapeFromRubberband" )
@@ -86,7 +86,7 @@ TEST_CASE( "GeometryUtils" )
     QgsProject::instance()->setAvoidIntersectionsMode( Qgis::AvoidIntersectionsMode::AllowIntersections );
 
     // an unknown feature has no base geometry to reshape
-    REQUIRE( GeometryUtils::reshapeFromRubberband( mLayer.get(), 100, model.get() ) == GeometryUtils::GeometryOperationResult::InvalidBaseGeometry );
+    REQUIRE( QfGeometryUtils::reshapeFromRubberband( mLayer.get(), 100, model.get() ) == QfGeometryUtils::GeometryOperationResult::InvalidBaseGeometry );
 
     const double originalArea = mLayer->getFeature( 1 ).geometry().area();
     model->addVertexFromPoint( QgsPoint( 8.75, 8.25 ) );
@@ -96,7 +96,7 @@ TEST_CASE( "GeometryUtils" )
     // reshapeFromRubberband persists the result through layer->changeGeometry, which
     // requires an open edit session just like the digitizing tool provides at runtime
     REQUIRE( mLayer->startEditing() );
-    REQUIRE( GeometryUtils::reshapeFromRubberband( mLayer.get(), 1, model.get() ) == GeometryUtils::GeometryOperationResult::Success );
+    REQUIRE( QfGeometryUtils::reshapeFromRubberband( mLayer.get(), 1, model.get() ) == QfGeometryUtils::GeometryOperationResult::Success );
     REQUIRE( mLayer->commitChanges() );
 
     const QgsGeometry reshapedGeometry = mLayer->getFeature( 1 ).geometry();
@@ -111,7 +111,7 @@ TEST_CASE( "GeometryUtils" )
 
     // the rubberband used for erasing carries the buffer width as the M value of its
     // vertices, the geometry type matches the line drawn by the Erase tool
-    std::unique_ptr<RubberbandModel> eraseModel = std::make_unique<RubberbandModel>();
+    std::unique_ptr<QfRubberbandModel> eraseModel = std::make_unique<QfRubberbandModel>();
     eraseModel->setGeometryType( Qgis::GeometryType::Line );
 
     // a dedicated square gives room for the M based buffer (width 5 * measureValue) to
@@ -124,7 +124,7 @@ TEST_CASE( "GeometryUtils" )
     REQUIRE( squareLayer->commitChanges() );
 
     // an unknown feature has no base geometry to erase
-    REQUIRE( GeometryUtils::eraseFromRubberband( squareLayer.get(), 100, eraseModel.get() ) == GeometryUtils::GeometryOperationResult::InvalidBaseGeometry );
+    REQUIRE( QfGeometryUtils::eraseFromRubberband( squareLayer.get(), 100, eraseModel.get() ) == QfGeometryUtils::GeometryOperationResult::InvalidBaseGeometry );
 
     SECTION( "Nibble a corner" )
     {
@@ -139,7 +139,7 @@ TEST_CASE( "GeometryUtils" )
       // eraseFromRubberband persists the result through layer->changeGeometry, which
       // requires an open edit session just like the digitizing tool provides at runtime
       REQUIRE( squareLayer->startEditing() );
-      REQUIRE( GeometryUtils::eraseFromRubberband( squareLayer.get(), 1, eraseModel.get() ) == GeometryUtils::GeometryOperationResult::Success );
+      REQUIRE( QfGeometryUtils::eraseFromRubberband( squareLayer.get(), 1, eraseModel.get() ) == QfGeometryUtils::GeometryOperationResult::Success );
       REQUIRE( squareLayer->commitChanges() );
 
       const QgsGeometry erasedGeometry = squareLayer->getFeature( 1 ).geometry();
@@ -156,7 +156,7 @@ TEST_CASE( "GeometryUtils" )
       eraseModel->addVertexFromPoint( QgsPoint( 5, -1 ) );
       eraseModel->addVertexFromPoint( QgsPoint( 5, 11 ) );
 
-      REQUIRE( GeometryUtils::eraseFromRubberband( squareLayer.get(), 1, eraseModel.get() ) == GeometryUtils::GeometryOperationResult::AddPartNotMultiGeometry );
+      REQUIRE( QfGeometryUtils::eraseFromRubberband( squareLayer.get(), 1, eraseModel.get() ) == QfGeometryUtils::GeometryOperationResult::AddPartNotMultiGeometry );
     }
   }
 
@@ -164,23 +164,23 @@ TEST_CASE( "GeometryUtils" )
   {
     const QgsCoordinateReferenceSystem crs = QgsCoordinateReferenceSystem::fromEpsgId( 3946 );
 
-    std::unique_ptr<RubberbandModel> bufferModel = std::make_unique<RubberbandModel>();
+    std::unique_ptr<QfRubberbandModel> bufferModel = std::make_unique<QfRubberbandModel>();
     bufferModel->setGeometryType( Qgis::GeometryType::Line );
 
     // without a measure value the vertices have no M, the buffer width collapses to zero
     // and an empty geometry comes back
     bufferModel->addVertexFromPoint( QgsPoint( 0, 0 ) );
     bufferModel->addVertexFromPoint( QgsPoint( 10, 0 ) );
-    REQUIRE( GeometryUtils::variableWidthBufferByMFromRubberband( bufferModel.get(), crs ).isEmpty() );
+    REQUIRE( QfGeometryUtils::variableWidthBufferByMFromRubberband( bufferModel.get(), crs ).isEmpty() );
 
     // a positive measure value yields a buffer polygon with an area
-    std::unique_ptr<RubberbandModel> widthModel = std::make_unique<RubberbandModel>();
+    std::unique_ptr<QfRubberbandModel> widthModel = std::make_unique<QfRubberbandModel>();
     widthModel->setGeometryType( Qgis::GeometryType::Line );
     widthModel->setMeasureValue( 1.0 );
     widthModel->addVertexFromPoint( QgsPoint( 0, 0 ) );
     widthModel->addVertexFromPoint( QgsPoint( 10, 0 ) );
 
-    const QgsGeometry buffer = GeometryUtils::variableWidthBufferByMFromRubberband( widthModel.get(), crs );
+    const QgsGeometry buffer = QfGeometryUtils::variableWidthBufferByMFromRubberband( widthModel.get(), crs );
     REQUIRE( !buffer.isEmpty() );
     REQUIRE( buffer.isGeosValid() );
     REQUIRE( buffer.area() > 0.0 );

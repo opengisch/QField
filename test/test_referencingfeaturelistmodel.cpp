@@ -189,7 +189,7 @@ TEST_CASE( "ReferencingFeatureListModel" )
   mL_Share->commitChanges();
   REQUIRE( mL_Share->featureCount() == 7L );
 
-  std::unique_ptr<ReferencingFeatureListModel> mModel( new ReferencingFeatureListModel() );
+  std::unique_ptr<QfReferencingFeatureListModel> mModel( new QfReferencingFeatureListModel() );
 
   /*
       GetReferencingFeatures
@@ -202,19 +202,19 @@ TEST_CASE( "ReferencingFeatureListModel" )
   SECTION( "GetReferencingFeatures" )
   {
     mModel->setRelation( mR_Landhasoneking );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
     mModel->setNmRelation( QgsRelation() );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
     //check out Frodo
     mModel->setFeature( mL_King->getFeature( 1 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo rules 3 lands (Gondor, Rohan, Eriador)
     REQUIRE( mModel->rowCount() == 3 );
 
     //check out Gollum
     mModel->setFeature( mL_King->getFeature( 2 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Gollum rules 1 land (Mordor)
     REQUIRE( mModel->rowCount() == 1 );
   }
@@ -230,19 +230,19 @@ TEST_CASE( "ReferencingFeatureListModel" )
   SECTION( "GetManyToManyReferencedFeatures" )
   {
     mModel->setRelation( mR_Sharehasoneking );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
     mModel->setNmRelation( mR_Shareofoneland );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
     //check out Frodo
     mModel->setFeature( mL_King->getFeature( 1 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo has shares of 4 lands (Mordor, Gondor, Rohan, Eriador)
     REQUIRE( mModel->rowCount() == 4 );
 
     //check out Gollum
     mModel->setFeature( mL_King->getFeature( 2 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Gollum has shares of 3 lands (Mordor, Gondor, Rohan)
     REQUIRE( mModel->rowCount() == 3 );
   }
@@ -258,23 +258,23 @@ TEST_CASE( "ReferencingFeatureListModel" )
   SECTION( "DeleteReferencingFeature" )
   {
     mModel->setNmRelation( QgsRelation() );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
     mModel->setRelation( mR_Landhasoneking );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
     //check out Frodo
     mModel->setFeature( mL_King->getFeature( 1 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo rules 3 lands (Gondor, Rohan, Eriador)
     REQUIRE( mModel->rowCount() == 3 );
 
     //check display string of rohan
-    QString displayString = mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModelBase::DisplayString ).toString();
+    QString displayString = mModel->data( mModel->index( 1, 0 ), QfReferencingFeatureListModelBase::DisplayString ).toString();
     REQUIRE( displayString == QStringLiteral( "Gondor" ) );
 
     //delete Rohan
-    mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 1, 0 ), ReferencingFeatureListModelBase::ReferencingFeature ) ).id() );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 1, 0 ), QfReferencingFeatureListModelBase::ReferencingFeature ) ).id() );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo rules 2 lands (Gondor, Eriador) no Rohan anymore
     REQUIRE( mModel->rowCount() == 2 );
   }
@@ -290,42 +290,42 @@ TEST_CASE( "ReferencingFeatureListModel" )
   SECTION( "DeleteReferenceToManyToManyReferencedFeature" )
   {
     mModel->setRelation( mR_Sharehasoneking );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
     mModel->setNmRelation( mR_Shareofoneland );
-    QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 500 );
+    QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 500 );
 
     //check out Frodo
     mModel->setFeature( mL_King->getFeature( 1 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo has shares of 4 lands (Mordor, Gondor, Eriador, Rohan)
     REQUIRE( mModel->rowCount() == 4 );
 
     //check out Gollum
     mModel->setFeature( mL_King->getFeature( 2 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Gollum has shares of 3 lands (Mordor, Gondor, Rohan)
     REQUIRE( mModel->rowCount() == 3 );
 
     //check display string of Gollums Mordor share (40)
-    QString displayString = mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModelBase::DisplayString ).toString();
+    QString displayString = mModel->data( mModel->index( 0, 0 ), QfReferencingFeatureListModelBase::DisplayString ).toString();
     REQUIRE( displayString == QStringLiteral( "40" ) );
 
     //delete Gollums share on Mordor
-    mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 0, 0 ), ReferencingFeatureListModelBase::ReferencingFeature ) ).id() );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    mModel->deleteFeature( qvariant_cast<QgsFeature>( mModel->data( mModel->index( 0, 0 ), QfReferencingFeatureListModelBase::ReferencingFeature ) ).id() );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Gollum has shares of 2 landd (Gondor, Rohan)
     REQUIRE( mModel->rowCount() == 2 );
 
     //check out Frodo again
     mModel->setFeature( mL_King->getFeature( 1 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModel::modelUpdated ).wait( 1000 ) );
     //Frodo has still shares of 4 lands (Mordor, Gondor, Eriador, Rohan) because his shares are untouched
     REQUIRE( mModel->rowCount() == 4 );
   }
 
   SECTION( "QAbstractItemModelTester" )
   {
-    std::unique_ptr<ReferencingFeatureListModel> modelTest = std::make_unique<ReferencingFeatureListModel>();
+    std::unique_ptr<QfReferencingFeatureListModel> modelTest = std::make_unique<QfReferencingFeatureListModel>();
     std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

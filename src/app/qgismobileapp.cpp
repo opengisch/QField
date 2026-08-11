@@ -153,7 +153,7 @@
 
 QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   : QQmlApplicationEngine( parent )
-  , mIface( new AppInterface( this, this ) )
+  , mIface( new QfAppInterface( this, this ) )
   , mFirstRenderingFlag( true )
   , mApp( app )
 {
@@ -166,13 +166,13 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
-  mMessageLogModel = new MessageLogModel( this );
+  mMessageLogModel = new QfMessageLogModel( this );
 
-  mCogoRegistry.reset( new CogoRegistry() );
-  CogoRegistry::setInstance( mCogoRegistry.get() );
+  mCogoRegistry.reset( new QfCogoRegistry() );
+  QfCogoRegistry::setInstance( mCogoRegistry.get() );
 
   QSettings settings;
-  if ( PlatformUtilities::instance()->capabilities() & PlatformUtilities::AdjustBrightness )
+  if ( QfPlatformUtilities::instance()->capabilities() & QfPlatformUtilities::AdjustBrightness )
   {
     mScreenDimmer = std::make_unique<ScreenDimmer>( app );
     mScreenDimmer->setTimeout( settings.value( QStringLiteral( "dimTimeoutSeconds" ), 40 ).toInt() );
@@ -184,7 +184,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QgsNetworkAccessManager::settingsNetworkTimeout->setValue( 60 * 1000 );
   QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
 
-  AppInterface::setInstance( mIface );
+  QfAppInterface::setInstance( mIface );
 
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
@@ -192,7 +192,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
-  QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+  QStringList dataDirs = QfPlatformUtilities::instance()->appDataDirs();
   if ( !dataDirs.isEmpty() )
   {
     //set localized data paths and register fonts
@@ -251,21 +251,21 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     }
   } );
 
-  mTrackingModel = new TrackingModel( this );
-  mFocusStack = std::make_unique<FocusStack>( this );
+  mTrackingModel = new QfTrackingModel( this );
+  mFocusStack = std::make_unique<QfFocusStack>( this );
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
-  mLayerObserver = std::make_unique<LayerObserver>( mProject );
-  mFeatureHistory = std::make_unique<FeatureHistory>( mProject, mTrackingModel );
+  mLayerObserver = std::make_unique<QfLayerObserver>( mProject );
+  mFeatureHistory = std::make_unique<QfFeatureHistory>( mProject, mTrackingModel );
   mClipboardManager = std::make_unique<ClipboardManager>( this );
-  mFlatLayerTree = new FlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
-  mLegendImageProvider = new LegendImageProvider( mFlatLayerTree->layerTreeModel() );
-  mAsyncLegendImageProvider = new AsyncLegendImageProvider( mFlatLayerTree->layerTreeModel() );
-  mLocalFilesImageProvider = new LocalFilesImageProvider();
-  mProjectsImageProvider = new ProjectsImageProvider();
-  mBarcodeImageProvider = new BarcodeImageProvider();
+  mFlatLayerTree = new QfFlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
+  mLegendImageProvider = new QfLegendImageProvider( mFlatLayerTree->layerTreeModel() );
+  mAsyncLegendImageProvider = new QfAsyncLegendImageProvider( mFlatLayerTree->layerTreeModel() );
+  mLocalFilesImageProvider = new QfLocalFilesImageProvider();
+  mProjectsImageProvider = new QfProjectsImageProvider();
+  mBarcodeImageProvider = new QfBarcodeImageProvider();
 
-  mBookmarkModel = new BookmarkModel( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), this );
-  mDrawingTemplateModel = new DrawingTemplateModel( this );
+  mBookmarkModel = new QfBookmarkModel( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), this );
+  mDrawingTemplateModel = new QfDrawingTemplateModel( this );
 
   mPluginManager = new PluginManager( this );
 
@@ -291,7 +291,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
     }
   }
 
-  PlatformUtilities::instance()->setScreenLockPermission( false );
+  QfPlatformUtilities::instance()->setScreenLockPermission( false );
 
   loadFromModule( "org.qfield.app", "QgisMobileapp" );
   mMapCanvas = rootObjects().first()->findChild<QgsQuickMapCanvasMap *>();
@@ -303,11 +303,11 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mFlatLayerTree->layerTreeModel()->setLegendMapViewData( mMapCanvas->mapSettings()->mapSettings().mapUnitsPerPixel(),
                                                           static_cast<int>( std::round( mMapCanvas->mapSettings()->outputDpi() ) ), mMapCanvas->mapSettings()->mapSettings().scale() );
 
-  mLayerTreeCanvasBridge = new LayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
+  mLayerTreeCanvasBridge = new QfLayerTreeMapCanvasBridge( mFlatLayerTree, mMapCanvas->mapSettings(), mTrackingModel, this );
 
-  connect( this, &QgisMobileapp::loadProjectTriggered, mIface, &AppInterface::loadProjectTriggered );
-  connect( this, &QgisMobileapp::loadProjectEnded, mIface, &AppInterface::loadProjectEnded );
-  connect( this, &QgisMobileapp::setMapExtent, mIface, &AppInterface::setMapExtent );
+  connect( this, &QgisMobileapp::loadProjectTriggered, mIface, &QfAppInterface::loadProjectTriggered );
+  connect( this, &QgisMobileapp::loadProjectEnded, mIface, &QfAppInterface::loadProjectEnded );
+  connect( this, &QgisMobileapp::setMapExtent, mIface, &QfAppInterface::setMapExtent );
 
   QTimer::singleShot( 1, this, &QgisMobileapp::onAfterFirstRendering );
 
@@ -315,7 +315,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   mSettings.setValue( "/Map/searchRadiusMM", 5 );
 
-  mAppMissingGridHandler = new AppMissingGridHandler( this );
+  mAppMissingGridHandler = new QfAppMissingGridHandler( this );
 
   // Set GDAL option to fix loading of datasets within ZIP containers
   CPLSetConfigOption( "CPL_ZIP_ENCODING", "UTF-8" );
@@ -379,16 +379,16 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<Qgis::DeviceConnectionStatus>( "Qgis::DeviceConnectionStatus" );
   qRegisterMetaType<Qgis::SnappingMode>( "Qgis::SnappingMode" );
 
-  qRegisterMetaType<PlatformUtilities::Capabilities>( "PlatformUtilities::Capabilities" );
-  qRegisterMetaType<GeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
-  qRegisterMetaType<QFieldCloudConnection::ConnectionStatus>( "QFieldCloudConnection::ConnectionStatus" );
-  qRegisterMetaType<CloudUserInformation>( "CloudUserInformation" );
-  qRegisterMetaType<QFieldCloudProject::ProjectStatus>( "QFieldCloudProject::ProjectStatus" );
-  qRegisterMetaType<QFieldCloudProject::ProjectCheckout>( "QFieldCloudProject::ProjectCheckout" );
-  qRegisterMetaType<QFieldCloudProject::ProjectModification>( "QFieldCloudProject::ProjectModification" );
-  qRegisterMetaType<Tracker::MeasureType>( "Tracker::MeasureType" );
-  qRegisterMetaType<PositioningSource::ElevationCorrectionMode>( "PositioningSource::ElevationCorrectionMode" );
-  qRegisterMetaType<PositioningSource::NtripState>( "PositioningSource::NtripState" );
+  qRegisterMetaType<QfPlatformUtilities::Capabilities>( "QfPlatformUtilities::Capabilities" );
+  qRegisterMetaType<QfGeometryUtils::GeometryOperationResult>( "GeometryOperationResult" );
+  qRegisterMetaType<QfCloudConnection::ConnectionStatus>( "QfCloudConnection::ConnectionStatus" );
+  qRegisterMetaType<QfCloudUserInformation>( "QfCloudUserInformation" );
+  qRegisterMetaType<QfCloudProject::ProjectStatus>( "QfCloudProject::ProjectStatus" );
+  qRegisterMetaType<QfCloudProject::ProjectCheckout>( "QfCloudProject::ProjectCheckout" );
+  qRegisterMetaType<QfCloudProject::ProjectModification>( "QfCloudProject::ProjectModification" );
+  qRegisterMetaType<QfTracker::MeasureType>( "QfTracker::MeasureType" );
+  qRegisterMetaType<QfPositioningSource::ElevationCorrectionMode>( "QfPositioningSource::ElevationCorrectionMode" );
+  qRegisterMetaType<QfPositioningSource::NtripState>( "QfPositioningSource::NtripState" );
 
   QFieldCore::registerQmlTypes();
   QField3D::registerQmlTypes();
@@ -406,27 +406,27 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 #else
   engine->rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
 #endif
-  qRegisterMetaType<NtripMountPoint>( "NtripMountPoint" );
+  qRegisterMetaType<QfNtripMountPoint>( "QfNtripMountPoint" );
 
 
-  qRegisterMetaType<GnssPositionDetails>( "GnssPositionDetails" );
+  qRegisterMetaType<QfGnssPositionDetails>( "QfGnssPositionDetails" );
 
   qRegisterMetaType<PluginInformation>( "PluginInformation" );
 
-  qRegisterMetaType<SnappingResult>( "SnappingResult" );
+  qRegisterMetaType<QfSnappingResult>( "QfSnappingResult" );
 
   // Register some globally available variables
   engine->rootContext()->setContextProperty( "qVersion", qVersion() );
   engine->rootContext()->setContextProperty( "qgisVersion", Qgis::version() );
   engine->rootContext()->setContextProperty( "gdalVersion", GDAL_RELEASE_NAME );
-  engine->rootContext()->setContextProperty( "withNfc", QVariant( NearFieldReader::isSupported() ) );
-  engine->rootContext()->setContextProperty( "systemFontPointSize", PlatformUtilities::instance()->systemFontPointSize() );
+  engine->rootContext()->setContextProperty( "withNfc", QVariant( QfNearFieldReader::isSupported() ) );
+  engine->rootContext()->setContextProperty( "systemFontPointSize", QfPlatformUtilities::instance()->systemFontPointSize() );
   engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
   engine->rootContext()->setContextProperty( "appName", qfield::appName );
   engine->rootContext()->setContextProperty( "appVersion", qfield::appVersion );
   engine->rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
   engine->rootContext()->setContextProperty( "gitRev", qfield::gitRev );
-  engine->rootContext()->setContextProperty( "platformUtilities", PlatformUtilities::instance() );
+  engine->rootContext()->setContextProperty( "platformUtilities", QfPlatformUtilities::instance() );
 }
 
 void QgisMobileapp::registerGlobalVariables()
@@ -482,13 +482,13 @@ void QgisMobileapp::onAfterFirstRendering()
   if ( mFirstRenderingFlag )
   {
     mPluginManager->restoreAppPlugins();
-    if ( PlatformUtilities::instance()->hasQfAction() )
+    if ( QfPlatformUtilities::instance()->hasQfAction() )
     {
-      PlatformUtilities::instance()->executeQfAction();
+      QfPlatformUtilities::instance()->executeQfAction();
     }
-    else if ( PlatformUtilities::instance()->hasQgsProject() )
+    else if ( QfPlatformUtilities::instance()->hasQgsProject() )
     {
-      PlatformUtilities::instance()->loadQgsProject();
+      QfPlatformUtilities::instance()->loadQgsProject();
     }
     else
     {
@@ -640,7 +640,7 @@ void QgisMobileapp::readProjectFile()
   }
 
   QString title;
-  if ( mProject->fileName().startsWith( QFieldCloudUtils::localCloudDirectory() ) )
+  if ( mProject->fileName().startsWith( QfCloudUtils::localCloudDirectory() ) )
   {
     // Overwrite the title to match what is used in QFieldCloud
     const QString projectId = fi.dir().dirName();
@@ -651,7 +651,7 @@ void QgisMobileapp::readProjectFile()
     title = mProject->title().isEmpty() ? mProjectFileName : mProject->title();
   }
 
-  QList<RecentProjectListModel::RecentProject> projects = RecentProjectListModel::recentProjects();
+  QList<QfRecentProjectListModel::RecentProject> projects = QfRecentProjectListModel::recentProjects();
   for ( int idx = 0; idx < projects.count(); idx++ )
   {
     if ( projects.at( idx ).path == mProjectFilePath )
@@ -660,8 +660,8 @@ void QgisMobileapp::readProjectFile()
       break;
     }
   }
-  projects.insert( 0, RecentProjectListModel::RecentProject( RecentProjectListModel::LocalProject, title, mProjectFilePath ) );
-  RecentProjectListModel::saveRecentProjects( projects );
+  projects.insert( 0, QfRecentProjectListModel::RecentProject( QfRecentProjectListModel::LocalProject, title, mProjectFilePath ) );
+  QfRecentProjectListModel::saveRecentProjects( projects );
 
   QList<QgsMapLayer *> vectorLayers;
   QList<QgsMapLayer *> vectorTileLayers;
@@ -809,7 +809,7 @@ void QgisMobileapp::readProjectFile()
       }
       else
       {
-        const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+        const QStringList dataDirs = QfPlatformUtilities::instance()->appDataDirs();
         bool projectFound = false;
         for ( const QString &dataDir : dataDirs )
         {
@@ -831,7 +831,7 @@ void QgisMobileapp::readProjectFile()
           mProject->clear();
 
           // Add a default basemap
-          mProject->addMapLayers( QList<QgsMapLayer *>() << LayerUtils::createBasemap() );
+          mProject->addMapLayers( QList<QgsMapLayer *>() << QfLayerUtils::createBasemap() );
         }
       }
 
@@ -882,12 +882,12 @@ void QgisMobileapp::readProjectFile()
       vlayer->loadDefaultStyle( ok );
       if ( !ok )
       {
-        LayerUtils::setDefaultRenderer( vlayer, mProject );
+        QfLayerUtils::setDefaultRenderer( vlayer, mProject );
       }
 
       if ( !vlayer->labeling() )
       {
-        LayerUtils::setDefaultLabeling( vlayer, mProject );
+        QfLayerUtils::setDefaultLabeling( vlayer, mProject );
       }
 
       const QgsFields fields = vlayer->fields();
@@ -941,7 +941,7 @@ void QgisMobileapp::readProjectFile()
 
   if ( mProject->elevationProperties()->terrainProvider()->type() == QStringLiteral( "flat" ) && qgsDoubleNear( mProject->elevationProperties()->terrainProvider()->offset(), 0.0 ) && qgsDoubleNear( mProject->elevationProperties()->terrainProvider()->scale(), 1.0 ) )
   {
-    QgsRasterLayer *elevationLayer = LayerUtils::createOnlineElevationLayer();
+    QgsRasterLayer *elevationLayer = QfLayerUtils::createOnlineElevationLayer();
     mProject->addMapLayer( elevationLayer, false, true );
     QgsRasterDemTerrainProvider *terrainProvider = new QgsRasterDemTerrainProvider();
     terrainProvider->setLayer( elevationLayer );
@@ -989,7 +989,7 @@ void QgisMobileapp::readProjectFile()
     mMapCanvas->mapSettings()->setExtent( extent.buffered( extent.width() * 0.02 ) );
   }
 
-  ProjectInfo::restoreSettings( mProjectFilePath, mProject, mMapCanvas, mFlatLayerTree );
+  QfProjectInfo::restoreSettings( mProjectFilePath, mProject, mMapCanvas, mFlatLayerTree );
   emit loadProjectEnded( mProjectFilePath, mProjectFileName );
   mTrackingModel->createProjectTrackers( mProject );
 
@@ -1000,10 +1000,10 @@ void QgisMobileapp::readProjectFile()
   {
     bool skipPermission = false;
 
-    const QString cloudProjectId = QFieldCloudUtils::getProjectId( projectPluginPath );
+    const QString cloudProjectId = QfCloudUtils::getProjectId( projectPluginPath );
     if ( !cloudProjectId.isEmpty() )
     {
-      skipPermission = QFieldCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "userRoleOrigin" ), QStringLiteral( "public" ) ).toString() != QStringLiteral( "public" );
+      skipPermission = QfCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "userRoleOrigin" ), QStringLiteral( "public" ) ).toString() != QStringLiteral( "public" );
     }
 
     mPluginManager->loadPlugin( projectPluginPath, tr( "Project Plugin" ), skipPermission, true );
@@ -1102,7 +1102,7 @@ bool QgisMobileapp::print( const QString &layoutName )
     QgsLayoutExporter::ExportResult result = exporter.exportToPdf( destination, pdfSettings );
 
     if ( result == QgsLayoutExporter::Success )
-      PlatformUtilities::instance()->open( destination );
+      QfPlatformUtilities::instance()->open( destination );
 
     return result == QgsLayoutExporter::Success ? true : false;
   }
@@ -1113,11 +1113,11 @@ bool QgisMobileapp::print( const QString &layoutName )
     {
       if ( layoutToPrint->customProperty( QStringLiteral( "singleFile" ), true ).toBool() )
       {
-        PlatformUtilities::instance()->open( destination );
+        QfPlatformUtilities::instance()->open( destination );
       }
       else
       {
-        PlatformUtilities::instance()->open( mProject->homePath() );
+        QfPlatformUtilities::instance()->open( mProject->homePath() );
       }
     }
     return success;
@@ -1172,11 +1172,11 @@ bool QgisMobileapp::printAtlasFeatures( const QString &layoutName, const QList<l
   {
     if ( destinationSingleFile || ids.size() == 1 )
     {
-      PlatformUtilities::instance()->open( finalDestination );
+      QfPlatformUtilities::instance()->open( finalDestination );
     }
     else
     {
-      PlatformUtilities::instance()->open( mProject->homePath() );
+      QfPlatformUtilities::instance()->open( mProject->homePath() );
     }
   }
   return success;
@@ -1274,7 +1274,7 @@ void QgisMobileapp::saveProjectPreviewImage()
 
 QgisMobileapp::~QgisMobileapp()
 {
-  PlatformUtilities::instance()->stopPositioningService();
+  QfPlatformUtilities::instance()->stopPositioningService();
 
   saveProjectPreviewImage();
 

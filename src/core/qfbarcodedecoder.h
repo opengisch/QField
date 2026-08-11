@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbarcodedecoder.h - BarcodeDecoder
+ qfbarcodedecoder.h - QfBarcodeDecoder
 
  ---------------------
  begin                : 22.07.2022
@@ -26,7 +26,7 @@
 /**
  * \ingroup core
  */
-class BarcodeDecoder : public QObject
+class QfBarcodeDecoder : public QObject
 {
     Q_OBJECT
 
@@ -34,7 +34,7 @@ class BarcodeDecoder : public QObject
     Q_PROPERTY( QString decodedString READ decodedString NOTIFY decodedStringChanged )
 
   public:
-    explicit BarcodeDecoder( QObject *parent = nullptr );
+    explicit QfBarcodeDecoder( QObject *parent = nullptr );
 
     /**
      * Returns the last barcode decoded string.

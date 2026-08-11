@@ -35,11 +35,11 @@ typedef QMap<QgsFeatureId, QgsFeature> QgsChangedFeatures;
  * Monitors all layers for changes and writes those changes to a delta file
  * \ingroup core
  */
-class LayerObserver : public QObject
+class QfLayerObserver : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper WRITE setDeltaFileWrapper NOTIFY deltaFileWrapperChanged )
+    Q_PROPERTY( QfDeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper WRITE setDeltaFileWrapper NOTIFY deltaFileWrapperChanged )
 
   public:
     /**
@@ -47,7 +47,7 @@ class LayerObserver : public QObject
      *
      * @param project
      */
-    explicit LayerObserver( const QgsProject *project );
+    explicit QfLayerObserver( const QgsProject *project );
 
 
     /**
@@ -55,14 +55,14 @@ class LayerObserver : public QObject
      *
      * @return current delta file
      */
-    DeltaFileWrapper *deltaFileWrapper() const;
+    QfDeltaFileWrapper *deltaFileWrapper() const;
 
     /**
      * Sets the current delta file
      *
      * @return current delta file
      */
-    void setDeltaFileWrapper( DeltaFileWrapper *wrapper );
+    void setDeltaFileWrapper( QfDeltaFileWrapper *wrapper );
 
     /**
      * Add the needed event listeners to monitor for changes.
@@ -136,7 +136,7 @@ class LayerObserver : public QObject
     /**
      * The current deltas file wrapper object
      */
-    QPointer<DeltaFileWrapper> mDeltaFileWrapper;
+    QPointer<QfDeltaFileWrapper> mDeltaFileWrapper;
 
 
     /**

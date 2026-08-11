@@ -1,5 +1,5 @@
 /***************************************************************************
- qftcpreceiver.h - TcpReceiver
+ qftcpreceiver.h - QfTcpReceiver
 
  ---------------------
  begin                : September 2022
@@ -23,19 +23,19 @@
 #include <QTimer>
 
 /**
- * The TcpReceiver connects to a device and feeds the QgsNmeaConnection over a TCP socket.
- * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * The QfTcpReceiver connects to a device and feeds the QgsNmeaConnection over a TCP socket.
+ * It receives QgsGpsInformation and converts it to QfGnssPositionInformation
  * \ingroup core
  */
-class TcpReceiver : public NmeaGnssReceiver
+class QfTcpReceiver : public QfNmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit TcpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
-    ~TcpReceiver();
+    explicit QfTcpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
+    ~QfTcpReceiver();
 
-    AbstractGnssReceiver::Capabilities capabilities() const override;
+    QfAbstractGnssReceiver::Capabilities capabilities() const override;
 
     static QLatin1String identifier;
 

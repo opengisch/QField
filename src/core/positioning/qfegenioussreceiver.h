@@ -1,5 +1,5 @@
 /***************************************************************************
- egeniousseeceiver.h - EgenioussReceiver
+ egeniousseeceiver.h - QfEgenioussReceiver
 
  ---------------------
  begin                : October 2024
@@ -26,15 +26,15 @@
 /**
  * \ingroup core
  */
-class EgenioussReceiver : public AbstractGnssReceiver
+class QfEgenioussReceiver : public QfAbstractGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit EgenioussReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
-    ~EgenioussReceiver() override;
+    explicit QfEgenioussReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
+    ~QfEgenioussReceiver() override;
 
-    GnssPositionDetails details() const override;
+    QfGnssPositionDetails details() const override;
 
     static QLatin1String identifier;
 

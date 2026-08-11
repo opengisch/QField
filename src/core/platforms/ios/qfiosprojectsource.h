@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfiosprojectsource.h - IosProjectSource
+  qfiosprojectsource.h - QfIosProjectSource
 
   begin                : September 2021
   copyright            : (C) 2020 by Denis Rouzaud
@@ -18,12 +18,12 @@
 #include "qfprojectsource.h"
 
 
-class IosProjectSource : public ProjectSource
+class QfIosProjectSource : public QfProjectSource
 {
     Q_OBJECT
 
   public:
-    explicit IosProjectSource( QObject *parent = nullptr );
+    explicit QfIosProjectSource( QObject *parent = nullptr );
 
     QString projectFromFolder( const QString &folder ) const;
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- qfexpressionevaluator.cpp - ExpressionEvaluator
+ qfexpressionevaluator.cpp - QfExpressionEvaluator
                               -------------------
  begin                : January 2020
  copyright            : (C) 2020 by David Signer
@@ -19,12 +19,12 @@
 
 #include <qgsexpressioncontextutils.h>
 
-ExpressionEvaluator::ExpressionEvaluator( QObject *parent )
+QfExpressionEvaluator::QfExpressionEvaluator( QObject *parent )
   : QObject( parent )
 {
 }
 
-void ExpressionEvaluator::setMode( Mode mode )
+void QfExpressionEvaluator::setMode( Mode mode )
 {
   if ( mMode == mode )
     return;
@@ -33,7 +33,7 @@ void ExpressionEvaluator::setMode( Mode mode )
   emit modeChanged();
 }
 
-void ExpressionEvaluator::setExpressionText( const QString &expressionText )
+void QfExpressionEvaluator::setExpressionText( const QString &expressionText )
 {
   if ( mExpressionText == expressionText )
     return;
@@ -42,7 +42,7 @@ void ExpressionEvaluator::setExpressionText( const QString &expressionText )
   emit expressionTextChanged();
 }
 
-void ExpressionEvaluator::setFeature( const QgsFeature &feature )
+void QfExpressionEvaluator::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
     return;
@@ -51,7 +51,7 @@ void ExpressionEvaluator::setFeature( const QgsFeature &feature )
   emit featureChanged();
 }
 
-void ExpressionEvaluator::setLayer( QgsMapLayer *layer )
+void QfExpressionEvaluator::setLayer( QgsMapLayer *layer )
 {
   if ( mLayer == layer )
     return;
@@ -60,7 +60,7 @@ void ExpressionEvaluator::setLayer( QgsMapLayer *layer )
   emit layerChanged();
 }
 
-void ExpressionEvaluator::setProject( QgsProject *project )
+void QfExpressionEvaluator::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
@@ -69,7 +69,7 @@ void ExpressionEvaluator::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-void ExpressionEvaluator::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfExpressionEvaluator::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
@@ -78,12 +78,12 @@ void ExpressionEvaluator::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-AppExpressionContextScopesGenerator *ExpressionEvaluator::appExpressionContextScopesGenerator() const
+QfAppExpressionContextScopesGenerator *QfExpressionEvaluator::appExpressionContextScopesGenerator() const
 {
   return mAppExpressionContextScopesGenerator.data();
 }
 
-void ExpressionEvaluator::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
+void QfExpressionEvaluator::setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator )
 {
   if ( mAppExpressionContextScopesGenerator == generator )
     return;
@@ -92,12 +92,12 @@ void ExpressionEvaluator::setAppExpressionContextScopesGenerator( AppExpressionC
   emit appExpressionContextScopesGeneratorChanged();
 }
 
-AttributeFormModel *ExpressionEvaluator::attributeFormModel() const
+QfAttributeFormModel *QfExpressionEvaluator::attributeFormModel() const
 {
   return mAttributeFormModel.data();
 }
 
-void ExpressionEvaluator::setAttributeFormModel( AttributeFormModel *attributeFormModel )
+void QfExpressionEvaluator::setAttributeFormModel( QfAttributeFormModel *attributeFormModel )
 {
   if ( mAttributeFormModel == attributeFormModel )
     return;
@@ -106,7 +106,7 @@ void ExpressionEvaluator::setAttributeFormModel( AttributeFormModel *attributeFo
   emit attributeFormModelChanged();
 }
 
-void ExpressionEvaluator::setVariables( const QVariantMap &variables )
+void QfExpressionEvaluator::setVariables( const QVariantMap &variables )
 {
   if ( mVariables == variables )
     return;
@@ -115,12 +115,12 @@ void ExpressionEvaluator::setVariables( const QVariantMap &variables )
   emit variablesChanged();
 }
 
-QVariant ExpressionEvaluator::evaluate()
+QVariant QfExpressionEvaluator::evaluate()
 {
   return evaluate( mExpressionText );
 }
 
-QVariant ExpressionEvaluator::evaluate( const QString &expressionText )
+QVariant QfExpressionEvaluator::evaluate( const QString &expressionText )
 {
   if ( expressionText.isEmpty() )
     return QString();

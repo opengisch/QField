@@ -21,5 +21,5 @@
 
 TEST_CASE( "AppInterface" )
 {
-  AppInterface iface( nullptr );
+  QfAppInterface iface( nullptr );
 }

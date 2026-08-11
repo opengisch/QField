@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfrelationutils.cpp - RelationUtils
+  qfrelationutils.cpp - QfRelationUtils
 
  ---------------------
  begin                : 19.03.2023
@@ -20,12 +20,12 @@
 #include <qgsrelationmanager.h>
 #include <qgsvectorlayer.h>
 
-RelationUtils::RelationUtils( QObject *parent )
+QfRelationUtils::QfRelationUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId )
+QgsRelation QfRelationUtils::resolveReferencingRelation( QgsProject *project, QgsVectorLayer *layer, const QString &fieldName, const QString &relationId )
 {
   if ( !project )
     return QgsRelation();
@@ -45,7 +45,7 @@ QgsRelation RelationUtils::resolveReferencingRelation( QgsProject *project, QgsV
   return QgsRelation();
 }
 
-QgsRelation RelationUtils::createRelation( const QgsVectorLayer *referencedLayer, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs )
+QgsRelation QfRelationUtils::createRelation( const QgsVectorLayer *referencedLayer, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs )
 {
   if ( !referencedLayer || !referencingLayer || fieldPairs.isEmpty() )
     return QgsRelation();
@@ -70,7 +70,7 @@ QgsRelation RelationUtils::createRelation( const QgsVectorLayer *referencedLayer
   return relation;
 }
 
-QgsPolymorphicRelation RelationUtils::createPolymorphicRelation( const QVariantList &referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs, const QString &referencedLayerField, const QString &referencedLayerExpression )
+QgsPolymorphicRelation QfRelationUtils::createPolymorphicRelation( const QVariantList &referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs, const QString &referencedLayerField, const QString &referencedLayerExpression )
 {
   if ( referencedLayers.isEmpty() || !referencingLayer || fieldPairs.isEmpty() )
     return QgsPolymorphicRelation();
@@ -105,7 +105,7 @@ QgsPolymorphicRelation RelationUtils::createPolymorphicRelation( const QVariantL
   return relation;
 }
 
-QgsPolymorphicRelation RelationUtils::addPolymorphicRelation( QgsProject *project, const QVariantList &referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs, const QString &referencedLayerField, const QString &referencedLayerExpression )
+QgsPolymorphicRelation QfRelationUtils::addPolymorphicRelation( QgsProject *project, const QVariantList &referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &fieldPairs, const QString &referencedLayerField, const QString &referencedLayerExpression )
 {
   const QgsPolymorphicRelation relation = createPolymorphicRelation( referencedLayers, referencingLayer, fieldPairs, referencedLayerField, referencedLayerExpression );
 

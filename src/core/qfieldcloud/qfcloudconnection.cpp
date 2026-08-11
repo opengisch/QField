@@ -36,7 +36,7 @@
 #include <qgssettings.h>
 
 
-QFieldCloudConnection::QFieldCloudConnection()
+QfCloudConnection::QfCloudConnection()
   : mUrl( QSettings().value( QStringLiteral( "/QFieldCloud/url" ), defaultUrl() ).toString() )
   , mUsername( QSettings().value( QStringLiteral( "/QFieldCloud/username" ) ).toString() )
   , mTokenConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/tokenConfigId" ) ).toString() )
@@ -82,12 +82,12 @@ QFieldCloudConnection::QFieldCloudConnection()
   restoreCookies();
 }
 
-QFieldCloudConnection::~QFieldCloudConnection()
+QfCloudConnection::~QfCloudConnection()
 {
   saveCookies();
 }
 
-void QFieldCloudConnection::queueProjectPush( const QString &projectId )
+void QfCloudConnection::queueProjectPush( const QString &projectId )
 {
   if ( projectId.isEmpty() )
   {
@@ -98,7 +98,7 @@ void QFieldCloudConnection::queueProjectPush( const QString &projectId )
   tryFlushQueuedProjectPushes();
 }
 
-void QFieldCloudConnection::tryFlushQueuedProjectPushes()
+void QfCloudConnection::tryFlushQueuedProjectPushes()
 {
   if ( mIsFlushingQueuedProjectPushes )
   {
@@ -133,7 +133,7 @@ void QFieldCloudConnection::tryFlushQueuedProjectPushes()
   mIsFlushingQueuedProjectPushes = false;
 }
 
-bool QFieldCloudConnection::isReachable() const
+bool QfCloudConnection::isReachable() const
 {
   if ( !mNetworkInformation || !mNetworkInformation->supports( QNetworkInformation::Feature::Reachability ) )
   {
@@ -156,7 +156,7 @@ bool QFieldCloudConnection::isReachable() const
   return true;
 }
 
-QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
+QMap<QString, QString> QfCloudConnection::sErrors = QMap<QString, QString>(
   {
     { "unknown_error", QObject::tr( "QFieldCloud Unknown Error" ) },
     { "status_not_ok", QObject::tr( "Status not ok" ) },
@@ -172,17 +172,17 @@ QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
     { "qgis_cannot_open_project", QObject::tr( "QGIS is unable to open the QGIS project" ) },
   } );
 
-QString QFieldCloudConnection::errorString( QNetworkReply *reply )
+QString QfCloudConnection::errorString( QNetworkReply *reply )
 {
   return CloudError( reply ).message();
 }
 
-QString QFieldCloudConnection::url() const
+QString QfCloudConnection::url() const
 {
   return mUrl;
 }
 
-void QFieldCloudConnection::setUrl( const QString &url )
+void QfCloudConnection::setUrl( const QString &url )
 {
   if ( url == mUrl )
   {
@@ -192,9 +192,9 @@ void QFieldCloudConnection::setUrl( const QString &url )
   mUrl = url;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
 
-  if ( mServerInformation != CloudServerInformation() )
+  if ( mServerInformation != QfCloudServerInformation() )
   {
-    mServerInformation = CloudServerInformation();
+    mServerInformation = QfCloudServerInformation();
     QSettings().remove( QStringLiteral( "/QFieldCloud/serverInformation" ) );
     emit serverInformationChanged();
   }
@@ -208,12 +208,12 @@ void QFieldCloudConnection::setUrl( const QString &url )
   emit urlChanged();
 }
 
-QString QFieldCloudConnection::defaultUrl()
+QString QfCloudConnection::defaultUrl()
 {
   return QStringLiteral( "https://app.qfield.cloud" );
 }
 
-QStringList QFieldCloudConnection::urls() const
+QStringList QfCloudConnection::urls() const
 {
   QStringList savedUrls = QSettings().value( QStringLiteral( "/QFieldCloud/urls" ) ).toStringList();
   if ( !savedUrls.contains( defaultUrl() ) )
@@ -227,17 +227,17 @@ QStringList QFieldCloudConnection::urls() const
   return savedUrls;
 }
 
-QString QFieldCloudConnection::avatarUrl() const
+QString QfCloudConnection::avatarUrl() const
 {
   return mAvatarUrl;
 }
 
-QString QFieldCloudConnection::provider() const
+QString QfCloudConnection::provider() const
 {
   return mProvider;
 }
 
-void QFieldCloudConnection::setProvider( const QString &provider )
+void QfCloudConnection::setProvider( const QString &provider )
 {
   if ( mProvider == provider )
   {
@@ -250,12 +250,12 @@ void QFieldCloudConnection::setProvider( const QString &provider )
   emit providerChanged();
 }
 
-QString QFieldCloudConnection::username() const
+QString QfCloudConnection::username() const
 {
   return mUsername;
 }
 
-void QFieldCloudConnection::setUsername( const QString &username )
+void QfCloudConnection::setUsername( const QString &username )
 {
   if ( mUsername == username )
   {
@@ -274,12 +274,12 @@ void QFieldCloudConnection::setUsername( const QString &username )
   emit usernameChanged();
 }
 
-QString QFieldCloudConnection::password() const
+QString QfCloudConnection::password() const
 {
   return mPassword;
 }
 
-void QFieldCloudConnection::setPassword( const QString &password )
+void QfCloudConnection::setPassword( const QString &password )
 {
   if ( password == mPassword )
   {
@@ -290,27 +290,27 @@ void QFieldCloudConnection::setPassword( const QString &password )
   emit passwordChanged();
 }
 
-QString QFieldCloudConnection::token() const
+QString QfCloudConnection::token() const
 {
   return mToken;
 }
 
-CloudUserInformation QFieldCloudConnection::userInformation() const
+QfCloudUserInformation QfCloudConnection::userInformation() const
 {
   return mUserInformation;
 }
 
-bool QFieldCloudConnection::isFetchingAvailableProviders() const
+bool QfCloudConnection::isFetchingAvailableProviders() const
 {
   return mIsFetchingAvailableProviders;
 }
 
-QList<AuthenticationProvider> QFieldCloudConnection::availableProviders() const
+QList<QfAuthenticationProvider> QfCloudConnection::availableProviders() const
 {
   return mAvailableProviders.values();
 }
 
-void QFieldCloudConnection::getServerInformation()
+void QfCloudConnection::getServerInformation()
 {
   if ( !mAvailableProviders.isEmpty() )
   {
@@ -324,9 +324,9 @@ void QFieldCloudConnection::getServerInformation()
   QNetworkRequest request;
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-  NetworkReply *reply = get( request, "/api/v1/server/info/" );
+  QfNetworkReply *reply = get( request, "/api/v1/server/info/" );
 
-  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -352,7 +352,7 @@ void QFieldCloudConnection::getServerInformation()
 
     const QVariantMap payload = QJsonDocument::fromJson( rawReply->readAll() ).toVariant().toMap();
 
-    const CloudServerInformation serverInformation( payload );
+    const QfCloudServerInformation serverInformation( payload );
     if ( serverInformation != mServerInformation )
     {
       mServerInformation = serverInformation;
@@ -365,7 +365,7 @@ void QFieldCloudConnection::getServerInformation()
     {
       const QVariantMap providerDetails = provider.toMap();
       const QString providerId = providerDetails.value( QStringLiteral( "id" ) ).toString();
-      mAvailableProviders[providerId] = AuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
+      mAvailableProviders[providerId] = QfAuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
     }
 
     mIsFetchingAvailableProviders = false;
@@ -374,14 +374,14 @@ void QFieldCloudConnection::getServerInformation()
   } );
 }
 
-void QFieldCloudConnection::fetchLegacyAuthenticationProviders()
+void QfCloudConnection::fetchLegacyAuthenticationProviders()
 {
   QNetworkRequest request;
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
-  NetworkReply *reply = get( request, "/api/v1/auth/providers/" );
+  QfNetworkReply *reply = get( request, "/api/v1/auth/providers/" );
 
-  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -403,13 +403,13 @@ void QFieldCloudConnection::fetchLegacyAuthenticationProviders()
     {
       const QVariantMap providerDetails = provider.toMap();
       const QString providerId = providerDetails.value( QStringLiteral( "id" ) ).toString();
-      mAvailableProviders[providerId] = AuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
+      mAvailableProviders[providerId] = QfAuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
     }
     emit availableProvidersChanged();
   } );
 }
 
-void QFieldCloudConnection::login( const QString &password )
+void QfCloudConnection::login( const QString &password )
 {
   if ( !mProvider.isEmpty() )
   {
@@ -433,16 +433,16 @@ void QFieldCloudConnection::login( const QString &password )
 
   const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) );
 
-  NetworkReply *reply = loginUsingToken
-                          ? get( QStringLiteral( "/api/v1/auth/user/" ) )
-                          : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
-                                                                             {
-                                                                               { "username", mUsername },
-                                                                               { "password", mPassword },
-                                                                             } ) );
+  QfNetworkReply *reply = loginUsingToken
+                            ? get( QStringLiteral( "/api/v1/auth/user/" ) )
+                            : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
+                                                                               {
+                                                                                 { "username", mUsername },
+                                                                                 { "password", mPassword },
+                                                                               } ) );
 
   // Handle login redirect as an error state
-  connect( reply, &NetworkReply::redirected, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::redirected, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
     rawReply->deleteLater();
@@ -453,7 +453,7 @@ void QFieldCloudConnection::login( const QString &password )
     return;
   } );
 
-  connect( reply, &NetworkReply::finished, this, [this, reply, loginUsingToken]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply, loginUsingToken]() {
     QNetworkReply *rawReply = reply->currentRawReply();
 
     Q_ASSERT( reply->isFinished() );
@@ -525,7 +525,7 @@ void QFieldCloudConnection::login( const QString &password )
 
     mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
     emit avatarUrlChanged();
-    mUserInformation = CloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
+    mUserInformation = QfCloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
     emit userInformationChanged();
 
     QStringList savedUrls = settings.value( QStringLiteral( "/QFieldCloud/urls" ), QStringList() << defaultUrl() ).toStringList();
@@ -542,7 +542,7 @@ void QFieldCloudConnection::login( const QString &password )
   } );
 }
 
-void QFieldCloudConnection::logout()
+void QfCloudConnection::logout()
 {
   QgsNetworkAccessManager *nam = QgsNetworkAccessManager::instance();
   QNetworkRequest request( mUrl + QStringLiteral( "/api/v1/auth/logout/" ) );
@@ -579,16 +579,16 @@ void QFieldCloudConnection::logout()
   setStatus( ConnectionStatus::Disconnected );
 }
 
-void QFieldCloudConnection::getUserOrganizations( const QString &user )
+void QfCloudConnection::getUserOrganizations( const QString &user )
 {
   if ( mStatus != ConnectionStatus::LoggedIn )
   {
     return;
   }
 
-  NetworkReply *reply = get( QStringLiteral( "/api/v1/users/%1/organizations/" ).arg( user ) );
+  QfNetworkReply *reply = get( QStringLiteral( "/api/v1/users/%1/organizations/" ).arg( user ) );
 
-  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
 
@@ -615,16 +615,16 @@ void QFieldCloudConnection::getUserOrganizations( const QString &user )
   } );
 }
 
-void QFieldCloudConnection::getSubscriptionInformation( const QString &user )
+void QfCloudConnection::getSubscriptionInformation( const QString &user )
 {
   if ( mStatus != ConnectionStatus::LoggedIn )
   {
     return;
   }
 
-  NetworkReply *reply = get( QStringLiteral( "/api/v1/subscriptions/%1/current/" ).arg( user ) );
+  QfNetworkReply *reply = get( QStringLiteral( "/api/v1/subscriptions/%1/current/" ).arg( user ) );
 
-  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
 
@@ -637,28 +637,28 @@ void QFieldCloudConnection::getSubscriptionInformation( const QString &user )
     const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
     const QJsonObject obj = doc.object();
 
-    const CloudSubscriptionInformation subscriptionInformation( obj );
+    const QfCloudSubscriptionInformation subscriptionInformation( obj );
     emit subscriptionInformationReceived( subscriptionInformation );
   } );
 }
 
-QFieldCloudConnection::ConnectionStatus QFieldCloudConnection::status() const
+QfCloudConnection::ConnectionStatus QfCloudConnection::status() const
 {
   return mStatus;
 }
 
-QFieldCloudConnection::ConnectionState QFieldCloudConnection::state() const
+QfCloudConnection::ConnectionState QfCloudConnection::state() const
 {
   return mState;
 }
 
-NetworkReply *QFieldCloudConnection::post( const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
+QfNetworkReply *QfCloudConnection::post( const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
 {
   QNetworkRequest request;
   return post( request, endpoint, params, fileNames );
 }
 
-NetworkReply *QFieldCloudConnection::post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
+QfNetworkReply *QfCloudConnection::post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params, const QStringList &fileNames )
 {
   request.setUrl( mUrl + endpoint );
 
@@ -670,7 +670,7 @@ NetworkReply *QFieldCloudConnection::post( QNetworkRequest &request, const QStri
   {
     request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
 
-    return NetworkManager::post( request, requestBody );
+    return QfNetworkManager::post( request, requestBody );
   }
 
   QHttpMultiPart *multiPart = new QHttpMultiPart( QHttpMultiPart::FormDataType );
@@ -701,13 +701,13 @@ NetworkReply *QFieldCloudConnection::post( QNetworkRequest &request, const QStri
 
   setClientHeaders( request );
 
-  NetworkReply *reply = NetworkManager::post( request, multiPart );
+  QfNetworkReply *reply = QfNetworkManager::post( request, multiPart );
 
   multiPart->setParent( reply );
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( --mPendingRequests == 0 )
     {
@@ -728,7 +728,7 @@ NetworkReply *QFieldCloudConnection::post( QNetworkRequest &request, const QStri
   return reply;
 }
 
-NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVariantMap &params )
+QfNetworkReply *QfCloudConnection::get( const QString &endpoint, const QVariantMap &params )
 {
   QNetworkRequest request;
 
@@ -740,7 +740,7 @@ NetworkReply *QFieldCloudConnection::get( const QString &endpoint, const QVarian
 }
 
 
-NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params )
+QfNetworkReply *QfCloudConnection::get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params )
 {
   QUrl url( endpoint );
 
@@ -752,7 +752,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QStrin
   return get( request, url, params );
 }
 
-NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params )
+QfNetworkReply *QfCloudConnection::get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params )
 {
   QUrlQuery urlQuery = QUrlQuery( url.query() );
 
@@ -768,11 +768,11 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 
   setClientHeaders( request );
 
-  NetworkReply *reply = NetworkManager::get( request );
+  QfNetworkReply *reply = QfNetworkManager::get( request );
 
   mPendingRequests++;
   setState( ConnectionState::Busy );
-  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     if ( --mPendingRequests == 0 )
     {
@@ -791,7 +791,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   } );
 
   // assume all redirect will never emit "redirected"
-  connect( reply, &NetworkReply::redirected, this, [this]() {
+  connect( reply, &QfNetworkReply::redirected, this, [this]() {
     if ( --mPendingRequests == 0 )
     {
       setState( ConnectionState::Idle );
@@ -801,7 +801,7 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   return reply;
 }
 
-void QFieldCloudConnection::setToken( const QByteArray &token )
+void QfCloudConnection::setToken( const QByteArray &token )
 {
   if ( mToken == token )
   {
@@ -839,7 +839,7 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
   emit tokenChanged();
 }
 
-void QFieldCloudConnection::invalidateToken()
+void QfCloudConnection::invalidateToken()
 {
   mQueuedProjectPushes.clear();
   if ( mToken.isNull() )
@@ -859,7 +859,7 @@ void QFieldCloudConnection::invalidateToken()
   emit tokenChanged();
 }
 
-void QFieldCloudConnection::setStatus( ConnectionStatus status )
+void QfCloudConnection::setStatus( ConnectionStatus status )
 {
   if ( mStatus == status )
   {
@@ -877,7 +877,7 @@ void QFieldCloudConnection::setStatus( ConnectionStatus status )
   }
 }
 
-void QFieldCloudConnection::setState( ConnectionState state )
+void QfCloudConnection::setState( ConnectionState state )
 {
   if ( mState == state )
   {
@@ -888,7 +888,7 @@ void QFieldCloudConnection::setState( ConnectionState state )
   emit stateChanged();
 }
 
-void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
+void QfCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
 {
   if ( !mToken.isNull() )
   {
@@ -954,7 +954,7 @@ void QFieldCloudConnection::setAuthenticationDetails( QNetworkRequest &request )
   }
 }
 
-void QFieldCloudConnection::setClientHeaders( QNetworkRequest &request )
+void QfCloudConnection::setClientHeaders( QNetworkRequest &request )
 {
   const QByteArray acceptLanguageHeader( "Accept-Language" );
   if ( !request.hasRawHeader( acceptLanguageHeader ) )
@@ -964,7 +964,7 @@ void QFieldCloudConnection::setClientHeaders( QNetworkRequest &request )
   }
 }
 
-QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
+QfCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 {
   if ( !reply )
   {
@@ -1054,14 +1054,14 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   mMessage = errorMessage;
 }
 
-qsizetype QFieldCloudConnection::uploadPendingAttachments()
+qsizetype QfCloudConnection::uploadPendingAttachments()
 {
   if ( mUploadPendingCount > 0 )
   {
     return mUploadPendingCount;
   }
 
-  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
+  QMultiMap<QString, QString> attachments = QfCloudUtils::getPendingAttachments( mUsername );
   if ( attachments.isEmpty() )
   {
     emit pendingAttachmentsUploadFinished();
@@ -1075,9 +1075,9 @@ qsizetype QFieldCloudConnection::uploadPendingAttachments()
   return mUploadPendingCount;
 }
 
-void QFieldCloudConnection::processPendingAttachments()
+void QfCloudConnection::processPendingAttachments()
 {
-  QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
+  QMultiMap<QString, QString> attachments = QfCloudUtils::getPendingAttachments( mUsername );
   mUploadPendingCount = attachments.size();
 
   QMultiMap<QString, QString>::const_iterator it = attachments.constBegin();
@@ -1087,26 +1087,26 @@ void QFieldCloudConnection::processPendingAttachments()
     {
       // A pending attachment has been deleted from the local device, remove
       // This can happen when for e.g. users remove a cloud project from their devices
-      QFieldCloudUtils::removePendingAttachment( mUsername, it.key(), it.value() );
+      QfCloudUtils::removePendingAttachment( mUsername, it.key(), it.value() );
       ++it;
       continue;
     }
 
-    QFileInfo projectInfo( QFieldCloudUtils::localProjectFilePath( mUsername, it.key() ) );
+    QFileInfo projectInfo( QfCloudUtils::localProjectFilePath( mUsername, it.key() ) );
     QDir projectDir( projectInfo.absolutePath() );
     const QString apiPath = projectDir.relativeFilePath( it.value() );
-    NetworkReply *attachmentCloudReply = post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
+    QfNetworkReply *attachmentCloudReply = post( QStringLiteral( "/api/v1/files/%1/%2/" ).arg( it.key(), apiPath ), QVariantMap(), QStringList( { it.value() } ) );
 
     const QString projectId = it.key();
     const QString fileName = it.value();
-    const QString statusName = QStringLiteral( "%1:%2" ).arg( QFieldCloudUtils::projectSetting( projectId, QStringLiteral( "name" ), QString() ).toString(), apiPath );
+    const QString statusName = QStringLiteral( "%1:%2" ).arg( QfCloudUtils::projectSetting( projectId, QStringLiteral( "name" ), QString() ).toString(), apiPath );
     emit pendingAttachmentsUploadStatus( statusName, 0.0, mUploadPendingCount - 1 );
 
-    connect( attachmentCloudReply, &NetworkReply::uploadProgress, this, [this, statusName]( qint64 bytesSent, qint64 bytesTotal ) {
+    connect( attachmentCloudReply, &QfNetworkReply::uploadProgress, this, [this, statusName]( qint64 bytesSent, qint64 bytesTotal ) {
       emit pendingAttachmentsUploadStatus( statusName, bytesTotal > 0 ? static_cast<double>( bytesSent ) / bytesTotal : 0, mUploadPendingCount - 1 );
     } );
 
-    connect( attachmentCloudReply, &NetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
+    connect( attachmentCloudReply, &QfNetworkReply::finished, this, [this, attachmentCloudReply, fileName, projectId]() {
       QNetworkReply *attachmentReply = attachmentCloudReply->currentRawReply();
       attachmentCloudReply->deleteLater();
 
@@ -1119,7 +1119,7 @@ void QFieldCloudConnection::processPendingAttachments()
       {
         QgsMessageLog::logMessage( tr( "Failed to upload attachment stored at `%1`, reason:\n%2" )
                                      .arg( fileName )
-                                     .arg( QFieldCloudConnection::errorString( attachmentReply ) ) );
+                                     .arg( QfCloudConnection::errorString( attachmentReply ) ) );
 
         // Retry uploading for non-404 errors
         if ( httpCode != 404 )
@@ -1152,7 +1152,7 @@ void QFieldCloudConnection::processPendingAttachments()
         qDebug() << QStringLiteral( "Attachment reply content: %1" ).arg( attachmentReply->readAll() );
       }
 
-      QFieldCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
+      QfCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
       mUploadPendingCount--;
       mUploadDoneCount++;
       mUploadFailingCount = 0;
@@ -1173,7 +1173,7 @@ void QFieldCloudConnection::processPendingAttachments()
   return;
 }
 
-void QFieldCloudConnection::restoreCookies()
+void QfCloudConnection::restoreCookies()
 {
   QSettings settings;
   settings.beginGroup( "/QFieldCloud/cookies" );
@@ -1191,7 +1191,7 @@ void QFieldCloudConnection::restoreCookies()
   }
 }
 
-void QFieldCloudConnection::saveCookies()
+void QfCloudConnection::saveCookies()
 {
   QSettings settings;
   settings.remove( QStringLiteral( "/QFieldCloud/cookies" ) );

@@ -28,10 +28,10 @@
 #include <qgsvectorlayereditbuffer.h>
 
 
-LayerObserver::LayerObserver( const QgsProject *project )
+QfLayerObserver::QfLayerObserver( const QgsProject *project )
   : mProject( project )
 {
-  connect( mProject, &QgsProject::readProject, this, &LayerObserver::onReadProject );
+  connect( mProject, &QgsProject::readProject, this, &QfLayerObserver::onReadProject );
 
   if ( !project->fileName().isEmpty() )
   {
@@ -40,13 +40,13 @@ LayerObserver::LayerObserver( const QgsProject *project )
 }
 
 
-DeltaFileWrapper *LayerObserver::deltaFileWrapper() const
+QfDeltaFileWrapper *QfLayerObserver::deltaFileWrapper() const
 {
   return mDeltaFileWrapper.data();
 }
 
 
-void LayerObserver::setDeltaFileWrapper( DeltaFileWrapper *wrapper )
+void QfLayerObserver::setDeltaFileWrapper( QfDeltaFileWrapper *wrapper )
 {
   if ( mDeltaFileWrapper == wrapper )
   {
@@ -58,7 +58,7 @@ void LayerObserver::setDeltaFileWrapper( DeltaFileWrapper *wrapper )
 }
 
 
-void LayerObserver::onReadProject()
+void QfLayerObserver::onReadProject()
 {
   if ( mProject->fileName().isEmpty() )
   {
@@ -67,14 +67,14 @@ void LayerObserver::onReadProject()
 
   mObservedLayerIds.clear();
 
-  if ( !QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
+  if ( !QfCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
   {
     addLayerListeners();
   }
 }
 
 
-void LayerObserver::onBeforeCommitChanges()
+void QfLayerObserver::onBeforeCommitChanges()
 {
   QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
   QgsVectorLayerEditBuffer *eb = vl->editBuffer();
@@ -123,7 +123,7 @@ void LayerObserver::onBeforeCommitChanges()
 }
 
 
-void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures )
+void QfLayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures )
 {
   if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
@@ -131,9 +131,9 @@ void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const
   }
 
   const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
-  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
-  const QPair<int, QString> localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
-  const QPair<int, QString> sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+  const QString sourceLayerId = QfDeltaFileWrapper::getSourceLayerId( vl );
+  const QPair<int, QString> localPkAttrPair = QfDeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair<int, QString> sourcePkAttrPair = QfDeltaFileWrapper::getSourcePkAttribute( vl );
 
   for ( const QgsFeature &newFeature : addedFeatures )
   {
@@ -142,7 +142,7 @@ void LayerObserver::onCommittedFeaturesAdded( const QString &localLayerId, const
 }
 
 
-void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds )
+void QfLayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, const QgsFeatureIds &deletedFeatureIds )
 {
   if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
@@ -151,9 +151,9 @@ void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, con
 
   QgsChangedFeatures changedFeatures = mChangedFeatures.value( localLayerId );
   const QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( sender() );
-  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
-  const QPair<int, QString> localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
-  const QPair<int, QString> sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+  const QString sourceLayerId = QfDeltaFileWrapper::getSourceLayerId( vl );
+  const QPair<int, QString> localPkAttrPair = QfDeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair<int, QString> sourcePkAttrPair = QfDeltaFileWrapper::getSourcePkAttribute( vl );
 
   for ( const QgsFeatureId &fid : deletedFeatureIds )
   {
@@ -168,7 +168,7 @@ void LayerObserver::onCommittedFeaturesRemoved( const QString &localLayerId, con
 }
 
 
-void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues )
+void QfLayerObserver::onCommittedAttributeValuesChanges( const QString &localLayerId, const QgsChangedAttributesMap &changedAttributesValues )
 {
   if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
@@ -179,9 +179,9 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
   QgsFeatureIds patchedFids = mPatchedFids.value( localLayerId );
   QgsChangedFeatures changedFeatures = mChangedFeatures.value( localLayerId );
   const QgsFeatureIds changedAttributesValuesFids = qgis::listToSet( changedAttributesValues.keys() );
-  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
-  const QPair<int, QString> localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
-  const QPair<int, QString> sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+  const QString sourceLayerId = QfDeltaFileWrapper::getSourceLayerId( vl );
+  const QPair<int, QString> localPkAttrPair = QfDeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair<int, QString> sourcePkAttrPair = QfDeltaFileWrapper::getSourcePkAttribute( vl );
 
   for ( const QgsFeatureId fid : changedAttributesValuesFids )
   {
@@ -209,7 +209,7 @@ void LayerObserver::onCommittedAttributeValuesChanges( const QString &localLayer
 }
 
 
-void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries )
+void QfLayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, const QgsGeometryMap &changedGeometries )
 {
   if ( !mDeltaFileWrapper || mDeltaFileWrapper->isDeltaBeingApplied() )
   {
@@ -220,9 +220,9 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
   QgsFeatureIds patchedFids = mPatchedFids.value( localLayerId );
   QgsChangedFeatures changedFeatures = mChangedFeatures.value( localLayerId );
   const QgsFeatureIds changedGeometriesFids = qgis::listToSet( changedGeometries.keys() );
-  const QString sourceLayerId = DeltaFileWrapper::getSourceLayerId( vl );
-  const QPair<int, QString> localPkAttrPair = DeltaFileWrapper::getLocalPkAttribute( vl );
-  const QPair<int, QString> sourcePkAttrPair = DeltaFileWrapper::getSourcePkAttribute( vl );
+  const QString sourceLayerId = QfDeltaFileWrapper::getSourceLayerId( vl );
+  const QPair<int, QString> localPkAttrPair = QfDeltaFileWrapper::getLocalPkAttribute( vl );
+  const QPair<int, QString> sourcePkAttrPair = QfDeltaFileWrapper::getSourcePkAttribute( vl );
 
   for ( const QgsFeatureId &fid : changedGeometriesFids )
   {
@@ -250,7 +250,7 @@ void LayerObserver::onCommittedGeometriesChanges( const QString &localLayerId, c
 }
 
 
-void LayerObserver::onEditingStopped()
+void QfLayerObserver::onEditingStopped()
 {
   if ( !mDeltaFileWrapper )
   {
@@ -271,7 +271,7 @@ void LayerObserver::onEditingStopped()
 
   if ( vl->source().contains( QStringLiteral( "data.gpkg" ) ) && mLocalAndSourcePkAttrAreEqual )
   {
-    AppInterface::instance()->sendLog( QStringLiteral( "Called LayerObserver::onEditingStopped!" ), QString() );
+    QfAppInterface::instance()->sendLog( QStringLiteral( "Called LayerObserver::onEditingStopped!" ), QString() );
     mLocalAndSourcePkAttrAreEqual = false;
   }
 
@@ -279,13 +279,13 @@ void LayerObserver::onEditingStopped()
 }
 
 
-void LayerObserver::addLayerListeners()
+void QfLayerObserver::addLayerListeners()
 {
   qInfo() << "Add layer listeners";
   const QList<QgsMapLayer *> layers = mProject->mapLayers().values();
 
   // we should keep track only of the layers on cloud projects
-  if ( QFieldCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
+  if ( QfCloudUtils::getProjectId( mProject->fileName() ).isEmpty() )
   {
     return;
   }
@@ -301,37 +301,37 @@ void LayerObserver::addLayerListeners()
         continue;
       }
 
-      if ( !vl->readOnly() && QFieldCloudUtils::isCloudAction( vl ) )
+      if ( !vl->readOnly() && QfCloudUtils::isCloudAction( vl ) )
       {
         // Ignore all layers that cannot determine a primary key column
-        if ( DeltaFileWrapper::getLocalPkAttribute( vl ).first == -1 )
+        if ( QfDeltaFileWrapper::getLocalPkAttribute( vl ).first == -1 )
         {
           QgsMessageLog::logMessage( tr( "Failed to find a local primary key column in layer \"%1\"" ).arg( layer->name() ) );
           continue;
         }
 
-        if ( DeltaFileWrapper::getSourcePkAttribute( vl ).first == -1 )
+        if ( QfDeltaFileWrapper::getSourcePkAttribute( vl ).first == -1 )
         {
           QgsMessageLog::logMessage( tr( "Failed to find a source primary key column in layer \"%1\"" ).arg( layer->name() ) );
           continue;
         }
 
-        disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &LayerObserver::onBeforeCommitChanges );
-        disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &LayerObserver::onCommittedFeaturesAdded );
-        disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &LayerObserver::onCommittedFeaturesRemoved );
-        disconnect( vl, &QgsVectorLayer::committedAttributeValuesChanges, this, &LayerObserver::onCommittedAttributeValuesChanges );
-        disconnect( vl, &QgsVectorLayer::committedGeometriesChanges, this, &LayerObserver::onCommittedGeometriesChanges );
+        disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &QfLayerObserver::onBeforeCommitChanges );
+        disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &QfLayerObserver::onCommittedFeaturesAdded );
+        disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfLayerObserver::onCommittedFeaturesRemoved );
+        disconnect( vl, &QgsVectorLayer::committedAttributeValuesChanges, this, &QfLayerObserver::onCommittedAttributeValuesChanges );
+        disconnect( vl, &QgsVectorLayer::committedGeometriesChanges, this, &QfLayerObserver::onCommittedGeometriesChanges );
         // TODO use the future "afterCommitChanges" signal
-        disconnect( vl, &QgsVectorLayer::editingStopped, this, &LayerObserver::onEditingStopped );
+        disconnect( vl, &QgsVectorLayer::editingStopped, this, &QfLayerObserver::onEditingStopped );
 
         // for `cloud` projects, we keep track of any change that has occurred
-        connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &LayerObserver::onBeforeCommitChanges );
-        connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &LayerObserver::onCommittedFeaturesAdded );
-        connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &LayerObserver::onCommittedFeaturesRemoved );
-        connect( vl, &QgsVectorLayer::committedAttributeValuesChanges, this, &LayerObserver::onCommittedAttributeValuesChanges );
-        connect( vl, &QgsVectorLayer::committedGeometriesChanges, this, &LayerObserver::onCommittedGeometriesChanges );
+        connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &QfLayerObserver::onBeforeCommitChanges );
+        connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &QfLayerObserver::onCommittedFeaturesAdded );
+        connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfLayerObserver::onCommittedFeaturesRemoved );
+        connect( vl, &QgsVectorLayer::committedAttributeValuesChanges, this, &QfLayerObserver::onCommittedAttributeValuesChanges );
+        connect( vl, &QgsVectorLayer::committedGeometriesChanges, this, &QfLayerObserver::onCommittedGeometriesChanges );
         // TODO use the future "afterCommitChanges" signal
-        connect( vl, &QgsVectorLayer::editingStopped, this, &LayerObserver::onEditingStopped );
+        connect( vl, &QgsVectorLayer::editingStopped, this, &QfLayerObserver::onEditingStopped );
 
         mObservedLayerIds.insert( vl->id() );
         qInfo() << QStringLiteral( "Listener added on layer \"%1\"" ).arg( vl->name() );

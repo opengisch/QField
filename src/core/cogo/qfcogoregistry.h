@@ -27,7 +27,7 @@
  * \brief A registry managing available COGO operations.
  * \ingroup core
  */
-class CogoRegistry : public QObject
+class QfCogoRegistry : public QObject
 {
     Q_OBJECT
 
@@ -35,19 +35,19 @@ class CogoRegistry : public QObject
     /**
      * COGO registry constructor.
      */
-    explicit CogoRegistry( QObject *parent = nullptr );
-    ~CogoRegistry();
+    explicit QfCogoRegistry( QObject *parent = nullptr );
+    ~QfCogoRegistry();
 
     /**
      * Registers a COGO \a operation.
      * \note the ownership of the operation pointer is transferred to the registry.
      */
-    bool registerOperation( CogoOperation *operation );
+    bool registerOperation( QfCogoOperation *operation );
 
     /**
      * Returns a COGO operation matching a given \a name.
      */
-    CogoOperation *operation( const QString &name );
+    QfCogoOperation *operation( const QString &name );
 
     /**
      * Returns the available COGO operations within the registry.
@@ -57,12 +57,12 @@ class CogoRegistry : public QObject
     /**
      * Set the current COGO registry singleton \a instance.
      */
-    static void setInstance( CogoRegistry *instance ) { sCogoRegistryInterface = instance; }
+    static void setInstance( QfCogoRegistry *instance ) { sCogoRegistryInterface = instance; }
 
     /**
      * Returns the current COGO registry singleton instance.
      */
-    static CogoRegistry *instance() { return sCogoRegistryInterface; }
+    static QfCogoRegistry *instance() { return sCogoRegistryInterface; }
 
   signals:
     /**
@@ -71,9 +71,9 @@ class CogoRegistry : public QObject
     void operationAdded();
 
   private:
-    QMap<QString, CogoOperation *> mOperations;
+    QMap<QString, QfCogoOperation *> mOperations;
 
-    static CogoRegistry *sCogoRegistryInterface;
+    static QfCogoRegistry *sCogoRegistryInterface;
 };
 
 #endif // QFCOGOREGISTRY_H

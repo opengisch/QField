@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfdistancearea.h - DistanceArea
+  qfdistancearea.h - QfDistanceArea
 
  ---------------------
  begin                : 23.2.2017
@@ -19,18 +19,18 @@
 #include <QObject>
 #include <qgsdistancearea.h>
 
-class Geometry;
-class RubberbandModel;
+class QfGeometry;
+class QfRubberbandModel;
 class QgsProject;
 
 /**
  * \ingroup core
  */
-class DistanceArea : public QObject
+class QfDistanceArea : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
@@ -55,7 +55,7 @@ class DistanceArea : public QObject
     Q_PROPERTY( qreal azimuth READ azimuth NOTIFY azimuthChanged )
 
   public:
-    explicit DistanceArea( QObject *parent = nullptr );
+    explicit QfDistanceArea( QObject *parent = nullptr );
 
     qreal length() const;
     bool lengthValid() const;
@@ -73,8 +73,8 @@ class DistanceArea : public QObject
     QgsCoordinateReferenceSystem crs() const;
     void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-    RubberbandModel *rubberbandModel() const;
-    void setRubberbandModel( RubberbandModel *rubberbandModel );
+    QfRubberbandModel *rubberbandModel() const;
+    void setRubberbandModel( QfRubberbandModel *rubberbandModel );
 
     QgsProject *project() const;
     void setProject( QgsProject *project );
@@ -99,7 +99,7 @@ class DistanceArea : public QObject
     void init();
 
   private:
-    RubberbandModel *mRubberbandModel = nullptr;
+    QfRubberbandModel *mRubberbandModel = nullptr;
     QgsCoordinateReferenceSystem mCrs;
     QgsProject *mProject = nullptr;
 

@@ -18,38 +18,38 @@
 
 #include <QDebug>
 
-Settings::Settings( QObject *parent )
+QfSettings::QfSettings( QObject *parent )
   : QSettings( parent )
 {
 }
 
-void Settings::setValue( const QString &key, const QVariant &value )
+void QfSettings::setValue( const QString &key, const QVariant &value )
 {
   QSettings::setValue( key, value );
   emit settingChanged( key );
 }
 
-QVariant Settings::value( const QString &key, const QVariant &defaultValue )
+QVariant QfSettings::value( const QString &key, const QVariant &defaultValue )
 {
   return QSettings::value( key, defaultValue );
 }
 
-bool Settings::valueBool( const QString &key, bool defaultValue )
+bool QfSettings::valueBool( const QString &key, bool defaultValue )
 {
   return QSettings::value( key, defaultValue ).toBool();
 }
 
-int Settings::valueInt( const QString &key, int defaultValue )
+int QfSettings::valueInt( const QString &key, int defaultValue )
 {
   return QSettings::value( key, defaultValue ).toInt();
 }
 
-void Settings::remove( const QString &key )
+void QfSettings::remove( const QString &key )
 {
   QSettings::remove( key );
 }
 
-void Settings::sync()
+void QfSettings::sync()
 {
   QSettings::sync();
 }

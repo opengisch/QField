@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfbluetoothdevicemodel.h - BluetoothDeviceModel
+  qfbluetoothdevicemodel.h - QfBluetoothDeviceModel
 
  ---------------------
  begin                : 20.11.2020
@@ -28,7 +28,7 @@
  * A model that provides all paired bluetooth devices name/address that are accessible over the serial port.
  * \ingroup core
  */
-class BluetoothDeviceModel : public QAbstractListModel
+class QfBluetoothDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -60,8 +60,8 @@ class BluetoothDeviceModel : public QAbstractListModel
     Q_ENUM( ScanningStatus )
 
 
-    explicit BluetoothDeviceModel( QObject *parent = nullptr );
-    ~BluetoothDeviceModel();
+    explicit QfBluetoothDeviceModel( QObject *parent = nullptr );
+    ~QfBluetoothDeviceModel();
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 
@@ -103,12 +103,12 @@ class BluetoothDeviceModel : public QAbstractListModel
 
   signals:
 
-    void scanningStatusChanged( BluetoothDeviceModel::ScanningStatus scanningStatus );
+    void scanningStatusChanged( QfBluetoothDeviceModel::ScanningStatus scanningStatus );
     void lastDiscoveredCountChanged();
     void lastErrorChanged( QString lastError );
 
   private slots:
-    void setScanningStatus( const BluetoothDeviceModel::ScanningStatus scanningStatus );
+    void setScanningStatus( const QfBluetoothDeviceModel::ScanningStatus scanningStatus );
     void setLastError( const QString &lastError );
     void deviceDiscovered( const QBluetoothDeviceInfo &info );
 

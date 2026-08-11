@@ -28,7 +28,7 @@ class QgsProject;
  * Helper class to resolve layers by id, name, source and provider.
  * \ingroup core
  */
-class LayerResolver : public QObject
+class QfLayerResolver : public QObject
 {
     Q_OBJECT
 
@@ -63,7 +63,7 @@ class LayerResolver : public QObject
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer NOTIFY currentLayerChanged )
 
   public:
-    explicit LayerResolver( QObject *parent = nullptr );
+    explicit QfLayerResolver( QObject *parent = nullptr );
 
     void resolve();
 

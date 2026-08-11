@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnavigation.h - Navigation
+ qfnavigation.h - QfNavigation
 
  ---------------------
  begin                : 22.02.2022
@@ -28,12 +28,12 @@
 /**
  * \ingroup core
  */
-class Navigation : public QObject
+class QfNavigation : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( NavigationModel *model READ model() NOTIFY modelChanged )
+    Q_PROPERTY( QfNavigationModel *model READ model() NOTIFY modelChanged )
 
     Q_PROPERTY( QgsPoint location READ location WRITE setLocation NOTIFY locationChanged )
     Q_PROPERTY( QgsPoint destination READ destination WRITE setDestination NOTIFY destinationChanged )
@@ -54,9 +54,9 @@ class Navigation : public QObject
     Q_PROPERTY( bool isActive READ isActive NOTIFY isActiveChanged )
 
   public:
-    Navigation();
+    QfNavigation();
 
-    ~Navigation();
+    ~QfNavigation();
 
     /**
      * Returns TRUE when navigation is active.
@@ -76,7 +76,7 @@ class Navigation : public QObject
      * Returns the navigation model containing the destination point.
      * \note In the future, the model could contain intermediary stops
      */
-    NavigationModel *model() const { return mModel.get(); }
+    QfNavigationModel *model() const { return mModel.get(); }
 
     /**
      * Returns the current location point.
@@ -224,7 +224,7 @@ class Navigation : public QObject
     void updateProximityAlarmState();
     void triggerProximityAlarm();
 
-    std::unique_ptr<NavigationModel> mModel = nullptr;
+    std::unique_ptr<QfNavigationModel> mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     QgsPoint mLocation;
     QgsGeometry mPath;

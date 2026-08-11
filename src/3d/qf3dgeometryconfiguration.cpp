@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dgeometryconfiguration.cpp - Quick3DGeometryConfiguration
+  qf3dgeometryconfiguration.cpp - Qf3DGeometryConfiguration
 
  ---------------------
  begin                : 16.6.2026
@@ -16,13 +16,13 @@
 
 #include "qf3dgeometryconfiguration.h"
 
-Quick3DGeometryConfiguration::Quick3DGeometryConfiguration( QQuickItem *parent )
+Qf3DGeometryConfiguration::Qf3DGeometryConfiguration( QQuickItem *parent )
   : QQuickItem( parent )
 {
   setVisible( false );
 }
 
-void Quick3DGeometryConfiguration::setWkt( const QString &wkt )
+void Qf3DGeometryConfiguration::setWkt( const QString &wkt )
 {
   if ( mWkt == wkt )
   {
@@ -33,7 +33,7 @@ void Quick3DGeometryConfiguration::setWkt( const QString &wkt )
   emit wktChanged();
 }
 
-void Quick3DGeometryConfiguration::setCrs( const QgsCoordinateReferenceSystem &crs )
+void Qf3DGeometryConfiguration::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
   {
@@ -44,7 +44,7 @@ void Quick3DGeometryConfiguration::setCrs( const QgsCoordinateReferenceSystem &c
   emit crsChanged();
 }
 
-void Quick3DGeometryConfiguration::setHeightOffset( float offset )
+void Qf3DGeometryConfiguration::setHeightOffset( float offset )
 {
   if ( mHeightOffset == offset )
   {
@@ -55,7 +55,7 @@ void Quick3DGeometryConfiguration::setHeightOffset( float offset )
   emit heightOffsetChanged();
 }
 
-void Quick3DGeometryConfiguration::setAltitudeClamping( Quick3DGeometry::AltitudeClamping clamping )
+void Qf3DGeometryConfiguration::setAltitudeClamping( Qf3DGeometry::AltitudeClamping clamping )
 {
   if ( mAltitudeClamping == clamping )
   {
@@ -66,7 +66,7 @@ void Quick3DGeometryConfiguration::setAltitudeClamping( Quick3DGeometry::Altitud
   emit altitudeClampingChanged();
 }
 
-void Quick3DGeometryConfiguration::setColor( const QColor &color )
+void Qf3DGeometryConfiguration::setColor( const QColor &color )
 {
   if ( mColor == color )
   {
@@ -77,7 +77,7 @@ void Quick3DGeometryConfiguration::setColor( const QColor &color )
   emit colorChanged();
 }
 
-void Quick3DGeometryConfiguration::setLineWidth( float width )
+void Qf3DGeometryConfiguration::setLineWidth( float width )
 {
   if ( qFuzzyCompare( mLineWidth, width ) )
   {

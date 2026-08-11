@@ -28,7 +28,7 @@
 /**
  * \ingroup core
  */
-class BookmarkModel : public QSortFilterProxyModel
+class QfBookmarkModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -54,7 +54,7 @@ class BookmarkModel : public QSortFilterProxyModel
     };
     Q_ENUM( Roles )
 
-    explicit BookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager = nullptr, QObject *parent = nullptr );
+    explicit QfBookmarkModel( QgsBookmarkManager *manager, QgsBookmarkManager *projectManager = nullptr, QObject *parent = nullptr );
 
     QVariant data( const QModelIndex &index, int role ) const override;
 

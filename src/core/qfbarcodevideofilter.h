@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbarcodevideofilter.h - BarcodeVideoFilter
+ qfbarcodevideofilter.h - QfBarcodeVideoFilter
 
  ---------------------
  begin                : 22.07.2022
@@ -26,10 +26,10 @@
 /**
  * \ingroup core
  */
-class BarcodeDecoderThread : public QThread
+class QfBarcodeDecoderThread : public QThread
 {
   public:
-    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image )
+    explicit QfBarcodeDecoderThread( QfBarcodeDecoder *decoder, const QImage &image )
       : QThread()
       , mDecoder( decoder )
       , mImage( image )
@@ -45,28 +45,28 @@ class BarcodeDecoderThread : public QThread
       }
     }
 
-    BarcodeDecoder *mDecoder = nullptr;
+    QfBarcodeDecoder *mDecoder = nullptr;
     QImage mImage;
 };
 
-class BarcodeVideoFilter : public QAbstractVideoFilter
+class QfBarcodeVideoFilter : public QAbstractVideoFilter
 {
     Q_OBJECT
 
-    Q_PROPERTY( BarcodeDecoder *decoder READ decoder WRITE setDecoder NOTIFY decoderChanged );
+    Q_PROPERTY( QfBarcodeDecoder *decoder READ decoder WRITE setDecoder NOTIFY decoderChanged );
 
   public:
-    explicit BarcodeVideoFilter();
+    explicit QfBarcodeVideoFilter();
 
     /**
      * Returns the barcode decoder to be used when analyzing video frames.
      */
-    BarcodeDecoder *decoder() const { return mDecoder; }
+    QfBarcodeDecoder *decoder() const { return mDecoder; }
 
     /**
      * Sets the \a decoder to be used when analyzing video frames.
      */
-    void setDecoder( BarcodeDecoder *decoder );
+    void setDecoder( QfBarcodeDecoder *decoder );
 
     /**
      * Handle the decoding of a video frame barcodes. The frame will be analyzed for the presence of
@@ -86,7 +86,7 @@ class BarcodeVideoFilter : public QAbstractVideoFilter
     void decoderChanged();
 
   private:
-    BarcodeDecoder *mDecoder = nullptr;
+    QfBarcodeDecoder *mDecoder = nullptr;
     QThread *mDecodingThread = nullptr;
 };
 

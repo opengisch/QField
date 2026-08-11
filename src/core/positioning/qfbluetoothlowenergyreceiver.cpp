@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbluetoothlowenergyreceiver.cpp - BluetoothLowEnergyReceiver
+ qfbluetoothlowenergyreceiver.cpp - QfBluetoothLowEnergyReceiver
 
  ---------------------
  begin                : 2026/05/22
@@ -22,7 +22,7 @@
 #include <QTimer>
 
 // Map of BLE service UUID (key) and a pair of RX (first, incoming) and TX (second, outgoing) characteristics
-QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> BluetoothLowEnergyReceiver::serviceChars = {
+QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> QfBluetoothLowEnergyReceiver::serviceChars = {
   { // Standard Nordic UART Service (NUS)
     QBluetoothUuid( "6e400001-b5a3-f393-e0a9-e50e24dcca9e" ),
     std::make_pair( QBluetoothUuid( "6e400003-b5a3-f393-e0a9-e50e24dcca9e" ), QBluetoothUuid( "6e400002-b5a3-f393-e0a9-e50e24dcca9e" ) ) },
@@ -32,23 +32,23 @@ QMap<QBluetoothUuid, std::pair<QBluetoothUuid, QBluetoothUuid>> BluetoothLowEner
 };
 
 
-QLatin1String BluetoothLowEnergyReceiver::identifier = QLatin1String( "ble" );
+QLatin1String QfBluetoothLowEnergyReceiver::identifier = QLatin1String( "ble" );
 
-BluetoothLowEnergyReceiver::BluetoothLowEnergyReceiver( const QString &address, QObject *parent )
-  : NmeaGnssReceiver( parent )
+QfBluetoothLowEnergyReceiver::QfBluetoothLowEnergyReceiver( const QString &address, QObject *parent )
+  : QfNmeaGnssReceiver( parent )
   , mAddress( address )
   , mBuffer( new QBuffer( this ) )
 {
   qInfo() << "BluetoothLowEnergyReceiver: Creating the receiver";
 
   mCorrectionTimer.setInterval( 20 );
-  connect( &mCorrectionTimer, &QTimer::timeout, this, &BluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
+  connect( &mCorrectionTimer, &QTimer::timeout, this, &QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
 
   initNmeaConnection( mBuffer );
   setValid( !mAddress.isEmpty() );
 }
 
-BluetoothLowEnergyReceiver::~BluetoothLowEnergyReceiver()
+QfBluetoothLowEnergyReceiver::~QfBluetoothLowEnergyReceiver()
 {
   disconnectDevice();
 
@@ -62,12 +62,12 @@ BluetoothLowEnergyReceiver::~BluetoothLowEnergyReceiver()
   }
 }
 
-AbstractGnssReceiver::Capabilities BluetoothLowEnergyReceiver::capabilities() const
+QfAbstractGnssReceiver::Capabilities QfBluetoothLowEnergyReceiver::capabilities() const
 {
-  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
+  return QfAbstractGnssReceiver::Capabilities() | QfAbstractGnssReceiver::OrthometricAltitude | QfAbstractGnssReceiver::Logging | QfAbstractGnssReceiver::NtripCorrection;
 }
 
-void BluetoothLowEnergyReceiver::handleConnectDevice()
+void QfBluetoothLowEnergyReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() )
   {
@@ -88,14 +88,14 @@ void BluetoothLowEnergyReceiver::handleConnectDevice()
   }
 }
 
-void BluetoothLowEnergyReceiver::handleDisconnectDevice()
+void QfBluetoothLowEnergyReceiver::handleDisconnectDevice()
 {
   setSocketState( QAbstractSocket::UnconnectedState );
   mConnectOnDisconnect = false;
   doDisconnectDevice();
 }
 
-void BluetoothLowEnergyReceiver::doConnectDevice()
+void QfBluetoothLowEnergyReceiver::doConnectDevice()
 {
   if ( !mController )
   {
@@ -106,11 +106,11 @@ void BluetoothLowEnergyReceiver::doConnectDevice()
 #endif
     mController = QLowEnergyController::createCentral( deviceInfo, this );
 
-    connect( mController, &QLowEnergyController::connected, this, &BluetoothLowEnergyReceiver::deviceConnected );
-    connect( mController, &QLowEnergyController::disconnected, this, &BluetoothLowEnergyReceiver::deviceDisconnected );
-    connect( mController, qOverload<QLowEnergyController::Error>( &QLowEnergyController::errorOccurred ), this, &BluetoothLowEnergyReceiver::controllerErrorOccurred );
-    connect( mController, &QLowEnergyController::serviceDiscovered, this, &BluetoothLowEnergyReceiver::serviceDiscovered );
-    connect( mController, &QLowEnergyController::discoveryFinished, this, &BluetoothLowEnergyReceiver::serviceDiscoveryFinished );
+    connect( mController, &QLowEnergyController::connected, this, &QfBluetoothLowEnergyReceiver::deviceConnected );
+    connect( mController, &QLowEnergyController::disconnected, this, &QfBluetoothLowEnergyReceiver::deviceDisconnected );
+    connect( mController, qOverload<QLowEnergyController::Error>( &QLowEnergyController::errorOccurred ), this, &QfBluetoothLowEnergyReceiver::controllerErrorOccurred );
+    connect( mController, &QLowEnergyController::serviceDiscovered, this, &QfBluetoothLowEnergyReceiver::serviceDiscovered );
+    connect( mController, &QLowEnergyController::discoveryFinished, this, &QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished );
   }
 
   setSocketState( QAbstractSocket::ConnectingState );
@@ -118,7 +118,7 @@ void BluetoothLowEnergyReceiver::doConnectDevice()
   mController->connectToDevice();
 }
 
-void BluetoothLowEnergyReceiver::doDisconnectDevice()
+void QfBluetoothLowEnergyReceiver::doDisconnectDevice()
 {
   if ( mController && mController->state() != QLowEnergyController::UnconnectedState )
   {
@@ -132,13 +132,13 @@ void BluetoothLowEnergyReceiver::doDisconnectDevice()
   }
 }
 
-void BluetoothLowEnergyReceiver::deviceConnected()
+void QfBluetoothLowEnergyReceiver::deviceConnected()
 {
   qInfo() << "BluetoothLowEnergyReceiver: Connected, discovering services";
   mController->discoverServices();
 }
 
-void BluetoothLowEnergyReceiver::deviceDisconnected()
+void QfBluetoothLowEnergyReceiver::deviceDisconnected()
 {
   qInfo() << "BluetoothLowEnergyReceiver: Received disconnected signal.";
 
@@ -152,7 +152,7 @@ void BluetoothLowEnergyReceiver::deviceDisconnected()
   }
 }
 
-void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::Error error )
+void QfBluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::Error error )
 {
   mLastError = QStringLiteral( "Controller Error: %1, %2" ).arg( QMetaEnum::fromType<QLowEnergyController::Error>().valueToKey( static_cast<int>( error ) ), mController->errorString() );
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: %1" ).arg( mLastError );
@@ -174,7 +174,7 @@ void BluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController::
   emit lastErrorChanged( mLastError );
 }
 
-void BluetoothLowEnergyReceiver::serviceDiscovered( const QBluetoothUuid &newService )
+void QfBluetoothLowEnergyReceiver::serviceDiscovered( const QBluetoothUuid &newService )
 {
   if ( serviceChars.contains( newService ) )
   {
@@ -186,7 +186,7 @@ void BluetoothLowEnergyReceiver::serviceDiscovered( const QBluetoothUuid &newSer
   }
 }
 
-void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
+void QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished()
 {
   if ( !mController )
   {
@@ -210,9 +210,9 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
 
   if ( mService )
   {
-    connect( mService, &QLowEnergyService::stateChanged, this, &BluetoothLowEnergyReceiver::serviceStateChanged );
-    connect( mService, qOverload<QLowEnergyService::ServiceError>( &QLowEnergyService::errorOccurred ), this, &BluetoothLowEnergyReceiver::serviceErrorOccurred );
-    connect( mService, &QLowEnergyService::characteristicChanged, this, &BluetoothLowEnergyReceiver::characteristicChanged );
+    connect( mService, &QLowEnergyService::stateChanged, this, &QfBluetoothLowEnergyReceiver::serviceStateChanged );
+    connect( mService, qOverload<QLowEnergyService::ServiceError>( &QLowEnergyService::errorOccurred ), this, &QfBluetoothLowEnergyReceiver::serviceErrorOccurred );
+    connect( mService, &QLowEnergyService::characteristicChanged, this, &QfBluetoothLowEnergyReceiver::characteristicChanged );
 
     mService->discoverDetails();
   }
@@ -226,7 +226,7 @@ void BluetoothLowEnergyReceiver::serviceDiscoveryFinished()
   }
 }
 
-void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::ServiceState state )
+void QfBluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::ServiceState state )
 {
   if ( sender() == mService )
   {
@@ -266,8 +266,8 @@ void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Service
       if ( mBatteryService )
       {
         qInfo() << "BluetoothLowEnergyReceiver: Battery service initiating";
-        connect( mBatteryService, &QLowEnergyService::stateChanged, this, &BluetoothLowEnergyReceiver::serviceStateChanged );
-        connect( mBatteryService, &QLowEnergyService::characteristicChanged, this, &BluetoothLowEnergyReceiver::characteristicChanged );
+        connect( mBatteryService, &QLowEnergyService::stateChanged, this, &QfBluetoothLowEnergyReceiver::serviceStateChanged );
+        connect( mBatteryService, &QLowEnergyService::characteristicChanged, this, &QfBluetoothLowEnergyReceiver::characteristicChanged );
 
         mBatteryService->discoverDetails();
       }
@@ -295,14 +295,14 @@ void BluetoothLowEnergyReceiver::serviceStateChanged( QLowEnergyService::Service
   }
 }
 
-void BluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::ServiceError error )
+void QfBluetoothLowEnergyReceiver::serviceErrorOccurred( QLowEnergyService::ServiceError error )
 {
   mLastError = QStringLiteral( "Service Error: %1" ).arg( QMetaEnum::fromType<QLowEnergyService::ServiceError>().valueToKey( static_cast<int>( error ) ) );
   qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: %1" ).arg( mLastError );
   emit lastErrorChanged( mLastError );
 }
 
-void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacteristic &characteristic, const QByteArray &value )
+void QfBluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacteristic &characteristic, const QByteArray &value )
 {
   if ( characteristic.uuid() == mRxCharacteristic.uuid() )
   {
@@ -329,7 +329,7 @@ void BluetoothLowEnergyReceiver::characteristicChanged( const QLowEnergyCharacte
   }
 }
 
-void BluetoothLowEnergyReceiver::clearService()
+void QfBluetoothLowEnergyReceiver::clearService()
 {
   if ( mBuffer->isOpen() )
   {
@@ -355,10 +355,10 @@ void BluetoothLowEnergyReceiver::clearService()
   mBatteryCharacteristic = QLowEnergyCharacteristic();
 }
 
-QString BluetoothLowEnergyReceiver::socketStateString()
+QString QfBluetoothLowEnergyReceiver::socketStateString()
 {
   const QAbstractSocket::SocketState currentState = socketState();
-  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  QString socketStateString = QfAbstractGnssReceiver::socketStateString();
   if ( currentState == QAbstractSocket::UnconnectedState )
   {
     if ( !mDisconnecting && mController && mController->error() != QLowEnergyController::NoError )
@@ -369,7 +369,7 @@ QString BluetoothLowEnergyReceiver::socketStateString()
   return socketStateString;
 }
 
-void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &data )
+void QfBluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &data )
 {
   if ( !mService || !mTxCharacteristic.isValid() )
   {
@@ -384,7 +384,7 @@ void BluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &dat
   }
 }
 
-void BluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
+void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
 {
   if ( mCorrectionData.isEmpty() || !mService || !mTxCharacteristic.isValid() )
   {

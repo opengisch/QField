@@ -27,18 +27,18 @@
 #include <qgsfield.h>
 
 
-class QFieldCloudConnection;
-class ProjectSource;
-class ResourceSource;
+class QfCloudConnection;
+class QfProjectSource;
+class QfResourceSource;
 
 class QQuickItem;
 class QQuickWindow;
 
-class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
+class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( PlatformUtilities::Capabilities capabilities READ capabilities CONSTANT )
+    Q_PROPERTY( QfPlatformUtilities::Capabilities capabilities READ capabilities CONSTANT )
 
   public:
     enum Capability
@@ -55,17 +55,17 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
       VolumeKeys = 1 << 8,                //!< Volume keys handling support
       Vibrate = 1 << 9,                   //!< Haptic feedback / vibration support
       UpdateProjectFromArchive = 1 << 10, //!< Update local project from a ZIP archive support
-      PositioningService = 1 << 11,       //!< Positioning service support
+      PositioningService = 1 << 11,       //!< QfPositioning service support
     };
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
 
-    virtual ~PlatformUtilities();
+    virtual ~QfPlatformUtilities();
 
     /**
      * Returns flags containing the supported capabilities of the platform.
      */
-    virtual PlatformUtilities::Capabilities capabilities() const;
+    virtual QfPlatformUtilities::Capabilities capabilities() const;
 
     /**
      * This method will do initialization tasks and copy sample projects to a writable location
@@ -178,7 +178,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual ResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr );
 
     /**
      * Get a video from camera and copy it to the requested prefix
@@ -186,7 +186,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param videoFilePath The path (including subfolders and name) of the file
      * @return The name of the video or null
      */
-    Q_INVOKABLE virtual ResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr );
 
     /**
      * Get a picture from gallery and copy it to the requested prefix
@@ -194,7 +194,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param pictureFilePath The path (including subfolders and name) of the file
      * @return The name of the picture or null
      */
-    Q_INVOKABLE virtual ResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr );
 
     /**
      * Get a video from gallery and copy it to the requested prefix
@@ -202,7 +202,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param videoFilePath The path (including subfolders and name) of the video
      * @return The name of the video or null
      */
-    Q_INVOKABLE virtual ResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr );
 
     /**
      * Get a file from the operating system and copy it to the requested prefix
@@ -211,7 +211,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * @param filter The filter string (e.g. *.mp3)
      * @return The name of the file or null
      */
-    Q_INVOKABLE virtual ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType = QStringLiteral( "*/*" ), QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType = QStringLiteral( "*/*" ), QObject *parent = nullptr );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
@@ -219,16 +219,16 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
      * be opened. An optional \a editing parameter can be set to true to indicate
      * to supported systems the resource is expected to be edited.
      */
-    Q_INVOKABLE virtual ViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr );
 
     /**
      * Indicates the system that we want to open a project.
      * The system shall show a suitable user interface element (like a filebrowser)
      * to let the user select a project.
-     * The call returns immediately and the returned ProjectSource will notify
+     * The call returns immediately and the returned QfProjectSource will notify
      * when the project has actually been chosen.
      */
-    Q_INVOKABLE virtual ProjectSource *openProject( QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfProjectSource *openProject( QObject *parent = nullptr );
 
     /**
      * Checks for positioning (GPS etc) permissions on the device.
@@ -295,7 +295,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     /**
      * Uploads any pending attachments linked to the logged in user account.
      */
-    Q_INVOKABLE virtual void uploadPendingAttachments( QFieldCloudConnection *connection ) const;
+    Q_INVOKABLE virtual void uploadPendingAttachments( QfCloudConnection *connection ) const;
 
     /**
      * Returns TRUE is the system uses a dark theme.
@@ -324,7 +324,7 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
     virtual void requestMicrophonePermission( std::function<void( Qt::PermissionStatus )> func );
     virtual void requestBackgroundPositioningPermissions() {};
 
-    static PlatformUtilities *instance();
+    static QfPlatformUtilities *instance();
 
   signals:
     //! Emitted when a resource has been received.
@@ -346,6 +346,6 @@ class QFIELD_CORE_EXPORT PlatformUtilities : public QObject
 
     void copySampleProjects();
 
-    ResourceSource *createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent );
+    QfResourceSource *createResource( const QString &prefix, const QString &filePath, const QString &fileName, QObject *parent );
 };
 #endif // QFPLATFORMUTILITIES_H

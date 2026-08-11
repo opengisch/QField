@@ -17,25 +17,25 @@
 #include "qfandroidviewstatus.h"
 #include "qfplatformutilities.h"
 
-AndroidViewStatus::AndroidViewStatus( QObject *parent )
-  : ViewStatus( parent )
+QfAndroidViewStatus::QfAndroidViewStatus( QObject *parent )
+  : QfViewStatus( parent )
 {
-  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
-  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
+  connect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceReceived, this, &QfAndroidViewStatus::handleResourceOpened );
+  connect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceCanceled, this, &QfAndroidViewStatus::handleResourceCanceled );
 }
 
-void AndroidViewStatus::handleResourceOpened( const QString &path )
+void QfAndroidViewStatus::handleResourceOpened( const QString &path )
 {
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceReceived, this, &QfAndroidViewStatus::handleResourceOpened );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceCanceled, this, &QfAndroidViewStatus::handleResourceCanceled );
 
   emit finished();
 }
 
-void AndroidViewStatus::handleResourceCanceled( const QString &message )
+void QfAndroidViewStatus::handleResourceCanceled( const QString &message )
 {
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidViewStatus::handleResourceOpened );
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidViewStatus::handleResourceCanceled );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceReceived, this, &QfAndroidViewStatus::handleResourceOpened );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceCanceled, this, &QfAndroidViewStatus::handleResourceCanceled );
 
   emit statusReceived( message );
   emit finished();

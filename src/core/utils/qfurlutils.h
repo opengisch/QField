@@ -25,12 +25,12 @@
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT UrlUtils : public QObject
+class QFIELD_CORE_EXPORT QfUrlUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit UrlUtils( QObject *parent = nullptr );
+    explicit QfUrlUtils( QObject *parent = nullptr );
 
     /**
      * Checks whether the provided string is a relative \a url (has no protocol or starts with `file://`).

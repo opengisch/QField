@@ -1,5 +1,5 @@
 /***************************************************************************
- qfpermissions.h - CameraPermission, MicrophonePermission
+ qfpermissions.h - QfCameraPermission, QfMicrophonePermission
 
  ---------------------
  begin                : 01.12.2023
@@ -23,14 +23,14 @@
 /**
  * \ingroup core
  */
-class CameraPermission : public QObject
+class QfCameraPermission : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( Qt::PermissionStatus status READ status NOTIFY statusChanged )
 
   public:
-    explicit CameraPermission( QObject *parent = nullptr );
+    explicit QfCameraPermission( QObject *parent = nullptr );
 
     /**
      * Returns the permission status.
@@ -56,14 +56,14 @@ class CameraPermission : public QObject
 /**
  * \ingroup core
  */
-class MicrophonePermission : public QObject
+class QfMicrophonePermission : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( Qt::PermissionStatus status READ status NOTIFY statusChanged )
 
   public:
-    explicit MicrophonePermission( QObject *parent = nullptr );
+    explicit QfMicrophonePermission( QObject *parent = nullptr );
 
     /**
      * Returns the permission status.

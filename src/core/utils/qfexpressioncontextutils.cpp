@@ -33,12 +33,12 @@ void addPositionVariable( QgsExpressionContextScope *scope, const QString &name,
     scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "position_%1" ).arg( name ), defaultValue, true, true ) );
 }
 
-ExpressionContextUtils::ExpressionContextUtils( QObject *parent )
+QfExpressionContextUtils::QfExpressionContextUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPositionInformation &positionInformation, bool positionLocked )
+QgsExpressionContextScope *QfExpressionContextUtils::positionScope( const QfGnssPositionInformation &positionInformation, bool positionLocked )
 {
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Position" ) );
   const QgsGeometry point = QgsGeometry( new QgsPoint( positionInformation.longitude(), positionInformation.latitude(), positionInformation.elevation() ) );
@@ -74,7 +74,7 @@ QgsExpressionContextScope *ExpressionContextUtils::positionScope( const GnssPosi
   return scope;
 }
 
-QgsExpressionContextScope *ExpressionContextUtils::mapToolCaptureScope( const SnappingResult &topSnappingResult )
+QgsExpressionContextScope *QfExpressionContextUtils::mapToolCaptureScope( const QfSnappingResult &topSnappingResult )
 {
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Map Tool Capture" ) );
 
@@ -95,7 +95,7 @@ QgsExpressionContextScope *ExpressionContextUtils::mapToolCaptureScope( const Sn
   return scope;
 }
 
-QgsExpressionContextScope *ExpressionContextUtils::cloudUserScope( const CloudUserInformation &cloudUserInformation )
+QgsExpressionContextScope *QfExpressionContextUtils::cloudUserScope( const QfCloudUserInformation &cloudUserInformation )
 {
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Cloud User Info" ) );
 
@@ -104,7 +104,7 @@ QgsExpressionContextScope *ExpressionContextUtils::cloudUserScope( const CloudUs
   return scope;
 }
 
-QVariantMap ExpressionContextUtils::layerVariables( QgsMapLayer *layer )
+QVariantMap QfExpressionContextUtils::layerVariables( QgsMapLayer *layer )
 {
   if ( !layer )
   {
@@ -122,7 +122,7 @@ QVariantMap ExpressionContextUtils::layerVariables( QgsMapLayer *layer )
   return variables;
 }
 
-void ExpressionContextUtils::setLayerVariable( QgsMapLayer *layer, const QString &name, const QVariant &value )
+void QfExpressionContextUtils::setLayerVariable( QgsMapLayer *layer, const QString &name, const QVariant &value )
 {
   if ( !layer )
   {
@@ -139,7 +139,7 @@ void ExpressionContextUtils::setLayerVariable( QgsMapLayer *layer, const QString
   layer->setCustomProperty( QStringLiteral( "variableValues" ), variableValues );
 }
 
-void ExpressionContextUtils::setLayerVariables( QgsMapLayer *layer, const QVariantMap &variables )
+void QfExpressionContextUtils::setLayerVariables( QgsMapLayer *layer, const QVariantMap &variables )
 {
   if ( !layer )
   {
@@ -163,7 +163,7 @@ void ExpressionContextUtils::setLayerVariables( QgsMapLayer *layer, const QVaria
   layer->setCustomProperty( QStringLiteral( "variableValues" ), variableValues );
 }
 
-void ExpressionContextUtils::removeLayerVariable( QgsMapLayer *layer, const QString &name )
+void QfExpressionContextUtils::removeLayerVariable( QgsMapLayer *layer, const QString &name )
 {
   if ( !layer )
   {
@@ -177,7 +177,7 @@ void ExpressionContextUtils::removeLayerVariable( QgsMapLayer *layer, const QStr
   }
 }
 
-QVariantMap ExpressionContextUtils::projectVariables( QgsProject *project )
+QVariantMap QfExpressionContextUtils::projectVariables( QgsProject *project )
 {
   if ( !project )
   {
@@ -187,7 +187,7 @@ QVariantMap ExpressionContextUtils::projectVariables( QgsProject *project )
   return project->customVariables();
 }
 
-void ExpressionContextUtils::setProjectVariable( QgsProject *project, const QString &name, const QVariant &value )
+void QfExpressionContextUtils::setProjectVariable( QgsProject *project, const QString &name, const QVariant &value )
 {
   if ( !project )
   {
@@ -199,7 +199,7 @@ void ExpressionContextUtils::setProjectVariable( QgsProject *project, const QStr
   project->setCustomVariables( variables );
 }
 
-void ExpressionContextUtils::setProjectVariables( QgsProject *project, const QVariantMap &variables )
+void QfExpressionContextUtils::setProjectVariables( QgsProject *project, const QVariantMap &variables )
 {
   if ( !project )
   {
@@ -209,7 +209,7 @@ void ExpressionContextUtils::setProjectVariables( QgsProject *project, const QVa
   project->setCustomVariables( variables );
 }
 
-void ExpressionContextUtils::removeProjectVariable( QgsProject *project, const QString &name )
+void QfExpressionContextUtils::removeProjectVariable( QgsProject *project, const QString &name )
 {
   if ( !project )
   {
@@ -223,12 +223,12 @@ void ExpressionContextUtils::removeProjectVariable( QgsProject *project, const Q
   }
 }
 
-QVariantMap ExpressionContextUtils::globalVariables()
+QVariantMap QfExpressionContextUtils::globalVariables()
 {
   return QgsApplication::customVariables();
 }
 
-void ExpressionContextUtils::setGlobalVariable( const QString &name, const QVariant &value )
+void QfExpressionContextUtils::setGlobalVariable( const QString &name, const QVariant &value )
 {
   if ( PROTECTED_GLOBAL_VARIABLE_NAMES.contains( name ) )
   {
@@ -238,12 +238,12 @@ void ExpressionContextUtils::setGlobalVariable( const QString &name, const QVari
   QgsApplication::setCustomVariable( name, value );
 }
 
-void ExpressionContextUtils::setGlobalVariables( const QVariantMap &variables )
+void QfExpressionContextUtils::setGlobalVariables( const QVariantMap &variables )
 {
   QgsApplication::setCustomVariables( variables );
 }
 
-void ExpressionContextUtils::removeGlobalVariable( const QString &name )
+void QfExpressionContextUtils::removeGlobalVariable( const QString &name )
 {
   QVariantMap variables = QgsApplication::customVariables();
   if ( variables.remove( name ) )

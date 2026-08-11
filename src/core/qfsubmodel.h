@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfsubmodel.h - SubModel
+  qfsubmodel.h - QfSubModel
 
  ---------------------
  begin                : 16.9.2016
@@ -23,7 +23,7 @@
 /**
  * \ingroup core
  */
-class SubModel : public QAbstractItemModel
+class QfSubModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -32,7 +32,7 @@ class SubModel : public QAbstractItemModel
     Q_PROPERTY( QModelIndex rootIndex READ rootIndex WRITE setRootIndex NOTIFY rootIndexChanged )
 
   public:
-    explicit SubModel( QObject *parent = nullptr );
+    explicit QfSubModel( QObject *parent = nullptr );
     QModelIndex index( int row, int column, const QModelIndex &parent ) const override;
     QModelIndex parent( const QModelIndex &child ) const override;
     int rowCount( const QModelIndex &parent ) const override;

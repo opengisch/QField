@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfreferencingfeaturelistmodel.h - ReferencingFeatureListModel
+  qfreferencingfeaturelistmodel.h - QfReferencingFeatureListModel
 
  ---------------------
  begin                : 1.3.2019
@@ -28,13 +28,13 @@
 
 
 class QgsVectorLayer;
-class FeatureGatherer;
-class OrderedRelationModel;
+class QfFeatureGatherer;
+class QfOrderedRelationModel;
 
 /**
  * \ingroup core
  */
-class QFIELD_GUI_EXPORT ReferencingFeatureListModelBase : public QAbstractItemModel
+class QFIELD_GUI_EXPORT QfReferencingFeatureListModelBase : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -52,7 +52,7 @@ class QFIELD_GUI_EXPORT ReferencingFeatureListModelBase : public QAbstractItemMo
     Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY attachmentDetailsChanged )
 
   public:
-    explicit ReferencingFeatureListModelBase( QObject *parent = nullptr );
+    explicit QfReferencingFeatureListModelBase( QObject *parent = nullptr );
 
     enum ReferencedFeatureListRoles
     {
@@ -249,7 +249,7 @@ class QFIELD_GUI_EXPORT ReferencingFeatureListModelBase : public QAbstractItemMo
     QString mAttachmentStorageAuthConfigId;
     QString mAttachmentStorageUrl;
 
-    FeatureGatherer *mGatherer = nullptr;
+    QfFeatureGatherer *mGatherer = nullptr;
     QString mLastGathererFeaturesFilter;
 
     //! Refreshes the cached attachment field info from the current relation's referencing layer
@@ -259,15 +259,15 @@ class QFIELD_GUI_EXPORT ReferencingFeatureListModelBase : public QAbstractItemMo
     bool checkParentPrimaries();
     virtual bool beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId );
 
-    friend class FeatureGatherer;
-    friend class OrderedRelationModel;
+    friend class QfFeatureGatherer;
+    friend class QfOrderedRelationModel;
     friend class TestReferencingFeatureListModel;
 };
 
 /**
  * \ingroup core
  */
-class ReferencingFeatureListModel : public QSortFilterProxyModel
+class QfReferencingFeatureListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -286,7 +286,7 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY attachmentDetailsChanged )
 
   public:
-    explicit ReferencingFeatureListModel( QObject *parent = nullptr );
+    explicit QfReferencingFeatureListModel( QObject *parent = nullptr );
 
     //! Returns the id of the relation connecting the parent feature with the children in this model
     QString currentRelationId() const;
@@ -443,16 +443,16 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     void attachmentDetailsChanged();
 
   private:
-    ReferencingFeatureListModelBase *mSourceModel = nullptr;
+    QfReferencingFeatureListModelBase *mSourceModel = nullptr;
     Qt::SortOrder mSortOrder = Qt::AscendingOrder;
 };
 
-class FeatureGatherer : public QThread
+class QfFeatureGatherer : public QThread
 {
     Q_OBJECT
 
   public:
-    FeatureGatherer( QgsFeature feature, QgsRelation &relation, const QgsRelation &nmRelation = QgsRelation() )
+    QfFeatureGatherer( QgsFeature feature, QgsRelation &relation, const QgsRelation &nmRelation = QgsRelation() )
     {
       mReferencingSource.reset( new QgsVectorLayerFeatureSource( relation.referencingLayer() ) );
 
@@ -521,7 +521,7 @@ class FeatureGatherer : public QThread
           nmDisplayString = nmExpression.evaluate( &mNmContext ).toString();
         }
 
-        mEntries.append( ReferencingFeatureListModelBase::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
+        mEntries.append( QfReferencingFeatureListModelBase::Entry( displayString, childFeature, nmDisplayString, nmFeature ) );
 
         //cppcheck-suppress knownConditionTrueFalse
         if ( mWasCanceled )
@@ -541,7 +541,7 @@ class FeatureGatherer : public QThread
     bool wasCanceled() const { return mWasCanceled; }
 
     //! \returns the list of entries
-    QList<ReferencingFeatureListModelBase::Entry> entries() const { return mEntries; }
+    QList<QfReferencingFeatureListModelBase::Entry> entries() const { return mEntries; }
 
   signals:
 
@@ -577,7 +577,7 @@ class FeatureGatherer : public QThread
       return request;
     }
 
-    QList<ReferencingFeatureListModelBase::Entry> mEntries;
+    QList<QfReferencingFeatureListModelBase::Entry> mEntries;
 
     std::unique_ptr<QgsVectorLayerFeatureSource> mReferencingSource;
     QgsFeatureRequest mRequest;

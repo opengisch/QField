@@ -1,5 +1,5 @@
 /***************************************************************************
-qfxmlhttprequest.cpp - QFieldXmlHttpRequest
+qfxmlhttprequest.cpp - QfXmlHttpRequest
 
 ---------------------
 begin                : 15.12.2025
@@ -43,23 +43,23 @@ namespace
   }
 } // namespace
 
-QFieldXmlHttpRequest::QFieldXmlHttpRequest( QObject *parent )
+QfXmlHttpRequest::QfXmlHttpRequest( QObject *parent )
   : QObject( parent )
 {
 }
 
-QFieldXmlHttpRequest::~QFieldXmlHttpRequest()
+QfXmlHttpRequest::~QfXmlHttpRequest()
 {
   // Destructor must be silent (no QML callbacks / no signals)
   cleanupReply( true );
 }
 
-QFieldXmlHttpRequest *QFieldXmlHttpRequest::newRequest( QObject *parent )
+QfXmlHttpRequest *QfXmlHttpRequest::newRequest( QObject *parent )
 {
-  return new QFieldXmlHttpRequest( parent );
+  return new QfXmlHttpRequest( parent );
 }
 
-void QFieldXmlHttpRequest::setTimeout( int milliseconds )
+void QfXmlHttpRequest::setTimeout( int milliseconds )
 {
   const int timeoutMilliseconds = milliseconds > 0 ? milliseconds : 0;
   if ( mTimeoutMs == timeoutMilliseconds )
@@ -71,28 +71,28 @@ void QFieldXmlHttpRequest::setTimeout( int milliseconds )
   emit timeoutChanged();
 }
 
-void QFieldXmlHttpRequest::scheduleAutoDelete()
+void QfXmlHttpRequest::scheduleAutoDelete()
 {
   // Defer so QML callbacks finish first.
   QTimer::singleShot( 0, this, &QObject::deleteLater );
 }
 
-bool QFieldXmlHttpRequest::containsNewlines( const QString &stringValue )
+bool QfXmlHttpRequest::containsNewlines( const QString &stringValue )
 {
   return stringValue.contains( QLatin1Char( '\n' ) ) || stringValue.contains( QLatin1Char( '\r' ) );
 }
 
-bool QFieldXmlHttpRequest::isOpen() const
+bool QfXmlHttpRequest::isOpen() const
 {
   return !mMethod.isEmpty() && mUrl.isValid();
 }
 
-QString QFieldXmlHttpRequest::normalizeHeaderName( const QString &stringValue )
+QString QfXmlHttpRequest::normalizeHeaderName( const QString &stringValue )
 {
   return stringValue.trimmed().toLower();
 }
 
-void QFieldXmlHttpRequest::collectResponseHeaders( QNetworkReply *networkReply )
+void QfXmlHttpRequest::collectResponseHeaders( QNetworkReply *networkReply )
 {
   if ( !networkReply )
   {
@@ -111,12 +111,12 @@ void QFieldXmlHttpRequest::collectResponseHeaders( QNetworkReply *networkReply )
   }
 }
 
-QString QFieldXmlHttpRequest::getResponseHeader( const QString &name ) const
+QString QfXmlHttpRequest::getResponseHeader( const QString &name ) const
 {
   return mResponseHeaders.value( normalizeHeaderName( name ) );
 }
 
-QString QFieldXmlHttpRequest::getAllResponseHeaders() const
+QString QfXmlHttpRequest::getAllResponseHeaders() const
 {
   QString allHeaders;
 
@@ -129,7 +129,7 @@ QString QFieldXmlHttpRequest::getAllResponseHeaders() const
   return allHeaders;
 }
 
-void QFieldXmlHttpRequest::clearResponse()
+void QfXmlHttpRequest::clearResponse()
 {
   mStatus = 0;
   mStatusText.clear();
@@ -143,7 +143,7 @@ void QFieldXmlHttpRequest::clearResponse()
   mLastErrorString.clear();
 }
 
-void QFieldXmlHttpRequest::resetForNewRequest()
+void QfXmlHttpRequest::resetForNewRequest()
 {
   clearResponse();
   mFinalized = false;
@@ -151,7 +151,7 @@ void QFieldXmlHttpRequest::resetForNewRequest()
   mAborted = false;
 }
 
-void QFieldXmlHttpRequest::cleanupReply( bool abortNetwork )
+void QfXmlHttpRequest::cleanupReply( bool abortNetwork )
 {
   for ( const QMetaObject::Connection &connection : mConnections )
   {
@@ -173,7 +173,7 @@ void QFieldXmlHttpRequest::cleanupReply( bool abortNetwork )
   }
 }
 
-void QFieldXmlHttpRequest::setReadyState( ReadyState state )
+void QfXmlHttpRequest::setReadyState( ReadyState state )
 {
   if ( mReadyState == state )
   {
@@ -185,7 +185,7 @@ void QFieldXmlHttpRequest::setReadyState( ReadyState state )
   call( mOnReadyStateChanged );
 }
 
-void QFieldXmlHttpRequest::open( const QString &method, const QUrl &url )
+void QfXmlHttpRequest::open( const QString &method, const QUrl &url )
 {
   // open() cancels any in-flight request
   if ( mReply )
@@ -214,7 +214,7 @@ void QFieldXmlHttpRequest::open( const QString &method, const QUrl &url )
   setReadyState( Opened );
 }
 
-void QFieldXmlHttpRequest::setRequestHeader( const QString &headerName, const QString &headerValue )
+void QfXmlHttpRequest::setRequestHeader( const QString &headerName, const QString &headerValue )
 {
   if ( !isOpen() || mReply )
   {
@@ -247,7 +247,7 @@ void QFieldXmlHttpRequest::setRequestHeader( const QString &headerName, const QS
 }
 
 
-void QFieldXmlHttpRequest::send( const QVariant &body )
+void QfXmlHttpRequest::send( const QVariant &body )
 {
   if ( !isOpen() )
   {
@@ -272,7 +272,7 @@ void QFieldXmlHttpRequest::send( const QVariant &body )
   startRequest( body );
 }
 
-void QFieldXmlHttpRequest::startRequest( const QVariant &body )
+void QfXmlHttpRequest::startRequest( const QVariant &body )
 {
   const QByteArray upperCaseMethod = mMethod.trimmed().toUpper();
 
@@ -415,7 +415,7 @@ void QFieldXmlHttpRequest::startRequest( const QVariant &body )
   hookReply( mReply );
 }
 
-void QFieldXmlHttpRequest::abort()
+void QfXmlHttpRequest::abort()
 {
   if ( mFinalized )
   {
@@ -440,7 +440,7 @@ void QFieldXmlHttpRequest::abort()
   scheduleAutoDelete();
 }
 
-void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
+void QfXmlHttpRequest::hookReply( QNetworkReply *networkReply )
 {
   if ( !networkReply )
   {
@@ -558,7 +558,7 @@ void QFieldXmlHttpRequest::hookReply( QNetworkReply *networkReply )
   }
 }
 
-void QFieldXmlHttpRequest::finalizeReply( QNetworkReply *finishedReply )
+void QfXmlHttpRequest::finalizeReply( QNetworkReply *finishedReply )
 {
   if ( mFinalized )
   {
@@ -634,7 +634,7 @@ void QFieldXmlHttpRequest::finalizeReply( QNetworkReply *finishedReply )
   scheduleAutoDelete();
 }
 
-void QFieldXmlHttpRequest::finalizeAsError( const QString &detail, bool shouldEmitResponseChanged )
+void QfXmlHttpRequest::finalizeAsError( const QString &detail, bool shouldEmitResponseChanged )
 {
   if ( mFinalized )
   {
@@ -665,7 +665,7 @@ void QFieldXmlHttpRequest::finalizeAsError( const QString &detail, bool shouldEm
   scheduleAutoDelete();
 }
 
-QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *outContentType ) const
+QByteArray QfXmlHttpRequest::bodyToBytes( const QVariant &body, QString *outContentType ) const
 {
   if ( outContentType )
   {
@@ -699,7 +699,7 @@ QByteArray QFieldXmlHttpRequest::bodyToBytes( const QVariant &body, QString *out
   return jsonDocument.toJson( QJsonDocument::Compact );
 }
 
-bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
+bool QfXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
 {
   if ( body.typeId() == QMetaType::QString )
   {
@@ -737,7 +737,7 @@ bool QFieldXmlHttpRequest::bodyContainsFileUrls( const QVariant &body ) const
   return false;
 }
 
-bool QFieldXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) const
+bool QfXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) const
 {
   if ( localPath.isEmpty() )
   {
@@ -750,12 +750,12 @@ bool QFieldXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) 
     return false;
   }
 
-  if ( FileUtils::isWithinProjectDirectory( canonical ) )
+  if ( QfFileUtils::isWithinProjectDirectory( canonical ) )
   {
     return true;
   }
 
-  const QString cloudRoot = QFieldCloudUtils::localCloudDirectory();
+  const QString cloudRoot = QfCloudUtils::localCloudDirectory();
   if ( !cloudRoot.isEmpty() )
   {
     const QString cloudCanonical = QFileInfo( cloudRoot ).canonicalFilePath();
@@ -772,7 +772,7 @@ bool QFieldXmlHttpRequest::isAllowedLocalUploadPath( const QString &localPath ) 
   return false;
 }
 
-QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) const
+QHttpMultiPart *QfXmlHttpRequest::buildMultipart( const QVariant &body ) const
 {
   if ( !body.canConvert<QVariantMap>() )
   {
@@ -816,7 +816,7 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
       return false;
     }
 
-    const QString mimeTypeName = FileUtils::mimeTypeName( filePath );
+    const QString mimeTypeName = QfFileUtils::mimeTypeName( filePath );
 
     QHttpPart httpPart;
     httpPart.setHeader( QNetworkRequest::ContentTypeHeader, mimeTypeName );
@@ -846,7 +846,7 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
           const QString stringValue = listValue.toString();
           if ( isFileUrlString( stringValue ) )
           {
-            const QUrl fileUrl = UrlUtils::fromString( stringValue );
+            const QUrl fileUrl = QfUrlUtils::fromString( stringValue );
             if ( fileUrl.isLocalFile() && appendFilePart( fieldName, fileUrl ) )
             {
               continue;
@@ -872,7 +872,7 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
       const QString stringValue = fieldValue.toString();
       if ( isFileUrlString( stringValue ) )
       {
-        const QUrl fileUrl = UrlUtils::fromString( stringValue );
+        const QUrl fileUrl = QfUrlUtils::fromString( stringValue );
         if ( appendFilePart( fieldName, fileUrl ) )
         {
           continue;
@@ -894,7 +894,7 @@ QHttpMultiPart *QFieldXmlHttpRequest::buildMultipart( const QVariant &body ) con
   return multipartBody;
 }
 
-void QFieldXmlHttpRequest::call( const QJSValue &callback, const QJSValueList &arguments )
+void QfXmlHttpRequest::call( const QJSValue &callback, const QJSValueList &arguments )
 {
   if ( !callback.isCallable() )
   {

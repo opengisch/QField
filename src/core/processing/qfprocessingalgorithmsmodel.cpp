@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingalgorithmsmodel.h - ProcessingAlgorithmsModel
+  qfprocessingalgorithmsmodel.h - QfProcessingAlgorithmsModel
 
  ---------------------
  begin                : 18.06.2024
@@ -27,9 +27,9 @@
 #include <mutex>
 
 
-ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )
+QfProcessingAlgorithmsModel::QfProcessingAlgorithmsModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mModel( new ProcessingAlgorithmsModelBase( parent ) )
+  , mModel( new QfProcessingAlgorithmsModelBase( parent ) )
 {
   setSourceModel( mModel );
   setDynamicSortFilter( true );
@@ -38,12 +38,12 @@ ProcessingAlgorithmsModel::ProcessingAlgorithmsModel( QObject *parent )
   sort( 0 );
 }
 
-void ProcessingAlgorithmsModel::rebuild()
+void QfProcessingAlgorithmsModel::rebuild()
 {
   mModel->rebuild();
 }
 
-void ProcessingAlgorithmsModel::setFilters( ProcessingAlgorithmsModel::Filters filters )
+void QfProcessingAlgorithmsModel::setFilters( QfProcessingAlgorithmsModel::Filters filters )
 {
   if ( mFilters == filters )
   {
@@ -57,7 +57,7 @@ void ProcessingAlgorithmsModel::setFilters( ProcessingAlgorithmsModel::Filters f
   emit filtersChanged();
 }
 
-void ProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
+void QfProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
 {
   if ( mInPlaceLayer.data() == layer )
   {
@@ -71,34 +71,34 @@ void ProcessingAlgorithmsModel::setInPlaceLayer( QgsVectorLayer *layer )
   emit inPlaceLayerChanged();
 }
 
-bool ProcessingAlgorithmsModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
+bool QfProcessingAlgorithmsModel::lessThan( const QModelIndex &sourceLeft, const QModelIndex &sourceRight ) const
 {
-  QString left = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
-  QString right = mModel->data( sourceRight, ProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
+  QString left = mModel->data( sourceLeft, QfProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
+  QString right = mModel->data( sourceRight, QfProcessingAlgorithmsModelBase::AlgorithmGroupRole ).toString();
   int compare = QString::localeAwareCompare( left, right );
   if ( compare != 0 )
   {
     return compare < 0;
   }
 
-  left = mModel->data( sourceLeft, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
-  right = mModel->data( sourceRight, ProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
+  left = mModel->data( sourceLeft, QfProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
+  right = mModel->data( sourceRight, QfProcessingAlgorithmsModelBase::AlgorithmNameRole ).toString();
   compare = QString::localeAwareCompare( left, right );
   return compare < 0;
 }
 
-bool ProcessingAlgorithmsModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool QfProcessingAlgorithmsModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
   if ( mFilters & Filter::InPlaceFilter )
   {
-    const bool supportsInPlace = mModel->data( sourceIndex, ProcessingAlgorithmsModelBase::AlgorithmFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits );
+    const bool supportsInPlace = mModel->data( sourceIndex, QfProcessingAlgorithmsModelBase::AlgorithmFlagsRole ).toInt() & static_cast<int>( Qgis::ProcessingAlgorithmFlag::SupportsInPlaceEdits );
     if ( !supportsInPlace )
       return false;
   }
   if ( mFilters & Filter::FavoriteFilter )
   {
-    if ( !mModel->data( sourceIndex, ProcessingAlgorithmsModelBase::AlgorithmFavoriteRole ).toBool() )
+    if ( !mModel->data( sourceIndex, QfProcessingAlgorithmsModelBase::AlgorithmFavoriteRole ).toBool() )
     {
       return false;
     }
@@ -116,7 +116,7 @@ bool ProcessingAlgorithmsModel::filterAcceptsRow( int sourceRow, const QModelInd
 }
 
 
-ProcessingAlgorithmsModelBase::ProcessingAlgorithmsModelBase( QObject *parent )
+QfProcessingAlgorithmsModelBase::QfProcessingAlgorithmsModelBase( QObject *parent )
   : QAbstractListModel( parent )
 {
   static std::once_flag initialized;
@@ -134,7 +134,7 @@ ProcessingAlgorithmsModelBase::ProcessingAlgorithmsModelBase( QObject *parent )
   rebuild();
 }
 
-void ProcessingAlgorithmsModelBase::rebuild()
+void QfProcessingAlgorithmsModelBase::rebuild()
 {
   beginResetModel();
   mAlgorithms.clear();
@@ -148,14 +148,14 @@ void ProcessingAlgorithmsModelBase::rebuild()
   endResetModel();
 }
 
-void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider )
+void QfProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider )
 {
   if ( !provider )
   {
     return;
   }
 
-  connect( provider, &QgsProcessingProvider::algorithmsLoaded, this, &ProcessingAlgorithmsModelBase::rebuild, Qt::UniqueConnection );
+  connect( provider, &QgsProcessingProvider::algorithmsLoaded, this, &QfProcessingAlgorithmsModelBase::rebuild, Qt::UniqueConnection );
 
   const QList<const QgsProcessingAlgorithm *> algorithms = provider->algorithms();
   for ( const QgsProcessingAlgorithm *algorithm : algorithms )
@@ -184,12 +184,12 @@ void ProcessingAlgorithmsModelBase::addProvider( QgsProcessingProvider *provider
         continue;
       }
 
-      mAlgorithms << AlgorithmItem( algorithm );
+      mAlgorithms << QfAlgorithmItem( algorithm );
     }
   }
 }
 
-const QgsProcessingAlgorithm *ProcessingAlgorithmsModelBase::algorithmForIndex( const QModelIndex &index ) const
+const QgsProcessingAlgorithm *QfProcessingAlgorithmsModelBase::algorithmForIndex( const QModelIndex &index ) const
 {
   if ( index.row() >= mAlgorithms.size() || index.row() < 0 )
   {
@@ -199,7 +199,7 @@ const QgsProcessingAlgorithm *ProcessingAlgorithmsModelBase::algorithmForIndex( 
   return mAlgorithms.value( index.row() ).algorithm();
 }
 
-QHash<int, QByteArray> ProcessingAlgorithmsModelBase::roleNames() const
+QHash<int, QByteArray> QfProcessingAlgorithmsModelBase::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[AlgorithmIdRole] = "AlgorithmId";
@@ -212,12 +212,12 @@ QHash<int, QByteArray> ProcessingAlgorithmsModelBase::roleNames() const
   return roles;
 }
 
-int ProcessingAlgorithmsModelBase::rowCount( const QModelIndex &parent ) const
+int QfProcessingAlgorithmsModelBase::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mAlgorithms.size() ) : 0;
 }
 
-QVariant ProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mAlgorithms.size() || index.row() < 0 || !mAlgorithms.at( index.row() ).algorithm() )
     return QVariant();
@@ -242,7 +242,7 @@ QVariant ProcessingAlgorithmsModelBase::data( const QModelIndex &index, int role
   return QVariant();
 }
 
-bool ProcessingAlgorithmsModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfProcessingAlgorithmsModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( index.row() >= mAlgorithms.size() || index.row() < 0 || !mAlgorithms.at( index.row() ).algorithm() )
     return false;

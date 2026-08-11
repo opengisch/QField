@@ -21,7 +21,7 @@
 /**
  * \ingroup core
  */
-class DrawingTemplateModel : public QAbstractListModel
+class QfDrawingTemplateModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -50,15 +50,15 @@ class DrawingTemplateModel : public QAbstractListModel
     };
     Q_ENUM( Role )
 
-    explicit DrawingTemplateModel( QObject *parent = nullptr );
+    explicit QfDrawingTemplateModel( QObject *parent = nullptr );
 
-    //! \copydoc DrawingTemplateModel::projectFilePath
+    //! \copydoc QfDrawingTemplateModel::projectFilePath
     QString projectFilePath() const;
 
-    //! \copydoc DrawingTemplateModel::projectFilePath
+    //! \copydoc QfDrawingTemplateModel::projectFilePath
     void setProjectFilePath( const QString &path );
 
-    //! \copydoc DrawingTemplateModel::hasProjectTemplate
+    //! \copydoc QfDrawingTemplateModel::hasProjectTemplate
     bool hasProjectTemplate() const;
 
     QHash<int, QByteArray> roleNames() const override;

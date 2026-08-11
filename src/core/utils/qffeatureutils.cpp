@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeatureutils.cpp - FeatureUtils
+  qffeatureutils.cpp - QfFeatureUtils
 
  ---------------------
  begin                : 05.03.2020
@@ -25,19 +25,19 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
-FeatureUtils::FeatureUtils( QObject *parent )
+QfFeatureUtils::QfFeatureUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QgsFeature FeatureUtils::createBlankFeature( const QgsFields &fields, const QgsGeometry &geometry )
+QgsFeature QfFeatureUtils::createBlankFeature( const QgsFields &fields, const QgsGeometry &geometry )
 {
   QgsFeature feature( fields );
   feature.setGeometry( geometry );
   return feature;
 }
 
-QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry, const GnssPositionInformation &positionInformation, const CloudUserInformation &cloudUserInformation )
+QgsFeature QfFeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry &geometry, const QfGnssPositionInformation &positionInformation, const QfCloudUserInformation &cloudUserInformation )
 {
   if ( !layer )
     return QgsFeature();
@@ -47,17 +47,17 @@ QgsFeature FeatureUtils::createFeature( QgsVectorLayer *layer, const QgsGeometry
   QgsExpressionContext context = layer->createExpressionContext();
   if ( positionInformation.isValid() )
   {
-    context << ExpressionContextUtils::positionScope( positionInformation, false );
+    context << QfExpressionContextUtils::positionScope( positionInformation, false );
   }
   if ( !cloudUserInformation.isEmpty() )
   {
-    context << ExpressionContextUtils::cloudUserScope( cloudUserInformation );
+    context << QfExpressionContextUtils::cloudUserScope( cloudUserInformation );
   }
   feature = QgsVectorLayerUtils::createFeature( layer, geometry, attributes, &context );
   return feature;
 }
 
-QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feature )
+QString QfFeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feature )
 {
   if ( !layer )
     return QString();
@@ -75,7 +75,7 @@ QString FeatureUtils::displayName( QgsVectorLayer *layer, const QgsFeature &feat
   return name;
 }
 
-QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, bool skipSinglePointLogic )
+QgsRectangle QfFeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLayer *layer, const QgsFeature &feature, bool skipSinglePointLogic )
 {
   if ( mapSettings && layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
   {
@@ -109,23 +109,23 @@ QgsRectangle FeatureUtils::extent( QgsQuickMapSettings *mapSettings, QgsVectorLa
   return QgsRectangle();
 }
 
-QList<QgsFeature> FeatureUtils::featuresFromJsonString( const QString &string )
+QList<QgsFeature> QfFeatureUtils::featuresFromJsonString( const QString &string )
 {
   const QgsFields fields = QgsJsonUtils::stringToFields( string );
   return QgsJsonUtils::stringToFeatureList( string, fields );
 }
 
-QgsField FeatureUtils::createField( const QString &name, FieldType type, const QString &typeName, int length, int precision, const QString &comment )
+QgsField QfFeatureUtils::createField( const QString &name, FieldType type, const QString &typeName, int length, int precision, const QString &comment )
 {
   return QgsField( name, static_cast<QMetaType::Type>( type ), typeName, length, precision, comment );
 }
 
-QgsFields FeatureUtils::createFields( const QList<QgsField> &fields )
+QgsFields QfFeatureUtils::createFields( const QList<QgsField> &fields )
 {
   return QgsFields( fields );
 }
 
-bool FeatureUtils::attributeIsNull( const QVariant &value )
+bool QfFeatureUtils::attributeIsNull( const QVariant &value )
 {
   return QgsVariantUtils::isUnsetAttributeValue( value ) || QgsVariantUtils::isNull( value );
 }

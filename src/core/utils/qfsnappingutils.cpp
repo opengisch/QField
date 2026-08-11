@@ -20,26 +20,26 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
-SnappingUtils::SnappingUtils( QObject *parent )
+QfSnappingUtils::QfSnappingUtils( QObject *parent )
   : QgsSnappingUtils( parent, false /*enableSnappingForInvisibleFeature*/ )
   , mSettings( nullptr )
 {
-  connect( QgsProject::instance(), static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &SnappingUtils::removeOutdatedLocators );
+  connect( QgsProject::instance(), static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfSnappingUtils::removeOutdatedLocators );
 }
 
-void SnappingUtils::onMapSettingsUpdated()
+void QfSnappingUtils::onMapSettingsUpdated()
 {
   QgsSnappingUtils::setMapSettings( mSettings->mapSettings() );
 
   snap();
 }
 
-void SnappingUtils::removeOutdatedLocators()
+void QfSnappingUtils::removeOutdatedLocators()
 {
   clearAllLocators();
 }
 
-QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const Qgis::WkbType wkbType )
+QgsPoint QfSnappingUtils::newPoint( const QgsPoint &snappedPoint, const Qgis::WkbType wkbType )
 {
   QgsPoint newPoint( Qgis::WkbType::Point, snappedPoint.x(), snappedPoint.y() );
 
@@ -72,17 +72,17 @@ QgsPoint SnappingUtils::newPoint( const QgsPoint &snappedPoint, const Qgis::WkbT
   return newPoint;
 }
 
-void SnappingUtils::snap()
+void QfSnappingUtils::snap()
 {
   if ( !mEnabled )
   {
-    mSnappingResult = SnappingResult();
+    mSnappingResult = QfSnappingResult();
     emit snappingResultChanged();
     return;
   }
 
   QgsPointLocator::Match match = snapToMap( mapSettings()->screenToCoordinate( mInputCoordinate ) );
-  mSnappingResult = SnappingResult( match );
+  mSnappingResult = QfSnappingResult( match );
 
   //set point containing ZM if we snapped to a point/vertex
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( currentLayer() );
@@ -136,12 +136,12 @@ void SnappingUtils::snap()
   emit snappingResultChanged();
 }
 
-QPointF SnappingUtils::inputCoordinate() const
+QPointF QfSnappingUtils::inputCoordinate() const
 {
   return mInputCoordinate;
 }
 
-void SnappingUtils::setInputCoordinate( const QPointF &inputCoordinate )
+void QfSnappingUtils::setInputCoordinate( const QPointF &inputCoordinate )
 {
   if ( inputCoordinate == mInputCoordinate )
     return;
@@ -153,18 +153,18 @@ void SnappingUtils::setInputCoordinate( const QPointF &inputCoordinate )
   emit inputCoordinateChanged();
 }
 
-SnappingResult SnappingUtils::snappingResult() const
+QfSnappingResult QfSnappingUtils::snappingResult() const
 {
   return mSnappingResult;
 }
 
-void SnappingUtils::prepareIndexStarting( int count )
+void QfSnappingUtils::prepareIndexStarting( int count )
 {
   mIndexLayerCount = count;
   emit indexingStarted( count );
 }
 
-void SnappingUtils::prepareIndexProgress( int index )
+void QfSnappingUtils::prepareIndexProgress( int index )
 {
   if ( index == mIndexLayerCount )
     emit indexingFinished();
@@ -172,12 +172,12 @@ void SnappingUtils::prepareIndexProgress( int index )
     emit indexingProgress( index );
 }
 
-QgsVectorLayer *SnappingUtils::currentLayer() const
+QgsVectorLayer *QfSnappingUtils::currentLayer() const
 {
   return mCurrentLayer;
 }
 
-void SnappingUtils::setCurrentLayer( QgsVectorLayer *currentLayer )
+void QfSnappingUtils::setCurrentLayer( QgsVectorLayer *currentLayer )
 {
   if ( currentLayer == mCurrentLayer )
     return;
@@ -188,30 +188,30 @@ void SnappingUtils::setCurrentLayer( QgsVectorLayer *currentLayer )
   emit currentLayerChanged();
 }
 
-QgsQuickMapSettings *SnappingUtils::mapSettings() const
+QgsQuickMapSettings *QfSnappingUtils::mapSettings() const
 {
   return mSettings;
 }
 
-void SnappingUtils::setMapSettings( QgsQuickMapSettings *settings )
+void QfSnappingUtils::setMapSettings( QgsQuickMapSettings *settings )
 {
   if ( mSettings == settings )
     return;
 
-  connect( settings, &QgsQuickMapSettings::extentChanged, this, &SnappingUtils::onMapSettingsUpdated );
-  connect( settings, &QgsQuickMapSettings::destinationCrsChanged, this, &SnappingUtils::onMapSettingsUpdated );
-  connect( settings, &QgsQuickMapSettings::layersChanged, this, &SnappingUtils::onMapSettingsUpdated );
+  connect( settings, &QgsQuickMapSettings::extentChanged, this, &QfSnappingUtils::onMapSettingsUpdated );
+  connect( settings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfSnappingUtils::onMapSettingsUpdated );
+  connect( settings, &QgsQuickMapSettings::layersChanged, this, &QfSnappingUtils::onMapSettingsUpdated );
 
   mSettings = settings;
   emit mapSettingsChanged();
 }
 
-bool SnappingUtils::enabled() const
+bool QfSnappingUtils::enabled() const
 {
   return mEnabled;
 }
 
-void SnappingUtils::setEnabled( bool enabled )
+void QfSnappingUtils::setEnabled( bool enabled )
 {
   if ( mEnabled == enabled )
     return;

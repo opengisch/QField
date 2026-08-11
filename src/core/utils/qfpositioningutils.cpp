@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfpositioningutils.cpp - PositioningUtils
+  qfpositioningutils.cpp - QfPositioningUtils
 
  ---------------------
  begin                : 20.05.2022
@@ -28,42 +28,42 @@
 typedef QMap<int, QgsRectangle> TimeZoneBounds;
 Q_GLOBAL_STATIC( TimeZoneBounds, sTimeZones )
 
-PositioningUtils::PositioningUtils( QObject *parent )
+QfPositioningUtils::QfPositioningUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-GnssPositionInformation PositioningUtils::createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName )
+QfGnssPositionInformation QfPositioningUtils::createGnssPositionInformation( double latitude, double longitude, double altitude, double speed, double direction, double horizontalAccuracy, double verticalAcurracy, double verticalSpeed, double magneticVariation, const QDateTime &timestamp, const QString &sourceName )
 {
-  return GnssPositionInformation( latitude, longitude, altitude,
-                                  speed, direction, QList<QgsSatelliteInfo>(), 0, 0, 0,
-                                  horizontalAccuracy, verticalAcurracy, timestamp,
-                                  QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false,
-                                  verticalSpeed, magneticVariation, 0, sourceName );
+  return QfGnssPositionInformation( latitude, longitude, altitude,
+                                    speed, direction, QList<QgsSatelliteInfo>(), 0, 0, 0,
+                                    horizontalAccuracy, verticalAcurracy, timestamp,
+                                    QChar(), 0, -1, 0, QChar( 'A' ), QList<int>(), false,
+                                    verticalSpeed, magneticVariation, 0, sourceName );
 }
 
-GnssPositionInformation PositioningUtils::createEmptyGnssPositionInformation()
+QfGnssPositionInformation QfPositioningUtils::createEmptyGnssPositionInformation()
 {
-  return GnssPositionInformation();
+  return QfGnssPositionInformation();
 }
 
-GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<QVariant> &positionsInformation )
+QfGnssPositionInformation QfPositioningUtils::averagedPositionInformation( const QList<QVariant> &positionsInformation )
 {
-  QList<GnssPositionInformation> convertedList;
+  QList<QfGnssPositionInformation> convertedList;
   for ( const QVariant &pi : positionsInformation )
   {
-    if ( pi.canConvert<GnssPositionInformation>() )
+    if ( pi.canConvert<QfGnssPositionInformation>() )
     {
-      convertedList << pi.value<GnssPositionInformation>();
+      convertedList << pi.value<QfGnssPositionInformation>();
     }
   }
   return averagedPositionInformation( convertedList );
 }
 
-GnssPositionInformation PositioningUtils::averagedPositionInformation( const QList<GnssPositionInformation> &positionsInformation )
+QfGnssPositionInformation QfPositioningUtils::averagedPositionInformation( const QList<QfGnssPositionInformation> &positionsInformation )
 {
   if ( positionsInformation.isEmpty() )
-    return GnssPositionInformation();
+    return QfGnssPositionInformation();
 
   std::vector<double> latitude;
   std::vector<double> longitude;
@@ -96,7 +96,7 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
   int quality = positionsInformation.at( 0 ).quality();
   QString sourceName = QStringLiteral( "%1 (%2)" ).arg( positionsInformation.at( 0 ).sourceName(), QObject::tr( "averaged" ) );
 
-  for ( const GnssPositionInformation &pi : positionsInformation )
+  for ( const QfGnssPositionInformation &pi : positionsInformation )
   {
     if ( std::isnan( pi.latitude() ) )
     {
@@ -174,34 +174,34 @@ GnssPositionInformation PositioningUtils::averagedPositionInformation( const QLi
 
   if ( latitude.empty() )
   {
-    return GnssPositionInformation(); // No valid data to average
+    return QfGnssPositionInformation(); // No valid data to average
   }
 
   const double nan = std::numeric_limits<double>::quiet_NaN();
-  return GnssPositionInformation( std::accumulate( latitude.begin(), latitude.end(), 0.0 ) / latitude.size(),
-                                  std::accumulate( longitude.begin(), longitude.end(), 0.0 ) / longitude.size(),
-                                  elevation.empty() ? nan : std::accumulate( elevation.begin(), elevation.end(), 0.0 ) / elevation.size(),
-                                  speed.empty() ? nan : std::accumulate( speed.begin(), speed.end(), 0.0 ) / speed.size(),
-                                  direction.empty() ? nan : std::accumulate( direction.begin(), direction.end(), 0.0 ) / direction.size(),
-                                  satellitesInView,
-                                  pdop.empty() ? 0.0 : std::accumulate( pdop.begin(), pdop.end(), 0.0 ) / pdop.size(),
-                                  hdop.empty() ? 0.0 : std::accumulate( hdop.begin(), hdop.end(), 0.0 ) / hdop.size(),
-                                  vdop.empty() ? 0.0 : std::accumulate( vdop.begin(), vdop.end(), 0.0 ) / vdop.size(),
-                                  hacc.empty() ? nan : std::accumulate( hacc.begin(), hacc.end(), 0.0 ) / hacc.size(),
-                                  vacc.empty() ? nan : std::accumulate( vacc.begin(), vacc.end(), 0.0 ) / vacc.size(),
-                                  utcDateTime, fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
-                                  verticalSpeed.empty() ? nan : std::accumulate( verticalSpeed.begin(), verticalSpeed.end(), 0.0 ) / verticalSpeed.size(),
-                                  magneticVariation.empty() ? nan : std::accumulate( magneticVariation.begin(), magneticVariation.end(), 0.0 ) / magneticVariation.size(),
-                                  latitude.size(), sourceName,
-                                  !imuRoll.empty(),
-                                  imuRoll.empty() ? nan : std::accumulate( imuRoll.begin(), imuRoll.end(), 0.0 ) / imuRoll.size(),
-                                  imuPitch.empty() ? nan : std::accumulate( imuPitch.begin(), imuPitch.end(), 0.0 ) / imuPitch.size(),
-                                  imuHeading.empty() ? nan : std::accumulate( imuHeading.begin(), imuHeading.end(), 0.0 ) / imuHeading.size(),
-                                  imuSteering.empty() ? nan : std::accumulate( imuSteering.begin(), imuSteering.end(), 0.0 ) / imuSteering.size(),
-                                  orientation.empty() ? nan : std::accumulate( orientation.begin(), orientation.end(), 0.0 ) / orientation.size() );
+  return QfGnssPositionInformation( std::accumulate( latitude.begin(), latitude.end(), 0.0 ) / latitude.size(),
+                                    std::accumulate( longitude.begin(), longitude.end(), 0.0 ) / longitude.size(),
+                                    elevation.empty() ? nan : std::accumulate( elevation.begin(), elevation.end(), 0.0 ) / elevation.size(),
+                                    speed.empty() ? nan : std::accumulate( speed.begin(), speed.end(), 0.0 ) / speed.size(),
+                                    direction.empty() ? nan : std::accumulate( direction.begin(), direction.end(), 0.0 ) / direction.size(),
+                                    satellitesInView,
+                                    pdop.empty() ? 0.0 : std::accumulate( pdop.begin(), pdop.end(), 0.0 ) / pdop.size(),
+                                    hdop.empty() ? 0.0 : std::accumulate( hdop.begin(), hdop.end(), 0.0 ) / hdop.size(),
+                                    vdop.empty() ? 0.0 : std::accumulate( vdop.begin(), vdop.end(), 0.0 ) / vdop.size(),
+                                    hacc.empty() ? nan : std::accumulate( hacc.begin(), hacc.end(), 0.0 ) / hacc.size(),
+                                    vacc.empty() ? nan : std::accumulate( vacc.begin(), vacc.end(), 0.0 ) / vacc.size(),
+                                    utcDateTime, fixMode, fixType, quality, satellitesUsed, status, satPrn, satInfoComplete,
+                                    verticalSpeed.empty() ? nan : std::accumulate( verticalSpeed.begin(), verticalSpeed.end(), 0.0 ) / verticalSpeed.size(),
+                                    magneticVariation.empty() ? nan : std::accumulate( magneticVariation.begin(), magneticVariation.end(), 0.0 ) / magneticVariation.size(),
+                                    latitude.size(), sourceName,
+                                    !imuRoll.empty(),
+                                    imuRoll.empty() ? nan : std::accumulate( imuRoll.begin(), imuRoll.end(), 0.0 ) / imuRoll.size(),
+                                    imuPitch.empty() ? nan : std::accumulate( imuPitch.begin(), imuPitch.end(), 0.0 ) / imuPitch.size(),
+                                    imuHeading.empty() ? nan : std::accumulate( imuHeading.begin(), imuHeading.end(), 0.0 ) / imuHeading.size(),
+                                    imuSteering.empty() ? nan : std::accumulate( imuSteering.begin(), imuSteering.end(), 0.0 ) / imuSteering.size(),
+                                    orientation.empty() ? nan : std::accumulate( orientation.begin(), orientation.end(), 0.0 ) / orientation.size() );
 }
 
-double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs )
+double QfPositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCoordinateReferenceSystem &crs )
 {
   const QgsCoordinateTransformContext transformContext = QgsProject::instance()->transformContext();
 
@@ -219,7 +219,7 @@ double PositioningUtils::bearingTrueNorth( const QgsPoint &position, const QgsCo
   return bearing;
 }
 
-QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs, const QgsRectangle &withinRectangle )
+QgsRectangle QfPositioningUtils::createExtentForDevice( const QfGnssPositionInformation &positionInformation, const QgsCoordinateReferenceSystem &crs, const QgsRectangle &withinRectangle )
 {
   QgsRectangle extent;
   if ( positionInformation.latitudeValid() && positionInformation.longitudeValid() && positionInformation.hvaccValid() )
@@ -228,7 +228,7 @@ QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformat
   }
   else
   {
-    PositioningUtils::initTimeZones();
+    QfPositioningUtils::initTimeZones();
 
     QTimeZone tz = QTimeZone::systemTimeZone();
     const int offset = static_cast<double>( tz.offsetFromUtc( QDateTime( QDate( 2026, 1, 1 ), QTime( 0, 0 ), QTimeZone::utc() ) ) );
@@ -289,13 +289,13 @@ QgsRectangle PositioningUtils::createExtentForDevice( const GnssPositionInformat
   return extent;
 }
 
-void PositioningUtils::initTimeZones()
+void QfPositioningUtils::initTimeZones()
 {
   static std::once_flag initialized;
   std::call_once( initialized, buildTimeZones );
 }
 
-void PositioningUtils::buildTimeZones()
+void QfPositioningUtils::buildTimeZones()
 {
   sTimeZones->insert( 0, QgsRectangle( -25.013, -61.709, 7.670, 82.999 ) );
   sTimeZones->insert( 3600, QgsRectangle( -17.319, -61.664, 34.688, 82.984 ) );
@@ -337,7 +337,7 @@ void PositioningUtils::buildTimeZones()
   sTimeZones->insert( -43200, QgsRectangle( -179.999, -58.025, -172.499, 83.169 ) );
 }
 
-NtripSettings PositioningUtils::createNtripSettings( const QVariantMap &settings )
+QfNtripSettings QfPositioningUtils::createNtripSettings( const QVariantMap &settings )
 {
-  return NtripSettings::fromMap( settings );
+  return QfNtripSettings::fromMap( settings );
 }

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgnsspositioninformation.cpp - GnssPositionInformation
+  qfgnsspositioninformation.cpp - QfGnssPositionInformation
  ---------------------
  begin                : 1.12.2020
  copyright            : (C) 2020 by David Signer
@@ -22,11 +22,11 @@
 #include <QTime>
 
 
-GnssPositionInformation::GnssPositionInformation( double latitude, double longitude, double elevation, double speed, double direction,
-                                                  const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
-                                                  QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn,
-                                                  bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &sourceName,
-                                                  bool imuCorrection, double imuRoll, double imuPitch, double imuHeading, double imuSteering, double orientation )
+QfGnssPositionInformation::QfGnssPositionInformation( double latitude, double longitude, double elevation, double speed, double direction,
+                                                      const QList<QgsSatelliteInfo> &satellitesInView, double pdop, double hdop, double vdop, double hacc, double vacc,
+                                                      QDateTime utcDateTime, QChar fixMode, int fixType, int quality, int satellitesUsed, QChar status, const QList<int> &satPrn,
+                                                      bool satInfoComplete, double verticalSpeed, double magneticVariation, int averagedCount, const QString &sourceName,
+                                                      bool imuCorrection, double imuRoll, double imuPitch, double imuHeading, double imuSteering, double orientation )
   : mLatitude( latitude )
   , mLongitude( longitude )
   , mElevation( elevation )
@@ -60,7 +60,7 @@ GnssPositionInformation::GnssPositionInformation( double latitude, double longit
 {
 }
 
-bool GnssPositionInformation::operator==( const GnssPositionInformation &other ) const
+bool QfGnssPositionInformation::operator==( const QfGnssPositionInformation &other ) const
 {
   // clang-format off
   return mLatitude == other.mLatitude &&
@@ -91,7 +91,7 @@ bool GnssPositionInformation::operator==( const GnssPositionInformation &other )
   // clang-format on
 }
 
-bool GnssPositionInformation::isValid() const
+bool QfGnssPositionInformation::isValid() const
 {
   bool valid = false;
   if ( mStatus == 'V' || mFixType == NMEA_FIX_BAD || mQuality == 0 ) // some sources say that 'V' indicates position fix, but is below acceptable quality
@@ -110,7 +110,7 @@ bool GnssPositionInformation::isValid() const
   return valid;
 }
 
-GnssPositionInformation::FixStatus GnssPositionInformation::fixStatus() const
+QfGnssPositionInformation::FixStatus QfGnssPositionInformation::fixStatus() const
 {
   FixStatus fixStatus = NoData;
 
@@ -130,7 +130,7 @@ GnssPositionInformation::FixStatus GnssPositionInformation::fixStatus() const
   return fixStatus;
 }
 
-QString GnssPositionInformation::qualityDescription() const
+QString QfGnssPositionInformation::qualityDescription() const
 {
   QString quality;
   switch ( mQuality )
@@ -174,23 +174,23 @@ QString GnssPositionInformation::qualityDescription() const
   return quality;
 }
 
-QString GnssPositionInformation::fixStatusDescription() const
+QString QfGnssPositionInformation::fixStatusDescription() const
 {
   return QString( QMetaEnum::fromType<FixStatus>().valueToKey( fixStatus() ) );
 }
 
-QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positionDetails )
+QDataStream &operator<<( QDataStream &stream, const QfGnssPositionDetails &positionDetails )
 {
   return stream << positionDetails.mNames << positionDetails.mValues;
 }
 
 //cppcheck-suppress constParameter
-QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positionDetails )
+QDataStream &operator>>( QDataStream &stream, QfGnssPositionDetails &positionDetails )
 {
   return stream >> positionDetails.mNames >> positionDetails.mValues;
 }
 
-QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position )
+QDataStream &operator<<( QDataStream &stream, const QfGnssPositionInformation &position )
 {
   return stream << position.mLatitude << position.mLongitude << position.mElevation << position.mSpeed << position.mDirection
                 << position.mSatellitesInView << position.mHdop << position.mVdop << position.mPdop
@@ -203,7 +203,7 @@ QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &pos
 }
 
 //cppcheck-suppress constParameter
-QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position )
+QDataStream &operator>>( QDataStream &stream, QfGnssPositionInformation &position )
 {
   return stream >> position.mLatitude >> position.mLongitude >> position.mElevation >> position.mSpeed >> position.mDirection
          >> position.mSatellitesInView >> position.mHdop >> position.mVdop >> position.mPdop

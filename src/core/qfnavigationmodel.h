@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnavigationmodel.h - NavigationModel
+ qfnavigationmodel.h - QfNavigationModel
 
  ---------------------
  begin                : 22.02.2022
@@ -22,12 +22,12 @@
 #include <qgsabstractgeometry.h>
 #include <qgscoordinatereferencesystem.h>
 
-class Navigation;
+class QfNavigation;
 
 /**
  * \ingroup core
  */
-class NavigationModel : public QAbstractListModel
+class QfNavigationModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -46,7 +46,7 @@ class NavigationModel : public QAbstractListModel
     };
     Q_ENUM( Roles )
 
-    NavigationModel();
+    QfNavigationModel();
 
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;

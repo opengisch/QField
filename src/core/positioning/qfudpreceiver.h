@@ -1,5 +1,5 @@
 /***************************************************************************
- qfudpreceiver.h - UdpReceiver
+ qfudpreceiver.h - QfUdpReceiver
 
  ---------------------
  begin                : December 2022
@@ -24,17 +24,17 @@
 #include <QUdpSocket>
 
 /**
- * The UdpReceiver connects to a device and feeds the QgsNmeaConnection over a UDP socket.
- * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * The QfUdpReceiver connects to a device and feeds the QgsNmeaConnection over a UDP socket.
+ * It receives QgsGpsInformation and converts it to QfGnssPositionInformation
  * \ingroup core
  */
-class UdpReceiver : public NmeaGnssReceiver
+class QfUdpReceiver : public QfNmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit UdpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
-    ~UdpReceiver();
+    explicit QfUdpReceiver( const QString &address = QString(), const int port = 0, QObject *parent = nullptr );
+    ~QfUdpReceiver();
 
     static QLatin1String identifier;
 

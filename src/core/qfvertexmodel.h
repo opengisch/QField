@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfvertexmodel.h - VertexModel
+  qfvertexmodel.h - QfVertexModel
 
  ---------------------
  begin                : 18.08.2018
@@ -27,14 +27,14 @@ class QgsQuickMapSettings;
 
 // Copied from gtest/gtest_prod.h
 /**
- * The VertexModel class is a model to highlight and edit vertices.
+ * The QfVertexModel class is a model to highlight and edit vertices.
  * The model is used in map coordinates.
  * There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)
  *
  * The model holds all vertices and the candidates for new vertices. If you need the existing nodes, use flatVertices().
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
+class QFIELD_CORE_EXPORT QfVertexModel : public QAbstractListModel
 {
     Q_OBJECT
     //! The current mode
@@ -138,8 +138,8 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
         Vertex vertex;
     };
 
-    explicit VertexModel( QObject *parent = nullptr );
-    ~VertexModel() override = default;
+    explicit QfVertexModel( QObject *parent = nullptr );
+    ~QfVertexModel() override = default;
 
     //! \copydoc mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );
@@ -357,7 +357,7 @@ class QFIELD_CORE_EXPORT VertexModel : public QAbstractListModel
     friend class VertexModelTest;
 };
 
-Q_DECLARE_METATYPE( VertexModel::Vertex );
+Q_DECLARE_METATYPE( QfVertexModel::Vertex );
 
 
 #endif // QFVERTEXMODEL_H

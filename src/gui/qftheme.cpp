@@ -1,5 +1,5 @@
 /***************************************************************************
-  qftheme.cpp - Theme
+  qftheme.cpp - QfTheme
 
 ---------------------
 begin                : 22.2.2026
@@ -27,7 +27,7 @@ email                : kaustuv@opengis.ch
 #include <QPalette>
 #include <QSettings>
 
-Theme::Theme( QObject *parent )
+QfTheme::QfTheme( QObject *parent )
   : QObject( parent )
 {
   mFontScale = std::clamp( QSettings().value( QStringLiteral( "fontScale" ), 1.0 ).toReal(), 0.2, 5.0 );
@@ -37,7 +37,7 @@ Theme::Theme( QObject *parent )
   applyAppearance();
 }
 
-void Theme::loadFromJson()
+void QfTheme::loadFromJson()
 {
   QFile file( QStringLiteral( ":/theme/theme.json" ) );
   if ( !file.open( QIODevice::ReadOnly ) )
@@ -108,7 +108,7 @@ void Theme::loadFromJson()
   emit themeDataLoaded();
 }
 
-void Theme::setAppearance( const QString &appearance )
+void QfTheme::setAppearance( const QString &appearance )
 {
   if ( mAppearance == appearance )
   {
@@ -122,7 +122,7 @@ void Theme::setAppearance( const QString &appearance )
   applyAppearance();
 }
 
-void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance baseAppearance )
+void QfTheme::applyAppearance( const QVariantMap &extraColors, BaseAppearance baseAppearance )
 {
   if ( baseAppearance == UseSettingsAppearance )
   {
@@ -143,7 +143,7 @@ void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance base
   bool darkTheme = false;
   if ( baseAppearance == SystemAppearance )
   {
-    darkTheme = PlatformUtilities::instance()->isSystemDarkTheme();
+    darkTheme = QfPlatformUtilities::instance()->isSystemDarkTheme();
   }
   else
   {
@@ -169,9 +169,9 @@ void Theme::applyAppearance( const QVariantMap &extraColors, BaseAppearance base
   qApp->setPalette( palette );
 }
 
-void Theme::applyColors( const QVariantMap &colors )
+void QfTheme::applyColors( const QVariantMap &colors )
 {
-  const QMetaObject *meta = &Theme::staticMetaObject;
+  const QMetaObject *meta = &QfTheme::staticMetaObject;
   for ( auto it = colors.cbegin(); it != colors.cend(); ++it )
   {
     const int idx = meta->indexOfProperty( qPrintable( it.key() ) );
@@ -196,7 +196,7 @@ void Theme::applyColors( const QVariantMap &colors )
   }
 }
 
-void Theme::setSystemFontPointSize( qreal size )
+void QfTheme::setSystemFontPointSize( qreal size )
 {
   if ( size == 0.0 || qFuzzyCompare( mSystemFontPointSize, size ) )
   {
@@ -207,7 +207,7 @@ void Theme::setSystemFontPointSize( qreal size )
   emit fontScaleChanged();
 }
 
-void Theme::setScreenPpi( qreal ppi )
+void QfTheme::setScreenPpi( qreal ppi )
 {
   if ( ppi == 0.0 || qFuzzyCompare( mScreenPpi, ppi ) )
   {
@@ -218,7 +218,7 @@ void Theme::setScreenPpi( qreal ppi )
   emit screenPpiChanged();
 }
 
-void Theme::setMainColor( const QColor &color )
+void QfTheme::setMainColor( const QColor &color )
 {
   if ( mMainColor == color )
   {
@@ -235,7 +235,7 @@ void Theme::setMainColor( const QColor &color )
   emit themeDataLoaded();
 }
 
-void Theme::setMainOverlayColor( const QColor &color )
+void QfTheme::setMainOverlayColor( const QColor &color )
 {
   if ( mMainOverlayColor == color )
   {
@@ -246,7 +246,7 @@ void Theme::setMainOverlayColor( const QColor &color )
   emit mainOverlayColorChanged();
 }
 
-void Theme::setMainBackgroundColor( const QColor &color )
+void QfTheme::setMainBackgroundColor( const QColor &color )
 {
   if ( mMainBackgroundColor == color )
   {
@@ -257,7 +257,7 @@ void Theme::setMainBackgroundColor( const QColor &color )
   emit mainBackgroundColorChanged();
 }
 
-void Theme::setMainBackgroundColorSemiOpaque( const QColor &color )
+void QfTheme::setMainBackgroundColorSemiOpaque( const QColor &color )
 {
   if ( mMainBackgroundColorSemiOpaque == color )
   {
@@ -268,7 +268,7 @@ void Theme::setMainBackgroundColorSemiOpaque( const QColor &color )
   emit mainBackgroundColorSemiOpaqueChanged();
 }
 
-void Theme::setMainTextColor( const QColor &color )
+void QfTheme::setMainTextColor( const QColor &color )
 {
   if ( mMainTextColor == color )
   {
@@ -279,7 +279,7 @@ void Theme::setMainTextColor( const QColor &color )
   emit mainTextColorChanged();
 }
 
-void Theme::setMainTextDisabledColor( const QColor &color )
+void QfTheme::setMainTextDisabledColor( const QColor &color )
 {
   if ( mMainTextDisabledColor == color )
   {
@@ -290,7 +290,7 @@ void Theme::setMainTextDisabledColor( const QColor &color )
   emit mainTextDisabledColorChanged();
 }
 
-void Theme::setSecondaryTextColor( const QColor &color )
+void QfTheme::setSecondaryTextColor( const QColor &color )
 {
   if ( mSecondaryTextColor == color )
   {
@@ -301,7 +301,7 @@ void Theme::setSecondaryTextColor( const QColor &color )
   emit secondaryTextColorChanged();
 }
 
-void Theme::setControlBackgroundColor( const QColor &color )
+void QfTheme::setControlBackgroundColor( const QColor &color )
 {
   if ( mControlBackgroundColor == color )
   {
@@ -312,7 +312,7 @@ void Theme::setControlBackgroundColor( const QColor &color )
   emit controlBackgroundColorChanged();
 }
 
-void Theme::setControlBackgroundAlternateColor( const QColor &color )
+void QfTheme::setControlBackgroundAlternateColor( const QColor &color )
 {
   if ( mControlBackgroundAlternateColor == color )
   {
@@ -323,7 +323,7 @@ void Theme::setControlBackgroundAlternateColor( const QColor &color )
   emit controlBackgroundAlternateColorChanged();
 }
 
-void Theme::setControlBackgroundDisabledColor( const QColor &color )
+void QfTheme::setControlBackgroundDisabledColor( const QColor &color )
 {
   if ( mControlBackgroundDisabledColor == color )
   {
@@ -334,7 +334,7 @@ void Theme::setControlBackgroundDisabledColor( const QColor &color )
   emit controlBackgroundDisabledColorChanged();
 }
 
-void Theme::setControlBorderColor( const QColor &color )
+void QfTheme::setControlBorderColor( const QColor &color )
 {
   if ( mControlBorderColor == color )
   {
@@ -345,7 +345,7 @@ void Theme::setControlBorderColor( const QColor &color )
   emit controlBorderColorChanged();
 }
 
-void Theme::setButtonColor( const QColor &color )
+void QfTheme::setButtonColor( const QColor &color )
 {
   if ( mButtonColor == color )
   {
@@ -356,7 +356,7 @@ void Theme::setButtonColor( const QColor &color )
   emit buttonColorChanged();
 }
 
-void Theme::setButtonBackgroundColor( const QColor &color )
+void QfTheme::setButtonBackgroundColor( const QColor &color )
 {
   if ( mButtonBackgroundColor == color )
   {
@@ -367,7 +367,7 @@ void Theme::setButtonBackgroundColor( const QColor &color )
   emit buttonBackgroundColorChanged();
 }
 
-void Theme::setToolButtonColor( const QColor &color )
+void QfTheme::setToolButtonColor( const QColor &color )
 {
   if ( mToolButtonColor == color )
   {
@@ -378,7 +378,7 @@ void Theme::setToolButtonColor( const QColor &color )
   emit toolButtonColorChanged();
 }
 
-void Theme::setToolButtonBackgroundColor( const QColor &color )
+void QfTheme::setToolButtonBackgroundColor( const QColor &color )
 {
   if ( mToolButtonBackgroundColor == color )
   {
@@ -389,7 +389,7 @@ void Theme::setToolButtonBackgroundColor( const QColor &color )
   emit toolButtonBackgroundColorChanged();
 }
 
-void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &color )
+void QfTheme::setToolButtonBackgroundSemiOpaqueColor( const QColor &color )
 {
   if ( mToolButtonBackgroundSemiOpaqueColor == color )
   {
@@ -400,7 +400,7 @@ void Theme::setToolButtonBackgroundSemiOpaqueColor( const QColor &color )
   emit toolButtonBackgroundSemiOpaqueColorChanged();
 }
 
-void Theme::setScrollBarBackgroundColor( const QColor &color )
+void QfTheme::setScrollBarBackgroundColor( const QColor &color )
 {
   if ( mScrollBarBackgroundColor == color )
   {
@@ -411,7 +411,7 @@ void Theme::setScrollBarBackgroundColor( const QColor &color )
   emit scrollBarBackgroundColorChanged();
 }
 
-void Theme::setGroupBoxBackgroundColor( const QColor &color )
+void QfTheme::setGroupBoxBackgroundColor( const QColor &color )
 {
   if ( mGroupBoxBackgroundColor == color )
   {
@@ -422,7 +422,7 @@ void Theme::setGroupBoxBackgroundColor( const QColor &color )
   emit groupBoxBackgroundColorChanged();
 }
 
-void Theme::setGroupBoxSurfaceColor( const QColor &color )
+void QfTheme::setGroupBoxSurfaceColor( const QColor &color )
 {
   if ( mGroupBoxSurfaceColor == color )
   {
@@ -433,7 +433,7 @@ void Theme::setGroupBoxSurfaceColor( const QColor &color )
   emit groupBoxSurfaceColorChanged();
 }
 
-void Theme::setGoodColor( const QColor &color )
+void QfTheme::setGoodColor( const QColor &color )
 {
   if ( mGoodColor == color )
   {
@@ -444,7 +444,7 @@ void Theme::setGoodColor( const QColor &color )
   emit goodColorChanged();
 }
 
-void Theme::setWarningColor( const QColor &color )
+void QfTheme::setWarningColor( const QColor &color )
 {
   if ( mWarningColor == color )
   {
@@ -455,7 +455,7 @@ void Theme::setWarningColor( const QColor &color )
   emit warningColorChanged();
 }
 
-void Theme::setErrorColor( const QColor &color )
+void QfTheme::setErrorColor( const QColor &color )
 {
   if ( mErrorColor == color )
   {
@@ -466,7 +466,7 @@ void Theme::setErrorColor( const QColor &color )
   emit errorColorChanged();
 }
 
-void Theme::setDarkTheme( bool dark )
+void QfTheme::setDarkTheme( bool dark )
 {
   if ( mDarkTheme == dark )
   {
@@ -477,7 +477,7 @@ void Theme::setDarkTheme( bool dark )
   emit darkThemeChanged();
 }
 
-void Theme::setFontScale( qreal scale )
+void QfTheme::setFontScale( qreal scale )
 {
   scale = std::clamp( scale, 0.2, 5.0 );
   if ( qFuzzyCompare( mFontScale, scale ) )
@@ -491,7 +491,7 @@ void Theme::setFontScale( qreal scale )
   emit fontScaleChanged();
 }
 
-void Theme::setToolButtonSize( int size )
+void QfTheme::setToolButtonSize( int size )
 {
   if ( mToolButtonSize == size )
   {
@@ -502,7 +502,7 @@ void Theme::setToolButtonSize( int size )
   emit toolButtonSizeChanged();
 }
 
-QFont Theme::makeFont( qreal scaleFactor, bool bold ) const
+QFont QfTheme::makeFont( qreal scaleFactor, bool bold ) const
 {
   QFont font;
   font.setPointSizeF( mSystemFontPointSize * mFontScale * scaleFactor );
@@ -511,7 +511,7 @@ QFont Theme::makeFont( qreal scaleFactor, bool bold ) const
   return font;
 }
 
-QString Theme::getThemeIcon( const QString &name ) const
+QString QfTheme::getThemeIcon( const QString &name ) const
 {
   QString density;
   if ( mScreenPpi >= 360 )
@@ -538,12 +538,12 @@ QString Theme::getThemeIcon( const QString &name ) const
   return QStringLiteral( "qrc:/themes/qfield/%1/%2.png" ).arg( density, name );
 }
 
-QString Theme::getThemeVectorIcon( const QString &name ) const
+QString QfTheme::getThemeVectorIcon( const QString &name ) const
 {
   return QStringLiteral( "qrc:/themes/qfield/nodpi/%1.svg" ).arg( name );
 }
 
-QString Theme::colorToHtml( const QColor &color ) const
+QString QfTheme::colorToHtml( const QColor &color ) const
 {
   return QStringLiteral( "rgba(%1,%2,%3,%4)" )
     .arg( static_cast<int>( color.redF() * 255 ) )
@@ -552,7 +552,7 @@ QString Theme::colorToHtml( const QColor &color ) const
     .arg( static_cast<int>( color.alphaF() * 255 ) );
 }
 
-QString Theme::toInlineStyles( const QVariantMap &styleProperties ) const
+QString QfTheme::toInlineStyles( const QVariantMap &styleProperties ) const
 {
   QString styles;
   for ( auto it = styleProperties.cbegin(); it != styleProperties.cend(); ++it )

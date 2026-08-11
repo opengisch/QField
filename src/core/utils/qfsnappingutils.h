@@ -26,18 +26,18 @@ class QgsQuickMapSettings;
 /**
  * \ingroup core
  */
-class SnappingUtils : public QgsSnappingUtils
+class QfSnappingUtils : public QgsSnappingUtils
 {
     Q_OBJECT
 
     Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( QgsVectorLayer *currentLayer READ currentLayer WRITE setCurrentLayer NOTIFY currentLayerChanged )
-    Q_PROPERTY( SnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
+    Q_PROPERTY( QfSnappingResult snappingResult READ snappingResult NOTIFY snappingResultChanged )
     Q_PROPERTY( QPointF inputCoordinate READ inputCoordinate WRITE setInputCoordinate NOTIFY inputCoordinateChanged )
 
   public:
-    explicit SnappingUtils( QObject *parent = nullptr );
+    explicit QfSnappingUtils( QObject *parent = nullptr );
 
     bool enabled() const;
     void setEnabled( bool enabled );
@@ -51,7 +51,7 @@ class SnappingUtils : public QgsSnappingUtils
     QPointF inputCoordinate() const;
     void setInputCoordinate( const QPointF &inputCoordinate );
 
-    SnappingResult snappingResult() const;
+    QfSnappingResult snappingResult() const;
 
     static QgsPoint newPoint( const QgsPoint &snappedPoint, const Qgis::WkbType wkbType );
 
@@ -88,7 +88,7 @@ class SnappingUtils : public QgsSnappingUtils
     QgsVectorLayer *mCurrentLayer = nullptr;
 
     int mIndexLayerCount;
-    SnappingResult mSnappingResult;
+    QfSnappingResult mSnappingResult;
     QPointF mInputCoordinate;
 };
 

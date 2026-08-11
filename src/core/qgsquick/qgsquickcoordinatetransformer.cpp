@@ -264,7 +264,7 @@ void QgsQuickCoordinateTransformer::setVerticalGrid( const QString &grid )
     }
     else
     {
-      QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+      QStringList dataDirs = QfPlatformUtilities::instance()->appDataDirs();
       if ( !dataDirs.isEmpty() )
       {
         for ( const QString &dataDir : dataDirs )

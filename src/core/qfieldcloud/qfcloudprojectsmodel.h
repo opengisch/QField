@@ -28,14 +28,14 @@
 
 
 class QNetworkRequest;
-class QFieldCloudConnection;
-class LayerObserver;
+class QfCloudConnection;
+class QfLayerObserver;
 class QgsMapLayer;
 
 /**
  * \ingroup core
  */
-class QFieldCloudProjectsModel : public QAbstractListModel
+class QfCloudProjectsModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -43,9 +43,9 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_MOC_INCLUDE( "qflayerobserver.h" )
 
     //! The current cloud connection.
-    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
+    Q_PROPERTY( QfCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
     //! The current layer observer.
-    Q_PROPERTY( LayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
+    Q_PROPERTY( QfLayerObserver *layerObserver READ layerObserver WRITE setLayerObserver NOTIFY layerObserverChanged )
     //! The current geopackage flusher
     Q_PROPERTY( QgsGpkgFlusher *gpkgFlusher READ gpkgFlusher WRITE setGpkgFlusher NOTIFY gpkgFlusherChanged )
 
@@ -61,7 +61,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     //! The current cloud project id of the currently opened project (empty string for non-cloud projects).
     Q_PROPERTY( QString currentProjectId READ currentProjectId WRITE setCurrentProjectId NOTIFY currentProjectIdChanged )
     //! The current cloud project. (null for non-cloud projects).
-    Q_PROPERTY( QFieldCloudProject *currentProject READ currentProject NOTIFY currentProjectChanged )
+    Q_PROPERTY( QfCloudProject *currentProject READ currentProject NOTIFY currentProjectChanged )
 
   public:
     enum ColumnRole
@@ -108,19 +108,19 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 
     Q_ENUM( ColumnRole )
 
-    QFieldCloudProjectsModel();
+    QfCloudProjectsModel();
 
     //! Returns the currently used cloud connection.
-    QFieldCloudConnection *cloudConnection() const;
+    QfCloudConnection *cloudConnection() const;
 
     //! Sets the cloud connection.
-    void setCloudConnection( QFieldCloudConnection *cloudConnection );
+    void setCloudConnection( QfCloudConnection *cloudConnection );
 
     //! Returns the currently used layer observer.
-    LayerObserver *layerObserver() const;
+    QfLayerObserver *layerObserver() const;
 
     //! Sets the layer observer.
-    void setLayerObserver( LayerObserver *layerObserver );
+    void setLayerObserver( QfLayerObserver *layerObserver );
 
     //! Returns TRUE whether the model is being refreshed
     bool isRefreshing() const { return mIsRefreshing; }
@@ -135,7 +135,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void setCurrentProjectId( const QString &currentProjectId );
 
     //! Returns the cloud project of the currently oepened project or NULL for non-cloud projects.
-    QFieldCloudProject *currentProject() const;
+    QfCloudProject *currentProject() const;
 
     //! Returns the geopackage flusher
     QgsGpkgFlusher *gpkgFlusher() const { return mGpkgFlusher; }
@@ -184,7 +184,7 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     Q_INVOKABLE void updateLocalizedDataPaths( const QString &projectPath );
 
     //! Return the cloud project for a given \a projectId.
-    Q_INVOKABLE QFieldCloudProject *findProject( const QString &projectId ) const;
+    Q_INVOKABLE QfCloudProject *findProject( const QString &projectId ) const;
 
     //! Fetches a cloud project for a given \a projectId and appends it to the model.
     Q_INVOKABLE void appendProject( const QString &projectId, bool forceRefresh = false );
@@ -233,26 +233,26 @@ class QFieldCloudProjectsModel : public QAbstractListModel
     void projectCreationReceived();
 
   private:
-    void setupProjectConnections( QFieldCloudProject *project );
+    void setupProjectConnections( QfCloudProject *project );
 
     QModelIndex findProjectIndex( const QString &projectId ) const;
 
     void loadProjects( const QJsonArray &remoteProjects = QJsonArray(), bool skipLocalProjects = false );
-    void insertProjects( const QList<QFieldCloudProject *> &projects );
+    void insertProjects( const QList<QfCloudProject *> &projects );
     void resetProjects();
 
     inline QString layerFileName( const QgsMapLayer *layer ) const;
 
-    QList<QFieldCloudProject *> mProjects;
-    QFieldCloudConnection *mCloudConnection = nullptr;
+    QList<QfCloudProject *> mProjects;
+    QfCloudConnection *mCloudConnection = nullptr;
 
     bool mIsRefreshing = false;
     bool mIsCreating = false;
 
     QString mCurrentProjectId;
-    QPointer<QFieldCloudProject> mCurrentProject;
+    QPointer<QfCloudProject> mCurrentProject;
 
-    LayerObserver *mLayerObserver = nullptr;
+    QfLayerObserver *mLayerObserver = nullptr;
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
     QString mUsername;
     QString mUrl;
@@ -263,11 +263,11 @@ class QFieldCloudProjectsModel : public QAbstractListModel
 /**
  * \ingroup core
  */
-class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
+class QfCloudProjectsFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( QFieldCloudProjectsModel *projectsModel READ projectsModel WRITE setProjectsModel NOTIFY projectsModelChanged )
+    Q_PROPERTY( QfCloudProjectsModel *projectsModel READ projectsModel WRITE setProjectsModel NOTIFY projectsModelChanged )
     Q_PROPERTY( QString textFilter READ textFilter WRITE setTextFilter NOTIFY textFilterChanged )
     Q_PROPERTY( bool showLocalOnly READ showLocalOnly WRITE setShowLocalOnly NOTIFY showLocalOnlyChanged )
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
@@ -275,18 +275,18 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
 
   public:
-    explicit QFieldCloudProjectsFilterModel( QObject *parent = nullptr );
+    explicit QfCloudProjectsFilterModel( QObject *parent = nullptr );
 
     /**
      * Returns the source cloud projects model from which the filtered list is derived.
      */
-    QFieldCloudProjectsModel *projectsModel() const;
+    QfCloudProjectsModel *projectsModel() const;
 
     /**
      * Sets the source cloud projects model from which the filtered list is derived.
      * \param projectsModel the source cloud project model
      */
-    void setProjectsModel( QFieldCloudProjectsModel *projectsModel );
+    void setProjectsModel( QfCloudProjectsModel *projectsModel );
 
     /**
      * Returns whether the filtered cloud projects list will only contain those available locally.
@@ -358,7 +358,7 @@ class QFieldCloudProjectsFilterModel : public QSortFilterProxyModel
     virtual bool filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const override;
 
   private:
-    QFieldCloudProjectsModel *mSourceModel = nullptr;
+    QfCloudProjectsModel *mSourceModel = nullptr;
     bool mShowLocalOnly = false;
     bool mShowInValidProjects = false;
     bool mShowFeaturedOnTop = false;

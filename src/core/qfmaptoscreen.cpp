@@ -16,28 +16,28 @@
 #include "qfmaptoscreen.h"
 #include "qgspoint.h"
 
-MapToScreen::MapToScreen( QObject *parent )
+QfMapToScreen::QfMapToScreen( QObject *parent )
   : QObject( parent )
 {
 }
 
-void MapToScreen::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfMapToScreen::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
-    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &MapToScreen::transformPoint );
-    disconnect( mMapSettings, &QgsQuickMapSettings::outputSizeChanged, this, &MapToScreen::transformPoint );
+    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfMapToScreen::transformPoint );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfMapToScreen::transformPoint );
+    disconnect( mMapSettings, &QgsQuickMapSettings::outputSizeChanged, this, &QfMapToScreen::transformPoint );
   }
 
   mMapSettings = mapSettings;
 
-  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &MapToScreen::transformPoint );
-  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &MapToScreen::transformPoint );
-  connect( mMapSettings, &QgsQuickMapSettings::outputSizeChanged, this, &MapToScreen::transformPoint );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfMapToScreen::transformPoint );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfMapToScreen::transformPoint );
+  connect( mMapSettings, &QgsQuickMapSettings::outputSizeChanged, this, &QfMapToScreen::transformPoint );
 
   transformPoint();
   transformDistance();
@@ -45,12 +45,12 @@ void MapToScreen::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-QgsQuickMapSettings *MapToScreen::mapSettings() const
+QgsQuickMapSettings *QfMapToScreen::mapSettings() const
 {
   return mMapSettings;
 }
 
-void MapToScreen::setMapPoint( const QgsPoint &point )
+void QfMapToScreen::setMapPoint( const QgsPoint &point )
 {
   if ( mMapPoint == point )
     return;
@@ -60,17 +60,17 @@ void MapToScreen::setMapPoint( const QgsPoint &point )
   transformPoint();
 }
 
-QgsPoint MapToScreen::mapPoint() const
+QgsPoint QfMapToScreen::mapPoint() const
 {
   return mMapPoint;
 }
 
-QPointF MapToScreen::screenPoint() const
+QPointF QfMapToScreen::screenPoint() const
 {
   return mScreenPoint;
 }
 
-void MapToScreen::transformPoint()
+void QfMapToScreen::transformPoint()
 {
   if ( !mMapSettings )
   {
@@ -83,7 +83,7 @@ void MapToScreen::transformPoint()
   emit screenPointChanged();
 }
 
-void MapToScreen::setMapDistance( const double distance )
+void QfMapToScreen::setMapDistance( const double distance )
 {
   if ( mMapDistance == distance )
     return;
@@ -93,17 +93,17 @@ void MapToScreen::setMapDistance( const double distance )
   transformDistance();
 }
 
-double MapToScreen::mapDistance() const
+double QfMapToScreen::mapDistance() const
 {
   return mMapDistance;
 }
 
-double MapToScreen::screenDistance() const
+double QfMapToScreen::screenDistance() const
 {
   return mScreenDistance;
 }
 
-void MapToScreen::transformDistance()
+void QfMapToScreen::transformDistance()
 {
   if ( !mMapSettings )
   {

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgeometryutils.h - GeometryUtils
+  qfgeometryutils.h - QfGeometryUtils
 
  ---------------------
  begin                : 05.03.2020
@@ -26,12 +26,12 @@
 #include <qgsgeometry.h>
 
 class QgsVectorLayer;
-class RubberbandModel;
+class QfRubberbandModel;
 
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT GeometryUtils : public QObject
+class QFIELD_CORE_EXPORT QfGeometryUtils : public QObject
 {
     Q_OBJECT
   public:
@@ -44,7 +44,7 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
       InvalidInputGeometryType,  //!< The input geometry (ring, part, split line, etc.) has not the correct geometry type
       SelectionIsEmpty,          //!< No features were selected
       SelectionIsGreaterThanOne, //!< More than one features were selected
-      GeometryEngineError,       //!< Geometry engine misses a method implemented or an error occurred in the geometry engine
+      GeometryEngineError,       //!< QfGeometry engine misses a method implemented or an error occurred in the geometry engine
       LayerNotEditable,          //!< Cannot edit layer
       /* Add part issues */
       AddPartSelectedGeometryNotFound, //!< The selected geometry cannot be found
@@ -59,28 +59,28 @@ class QFIELD_CORE_EXPORT GeometryUtils : public QObject
     };
     Q_ENUM( GeometryOperationResult )
 
-    explicit GeometryUtils( QObject *parent = nullptr );
+    explicit QfGeometryUtils( QObject *parent = nullptr );
 
     //! Returns a QgsGeometry with a polygon by using the point sequence in the rubberband model.
-    static Q_INVOKABLE QgsGeometry polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
+    static Q_INVOKABLE QgsGeometry polygonFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
 
     //! Returns a QgsGeometry with a line by using the point sequence in the rubberband model.
-    static Q_INVOKABLE QgsGeometry lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
+    static Q_INVOKABLE QgsGeometry lineFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType = Qgis::WkbType::Unknown );
 
     //! Creates a variable width buffer polygon using M values from a rubberband model
-    static Q_INVOKABLE QgsGeometry variableWidthBufferByMFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
+    static Q_INVOKABLE QgsGeometry variableWidthBufferByMFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs );
 
     //! Reshape a polygon with given \a fid using the ring in the rubberband model.
-    static Q_INVOKABLE GeometryOperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel );
 
     //! Reshape a polygon with given \a fid using the ring in the rubberband model.
-    static Q_INVOKABLE GeometryOperationResult eraseFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult eraseFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel );
 
     //! Adds a ring to a polygon with given \a fid using the ring in the rubberband model.
-    static Q_INVOKABLE GeometryOperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel );
 
     //! Performs a split using the line in the rubberband model.
-    static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel );
+    static Q_INVOKABLE GeometryOperationResult splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel );
 
     //! Converts QGeoCoordinate to QgsPoint.
     static Q_INVOKABLE QgsPoint coordinateToPoint( const QGeoCoordinate &coor );

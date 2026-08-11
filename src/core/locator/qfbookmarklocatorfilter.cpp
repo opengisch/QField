@@ -23,19 +23,19 @@
 #include <qgspoint.h>
 
 
-BookmarkLocatorFilter::BookmarkLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
+QfBookmarkLocatorFilter::QfBookmarkLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
   , mLocatorBridge( locatorBridge )
 {
   setUseWithoutPrefix( true );
 }
 
-BookmarkLocatorFilter *BookmarkLocatorFilter::clone() const
+QfBookmarkLocatorFilter *QfBookmarkLocatorFilter::clone() const
 {
-  return new BookmarkLocatorFilter( mLocatorBridge );
+  return new QfBookmarkLocatorFilter( mLocatorBridge );
 }
 
-void BookmarkLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
+void QfBookmarkLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   Q_UNUSED( feedback )
 
@@ -45,28 +45,28 @@ void BookmarkLocatorFilter::fetchResults( const QString &string, const QgsLocato
   for ( int i = 0; i < mLocatorBridge->bookmarks()->rowCount(); i++ )
   {
     QgsLocatorResult result;
-    result.displayString = mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( i, 0 ), BookmarkModel::BookmarkName ).toString();
+    result.displayString = mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( i, 0 ), QfBookmarkModel::BookmarkName ).toString();
     result.score = fuzzyScore( result.displayString, string );
     if ( result.score > 0 )
     {
       result.filter = this;
       result.setUserData( i );
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Navigate to bookmark" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
+      result.actions << QgsLocatorResult::ResultAction( QfNavigation, tr( "Navigate to bookmark" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       emit resultFetched( result );
     }
   }
 }
 
-void BookmarkLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfBookmarkLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   triggerResultFromAction( result, Normal );
 }
 
-void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void QfBookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   const int row = result.userData().toInt();
 
-  if ( actionId == Navigation )
+  if ( actionId == QfNavigation )
   {
     if ( !mLocatorBridge->navigation() )
       return;
@@ -79,7 +79,7 @@ void BookmarkLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
 
   mLocatorBridge->bookmarks()->setExtentFromBookmark( mLocatorBridge->bookmarks()->index( row, 0 ) );
 
-  const QgsGeometry geom( mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( row, 0 ), BookmarkModel::BookmarkPoint ).value<QgsGeometry>() );
+  const QgsGeometry geom( mLocatorBridge->bookmarks()->data( mLocatorBridge->bookmarks()->index( row, 0 ), QfBookmarkModel::BookmarkPoint ).value<QgsGeometry>() );
   mLocatorBridge->geometryHighlighter()->setProperty( "qgsGeometry", geom );
   mLocatorBridge->geometryHighlighter()->setProperty( "crs", mLocatorBridge->mapSettings()->mapSettings().destinationCrs() );
 }

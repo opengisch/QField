@@ -1,5 +1,5 @@
 /***************************************************************************
- qfabstractgnssreceiver.h - AbstractGnssReceiver
+ qfabstractgnssreceiver.h - QfAbstractGnssReceiver
 
  ---------------------
  begin                : 22.05.2022
@@ -24,7 +24,7 @@
 /**
  * \ingroup core
  */
-class AbstractGnssReceiver : public QObject
+class QfAbstractGnssReceiver : public QObject
 {
     Q_OBJECT
 
@@ -39,10 +39,10 @@ class AbstractGnssReceiver : public QObject
     Q_DECLARE_FLAGS( Capabilities, Capability )
     Q_FLAGS( Capabilities )
 
-    explicit AbstractGnssReceiver( QObject *parent = nullptr );
-    virtual ~AbstractGnssReceiver() = default;
+    explicit QfAbstractGnssReceiver( QObject *parent = nullptr );
+    virtual ~QfAbstractGnssReceiver() = default;
 
-    virtual AbstractGnssReceiver::Capabilities capabilities() const;
+    virtual QfAbstractGnssReceiver::Capabilities capabilities() const;
 
     bool valid() const { return mValid; }
     void setValid( bool valid ) { mValid = valid; }
@@ -53,7 +53,7 @@ class AbstractGnssReceiver : public QObject
     void startLogging( const QString &path ) { handleStartLogging( path ); }
     void stopLogging() { handleStopLogging(); }
 
-    GnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
+    QfGnssPositionInformation lastGnssPositionInformation() const { return mLastGnssPositionInformation; }
 
     QString lastError() const { return mLastError; }
 
@@ -62,7 +62,7 @@ class AbstractGnssReceiver : public QObject
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
      */
-    virtual GnssPositionDetails details() const { return {}; }
+    virtual QfGnssPositionDetails details() const { return {}; }
     virtual QAbstractSocket::SocketState socketState() const { return mSocketState; }
     virtual QString socketStateString();
 
@@ -71,7 +71,7 @@ class AbstractGnssReceiver : public QObject
 
   signals:
     void validChanged();
-    void lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation );
+    void lastGnssPositionInformationChanged( const QfGnssPositionInformation &lastGnssPositionInformation );
     void socketStateChanged( const QAbstractSocket::SocketState socketState );
     void socketStateStringChanged( const QString &socketStateString );
     void lastErrorChanged( const QString &lastError );
@@ -81,14 +81,14 @@ class AbstractGnssReceiver : public QObject
     virtual void onCorrectionDataReceived( const QByteArray &data ) {}
 
   private:
-    friend class InternalGnssReceiver;
-    friend class EgenioussReceiver;
-    friend class NmeaGnssReceiver;
-    friend class BluetoothLowEnergyReceiver;
-    friend class BluetoothReceiver;
-    friend class TcpReceiver;
-    friend class UdpReceiver;
-    friend class SerialPortReceiver;
+    friend class QfInternalGnssReceiver;
+    friend class QfEgenioussReceiver;
+    friend class QfNmeaGnssReceiver;
+    friend class QfBluetoothLowEnergyReceiver;
+    friend class QfBluetoothReceiver;
+    friend class QfTcpReceiver;
+    friend class QfUdpReceiver;
+    friend class QfSerialPortReceiver;
 
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}
@@ -97,12 +97,12 @@ class AbstractGnssReceiver : public QObject
     virtual void handleStopLogging() {}
 
     bool mValid = false;
-    GnssPositionInformation mLastGnssPositionInformation;
+    QfGnssPositionInformation mLastGnssPositionInformation;
     QAbstractSocket::SocketState mSocketState = QAbstractSocket::UnconnectedState;
     QString mLastError;
     double mBatteryLevel = std::numeric_limits<double>::quiet_NaN();
 };
 
-Q_DECLARE_METATYPE( AbstractGnssReceiver )
+Q_DECLARE_METATYPE( QfAbstractGnssReceiver )
 
 #endif // QFABSTRACTGNSSRECEIVER_H

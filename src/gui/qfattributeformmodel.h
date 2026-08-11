@@ -20,16 +20,16 @@
 
 #include <QSortFilterProxyModel>
 
-class FeatureModel;
+class QfFeatureModel;
 
 /**
  * \ingroup core
  */
-class AttributeFormModel : public QSortFilterProxyModel
+class QfAttributeFormModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+    Q_PROPERTY( QfFeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
     Q_PROPERTY( bool isWizard READ isWizard NOTIFY isWizardChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs NOTIFY hasTabsChanged )
     Q_PROPERTY( bool hasRemembrance READ hasRemembrance NOTIFY hasRemembranceChanged )
@@ -74,15 +74,15 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     Q_ENUM( FeatureRoles )
 
-    explicit AttributeFormModel( QObject *parent = nullptr );
+    explicit QfAttributeFormModel( QObject *parent = nullptr );
 
     bool isWizard() const;
     bool hasTabs() const;
     bool hasRemembrance() const;
     bool hasConstraints() const;
 
-    FeatureModel *featureModel() const;
-    void setFeatureModel( FeatureModel *featureModel );
+    QfFeatureModel *featureModel() const;
+    void setFeatureModel( QfFeatureModel *featureModel );
 
     bool constraintsHardValid() const;
     bool constraintsSoftValid() const;
@@ -150,7 +150,7 @@ class AttributeFormModel : public QSortFilterProxyModel
     virtual bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
 
   private:
-    AttributeFormModelBase *mSourceModel = nullptr;
+    QfAttributeFormModelBase *mSourceModel = nullptr;
 };
 
 #endif // QFATTRIBUTEFORMMODEL_H

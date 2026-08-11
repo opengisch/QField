@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dgeometryutils.h - Quick3DGeometryUtils
+  qf3dgeometryutils.h - Qf3DGeometryUtils
 
  ---------------------
  begin                : 20.4.2026
@@ -29,7 +29,7 @@
  *
  * \ingroup core
  */
-class QFIELD_3D_EXPORT Quick3DGeometryUtils
+class QFIELD_3D_EXPORT Qf3DGeometryUtils
 {
   public:
     //! Byte stride of a single vertex: position(3) + normal(3) + rgba(4) = 10 floats.

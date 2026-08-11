@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfidentifytool.h - IdentifyTool
+  qfidentifytool.h - QfIdentifyTool
 
  ---------------------
  begin                : 30.8.2016
@@ -27,18 +27,18 @@ class QgsQuickMapSettings;
 class QgsRasterLayer;
 class QgsVectorLayer;
 class QgsVectorTileLayer;
-class MultiFeatureListModel;
+class QfMultiFeatureListModel;
 
 /**
  * \ingroup core
  */
-class IdentifyTool : public QObject
+class QfIdentifyTool : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
     Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
-    Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( QfMultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( bool deactivated READ deactivated WRITE setDeactivated NOTIFY deactivatedChanged )
 
   public:
@@ -56,7 +56,7 @@ class IdentifyTool : public QObject
     };
 
   public:
-    explicit IdentifyTool( QObject *parent = nullptr );
+    explicit QfIdentifyTool( QObject *parent = nullptr );
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
@@ -64,8 +64,8 @@ class IdentifyTool : public QObject
     double searchRadiusMm() const;
     void setSearchRadiusMm( double searchRadiusMm );
 
-    MultiFeatureListModel *model() const;
-    void setModel( MultiFeatureListModel *model );
+    QfMultiFeatureListModel *model() const;
+    void setModel( QfMultiFeatureListModel *model );
 
     bool deactivated() const { return mDeactivated; }
     void setDeactivated( bool deactivated );
@@ -86,7 +86,7 @@ class IdentifyTool : public QObject
 
   private:
     QgsQuickMapSettings *mMapSettings = nullptr;
-    MultiFeatureListModel *mModel = nullptr;
+    QfMultiFeatureListModel *mModel = nullptr;
 
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;

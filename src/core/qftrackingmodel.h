@@ -1,5 +1,5 @@
 /***************************************************************************
- qftrackingmodel.h - TrackingModel
+ qftrackingmodel.h - QfTrackingModel
 
  ---------------------
  begin                : 20.02.2020
@@ -21,19 +21,19 @@
 #include <QAbstractItemModel>
 
 class QgsQuickCoordinateTransformer;
-class RubberbandModel;
+class QfRubberbandModel;
 class Track;
 
 /**
  * \ingroup core
  */
-class TrackingModel : public QAbstractItemModel
+class QfTrackingModel : public QAbstractItemModel
 {
     Q_OBJECT
 
   public:
-    explicit TrackingModel( QObject *parent = nullptr );
-    ~TrackingModel() override;
+    explicit QfTrackingModel( QObject *parent = nullptr );
+    ~QfTrackingModel() override;
 
     enum TrackingRoles
     {
@@ -54,7 +54,7 @@ class TrackingModel : public QAbstractItemModel
     //! Creates a tracking session for the provided vector \a layer.
     Q_INVOKABLE QModelIndex createTracker( QgsVectorLayer *layer );
     //! Starts tracking for the provided vector \a layer provided it has a tracking session created.
-    Q_INVOKABLE void startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
+    Q_INVOKABLE void startTracker( QgsVectorLayer *layer, const QfGnssPositionInformation &positionInformation = QfGnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops the tracking session of the provided vector \a layer.
     Q_INVOKABLE void stopTracker( QgsVectorLayer *layer );
     //! Stops all tracking sessions.
@@ -70,10 +70,10 @@ class TrackingModel : public QAbstractItemModel
     //! Returns TRUE if the vector \a layer has an active tracking session.
     Q_INVOKABLE bool layerInActiveTracking( QgsVectorLayer *layer ) const;
     //! Returns the tracker for the vector \a layer if a tracking session is present, otherwise returns NULLPTR.
-    Q_INVOKABLE Tracker *trackerForLayer( QgsVectorLayer *layer ) const;
+    Q_INVOKABLE QfTracker *trackerForLayer( QgsVectorLayer *layer ) const;
 
     //! Replays a list of position information for all active trackers
-    Q_INVOKABLE void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
+    Q_INVOKABLE void replayPositionInformationList( const QList<QfGnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
     Q_INVOKABLE void suspendUntilReplay();
 
@@ -120,12 +120,12 @@ class TrackingModel : public QAbstractItemModel
         bool skipSettings = false;
     };
 
-    QList<Tracker *> mTrackers;
+    QList<QfTracker *> mTrackers;
     QList<TrackerRequest> mRequestedTrackers;
 
-    QList<Tracker *>::const_iterator trackerIterator( QgsVectorLayer *layer ) const
+    QList<QfTracker *>::const_iterator trackerIterator( QgsVectorLayer *layer ) const
     {
-      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const Tracker *tracker ) { return tracker->vectorLayer() == layer; } );
+      return std::find_if( mTrackers.constBegin(), mTrackers.constEnd(), [layer]( const QfTracker *tracker ) { return tracker->vectorLayer() == layer; } );
     }
 };
 

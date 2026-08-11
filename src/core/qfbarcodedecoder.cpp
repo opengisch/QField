@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbarcodedecoder.cpp - BarcodeDecoder
+ qfbarcodedecoder.cpp - QfBarcodeDecoder
 
  ---------------------
  begin                : 22.07.2022
@@ -21,10 +21,10 @@
 
 #include <ZXing/ReadBarcode.h>
 
-class BarcodeDecoderThread : public QThread
+class QfBarcodeDecoderThread : public QThread
 {
   public:
-    explicit BarcodeDecoderThread( BarcodeDecoder *decoder, const QImage &image )
+    explicit QfBarcodeDecoderThread( QfBarcodeDecoder *decoder, const QImage &image )
       : QThread()
       , mDecoder( decoder )
       , mImage( image )
@@ -40,16 +40,16 @@ class BarcodeDecoderThread : public QThread
       }
     }
 
-    BarcodeDecoder *mDecoder = nullptr;
+    QfBarcodeDecoder *mDecoder = nullptr;
     QImage mImage;
 };
 
-BarcodeDecoder::BarcodeDecoder( QObject *parent )
+QfBarcodeDecoder::QfBarcodeDecoder( QObject *parent )
   : QObject( parent )
 {
 }
 
-void BarcodeDecoder::clearDecodedString()
+void QfBarcodeDecoder::clearDecodedString()
 {
   if ( mDecodedString.isEmpty() )
   {
@@ -61,7 +61,7 @@ void BarcodeDecoder::clearDecodedString()
   emit decodedStringChanged();
 }
 
-bool BarcodeDecoder::decodeImage( const QImage &image )
+bool QfBarcodeDecoder::decodeImage( const QImage &image )
 {
   auto imageFormatFromQImage = []( const QImage &img ) {
     switch ( img.format() )
@@ -128,7 +128,7 @@ bool BarcodeDecoder::decodeImage( const QImage &image )
   return false;
 }
 
-bool BarcodeDecoder::decodeImageFile( const QString &path )
+bool QfBarcodeDecoder::decodeImageFile( const QString &path )
 {
   if ( mDecodingThread )
   {
@@ -154,12 +154,12 @@ bool BarcodeDecoder::decodeImageFile( const QString &path )
   return decodeImage( image );
 }
 
-QVideoSink *BarcodeDecoder::videoSink() const
+QVideoSink *QfBarcodeDecoder::videoSink() const
 {
   return mVideoSink.get();
 }
 
-void BarcodeDecoder::setVideoSink( QVideoSink *sink )
+void QfBarcodeDecoder::setVideoSink( QVideoSink *sink )
 {
   if ( mVideoSink == sink )
     return;
@@ -168,12 +168,12 @@ void BarcodeDecoder::setVideoSink( QVideoSink *sink )
     disconnect( mVideoSink );
 
   mVideoSink = sink;
-  connect( mVideoSink, &QVideoSink::videoFrameChanged, this, &BarcodeDecoder::decodeVideoFrame );
+  connect( mVideoSink, &QVideoSink::videoFrameChanged, this, &QfBarcodeDecoder::decodeVideoFrame );
 
   emit videoSinkChanged();
 }
 
-void BarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
+void QfBarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
 {
   if ( mDecodingThread || !frame.isValid() )
     return;
@@ -184,7 +184,7 @@ void BarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
     image = image.convertToFormat( QImage::Format_ARGB32 );
   }
 
-  mDecodingThread = new BarcodeDecoderThread( this, image );
+  mDecodingThread = new QfBarcodeDecoderThread( this, image );
   connect( mDecodingThread, &QThread::finished, this, [this] {
     mDecodingThread->deleteLater();
     mDecodingThread = nullptr;

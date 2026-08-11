@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfexternalstorage.cpp - ExternalStorage
+  qfexternalstorage.cpp - QfExternalStorage
 
  ---------------------
  begin                : 07.04.2025
@@ -20,22 +20,22 @@
 #include <qgsauthmanager.h>
 
 
-ExternalStorage::ExternalStorage( QObject *parent )
+QfExternalStorage::QfExternalStorage( QObject *parent )
   : QObject( parent )
 {
 }
 
-Qgis::ContentStatus ExternalStorage::status() const
+Qgis::ContentStatus QfExternalStorage::status() const
 {
   return mFetchedContent ? mFetchedContent->status() : Qgis::ContentStatus::NotStarted;
 }
 
-QString ExternalStorage::type() const
+QString QfExternalStorage::type() const
 {
   return mStorage ? mStorage->type() : QString();
 }
 
-void ExternalStorage::setType( const QString &type )
+void QfExternalStorage::setType( const QString &type )
 {
   if ( mStorage && mStorage->type() == type )
     return;
@@ -44,18 +44,18 @@ void ExternalStorage::setType( const QString &type )
   emit typeChanged();
 }
 
-QString ExternalStorage::lastError() const
+QString QfExternalStorage::lastError() const
 {
   return mLastError;
 }
 
-void ExternalStorage::fetch( const QString &url, const QString &authenticationConfigurationId )
+void QfExternalStorage::fetch( const QString &url, const QString &authenticationConfigurationId )
 {
   if ( mStorage )
   {
     if ( mFetchedContent )
     {
-      disconnect( mFetchedContent.get(), &QgsExternalStorageFetchedContent::fetched, this, &ExternalStorage::contentFetched );
+      disconnect( mFetchedContent.get(), &QgsExternalStorageFetchedContent::fetched, this, &QfExternalStorage::contentFetched );
       mFetchedContent->cancel();
       mFetchedContent->deleteLater();
     }
@@ -64,23 +64,23 @@ void ExternalStorage::fetch( const QString &url, const QString &authenticationCo
     emit statusChanged();
     emit fetchedContentChanged();
 
-    connect( mFetchedContent.get(), &QgsExternalStorageContent::errorOccurred, this, &ExternalStorage::contentErrorOccurred );
-    connect( mFetchedContent.get(), &QgsExternalStorageFetchedContent::fetched, this, &ExternalStorage::contentFetched );
+    connect( mFetchedContent.get(), &QgsExternalStorageContent::errorOccurred, this, &QfExternalStorage::contentErrorOccurred );
+    connect( mFetchedContent.get(), &QgsExternalStorageFetchedContent::fetched, this, &QfExternalStorage::contentFetched );
   }
 }
 
-QString ExternalStorage::fetchedContent() const
+QString QfExternalStorage::fetchedContent() const
 {
   return mFetchedContent && mFetchedContent->status() == Qgis::ContentStatus::Finished ? mFetchedContent->filePath() : QString();
 }
 
-void ExternalStorage::contentFetched()
+void QfExternalStorage::contentFetched()
 {
   emit statusChanged();
   emit fetchedContentChanged();
 }
 
-void ExternalStorage::contentErrorOccurred( const QString &errorString )
+void QfExternalStorage::contentErrorOccurred( const QString &errorString )
 {
   mLastError = errorString;
   emit statusChanged();

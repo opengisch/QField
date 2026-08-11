@@ -1,5 +1,5 @@
 /***************************************************************************
-qfxmlhttprequest.h - QFieldXmlHttpRequest
+qfxmlhttprequest.h - QfXmlHttpRequest
 
 ---------------------
 begin                : 15.12.2025
@@ -52,7 +52,7 @@ class QHttpMultiPart;
  *
  * \ingroup core
  */
-class QFieldXmlHttpRequest : public QObject
+class QfXmlHttpRequest : public QObject
 {
     Q_OBJECT
 
@@ -159,13 +159,13 @@ class QFieldXmlHttpRequest : public QObject
     };
     Q_ENUM( ReadyState )
 
-    explicit QFieldXmlHttpRequest( QObject *parent = nullptr );
-    ~QFieldXmlHttpRequest() override;
+    explicit QfXmlHttpRequest( QObject *parent = nullptr );
+    ~QfXmlHttpRequest() override;
 
     /**
      * Creates a new request instance.
      */
-    Q_INVOKABLE static QFieldXmlHttpRequest *newRequest( QObject *parent = nullptr );
+    Q_INVOKABLE static QfXmlHttpRequest *newRequest( QObject *parent = nullptr );
 
     /**
      * Prepares the request. This must be called before send().
@@ -211,95 +211,95 @@ class QFieldXmlHttpRequest : public QObject
      */
     Q_INVOKABLE QString getAllResponseHeaders() const;
 
-    //! \copydoc QFieldXmlHttpRequest::readyState
+    //! \copydoc QfXmlHttpRequest::readyState
     ReadyState readyState() const { return mReadyState; }
 
-    //! \copydoc QFieldXmlHttpRequest::status
+    //! \copydoc QfXmlHttpRequest::status
     int status() const { return mStatus; }
 
-    //! \copydoc QFieldXmlHttpRequest::statusText
+    //! \copydoc QfXmlHttpRequest::statusText
     QString statusText() const { return mStatusText; }
 
-    //! \copydoc QFieldXmlHttpRequest::responseText
+    //! \copydoc QfXmlHttpRequest::responseText
     QString responseText() const { return mResponseText; }
 
-    //! \copydoc QFieldXmlHttpRequest::response
+    //! \copydoc QfXmlHttpRequest::response
     QVariant response() const { return mResponse; }
 
-    //! \copydoc QFieldXmlHttpRequest::responseType
+    //! \copydoc QfXmlHttpRequest::responseType
     QString responseType() const { return mResponseType; }
 
-    //! \copydoc QFieldXmlHttpRequest::responseUrl
+    //! \copydoc QfXmlHttpRequest::responseUrl
     QUrl responseUrl() const { return mResponseUrl; }
 
-    //! \copydoc QFieldXmlHttpRequest::timeout
+    //! \copydoc QfXmlHttpRequest::timeout
     void setTimeout( int milliseconds );
 
-    //! \copydoc QFieldXmlHttpRequest::timeout
+    //! \copydoc QfXmlHttpRequest::timeout
     int timeout() const { return mTimeoutMs; }
 
-    //! \copydoc QFieldXmlHttpRequest::onreadystatechange
+    //! \copydoc QfXmlHttpRequest::onreadystatechange
     QJSValue onreadystatechange() const { return mOnReadyStateChanged; }
 
-    //! \copydoc QFieldXmlHttpRequest::onreadystatechange
+    //! \copydoc QfXmlHttpRequest::onreadystatechange
     void setOnreadystatechange( const QJSValue &callback ) { mOnReadyStateChanged = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::ondownloadprogress
+    //! \copydoc QfXmlHttpRequest::ondownloadprogress
     QJSValue ondownloadprogress() const { return mOnDownloadProgress; }
 
-    //! \copydoc QFieldXmlHttpRequest::ondownloadprogress
+    //! \copydoc QfXmlHttpRequest::ondownloadprogress
     void setOndownloadprogress( const QJSValue &callback ) { mOnDownloadProgress = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::onuploadprogress
+    //! \copydoc QfXmlHttpRequest::onuploadprogress
     QJSValue onuploadprogress() const { return mOnUploadProgress; }
 
-    //! \copydoc QFieldXmlHttpRequest::onuploadprogress
+    //! \copydoc QfXmlHttpRequest::onuploadprogress
     void setOnuploadprogress( const QJSValue &callback ) { mOnUploadProgress = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::onredirected
+    //! \copydoc QfXmlHttpRequest::onredirected
     QJSValue onredirected() const { return mOnRedirected; }
 
-    //! \copydoc QFieldXmlHttpRequest::onredirected
+    //! \copydoc QfXmlHttpRequest::onredirected
     void setOnredirected( const QJSValue &callback ) { mOnRedirected = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::ontimeout
+    //! \copydoc QfXmlHttpRequest::ontimeout
     QJSValue ontimeout() const { return mOnTimeout; }
 
-    //! \copydoc QFieldXmlHttpRequest::ontimeout
+    //! \copydoc QfXmlHttpRequest::ontimeout
     void setOntimeout( const QJSValue &callback ) { mOnTimeout = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::onaborted
+    //! \copydoc QfXmlHttpRequest::onaborted
     QJSValue onaborted() const { return mOnAborted; }
 
-    //! \copydoc QFieldXmlHttpRequest::onaborted
+    //! \copydoc QfXmlHttpRequest::onaborted
     void setOnaborted( const QJSValue &callback ) { mOnAborted = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::onerror
+    //! \copydoc QfXmlHttpRequest::onerror
     QJSValue onerror() const { return mOnError; }
 
-    //! \copydoc QFieldXmlHttpRequest::onerror
+    //! \copydoc QfXmlHttpRequest::onerror
     void setOnerror( const QJSValue &callback ) { mOnError = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::onload
+    //! \copydoc QfXmlHttpRequest::onload
     QJSValue onload() const { return mOnLoad; }
 
-    //! \copydoc QFieldXmlHttpRequest::onload
+    //! \copydoc QfXmlHttpRequest::onload
     void setOnload( const QJSValue &callback ) { mOnLoad = callback; }
 
-    //! \copydoc QFieldXmlHttpRequest::onloadend
+    //! \copydoc QfXmlHttpRequest::onloadend
     QJSValue onloadend() const { return mOnLoadEnd; }
 
-    //! \copydoc QFieldXmlHttpRequest::onloadend
+    //! \copydoc QfXmlHttpRequest::onloadend
     void setOnloadend( const QJSValue &callback ) { mOnLoadEnd = callback; }
 
   signals:
-    //! \copydoc QFieldXmlHttpRequest::readyState
+    //! \copydoc QfXmlHttpRequest::readyState
     void readyStateChanged();
 
     //! Emitted whenever response-related properties change.
     void responseChanged();
 
-    //! \copydoc QFieldXmlHttpRequest::timeout
+    //! \copydoc QfXmlHttpRequest::timeout
     void timeoutChanged();
 
   private:

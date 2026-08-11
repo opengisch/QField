@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfexternalstorage.h - ExternalStorage
+  qfexternalstorage.h - QfExternalStorage
 
  ---------------------
  begin                : 07.04.2025
@@ -24,7 +24,7 @@
 /**
  * \ingroup core
  */
-class ExternalStorage : public QObject
+class QfExternalStorage : public QObject
 {
     Q_OBJECT
 
@@ -35,7 +35,7 @@ class ExternalStorage : public QObject
     Q_PROPERTY( QString fetchedContent READ fetchedContent NOTIFY fetchedContentChanged )
 
   public:
-    explicit ExternalStorage( QObject *parent = nullptr );
+    explicit QfExternalStorage( QObject *parent = nullptr );
 
     /**
      * Returns the current status of the external storage object. When a fetch operation has been triggered,

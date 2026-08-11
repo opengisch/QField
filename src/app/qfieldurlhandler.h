@@ -20,20 +20,20 @@
 
 #include <QObject>
 
-class AppInterface;
+class QfAppInterface;
 
 class QFieldUrlHandler : public QObject
 {
     Q_OBJECT
 
   public:
-    QFieldUrlHandler( AppInterface *iface = nullptr, QObject *parent = nullptr );
+    QFieldUrlHandler( QfAppInterface *iface = nullptr, QObject *parent = nullptr );
 
   public slots:
     void handleUrl( const QUrl &url );
 
   private:
-    AppInterface *mIface = nullptr;
+    QfAppInterface *mIface = nullptr;
 };
 
 #endif // QFIELDURLHANDLER_H

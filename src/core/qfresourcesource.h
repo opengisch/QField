@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfresourcesource.h - ResourceSource
+  qfresourcesource.h - QfResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -23,24 +23,24 @@
  * It should be subclassed and filled with platform specific code.
  * \ingroup core
  */
-class ResourceSource : public QObject
+class QfResourceSource : public QObject
 {
     Q_OBJECT
   public:
     /**
-     * Construct a new ResourceSource object.
+     * Construct a new QfResourceSource object.
      *
      * @note Subclasses which implement their own file dialog should provide an empty string for \a resourceFilePath and emit \a resourceReceived when appropriate.
      * @param parent Parent object
      * @param prefix The project folder. Base directory path for all relative paths.
      * @param resourceFilePath Suggested file path to permanently store the file. If the file is not existing yet, it must be an empty string.
      */
-    explicit ResourceSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &resourceFilePath = QString() );
+    explicit QfResourceSource( QObject *parent = nullptr, const QString &prefix = QString(), const QString &resourceFilePath = QString() );
 
     /**
-     * Destroy the ResourceSource object
+     * Destroy the QfResourceSource object
      */
-    virtual ~ResourceSource();
+    virtual ~QfResourceSource();
 
   signals:
 

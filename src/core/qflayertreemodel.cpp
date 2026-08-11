@@ -30,110 +30,110 @@
 #include <qgsvectorlayerfeaturecounter.h>
 #include <qgsvectortilelayer.h>
 
-FlatLayerTreeModel::FlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
+QfFlatLayerTreeModel::QfFlatLayerTreeModel( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mSourceModel( new FlatLayerTreeModelBase( layerTree, project, parent ) )
+  , mSourceModel( new QfFlatLayerTreeModelBase( layerTree, project, parent ) )
 {
   setSourceModel( mSourceModel );
-  connect( mSourceModel, &FlatLayerTreeModelBase::layersAdded, this, &FlatLayerTreeModel::layersAdded );
-  connect( mSourceModel, &FlatLayerTreeModelBase::layersRemoved, this, &FlatLayerTreeModel::layersRemoved );
-  connect( mSourceModel, &FlatLayerTreeModelBase::mapThemeChanged, this, &FlatLayerTreeModel::mapThemeChanged );
-  connect( mSourceModel, &FlatLayerTreeModelBase::hasCollapsibleItemsChanged, this, &FlatLayerTreeModel::hasCollapsibleItemsChanged );
-  connect( mSourceModel, &FlatLayerTreeModelBase::isCollapsedChanged, this, &FlatLayerTreeModel::isCollapsedChanged );
-  connect( mSourceModel, &FlatLayerTreeModelBase::isTemporalChanged, this, &FlatLayerTreeModel::isTemporalChanged );
-  connect( mSourceModel, &FlatLayerTreeModelBase::isFrozenChanged, this, &FlatLayerTreeModel::isFrozenChanged );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::layersAdded, this, &QfFlatLayerTreeModel::layersAdded );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::layersRemoved, this, &QfFlatLayerTreeModel::layersRemoved );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::mapThemeChanged, this, &QfFlatLayerTreeModel::mapThemeChanged );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::hasCollapsibleItemsChanged, this, &QfFlatLayerTreeModel::hasCollapsibleItemsChanged );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::isCollapsedChanged, this, &QfFlatLayerTreeModel::isCollapsedChanged );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::isTemporalChanged, this, &QfFlatLayerTreeModel::isTemporalChanged );
+  connect( mSourceModel, &QfFlatLayerTreeModelBase::isFrozenChanged, this, &QfFlatLayerTreeModel::isFrozenChanged );
 }
 
-QVariant FlatLayerTreeModel::data( const QModelIndex &index, int role ) const
+QVariant QfFlatLayerTreeModel::data( const QModelIndex &index, int role ) const
 {
   return QSortFilterProxyModel::data( index, role );
 }
 
-bool FlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfFlatLayerTreeModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   return QSortFilterProxyModel::setData( index, value, role );
 }
 
-QString FlatLayerTreeModel::mapTheme() const
+QString QfFlatLayerTreeModel::mapTheme() const
 {
   return mSourceModel->mapTheme();
 }
 
-void FlatLayerTreeModel::setMapTheme( const QString &mapTheme )
+void QfFlatLayerTreeModel::setMapTheme( const QString &mapTheme )
 {
   mSourceModel->setMapTheme( mapTheme );
 }
 
-bool FlatLayerTreeModel::isTemporal() const
+bool QfFlatLayerTreeModel::isTemporal() const
 {
   return mSourceModel->isTemporal();
 }
 
-void FlatLayerTreeModel::updateCurrentMapTheme()
+void QfFlatLayerTreeModel::updateCurrentMapTheme()
 {
   mSourceModel->updateCurrentMapTheme();
 }
 
-bool FlatLayerTreeModel::isFrozen() const
+bool QfFlatLayerTreeModel::isFrozen() const
 {
   return mSourceModel->isFrozen();
 }
 
-void FlatLayerTreeModel::freeze()
+void QfFlatLayerTreeModel::freeze()
 {
   mSourceModel->freeze();
 }
 
-void FlatLayerTreeModel::unfreeze( bool resetModel )
+void QfFlatLayerTreeModel::unfreeze( bool resetModel )
 {
   mSourceModel->unfreeze( resetModel );
 }
 
-void FlatLayerTreeModel::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )
+void QfFlatLayerTreeModel::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )
 {
   mSourceModel->setLayerInTracking( nodeLayer, tracking );
 }
 
-QgsProject *FlatLayerTreeModel::project() const
+QgsProject *QfFlatLayerTreeModel::project() const
 {
   return mSourceModel->project();
 }
 
-QgsLayerTreeModel *FlatLayerTreeModel::layerTreeModel() const
+QgsLayerTreeModel *QfFlatLayerTreeModel::layerTreeModel() const
 {
   return mSourceModel->layerTreeModel();
 }
 
-QgsLayerTree *FlatLayerTreeModel::layerTree() const
+QgsLayerTree *QfFlatLayerTreeModel::layerTree() const
 {
   return mSourceModel->layerTree();
 }
 
-bool FlatLayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
+bool QfFlatLayerTreeModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
-  return !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), FlatLayerTreeModel::IsParentCollapsed ).toBool();
+  return !mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QfFlatLayerTreeModel::IsParentCollapsed ).toBool();
 }
 
-QgsRectangle FlatLayerTreeModel::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
+QgsRectangle QfFlatLayerTreeModel::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
 {
   return mSourceModel->nodeExtent( mapToSource( index ), mapSettings, buffer );
 }
 
-void FlatLayerTreeModel::setAllCollapsed( bool collapsed )
+void QfFlatLayerTreeModel::setAllCollapsed( bool collapsed )
 {
   mSourceModel->setAllCollapsed( collapsed );
 }
 
-bool FlatLayerTreeModel::hasCollapsibleItems() const
+bool QfFlatLayerTreeModel::hasCollapsibleItems() const
 {
   return mSourceModel->hasCollapsibleItems();
 }
-bool FlatLayerTreeModel::isCollapsed() const
+bool QfFlatLayerTreeModel::isCollapsed() const
 {
   return mSourceModel->isCollapsed();
 }
 
-FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
+QfFlatLayerTreeModelBase::QfFlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProject *project, QObject *parent )
   : QAbstractProxyModel( parent )
   , mProject( project )
 {
@@ -169,22 +169,22 @@ FlatLayerTreeModelBase::FlatLayerTreeModelBase( QgsLayerTree *layerTree, QgsProj
   connect( mLayerTreeModel, &QAbstractItemModel::dataChanged, this, [this]( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles ) {
     updateMap( topLeft, bottomRight, roles );
   } );
-  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &FlatLayerTreeModelBase::removeFromMap );
-  connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &FlatLayerTreeModelBase::insertInMap );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsRemoved, this, &QfFlatLayerTreeModelBase::removeFromMap );
+  connect( mLayerTreeModel, &QAbstractItemModel::rowsInserted, this, &QfFlatLayerTreeModelBase::insertInMap );
 }
 
-bool FlatLayerTreeModelBase::isFrozen() const
+bool QfFlatLayerTreeModelBase::isFrozen() const
 {
   return mFrozen > 0;
 }
 
-void FlatLayerTreeModelBase::freeze()
+void QfFlatLayerTreeModelBase::freeze()
 {
   mFrozen++;
   emit isFrozenChanged();
 }
 
-void FlatLayerTreeModelBase::unfreeze( bool resetModel )
+void QfFlatLayerTreeModelBase::unfreeze( bool resetModel )
 {
   mFrozen = 0;
   emit isFrozenChanged();
@@ -195,7 +195,7 @@ void FlatLayerTreeModelBase::unfreeze( bool resetModel )
   }
 }
 
-void FlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
+void QfFlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
   if ( mFrozen )
     return;
@@ -204,11 +204,11 @@ void FlatLayerTreeModelBase::updateMap( const QModelIndex &topLeft, const QModel
   QModelIndex modifiedIndex = mapFromSource( topLeft );
   if ( modifiedIndex.isValid() )
   {
-    emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << Qt::DisplayRole << FlatLayerTreeModel::Name << FlatLayerTreeModel::FeatureCount << FlatLayerTreeModel::Visible );
+    emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << Qt::DisplayRole << QfFlatLayerTreeModel::Name << QfFlatLayerTreeModel::FeatureCount << QfFlatLayerTreeModel::Visible );
   }
 }
 
-void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, int last )
+void QfFlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, int last )
 {
   if ( mFrozen )
     return;
@@ -302,7 +302,7 @@ void FlatLayerTreeModelBase::insertInMap( const QModelIndex &parent, int first, 
   }
 }
 
-void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first, int last )
+void QfFlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first, int last )
 {
   if ( mFrozen )
     return;
@@ -405,7 +405,7 @@ void FlatLayerTreeModelBase::removeFromMap( const QModelIndex &parent, int first
   }
 }
 
-void FlatLayerTreeModelBase::clearMap()
+void QfFlatLayerTreeModelBase::clearMap()
 {
   if ( mIsTemporal )
   {
@@ -421,7 +421,7 @@ void FlatLayerTreeModelBase::clearMap()
   endResetModel();
 }
 
-int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
+int QfFlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelIndex &parent, int row, int treeLevel )
 {
   if ( mFrozen )
   {
@@ -502,46 +502,46 @@ int FlatLayerTreeModelBase::buildMap( QgsLayerTreeModel *model, const QModelInde
   return row;
 }
 
-void FlatLayerTreeModelBase::setSourceModel( QAbstractItemModel *sourceModel )
+void QfFlatLayerTreeModelBase::setSourceModel( QAbstractItemModel *sourceModel )
 {
   QAbstractProxyModel::setSourceModel( sourceModel );
   buildMap( mLayerTreeModel );
 }
 
-QModelIndex FlatLayerTreeModelBase::mapToSource( const QModelIndex &proxyIndex ) const
+QModelIndex QfFlatLayerTreeModelBase::mapToSource( const QModelIndex &proxyIndex ) const
 {
   if ( !proxyIndex.isValid() || !mIndexMap.contains( proxyIndex.row() ) )
     return QModelIndex();
   return mIndexMap[proxyIndex.row()];
 }
 
-QModelIndex FlatLayerTreeModelBase::mapFromSource( const QModelIndex &sourceIndex ) const
+QModelIndex QfFlatLayerTreeModelBase::mapFromSource( const QModelIndex &sourceIndex ) const
 {
   if ( !mRowMap.contains( sourceIndex ) )
     return QModelIndex();
   return createIndex( mRowMap[sourceIndex], sourceIndex.column() );
 }
 
-QModelIndex FlatLayerTreeModelBase::parent( const QModelIndex &child ) const
+QModelIndex QfFlatLayerTreeModelBase::parent( const QModelIndex &child ) const
 {
   Q_UNUSED( child )
   return QModelIndex();
 }
-int FlatLayerTreeModelBase::columnCount( const QModelIndex &parent ) const
+int QfFlatLayerTreeModelBase::columnCount( const QModelIndex &parent ) const
 {
   return sourceModel()->columnCount( mapToSource( parent ) );
 }
-int FlatLayerTreeModelBase::rowCount( const QModelIndex &parent ) const
+int QfFlatLayerTreeModelBase::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mRowMap.size() ) : 0;
 }
 
-QModelIndex FlatLayerTreeModelBase::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex QfFlatLayerTreeModelBase::index( int row, int column, const QModelIndex &parent ) const
 {
   return !parent.isValid() ? createIndex( row, column ) : QModelIndex();
 }
 
-QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfFlatLayerTreeModelBase::data( const QModelIndex &index, int role ) const
 {
   if ( mFrozen )
     return QVariant();
@@ -552,7 +552,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
 
   switch ( role )
   {
-    case FlatLayerTreeModel::VectorLayerPointer:
+    case QfFlatLayerTreeModel::VectorLayerPointer:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -572,7 +572,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       }
     }
 
-    case FlatLayerTreeModel::MapLayerPointer:
+    case QfFlatLayerTreeModel::MapLayerPointer:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -593,7 +593,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       }
     }
 
-    case FlatLayerTreeModel::HasSpatialExtent:
+    case QfFlatLayerTreeModel::HasSpatialExtent:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -645,7 +645,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::LegendImage:
+    case QfFlatLayerTreeModel::LegendImage:
     {
       QString id;
       if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
@@ -714,29 +714,29 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return id;
     }
 
-    case FlatLayerTreeModel::Type:
+    case QfFlatLayerTreeModel::Type:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
       {
-        return FlatLayerTreeModel::Layer;
+        return QfFlatLayerTreeModel::Layer;
       }
       else if ( QgsLayerTree::isGroup( node ) )
       {
-        return FlatLayerTreeModel::Group;
+        return QfFlatLayerTreeModel::Group;
       }
       else if ( QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex ) )
       {
         if ( qobject_cast<QgsWmsLegendNode *>( legendNode ) || qobject_cast<QgsImageLegendNode *>( legendNode ) )
         {
-          return FlatLayerTreeModel::Image;
+          return QfFlatLayerTreeModel::Image;
         }
       }
 
-      return FlatLayerTreeModel::Legend;
+      return QfFlatLayerTreeModel::Legend;
     }
 
-    case FlatLayerTreeModel::LayerType:
+    case QfFlatLayerTreeModel::LayerType:
     {
       QgsMapLayer *layer = nullptr;
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
@@ -787,7 +787,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return layerType;
     }
 
-    case FlatLayerTreeModel::Name:
+    case QfFlatLayerTreeModel::Name:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QString name;
@@ -796,7 +796,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         name = node->name();
         if ( node->customProperty( QStringLiteral( "showFeatureCount" ), 0 ).toInt() )
         {
-          int count = data( index, FlatLayerTreeModel::FeatureCount ).toInt();
+          int count = data( index, QfFlatLayerTreeModel::FeatureCount ).toInt();
           name += QStringLiteral( " [%1]" ).arg( count );
         }
       }
@@ -808,7 +808,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return name;
     }
 
-    case FlatLayerTreeModel::Visible:
+    case QfFlatLayerTreeModel::Visible:
     {
       QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( sym )
@@ -829,7 +829,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       }
     }
 
-    case FlatLayerTreeModel::Trackable:
+    case QfFlatLayerTreeModel::Trackable:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -844,7 +844,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::InTracking:
+    case QfFlatLayerTreeModel::InTracking:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -855,7 +855,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::ReadOnly:
+    case QfFlatLayerTreeModel::ReadOnly:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -871,7 +871,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::FeatureAdditionLocked:
+    case QfFlatLayerTreeModel::FeatureAdditionLocked:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -889,7 +889,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::AttributeEditingLocked:
+    case QfFlatLayerTreeModel::AttributeEditingLocked:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -905,7 +905,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::GeometryEditingLocked:
+    case QfFlatLayerTreeModel::GeometryEditingLocked:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -921,7 +921,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::FeatureDeletionLocked:
+    case QfFlatLayerTreeModel::FeatureDeletionLocked:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -937,7 +937,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::CanReloadData:
+    case QfFlatLayerTreeModel::CanReloadData:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
 
@@ -954,12 +954,12 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
     }
 
 
-    case FlatLayerTreeModel::TreeLevel:
+    case QfFlatLayerTreeModel::TreeLevel:
     {
       return mTreeLevelMap.contains( index.row() ) ? mTreeLevelMap[index.row()] : 0;
     }
 
-    case FlatLayerTreeModel::IsValid:
+    case QfFlatLayerTreeModel::IsValid:
     {
       QgsMapLayer *layer = nullptr;
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
@@ -986,7 +986,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return layer->isValid();
     }
 
-    case FlatLayerTreeModel::FeatureCount:
+    case QfFlatLayerTreeModel::FeatureCount:
     {
       QgsVectorLayer *layer = nullptr;
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
@@ -1012,7 +1012,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
         const long count = layer->featureCount( layer->renderer()->legendSymbolItems().at( 0 ).ruleKey() );
         if ( count == -1 )
         {
-          connect( layer, &QgsVectorLayer::symbolFeatureCountMapChanged, this, &FlatLayerTreeModelBase::featureCountChanged, Qt::UniqueConnection );
+          connect( layer, &QgsVectorLayer::symbolFeatureCountMapChanged, this, &QfFlatLayerTreeModelBase::featureCountChanged, Qt::UniqueConnection );
           layer->countSymbolFeatures();
         }
         return QVariant::fromValue<long>( count );
@@ -1020,12 +1020,12 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QVariant::fromValue<long>( layer->featureCount() );
     }
 
-    case FlatLayerTreeModel::IsCollapsed:
+    case QfFlatLayerTreeModel::IsCollapsed:
     {
       return mCollapsedItems.contains( sourceIndex );
     }
 
-    case FlatLayerTreeModel::IsParentCollapsed:
+    case QfFlatLayerTreeModel::IsParentCollapsed:
     {
       QModelIndex currentIndex = sourceIndex;
       while ( currentIndex.isValid() )
@@ -1037,12 +1037,12 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::HasChildren:
+    case QfFlatLayerTreeModel::HasChildren:
     {
       return mTreeLevelMap.contains( index.row() + 1 ) && mTreeLevelMap[index.row() + 1] > mTreeLevelMap[index.row()];
     }
 
-    case FlatLayerTreeModel::HasLabels:
+    case QfFlatLayerTreeModel::HasLabels:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1061,7 +1061,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::LabelsVisible:
+    case QfFlatLayerTreeModel::LabelsVisible:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1080,7 +1080,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::Opacity:
+    case QfFlatLayerTreeModel::Opacity:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsMapLayer *layer = nullptr;
@@ -1099,7 +1099,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return layer->opacity();
     }
 
-    case FlatLayerTreeModel::FilterExpression:
+    case QfFlatLayerTreeModel::FilterExpression:
     {
       QgsLayerTreeModelLegendNode *node = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( QgsSymbolLegendNode *symbolNode = qobject_cast<QgsSymbolLegendNode *>( node ) )
@@ -1115,7 +1115,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QString();
     }
 
-    case FlatLayerTreeModel::Credits:
+    case QfFlatLayerTreeModel::Credits:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsMapLayer *layer = nullptr;
@@ -1139,7 +1139,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QVariant();
     }
 
-    case FlatLayerTreeModel::SnappingEnabled:
+    case QfFlatLayerTreeModel::SnappingEnabled:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1155,7 +1155,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::HasNotes:
+    case QfFlatLayerTreeModel::HasNotes:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1167,7 +1167,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return false;
     }
 
-    case FlatLayerTreeModel::Notes:
+    case QfFlatLayerTreeModel::Notes:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1179,7 +1179,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
       return QString();
     }
 
-    case FlatLayerTreeModel::Checkable:
+    case QfFlatLayerTreeModel::Checkable:
     {
       QgsLayerTreeModelLegendNode *legendNode = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( legendNode )
@@ -1195,7 +1195,7 @@ QVariant FlatLayerTreeModelBase::data( const QModelIndex &index, int role ) cons
   }
 }
 
-bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfFlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   const QModelIndex sourceIndex = mapToSource( index );
   if ( !sourceIndex.isValid() )
@@ -1203,7 +1203,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
 
   switch ( role )
   {
-    case FlatLayerTreeModel::Visible:
+    case QfFlatLayerTreeModel::Visible:
     {
       QgsLayerTreeModelLegendNode *sym = mLayerTreeModel->index2legendNode( sourceIndex );
       if ( sym )
@@ -1223,11 +1223,11 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
       while ( mTreeLevelMap.contains( endRow + 1 ) && mTreeLevelMap[endRow + 1] > treeLevel )
         endRow++;
 
-      emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << FlatLayerTreeModel::Visible );
+      emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << QfFlatLayerTreeModel::Visible );
       return true;
     }
 
-    case FlatLayerTreeModel::LabelsVisible:
+    case QfFlatLayerTreeModel::LabelsVisible:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1242,7 +1242,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           vectorLayer->emitStyleChanged();
           vectorLayer->triggerRepaint();
 
-          emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
+          emit dataChanged( index, index, QVector<int>() << QfFlatLayerTreeModel::LabelsVisible );
           return true;
         }
         else if ( QgsVectorTileLayer *vectorTileLayer = qobject_cast<QgsVectorTileLayer *>( nodeLayer->layer() ) )
@@ -1254,7 +1254,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           vectorTileLayer->emitStyleChanged();
           vectorTileLayer->triggerRepaint();
 
-          emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::LabelsVisible );
+          emit dataChanged( index, index, QVector<int>() << QfFlatLayerTreeModel::LabelsVisible );
           return true;
         }
       }
@@ -1262,7 +1262,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
       return false;
     }
 
-    case FlatLayerTreeModel::IsCollapsed:
+    case QfFlatLayerTreeModel::IsCollapsed:
     {
       const bool collapsed = value.toBool();
       if ( collapsed && !mCollapsedItems.contains( sourceIndex ) )
@@ -1286,12 +1286,12 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
         endRow++;
       }
 
-      emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << FlatLayerTreeModel::IsCollapsed << FlatLayerTreeModel::IsParentCollapsed );
+      emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << QfFlatLayerTreeModel::IsCollapsed << QfFlatLayerTreeModel::IsParentCollapsed );
       checkIsCollapsed();
       return true;
     }
 
-    case FlatLayerTreeModel::Opacity:
+    case QfFlatLayerTreeModel::Opacity:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       QgsMapLayer *layer = nullptr;
@@ -1308,11 +1308,11 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
       layer->emitStyleChanged();
       layer->triggerRepaint();
 
-      emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::Opacity );
+      emit dataChanged( index, index, QVector<int>() << QfFlatLayerTreeModel::Opacity );
       return true;
     }
 
-    case FlatLayerTreeModel::SnappingEnabled:
+    case QfFlatLayerTreeModel::SnappingEnabled:
     {
       QgsLayerTreeNode *node = mLayerTreeModel->index2node( sourceIndex );
       if ( QgsLayerTree::isLayer( node ) )
@@ -1325,7 +1325,7 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
           settings.setEnabled( !settings.enabled() );
           snappingConfig.setIndividualLayerSettings( layer, settings );
           mProject->setSnappingConfig( snappingConfig );
-          emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::SnappingEnabled );
+          emit dataChanged( index, index, QVector<int>() << QfFlatLayerTreeModel::SnappingEnabled );
           return true;
         }
       }
@@ -1339,68 +1339,68 @@ bool FlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant &
   BUILTIN_UNREACHABLE
 }
 
-void FlatLayerTreeModelBase::featureCountChanged()
+void QfFlatLayerTreeModelBase::featureCountChanged()
 {
-  emit dataChanged( createIndex( 0, 0 ), createIndex( rowCount() - 1, 0 ), QVector<int>() << FlatLayerTreeModel::Name << FlatLayerTreeModel::FeatureCount );
+  emit dataChanged( createIndex( 0, 0 ), createIndex( rowCount() - 1, 0 ), QVector<int>() << QfFlatLayerTreeModel::Name << QfFlatLayerTreeModel::FeatureCount );
 }
 
-QHash<int, QByteArray> FlatLayerTreeModelBase::roleNames() const
+QHash<int, QByteArray> QfFlatLayerTreeModelBase::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QAbstractProxyModel::roleNames();
-  roleNames[FlatLayerTreeModel::VectorLayerPointer] = "VectorLayerPointer";
-  roleNames[FlatLayerTreeModel::MapLayerPointer] = "MapLayerPointer";
-  roleNames[FlatLayerTreeModel::HasSpatialExtent] = "HasSpatialExtent";
-  roleNames[FlatLayerTreeModel::LegendImage] = "LegendImage";
-  roleNames[FlatLayerTreeModel::Visible] = "Visible";
-  roleNames[FlatLayerTreeModel::Type] = "Type";
-  roleNames[FlatLayerTreeModel::Name] = "Name";
-  roleNames[FlatLayerTreeModel::InTracking] = "InTracking";
-  roleNames[FlatLayerTreeModel::ReadOnly] = "ReadOnly";
-  roleNames[FlatLayerTreeModel::FeatureAdditionLocked] = "FeatureAdditionLocked";
-  roleNames[FlatLayerTreeModel::AttributeEditingLocked] = "AttributeEditingLocked";
-  roleNames[FlatLayerTreeModel::GeometryEditingLocked] = "GeometryEditingLocked";
-  roleNames[FlatLayerTreeModel::FeatureDeletionLocked] = "FeatureDeletionLocked";
-  roleNames[FlatLayerTreeModel::TreeLevel] = "TreeLevel";
-  roleNames[FlatLayerTreeModel::LayerType] = "LayerType";
-  roleNames[FlatLayerTreeModel::IsValid] = "IsValid";
-  roleNames[FlatLayerTreeModel::FeatureCount] = "FeatureCount";
-  roleNames[FlatLayerTreeModel::IsCollapsed] = "IsCollapsed";
-  roleNames[FlatLayerTreeModel::IsParentCollapsed] = "IsParentCollapsed";
-  roleNames[FlatLayerTreeModel::HasChildren] = "HasChildren";
-  roleNames[FlatLayerTreeModel::CanReloadData] = "CanReloadData";
-  roleNames[FlatLayerTreeModel::HasLabels] = "HasLabels";
-  roleNames[FlatLayerTreeModel::LabelsVisible] = "LabelsVisible";
-  roleNames[FlatLayerTreeModel::Opacity] = "Opacity";
-  roleNames[FlatLayerTreeModel::FilterExpression] = "FilterExpression";
-  roleNames[FlatLayerTreeModel::Credits] = "Credits";
-  roleNames[FlatLayerTreeModel::SnappingEnabled] = "SnappingEnabled";
-  roleNames[FlatLayerTreeModel::HasNotes] = "HasNotes";
-  roleNames[FlatLayerTreeModel::Notes] = "Notes";
-  roleNames[FlatLayerTreeModel::Checkable] = "Checkable";
+  roleNames[QfFlatLayerTreeModel::VectorLayerPointer] = "VectorLayerPointer";
+  roleNames[QfFlatLayerTreeModel::MapLayerPointer] = "MapLayerPointer";
+  roleNames[QfFlatLayerTreeModel::HasSpatialExtent] = "HasSpatialExtent";
+  roleNames[QfFlatLayerTreeModel::LegendImage] = "LegendImage";
+  roleNames[QfFlatLayerTreeModel::Visible] = "Visible";
+  roleNames[QfFlatLayerTreeModel::Type] = "Type";
+  roleNames[QfFlatLayerTreeModel::Name] = "Name";
+  roleNames[QfFlatLayerTreeModel::InTracking] = "InTracking";
+  roleNames[QfFlatLayerTreeModel::ReadOnly] = "ReadOnly";
+  roleNames[QfFlatLayerTreeModel::FeatureAdditionLocked] = "FeatureAdditionLocked";
+  roleNames[QfFlatLayerTreeModel::AttributeEditingLocked] = "AttributeEditingLocked";
+  roleNames[QfFlatLayerTreeModel::GeometryEditingLocked] = "GeometryEditingLocked";
+  roleNames[QfFlatLayerTreeModel::FeatureDeletionLocked] = "FeatureDeletionLocked";
+  roleNames[QfFlatLayerTreeModel::TreeLevel] = "TreeLevel";
+  roleNames[QfFlatLayerTreeModel::LayerType] = "LayerType";
+  roleNames[QfFlatLayerTreeModel::IsValid] = "IsValid";
+  roleNames[QfFlatLayerTreeModel::FeatureCount] = "FeatureCount";
+  roleNames[QfFlatLayerTreeModel::IsCollapsed] = "IsCollapsed";
+  roleNames[QfFlatLayerTreeModel::IsParentCollapsed] = "IsParentCollapsed";
+  roleNames[QfFlatLayerTreeModel::HasChildren] = "HasChildren";
+  roleNames[QfFlatLayerTreeModel::CanReloadData] = "CanReloadData";
+  roleNames[QfFlatLayerTreeModel::HasLabels] = "HasLabels";
+  roleNames[QfFlatLayerTreeModel::LabelsVisible] = "LabelsVisible";
+  roleNames[QfFlatLayerTreeModel::Opacity] = "Opacity";
+  roleNames[QfFlatLayerTreeModel::FilterExpression] = "FilterExpression";
+  roleNames[QfFlatLayerTreeModel::Credits] = "Credits";
+  roleNames[QfFlatLayerTreeModel::SnappingEnabled] = "SnappingEnabled";
+  roleNames[QfFlatLayerTreeModel::HasNotes] = "HasNotes";
+  roleNames[QfFlatLayerTreeModel::Notes] = "Notes";
+  roleNames[QfFlatLayerTreeModel::Checkable] = "Checkable";
   return roleNames;
 }
 
-QgsProject *FlatLayerTreeModelBase::project() const
+QgsProject *QfFlatLayerTreeModelBase::project() const
 {
   return mProject;
 }
 
-QgsLayerTreeModel *FlatLayerTreeModelBase::layerTreeModel() const
+QgsLayerTreeModel *QfFlatLayerTreeModelBase::layerTreeModel() const
 {
   return mLayerTreeModel;
 }
 
-QgsLayerTree *FlatLayerTreeModelBase::layerTree() const
+QgsLayerTree *QfFlatLayerTreeModelBase::layerTree() const
 {
   return mLayerTreeModel->rootGroup();
 }
 
-QString FlatLayerTreeModelBase::mapTheme() const
+QString QfFlatLayerTreeModelBase::mapTheme() const
 {
   return mMapTheme;
 }
 
-void FlatLayerTreeModelBase::setMapTheme( const QString &mapTheme )
+void QfFlatLayerTreeModelBase::setMapTheme( const QString &mapTheme )
 {
   if ( mMapTheme == mapTheme )
     return;
@@ -1415,7 +1415,7 @@ void FlatLayerTreeModelBase::setMapTheme( const QString &mapTheme )
   }
 }
 
-void FlatLayerTreeModelBase::updateCurrentMapTheme()
+void QfFlatLayerTreeModelBase::updateCurrentMapTheme()
 {
   mMapTheme.clear();
 
@@ -1433,7 +1433,7 @@ void FlatLayerTreeModelBase::updateCurrentMapTheme()
   }
 }
 
-void FlatLayerTreeModelBase::updateTemporalState()
+void QfFlatLayerTreeModelBase::updateTemporalState()
 {
   mIsTemporal = false;
   const QVector<QgsMapLayer *> mapLayers = mProject->layers<QgsMapLayer *>();
@@ -1444,7 +1444,7 @@ void FlatLayerTreeModelBase::updateTemporalState()
   emit isTemporalChanged();
 }
 
-void FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers )
+void QfFlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers( const QList<QgsMapLayer *> &layers )
 {
   if ( !mIsTemporal && std::any_of( layers.begin(), layers.end(), []( QgsMapLayer *layer ) { return layer->temporalProperties() && layer->temporalProperties()->isActive(); } ) )
   {
@@ -1453,7 +1453,7 @@ void FlatLayerTreeModelBase::adjustTemporalStateFromAddedLayers( const QList<Qgs
   }
 }
 
-void FlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )
+void QfFlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, bool tracking )
 {
   if ( tracking )
   {
@@ -1469,10 +1469,10 @@ void FlatLayerTreeModelBase::setLayerInTracking( QgsLayerTreeLayer *nodeLayer, b
   QModelIndex sourceIndex = mLayerTreeModel->node2index( node );
   QModelIndex index = mapFromSource( sourceIndex );
 
-  emit dataChanged( index, index, QVector<int>() << FlatLayerTreeModel::InTracking );
+  emit dataChanged( index, index, QVector<int>() << QfFlatLayerTreeModel::InTracking );
 }
 
-QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
+QgsRectangle QfFlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQuickMapSettings *mapSettings, const float buffer )
 {
   QgsRectangle extent;
   extent.setNull();
@@ -1568,7 +1568,7 @@ QgsRectangle FlatLayerTreeModelBase::nodeExtent( const QModelIndex &index, QgsQu
   return extent;
 }
 
-void FlatLayerTreeModelBase::setAllCollapsed( bool collapsed )
+void QfFlatLayerTreeModelBase::setAllCollapsed( bool collapsed )
 {
   if ( !mHasCollapsibleItems || mIsCollapsed == collapsed )
   {
@@ -1588,28 +1588,28 @@ void FlatLayerTreeModelBase::setAllCollapsed( bool collapsed )
     for ( int i = start; i != end; i += step )
     {
       const QModelIndex idx = index( i, 0 );
-      if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() && data( idx, FlatLayerTreeModel::IsCollapsed ).toBool() != collapsed )
+      if ( data( idx, QfFlatLayerTreeModel::HasChildren ).toBool() && data( idx, QfFlatLayerTreeModel::IsCollapsed ).toBool() != collapsed )
       {
-        setData( idx, collapsed, FlatLayerTreeModel::IsCollapsed );
+        setData( idx, collapsed, QfFlatLayerTreeModel::IsCollapsed );
         anyChanged = true;
       }
     }
   }
 }
 
-bool FlatLayerTreeModelBase::hasCollapsibleItems() const
+bool QfFlatLayerTreeModelBase::hasCollapsibleItems() const
 {
   return mHasCollapsibleItems;
 }
 
-void FlatLayerTreeModelBase::checkHasCollapsibleItems()
+void QfFlatLayerTreeModelBase::checkHasCollapsibleItems()
 {
   bool hasCollpasibleItems = false;
   const int count = rowCount();
   for ( int i = 0; i < count; i++ )
   {
     const QModelIndex idx = index( i, 0 );
-    if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() )
+    if ( data( idx, QfFlatLayerTreeModel::HasChildren ).toBool() )
     {
       hasCollpasibleItems = true;
       break;
@@ -1623,12 +1623,12 @@ void FlatLayerTreeModelBase::checkHasCollapsibleItems()
   }
 }
 
-bool FlatLayerTreeModelBase::isCollapsed() const
+bool QfFlatLayerTreeModelBase::isCollapsed() const
 {
   return mIsCollapsed;
 }
 
-void FlatLayerTreeModelBase::checkIsCollapsed()
+void QfFlatLayerTreeModelBase::checkIsCollapsed()
 {
   bool isCollapsed = false;
   if ( mHasCollapsibleItems )
@@ -1638,9 +1638,9 @@ void FlatLayerTreeModelBase::checkIsCollapsed()
     for ( int i = 0; i < count; i++ )
     {
       const QModelIndex idx = index( i, 0 );
-      if ( data( idx, FlatLayerTreeModel::HasChildren ).toBool() && data( idx, FlatLayerTreeModel::TreeLevel ).toInt() == 0 )
+      if ( data( idx, QfFlatLayerTreeModel::HasChildren ).toBool() && data( idx, QfFlatLayerTreeModel::TreeLevel ).toInt() == 0 )
       {
-        if ( !data( idx, FlatLayerTreeModel::IsCollapsed ).toBool() )
+        if ( !data( idx, QfFlatLayerTreeModel::IsCollapsed ).toBool() )
         {
           isCollapsed = false;
           break;

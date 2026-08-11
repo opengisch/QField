@@ -23,12 +23,12 @@
 
 #include <QJniObject>
 
-class AndroidPlatformUtilities : public PlatformUtilities
+class QfAndroidPlatformUtilities : public QfPlatformUtilities
 {
   public:
-    AndroidPlatformUtilities();
+    QfAndroidPlatformUtilities();
 
-    PlatformUtilities::Capabilities capabilities() const override;
+    QfPlatformUtilities::Capabilities capabilities() const override;
     void afterUpdate() override;
     QString systemSharedDataLocation() const override;
 
@@ -57,13 +57,13 @@ class AndroidPlatformUtilities : public PlatformUtilities
     void sendCompressedFolderTo( const QString &path ) const override;
     void removeFolder( const QString &path ) const override;
 
-    ResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr ) override;
-    ResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr ) override;
-    ResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
-    ResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
-    ResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr ) override;
+    QfResourceSource *getCameraPicture( const QString &prefix, const QString &pictureFilePath, const QString &suffix, QObject *parent = nullptr ) override;
+    QfResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr ) override;
+    QfResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
+    QfResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
+    QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr ) override;
 
-    ViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
+    QfViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
 
     void requestStoragePermission() const override;
     bool checkPositioningPermissions() const override;
@@ -79,7 +79,7 @@ class AndroidPlatformUtilities : public PlatformUtilities
 
     double systemFontPointSize() const override { return 16.0; }
 
-    void uploadPendingAttachments( QFieldCloudConnection *connection ) const override;
+    void uploadPendingAttachments( QfCloudConnection *connection ) const override;
 
     bool isSystemDarkTheme() const override;
 
@@ -93,8 +93,8 @@ class AndroidPlatformUtilities : public PlatformUtilities
   private:
     // separate multiple permissions using a semi-column (;)
     bool checkAndAcquirePermissions( QStringList permissions, bool forceAsk = false ) const;
-    ResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent = nullptr );
-    ResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr );
+    QfResourceSource *processCameraActivity( const QString &prefix, const QString &filePath, const QString &suffix, bool isVideo, QObject *parent = nullptr );
+    QfResourceSource *processGalleryActivity( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr );
 
     QString getIntentExtra( const QString &, QJniObject = nullptr ) const;
 

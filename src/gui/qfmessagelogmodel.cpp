@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfmessagelogmodel.cpp - MessageLogModel
+  qfmessagelogmodel.cpp - QfMessageLogModel
 
  ---------------------
  begin                : 13.7.2016
@@ -18,14 +18,14 @@
 #include <QDebug>
 #include <qgsapplication.h>
 
-MessageLogModel::MessageLogModel( QObject *parent )
+QfMessageLogModel::QfMessageLogModel( QObject *parent )
   : QAbstractListModel( parent )
   , mMessageLog( QgsApplication::messageLog() )
 {
-  connect( mMessageLog, static_cast<void ( QgsMessageLog::* )( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format )>( &QgsMessageLog::messageReceivedWithFormat ), this, &MessageLogModel::onMessageReceived );
+  connect( mMessageLog, static_cast<void ( QgsMessageLog::* )( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format )>( &QgsMessageLog::messageReceivedWithFormat ), this, &QfMessageLogModel::onMessageReceived );
 }
 
-QHash<int, QByteArray> MessageLogModel::roleNames() const
+QHash<int, QByteArray> QfMessageLogModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[MessageRole] = "Message";
@@ -36,13 +36,13 @@ QHash<int, QByteArray> MessageLogModel::roleNames() const
   return roles;
 }
 
-int MessageLogModel::rowCount( const QModelIndex &parent ) const
+int QfMessageLogModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mMessages.size() );
 }
 
-QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
+QVariant QfMessageLogModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mMessages.size() )
     return QVariant();
@@ -59,7 +59,7 @@ QVariant MessageLogModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-void MessageLogModel::suppress( const QVariantMap &filters )
+void QfMessageLogModel::suppress( const QVariantMap &filters )
 {
   for ( const QString &tags : filters.keys() )
   {
@@ -80,7 +80,7 @@ void MessageLogModel::suppress( const QVariantMap &filters )
   }
 }
 
-void MessageLogModel::unsuppress( const QVariantMap &filters )
+void QfMessageLogModel::unsuppress( const QVariantMap &filters )
 {
   for ( const QString &tags : filters.keys() )
   {
@@ -99,14 +99,14 @@ void MessageLogModel::unsuppress( const QVariantMap &filters )
   }
 }
 
-void MessageLogModel::clear()
+void QfMessageLogModel::clear()
 {
   beginResetModel();
   mMessages.clear();
   endResetModel();
 }
 
-void MessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format )
+void QfMessageLogModel::onMessageReceived( const QString &message, const QString &tag, Qgis::MessageLevel level, Qgis::StringFormat format )
 {
   if ( tag == QLatin1String( "3D" ) )
   {

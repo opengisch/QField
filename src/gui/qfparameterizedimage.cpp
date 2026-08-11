@@ -23,17 +23,17 @@
 #include <qgsimagecache.h>
 #include <qgssvgcache.h>
 
-ParameterizedImage::ParameterizedImage( QQuickItem *parent )
+QfParameterizedImage::QfParameterizedImage( QQuickItem *parent )
   : QQuickPaintedItem( parent )
 {
 }
 
-QString ParameterizedImage::source() const
+QString QfParameterizedImage::source() const
 {
   return mSource;
 }
 
-void ParameterizedImage::setSource( const QString &source )
+void QfParameterizedImage::setSource( const QString &source )
 {
   const QString adjustedSource = source.startsWith( QStringLiteral( "qrc:" ) ) ? source.mid( 3 ) : source;
   if ( mSource == adjustedSource )
@@ -61,12 +61,12 @@ void ParameterizedImage::setSource( const QString &source )
   }
 }
 
-QColor ParameterizedImage::fillColor() const
+QColor QfParameterizedImage::fillColor() const
 {
   return mFillColor;
 }
 
-void ParameterizedImage::setFillColor( const QColor &color )
+void QfParameterizedImage::setFillColor( const QColor &color )
 {
   if ( mFillColor == color )
     return;
@@ -78,12 +78,12 @@ void ParameterizedImage::setFillColor( const QColor &color )
     update();
 }
 
-QColor ParameterizedImage::strokeColor() const
+QColor QfParameterizedImage::strokeColor() const
 {
   return mStrokeColor;
 }
 
-void ParameterizedImage::setStrokeColor( const QColor &color )
+void QfParameterizedImage::setStrokeColor( const QColor &color )
 {
   if ( mStrokeColor == color )
     return;
@@ -95,12 +95,12 @@ void ParameterizedImage::setStrokeColor( const QColor &color )
     update();
 }
 
-double ParameterizedImage::strokeWidth() const
+double QfParameterizedImage::strokeWidth() const
 {
   return mStrokeWidth;
 }
 
-void ParameterizedImage::setStrokeWidth( double width )
+void QfParameterizedImage::setStrokeWidth( double width )
 {
   if ( mStrokeWidth == width )
     return;
@@ -112,12 +112,12 @@ void ParameterizedImage::setStrokeWidth( double width )
     update();
 }
 
-QVariantMap ParameterizedImage::parameters() const
+QVariantMap QfParameterizedImage::parameters() const
 {
   return mParameters;
 }
 
-void ParameterizedImage::setParameters( const QVariantMap &parameters )
+void QfParameterizedImage::setParameters( const QVariantMap &parameters )
 {
   if ( mParameters == parameters )
     return;
@@ -138,7 +138,7 @@ void ParameterizedImage::setParameters( const QVariantMap &parameters )
     update();
 }
 
-void ParameterizedImage::paint( QPainter *painter )
+void QfParameterizedImage::paint( QPainter *painter )
 {
   if ( !mIsValid )
     return;

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfexpressionvariablemodel.h - ExpressionVariableModel
+  qfexpressionvariablemodel.h - QfExpressionVariableModel
 
  ---------------------
  begin                : 29.9.2016
@@ -22,7 +22,7 @@
 /**
  * \ingroup core
  */
-class ExpressionVariableModel : public QStandardItemModel
+class QfExpressionVariableModel : public QStandardItemModel
 {
     Q_OBJECT
 
@@ -46,7 +46,7 @@ class ExpressionVariableModel : public QStandardItemModel
 
     Q_ENUM( VariableScope )
 
-    explicit ExpressionVariableModel( QObject *parent = nullptr );
+    explicit QfExpressionVariableModel( QObject *parent = nullptr );
 
     bool setData( const QModelIndex &index, const QVariant &value, int role ) override;
 

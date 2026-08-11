@@ -31,7 +31,7 @@
 
 TEST_CASE( "FeatureListModel validation checks" )
 {
-  FeatureListModel featureListModel;
+  QfFeatureListModel featureListModel;
 
   REQUIRE( featureListModel.rowCount() == 0 );
   REQUIRE_FALSE( featureListModel.getFeatureFromKeyValue( QVariant( 1 ) ).isValid() );
@@ -76,7 +76,7 @@ TEST_CASE( "FeatureListModel accent-insensitive search" )
   vectorLayerDummy->addFeature( otherFeature );
   vectorLayerDummy->commitChanges();
 
-  FeatureListModel featureListModel;
+  QfFeatureListModel featureListModel;
   featureListModel.setKeyField( QStringLiteral( "key" ) );
   featureListModel.setDisplayValueField( QStringLiteral( "name" ) );
   featureListModel.setCurrentLayer( vectorLayerDummy.get() );
@@ -104,7 +104,7 @@ TEST_CASE( "FeatureListModel accent-insensitive search" )
     }
 
     REQUIRE( featureListModel.rowCount() == 1 );
-    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString() == QString::fromUtf8( "Béziers" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString() == QString::fromUtf8( "Béziers" ) );
     REQUIRE( featureListModel.findKey( QVariant( 1 ) ) >= 0 );
   }
 }
@@ -154,7 +154,7 @@ TEST_CASE( "FeatureListModel behaviours" )
   vectorLayerDummy->addFeature( featureThree );
   vectorLayerDummy->commitChanges();
 
-  FeatureListModel featureListModel;
+  QfFeatureListModel featureListModel;
   featureListModel.setKeyField( QStringLiteral( "key" ) );
   featureListModel.setDisplayValueField( QStringLiteral( "name" ) );
   featureListModel.setGroupField( QStringLiteral( "grp" ) );
@@ -176,15 +176,15 @@ TEST_CASE( "FeatureListModel behaviours" )
     const int rowIndexForKeyOne = featureListModel.findKey( QVariant( 1 ) );
     REQUIRE( rowIndexForKeyOne >= 0 );
 
-    REQUIRE( featureListModel.dataFromRowIndex( rowIndexForKeyOne, FeatureListModel::KeyFieldRole ).toInt() == 1 );
-    REQUIRE( featureListModel.dataFromRowIndex( rowIndexForKeyOne, FeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "Two" ) );
-    REQUIRE( featureListModel.dataFromRowIndex( rowIndexForKeyOne, FeatureListModel::GroupFieldRole ).toString() == QStringLiteral( "A" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( rowIndexForKeyOne, QfFeatureListModel::KeyFieldRole ).toInt() == 1 );
+    REQUIRE( featureListModel.dataFromRowIndex( rowIndexForKeyOne, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "Two" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( rowIndexForKeyOne, QfFeatureListModel::GroupFieldRole ).toString() == QStringLiteral( "A" ) );
 
     const QgsFeature featureFetchedByKeyValue = featureListModel.getFeatureFromKeyValue( QVariant( 3 ) );
     REQUIRE( featureFetchedByKeyValue.isValid() );
     REQUIRE( featureFetchedByKeyValue.attribute( "name" ).toString() == QStringLiteral( "Three" ) );
 
-    const QgsFeatureId featureIdForKeyOne = featureListModel.dataFromRowIndex( rowIndexForKeyOne, FeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
+    const QgsFeatureId featureIdForKeyOne = featureListModel.dataFromRowIndex( rowIndexForKeyOne, QfFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
 
     const QgsFeature featureFetchedById = featureListModel.getFeatureById( featureIdForKeyOne );
     REQUIRE( featureFetchedById.isValid() );
@@ -196,8 +196,8 @@ TEST_CASE( "FeatureListModel behaviours" )
     const QList<int> matchedRowIndices = featureListModel.findDisplayValueMatches( QStringLiteral( " t " ) );
     REQUIRE( matchedRowIndices.size() == 2 );
 
-    const QString firstMatchLower = featureListModel.dataFromRowIndex( matchedRowIndices.at( 0 ), FeatureListModel::DisplayStringRole ).toString().trimmed().toLower();
-    const QString secondMatchLower = featureListModel.dataFromRowIndex( matchedRowIndices.at( 1 ), FeatureListModel::DisplayStringRole ).toString().trimmed().toLower();
+    const QString firstMatchLower = featureListModel.dataFromRowIndex( matchedRowIndices.at( 0 ), QfFeatureListModel::DisplayStringRole ).toString().trimmed().toLower();
+    const QString secondMatchLower = featureListModel.dataFromRowIndex( matchedRowIndices.at( 1 ), QfFeatureListModel::DisplayStringRole ).toString().trimmed().toLower();
 
     REQUIRE( firstMatchLower.startsWith( QStringLiteral( "t" ) ) );
     REQUIRE( secondMatchLower.startsWith( QStringLiteral( "t" ) ) );
@@ -215,7 +215,7 @@ TEST_CASE( "FeatureListModel behaviours" )
     }
 
     REQUIRE( featureListModel.rowCount() == 4 );
-    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "<i>NULL</i>" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "<i>NULL</i>" ) );
 
     // Current implementation, if key not found and addNull enabled -> returns 0
     REQUIRE( featureListModel.findKey( QVariant( 999 ) ) == 0 );
@@ -259,7 +259,7 @@ TEST_CASE( "FeatureListModel behaviours" )
     waitForSortTimer.start();
     while ( waitForSortTimer.elapsed() < maximumWaitTimeMilliseconds )
     {
-      const QString firstRowDisplayLower = featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower();
+      const QString firstRowDisplayLower = featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString().toLower();
       if ( firstRowDisplayLower == QStringLiteral( "three" ) )
       {
         break;
@@ -268,7 +268,7 @@ TEST_CASE( "FeatureListModel behaviours" )
       QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
     }
 
-    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
   }
 
   // orderByField behaviour (wait for sorted first item, not rowCount)
@@ -281,7 +281,7 @@ TEST_CASE( "FeatureListModel behaviours" )
     waitForSortTimer.start();
     while ( waitForSortTimer.elapsed() < maximumWaitTimeMilliseconds )
     {
-      const QString firstRowDisplayLower = featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString();
+      const QString firstRowDisplayLower = featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString();
       if ( firstRowDisplayLower == QStringLiteral( "one" ) )
       {
         break;
@@ -292,9 +292,9 @@ TEST_CASE( "FeatureListModel behaviours" )
 
     featureListModel.setGroupField( "grp" );
 
-    REQUIRE( featureListModel.dataFromRowIndex( 0, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "one" ) );
-    REQUIRE( featureListModel.dataFromRowIndex( 1, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
-    REQUIRE( featureListModel.dataFromRowIndex( 2, FeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "two" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "one" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 1, QfFeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "three" ) );
+    REQUIRE( featureListModel.dataFromRowIndex( 2, QfFeatureListModel::DisplayStringRole ).toString().toLower() == QStringLiteral( "two" ) );
   }
 
   // Layer change triggers reload (featureAdded gives reload)

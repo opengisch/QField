@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfntripsettings.h - NtripSettings
+  qfntripsettings.h - QfNtripSettings
  ---------------------
  begin                : 2026/05/14
  copyright            : (C) 2026 by Mathieu Pellerin
@@ -17,11 +17,11 @@
 
 #include <QVariantMap>
 
-NtripSettings::NtripSettings()
+QfNtripSettings::QfNtripSettings()
 {
 }
 
-bool NtripSettings::operator==( const NtripSettings &other ) const
+bool QfNtripSettings::operator==( const QfNtripSettings &other ) const
 {
   // clang-format off
   return mForwardNmeaSentences == other.mForwardNmeaSentences &&
@@ -34,48 +34,48 @@ bool NtripSettings::operator==( const NtripSettings &other ) const
   // clang-format on
 }
 
-bool NtripSettings::isValid() const
+bool QfNtripSettings::isValid() const
 {
   return mPort > 0 && !mHost.isEmpty() && !mMountPoint.isEmpty() && !mUsername.isEmpty() && !mPassword.isEmpty();
 }
 
-void NtripSettings::setHost( const QString &host )
+void QfNtripSettings::setHost( const QString &host )
 {
   mHost = host;
 }
 
 
-void NtripSettings::setPort( int port )
+void QfNtripSettings::setPort( int port )
 {
   mPort = port;
 }
 
-void NtripSettings::setProtocol( Protocol protocol )
+void QfNtripSettings::setProtocol( Protocol protocol )
 {
   mProtocol = protocol;
 }
 
-void NtripSettings::setMountPoint( const QString &mountPoint )
+void QfNtripSettings::setMountPoint( const QString &mountPoint )
 {
   mMountPoint = mountPoint;
 }
 
-void NtripSettings::setUsername( const QString &username )
+void QfNtripSettings::setUsername( const QString &username )
 {
   mUsername = username;
 }
 
-void NtripSettings::setPassword( const QString &password )
+void QfNtripSettings::setPassword( const QString &password )
 {
   mPassword = password;
 }
 
-void NtripSettings::setForwardNmeaSentences( bool forwardNmeaSentences )
+void QfNtripSettings::setForwardNmeaSentences( bool forwardNmeaSentences )
 {
   mForwardNmeaSentences = forwardNmeaSentences;
 }
 
-QVariantMap NtripSettings::toMap() const
+QVariantMap QfNtripSettings::toMap() const
 {
   QVariantMap settings;
   settings[QStringLiteral( "host" )] = mHost;
@@ -88,9 +88,9 @@ QVariantMap NtripSettings::toMap() const
   return settings;
 }
 
-NtripSettings NtripSettings::fromMap( const QVariantMap &settings )
+QfNtripSettings QfNtripSettings::fromMap( const QVariantMap &settings )
 {
-  NtripSettings ntripSettings;
+  QfNtripSettings ntripSettings;
   ntripSettings.setHost( settings.value( QStringLiteral( "host" ) ).toString() );
   ntripSettings.setPort( settings.value( QStringLiteral( "port" ), 2101 ).toInt() );
   ntripSettings.setProtocol( static_cast<Protocol>( settings.value( QStringLiteral( "protocol" ), static_cast<int>( NtripVersion2 ) ).toInt() ) );
@@ -101,14 +101,14 @@ NtripSettings NtripSettings::fromMap( const QVariantMap &settings )
   return ntripSettings;
 }
 
-QDataStream &operator<<( QDataStream &stream, const NtripSettings &settings )
+QDataStream &operator<<( QDataStream &stream, const QfNtripSettings &settings )
 {
   return stream << settings.mHost << settings.mPort << settings.mProtocol << settings.mMountPoint
                 << settings.mUsername << settings.mPassword << settings.mForwardNmeaSentences;
 }
 
 //cppcheck-suppress constParameter
-QDataStream &operator>>( QDataStream &stream, NtripSettings &settings )
+QDataStream &operator>>( QDataStream &stream, QfNtripSettings &settings )
 {
   return stream >> settings.mHost >> settings.mPort >> settings.mProtocol >> settings.mMountPoint
          >> settings.mUsername >> settings.mPassword >> settings.mForwardNmeaSentences;

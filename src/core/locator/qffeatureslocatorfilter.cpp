@@ -29,19 +29,19 @@
 #include <math.h>
 
 
-FeaturesLocatorFilter::FeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
+QfFeaturesLocatorFilter::QfFeaturesLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
   , mLocatorBridge( locatorBridge )
 {
   setUseWithoutPrefix( true );
 }
 
-FeaturesLocatorFilter *FeaturesLocatorFilter::clone() const
+QfFeaturesLocatorFilter *QfFeaturesLocatorFilter::clone() const
 {
-  return new FeaturesLocatorFilter( mLocatorBridge );
+  return new QfFeaturesLocatorFilter( mLocatorBridge );
 }
 
-QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
+QStringList QfFeaturesLocatorFilter::prepare( const QString &string, const QgsLocatorContext &locatorContext )
 {
   Q_UNUSED( locatorContext );
 
@@ -88,7 +88,7 @@ QStringList FeaturesLocatorFilter::prepare( const QString &string, const QgsLoca
   return QStringList();
 }
 
-void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
+void QfFeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   int foundInTotal = 0;
   QgsFeature f;
@@ -116,7 +116,7 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
       result.actions << QgsLocatorResult::ResultAction( OpenForm, tr( "Open form" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_baseline-list_white_24dp.svg?color=mainColor" ) );
       if ( preparedLayer->layerGeometryType != Qgis::GeometryType::Null && preparedLayer->layerGeometryType != Qgis::GeometryType::Unknown )
       {
-        result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
+        result.actions << QgsLocatorResult::ResultAction( QfNavigation, tr( "Set feature as destination" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       }
 
       emit resultFetched( result );
@@ -131,12 +131,12 @@ void FeaturesLocatorFilter::fetchResults( const QString &string, const QgsLocato
   }
 }
 
-void FeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfFeaturesLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   triggerResultFromAction( result, Normal );
 }
 
-void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void QfFeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   const QVariantList dataList = result.userData().toList();
   const QgsFeatureId fid = dataList.at( 0 ).toLongLong();
@@ -158,7 +158,7 @@ void FeaturesLocatorFilter::triggerResultFromAction( const QgsLocatorResult &res
     mLocatorBridge->featureListController()->selection()->setFocusedItem( 0 );
     mLocatorBridge->featureListController()->requestFeatureFormState();
   }
-  else if ( actionId == Navigation )
+  else if ( actionId == QfNavigation )
   {
     if ( !mLocatorBridge->navigation() )
       return;

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dgeometry.h - Quick3DGeometry
+  qf3dgeometry.h - Qf3DGeometry
 
  ---------------------
  begin                : 20.4.2026
@@ -36,10 +36,10 @@ class QgsLineString;
  * geometry is reprojected from the source CRS to the map CRS before being
  * draped on the terrain surface.
  *
- * \note QML Type: Quick3DGeometry
+ * \note QML Type: Qf3DGeometry
  * \ingroup core
  */
-class Quick3DGeometry : public QQuick3DGeometry
+class Qf3DGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
     QML_ELEMENT
@@ -62,7 +62,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     //! Coordinate reference system the geometry is expressed in
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     //! The terrain provider used for geo-to-3D coordinate conversion
-    Q_PROPERTY( Quick3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
+    Q_PROPERTY( Qf3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
     //! Outline tube thickness in scene units
     Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
     //! Per-vertex color applied to the highlight mesh
@@ -77,7 +77,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     Q_PROPERTY( float extrusion READ extrusion WRITE setExtrusion NOTIFY extrusionChanged )
 
   public:
-    explicit Quick3DGeometry( QQuick3DObject *parent = nullptr );
+    explicit Qf3DGeometry( QQuick3DObject *parent = nullptr );
 
     QgsGeometry qgsGeometry() const { return mGeometry; }
     void setQgsGeometry( const QgsGeometry &geometry );
@@ -85,8 +85,8 @@ class Quick3DGeometry : public QQuick3DGeometry
     QgsCoordinateReferenceSystem crs() const { return mCrs; }
     void setCrs( const QgsCoordinateReferenceSystem &crs );
 
-    Quick3DTerrainProvider *terrainProvider() const { return mTerrainProvider; }
-    void setTerrainProvider( Quick3DTerrainProvider *provider );
+    Qf3DTerrainProvider *terrainProvider() const { return mTerrainProvider; }
+    void setTerrainProvider( Qf3DTerrainProvider *provider );
 
     float lineWidth() const { return mLineWidth; }
     void setLineWidth( float width );
@@ -141,7 +141,7 @@ class Quick3DGeometry : public QQuick3DGeometry
     QgsGeometry mGeometry;
     QgsCoordinateReferenceSystem mCrs;
     QgsCoordinateTransform mTransform;
-    Quick3DTerrainProvider *mTerrainProvider = nullptr;
+    Qf3DTerrainProvider *mTerrainProvider = nullptr;
 
     float mLineWidth = 3.0f;
     float mHeightOffset = 15.0f;

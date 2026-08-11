@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfandroidresourcesource.h - AndroidResourceSource
+  qfandroidresourcesource.h - QfAndroidResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -18,17 +18,17 @@
 
 #include "qfresourcesource.h"
 
-class AndroidResourceSource : public ResourceSource
+class QfAndroidResourceSource : public QfResourceSource
 {
     Q_OBJECT
 
   public:
     /**
-     * Construct a new AndroidResourceSource object
+     * Construct a new QfAndroidResourceSource object
      *
      * @param prefix The project folder. Base directory path for all relative paths.
      */
-    explicit AndroidResourceSource( const QString &prefix, QObject *parent );
+    explicit QfAndroidResourceSource( const QString &prefix, QObject *parent );
 
   private slots:
     void handleResourceReceived( const QString &path );

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dterrainprovider.cpp - Quick3DTerrainProvider
+  qf3dterrainprovider.cpp - Qf3DTerrainProvider
 
  ---------------------
  begin                : 26.1.2026
@@ -29,21 +29,21 @@
 #include <algorithm>
 #include <cmath>
 
-Quick3DTerrainProvider::Quick3DTerrainProvider( QObject *parent )
+Qf3DTerrainProvider::Qf3DTerrainProvider( QObject *parent )
   : QObject( parent )
   , mFutureWatcher( new QFutureWatcher<QVector<double>>( this ) )
 {
-  connect( mFutureWatcher, &QFutureWatcher<QVector<double>>::finished, this, &Quick3DTerrainProvider::onTerrainDataCalculated );
+  connect( mFutureWatcher, &QFutureWatcher<QVector<double>>::finished, this, &Qf3DTerrainProvider::onTerrainDataCalculated );
 }
 
-Quick3DTerrainProvider::~Quick3DTerrainProvider() = default;
+Qf3DTerrainProvider::~Qf3DTerrainProvider() = default;
 
-QgsProject *Quick3DTerrainProvider::project() const
+QgsProject *Qf3DTerrainProvider::project() const
 {
   return mProject;
 }
 
-void Quick3DTerrainProvider::setProject( QgsProject *project )
+void Qf3DTerrainProvider::setProject( QgsProject *project )
 {
   if ( mProject == project )
   {
@@ -52,7 +52,7 @@ void Quick3DTerrainProvider::setProject( QgsProject *project )
 
   if ( mProject )
   {
-    disconnect( mProject->elevationProperties(), &QgsProjectElevationProperties::changed, this, &Quick3DTerrainProvider::updateTerrainProvider );
+    disconnect( mProject->elevationProperties(), &QgsProjectElevationProperties::changed, this, &Qf3DTerrainProvider::updateTerrainProvider );
   }
 
   mProject = project;
@@ -60,18 +60,18 @@ void Quick3DTerrainProvider::setProject( QgsProject *project )
 
   if ( mProject )
   {
-    connect( mProject->elevationProperties(), &QgsProjectElevationProperties::changed, this, &Quick3DTerrainProvider::updateTerrainProvider );
+    connect( mProject->elevationProperties(), &QgsProjectElevationProperties::changed, this, &Qf3DTerrainProvider::updateTerrainProvider );
   }
 
   updateTerrainProvider();
 }
 
-QgsQuickMapSettings *Quick3DTerrainProvider::mapSettings() const
+QgsQuickMapSettings *Qf3DTerrainProvider::mapSettings() const
 {
   return mMapSettings;
 }
 
-void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
+void Qf3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
   {
@@ -84,12 +84,12 @@ void Quick3DTerrainProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
   updateFromMapSettings();
 }
 
-bool Quick3DTerrainProvider::forceSquareSize() const
+bool Qf3DTerrainProvider::forceSquareSize() const
 {
   return mForceSquareSize;
 }
 
-void Quick3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
+void Qf3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
 {
   if ( mForceSquareSize == forceSquareSize )
   {
@@ -102,7 +102,7 @@ void Quick3DTerrainProvider::setForceSquareSize( bool forceSquareSize )
   updateFromMapSettings();
 }
 
-void Quick3DTerrainProvider::updateFromMapSettings()
+void Qf3DTerrainProvider::updateFromMapSettings()
 {
   if ( !mMapSettings || !mProject )
   {
@@ -145,13 +145,13 @@ void Quick3DTerrainProvider::updateFromMapSettings()
   generateData();
 }
 
-void Quick3DTerrainProvider::generateData()
+void Qf3DTerrainProvider::generateData()
 {
   calculateResolution();
   calcNormalizedData();
 }
 
-void Quick3DTerrainProvider::calculateResolution()
+void Qf3DTerrainProvider::calculateResolution()
 {
   if ( mExtent.isEmpty() )
   {
@@ -188,12 +188,12 @@ void Quick3DTerrainProvider::calculateResolution()
   }
 }
 
-QVariantList Quick3DTerrainProvider::normalizedData() const
+QVariantList Qf3DTerrainProvider::normalizedData() const
 {
   return mNormalizedData;
 }
 
-double Quick3DTerrainProvider::heightAt( double x, double y ) const
+double Qf3DTerrainProvider::heightAt( double x, double y ) const
 {
   if ( mTerrainProvider )
   {
@@ -207,7 +207,7 @@ double Quick3DTerrainProvider::heightAt( double x, double y ) const
   return 0.0;
 }
 
-double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
+double Qf3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
   const double realHeight = heightAt( x, y );
   const double extentSize = std::max( mNormalizedDataExtent.width(), mNormalizedDataExtent.height() );
@@ -215,12 +215,12 @@ double Quick3DTerrainProvider::normalizedHeightAt( double x, double y ) const
   return ( realHeight - mMinRealHeight ) * scale / mOffsetScale;
 }
 
-QVector3D Quick3DTerrainProvider::geoTo3D( double geoX, double geoY, float heightOffset ) const
+QVector3D Qf3DTerrainProvider::geoTo3D( double geoX, double geoY, float heightOffset ) const
 {
   return geoTo3D( QgsPoint( geoX, geoY ), heightOffset );
 }
 
-QVector3D Quick3DTerrainProvider::geoTo3D( const QgsPoint &geoPoint, float heightOffset ) const
+QVector3D Qf3DTerrainProvider::geoTo3D( const QgsPoint &geoPoint, float heightOffset ) const
 {
   const double extW = mExtent.width();
   const double extH = mExtent.height();
@@ -256,7 +256,7 @@ QVector3D Quick3DTerrainProvider::geoTo3D( const QgsPoint &geoPoint, float heigh
   return QVector3D( x3d, y3d, z3d );
 }
 
-QgsPoint Quick3DTerrainProvider::scene3DToGeo( double sceneX, double sceneZ ) const
+QgsPoint Qf3DTerrainProvider::scene3DToGeo( double sceneX, double sceneZ ) const
 {
   if ( mExtent.isEmpty() || mSize.width() <= 0 || mSize.height() <= 0 )
   {
@@ -270,7 +270,7 @@ QgsPoint Quick3DTerrainProvider::scene3DToGeo( double sceneX, double sceneZ ) co
                    mExtent.yMinimum() + nz * mExtent.height() );
 }
 
-void Quick3DTerrainProvider::calcNormalizedData()
+void Qf3DTerrainProvider::calcNormalizedData()
 {
   if ( mExtent.isEmpty() || !mTerrainProvider )
   {
@@ -402,7 +402,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
     }
 
     // Reject gross low outliers (DEM spikes) as missing so they don't drag the height range down.
-    const double outlierFence = Quick3DTerrainProvider::lowerOutlierFence( heights, 3.0 );
+    const double outlierFence = Qf3DTerrainProvider::lowerOutlierFence( heights, 3.0 );
     lowestHeight = std::numeric_limits<double>::max();
     for ( int index = 0; index < heights.size(); ++index )
     {
@@ -442,7 +442,7 @@ void Quick3DTerrainProvider::calcNormalizedData()
   mFutureWatcher->setFuture( future );
 }
 
-double Quick3DTerrainProvider::lowerOutlierFence( QVector<double> samples, double factor )
+double Qf3DTerrainProvider::lowerOutlierFence( QVector<double> samples, double factor )
 {
   samples.erase( std::remove_if( samples.begin(), samples.end(), []( double value ) { return std::isnan( value ); } ), samples.end() );
   if ( samples.size() < 8 )
@@ -461,7 +461,7 @@ double Quick3DTerrainProvider::lowerOutlierFence( QVector<double> samples, doubl
   return firstQuartile - factor * ( thirdQuartile - firstQuartile );
 }
 
-double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double y ) const
+double Qf3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double y ) const
 {
   if ( !mTerrainProvider || !mProject )
   {
@@ -486,7 +486,7 @@ double Quick3DTerrainProvider::sampleHeightFromTerrainProvider( double x, double
   return mTerrainProvider->heightAt( point.x(), point.y() );
 }
 
-void Quick3DTerrainProvider::updateTerrainProvider()
+void Qf3DTerrainProvider::updateTerrainProvider()
 {
   mTerrainProvider.reset();
 
@@ -508,12 +508,12 @@ void Quick3DTerrainProvider::updateTerrainProvider()
   }
 }
 
-bool Quick3DTerrainProvider::isLoading() const
+bool Qf3DTerrainProvider::isLoading() const
 {
   return mIsLoading;
 }
 
-void Quick3DTerrainProvider::onTerrainDataCalculated()
+void Qf3DTerrainProvider::onTerrainDataCalculated()
 {
   if ( !mFutureWatcher->isFinished() || mFutureWatcher->isCanceled() )
   {
@@ -544,7 +544,7 @@ void Quick3DTerrainProvider::onTerrainDataCalculated()
   emit terrainDataReady();
 }
 
-void Quick3DTerrainProvider::updateExtentFromOffsets()
+void Qf3DTerrainProvider::updateExtentFromOffsets()
 {
   QgsRectangle modifiedExtent = mNormalizedDataExtent;
   if ( !qgsDoubleNear( mOffsetScale, 0.0 ) )
@@ -565,7 +565,7 @@ void Quick3DTerrainProvider::updateExtentFromOffsets()
   }
 }
 
-void Quick3DTerrainProvider::beginTransition()
+void Qf3DTerrainProvider::beginTransition()
 {
   if ( !mIsTransitioning )
   {
@@ -576,7 +576,7 @@ void Quick3DTerrainProvider::beginTransition()
   generateData();
 }
 
-void Quick3DTerrainProvider::endTransition()
+void Qf3DTerrainProvider::endTransition()
 {
   mOffsetVector = QVector3D( 0, 0, 0 );
   mOffsetScale = 1.0;
@@ -587,7 +587,7 @@ void Quick3DTerrainProvider::endTransition()
   emit isTransitioningChanged();
 }
 
-void Quick3DTerrainProvider::pan( double x, double z )
+void Qf3DTerrainProvider::pan( double x, double z )
 {
   if ( qgsDoubleNear( x, 0.0 ) && qgsDoubleNear( z, 0.0 ) )
   {
@@ -601,7 +601,7 @@ void Quick3DTerrainProvider::pan( double x, double z )
   updateExtentFromOffsets();
 }
 
-void Quick3DTerrainProvider::zoom( double factor )
+void Qf3DTerrainProvider::zoom( double factor )
 {
   if ( qgsDoubleNear( factor, 0.0 ) )
   {

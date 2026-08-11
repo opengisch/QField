@@ -53,8 +53,8 @@ TEST_CASE( "AttributeFormModel" )
   editFormConfig.setDataDefinedFieldProperties( QStringLiteral( "str" ), properties );
   layer->setEditFormConfig( editFormConfig );
 
-  std::unique_ptr<AttributeFormModel> attributeFormModel = std::make_unique<AttributeFormModel>();
-  std::unique_ptr<FeatureModel> featureModel = std::make_unique<FeatureModel>();
+  std::unique_ptr<QfAttributeFormModel> attributeFormModel = std::make_unique<QfAttributeFormModel>();
+  std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
   attributeFormModel->setFeatureModel( featureModel.get() );
   featureModel->setCurrentLayer( layer.get() );
 
@@ -62,7 +62,7 @@ TEST_CASE( "AttributeFormModel" )
   {
     featureModel->setFeature( layer->getFeature( 1 ) );
     REQUIRE( attributeFormModel->attribute( QStringLiteral( "str" ) ) == QStringLiteral( "string_a1" ) );
-    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1" ) );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1" ) );
   }
 
   SECTION( "FeatureDefaultValue" )
@@ -70,7 +70,7 @@ TEST_CASE( "AttributeFormModel" )
     featureModel->resetFeature();
     featureModel->resetAttributes();
 
-    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "new_feature" ), AttributeFormModel::AttributeValue );
+    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "new_feature" ), QfAttributeFormModel::AttributeValue );
     // test default value changed on update with new feature
     REQUIRE( attributeFormModel->attribute( QStringLiteral( "str2" ) ) == QStringLiteral( "new_feature__" ) );
 
@@ -80,7 +80,7 @@ TEST_CASE( "AttributeFormModel" )
     QgsFeatureId fid = featureModel->feature().id();
     REQUIRE( fid > 0 );
 
-    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "edit_feature" ), AttributeFormModel::AttributeValue );
+    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "edit_feature" ), QfAttributeFormModel::AttributeValue );
     // test default value changed on update with existing feature being edited
     REQUIRE( attributeFormModel->attribute( QStringLiteral( "str2" ) ) == QStringLiteral( "edit_feature__" ) );
 
@@ -95,14 +95,14 @@ TEST_CASE( "AttributeFormModel" )
     featureModel->resetFeature();
     featureModel->resetAttributes();
 
-    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeEditable ).toBool() == true );
-    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "data" ), AttributeFormModel::AttributeValue );
-    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), AttributeFormModel::AttributeEditable ).toBool() == false );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeEditable ).toBool() == true );
+    attributeFormModel->setData( attributeFormModel->index( 1, 0 ), QString( "data" ), QfAttributeFormModel::AttributeValue );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeEditable ).toBool() == false );
   }
 
   SECTION( "QAbstractItemModelTester" )
   {
-    std::unique_ptr<AttributeFormModel> modelTest = std::make_unique<AttributeFormModel>();
+    std::unique_ptr<QfAttributeFormModel> modelTest = std::make_unique<QfAttributeFormModel>();
     std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

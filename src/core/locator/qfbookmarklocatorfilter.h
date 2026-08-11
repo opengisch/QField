@@ -22,13 +22,13 @@
 #include <qgslocatorfilter.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * GotoLocatorFilter is a locator filter to search
+ * QfGotoLocatorFilter is a locator filter to search
  * for and display coordinates.
  */
-class BookmarkLocatorFilter : public QgsLocatorFilter
+class QfBookmarkLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -37,11 +37,11 @@ class BookmarkLocatorFilter : public QgsLocatorFilter
     enum ActionOrigin
     {
       Normal,
-      Navigation,
+      QfNavigation,
     };
 
-    explicit BookmarkLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-    BookmarkLocatorFilter *clone() const override;
+    explicit QfBookmarkLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    QfBookmarkLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "bookmarks" ); }
     QString displayName() const override { return tr( "Spatial bookmarks" ); }
     QString description() const override { return tr( "Returns a list of user and currently open project bookmarks with matching names." ); }
@@ -54,7 +54,7 @@ class BookmarkLocatorFilter : public QgsLocatorFilter
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   private:
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // QFBOOKMARKLOCATORFILTER_H

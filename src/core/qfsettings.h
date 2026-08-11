@@ -23,12 +23,12 @@
 /**
  * \ingroup core
  */
-class Settings : public QSettings
+class QfSettings : public QSettings
 {
     Q_OBJECT
 
   public:
-    explicit Settings( QObject *parent = nullptr );
+    explicit QfSettings( QObject *parent = nullptr );
 
     Q_INVOKABLE void setValue( const QString &key, const QVariant &value );
 

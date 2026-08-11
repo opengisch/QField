@@ -27,18 +27,18 @@
 
 #define FILENAME_MAX_CHAR_LENGTH 255
 
-class GnssPositionInformation;
+class QfGnssPositionInformation;
 
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT FileUtils : public QObject
+class QFIELD_CORE_EXPORT QfFileUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit FileUtils( QObject *parent = nullptr );
-    ~FileUtils() = default;
+    explicit QfFileUtils( QObject *parent = nullptr );
+    ~QfFileUtils() = default;
 
     //! Returns the mimetype of a filepath as string
     Q_INVOKABLE static QString mimeTypeName( const QString &filePath );
@@ -92,7 +92,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     * - On Android: Writing is only permitted within the app's internal storage or
     *   properly requested scoped storage locations.
     * - On iOS: Writing is restricted to the app's sandbox.
-    * - Use PlatformUtilities.applicationDirectory() to get a safe write location.
+    * - Use QfPlatformUtilities.applicationDirectory() to get a safe write location.
     */
     Q_INVOKABLE static bool writeFileContent( const QString &filePath, const QByteArray &content );
 
@@ -118,7 +118,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
      * \param imagePath the image path
      * \param positionInformation the GNSS position information used to add metadata details
      */
-    Q_INVOKABLE static void addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation );
+    Q_INVOKABLE static void addImageMetadata( const QString &imagePath, const QfGnssPositionInformation &positionInformation );
 
     /**
      * Prints details to a given image.

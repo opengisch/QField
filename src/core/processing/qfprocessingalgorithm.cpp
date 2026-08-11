@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingalgorithm.cpp - ProcessingAlgorithm
+  qfprocessingalgorithm.cpp - QfProcessingAlgorithm
 
  ---------------------
  begin                : 22.06.2024
@@ -25,12 +25,12 @@
 #include <qgsvectorlayerutils.h>
 
 
-ProcessingAlgorithm::ProcessingAlgorithm( QObject *parent )
+QfProcessingAlgorithm::QfProcessingAlgorithm( QObject *parent )
   : QObject( parent )
 {
 }
 
-void ProcessingAlgorithm::setId( const QString &id )
+void QfProcessingAlgorithm::setId( const QString &id )
 {
   if ( mAlgorithmId == id )
   {
@@ -48,17 +48,17 @@ void ProcessingAlgorithm::setId( const QString &id )
   }
 }
 
-QString ProcessingAlgorithm::displayName() const
+QString QfProcessingAlgorithm::displayName() const
 {
   return mAlgorithm ? mAlgorithm->displayName() : QString();
 }
 
-QString ProcessingAlgorithm::shortHelp() const
+QString QfProcessingAlgorithm::shortHelp() const
 {
   return mAlgorithm ? mAlgorithm->shortHelpString() : QString();
 }
 
-void ProcessingAlgorithm::setInPlaceLayer( QgsVectorLayer *layer )
+void QfProcessingAlgorithm::setInPlaceLayer( QgsVectorLayer *layer )
 {
   if ( mInPlaceLayer.data() == layer )
   {
@@ -74,7 +74,7 @@ void ProcessingAlgorithm::setInPlaceLayer( QgsVectorLayer *layer )
   }
 }
 
-void ProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features )
+void QfProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features )
 {
   if ( mInPlaceFeatures == features )
   {
@@ -91,7 +91,7 @@ void ProcessingAlgorithm::setInPlaceFeatures( const QList<QgsFeature> &features 
   }
 }
 
-void ProcessingAlgorithm::setParameters( const QVariantMap &parameters )
+void QfProcessingAlgorithm::setParameters( const QVariantMap &parameters )
 {
   if ( mAlgorithmParameters == parameters )
   {
@@ -108,7 +108,7 @@ void ProcessingAlgorithm::setParameters( const QVariantMap &parameters )
   }
 }
 
-void ProcessingAlgorithm::setPreview( bool preview )
+void QfProcessingAlgorithm::setPreview( bool preview )
 {
   if ( mPreview == preview )
   {
@@ -133,7 +133,7 @@ void ProcessingAlgorithm::setPreview( bool preview )
   }
 }
 
-bool ProcessingAlgorithm::run( bool previewMode )
+bool QfProcessingAlgorithm::run( bool previewMode )
 {
   if ( !mAlgorithm )
   {

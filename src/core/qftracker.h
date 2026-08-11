@@ -1,5 +1,5 @@
 /***************************************************************************
- qftracker.h - Tracker
+ qftracker.h - QfTracker
   ---------------------
  begin                : 20.02.2020
  copyright            : (C) 2020 by David Signer
@@ -25,14 +25,14 @@
 #include <qgspoint.h>
 #include <qgsvectorlayer.h>
 
-class FeatureModel;
+class QfFeatureModel;
 class QgsQuickCoordinateTransformer;
-class RubberbandModel;
+class QfRubberbandModel;
 
 /**
  * \ingroup core
  */
-class Tracker : public QObject
+class QfTracker : public QObject
 {
     Q_OBJECT
 
@@ -46,8 +46,8 @@ class Tracker : public QObject
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
 
-    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
-    Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+    Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( QfFeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
 
     Q_PROPERTY( double timeInterval READ timeInterval WRITE setTimeInterval NOTIFY timeIntervalChanged )
     Q_PROPERTY( double minimumDistance READ minimumDistance WRITE setMinimumDistance NOTIFY minimumDistanceChanged )
@@ -75,7 +75,7 @@ class Tracker : public QObject
     };
     Q_ENUM( MeasureType )
 
-    explicit Tracker( QgsVectorLayer *vectorLayer );
+    explicit QfTracker( QgsVectorLayer *vectorLayer );
 
     //! Returns the track rubberband color
     QColor color() const { return mColor; }
@@ -83,14 +83,14 @@ class Tracker : public QObject
     void setColor( const QColor &color );
 
     //! Returns the rubber band model used to generate the track geometry
-    RubberbandModel *rubberbandModel() const;
+    QfRubberbandModel *rubberbandModel() const;
     //! Sets the rubber band model used to generate the track geometry
-    void setRubberbandModel( RubberbandModel *rubberbandModel );
+    void setRubberbandModel( QfRubberbandModel *rubberbandModel );
 
     //! Returns the feature model used to generate the track attributes
-    FeatureModel *featureModel() const;
+    QfFeatureModel *featureModel() const;
     //! Sets the feature model used to generate the track attributes
-    void setFeatureModel( FeatureModel *featureModel );
+    void setFeatureModel( QfFeatureModel *featureModel );
 
     //! Returns the minimum time interval constraint between each tracked point
     double timeInterval() const { return mTimeInterval; }
@@ -152,15 +152,15 @@ class Tracker : public QObject
     bool isReplaying() const { return mIsReplaying; }
 
     //! Starts tracking
-    void start( const GnssPositionInformation &positionInformation = GnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
+    void start( const QfGnssPositionInformation &positionInformation = QfGnssPositionInformation(), const QgsPoint &projectedPosition = QgsPoint() );
     //! Stops tracking
     void stop();
 
     //! Process the given position information and projected position passed onto the tracker
-    Q_INVOKABLE void processPositionInformation( const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition );
+    Q_INVOKABLE void processPositionInformation( const QfGnssPositionInformation &positionInformation, const QgsPoint &projectedPosition );
 
     //! Replays a list of position information taking into account the tracker settings
-    void replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
+    void replayPositionInformationList( const QList<QfGnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer = nullptr );
 
     void suspendUntilReplay();
 
@@ -206,8 +206,8 @@ class Tracker : public QObject
     bool mIsSuspended = false;
     bool mIsReplaying = false;
 
-    RubberbandModel *mRubberbandModel = nullptr;
-    FeatureModel *mFeatureModel = nullptr;
+    QfRubberbandModel *mRubberbandModel = nullptr;
+    QfFeatureModel *mFeatureModel = nullptr;
     qint64 mLastFeatureModelSaveMSSecsSinceEpoch = 0;
 
     double mTimeInterval = 0.0;
@@ -235,7 +235,7 @@ class Tracker : public QObject
     qint64 mLastDevicePositionTimestampMSecsSinceEpoch = 0;
     qint64 mLastVertexPositionTimestampMSecsSinceEpoch = 0;
 
-    MeasureType mMeasureType = Tracker::SecondsSinceStart;
+    MeasureType mMeasureType = QfTracker::SecondsSinceStart;
 
     QgsDistanceArea mDa;
 };

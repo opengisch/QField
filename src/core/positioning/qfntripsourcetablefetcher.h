@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfntripclient.h - NtripSourceTableFetcher
+  qfntripclient.h - QfNtripSourceTableFetcher
 
  ---------------------
  begin                : 05.02.2026
@@ -29,7 +29,7 @@
  * \brief A class containing information on an NTRIP mount point
  * \ingroup core
  */
-class NtripMountPoint
+class QfNtripMountPoint
 {
     Q_GADGET
 
@@ -39,18 +39,18 @@ class NtripMountPoint
     Q_PROPERTY( QgsPoint point MEMBER point )
 
   public:
-    explicit NtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString(), const QgsPointXY &point = QgsPointXY() )
+    explicit QfNtripMountPoint( const QString &mountPoint = QString(), const QString &identifier = QString(), const QString &format = QString(), const QgsPointXY &point = QgsPointXY() )
       : mountPoint( mountPoint )
       , identifier( identifier )
       , format( format )
       , point( point )
     {}
 
-    bool operator==( const NtripMountPoint &other ) const
+    bool operator==( const QfNtripMountPoint &other ) const
     {
       return mountPoint == other.mountPoint && identifier == other.identifier && format == other.format && point == other.point;
     }
-    bool operator!=( const NtripMountPoint &other ) const { return !operator==( other ); }
+    bool operator!=( const QfNtripMountPoint &other ) const { return !operator==( other ); }
 
     QString mountPoint;
     QString identifier;
@@ -58,38 +58,38 @@ class NtripMountPoint
     QgsPoint point;
 };
 
-Q_DECLARE_METATYPE( NtripMountPoint )
+Q_DECLARE_METATYPE( QfNtripMountPoint )
 
 
 /**
  * \brief A class to fetch information such as mount points from an NTRIP server's source table.
  * \ingroup core
  */
-class NtripSourceTableFetcher : public QObject
+class QfNtripSourceTableFetcher : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( bool isFetching READ isFetching NOTIFY isFetchingChanged )
-    Q_PROPERTY( QList<NtripMountPoint> mountPoints READ mountPoints NOTIFY mountPointsChanged )
+    Q_PROPERTY( QList<QfNtripMountPoint> mountPoints READ mountPoints NOTIFY mountPointsChanged )
 
   public:
     //! The NTRIP source table fetcher constructor
-    explicit NtripSourceTableFetcher( QObject *parent = nullptr );
+    explicit QfNtripSourceTableFetcher( QObject *parent = nullptr );
 
     //! The NTRIP source table fetcher destructor
-    ~NtripSourceTableFetcher() noexcept override = default;
+    ~QfNtripSourceTableFetcher() noexcept override = default;
 
     //! Returns TRUE if on ongoing source table fetching operation is ongoing
     bool isFetching() const { return mIsFetching; }
 
     //! Returns the mount points collected during the last source table fetching operation
-    QList<NtripMountPoint> mountPoints() const { return mMountPoints; }
+    QList<QfNtripMountPoint> mountPoints() const { return mMountPoints; }
 
     /**
      * Fetches details from an NTRIP server source table
      * \param ntripSettings The NTRIP settings of the server
      */
-    Q_INVOKABLE void fetch( const NtripSettings &ntripSettings );
+    Q_INVOKABLE void fetch( const QfNtripSettings &ntripSettings );
 
     //! Cancels any ongoing fetching operation
     Q_INVOKABLE void cancel();
@@ -112,7 +112,7 @@ class NtripSourceTableFetcher : public QObject
 
   private:
     void cleanup();
-    QList<NtripMountPoint> parseSourceTable( const QByteArray &data ) const;
+    QList<QfNtripMountPoint> parseSourceTable( const QByteArray &data ) const;
 
     bool mIsFetching = false;
 
@@ -120,12 +120,12 @@ class NtripSourceTableFetcher : public QObject
     quint16 mPort = 0;
     QString mUsername;
     QString mPassword;
-    NtripSettings::Protocol mProtocol = NtripSettings::NtripVersion1;
+    QfNtripSettings::Protocol mProtocol = QfNtripSettings::NtripVersion1;
 
     QSslSocket *mSocket = nullptr;
     QByteArray mBuffer;
     bool mHeadersParsed = false;
-    QList<NtripMountPoint> mMountPoints;
+    QList<QfNtripMountPoint> mMountPoints;
 };
 
 #endif // QFNTRIPSOURCETABLEFETCHER_H

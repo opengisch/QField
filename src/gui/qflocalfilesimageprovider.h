@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflocalfilesimageprovider.h - LocalFilesImageProvider
+  qflocalfilesimageprovider.h - QfLocalFilesImageProvider
 
  ---------------------
  begin                : 18.05.2022
@@ -21,10 +21,10 @@
 /**
  * \ingroup core
  */
-class LocalFilesImageProvider : public QQuickImageProvider
+class QfLocalFilesImageProvider : public QQuickImageProvider
 {
   public:
-    explicit LocalFilesImageProvider();
+    explicit QfLocalFilesImageProvider();
 
     QQmlImageProviderBase::ImageType imageType() const override { return QQmlImageProviderBase::Image; }
     QImage requestImage( const QString &id, QSize *size, const QSize &requestedSize ) override;

@@ -1,5 +1,5 @@
 /***************************************************************************
- egeniousseeceiver.cpp - EgenioussReceiver
+ egeniousseeceiver.cpp - QfEgenioussReceiver
 
  ---------------------
  begin                : October 2024
@@ -23,25 +23,25 @@
 #include <QTimeZone>
 #include <qgsnetworkaccessmanager.h>
 
-QLatin1String EgenioussReceiver::identifier = QLatin1String( "egeniouss" );
+QLatin1String QfEgenioussReceiver::identifier = QLatin1String( "egeniouss" );
 
-EgenioussReceiver::EgenioussReceiver( const QString &address, const int port, QObject *parent )
-  : AbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() ), mAddress( address ), mPort( port )
+QfEgenioussReceiver::QfEgenioussReceiver( const QString &address, const int port, QObject *parent )
+  : QfAbstractGnssReceiver( parent ), mTcpSocket( new QTcpSocket() ), mAddress( address ), mPort( port )
 {
-  connect( mTcpSocket, &QTcpSocket::readyRead, this, &EgenioussReceiver::onReadyRead );
-  connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &EgenioussReceiver::handleError );
-  connect( mTcpSocket, &QTcpSocket::stateChanged, this, &AbstractGnssReceiver::setSocketState );
+  connect( mTcpSocket, &QTcpSocket::readyRead, this, &QfEgenioussReceiver::onReadyRead );
+  connect( mTcpSocket, &QTcpSocket::errorOccurred, this, &QfEgenioussReceiver::handleError );
+  connect( mTcpSocket, &QTcpSocket::stateChanged, this, &QfAbstractGnssReceiver::setSocketState );
 
   setValid( true );
 }
 
-EgenioussReceiver::~EgenioussReceiver()
+QfEgenioussReceiver::~QfEgenioussReceiver()
 {
   mTcpSocket->deleteLater();
   mTcpSocket = nullptr;
 }
 
-void EgenioussReceiver::handleConnectDevice()
+void QfEgenioussReceiver::handleConnectDevice()
 {
   QNetworkRequest request( QString( "http://%1:%2/app/start" ).arg( mAddress.toString() ).arg( mPort ) );
   QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
@@ -66,7 +66,7 @@ void EgenioussReceiver::handleConnectDevice()
   } );
 }
 
-void EgenioussReceiver::handleDisconnectDevice()
+void QfEgenioussReceiver::handleDisconnectDevice()
 {
   QNetworkRequest request( QString( "http://%1:%2/app/stop" ).arg( mAddress.toString() ).arg( mPort ) );
   QNetworkReply *reply = QgsNetworkAccessManager::instance()->get( request );
@@ -91,15 +91,15 @@ void EgenioussReceiver::handleDisconnectDevice()
   } );
 }
 
-void EgenioussReceiver::handleErrorMessage( const QString &errorMessage )
+void QfEgenioussReceiver::handleErrorMessage( const QString &errorMessage )
 {
   mLastError = errorMessage;
   emit lastErrorChanged( mLastError );
 }
 
-GnssPositionDetails EgenioussReceiver::details() const
+QfGnssPositionDetails QfEgenioussReceiver::details() const
 {
-  GnssPositionDetails detailsList;
+  QfGnssPositionDetails detailsList;
 
   if ( mPayload.isEmpty() )
   {
@@ -111,7 +111,7 @@ GnssPositionDetails EgenioussReceiver::details() const
   return detailsList;
 }
 
-void EgenioussReceiver::onReadyRead()
+void QfEgenioussReceiver::onReadyRead()
 {
   const int minimumDataSize = 9;
   const uint8_t validStartByte = 0xFE;
@@ -148,7 +148,7 @@ void EgenioussReceiver::onReadyRead()
   const double latitude = mPayload.value( "lat" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lat" ).toDouble();
   const double longitude = mPayload.value( "lon" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "lon" ).toDouble();
   const double elevation = mPayload.value( "alt" ).toDouble() == 0 ? std::numeric_limits<double>::quiet_NaN() : mPayload.value( "alt" ).toDouble();
-  mLastGnssPositionInformation = GnssPositionInformation(
+  mLastGnssPositionInformation = QfGnssPositionInformation(
     latitude,
     longitude,
     elevation,
@@ -168,7 +168,7 @@ void EgenioussReceiver::onReadyRead()
   emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
 }
 
-void EgenioussReceiver::handleError( QAbstractSocket::SocketError error )
+void QfEgenioussReceiver::handleError( QAbstractSocket::SocketError error )
 {
   switch ( error )
   {

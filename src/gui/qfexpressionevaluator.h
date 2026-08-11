@@ -1,5 +1,5 @@
 /***************************************************************************
- qfexpressionevaluator.h - ExpressionEvaluator
+ qfexpressionevaluator.h - QfExpressionEvaluator
                               -------------------
  begin                : January 2020
  copyright            : (C) 2020 by David Signer
@@ -30,11 +30,11 @@
 
 
 /**
- * @brief The ExpressionEvaluator class enables evaluation of expression
+ * @brief The QfExpressionEvaluator class enables evaluation of expression
  * strings and expression templates.
  * \ingroup core
  */
-class ExpressionEvaluator : public QObject
+class QfExpressionEvaluator : public QObject
 {
     Q_OBJECT
 
@@ -46,8 +46,8 @@ class ExpressionEvaluator : public QObject
     Q_PROPERTY( QgsMapLayer *layer READ layer WRITE setLayer NOTIFY layerChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
-    Q_PROPERTY( AttributeFormModel *attributeFormModel READ attributeFormModel WRITE setAttributeFormModel NOTIFY attributeFormModelChanged )
+    Q_PROPERTY( QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
+    Q_PROPERTY( QfAttributeFormModel *attributeFormModel READ attributeFormModel WRITE setAttributeFormModel NOTIFY attributeFormModelChanged )
     Q_PROPERTY( QVariantMap variables READ variables WRITE setVariables NOTIFY variablesChanged )
 
   public:
@@ -59,7 +59,7 @@ class ExpressionEvaluator : public QObject
     };
     Q_ENUM( Mode )
 
-    explicit ExpressionEvaluator( QObject *parent = nullptr );
+    explicit QfExpressionEvaluator( QObject *parent = nullptr );
 
     //! Returns the expression evaluator mode
     Mode mode() const { return mMode; }
@@ -98,16 +98,16 @@ class ExpressionEvaluator : public QObject
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
     //! Returns the application expression context scopes generator object
-    AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
+    QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
 
     //! Sets the application expression context scopes \a generator object
-    void setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator );
+    void setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator );
 
     //! Returns the attribute form model providing an expression context
-    AttributeFormModel *attributeFormModel() const;
+    QfAttributeFormModel *attributeFormModel() const;
 
     //! Sets the attribute form model providing an expression context
-    void setAttributeFormModel( AttributeFormModel *attributeFormModel );
+    void setAttributeFormModel( QfAttributeFormModel *attributeFormModel );
 
     //! Returns the map of variables injected into the expression context when evaluating
     QVariantMap variables() const { return mVariables; }
@@ -141,8 +141,8 @@ class ExpressionEvaluator : public QObject
     QgsMapLayer *mLayer = nullptr;
     QgsProject *mProject = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
-    QPointer<AppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
-    QPointer<AttributeFormModel> mAttributeFormModel;
+    QPointer<QfAppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
+    QPointer<QfAttributeFormModel> mAttributeFormModel;
     QVariantMap mVariables;
 };
 #endif // QFEXPRESSIONEVALUATOR_H

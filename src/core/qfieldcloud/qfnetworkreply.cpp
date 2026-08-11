@@ -18,46 +18,46 @@
 #include <QTimer>
 
 
-NetworkReply::NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray = QByteArray() )
+QfNetworkReply::QfNetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray = QByteArray() )
   : mOperation( operation ), mIsMultiPartPayload( false ), mRequest( request ), mPayloadByteArray( payloadByteArray )
 {
   initiateRequest();
 };
 
 
-NetworkReply::NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart )
+QfNetworkReply::QfNetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart )
   : mOperation( operation ), mIsMultiPartPayload( true ), mRequest( request ), mPayloadMultiPart( payloadMultiPart )
 {
   initiateRequest();
 };
 
 
-void NetworkReply::abort()
+void QfNetworkReply::abort()
 {
   mIsFinished = true;
   mReply->abort();
 }
 
 
-QNetworkReply *NetworkReply::currentRawReply() const
+QNetworkReply *QfNetworkReply::currentRawReply() const
 {
   return mReply;
 }
 
 
-void NetworkReply::ignoreSslErrors( const QList<QSslError> &errors )
+void QfNetworkReply::ignoreSslErrors( const QList<QSslError> &errors )
 {
   mExpectedSslErrors = errors;
 }
 
 
-bool NetworkReply::isFinished() const
+bool QfNetworkReply::isFinished() const
 {
   return mIsFinished;
 }
 
 
-void NetworkReply::initiateRequest()
+void QfNetworkReply::initiateRequest()
 {
   switch ( mOperation )
   {
@@ -91,12 +91,12 @@ void NetworkReply::initiateRequest()
 
   mReply->ignoreSslErrors( mExpectedSslErrors );
 
-  connect( mReply, &QNetworkReply::finished, this, &NetworkReply::onFinished );
-  connect( mReply, &QNetworkReply::encrypted, this, &NetworkReply::encrypted );
-  connect( mReply, &QNetworkReply::downloadProgress, this, &NetworkReply::downloadProgress );
-  connect( mReply, &QNetworkReply::uploadProgress, this, &NetworkReply::uploadProgress );
-  connect( mReply, &QNetworkReply::redirected, this, &NetworkReply::onRedirected );
-  connect( this, &NetworkReply::redirectAllowed, mReply, &QNetworkReply::redirectAllowed );
+  connect( mReply, &QNetworkReply::finished, this, &QfNetworkReply::onFinished );
+  connect( mReply, &QNetworkReply::encrypted, this, &QfNetworkReply::encrypted );
+  connect( mReply, &QNetworkReply::downloadProgress, this, &QfNetworkReply::downloadProgress );
+  connect( mReply, &QNetworkReply::uploadProgress, this, &QfNetworkReply::uploadProgress );
+  connect( mReply, &QNetworkReply::redirected, this, &QfNetworkReply::onRedirected );
+  connect( this, &QfNetworkReply::redirectAllowed, mReply, &QNetworkReply::redirectAllowed );
 
   // TODO remove this!!! temporary SSL workaround
   connect( mReply, &QNetworkReply::sslErrors, this, [this]( const QList<QSslError> &errors ) {
@@ -110,13 +110,13 @@ void NetworkReply::initiateRequest()
   } );
 }
 
-void NetworkReply::onRedirected( const QUrl &url )
+void QfNetworkReply::onRedirected( const QUrl &url )
 {
   mIsRedirected = true;
   emit redirected( url );
 }
 
-void NetworkReply::onFinished()
+void QfNetworkReply::onFinished()
 {
   // NOTE redirected requests also end up here
   if ( mIsRedirected )

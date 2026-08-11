@@ -1,5 +1,5 @@
 /***************************************************************************
- qfserialportreceiver.h - SerialPortReceiver
+ qfserialportreceiver.h - QfSerialPortReceiver
 
  ---------------------
  begin                : 15.01.2023
@@ -23,16 +23,16 @@
 
 /**
  * The serial port receiver connects to a device and feeds the QgsNmeaConnection over QSerialPort.
- * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * It receives QgsGpsInformation and converts it to QfGnssPositionInformation
  * \ingroup core
  */
-class SerialPortReceiver : public NmeaGnssReceiver
+class QfSerialPortReceiver : public QfNmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit SerialPortReceiver( const QString &address = QString(), QObject *parent = nullptr );
-    ~SerialPortReceiver() override;
+    explicit QfSerialPortReceiver( const QString &address = QString(), QObject *parent = nullptr );
+    ~QfSerialPortReceiver() override;
 
     static QLatin1String identifier;
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- qfaudiorecorder.h - AudioRecorder
+ qfaudiorecorder.h - QfAudioRecorder
 
  ---------------------
  begin                : 19.02.2023
@@ -20,17 +20,17 @@
 #include <QMediaFormat>
 
 
-AudioProbe::AudioProbe( QObject *parent )
+QfAudioProbe::QfAudioProbe( QObject *parent )
   : QIODevice( parent )
 {
 }
 
-qint64 AudioProbe::readData( char *, qint64 )
+qint64 QfAudioProbe::readData( char *, qint64 )
 {
   return 0;
 }
 
-qint64 AudioProbe::writeData( const char *data, qint64 len )
+qint64 QfAudioProbe::writeData( const char *data, qint64 len )
 {
   const qint16 *samples = reinterpret_cast<const qint16 *>( data );
   const int sampleCount = len / sizeof( qint16 );
@@ -51,12 +51,12 @@ qint64 AudioProbe::writeData( const char *data, qint64 len )
 }
 
 
-AudioRecorder::AudioRecorder( QObject *parent )
+QfAudioRecorder::QfAudioRecorder( QObject *parent )
   : QMediaRecorder( parent )
 {
-  mProbe = new AudioProbe( this );
+  mProbe = new QfAudioProbe( this );
   mProbe->open( QIODevice::WriteOnly );
-  connect( mProbe, &AudioProbe::levelCalculated, this, [this]( double level ) {
+  connect( mProbe, &QfAudioProbe::levelCalculated, this, [this]( double level ) {
     mLevel = level;
     emit levelChanged();
   } );
@@ -90,17 +90,17 @@ AudioRecorder::AudioRecorder( QObject *parent )
   } );
 }
 
-bool AudioRecorder::recording() const
+bool QfAudioRecorder::recording() const
 {
   return recorderState() == QMediaRecorder::RecordingState;
 }
 
-double AudioRecorder::level() const
+double QfAudioRecorder::level() const
 {
   return mLevel;
 }
 
-bool AudioRecorder::hasLevel() const
+bool QfAudioRecorder::hasLevel() const
 {
   return mHasLevel;
 }

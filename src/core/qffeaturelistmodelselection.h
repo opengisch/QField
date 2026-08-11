@@ -25,17 +25,17 @@
 /**
  * \ingroup core
  */
-class FeatureListModelSelection : public QObject
+class QfFeatureListModelSelection : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( MultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( QfMultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
     Q_PROPERTY( int focusedItem READ focusedItem WRITE setFocusedItem NOTIFY focusedItemChanged )
     Q_PROPERTY( QgsVectorLayer *focusedLayer READ focusedLayer NOTIFY focusedItemChanged )
     Q_PROPERTY( QgsFeature focusedFeature READ focusedFeature NOTIFY focusedItemChanged )
     Q_PROPERTY( QgsGeometry focusedGeometry READ focusedGeometry NOTIFY focusedItemChanged )
 
   public:
-    explicit FeatureListModelSelection( QObject *parent = nullptr );
+    explicit QfFeatureListModelSelection( QObject *parent = nullptr );
 
     int focusedItem() const;
 
@@ -45,8 +45,8 @@ class FeatureListModelSelection : public QObject
 
     Q_INVOKABLE void clear();
 
-    MultiFeatureListModel *model() const;
-    void setModel( MultiFeatureListModel *model );
+    QfMultiFeatureListModel *model() const;
+    void setModel( QfMultiFeatureListModel *model );
 
     QgsVectorLayer *focusedLayer() const;
     QgsFeature focusedFeature() const;
@@ -58,7 +58,7 @@ class FeatureListModelSelection : public QObject
     void selectedFeaturesChanged();
 
   private:
-    MultiFeatureListModel *mModel = nullptr;
+    QfMultiFeatureListModel *mModel = nullptr;
     int mFocusedItem = -1;
 };
 

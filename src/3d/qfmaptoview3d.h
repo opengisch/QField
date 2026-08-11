@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfmaptoview3d.h - MapToView3D
+  qfmaptoview3d.h - QfMapToView3D
 
  ---------------------
  begin                : 9.3.2026
@@ -30,16 +30,16 @@
  * The 3D point is automatically updated when the map point or terrain
  * provider extent changes, enabling dynamic positioning of 3D elements.
  *
- * \note QML Type: MapToView3D
+ * \note QML Type: QfMapToView3D
  * \ingroup core
  */
-class MapToView3D : public QObject
+class QfMapToView3D : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
 
     //! The terrain provider used for geo-to-3D coordinate conversion
-    Q_PROPERTY( Quick3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
+    Q_PROPERTY( Qf3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
 
     //! The point in map coordinates
     Q_PROPERTY( QgsPoint mapPoint READ mapPoint WRITE setMapPoint NOTIFY mapPointChanged )
@@ -51,10 +51,10 @@ class MapToView3D : public QObject
     Q_PROPERTY( QVector3D viewPoint READ viewPoint NOTIFY viewPointChanged )
 
   public:
-    explicit MapToView3D( QObject *parent = nullptr );
+    explicit QfMapToView3D( QObject *parent = nullptr );
 
-    Quick3DTerrainProvider *terrainProvider() const;
-    void setTerrainProvider( Quick3DTerrainProvider *provider );
+    Qf3DTerrainProvider *terrainProvider() const;
+    void setTerrainProvider( Qf3DTerrainProvider *provider );
 
     QgsPoint mapPoint() const;
     void setMapPoint( const QgsPoint &point );
@@ -74,7 +74,7 @@ class MapToView3D : public QObject
     void transformPoint();
 
   private:
-    Quick3DTerrainProvider *mTerrainProvider = nullptr;
+    Qf3DTerrainProvider *mTerrainProvider = nullptr;
     QgsPoint mMapPoint;
     float mHeightOffset = 0.0f;
     QVector3D mViewPoint;

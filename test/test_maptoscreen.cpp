@@ -38,7 +38,7 @@ TEST_CASE( "MapToScreen" )
 {
   SECTION( "default state: screenPoint is null and screenDistance is NaN" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     REQUIRE( mts.screenPoint() == QPointF() );
     REQUIRE( std::isnan( mts.screenDistance() ) );
     REQUIRE( mts.mapSettings() == nullptr );
@@ -47,76 +47,76 @@ TEST_CASE( "MapToScreen" )
 
   SECTION( "setMapSettings emits mapSettingsChanged" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
-    QSignalSpy spy( &mts, &MapToScreen::mapSettingsChanged );
+    QSignalSpy spy( &mts, &QfMapToScreen::mapSettingsChanged );
     mts.setMapSettings( &ms );
     REQUIRE( spy.count() == 1 );
   }
 
   SECTION( "setMapSettings with same pointer does not emit signal" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     mts.setMapSettings( &ms );
-    QSignalSpy spy( &mts, &MapToScreen::mapSettingsChanged );
+    QSignalSpy spy( &mts, &QfMapToScreen::mapSettingsChanged );
     mts.setMapSettings( &ms );
     REQUIRE( spy.count() == 0 );
   }
 
   SECTION( "setMapPoint emits mapPointChanged" )
   {
-    MapToScreen mts;
-    QSignalSpy spy( &mts, &MapToScreen::mapPointChanged );
+    QfMapToScreen mts;
+    QSignalSpy spy( &mts, &QfMapToScreen::mapPointChanged );
     mts.setMapPoint( QgsPoint( 100.0, 200.0 ) );
     REQUIRE( spy.count() == 1 );
   }
 
   SECTION( "setMapPoint with same point does not emit signal" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     mts.setMapPoint( QgsPoint( 100.0, 200.0 ) );
-    QSignalSpy spy( &mts, &MapToScreen::mapPointChanged );
+    QSignalSpy spy( &mts, &QfMapToScreen::mapPointChanged );
     mts.setMapPoint( QgsPoint( 100.0, 200.0 ) );
     REQUIRE( spy.count() == 0 );
   }
 
   SECTION( "setMapDistance emits mapDistanceChanged" )
   {
-    MapToScreen mts;
-    QSignalSpy spy( &mts, &MapToScreen::mapDistanceChanged );
+    QfMapToScreen mts;
+    QSignalSpy spy( &mts, &QfMapToScreen::mapDistanceChanged );
     mts.setMapDistance( 50.0 );
     REQUIRE( spy.count() == 1 );
   }
 
   SECTION( "setMapDistance with same value does not emit signal" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     mts.setMapDistance( 50.0 );
-    QSignalSpy spy( &mts, &MapToScreen::mapDistanceChanged );
+    QSignalSpy spy( &mts, &QfMapToScreen::mapDistanceChanged );
     mts.setMapDistance( 50.0 );
     REQUIRE( spy.count() == 0 );
   }
 
   SECTION( "without mapSettings, screenPoint is null regardless of mapPoint" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     mts.setMapPoint( QgsPoint( 500.0, 250.0 ) );
     REQUIRE( mts.screenPoint() == QPointF() );
   }
 
   SECTION( "without mapSettings, screenDistance is NaN" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     mts.setMapDistance( 100.0 );
     REQUIRE( std::isnan( mts.screenDistance() ) );
   }
 
   SECTION( "center map point transforms to center screen point" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     // Extent is 0,0 -> 1000,500; center is 500,250
@@ -129,7 +129,7 @@ TEST_CASE( "MapToScreen" )
 
   SECTION( "mapDistance converts correctly to screenDistance" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     // Extent width 1000 map units over 1000 pixels -> 1 map unit per pixel -> mapUnitsPerPoint = 1
@@ -141,7 +141,7 @@ TEST_CASE( "MapToScreen" )
 
   SECTION( "with mapSettings and zero mapDistance, screenDistance is 0.0 not NaN" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     mts.setMapSettings( &ms );
@@ -151,7 +151,7 @@ TEST_CASE( "MapToScreen" )
 
   SECTION( "screenPoint updates when extent changes" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     mts.setMapSettings( &ms );
@@ -164,19 +164,19 @@ TEST_CASE( "MapToScreen" )
 
   SECTION( "screenPointChanged emitted when extent changes" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     mts.setMapSettings( &ms );
     mts.setMapPoint( QgsPoint( 500.0, 250.0 ) );
-    QSignalSpy spy( &mts, &MapToScreen::screenPointChanged );
+    QSignalSpy spy( &mts, &QfMapToScreen::screenPointChanged );
     ms.setExtent( QgsRectangle( 200.0, 100.0, 1200.0, 600.0 ) );
     REQUIRE( spy.count() >= 1 );
   }
 
   SECTION( "swapping mapSettings disconnects old instance signals" )
   {
-    MapToScreen mts;
+    QfMapToScreen mts;
     QgsQuickMapSettings ms1;
     setupMapSettings( ms1 );
     mts.setMapSettings( &ms1 );
@@ -186,7 +186,7 @@ TEST_CASE( "MapToScreen" )
     mts.setMapSettings( &ms2 );
 
     const QPointF screenAfterSwap = mts.screenPoint();
-    QSignalSpy spy( &mts, &MapToScreen::screenPointChanged );
+    QSignalSpy spy( &mts, &QfMapToScreen::screenPointChanged );
     // Changing the old map settings should no longer affect mts
     ms1.setExtent( QgsRectangle( 999.0, 999.0, 9999.0, 9999.0 ) );
     REQUIRE( spy.count() == 0 );

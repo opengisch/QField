@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfandroidprojectsource.cpp - AndroidProjectSource
+  qfandroidprojectsource.cpp - QfAndroidProjectSource
 
  ---------------------
  begin                : 19.3.2018
@@ -21,13 +21,13 @@
 #include <QtCore/private/qandroidextras_p.h>
 
 
-AndroidProjectSource::AndroidProjectSource( QObject *parent )
-  : ProjectSource( parent )
+QfAndroidProjectSource::QfAndroidProjectSource( QObject *parent )
+  : QfProjectSource( parent )
   , QAndroidActivityResultReceiver()
 {
 }
 
-void AndroidProjectSource::handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data )
+void QfAndroidProjectSource::handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data )
 {
   jint RESULT_OK = QJniObject::getStaticField<jint>( "android/app/Activity", "RESULT_OK" );
   if ( receiverRequestCode == 103 && resultCode == RESULT_OK )

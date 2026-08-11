@@ -23,17 +23,17 @@
 #include <qgscoordinatereferencesystemutils.h>
 #include <qgsstringutils.h>
 
-StringUtils::StringUtils( QObject *parent )
+QfStringUtils::QfStringUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QString StringUtils::insertLinks( const QString &string )
+QString QfStringUtils::insertLinks( const QString &string )
 {
   return QgsStringUtils::insertLinks( string );
 }
 
-bool StringUtils::hasLinks( const QString &string )
+bool QfStringUtils::hasLinks( const QString &string )
 {
   // These expressions are taken from QgsStringUtils::insertLinks
   const thread_local QRegularExpression urlRegEx( QStringLiteral( "(\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^!\"#$%&'()*+,\\-./:;<=>?@[\\\\\\]^_`{|}~\\s]|/))))" ) );
@@ -42,12 +42,12 @@ bool StringUtils::hasLinks( const QString &string )
   return string.contains( urlRegEx ) || string.contains( emailRegEx );
 }
 
-QString StringUtils::createUuid()
+QString QfStringUtils::createUuid()
 {
   return QUuid::createUuid().toString();
 }
 
-double StringUtils::calcFuzzyScore( const QString &string, const QString &searchTerm )
+double QfStringUtils::calcFuzzyScore( const QString &string, const QString &searchTerm )
 {
   // Match accent-insensitively (e.g. "bez" matches "Béziers"), like the callers' search filter.
   const QString unaccentedString = QgsStringUtils::unaccent( string );
@@ -90,7 +90,7 @@ double StringUtils::calcFuzzyScore( const QString &string, const QString &search
   return fuzzyScore;
 };
 
-QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
+QString QfStringUtils::pointInformation( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
 {
   if ( crs.authid() == QStringLiteral( "EPSG:4326" ) )
   {
@@ -114,7 +114,7 @@ QString StringUtils::pointInformation( const QgsPoint &point, const QgsCoordinat
   return QStringLiteral( "%1%2, %3%4 — %5: %6" ).arg( firstNumber, firstSuffix, secondNumber, secondSuffix, crs.authid(), crs.description() );
 }
 
-const QString StringUtils::stringListToCsv( QStringList list )
+const QString QfStringUtils::stringListToCsv( QStringList list )
 {
   for ( QString &value : list )
   {
@@ -133,7 +133,7 @@ const QString StringUtils::stringListToCsv( QStringList list )
   return list.join( ',' );
 }
 
-const QStringList StringUtils::csvToStringList( const QString &string )
+const QStringList QfStringUtils::csvToStringList( const QString &string )
 {
   QStringList values;
   QString value;
@@ -182,7 +182,7 @@ const QStringList StringUtils::csvToStringList( const QString &string )
   return values;
 }
 
-QString StringUtils::replaceFilenameTags( const QString &string, const QString &filename )
+QString QfStringUtils::replaceFilenameTags( const QString &string, const QString &filename )
 {
   // IMPORTANT: an equivalent Java function QFieldUtils on Android needs to be kept synchronized
   QString replacedString = string;
@@ -199,7 +199,7 @@ QString StringUtils::replaceFilenameTags( const QString &string, const QString &
   return replacedString;
 }
 
-QString StringUtils::highlightText( const QString &string, const QString &highlightText, const QColor &highlightColor )
+QString QfStringUtils::highlightText( const QString &string, const QString &highlightText, const QColor &highlightColor )
 {
   if ( highlightText.isEmpty() )
   {
@@ -245,7 +245,7 @@ QString StringUtils::highlightText( const QString &string, const QString &highli
   return formattedString;
 }
 
-QString StringUtils::snippet( const QString &string, int desiredCharactersLength )
+QString QfStringUtils::snippet( const QString &string, int desiredCharactersLength )
 {
   if ( string.isEmpty() )
   {

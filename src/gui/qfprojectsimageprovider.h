@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectsimageprovider.h - ProjectsImageProvider
+  qfprojectsimageprovider.h - QfProjectsImageProvider
 
  ---------------------
  begin                : 15.07.2023
@@ -21,10 +21,10 @@
 /**
  * \ingroup core
  */
-class ProjectsImageProvider : public QQuickImageProvider
+class QfProjectsImageProvider : public QQuickImageProvider
 {
   public:
-    explicit ProjectsImageProvider();
+    explicit QfProjectsImageProvider();
 
     QQmlImageProviderBase::ImageType imageType() const override { return QQmlImageProviderBase::Image; }
     QImage requestImage( const QString &id, QSize *size, const QSize &requestedSize ) override;

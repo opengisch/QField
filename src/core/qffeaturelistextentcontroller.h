@@ -26,25 +26,25 @@
 /**
  * \ingroup core
  */
-class FeatureListExtentController : public QObject
+class QfFeatureListExtentController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( MultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
-    Q_PROPERTY( FeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
+    Q_PROPERTY( QfMultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
+    Q_PROPERTY( QfFeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
     Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
     Q_PROPERTY( bool keepScale MEMBER mKeepScale NOTIFY keepScaleChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    explicit FeatureListExtentController( QObject *parent = nullptr );
-    ~FeatureListExtentController();
+    explicit QfFeatureListExtentController( QObject *parent = nullptr );
+    ~QfFeatureListExtentController();
 
     //! Returns the selection of the feature list model
-    FeatureListModelSelection *selection() const;
+    QfFeatureListModelSelection *selection() const;
 
     //! Returns the feature list model
-    MultiFeatureListModel *model() const;
+    QfMultiFeatureListModel *model() const;
 
     //! This will emit a signal to request a state change in the feature form
     void requestFeatureFormState();
@@ -73,8 +73,8 @@ class FeatureListExtentController : public QObject
     void onCurrentSelectionChanged();
 
   private:
-    MultiFeatureListModel *mModel = nullptr;
-    FeatureListModelSelection *mSelection = nullptr;
+    QfMultiFeatureListModel *mModel = nullptr;
+    QfFeatureListModelSelection *mSelection = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mAutoZoom = false;
     bool mKeepScale = false;

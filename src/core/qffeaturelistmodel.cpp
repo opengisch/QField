@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeaturelistmodel.cpp - FeatureListModel
+  qffeaturelistmodel.cpp - QfFeatureListModel
 
  ---------------------
  begin                : 1.2.2017
@@ -26,39 +26,39 @@
 #include <qgsvaluerelationfieldformatter.h>
 
 
-FeatureListModel::FeatureListModel( QObject *parent )
+QfFeatureListModel::QfFeatureListModel( QObject *parent )
   : QAbstractItemModel( parent )
   , mCurrentLayer( nullptr )
 {
   mReloadTimer.setInterval( 200 );
   mReloadTimer.setSingleShot( true );
-  connect( &mReloadTimer, &QTimer::timeout, this, &FeatureListModel::gatherFeatureList );
+  connect( &mReloadTimer, &QTimer::timeout, this, &QfFeatureListModel::gatherFeatureList );
 }
 
-FeatureListModel::~FeatureListModel()
+QfFeatureListModel::~QfFeatureListModel()
 {
   cleanupGatherer();
 }
 
-void FeatureListModel::cleanupGatherer()
+void QfFeatureListModel::cleanupGatherer()
 {
   if ( mGatherer )
   {
-    disconnect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
+    disconnect( mGatherer, &QThread::finished, this, &QfFeatureListModel::processFeatureList );
     connect( mGatherer, &QThread::finished, mGatherer, &QObject::deleteLater );
     mGatherer->stop();
     mGatherer = nullptr;
   }
 }
 
-QModelIndex FeatureListModel::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex QfFeatureListModel::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
 
   return createIndex( row, column, 1000 );
 }
 
-QModelIndex FeatureListModel::parent( const QModelIndex &child ) const
+QModelIndex QfFeatureListModel::parent( const QModelIndex &child ) const
 {
   Q_UNUSED( child )
 
@@ -66,19 +66,19 @@ QModelIndex FeatureListModel::parent( const QModelIndex &child ) const
   return QModelIndex();
 }
 
-int FeatureListModel::rowCount( const QModelIndex &parent ) const
+int QfFeatureListModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mEntries.size() );
 }
 
-int FeatureListModel::columnCount( const QModelIndex &parent ) const
+int QfFeatureListModel::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
+QVariant QfFeatureListModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 || index.row() >= mEntries.size() )
   {
@@ -104,7 +104,7 @@ QVariant FeatureListModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> FeatureListModel::roleNames() const
+QHash<int, QByteArray> QfFeatureListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
@@ -116,12 +116,12 @@ QHash<int, QByteArray> FeatureListModel::roleNames() const
   return roles;
 }
 
-QgsVectorLayer *FeatureListModel::currentLayer() const
+QgsVectorLayer *QfFeatureListModel::currentLayer() const
 {
   return mCurrentLayer.data();
 }
 
-void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
+void QfFeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 {
   if ( mCurrentLayer == currentLayer )
   {
@@ -130,20 +130,20 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
 
   if ( mCurrentLayer )
   {
-    disconnect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
-    disconnect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
-    disconnect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
-    disconnect( mCurrentLayer, &QgsVectorLayer::dataChanged, this, &FeatureListModel::reloadLayer );
+    disconnect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &QfFeatureListModel::onFeatureAdded );
+    disconnect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &QfFeatureListModel::onAttributeValueChanged );
+    disconnect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &QfFeatureListModel::onFeatureDeleted );
+    disconnect( mCurrentLayer, &QgsVectorLayer::dataChanged, this, &QfFeatureListModel::reloadLayer );
   }
 
   mCurrentLayer = currentLayer;
 
   if ( mCurrentLayer )
   {
-    connect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &FeatureListModel::onFeatureAdded );
-    connect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &FeatureListModel::onAttributeValueChanged );
-    connect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &FeatureListModel::onFeatureDeleted );
-    connect( mCurrentLayer, &QgsVectorLayer::dataChanged, this, &FeatureListModel::reloadLayer );
+    connect( mCurrentLayer, &QgsVectorLayer::featureAdded, this, &QfFeatureListModel::onFeatureAdded );
+    connect( mCurrentLayer, &QgsVectorLayer::attributeValueChanged, this, &QfFeatureListModel::onAttributeValueChanged );
+    connect( mCurrentLayer, &QgsVectorLayer::featureDeleted, this, &QfFeatureListModel::onFeatureDeleted );
+    connect( mCurrentLayer, &QgsVectorLayer::dataChanged, this, &QfFeatureListModel::reloadLayer );
   }
 
   reloadLayer();
@@ -151,12 +151,12 @@ void FeatureListModel::setCurrentLayer( QgsVectorLayer *currentLayer )
   emit currentLayerChanged();
 }
 
-QString FeatureListModel::keyField() const
+QString QfFeatureListModel::keyField() const
 {
   return mKeyField;
 }
 
-void FeatureListModel::setKeyField( const QString &keyField )
+void QfFeatureListModel::setKeyField( const QString &keyField )
 {
   if ( mKeyField == keyField )
   {
@@ -170,12 +170,12 @@ void FeatureListModel::setKeyField( const QString &keyField )
   emit keyFieldChanged();
 }
 
-QString FeatureListModel::displayValueField() const
+QString QfFeatureListModel::displayValueField() const
 {
   return mDisplayValueField;
 }
 
-void FeatureListModel::setDisplayValueField( const QString &displayValueField )
+void QfFeatureListModel::setDisplayValueField( const QString &displayValueField )
 {
   if ( mDisplayValueField == displayValueField )
   {
@@ -189,12 +189,12 @@ void FeatureListModel::setDisplayValueField( const QString &displayValueField )
   emit displayValueFieldChanged();
 }
 
-QString FeatureListModel::groupField() const
+QString QfFeatureListModel::groupField() const
 {
   return mGroupField;
 }
 
-void FeatureListModel::setGroupField( const QString &groupField )
+void QfFeatureListModel::setGroupField( const QString &groupField )
 {
   if ( mGroupField == groupField )
   {
@@ -208,12 +208,12 @@ void FeatureListModel::setGroupField( const QString &groupField )
   emit groupFieldChanged();
 }
 
-bool FeatureListModel::displayGroupName() const
+bool QfFeatureListModel::displayGroupName() const
 {
   return mDisplayGroupName;
 }
 
-void FeatureListModel::setDisplayGroupName( bool displayGroupName )
+void QfFeatureListModel::setDisplayGroupName( bool displayGroupName )
 {
   if ( mDisplayGroupName == displayGroupName )
   {
@@ -225,7 +225,7 @@ void FeatureListModel::setDisplayGroupName( bool displayGroupName )
   emit displayGroupNameChanged();
 }
 
-int FeatureListModel::findKey( const QVariant &key ) const
+int QfFeatureListModel::findKey( const QVariant &key ) const
 {
   int idx = 0;
   for ( const Entry &entry : mEntries )
@@ -246,7 +246,7 @@ int FeatureListModel::findKey( const QVariant &key ) const
   return -1;
 }
 
-QList<int> FeatureListModel::findDisplayValueMatches( const QString &filter ) const
+QList<int> QfFeatureListModel::findDisplayValueMatches( const QString &filter ) const
 {
   QMap<QString, int> matches;
   const QString preparedFilter = filter.trimmed().toLower();
@@ -265,12 +265,12 @@ QList<int> FeatureListModel::findDisplayValueMatches( const QString &filter ) co
   return matches.values();
 }
 
-void FeatureListModel::onFeatureAdded()
+void QfFeatureListModel::onFeatureAdded()
 {
   reloadLayer();
 }
 
-void FeatureListModel::onAttributeValueChanged( QgsFeatureId, int idx, const QVariant & )
+void QfFeatureListModel::onAttributeValueChanged( QgsFeatureId, int idx, const QVariant & )
 {
   QgsExpressionContext context = mCurrentLayer->createExpressionContext();
   QgsExpression expression( mCurrentLayer->displayExpression() );
@@ -284,12 +284,12 @@ void FeatureListModel::onAttributeValueChanged( QgsFeatureId, int idx, const QVa
   }
 }
 
-void FeatureListModel::onFeatureDeleted()
+void QfFeatureListModel::onFeatureDeleted()
 {
   reloadLayer();
 }
 
-QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) const
+QgsFeature QfFeatureListModel::getFeatureFromKeyValue( const QVariant &value ) const
 {
   if ( !mCurrentLayer )
   {
@@ -308,7 +308,7 @@ QgsFeature FeatureListModel::getFeatureFromKeyValue( const QVariant &value ) con
   return feature;
 }
 
-QgsFeature FeatureListModel::getFeatureById( QgsFeatureId id ) const
+QgsFeature QfFeatureListModel::getFeatureById( QgsFeatureId id ) const
 {
   if ( !mCurrentLayer )
   {
@@ -318,7 +318,7 @@ QgsFeature FeatureListModel::getFeatureById( QgsFeatureId id ) const
   return mCurrentLayer->getFeature( id );
 }
 
-void FeatureListModel::gatherFeatureList()
+void QfFeatureListModel::gatherFeatureList()
 {
   if ( !mCurrentLayer || !mCurrentLayer->isValid() )
   {
@@ -411,12 +411,12 @@ void FeatureListModel::gatherFeatureList()
 
   cleanupGatherer();
 
-  mGatherer = new FeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() << orderByFieldName() );
-  connect( mGatherer, &QThread::finished, this, &FeatureListModel::processFeatureList );
+  mGatherer = new QfFeatureExpressionValuesGatherer( mCurrentLayer, fieldDisplayString, request, QStringList() << keyField() << groupField() << orderByFieldName() );
+  connect( mGatherer, &QThread::finished, this, &QfFeatureListModel::processFeatureList );
   mGatherer->start();
 }
 
-void FeatureListModel::processFeatureList()
+void QfFeatureListModel::processFeatureList()
 {
   if ( !mGatherer )
   {
@@ -432,17 +432,17 @@ void FeatureListModel::processFeatureList()
     entries.append( Entry( QStringLiteral( "<i>NULL</i>" ), QVariant(), QVariant(), QgsFeatureId(), QString() ) );
   }
 
-  const QVector<FeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
+  const QVector<QfFeatureExpressionValuesGatherer::Entry> gatheredEntries = mGatherer->entries();
   mGatherer->deleteLater();
   mGatherer = nullptr;
 
-  for ( const FeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
+  for ( const QfFeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
     Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId, gatheredEntry.identifierFields.at( 2 ).toString() );
 
     if ( !mSearchTerm.isEmpty() )
     {
-      entry.fuzzyScore = StringUtils::calcFuzzyScore( entry.displayString, mSearchTerm );
+      entry.fuzzyScore = QfStringUtils::calcFuzzyScore( entry.displayString, mSearchTerm );
       if ( qgsDoubleNear( entry.fuzzyScore, 0.0 ) )
       {
         continue;
@@ -515,23 +515,23 @@ void FeatureListModel::processFeatureList()
   endResetModel();
 }
 
-FeatureListModel::Entry FeatureListModel::entryFromRow( int row )
+QfFeatureListModel::Entry QfFeatureListModel::entryFromRow( int row )
 {
-  return row < 0 || row >= mEntries.size() ? FeatureListModel::Entry() : mEntries.at( row );
+  return row < 0 || row >= mEntries.size() ? QfFeatureListModel::Entry() : mEntries.at( row );
 }
 
-void FeatureListModel::reloadLayer()
+void QfFeatureListModel::reloadLayer()
 {
   cleanupGatherer();
   mReloadTimer.start();
 }
 
-bool FeatureListModel::addNull() const
+bool QfFeatureListModel::addNull() const
 {
   return mAddNull;
 }
 
-void FeatureListModel::setAddNull( bool addNull )
+void QfFeatureListModel::setAddNull( bool addNull )
 {
   if ( mAddNull == addNull )
   {
@@ -544,12 +544,12 @@ void FeatureListModel::setAddNull( bool addNull )
   reloadLayer();
 }
 
-bool FeatureListModel::orderByValue() const
+bool QfFeatureListModel::orderByValue() const
 {
   return mOrderByValue;
 }
 
-void FeatureListModel::setOrderByValue( bool orderByValue )
+void QfFeatureListModel::setOrderByValue( bool orderByValue )
 {
   if ( mOrderByValue == orderByValue )
   {
@@ -561,12 +561,12 @@ void FeatureListModel::setOrderByValue( bool orderByValue )
   emit orderByValueChanged();
 }
 
-bool FeatureListModel::orderByField() const
+bool QfFeatureListModel::orderByField() const
 {
   return mOrderByField;
 }
 
-void FeatureListModel::setOrderByField( bool orderByField )
+void QfFeatureListModel::setOrderByField( bool orderByField )
 {
   if ( mOrderByField == orderByField )
   {
@@ -578,12 +578,12 @@ void FeatureListModel::setOrderByField( bool orderByField )
   emit orderByFieldChanged();
 }
 
-QString FeatureListModel::orderByFieldName() const
+QString QfFeatureListModel::orderByFieldName() const
 {
   return mOrderByFieldName;
 }
 
-void FeatureListModel::setOrderByFieldName( const QString &orderByFieldName )
+void QfFeatureListModel::setOrderByFieldName( const QString &orderByFieldName )
 {
   if ( mOrderByFieldName == orderByFieldName )
   {
@@ -595,12 +595,12 @@ void FeatureListModel::setOrderByFieldName( const QString &orderByFieldName )
   emit orderByFieldNameChanged();
 }
 
-QString FeatureListModel::filterExpression() const
+QString QfFeatureListModel::filterExpression() const
 {
   return mFilterExpression;
 }
 
-void FeatureListModel::setFilterExpression( const QString &filterExpression )
+void QfFeatureListModel::setFilterExpression( const QString &filterExpression )
 {
   if ( mFilterExpression == filterExpression )
   {
@@ -612,12 +612,12 @@ void FeatureListModel::setFilterExpression( const QString &filterExpression )
   emit filterExpressionChanged();
 }
 
-QString FeatureListModel::searchTerm() const
+QString QfFeatureListModel::searchTerm() const
 {
   return mSearchTerm;
 }
 
-void FeatureListModel::setSearchTerm( const QString &searchTerm )
+void QfFeatureListModel::setSearchTerm( const QString &searchTerm )
 {
   const QString lowerSearchTerm = searchTerm.toLower();
   if ( mSearchTerm == lowerSearchTerm )
@@ -630,12 +630,12 @@ void FeatureListModel::setSearchTerm( const QString &searchTerm )
   emit searchTermChanged();
 }
 
-QgsFeature FeatureListModel::currentFormFeature() const
+QgsFeature QfFeatureListModel::currentFormFeature() const
 {
   return mCurrentFormFeature;
 }
 
-void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
+void QfFeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
 {
   if ( mCurrentFormFeature == feature )
   {
@@ -652,12 +652,12 @@ void FeatureListModel::setCurrentFormFeature( const QgsFeature &feature )
   emit currentFormFeatureChanged();
 }
 
-AppExpressionContextScopesGenerator *FeatureListModel::appExpressionContextScopesGenerator() const
+QfAppExpressionContextScopesGenerator *QfFeatureListModel::appExpressionContextScopesGenerator() const
 {
   return mAppExpressionContextScopesGenerator.data();
 }
 
-void FeatureListModel::setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator )
+void QfFeatureListModel::setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator )
 {
   if ( mAppExpressionContextScopesGenerator == generator )
   {

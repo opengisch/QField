@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgeofencer.h - Geofencer
+  qfgeofencer.h - QfGeofencer
 
  ---------------------
  begin                : 27.06.2024
@@ -19,27 +19,27 @@
 #include <qgsgeometryengine.h>
 #include <qgsproject.h>
 
-Geofencer::Geofencer( QObject *parent )
+QfGeofencer::QfGeofencer( QObject *parent )
   : QObject( parent )
 {
 }
 
-Geofencer::~Geofencer()
+QfGeofencer::~QfGeofencer()
 {
 }
 
-void Geofencer::cleanupGatherer()
+void QfGeofencer::cleanupGatherer()
 {
   if ( mGatherer )
   {
-    disconnect( mGatherer, &QThread::finished, this, &Geofencer::processAreas );
+    disconnect( mGatherer, &QThread::finished, this, &QfGeofencer::processAreas );
     connect( mGatherer, &QThread::finished, mGatherer, &QObject::deleteLater );
     mGatherer->stop();
     mGatherer = nullptr;
   }
 }
 
-void Geofencer::gatherAreas()
+void QfGeofencer::gatherAreas()
 {
   if ( !mAreasLayer || !mAreasLayer->isValid() || !mPositionCrs.isValid() )
     return;
@@ -57,12 +57,12 @@ void Geofencer::gatherAreas()
 
   cleanupGatherer();
 
-  mGatherer = new FeatureExpressionValuesGatherer( mAreasLayer, mAreasLayer->displayExpression(), request );
-  connect( mGatherer, &QThread::finished, this, &Geofencer::processAreas );
+  mGatherer = new QfFeatureExpressionValuesGatherer( mAreasLayer, mAreasLayer->displayExpression(), request );
+  connect( mGatherer, &QThread::finished, this, &QfGeofencer::processAreas );
   mGatherer->start();
 }
 
-void Geofencer::processAreas()
+void QfGeofencer::processAreas()
 {
   if ( !mGatherer )
     return;
@@ -80,7 +80,7 @@ void Geofencer::processAreas()
   }
 }
 
-void Geofencer::checkWithin()
+void QfGeofencer::checkWithin()
 {
   int isWithinIndex = -1;
   if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
@@ -110,7 +110,7 @@ void Geofencer::checkWithin()
   }
 }
 
-void Geofencer::checkAlert()
+void QfGeofencer::checkAlert()
 {
   bool isAlerting = false;
 
@@ -140,12 +140,12 @@ void Geofencer::checkAlert()
   }
 }
 
-bool Geofencer::isWithin() const
+bool QfGeofencer::isWithin() const
 {
   return mIsWithinIndex > -1;
 }
 
-QString Geofencer::isWithinAreaName() const
+QString QfGeofencer::isWithinAreaName() const
 {
   if ( mIsWithinIndex < 0 || mIsWithinIndex >= mAreas.size() )
   {
@@ -155,7 +155,7 @@ QString Geofencer::isWithinAreaName() const
   return mAreas.at( mIsWithinIndex ).value;
 }
 
-QString Geofencer::lastWithinAreaName() const
+QString QfGeofencer::lastWithinAreaName() const
 {
   if ( mLastWithinIndex < 0 || mLastWithinIndex >= mAreas.size() )
   {
@@ -165,7 +165,7 @@ QString Geofencer::lastWithinAreaName() const
   return mAreas.at( mLastWithinIndex ).value;
 }
 
-void Geofencer::setActive( bool active )
+void QfGeofencer::setActive( bool active )
 {
   if ( mActive == active )
   {
@@ -179,7 +179,7 @@ void Geofencer::setActive( bool active )
   checkAlert();
 }
 
-void Geofencer::setBehavior( Behaviors behavior )
+void QfGeofencer::setBehavior( Behaviors behavior )
 {
   if ( mBehavior == behavior )
   {
@@ -193,7 +193,7 @@ void Geofencer::setBehavior( Behaviors behavior )
   checkAlert();
 }
 
-void Geofencer::setPosition( const QgsPoint &position )
+void QfGeofencer::setPosition( const QgsPoint &position )
 {
   if ( mPosition == position )
   {
@@ -207,7 +207,7 @@ void Geofencer::setPosition( const QgsPoint &position )
   checkAlert();
 }
 
-void Geofencer::setPositionCrs( const QgsCoordinateReferenceSystem &crs )
+void QfGeofencer::setPositionCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mPositionCrs == crs )
   {
@@ -220,7 +220,7 @@ void Geofencer::setPositionCrs( const QgsCoordinateReferenceSystem &crs )
   gatherAreas();
 }
 
-void Geofencer::setAreasLayer( QgsVectorLayer *layer )
+void QfGeofencer::setAreasLayer( QgsVectorLayer *layer )
 {
   if ( mAreasLayer == layer )
   {
@@ -233,7 +233,7 @@ void Geofencer::setAreasLayer( QgsVectorLayer *layer )
   gatherAreas();
 }
 
-void Geofencer::applyProjectSettings( QgsProject *project )
+void QfGeofencer::applyProjectSettings( QgsProject *project )
 {
   bool active = false;
   Behaviors behavior = AlertWhenInsideGeofencedArea;

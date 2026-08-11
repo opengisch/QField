@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbluetoothreceiver.h - BluetoothReceiver
+ qfbluetoothreceiver.h - QfBluetoothReceiver
 
  ---------------------
  begin                : 18.11.2020
@@ -24,18 +24,18 @@
 
 /**
  * The bluetoothreceiver connects to a device and feeds the QgsNmeaConnection over QBluetoothSocket.
- * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * It receives QgsGpsInformation and converts it to QfGnssPositionInformation
  * \ingroup core
  */
-class BluetoothReceiver : public NmeaGnssReceiver
+class QfBluetoothReceiver : public QfNmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit BluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
-    ~BluetoothReceiver();
+    explicit QfBluetoothReceiver( const QString &address = QString(), QObject *parent = nullptr );
+    ~QfBluetoothReceiver();
 
-    AbstractGnssReceiver::Capabilities capabilities() const override;
+    QfAbstractGnssReceiver::Capabilities capabilities() const override;
 
   public slots:
     QString socketStateString() override;

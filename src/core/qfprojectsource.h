@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectsource.h - ProjectSource
+  qfprojectsource.h - QfProjectSource
 
  ---------------------
  begin                : 19.3.2018
@@ -30,16 +30,16 @@
  * be loaded.
  *
  * The default implementation does nothing. You probably
- * want to have a look at the AndroidProjectSource subclass.
+ * want to have a look at the QfAndroidProjectSource subclass.
  * \ingroup core
  */
-class ProjectSource : public QObject
+class QfProjectSource : public QObject
 {
     Q_OBJECT
   public:
-    explicit ProjectSource( QObject *parent = nullptr );
+    explicit QfProjectSource( QObject *parent = nullptr );
 
-    virtual ~ProjectSource() = default;
+    virtual ~QfProjectSource() = default;
 
   signals:
     /**

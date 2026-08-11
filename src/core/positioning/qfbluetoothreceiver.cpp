@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbluetoothreceiver.cpp - BluetoothReceiver
+ qfbluetoothreceiver.cpp - QfBluetoothReceiver
 
  ---------------------
  begin                : 18.11.2020
@@ -20,17 +20,17 @@
 #include <QGuiApplication>
 #include <QTimer>
 
-BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
-  : NmeaGnssReceiver( parent )
+QfBluetoothReceiver::QfBluetoothReceiver( const QString &address, QObject *parent )
+  : QfNmeaGnssReceiver( parent )
   , mAddress( address )
   , mLocalDevice( std::make_unique<QBluetoothLocalDevice>() )
   , mSocket( new QBluetoothSocket( QBluetoothServiceInfo::RfcommProtocol ) )
 {
   qInfo() << "BluetothReceiver: Creating the receiver";
-  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &BluetoothReceiver::handleErrorOccurred );
-  connect( mSocket, &QBluetoothSocket::stateChanged, this, &BluetoothReceiver::handleStateChanged );
+  connect( mSocket, qOverload<QBluetoothSocket::SocketError>( &QBluetoothSocket::errorOccurred ), this, &QfBluetoothReceiver::handleErrorOccurred );
+  connect( mSocket, &QBluetoothSocket::stateChanged, this, &QfBluetoothReceiver::handleStateChanged );
 
-  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &BluetoothReceiver::pairingFinished );
+  connect( mLocalDevice.get(), &QBluetoothLocalDevice::pairingFinished, this, &QfBluetoothReceiver::pairingFinished );
   connect( mLocalDevice.get(), &QBluetoothLocalDevice::errorOccurred, this, [this]( QBluetoothLocalDevice::Error error ) {
     if ( error != QBluetoothLocalDevice::NoError )
     {
@@ -55,7 +55,7 @@ BluetoothReceiver::BluetoothReceiver( const QString &address, QObject *parent )
   setValid( !mAddress.isEmpty() );
 }
 
-BluetoothReceiver::~BluetoothReceiver()
+QfBluetoothReceiver::~QfBluetoothReceiver()
 {
   qInfo() << "BluetothReceiver: Deleting the receiver";
   disconnectDevice();
@@ -63,18 +63,18 @@ BluetoothReceiver::~BluetoothReceiver()
   mSocket = nullptr;
 }
 
-AbstractGnssReceiver::Capabilities BluetoothReceiver::capabilities() const
+QfAbstractGnssReceiver::Capabilities QfBluetoothReceiver::capabilities() const
 {
-  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
+  return QfAbstractGnssReceiver::Capabilities() | QfAbstractGnssReceiver::OrthometricAltitude | QfAbstractGnssReceiver::Logging | QfAbstractGnssReceiver::NtripCorrection;
 }
 
-void BluetoothReceiver::handleDisconnectDevice()
+void QfBluetoothReceiver::handleDisconnectDevice()
 {
   mConnectOnDisconnect = false;
   doDisconnectDevice();
 }
 
-void BluetoothReceiver::handleConnectDevice()
+void QfBluetoothReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() )
   {
@@ -94,7 +94,7 @@ void BluetoothReceiver::handleConnectDevice()
   }
 }
 
-void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state )
+void QfBluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state )
 {
   QAbstractSocket::SocketState currentState;
   switch ( state )
@@ -126,7 +126,7 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
   if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
   {
     qInfo() << QStringLiteral( "BluetoothReceiver: Reconnecting on failure (try #%1)" ).arg( mConnectionFailureCount );
-    QTimer::singleShot( 1000, this, &BluetoothReceiver::doConnectDevice );
+    QTimer::singleShot( 1000, this, &QfBluetoothReceiver::doConnectDevice );
   }
   else
   {
@@ -134,7 +134,7 @@ void BluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState state 
   }
 }
 
-void BluetoothReceiver::handleErrorOccurred( QBluetoothSocket::SocketError error )
+void QfBluetoothReceiver::handleErrorOccurred( QBluetoothSocket::SocketError error )
 {
   switch ( error )
   {
@@ -176,7 +176,7 @@ void BluetoothReceiver::handleErrorOccurred( QBluetoothSocket::SocketError error
   }
 }
 
-void BluetoothReceiver::doConnectDevice()
+void QfBluetoothReceiver::doConnectDevice()
 {
   if ( mLocalDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff )
   {
@@ -190,7 +190,7 @@ void BluetoothReceiver::doConnectDevice()
   repairDevice( QBluetoothAddress( mAddress ) );
 }
 
-void BluetoothReceiver::doDisconnectDevice()
+void QfBluetoothReceiver::doDisconnectDevice()
 {
   if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
   {
@@ -201,10 +201,10 @@ void BluetoothReceiver::doDisconnectDevice()
   }
 }
 
-QString BluetoothReceiver::socketStateString()
+QString QfBluetoothReceiver::socketStateString()
 {
   const QAbstractSocket::SocketState currentState = socketState();
-  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  QString socketStateString = QfAbstractGnssReceiver::socketStateString();
   if ( currentState == QAbstractSocket::UnconnectedState )
   {
     if ( !mDisconnecting && mSocket->error() != QBluetoothSocket::SocketError::NoSocketError )
@@ -215,7 +215,7 @@ QString BluetoothReceiver::socketStateString()
   return socketStateString;
 }
 
-void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
+void QfBluetoothReceiver::repairDevice( const QBluetoothAddress &address )
 {
   const QBluetoothLocalDevice::Pairing pairingStatus = mLocalDevice->pairingStatus( address );
   qInfo() << QStringLiteral( "BluetoothReceiver: Pre-connection pairing status for %1: %2" ).arg( mAddress, QMetaEnum::fromType<QBluetoothLocalDevice::Pairing>().valueToKey( pairingStatus ) );
@@ -236,7 +236,7 @@ void BluetoothReceiver::repairDevice( const QBluetoothAddress &address )
   }
 }
 
-void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status )
+void QfBluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBluetoothLocalDevice::Pairing status )
 {
   if ( QBluetoothAddress( mAddress ) == address )
   {
@@ -261,7 +261,7 @@ void BluetoothReceiver::pairingFinished( const QBluetoothAddress &address, QBlue
   }
 }
 
-void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
+void QfBluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
 {
   if ( !mSocket || !mSocket->isOpen() )
   {
@@ -317,10 +317,10 @@ void BluetoothReceiver::onCorrectionDataReceived( const QByteArray &data )
     packet.append( checkChar );
     packet.append( "\r\n" );
 
-    NmeaGnssReceiver::onCorrectionDataReceived( packet );
+    QfNmeaGnssReceiver::onCorrectionDataReceived( packet );
   }
   else // Generic handling
   {
-    NmeaGnssReceiver::onCorrectionDataReceived( data );
+    QfNmeaGnssReceiver::onCorrectionDataReceived( data );
   }
 }

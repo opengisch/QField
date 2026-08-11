@@ -32,7 +32,7 @@ class QNetworkRequest;
 /**
  * \ingroup core
  */
-class AuthenticationProvider
+class QfAuthenticationProvider
 {
     Q_GADGET
 
@@ -41,7 +41,7 @@ class AuthenticationProvider
     Q_PROPERTY( QVariantMap details READ details );
 
   public:
-    explicit AuthenticationProvider( const QString &id = QString(), const QString &name = QString(), const QVariantMap &details = QVariantMap() )
+    explicit QfAuthenticationProvider( const QString &id = QString(), const QString &name = QString(), const QVariantMap &details = QVariantMap() )
       : mId( id )
       , mName( name )
       , mDetails( details )
@@ -58,13 +58,13 @@ class AuthenticationProvider
     QVariantMap mDetails;
 };
 
-Q_DECLARE_METATYPE( AuthenticationProvider )
+Q_DECLARE_METATYPE( QfAuthenticationProvider )
 
 
 /**
  * \ingroup core
  */
-class QFieldCloudConnection : public QObject
+class QfCloudConnection : public QObject
 {
     Q_OBJECT
 
@@ -81,12 +81,12 @@ class QFieldCloudConnection : public QObject
     Q_PROPERTY( bool hasToken READ hasToken NOTIFY tokenChanged )
     Q_PROPERTY( bool hasProviderConfiguration READ hasProviderConfiguration NOTIFY providerConfigurationChanged )
 
-    Q_PROPERTY( CloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
+    Q_PROPERTY( QfCloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
 
-    Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
+    Q_PROPERTY( QList<QfAuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
 
-    Q_PROPERTY( CloudServerInformation serverInformation READ serverInformation NOTIFY serverInformationChanged )
+    Q_PROPERTY( QfCloudServerInformation serverInformation READ serverInformation NOTIFY serverInformationChanged )
 
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
 
@@ -124,8 +124,8 @@ class QFieldCloudConnection : public QObject
         QNetworkReply::NetworkError mError;
     };
 
-    QFieldCloudConnection();
-    ~QFieldCloudConnection();
+    QfCloudConnection();
+    ~QfCloudConnection();
 
     //!Returns an error string to be shown to the user if \a reply has an error.
     static QString errorString( QNetworkReply *reply );
@@ -166,7 +166,7 @@ class QFieldCloudConnection : public QObject
 
     QString avatarUrl() const;
 
-    CloudUserInformation userInformation() const;
+    QfCloudUserInformation userInformation() const;
 
     Q_INVOKABLE void login( const QString &password = QString() );
     Q_INVOKABLE void logout();
@@ -175,10 +175,10 @@ class QFieldCloudConnection : public QObject
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getServerInformation();
-    QList<AuthenticationProvider> availableProviders() const;
+    QList<QfAuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
 
-    CloudServerInformation serverInformation() const { return mServerInformation; }
+    QfCloudServerInformation serverInformation() const { return mServerInformation; }
 
     ConnectionStatus status() const;
     ConnectionState state() const;
@@ -192,7 +192,7 @@ class QFieldCloudConnection : public QObject
      * If this connection is not logged in, will return nullptr.
      * The returned reply needs to be deleted by the caller.
      */
-    NetworkReply *post( const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
+    QfNetworkReply *post( const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
 
     /**
      * Sends a post \a request with the given \a parameters to the given \a endpoint.
@@ -200,7 +200,7 @@ class QFieldCloudConnection : public QObject
      * If this connection is not logged in, will return nullptr.
      * The returned reply needs to be deleted by the caller.
      */
-    NetworkReply *post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
+    QfNetworkReply *post( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap(), const QStringList &fileNames = QStringList() );
 
     /**
      * Sends a get request to the given \a endpoint. Query can be passed via \a params, empty by default.
@@ -208,7 +208,7 @@ class QFieldCloudConnection : public QObject
      * If this connection is not logged in, will return nullptr.
      * The returned reply needs to be deleted by the caller.
      */
-    NetworkReply *get( const QString &endpoint, const QVariantMap &params = QVariantMap() );
+    QfNetworkReply *get( const QString &endpoint, const QVariantMap &params = QVariantMap() );
 
     /**
      * Sends a get \a request to a given \a endpoint. Additional query can be passed via \a params, empty by default.
@@ -216,8 +216,8 @@ class QFieldCloudConnection : public QObject
      * If this connection is not logged in, will return nullptr.
      * The returned reply needs to be deleted by the caller.
      */
-    NetworkReply *get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap() );
-    NetworkReply *get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params = QVariantMap() );
+    QfNetworkReply *get( QNetworkRequest &request, const QString &endpoint, const QVariantMap &params = QVariantMap() );
+    QfNetworkReply *get( QNetworkRequest &request, const QUrl &url, const QVariantMap &params = QVariantMap() );
 
     /**
      * Sets authentication details on a \a request.
@@ -273,7 +273,7 @@ class QFieldCloudConnection : public QObject
     void queuedProjectPushRequested( const QString &projectId );
 
     void userOrganizationsReceived( const QStringList &organizations );
-    void subscriptionInformationReceived( const CloudSubscriptionInformation &subscriptionInformation );
+    void subscriptionInformationReceived( const QfCloudSubscriptionInformation &subscriptionInformation );
 
   private:
     void setStatus( ConnectionStatus status );
@@ -293,15 +293,15 @@ class QFieldCloudConnection : public QObject
     QByteArray mToken;
     QString mTokenConfigId;
 
-    QMap<QString, AuthenticationProvider> mAvailableProviders;
+    QMap<QString, QfAuthenticationProvider> mAvailableProviders;
     bool mIsFetchingAvailableProviders = false;
     QString mProvider;
     QString mProviderConfigId;
 
-    CloudServerInformation mServerInformation;
+    QfCloudServerInformation mServerInformation;
 
     QString mAvatarUrl;
-    CloudUserInformation mUserInformation;
+    QfCloudUserInformation mUserInformation;
     ConnectionStatus mStatus = ConnectionStatus::Disconnected;
     ConnectionState mState = ConnectionState::Idle;
 

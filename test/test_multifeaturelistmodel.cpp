@@ -69,7 +69,7 @@ static QgsFeature getFeatureById( QgsVectorLayer *layer, QgsFeatureId id )
 
 TEST_CASE( "MultiFeatureListModel validation checks" )
 {
-  MultiFeatureListModel model;
+  QfMultiFeatureListModel model;
 
   REQUIRE( model.rowCount() == 0 );
   REQUIRE( model.count() == 0 );
@@ -129,7 +129,7 @@ TEST_CASE( "MultiFeatureListModel behaviours" )
   buildingsLayer->commitChanges();
 
   // Populate model with both layers
-  MultiFeatureListModel model;
+  QfMultiFeatureListModel model;
 
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
   requests.insert( roadsLayer.get(), QgsFeatureRequest() );
@@ -154,13 +154,13 @@ TEST_CASE( "MultiFeatureListModel behaviours" )
     REQUIRE( buildingRow >= 0 );
 
     const QModelIndex idx = model.index( buildingRow, 0 );
-    REQUIRE( model.data( idx, MultiFeatureListModel::FeatureSelectedRole ).toBool() == false );
-    REQUIRE( model.data( idx, MultiFeatureListModel::LayerNameRole ).toString() == QStringLiteral( "buildings" ) );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::FeatureSelectedRole ).toBool() == false );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::LayerNameRole ).toString() == QStringLiteral( "buildings" ) );
 
-    QgsVectorLayer *layerFromRole = model.data( idx, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    QgsVectorLayer *layerFromRole = model.data( idx, QfMultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
     REQUIRE( layerFromRole == buildingsLayer.get() );
 
-    const QgsFeatureId fid = model.data( idx, MultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
+    const QgsFeatureId fid = model.data( idx, QfMultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
     REQUIRE( fid >= 0 );
   }
 
@@ -187,7 +187,7 @@ TEST_CASE( "MultiFeatureListModel behaviours" )
 
     // Visible rows must all belong to the selected layer
     const QModelIndex visibleIdx = model.index( 0, 0 );
-    REQUIRE( model.data( visibleIdx, MultiFeatureListModel::LayerNameRole ).toString() == QStringLiteral( "buildings" ) );
+    REQUIRE( model.data( visibleIdx, QfMultiFeatureListModel::LayerNameRole ).toString() == QStringLiteral( "buildings" ) );
     REQUIRE( model.data( visibleIdx, Qt::DisplayRole ).toString() == QStringLiteral( "Building X" ) );
 
     // Clear selection restores full view
@@ -267,24 +267,24 @@ TEST_CASE( "MultiFeatureListModel behaviours" )
     REQUIRE( model.selectedLayer() == roadsLayer.get() );
 
     const QModelIndex idx = model.index( 0, 0 ); // filtered to roads layer, first visible should be Road A or Road B
-    REQUIRE( model.data( idx, MultiFeatureListModel::LayerNameRole ).toString() == QStringLiteral( "roads" ) );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::LayerNameRole ).toString() == QStringLiteral( "roads" ) );
 
     // With memory provider, these are expected to be editable by default
     REQUIRE( model.canMoveSelection() == true );
     REQUIRE( model.canDeleteSelection() == true );
 
-    REQUIRE( model.data( idx, MultiFeatureListModel::EditGeometryRole ).toBool() == true );
-    REQUIRE( model.data( idx, MultiFeatureListModel::DeleteFeatureRole ).toBool() == true );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::EditGeometryRole ).toBool() == true );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::DeleteFeatureRole ).toBool() == true );
 
     // Lock deletion
     roadsLayer->setCustomProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), true );
     REQUIRE( model.canDeleteSelection() == false );
-    REQUIRE( model.data( idx, MultiFeatureListModel::DeleteFeatureRole ).toBool() == false );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::DeleteFeatureRole ).toBool() == false );
 
     // Lock geometry editing
     roadsLayer->setCustomProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false );
     roadsLayer->setCustomProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), true );
-    REQUIRE( model.data( idx, MultiFeatureListModel::EditGeometryRole ).toBool() == false );
+    REQUIRE( model.data( idx, QfMultiFeatureListModel::EditGeometryRole ).toBool() == false );
 
     model.clearSelection();
     roadsLayer->setCustomProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false );
@@ -322,7 +322,7 @@ TEST_CASE( "MultiFeatureListModel setFeatures filter and extent" )
   // Avoid CRS transform branch in the implementation (keep project CRS same as layer CRS)
   QgsProject::instance()->setCrs( layer->crs() );
 
-  MultiFeatureListModel model;
+  QfMultiFeatureListModel model;
 
   model.setFeatures( layer.get(), QStringLiteral( "\"grp\" = 'A'" ) );
   {
@@ -347,7 +347,7 @@ TEST_CASE( "MultiFeatureListModel setFeatures filter and extent" )
     REQUIRE( model.rowCount() == 1 );
 
     const QModelIndex idx = model.index( 0, 0 );
-    const QgsFeatureId fid = model.data( idx, MultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
+    const QgsFeatureId fid = model.data( idx, QfMultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
     const QgsFeature f = getFeatureById( layer.get(), fid );
     REQUIRE( f.attribute( QStringLiteral( "name" ) ).toString() == QStringLiteral( "A1" ) );
   }

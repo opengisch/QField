@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfrubberbandmodel.h - RubberbandModel
+  qfrubberbandmodel.h - QfRubberbandModel
 
  ---------------------
  begin                : 10.6.2016
@@ -37,7 +37,7 @@ class QgsVectorLayer;
  * \ingroup core
  */
 
-class QFIELD_CORE_EXPORT RubberbandModel : public QObject
+class QFIELD_CORE_EXPORT QfRubberbandModel : public QObject
 {
     Q_OBJECT
 
@@ -51,7 +51,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_PROPERTY( QgsPoint currentCoordinate READ currentCoordinate WRITE setCurrentCoordinate NOTIFY currentCoordinateChanged )
     //! Current vertex index
     Q_PROPERTY( int currentCoordinateIndex READ currentCoordinateIndex WRITE setCurrentCoordinateIndex NOTIFY currentCoordinateIndexChanged )
-    //! Geometry type of the model
+    //! QfGeometry type of the model
     Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
     //! The vector layer the model is for
     Q_PROPERTY( QgsVectorLayer *vectorLayer READ vectorLayer WRITE setVectorLayer NOTIFY vectorLayerChanged )
@@ -69,7 +69,7 @@ class QFIELD_CORE_EXPORT RubberbandModel : public QObject
     Q_PROPERTY( double measureValue READ measureValue WRITE setMeasureValue NOTIFY measureValueChanged )
 
   public:
-    explicit RubberbandModel( QObject *parent = nullptr );
+    explicit QfRubberbandModel( QObject *parent = nullptr );
 
     //! \copydoc vertexCount
     int vertexCount() const;

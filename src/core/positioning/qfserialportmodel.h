@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfserialportmodel.h - SerialPortModel
+  qfserialportmodel.h - QfSerialPortModel
 
  ---------------------
  begin                : 15.01.2023
@@ -24,7 +24,7 @@
  * A model that provides serial ports available on the device.
  * \ingroup core
  */
-class SerialPortModel : public QAbstractListModel
+class QfSerialPortModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -37,7 +37,7 @@ class SerialPortModel : public QAbstractListModel
     };
     Q_ENUM( Roles )
 
-    explicit SerialPortModel( QObject *parent = nullptr );
+    explicit QfSerialPortModel( QObject *parent = nullptr );
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
 

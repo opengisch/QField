@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflegendimageprovider.cpp - LegendImageProvider
+  qflegendimageprovider.cpp - QfLegendImageProvider
 
  ---------------------
  begin                : 7.12.2016
@@ -25,14 +25,14 @@
 #include <qgsproject.h>
 #include <qgsrasterlayer.h>
 
-LegendImageProvider::LegendImageProvider( QgsLayerTreeModel *layerTreeModel )
+QfLegendImageProvider::QfLegendImageProvider( QgsLayerTreeModel *layerTreeModel )
   : QQuickImageProvider( Pixmap )
   , mLayerTreeModel( layerTreeModel )
   , mRootNode( layerTreeModel->rootGroup() )
 {
 }
 
-QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *, const QSize & )
+QPixmap QfLegendImageProvider::requestPixmap( const QString &id, QSize *, const QSize & )
 {
   const int iconSize = mLayerTreeModel->scaleIconSize( 16 );
 
@@ -137,18 +137,18 @@ QPixmap LegendImageProvider::requestPixmap( const QString &id, QSize *, const QS
 }
 
 
-AsyncLegendImageProvider::AsyncLegendImageProvider( QgsLayerTreeModel *layerTreeModel )
+QfAsyncLegendImageProvider::QfAsyncLegendImageProvider( QgsLayerTreeModel *layerTreeModel )
   : mLayerTreeModel( layerTreeModel )
   , mRootNode( layerTreeModel->rootGroup() )
 {
 }
 
-void AsyncLegendImageProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfAsyncLegendImageProvider::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   mMapSettings = mapSettings;
 }
 
-QQuickImageResponse *AsyncLegendImageProvider::requestImageResponse( const QString &id, const QSize &requestedSize )
+QQuickImageResponse *QfAsyncLegendImageProvider::requestImageResponse( const QString &id, const QSize &requestedSize )
 {
   // the id is passed on as an encoded URL string which needs decoding
   const QString decodedId = QUrl::fromPercentEncoding( id.toUtf8() );
@@ -168,18 +168,18 @@ QQuickImageResponse *AsyncLegendImageProvider::requestImageResponse( const QStri
         {
           mapSettings = mMapSettings->mapSettings();
         }
-        AsyncLegendImageResponse *response = new AsyncLegendImageResponse( rasterLayer->dataProvider(), mMapSettings ? &mapSettings : nullptr );
+        QfAsyncLegendImageResponse *response = new QfAsyncLegendImageResponse( rasterLayer->dataProvider(), mMapSettings ? &mapSettings : nullptr );
         return response;
       }
     }
   }
 
-  AsyncLegendImageResponse *response = new AsyncLegendImageResponse();
+  QfAsyncLegendImageResponse *response = new QfAsyncLegendImageResponse();
   return response;
 }
 
 
-AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataProvider, const QgsMapSettings *mapSettings )
+QfAsyncLegendImageResponse::QfAsyncLegendImageResponse( QgsRasterDataProvider *dataProvider, const QgsMapSettings *mapSettings )
   : mDataProvider( dataProvider->clone() )
 {
   if ( mDataProvider )
@@ -187,8 +187,8 @@ AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataP
     mFetcher = mDataProvider->getLegendGraphicFetcher( mapSettings );
     if ( mFetcher )
     {
-      connect( mFetcher, &QgsImageFetcher::finish, this, &AsyncLegendImageResponse::handleFinish );
-      connect( mFetcher, &QgsImageFetcher::error, this, &AsyncLegendImageResponse::handleError );
+      connect( mFetcher, &QgsImageFetcher::finish, this, &QfAsyncLegendImageResponse::handleFinish );
+      connect( mFetcher, &QgsImageFetcher::error, this, &QfAsyncLegendImageResponse::handleError );
       mFetcher->start();
       return;
     }
@@ -198,7 +198,7 @@ AsyncLegendImageResponse::AsyncLegendImageResponse( QgsRasterDataProvider *dataP
   emit finished();
 }
 
-AsyncLegendImageResponse::~AsyncLegendImageResponse()
+QfAsyncLegendImageResponse::~QfAsyncLegendImageResponse()
 {
   if ( mFetcher )
   {
@@ -206,7 +206,7 @@ AsyncLegendImageResponse::~AsyncLegendImageResponse()
   }
 }
 
-void AsyncLegendImageResponse::handleFinish( const QImage &image )
+void QfAsyncLegendImageResponse::handleFinish( const QImage &image )
 {
   if ( !mFetcher )
   {
@@ -218,7 +218,7 @@ void AsyncLegendImageResponse::handleFinish( const QImage &image )
   emit finished();
 }
 
-void AsyncLegendImageResponse::handleError( const QString & )
+void QfAsyncLegendImageResponse::handleError( const QString & )
 {
   if ( !mFetcher )
   {
@@ -230,7 +230,7 @@ void AsyncLegendImageResponse::handleError( const QString & )
   emit finished();
 }
 
-QQuickTextureFactory *AsyncLegendImageResponse::textureFactory() const
+QQuickTextureFactory *QfAsyncLegendImageResponse::textureFactory() const
 {
   return QQuickTextureFactory::textureFactoryForImage( mImage );
 }

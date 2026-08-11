@@ -24,14 +24,14 @@
 #include <qgsvectorlayerfeatureiterator.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * FeaturesLocatorFilter is a locator filter to search
+ * QfFeaturesLocatorFilter is a locator filter to search
  * for features across layers in the project.
  * Reimplemented from QGIS code (app).
  */
-class ActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
+class QfActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -41,7 +41,7 @@ class ActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
     {
       Normal,
       OpenForm,
-      Navigation,
+      QfNavigation,
     };
 
     enum class ResultType
@@ -51,8 +51,8 @@ class ActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
     };
     Q_ENUM( ResultType )
 
-    explicit ActiveLayerFeaturesLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-    ActiveLayerFeaturesLocatorFilter *clone() const override;
+    explicit QfActiveLayerFeaturesLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    QfActiveLayerFeaturesLocatorFilter *clone() const override;
     // Note that the name is important here, has to match the QgsLocator::CORE_FILTERS one to give us a 1-letter prefix
     QString name() const override { return QStringLiteral( "features" ); }
     QString displayName() const override { return tr( "Features from active layer" ); }
@@ -79,7 +79,7 @@ class ActiveLayerFeaturesLocatorFilter : public QgsLocatorFilter
     QStringList mFieldsCompletion;
 
     int mMaxTotalResults = 16;
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // QFACTIVELAYERFEATURESLOCATORFILTER_H

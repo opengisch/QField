@@ -1,5 +1,5 @@
 /***************************************************************************
- qfparameterizedimage.h - ParameterizedImage
+ qfparameterizedimage.h - QfParameterizedImage
 
  ---------------------
  begin                : 21.05.2024
@@ -25,7 +25,7 @@
 /**
  * \ingroup core
  */
-class ParameterizedImage : public QQuickPaintedItem
+class QfParameterizedImage : public QQuickPaintedItem
 {
     Q_OBJECT
 
@@ -59,35 +59,35 @@ class ParameterizedImage : public QQuickPaintedItem
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
 
   public:
-    ParameterizedImage( QQuickItem *parent = nullptr );
-    ~ParameterizedImage() = default;
+    QfParameterizedImage( QQuickItem *parent = nullptr );
+    ~QfParameterizedImage() = default;
 
     void paint( QPainter *painter ) override;
 
-    //! \copydoc ParameterizedImage::source
+    //! \copydoc QfParameterizedImage::source
     QString source() const;
-    //! \copydoc ParameterizedImage::source
+    //! \copydoc QfParameterizedImage::source
     void setSource( const QString &source );
 
-    //! \copydoc ParameterizedImage::fillColor
+    //! \copydoc QfParameterizedImage::fillColor
     QColor fillColor() const;
-    //! \copydoc ParameterizedImage::fillColor
+    //! \copydoc QfParameterizedImage::fillColor
     void setFillColor( const QColor &color );
 
-    //! \copydoc ParameterizedImage::strokeColor
+    //! \copydoc QfParameterizedImage::strokeColor
     QColor strokeColor() const;
-    //! \copydoc ParameterizedImage::strokeColor
+    //! \copydoc QfParameterizedImage::strokeColor
     void setStrokeColor( const QColor &color );
 
-    //! \copydoc ParameterizedImage::strokeWidth
+    //! \copydoc QfParameterizedImage::strokeWidth
     double strokeWidth() const;
-    //! \copydoc ParameterizedImage::strokeWidth
+    //! \copydoc QfParameterizedImage::strokeWidth
     void setStrokeWidth( double width );
 
-    //! \copydoc ParameterizedImage::parameters
+    //! \copydoc QfParameterizedImage::parameters
     QVariantMap parameters() const;
 
-    //! \copydoc ParameterizedImage::parameters
+    //! \copydoc QfParameterizedImage::parameters
     void setParameters( const QVariantMap &parameters );
 
   signals:

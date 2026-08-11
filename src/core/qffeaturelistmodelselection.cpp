@@ -19,17 +19,17 @@
 
 #include <qgsvectorlayer.h>
 
-FeatureListModelSelection::FeatureListModelSelection( QObject *parent )
+QfFeatureListModelSelection::QfFeatureListModelSelection( QObject *parent )
   : QObject( parent )
 {
 }
 
-int FeatureListModelSelection::focusedItem() const
+int QfFeatureListModelSelection::focusedItem() const
 {
   return mFocusedItem;
 }
 
-void FeatureListModelSelection::setFocusedItem( int item )
+void QfFeatureListModelSelection::setFocusedItem( int item )
 {
   if ( mFocusedItem == item )
     return;
@@ -38,24 +38,24 @@ void FeatureListModelSelection::setFocusedItem( int item )
   emit focusedItemChanged();
 }
 
-void FeatureListModelSelection::toggleSelectedItem( int item )
+void QfFeatureListModelSelection::toggleSelectedItem( int item )
 {
   mModel->toggleSelectedItem( item );
   emit selectedFeaturesChanged();
 }
 
-void FeatureListModelSelection::clear()
+void QfFeatureListModelSelection::clear()
 {
   mFocusedItem = -1;
   emit focusedItemChanged();
 }
 
-MultiFeatureListModel *FeatureListModelSelection::model() const
+QfMultiFeatureListModel *QfFeatureListModelSelection::model() const
 {
   return mModel;
 }
 
-void FeatureListModelSelection::setModel( MultiFeatureListModel *model )
+void QfFeatureListModelSelection::setModel( QfMultiFeatureListModel *model )
 {
   if ( mModel != model )
   {
@@ -65,26 +65,26 @@ void FeatureListModelSelection::setModel( MultiFeatureListModel *model )
   }
 }
 
-QgsVectorLayer *FeatureListModelSelection::focusedLayer() const
+QgsVectorLayer *QfFeatureListModelSelection::focusedLayer() const
 {
   if ( mFocusedItem > -1 )
   {
-    return mModel->data( mModel->index( mFocusedItem, 0 ), MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    return mModel->data( mModel->index( mFocusedItem, 0 ), QfMultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
   }
   return nullptr;
 }
 
-QgsFeature FeatureListModelSelection::focusedFeature() const
+QgsFeature QfFeatureListModelSelection::focusedFeature() const
 {
   if ( mFocusedItem > -1 )
   {
-    QgsFeature feature = mModel->data( mModel->index( mFocusedItem, 0 ), MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
+    QgsFeature feature = mModel->data( mModel->index( mFocusedItem, 0 ), QfMultiFeatureListModel::FeatureRole ).value<QgsFeature>();
     return feature;
   }
   return QgsFeature();
 }
 
-QgsGeometry FeatureListModelSelection::focusedGeometry() const
+QgsGeometry QfFeatureListModelSelection::focusedGeometry() const
 {
   return focusedFeature().geometry();
 }

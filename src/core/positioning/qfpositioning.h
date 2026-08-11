@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfpositioning.h - Positioning
+  qfpositioning.h - QfPositioning
 
  ---------------------
  begin                : 22.05.2022
@@ -34,7 +34,7 @@
  * This class manages the positioning source and offers positioning details.
  * \ingroup core
  */
-class Positioning : public QObject
+class QfPositioning : public QObject
 {
     Q_OBJECT
 
@@ -42,7 +42,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool valid READ valid NOTIFY validChanged )
 
     Q_PROPERTY( QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged )
-    Q_PROPERTY( AbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceChanged )
+    Q_PROPERTY( QfAbstractGnssReceiver::Capabilities deviceCapabilities READ deviceCapabilities NOTIFY deviceChanged )
     Q_PROPERTY( QString deviceLastError READ deviceLastError NOTIFY deviceLastErrorChanged )
     Q_PROPERTY( QAbstractSocket::SocketState deviceSocketState READ deviceSocketState NOTIFY deviceSocketStateChanged )
     Q_PROPERTY( QString deviceSocketStateString READ deviceSocketStateString NOTIFY deviceSocketStateStringChanged )
@@ -50,7 +50,7 @@ class Positioning : public QObject
 
     Q_PROPERTY( QgsQuickCoordinateTransformer *coordinateTransformer READ coordinateTransformer WRITE setCoordinateTransformer NOTIFY coordinateTransformerChanged )
 
-    Q_PROPERTY( GnssPositionInformation positionInformation READ positionInformation NOTIFY positionInformationChanged )
+    Q_PROPERTY( QfGnssPositionInformation positionInformation READ positionInformation NOTIFY positionInformationChanged )
 
     Q_PROPERTY( QgsPoint sourcePosition READ sourcePosition NOTIFY positionInformationChanged )
     Q_PROPERTY( QgsPoint projectedPosition READ projectedPosition NOTIFY positionInformationChanged )
@@ -60,7 +60,7 @@ class Positioning : public QObject
     Q_PROPERTY( bool averagedPosition READ averagedPosition WRITE setAveragedPosition NOTIFY averagedPositionChanged )
     Q_PROPERTY( int averagedPositionCount READ averagedPositionCount NOTIFY averagedPositionCountChanged )
 
-    Q_PROPERTY( PositioningSource::ElevationCorrectionMode elevationCorrectionMode READ elevationCorrectionMode WRITE setElevationCorrectionMode NOTIFY elevationCorrectionModeChanged )
+    Q_PROPERTY( QfPositioningSource::ElevationCorrectionMode elevationCorrectionMode READ elevationCorrectionMode WRITE setElevationCorrectionMode NOTIFY elevationCorrectionModeChanged )
     Q_PROPERTY( double antennaHeight READ antennaHeight WRITE setAntennaHeight NOTIFY antennaHeightChanged )
 
     Q_PROPERTY( double orientation READ orientation NOTIFY orientationChanged );
@@ -72,8 +72,8 @@ class Positioning : public QObject
     Q_PROPERTY( bool backgroundMode READ backgroundMode WRITE setBackgroundMode NOTIFY backgroundModeChanged )
 
     Q_PROPERTY( bool enableNtrip READ enableNtrip WRITE setEnableNtrip NOTIFY enableNtripChanged )
-    Q_PROPERTY( NtripSettings ntripSettings READ ntripSettings WRITE setNtripSettings NOTIFY ntripSettingsChanged )
-    Q_PROPERTY( PositioningSource::NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
+    Q_PROPERTY( QfNtripSettings ntripSettings READ ntripSettings WRITE setNtripSettings NOTIFY ntripSettingsChanged )
+    Q_PROPERTY( QfPositioningSource::NtripState ntripState READ ntripState NOTIFY ntripStateChanged )
     Q_PROPERTY( qint64 ntripBytesSent READ ntripBytesSent NOTIFY ntripBytesSentChanged )
     Q_PROPERTY( qint64 ntripBytesReceived READ ntripBytesReceived NOTIFY ntripBytesReceivedChanged )
     Q_PROPERTY( QDateTime ntripLastBytesReceivedUtcDateTime READ ntripLastBytesReceivedUtcDateTime NOTIFY ntripLastBytesReceivedUtcDateTimeChanged )
@@ -82,8 +82,8 @@ class Positioning : public QObject
     Q_PROPERTY( double excellentAccuracyThreshold READ excellentAccuracyThreshold WRITE setExcellentAccuracyThreshold NOTIFY excellentAccuracyThresholdChanged )
 
   public:
-    explicit Positioning( QObject *parent = nullptr );
-    virtual ~Positioning() = default;
+    explicit QfPositioning( QObject *parent = nullptr );
+    virtual ~QfPositioning() = default;
 
     /**
      * Returns TRUE when positioning is active.
@@ -116,7 +116,7 @@ class Positioning : public QObject
     /**
      * Returns extra details (such as hdop, vdop, pdop) provided by the positioning device.
      */
-    GnssPositionDetails deviceDetails() const;
+    QfGnssPositionDetails deviceDetails() const;
 
     /**
      * Returns positioning device's last error string.
@@ -147,7 +147,7 @@ class Positioning : public QObject
      */
     void setDeviceId( const QString &id );
 
-    AbstractGnssReceiver::Capabilities deviceCapabilities() const;
+    QfAbstractGnssReceiver::Capabilities deviceCapabilities() const;
 
     /**
      * Returns the coordinate transformer object used to reproject the position location.
@@ -161,9 +161,9 @@ class Positioning : public QObject
     void setCoordinateTransformer( QgsQuickCoordinateTransformer *coordinateTransformer );
 
     /**
-     * Returns a GnssPositionInformation position information object.
+     * Returns a QfGnssPositionInformation position information object.
      */
-    GnssPositionInformation positionInformation() const;
+    QfGnssPositionInformation positionInformation() const;
 
     /**
      * Returns the position point in its original WGS84 projection.
@@ -210,13 +210,13 @@ class Positioning : public QObject
      * Returns the current elevation correction mode.
      * \note Some modes depends on device capabilities.
      */
-    PositioningSource::ElevationCorrectionMode elevationCorrectionMode() const;
+    QfPositioningSource::ElevationCorrectionMode elevationCorrectionMode() const;
 
     /**
      * Sets the current elevation correction mode.
      * \note Some modes depends on device capabilities.
      */
-    void setElevationCorrectionMode( PositioningSource::ElevationCorrectionMode elevationCorrectionMode );
+    void setElevationCorrectionMode( QfPositioningSource::ElevationCorrectionMode elevationCorrectionMode );
 
     /**
      * Sets the GNSS device antenna height. This should be the pole height + sensore phase height.
@@ -303,17 +303,17 @@ class Positioning : public QObject
     /**
      * Returns the NTRIP settings.
      */
-    NtripSettings ntripSettings() const;
+    QfNtripSettings ntripSettings() const;
 
     /**
      * Sets the NTRIP settings.
      */
-    void setNtripSettings( const NtripSettings &ntripSettings );
+    void setNtripSettings( const QfNtripSettings &ntripSettings );
 
     /**
      * Returns the current NTRIP connection status.
      */
-    PositioningSource::NtripState ntripState() const;
+    QfPositioningSource::NtripState ntripState() const;
 
     /**
      * Returns the number of bytes sent via NTRIP.
@@ -335,7 +335,7 @@ class Positioning : public QObject
      * \see backgroundMode()
      * \see setBackgroundMode()
      */
-    Q_INVOKABLE QList<GnssPositionInformation> getBackgroundPositionInformation() const;
+    Q_INVOKABLE QList<QfGnssPositionInformation> getBackgroundPositionInformation() const;
 
     /**
      * Returns the threshold above which accuracy is considered bad.
@@ -388,7 +388,7 @@ class Positioning : public QObject
     void triggerConnectDevice();
     void triggerDisconnectDevice();
 
-    // Positioning signal
+    // QfPositioning signal
     void coordinateTransformerChanged();
     void projectedPositionChanged();
     void averagedPositionChanged();
@@ -418,14 +418,14 @@ class Positioning : public QObject
     void processProjectedPosition();
     double adjustOrientation( double orientation ) const;
 
-    PositioningSource *mPositioningSource = nullptr;
+    QfPositioningSource *mPositioningSource = nullptr;
     QRemoteObjectHost mHost;
 
     std::unique_ptr<QRemoteObjectNode> mNode;
     QSharedPointer<QRemoteObjectDynamicReplica> mPositioningSourceReplica; //skip-keyword-check
 
     bool mValid = true;
-    GnssPositionInformation mPositionInformation;
+    QfGnssPositionInformation mPositionInformation;
     QVariantMap mProperties;
 
     QgsQuickCoordinateTransformer *mCoordinateTransformer = nullptr;
@@ -441,7 +441,7 @@ class Positioning : public QObject
     bool mBackgroundMode = false;
 
     bool mAveragedPosition = false;
-    QList<GnssPositionInformation> mCollectedPositionInformations;
+    QList<QfGnssPositionInformation> mCollectedPositionInformations;
 
     bool mAveragedPositionFilterAccuracy = false;
     double mBadAccuracyThreshold = std::numeric_limits<double>::quiet_NaN();

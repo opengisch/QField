@@ -18,12 +18,12 @@
 
 #include <QAbstractListModel>
 
-class LocalFileItem;
+class QfLocalFileItem;
 
 /**
  * \ingroup core
  */
-class LocalFilesModel : public QAbstractListModel
+class QfLocalFilesModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -47,7 +47,7 @@ class LocalFilesModel : public QAbstractListModel
     enum ItemType
     {
       ApplicationFolder,
-      ExternalStorage,
+      QfExternalStorage,
       SimpleFolder,
       ProjectFile,
       VectorDataset,
@@ -72,15 +72,15 @@ class LocalFilesModel : public QAbstractListModel
     Q_ENUM( Role )
 
 
-    explicit LocalFilesModel( QObject *parent = nullptr );
+    explicit QfLocalFilesModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
 
-    //! Returns the LocalFileItem at the given \a index
-    Q_INVOKABLE LocalFileItem get( int index ) const;
+    //! Returns the QfLocalFileItem at the given \a index
+    Q_INVOKABLE QfLocalFileItem get( int index ) const;
 
     //! Resets the model and sets the first navigation history item to root
     Q_INVOKABLE void resetToRoot();
@@ -138,7 +138,7 @@ class LocalFilesModel : public QAbstractListModel
     const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;
-    QList<LocalFileItem> mItems;
+    QList<QfLocalFileItem> mItems;
 
     QStringList mFavorites;
 
@@ -151,12 +151,12 @@ class LocalFilesModel : public QAbstractListModel
 /**
  * \ingroup core
  */
-class LocalFileItem
+class QfLocalFileItem
 {
     Q_GADGET
 
-    Q_PROPERTY( LocalFilesModel::ItemMetaType metaType READ metaType CONSTANT )
-    Q_PROPERTY( LocalFilesModel::ItemType type READ type CONSTANT )
+    Q_PROPERTY( QfLocalFilesModel::ItemMetaType metaType READ metaType CONSTANT )
+    Q_PROPERTY( QfLocalFilesModel::ItemType type READ type CONSTANT )
     Q_PROPERTY( QString title READ title CONSTANT )
     Q_PROPERTY( QString format READ format CONSTANT )
     Q_PROPERTY( QString path READ path CONSTANT )
@@ -164,9 +164,9 @@ class LocalFileItem
     Q_PROPERTY( bool checked READ checked CONSTANT )
 
   public:
-    LocalFileItem() = default;
+    QfLocalFileItem() = default;
 
-    LocalFileItem( LocalFilesModel::ItemMetaType metaType, LocalFilesModel::ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0, bool checked = false )
+    QfLocalFileItem( QfLocalFilesModel::ItemMetaType metaType, QfLocalFilesModel::ItemType type, const QString &title, const QString &format, const QString &path, qint64 size = 0, bool checked = false )
       : mMetaType( metaType )
       , mType( type )
       , mTitle( title )
@@ -176,8 +176,8 @@ class LocalFileItem
       , mChecked( checked )
     {}
 
-    LocalFilesModel::ItemMetaType metaType() const { return mMetaType; }
-    LocalFilesModel::ItemType type() const { return mType; }
+    QfLocalFilesModel::ItemMetaType metaType() const { return mMetaType; }
+    QfLocalFilesModel::ItemType type() const { return mType; }
     QString title() const { return mTitle; }
     QString format() const { return mFormat; }
     QString path() const { return mPath; }
@@ -187,8 +187,8 @@ class LocalFileItem
     void setChecked( bool checked ) { mChecked = checked; }
 
   private:
-    LocalFilesModel::ItemMetaType mMetaType = LocalFilesModel::ItemMetaType::Folder;
-    LocalFilesModel::ItemType mType = LocalFilesModel::ItemType::SimpleFolder;
+    QfLocalFilesModel::ItemMetaType mMetaType = QfLocalFilesModel::ItemMetaType::Folder;
+    QfLocalFilesModel::ItemType mType = QfLocalFilesModel::ItemType::SimpleFolder;
     QString mTitle;
     QString mFormat;
     QString mPath;
@@ -196,5 +196,5 @@ class LocalFileItem
     bool mChecked = false;
 };
 
-Q_DECLARE_METATYPE( LocalFileItem )
+Q_DECLARE_METATYPE( QfLocalFileItem )
 #endif // QFLOCALFILESMODEL_H

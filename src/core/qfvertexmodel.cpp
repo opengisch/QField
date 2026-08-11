@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfvertexmodel.h - VertexModel
+  qfvertexmodel.h - QfVertexModel
 
  ---------------------
  begin                : 18.08.2018
@@ -24,17 +24,17 @@
 #include <qgswkbtypes.h>
 
 
-VertexModel::VertexModel( QObject *parent )
+QfVertexModel::QfVertexModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  connect( this, &VertexModel::editingModeChanged, this, &VertexModel::updateCanRemoveVertex );
-  connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanRemoveVertex );
-  connect( this, &VertexModel::vertexCountChanged, this, &VertexModel::updateCanPreviousNextVertex );
-  connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateCanPreviousNextVertex );
-  connect( this, &VertexModel::currentVertexIndexChanged, this, &VertexModel::updateCanRemoveVertex );
+  connect( this, &QfVertexModel::editingModeChanged, this, &QfVertexModel::updateCanRemoveVertex );
+  connect( this, &QfVertexModel::vertexCountChanged, this, &QfVertexModel::updateCanRemoveVertex );
+  connect( this, &QfVertexModel::vertexCountChanged, this, &QfVertexModel::updateCanPreviousNextVertex );
+  connect( this, &QfVertexModel::currentVertexIndexChanged, this, &QfVertexModel::updateCanPreviousNextVertex );
+  connect( this, &QfVertexModel::currentVertexIndexChanged, this, &QfVertexModel::updateCanRemoveVertex );
 }
 
-void VertexModel::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfVertexModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
@@ -44,19 +44,19 @@ void VertexModel::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-QgsQuickMapSettings *VertexModel::mapSettings()
+QgsQuickMapSettings *QfVertexModel::mapSettings()
 {
   return mMapSettings;
 }
 
-bool VertexModel::editingAllowed() const
+bool QfVertexModel::editingAllowed() const
 {
   // at the moment we do not support editing on multi geometry
   // (not necessarly geometry layer TBC)
   return !mIsMulti;
 }
 
-void VertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
+void QfVertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( crs == mCrs )
     return;
@@ -68,12 +68,12 @@ void VertexModel::setCrs( const QgsCoordinateReferenceSystem &crs )
   emit crsChanged();
 }
 
-QgsCoordinateReferenceSystem VertexModel::crs() const
+QgsCoordinateReferenceSystem QfVertexModel::crs() const
 {
   return mCrs;
 }
 
-void VertexModel::setGeometry( const QgsGeometry &geometry )
+void QfVertexModel::setGeometry( const QgsGeometry &geometry )
 {
   beginResetModel();
   mVerticesDeleted.clear();
@@ -87,7 +87,7 @@ void VertexModel::setGeometry( const QgsGeometry &geometry )
   emit geometryTypeChanged();
 }
 
-QList<VertexModel::VertexChange> VertexModel::history( bool transformPoints, bool includeAvailableRedos ) const
+QList<QfVertexModel::VertexChange> QfVertexModel::history( bool transformPoints, bool includeAvailableRedos ) const
 {
   QList<VertexChange> history;
   if ( !includeAvailableRedos && mHistory.size() > mHistoryIndex + 1 )
@@ -117,14 +117,14 @@ QList<VertexModel::VertexChange> VertexModel::history( bool transformPoints, boo
   return history;
 }
 
-void VertexModel::clearHistory()
+void QfVertexModel::clearHistory()
 {
   mHistory.clear();
   mHistoryIndex = -1;
   emit historyChanged();
 }
 
-void VertexModel::addToHistory( VertexChangeType type )
+void QfVertexModel::addToHistory( VertexChangeType type )
 {
   if ( mHistoryTraversing )
   {
@@ -152,7 +152,7 @@ void VertexModel::addToHistory( VertexChangeType type )
   emit historyChanged();
 }
 
-void VertexModel::undoHistory()
+void QfVertexModel::undoHistory()
 {
   if ( mHistoryIndex >= 0 )
   {
@@ -198,12 +198,12 @@ void VertexModel::undoHistory()
   }
 }
 
-bool VertexModel::canUndo()
+bool QfVertexModel::canUndo()
 {
   return mHistoryIndex >= 0;
 }
 
-void VertexModel::refreshGeometry()
+void QfVertexModel::refreshGeometry()
 {
   clearHistory();
   setCurrentVertex( -1 );
@@ -276,7 +276,7 @@ void VertexModel::refreshGeometry()
   updateCanPreviousNextVertex();
 }
 
-void VertexModel::createCandidates()
+void QfVertexModel::createCandidates()
 {
   // remove non existing vertices
   mVertices.erase( std::remove_if( mVertices.begin(),
@@ -398,7 +398,7 @@ void VertexModel::createCandidates()
   }
 }
 
-QModelIndex VertexModel::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex QfVertexModel::index( int row, int column, const QModelIndex &parent ) const
 {
   if ( !hasIndex( row, column, parent ) )
     return QModelIndex();
@@ -411,30 +411,30 @@ QModelIndex VertexModel::index( int row, int column, const QModelIndex &parent )
   return QModelIndex();
 }
 
-QModelIndex VertexModel::parent( const QModelIndex &child ) const
+QModelIndex QfVertexModel::parent( const QModelIndex &child ) const
 {
   Q_UNUSED( child )
   return QModelIndex();
 }
 
-int VertexModel::rowCount( const QModelIndex &parent ) const
+int QfVertexModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mVertices.count() );
 }
 
-int VertexModel::columnCount( const QModelIndex &parent ) const
+int QfVertexModel::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-VertexModel::Vertex VertexModel::vertex( int row ) const
+QfVertexModel::Vertex QfVertexModel::vertex( int row ) const
 {
   return data( index( row, 0, QModelIndex() ), Qt::UserRole ).value<Vertex>();
 }
 
-QVariant VertexModel::data( const QModelIndex &index, int role ) const
+QVariant QfVertexModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 || index.row() > vertexCount() )
     return QVariant();
@@ -465,7 +465,7 @@ QVariant VertexModel::data( const QModelIndex &index, int role ) const
 }
 
 
-QgsGeometry VertexModel::geometry() const
+QgsGeometry QfVertexModel::geometry() const
 {
   if ( !editingAllowed() )
   {
@@ -519,7 +519,7 @@ QgsGeometry VertexModel::geometry() const
   return geometry;
 }
 
-void VertexModel::clear()
+void QfVertexModel::clear()
 {
   beginResetModel();
   setEditingMode( NoEditing );
@@ -534,12 +534,12 @@ void VertexModel::clear()
   endResetModel();
 }
 
-void VertexModel::reset()
+void QfVertexModel::reset()
 {
   refreshGeometry();
 }
 
-void VertexModel::previous()
+void QfVertexModel::previous()
 {
   if ( !mCanPreviousVertex )
     return;
@@ -579,7 +579,7 @@ void VertexModel::previous()
   }
 }
 
-void VertexModel::next()
+void QfVertexModel::next()
 {
   if ( !mCanNextVertex )
     return;
@@ -601,7 +601,7 @@ void VertexModel::next()
   }
 }
 
-void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
+void QfVertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
 {
   double closestDistance = std::numeric_limits<double>::max();
 
@@ -629,13 +629,13 @@ void VertexModel::addVertexNearestToPosition( const QgsPoint &mapPoint )
   }
 }
 
-void VertexModel::selectVertexAtPosition( const QPointF &point, double threshold, bool autoInsert )
+void QfVertexModel::selectVertexAtPosition( const QPointF &point, double threshold, bool autoInsert )
 {
   QgsPoint mapPoint( mapSettings()->screenToCoordinate( point ) );
   selectVertexAtPosition( mapPoint, threshold, autoInsert );
 }
 
-void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold, bool autoInsert )
+void QfVertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double threshold, bool autoInsert )
 {
   double closestDistance = std::numeric_limits<double>::max();
 
@@ -682,7 +682,7 @@ void VertexModel::selectVertexAtPosition( const QgsPoint &mapPoint, double thres
   }
 }
 
-void VertexModel::removeCurrentVertex()
+void QfVertexModel::removeCurrentVertex()
 {
   if ( !mCanRemoveVertex )
     return;
@@ -710,7 +710,7 @@ void VertexModel::removeCurrentVertex()
   setCurrentVertex( mCurrentIndex < mVertices.count() - 1 ? mCurrentIndex : mCurrentIndex - 2, true );
 }
 
-void VertexModel::updateGeometry( const QgsGeometry &geometry )
+void QfVertexModel::updateGeometry( const QgsGeometry &geometry )
 {
   qsizetype preservedIndex = mCurrentIndex;
   setGeometry( geometry );
@@ -718,17 +718,17 @@ void VertexModel::updateGeometry( const QgsGeometry &geometry )
   setCurrentVertex( preservedIndex - 1 );
 }
 
-VertexModel::EditingMode VertexModel::editingMode() const
+QfVertexModel::EditingMode QfVertexModel::editingMode() const
 {
   return mMode;
 }
 
-QgsPoint VertexModel::currentPoint() const
+QgsPoint QfVertexModel::currentPoint() const
 {
   return mVertices.value( mCurrentIndex ).point;
 }
 
-void VertexModel::setCurrentPoint( const QgsPoint &point )
+void QfVertexModel::setCurrentPoint( const QgsPoint &point )
 {
   if ( mCurrentIndex < 0 || mCurrentIndex >= mVertices.count() )
   {
@@ -788,7 +788,7 @@ void VertexModel::setCurrentPoint( const QgsPoint &point )
   emit geometryChanged();
 }
 
-void VertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
+void QfVertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
 {
   if ( mCurrentIndex >= 0 && mCurrentIndex < mVertices.count() )
   {
@@ -826,7 +826,7 @@ void VertexModel::setCurrentVertex( qsizetype newVertex, bool forceUpdate )
   emit currentVertexIndexChanged();
 }
 
-void VertexModel::setCurrentVertexIndex( qsizetype currentIndex )
+void QfVertexModel::setCurrentVertexIndex( qsizetype currentIndex )
 {
   if ( currentIndex == mCurrentIndex )
     return;
@@ -837,47 +837,47 @@ void VertexModel::setCurrentVertexIndex( qsizetype currentIndex )
   setCurrentVertex( currentIndex );
 }
 
-int VertexModel::currentVertexIndex() const
+int QfVertexModel::currentVertexIndex() const
 {
   return static_cast<int>( mCurrentIndex );
 }
 
-int VertexModel::vertexCount() const
+int QfVertexModel::vertexCount() const
 {
   return static_cast<int>( mVertices.count() );
 }
 
-int VertexModel::ringCount() const
+int QfVertexModel::ringCount() const
 {
   return mRingCount;
 }
 
-bool VertexModel::dirty() const
+bool QfVertexModel::dirty() const
 {
   return mDirty;
 }
 
-bool VertexModel::canRemoveVertex()
+bool QfVertexModel::canRemoveVertex()
 {
   return mCanRemoveVertex;
 }
 
-bool VertexModel::canAddVertex()
+bool QfVertexModel::canAddVertex()
 {
   return mCanAddVertex;
 }
 
-bool VertexModel::canPreviousVertex()
+bool QfVertexModel::canPreviousVertex()
 {
   return mCanPreviousVertex;
 }
 
-bool VertexModel::canNextVertex()
+bool QfVertexModel::canNextVertex()
 {
   return mCanNextVertex;
 }
 
-QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
+QVector<QgsPoint> QfVertexModel::flatVertices( int ringId ) const
 {
   if ( ringId == -1 )
   {
@@ -899,7 +899,7 @@ QVector<QgsPoint> VertexModel::flatVertices( int ringId ) const
   return vertices;
 }
 
-QVector<QgsPoint> VertexModel::verticesAdded() const
+QVector<QgsPoint> QfVertexModel::verticesAdded() const
 {
   QVector<QgsPoint> vertices;
   for ( int i = 0; i <= mHistoryIndex; i++ )
@@ -914,7 +914,7 @@ QVector<QgsPoint> VertexModel::verticesAdded() const
   return vertices;
 }
 
-QVector<QgsPoint> VertexModel::verticesDeleted() const
+QVector<QgsPoint> QfVertexModel::verticesDeleted() const
 {
   QVector<QgsPoint> vertices;
   for ( const QgsPoint &vertexDeleted : mVerticesDeleted )
@@ -926,7 +926,7 @@ QVector<QgsPoint> VertexModel::verticesDeleted() const
   return vertices;
 }
 
-QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
+QVector<QPair<QgsPoint, QgsPoint>> QfVertexModel::verticesMoved() const
 {
   QVector<QPair<QgsPoint, QgsPoint>> vertices;
   for ( const Vertex &vertex : std::as_const( mVertices ) )
@@ -947,12 +947,12 @@ QVector<QPair<QgsPoint, QgsPoint>> VertexModel::verticesMoved() const
   return vertices;
 }
 
-QList<VertexModel::Vertex> VertexModel::vertices() const
+QList<QfVertexModel::Vertex> QfVertexModel::vertices() const
 {
   return mVertices;
 }
 
-QHash<int, QByteArray> VertexModel::roleNames() const
+QHash<int, QByteArray> QfVertexModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[PointRole] = "Point";
@@ -963,7 +963,7 @@ QHash<int, QByteArray> VertexModel::roleNames() const
   return roles;
 }
 
-void VertexModel::setDirty( bool dirty )
+void QfVertexModel::setDirty( bool dirty )
 {
   if ( mDirty == dirty )
     return;
@@ -972,7 +972,7 @@ void VertexModel::setDirty( bool dirty )
   emit dirtyChanged();
 }
 
-void VertexModel::updateCanRemoveVertex()
+void QfVertexModel::updateCanRemoveVertex()
 {
   bool canRemoveVertex = false;
 
@@ -1004,7 +1004,7 @@ void VertexModel::updateCanRemoveVertex()
   emit canRemoveVertexChanged();
 }
 
-void VertexModel::updateCanAddVertex()
+void QfVertexModel::updateCanAddVertex()
 {
   bool canAddVertex = vertexCount() > 0 && mGeometryType != Qgis::GeometryType::Point;
 
@@ -1015,7 +1015,7 @@ void VertexModel::updateCanAddVertex()
   emit canAddVertexChanged();
 }
 
-void VertexModel::updateCanPreviousNextVertex()
+void QfVertexModel::updateCanPreviousNextVertex()
 {
   bool canPrevious = false;
   bool canNext = false;
@@ -1063,7 +1063,7 @@ void VertexModel::updateCanPreviousNextVertex()
   }
 }
 
-void VertexModel::setGeometryType( const Qgis::GeometryType &geometryType )
+void QfVertexModel::setGeometryType( const Qgis::GeometryType &geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
@@ -1072,12 +1072,12 @@ void VertexModel::setGeometryType( const Qgis::GeometryType &geometryType )
   emit geometryTypeChanged();
 }
 
-Qgis::GeometryType VertexModel::geometryType() const
+Qgis::GeometryType QfVertexModel::geometryType() const
 {
   return mGeometryType;
 }
 
-void VertexModel::setEditingMode( VertexModel::EditingMode mode )
+void QfVertexModel::setEditingMode( QfVertexModel::EditingMode mode )
 {
   if ( !mVertices.count() )
     mode = NoEditing;

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dgeometryutils.cpp - Quick3DGeometryUtils
+  qf3dgeometryutils.cpp - Qf3DGeometryUtils
 
  ---------------------
  begin                : 20.4.2026
@@ -19,7 +19,7 @@
 #include <algorithm>
 #include <cmath>
 
-void Quick3DGeometryUtils::updateBounds( QVector3D &minBound, QVector3D &maxBound, const QVector3D &pos )
+void Qf3DGeometryUtils::updateBounds( QVector3D &minBound, QVector3D &maxBound, const QVector3D &pos )
 {
   minBound.setX( std::min( minBound.x(), pos.x() ) );
   minBound.setY( std::min( minBound.y(), pos.y() ) );
@@ -29,7 +29,7 @@ void Quick3DGeometryUtils::updateBounds( QVector3D &minBound, QVector3D &maxBoun
   maxBound.setZ( std::max( maxBound.z(), pos.z() ) );
 }
 
-void Quick3DGeometryUtils::writeVertex( float *&vptr, const QVector3D &pos, const QVector3D &normal, float r, float g, float b, float a )
+void Qf3DGeometryUtils::writeVertex( float *&vptr, const QVector3D &pos, const QVector3D &normal, float r, float g, float b, float a )
 {
   *vptr++ = pos.x();
   *vptr++ = pos.y();
@@ -43,12 +43,12 @@ void Quick3DGeometryUtils::writeVertex( float *&vptr, const QVector3D &pos, cons
   *vptr++ = a;
 }
 
-void Quick3DGeometryUtils::generateTube( const QVector<QVector3D> &path,
-                                         int segments, float radius,
-                                         float r, float g, float b, float a,
-                                         float *&vptr, quint32 *&iptr,
-                                         quint32 &vertexOffset,
-                                         QVector3D &minBound, QVector3D &maxBound )
+void Qf3DGeometryUtils::generateTube( const QVector<QVector3D> &path,
+                                      int segments, float radius,
+                                      float r, float g, float b, float a,
+                                      float *&vptr, quint32 *&iptr,
+                                      quint32 &vertexOffset,
+                                      QVector3D &minBound, QVector3D &maxBound )
 {
   const int ringCount = static_cast<int>( path.size() );
 
@@ -115,12 +115,12 @@ void Quick3DGeometryUtils::generateTube( const QVector<QVector3D> &path,
   vertexOffset += ringCount * segments;
 }
 
-void Quick3DGeometryUtils::generateSphere( const QVector3D &center,
-                                           float radius, int stacks, int slices,
-                                           float r, float g, float b, float a,
-                                           float *&vptr, quint32 *&iptr,
-                                           quint32 &vertexOffset,
-                                           QVector3D &minBound, QVector3D &maxBound )
+void Qf3DGeometryUtils::generateSphere( const QVector3D &center,
+                                        float radius, int stacks, int slices,
+                                        float r, float g, float b, float a,
+                                        float *&vptr, quint32 *&iptr,
+                                        quint32 &vertexOffset,
+                                        QVector3D &minBound, QVector3D &maxBound )
 {
   const quint32 baseVertex = vertexOffset;
 
@@ -161,17 +161,17 @@ void Quick3DGeometryUtils::generateSphere( const QVector3D &center,
   vertexOffset += ( stacks + 1 ) * ( slices + 1 );
 }
 
-int Quick3DGeometryUtils::sphereVertexCount( int stacks, int slices )
+int Qf3DGeometryUtils::sphereVertexCount( int stacks, int slices )
 {
   return ( stacks + 1 ) * ( slices + 1 );
 }
 
-int Quick3DGeometryUtils::sphereIndexCount( int stacks, int slices )
+int Qf3DGeometryUtils::sphereIndexCount( int stacks, int slices )
 {
   return stacks * slices * 6;
 }
 
-bool Quick3DGeometryUtils::polygonIsEar( const QVector<QVector3D> &ring, const QVector<int> &indices, float eps, bool ccw, int prev, int cur, int next )
+bool Qf3DGeometryUtils::polygonIsEar( const QVector<QVector3D> &ring, const QVector<int> &indices, float eps, bool ccw, int prev, int cur, int next )
 {
   const QVector3D &A = ring[indices[prev]];
   const QVector3D &B = ring[indices[cur]];
@@ -206,12 +206,12 @@ bool Quick3DGeometryUtils::polygonIsEar( const QVector<QVector3D> &ring, const Q
   return true;
 }
 
-void Quick3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &vertices,
-                                                 float extrusion,
-                                                 float r, float g, float b, float a,
-                                                 float *&vptr, quint32 *&iptr,
-                                                 quint32 &vertexOffset,
-                                                 QVector3D &minBound, QVector3D &maxBound )
+void Qf3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &vertices,
+                                              float extrusion,
+                                              float r, float g, float b, float a,
+                                              float *&vptr, quint32 *&iptr,
+                                              quint32 &vertexOffset,
+                                              QVector3D &minBound, QVector3D &maxBound )
 {
   QVector<QVector3D> ring = vertices;
   if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )
@@ -258,12 +258,12 @@ void Quick3DGeometryUtils::generatePolygonWalls( const QVector<QVector3D> &verti
   }
 }
 
-void Quick3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertices,
-                                                float r, float g, float b, float a,
-                                                float *&vptr, quint32 *&iptr,
-                                                quint32 &vertexOffset,
-                                                QVector3D &minBound, QVector3D &maxBound,
-                                                float extrusion )
+void Qf3DGeometryUtils::generatePolygonFill( const QVector<QVector3D> &vertices,
+                                             float r, float g, float b, float a,
+                                             float *&vptr, quint32 *&iptr,
+                                             quint32 &vertexOffset,
+                                             QVector3D &minBound, QVector3D &maxBound,
+                                             float extrusion )
 {
   QVector<QVector3D> ring = vertices;
   if ( ring.size() > 3 && ( ring.first() - ring.last() ).length() < 0.001f )

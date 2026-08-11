@@ -28,19 +28,19 @@
 #include <qgsproject.h>
 
 
-GotoLocatorFilter::GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
+QfGotoLocatorFilter::QfGotoLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
   , mLocatorBridge( locatorBridge )
 {
   setUseWithoutPrefix( true );
 }
 
-GotoLocatorFilter *GotoLocatorFilter::clone() const
+QfGotoLocatorFilter *QfGotoLocatorFilter::clone() const
 {
-  return new GotoLocatorFilter( mLocatorBridge );
+  return new QfGotoLocatorFilter( mLocatorBridge );
 }
 
-void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
+void QfGotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   Q_UNUSED( feedback )
 
@@ -151,7 +151,7 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.displayString = tr( "Go to %1%2 %3%4 (Map CRS, %5)" ).arg( locale.toString( firstNumber, 'g', 10 ), firstSuffix, locale.toString( secondNumber, 'g', 10 ), secondSuffix, currentCrs.userFriendlyIdentifier() );
       result.setUserData( data );
       result.score = 0.9;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
+      result.actions << QgsLocatorResult::ResultAction( QfNavigation, tr( "Set navigation point" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       emit resultFetched( result );
     }
 
@@ -183,24 +183,24 @@ void GotoLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
       result.displayString = tr( "Go to %1°N %2°E (%3)" ).arg( locale.toString( point.y(), 'g', 10 ), locale.toString( point.x(), 'g', 10 ), wgs84Crs.userFriendlyIdentifier() );
       result.setUserData( data );
       result.score = 1.0;
-      result.actions << QgsLocatorResult::ResultAction( Navigation, tr( "Set navigation point" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
+      result.actions << QgsLocatorResult::ResultAction( QfNavigation, tr( "Set navigation point" ), QStringLiteral( "qrc:/themes/qfield/nodpi/ic_navigation_flag_purple_24dp.svg" ) );
       emit resultFetched( result );
     }
   }
   return;
 }
 
-void GotoLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfGotoLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   triggerResultFromAction( result, Normal );
 }
 
-void GotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void QfGotoLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   const QVariantMap data = result.userData().toMap();
   const QgsGeometry geom( QgsGeometry::fromPointXY( data[QStringLiteral( "point" )].value<QgsPointXY>() ) );
 
-  if ( actionId == Navigation )
+  if ( actionId == QfNavigation )
   {
     if ( mLocatorBridge->navigation() )
     {

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfresourcesource.cpp - ResourceSource
+  qfresourcesource.cpp - QfResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -18,12 +18,12 @@
 
 #include <QTimer>
 
-ResourceSource::ResourceSource( QObject *parent, const QString &prefix, const QString &resourceFilePath )
+QfResourceSource::QfResourceSource( QObject *parent, const QString &prefix, const QString &resourceFilePath )
   : QObject( parent )
   , mPrefix( prefix )
   , mResourceFilePath( resourceFilePath )
 {
-  // prevent emit signal if the resourceFilePath is empty ( e.g. when AndroidResourceSource )
+  // prevent emit signal if the resourceFilePath is empty ( e.g. when QfAndroidResourceSource )
   if ( resourceFilePath.isEmpty() )
     return;
 
@@ -35,6 +35,6 @@ ResourceSource::ResourceSource( QObject *parent, const QString &prefix, const QS
   } );
 }
 
-ResourceSource::~ResourceSource()
+QfResourceSource::~QfResourceSource()
 {
 }

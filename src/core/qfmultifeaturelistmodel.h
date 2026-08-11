@@ -28,7 +28,7 @@
 /**
  * \ingroup core
  */
-class MultiFeatureListModel : public QSortFilterProxyModel
+class QfMultiFeatureListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -66,7 +66,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
       ExtrusionRole,
     };
 
-    explicit MultiFeatureListModel( QObject *parent = nullptr );
+    explicit QfMultiFeatureListModel( QObject *parent = nullptr );
 
     /**
      * Resets the model to contain features found from a list of \a requests.
@@ -82,7 +82,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     /**
      * Appends features from a list of \a results.
      */
-    void appendFeatures( const QList<IdentifyTool::IdentifyResult> &results );
+    void appendFeatures( const QList<QfIdentifyTool::IdentifyResult> &results );
 
     /**
      * Resets the model to either an empty feature list or one that contains only the selected features.
@@ -196,7 +196,7 @@ class MultiFeatureListModel : public QSortFilterProxyModel
     void adjustFilterToSelectedCount();
 
   private:
-    MultiFeatureListModelBase *mSourceModel = nullptr;
+    QfMultiFeatureListModelBase *mSourceModel = nullptr;
 
     QPointer<QgsVectorLayer> mFilterLayer;
 };

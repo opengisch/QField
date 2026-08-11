@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfcoordinatereferencesystemutils.h - CoordinateReferenceSystemUtils
+  qfcoordinatereferencesystemutils.h - QfCoordinateReferenceSystemUtils
 
  ---------------------
  begin                : 28.05.2022
@@ -25,12 +25,12 @@
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT CoordinateReferenceSystemUtils : public QObject
+class QFIELD_CORE_EXPORT QfCoordinateReferenceSystemUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit CoordinateReferenceSystemUtils( QObject *parent = nullptr );
+    explicit QfCoordinateReferenceSystemUtils( QObject *parent = nullptr );
 
     //! Returns an CRS matching the provided \a definition.
     static Q_INVOKABLE QgsCoordinateReferenceSystem fromDescription( const QString &definition ) { return QgsCoordinateReferenceSystem( definition ); }

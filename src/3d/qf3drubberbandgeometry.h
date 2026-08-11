@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3drubberbandgeometry.h - Quick3DRubberbandGeometry
+  qf3drubberbandgeometry.h - Qf3DRubberbandGeometry
 
  ---------------------
  begin                : 9.2.2026
@@ -26,22 +26,22 @@
 /**
  * Generates 3D tube + sphere geometry to visualize a rubberband path on terrain.
  *
- * Geo coordinates from a RubberbandModel are projected onto the terrain surface
+ * Geo coordinates from a QfRubberbandModel are projected onto the terrain surface
  * and connected by extruded tube segments. A sphere joint is placed at each vertex.
  * Everything is packed into a single indexed triangle mesh with per-vertex colors.
  *
- * \note QML Type: Quick3DRubberbandGeometry
+ * \note QML Type: Qf3DRubberbandGeometry
  * \ingroup core
  */
-class Quick3DRubberbandGeometry : public QQuick3DGeometry
+class Qf3DRubberbandGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
     QML_ELEMENT
 
     //! The rubberband model providing the vertex coordinates
-    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
     //! The terrain provider used for geo-to-3D coordinate conversion
-    Q_PROPERTY( Quick3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
+    Q_PROPERTY( Qf3DTerrainProvider *terrainProvider READ terrainProvider WRITE setTerrainProvider NOTIFY terrainProviderChanged )
     //! Tube thickness in scene units
     Q_PROPERTY( float radius READ radius WRITE setRadius NOTIFY radiusChanged )
     //! Number of sides in the tube cross-section
@@ -52,17 +52,17 @@ class Quick3DRubberbandGeometry : public QQuick3DGeometry
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
 
   public:
-    explicit Quick3DRubberbandGeometry( QQuick3DObject *parent = nullptr );
+    explicit Qf3DRubberbandGeometry( QQuick3DObject *parent = nullptr );
 
     //! Returns the rubberband model providing vertex coordinates.
-    RubberbandModel *rubberbandModel() const { return mRubberbandModel; }
+    QfRubberbandModel *rubberbandModel() const { return mRubberbandModel; }
     //! Sets the rubberband model.
-    void setRubberbandModel( RubberbandModel *model );
+    void setRubberbandModel( QfRubberbandModel *model );
 
     //! Returns the terrain provider used for geo-to-3D conversion.
-    Quick3DTerrainProvider *terrainProvider() const { return mTerrainProvider; }
+    Qf3DTerrainProvider *terrainProvider() const { return mTerrainProvider; }
     //! Sets the terrain provider.
-    void setTerrainProvider( Quick3DTerrainProvider *provider );
+    void setTerrainProvider( Qf3DTerrainProvider *provider );
 
     //! Returns the tube radius in 3D scene units.
     float radius() const { return mRadius; }
@@ -99,8 +99,8 @@ class Quick3DRubberbandGeometry : public QQuick3DGeometry
     //! Rebuilds the whole tube + sphere mesh from scratch
     void updateGeometry();
 
-    RubberbandModel *mRubberbandModel = nullptr;
-    Quick3DTerrainProvider *mTerrainProvider = nullptr;
+    QfRubberbandModel *mRubberbandModel = nullptr;
+    Qf3DTerrainProvider *mTerrainProvider = nullptr;
 
     float mRadius = 3.0f;
     int mSegments = 8;

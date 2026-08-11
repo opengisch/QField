@@ -21,14 +21,14 @@
 
 #include "qfplatformutilities.h"
 
-class ResourceSource;
+class QfResourceSource;
 
-class IosPlatformUtilities : public PlatformUtilities
+class QfIosPlatformUtilities : public QfPlatformUtilities
 {
   public:
-    IosPlatformUtilities();
+    QfIosPlatformUtilities();
 
-    PlatformUtilities::Capabilities capabilities() const override;
+    QfPlatformUtilities::Capabilities capabilities() const override;
     void afterUpdate() override;
 
     QString systemSharedDataLocation() const override;
@@ -46,20 +46,20 @@ class IosPlatformUtilities : public PlatformUtilities
     void updateProjectFromArchive( const QString &projectPath ) const override;
 
     void setScreenLockPermission( const bool allowLock ) override;
-    virtual ResourceSource *getCameraPicture( const QString &prefix,
-                                              const QString &pictureFilePath,
+    virtual QfResourceSource *getCameraPicture( const QString &prefix,
+                                                const QString &pictureFilePath,
+                                                const QString &suffix,
+                                                QObject *parent = nullptr ) override;
+    virtual QfResourceSource *getCameraVideo( const QString &prefix,
+                                              const QString &videoFilePath,
                                               const QString &suffix,
                                               QObject *parent = nullptr ) override;
-    virtual ResourceSource *getCameraVideo( const QString &prefix,
-                                            const QString &videoFilePath,
-                                            const QString &suffix,
-                                            QObject *parent = nullptr ) override;
-    virtual ResourceSource *
+    virtual QfResourceSource *
       getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
-    virtual ResourceSource *
+    virtual QfResourceSource *
       getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
-    virtual ViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr ) override;
-    virtual ProjectSource *openProject( QObject *parent = nullptr ) override;
+    virtual QfViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr ) override;
+    virtual QfProjectSource *openProject( QObject *parent = nullptr ) override;
 
     double systemFontPointSize() const override { return 16.0; }
     bool isSystemDarkTheme() const override;

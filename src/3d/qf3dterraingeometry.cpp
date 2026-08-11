@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dterraingeometry.cpp - Quick3DTerrainGeometry
+  qf3dterraingeometry.cpp - Qf3DTerrainGeometry
 
  ---------------------
  begin                : 26.1.2026
@@ -19,7 +19,7 @@
 
 #include <algorithm>
 
-Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
+Qf3DTerrainGeometry::Qf3DTerrainGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
   mHeights.resize( static_cast<qsizetype>( mGridSize.width() ) * mGridSize.height() );
@@ -28,7 +28,7 @@ Quick3DTerrainGeometry::Quick3DTerrainGeometry( QQuick3DObject *parent )
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::setGridSize( const QSize &size )
+void Qf3DTerrainGeometry::setGridSize( const QSize &size )
 {
   QSize boundedSize( qBound( 2, size.width(), 512 ), qBound( 2, size.height(), 512 ) );
   if ( mGridSize == boundedSize )
@@ -42,7 +42,7 @@ void Quick3DTerrainGeometry::setGridSize( const QSize &size )
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::setSize( const QSizeF &size )
+void Qf3DTerrainGeometry::setSize( const QSizeF &size )
 {
   if ( mSize == size )
   {
@@ -56,7 +56,7 @@ void Quick3DTerrainGeometry::setSize( const QSizeF &size )
   updateGeometry();
 }
 
-QVariantList Quick3DTerrainGeometry::heightData() const
+QVariantList Qf3DTerrainGeometry::heightData() const
 {
   QVariantList heights;
   for ( const float &h : mHeights )
@@ -66,7 +66,7 @@ QVariantList Quick3DTerrainGeometry::heightData() const
   return heights;
 }
 
-void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
+void Qf3DTerrainGeometry::setHeightData( const QVariantList &data )
 {
   mHeights.clear();
   mHeights.reserve( data.size() );
@@ -83,7 +83,7 @@ void Quick3DTerrainGeometry::setHeightData( const QVariantList &data )
   emit boundsMinMaxChanged();
 }
 
-void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProvider *provider )
+void Qf3DTerrainGeometry::buildMetagridFromProvider( const Qf3DTerrainProvider *provider )
 {
   if ( !provider )
   {
@@ -121,7 +121,7 @@ void Quick3DTerrainGeometry::buildMetagridFromProvider( const Quick3DTerrainProv
   }
 }
 
-void Quick3DTerrainGeometry::setOffsetVector( const QVector3D &offsetVector )
+void Qf3DTerrainGeometry::setOffsetVector( const QVector3D &offsetVector )
 {
   if ( mOffsetVector == offsetVector )
   {
@@ -135,7 +135,7 @@ void Quick3DTerrainGeometry::setOffsetVector( const QVector3D &offsetVector )
   emit offsetVectorChanged();
 }
 
-void Quick3DTerrainGeometry::setOffsetScale( double offsetScale )
+void Qf3DTerrainGeometry::setOffsetScale( double offsetScale )
 {
   if ( qgsDoubleNear( mOffsetScale, offsetScale ) )
   {
@@ -149,7 +149,7 @@ void Quick3DTerrainGeometry::setOffsetScale( double offsetScale )
   emit offsetScaleChanged();
 }
 
-void Quick3DTerrainGeometry::applyShiftedHeights()
+void Qf3DTerrainGeometry::applyShiftedHeights()
 {
   if ( mMetagridHeights.isEmpty() || mMetagridWidth <= 0 || mMetagridHeight <= 0 )
   {
@@ -210,7 +210,7 @@ void Quick3DTerrainGeometry::applyShiftedHeights()
   updateGeometry();
 }
 
-void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainProvider *provider )
+void Qf3DTerrainGeometry::restoreHeightsFromProvider( const Qf3DTerrainProvider *provider )
 {
   if ( !provider )
   {
@@ -231,7 +231,7 @@ void Quick3DTerrainGeometry::restoreHeightsFromProvider( const Quick3DTerrainPro
   updateGeometry();
 }
 
-float Quick3DTerrainGeometry::getHeight( int x, int z ) const
+float Qf3DTerrainGeometry::getHeight( int x, int z ) const
 {
   if ( mHeights.isEmpty() )
   {
@@ -247,7 +247,7 @@ float Quick3DTerrainGeometry::getHeight( int x, int z ) const
   return mHeights[z * gridWidth + x];
 }
 
-QVector3D Quick3DTerrainGeometry::calculateNormal( int x, int z ) const
+QVector3D Qf3DTerrainGeometry::calculateNormal( int x, int z ) const
 {
   const float cellWidth = mSize.width() / std::max( 1, mGridSize.width() - 1 );
   const float cellDepth = mSize.height() / std::max( 1, mGridSize.height() - 1 );
@@ -265,7 +265,7 @@ QVector3D Quick3DTerrainGeometry::calculateNormal( int x, int z ) const
   return QVector3D::crossProduct( tangentZ, tangentX ).normalized();
 }
 
-void Quick3DTerrainGeometry::updateGeometry()
+void Qf3DTerrainGeometry::updateGeometry()
 {
   if ( !mDirty )
   {

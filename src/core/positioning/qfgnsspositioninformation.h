@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgnsspositioninformation.h - GnssPositionInformation
+  qfgnsspositioninformation.h - QfGnssPositionInformation
  ---------------------
  begin                : 1.12.2020
  copyright            : (C) 2020 by David Signer
@@ -42,7 +42,7 @@
 /**
  * \ingroup core
  */
-class GnssPositionInformation
+class QfGnssPositionInformation
 {
     Q_GADGET
 
@@ -120,23 +120,23 @@ class GnssPositionInformation
 
     Q_ENUM( AccuracyQuality )
 
-    /* !! Adjust PositioningUtils::averagedPositionInformation whenever a new member is added !! */
+    /* !! Adjust QfPositioningUtils::averagedPositionInformation whenever a new member is added !! */
 
     /**
      * GNSSPositionInformation constructor.
      */
-    GnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
-                             double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
-                             double pdop = 0, double hdop = 0, double vdop = 0,
-                             double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
-                             QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
-                             double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString(),
-                             bool imuCorrection = false, double imuRoll = std::numeric_limits<double>::quiet_NaN(), double imuPitch = std::numeric_limits<double>::quiet_NaN(),
-                             double imuHeading = std::numeric_limits<double>::quiet_NaN(), double imuSteering = std::numeric_limits<double>::quiet_NaN(),
-                             double orientation = std::numeric_limits<double>::quiet_NaN() );
+    QfGnssPositionInformation( double latitude = std::numeric_limits<double>::quiet_NaN(), double longitude = std::numeric_limits<double>::quiet_NaN(), double elevation = std::numeric_limits<double>::quiet_NaN(),
+                               double speed = std::numeric_limits<double>::quiet_NaN(), double direction = std::numeric_limits<double>::quiet_NaN(), const QList<QgsSatelliteInfo> &satellitesInView = QList<QgsSatelliteInfo>(),
+                               double pdop = 0, double hdop = 0, double vdop = 0,
+                               double hacc = std::numeric_limits<double>::quiet_NaN(), double vacc = std::numeric_limits<double>::quiet_NaN(), QDateTime utcDateTime = QDateTime(),
+                               QChar fixMode = QChar(), int fixType = 0, int quality = -1, int satellitesUsed = 0, QChar status = QChar(), const QList<int> &satPrn = QList<int>(), bool satInfoComplete = false,
+                               double verticalSpeed = std::numeric_limits<double>::quiet_NaN(), double magneticVariation = std::numeric_limits<double>::quiet_NaN(), int averagedCount = 0, const QString &sourceName = QString(),
+                               bool imuCorrection = false, double imuRoll = std::numeric_limits<double>::quiet_NaN(), double imuPitch = std::numeric_limits<double>::quiet_NaN(),
+                               double imuHeading = std::numeric_limits<double>::quiet_NaN(), double imuSteering = std::numeric_limits<double>::quiet_NaN(),
+                               double orientation = std::numeric_limits<double>::quiet_NaN() );
 
-    bool operator==( const GnssPositionInformation &other ) const;
-    bool operator!=( const GnssPositionInformation &other ) const { return !operator==( other ); }
+    bool operator==( const QfGnssPositionInformation &other ) const;
+    bool operator!=( const QfGnssPositionInformation &other ) const { return !operator==( other ); }
 
     /**
      * Returns whether the connection information is valid
@@ -397,19 +397,19 @@ class GnssPositionInformation
     double mImuSteering = std::numeric_limits<double>::quiet_NaN();
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
 
-    friend QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
-    friend QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
+    friend QDataStream &operator<<( QDataStream &stream, const QfGnssPositionInformation &position );
+    friend QDataStream &operator>>( QDataStream &stream, QfGnssPositionInformation &position );
 };
 
-Q_DECLARE_METATYPE( GnssPositionInformation )
-Q_DECLARE_METATYPE( GnssPositionInformation::AccuracyQuality )
+Q_DECLARE_METATYPE( QfGnssPositionInformation )
+Q_DECLARE_METATYPE( QfGnssPositionInformation::AccuracyQuality )
 
-class GnssPositionDetails
+class QfGnssPositionDetails
 {
     Q_GADGET
 
   public:
-    GnssPositionDetails() {};
+    QfGnssPositionDetails() {};
 
     void append( const QString &name, const QVariant &value )
     {
@@ -424,17 +424,17 @@ class GnssPositionDetails
     QList<QString> mNames;
     QList<QVariant> mValues;
 
-    friend QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &position );
-    friend QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &position );
+    friend QDataStream &operator<<( QDataStream &stream, const QfGnssPositionDetails &position );
+    friend QDataStream &operator>>( QDataStream &stream, QfGnssPositionDetails &position );
 };
 
-Q_DECLARE_METATYPE( GnssPositionDetails )
+Q_DECLARE_METATYPE( QfGnssPositionDetails )
 
-QDataStream &operator<<( QDataStream &stream, const GnssPositionDetails &positionDetails );
-QDataStream &operator>>( QDataStream &stream, GnssPositionDetails &positionDetails );
+QDataStream &operator<<( QDataStream &stream, const QfGnssPositionDetails &positionDetails );
+QDataStream &operator>>( QDataStream &stream, QfGnssPositionDetails &positionDetails );
 
-QDataStream &operator<<( QDataStream &stream, const GnssPositionInformation &position );
-QDataStream &operator>>( QDataStream &stream, GnssPositionInformation &position );
+QDataStream &operator<<( QDataStream &stream, const QfGnssPositionInformation &position );
+QDataStream &operator>>( QDataStream &stream, QfGnssPositionInformation &position );
 
 QDataStream &operator<<( QDataStream &stream, const QgsSatelliteInfo &satelliteInfo );
 QDataStream &operator>>( QDataStream &stream, QgsSatelliteInfo &satelliteInfo );

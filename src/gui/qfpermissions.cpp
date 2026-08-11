@@ -1,5 +1,5 @@
 /***************************************************************************
- qfpermissions.cpp - CameraPermission, MicrophonePermission
+ qfpermissions.cpp - QfCameraPermission, QfMicrophonePermission
 
  ---------------------
  begin                : 01.12.2023
@@ -19,25 +19,25 @@
 
 #include <QGuiApplication>
 
-CameraPermission::CameraPermission( QObject *parent )
+QfCameraPermission::QfCameraPermission( QObject *parent )
   : QObject( parent )
 {
 }
 
-Qt::PermissionStatus CameraPermission::status()
+Qt::PermissionStatus QfCameraPermission::status()
 {
   if ( !mStatusChecked )
   {
-    mStatus = PlatformUtilities::instance()->checkCameraPermission();
+    mStatus = QfPlatformUtilities::instance()->checkCameraPermission();
     mStatusChecked = true;
   }
 
   return mStatus;
 }
 
-void CameraPermission::request()
+void QfCameraPermission::request()
 {
-  PlatformUtilities::instance()->requestCameraPermission( [this]( Qt::PermissionStatus status ) {
+  QfPlatformUtilities::instance()->requestCameraPermission( [this]( Qt::PermissionStatus status ) {
     if ( mStatus != status )
     {
       mStatus = status;
@@ -47,25 +47,25 @@ void CameraPermission::request()
   } );
 }
 
-MicrophonePermission::MicrophonePermission( QObject *parent )
+QfMicrophonePermission::QfMicrophonePermission( QObject *parent )
   : QObject( parent )
 {
 }
 
-Qt::PermissionStatus MicrophonePermission::status()
+Qt::PermissionStatus QfMicrophonePermission::status()
 {
   if ( !mStatusChecked )
   {
-    mStatus = PlatformUtilities::instance()->checkMicrophonePermission();
+    mStatus = QfPlatformUtilities::instance()->checkMicrophonePermission();
     mStatusChecked = true;
   }
 
   return mStatus;
 }
 
-void MicrophonePermission::request()
+void QfMicrophonePermission::request()
 {
-  PlatformUtilities::instance()->requestMicrophonePermission( [this]( Qt::PermissionStatus status ) {
+  QfPlatformUtilities::instance()->requestMicrophonePermission( [this]( Qt::PermissionStatus status ) {
     if ( mStatus != status )
     {
       mStatus = status;

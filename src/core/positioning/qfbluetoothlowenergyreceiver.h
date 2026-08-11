@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbluetoothreceiver.h - BluetoothReceiver
+ qfbluetoothreceiver.h - QfBluetoothReceiver
 
  ---------------------
  begin                : 2026/05/22
@@ -27,20 +27,20 @@
 #include <QtBluetooth/QLowEnergyService>
 
 /**
- * The BluetoothLowEnergyReceiver connects to a BLE device and feeds the
+ * The QfBluetoothLowEnergyReceiver connects to a BLE device and feeds the
  * QgsNmeaConnection over a proxy QIODevice using QLowEnergyController.
- * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * It receives QgsGpsInformation and converts it to QfGnssPositionInformation
  * \ingroup core
  */
-class BluetoothLowEnergyReceiver : public NmeaGnssReceiver
+class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit BluetoothLowEnergyReceiver( const QString &address = QString(), QObject *parent = nullptr );
-    ~BluetoothLowEnergyReceiver();
+    explicit QfBluetoothLowEnergyReceiver( const QString &address = QString(), QObject *parent = nullptr );
+    ~QfBluetoothLowEnergyReceiver();
 
-    AbstractGnssReceiver::Capabilities capabilities() const override;
+    QfAbstractGnssReceiver::Capabilities capabilities() const override;
 
     static QLatin1String identifier;
 

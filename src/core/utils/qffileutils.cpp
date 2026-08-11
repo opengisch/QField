@@ -47,53 +47,53 @@
 
 namespace fs = std::filesystem;
 
-FileUtils::FileUtils( QObject *parent )
+QfFileUtils::QfFileUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QString FileUtils::mimeTypeName( const QString &filePath )
+QString QfFileUtils::mimeTypeName( const QString &filePath )
 {
   QMimeDatabase db;
   QMimeType mimeType = db.mimeTypeForFile( filePath );
   return mimeType.name();
 }
 
-bool FileUtils::isImageMimeTypeSupported( const QString &mimeType )
+bool QfFileUtils::isImageMimeTypeSupported( const QString &mimeType )
 {
   return QImageReader::supportedMimeTypes().contains( mimeType.toLatin1() );
 }
 
-QString FileUtils::absolutePath( const QString &filePath )
+QString QfFileUtils::absolutePath( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
   return fileInfo.absolutePath();
 }
 
-QString FileUtils::nativeSeparatorsPath( const QString &filePath )
+QString QfFileUtils::nativeSeparatorsPath( const QString &filePath )
 {
   return QDir::toNativeSeparators( filePath );
 }
 
-QString FileUtils::fileName( const QString &filePath, bool includeSuffix )
+QString QfFileUtils::fileName( const QString &filePath, bool includeSuffix )
 {
   QFileInfo fileInfo( filePath );
   return includeSuffix ? fileInfo.fileName() : fileInfo.completeBaseName();
 }
 
-QString FileUtils::fileSuffix( const QString &filePath )
+QString QfFileUtils::fileSuffix( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
   return fileInfo.suffix();
 }
 
-bool FileUtils::fileExists( const QString &filePath )
+bool QfFileUtils::fileExists( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
   return ( fileInfo.exists() && fileInfo.isFile() );
 }
 
-QString FileUtils::representFileSize( qint64 bytes, bool decimalRepresentation )
+QString QfFileUtils::representFileSize( qint64 bytes, bool decimalRepresentation )
 {
   QStringList list;
   list << QObject::tr( "KB" ) << QObject::tr( "MB" ) << QObject::tr( "GB" ) << QObject::tr( "TB" );
@@ -112,7 +112,7 @@ QString FileUtils::representFileSize( qint64 bytes, bool decimalRepresentation )
   return QStringLiteral( "%1 %2" ).arg( QString::number( fileSize, 'f', bytes >= factor * 2 ? 2 : 0 ), unit );
 }
 
-QString FileUtils::sanitizeFilePath( const QString &filePath, const QString &replacement )
+QString QfFileUtils::sanitizeFilePath( const QString &filePath, const QString &replacement )
 {
   QString sanitized = filePath;
 
@@ -163,7 +163,7 @@ QString FileUtils::sanitizeFilePath( const QString &filePath, const QString &rep
   return sanitized;
 }
 
-QString FileUtils::sanitizeFilePathPart( const QString &filePathPart, const QString &replacement )
+QString QfFileUtils::sanitizeFilePathPart( const QString &filePathPart, const QString &replacement )
 {
   QString sanitizedPart = filePathPart;
 
@@ -207,7 +207,7 @@ QString FileUtils::sanitizeFilePathPart( const QString &filePathPart, const QStr
   return sanitizedPart;
 }
 
-bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback, bool wipeDestFolder )
+bool QfFileUtils::copyRecursively( const QString &sourceFolder, const QString &destFolder, QgsFeedback *feedback, bool wipeDestFolder )
 {
   // Remove the destination folder and its content if it already exists
   if ( wipeDestFolder )
@@ -263,7 +263,7 @@ bool FileUtils::copyRecursively( const QString &sourceFolder, const QString &des
   return true;
 }
 
-int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping )
+int QfFileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QString &destFolder, QList<QPair<QString, QString>> &mapping )
 {
   QDir sourceDir( sourceFolder );
 
@@ -293,7 +293,7 @@ int FileUtils::copyRecursivelyPrepare( const QString &sourceFolder, const QStrin
 }
 
 
-QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm )
+QByteArray QfFileUtils::fileChecksum( const QString &fileName, const QCryptographicHash::Algorithm hashAlgorithm )
 {
   QFile f( fileName );
 
@@ -308,7 +308,7 @@ QByteArray FileUtils::fileChecksum( const QString &fileName, const QCryptographi
   return QByteArray();
 }
 
-QString FileUtils::fileEtag( const QString &fileName, int partSize )
+QString QfFileUtils::fileEtag( const QString &fileName, int partSize )
 {
   QFile f( fileName );
   if ( !f.open( QFile::ReadOnly ) )
@@ -340,7 +340,7 @@ QString FileUtils::fileEtag( const QString &fileName, int partSize )
   return QString();
 }
 
-void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
+void QfFileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHeight )
 {
   if ( !QFileInfo::exists( imagePath ) )
   {
@@ -363,7 +363,7 @@ void FileUtils::restrictImageSize( const QString &imagePath, int maximumWidthHei
   }
 }
 
-void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionInformation &positionInformation )
+void QfFileUtils::addImageMetadata( const QString &imagePath, const QfGnssPositionInformation &positionInformation )
 {
   if ( !QFileInfo::exists( imagePath ) )
   {
@@ -408,7 +408,7 @@ void FileUtils::addImageMetadata( const QString &imagePath, const GnssPositionIn
   }
 }
 
-void FileUtils::addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat, Qgis::TextHorizontalAlignment horizontalAlignment, const QString &imageDecoration )
+void QfFileUtils::addImageStamp( const QString &imagePath, const QString &text, const QString &textFormat, Qgis::TextHorizontalAlignment horizontalAlignment, const QString &imageDecoration )
 {
   if ( !QFileInfo::exists( imagePath ) || text.isEmpty() )
   {
@@ -538,7 +538,7 @@ void FileUtils::addImageStamp( const QString &imagePath, const QString &text, co
   }
 }
 
-bool FileUtils::isWithinProjectDirectory( const QString &filePath )
+bool QfFileUtils::isWithinProjectDirectory( const QString &filePath )
 {
   // Get the project instance
   QgsProject *project = QgsProject::instance();
@@ -617,7 +617,7 @@ bool FileUtils::isWithinProjectDirectory( const QString &filePath )
   return result;
 }
 
-QByteArray FileUtils::readFileContent( const QString &filePath )
+QByteArray QfFileUtils::readFileContent( const QString &filePath )
 {
   QByteArray content;
 
@@ -649,7 +649,7 @@ QByteArray FileUtils::readFileContent( const QString &filePath )
   return content;
 }
 
-bool FileUtils::writeFileContent( const QString &filePath, const QByteArray &content )
+bool QfFileUtils::writeFileContent( const QString &filePath, const QByteArray &content )
 {
   if ( !isWithinProjectDirectory( filePath ) )
   {
@@ -695,7 +695,7 @@ bool FileUtils::writeFileContent( const QString &filePath, const QByteArray &con
   }
 }
 
-QVariantMap FileUtils::getFileInfo( const QString &filePath, bool fetchContent )
+QVariantMap QfFileUtils::getFileInfo( const QString &filePath, bool fetchContent )
 {
   QVariantMap info;
 
@@ -780,7 +780,7 @@ QVariantMap FileUtils::getFileInfo( const QString &filePath, bool fetchContent )
   return info;
 }
 
-bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringList &files, bool checkConsistency )
+bool QfFileUtils::unzip( const QString &zipFilename, const QString &dir, QStringList &files, bool checkConsistency )
 {
   files.clear();
 
@@ -889,7 +889,7 @@ bool FileUtils::unzip( const QString &zipFilename, const QString &dir, QStringLi
   return true;
 }
 
-bool FileUtils::isDeletable( const QString &filePath )
+bool QfFileUtils::isDeletable( const QString &filePath )
 {
   const QFileInfo fileInfo( filePath );
   if ( !fileInfo.exists() )
@@ -902,19 +902,19 @@ bool FileUtils::isDeletable( const QString &filePath )
   // Collect all allowed directories
   QStringList allowedDirectories;
 
-  const QString appDataDir = QFileInfo( PlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
+  const QString appDataDir = QFileInfo( QfPlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
   if ( !appDataDir.isEmpty() )
   {
     allowedDirectories << appDataDir;
   }
 
-  const QString cloudDataDir = QFileInfo( QFieldCloudUtils::localCloudDirectory() ).canonicalFilePath();
+  const QString cloudDataDir = QFileInfo( QfCloudUtils::localCloudDirectory() ).canonicalFilePath();
   if ( !cloudDataDir.isEmpty() )
   {
     allowedDirectories << cloudDataDir;
   }
 
-  const QStringList extraDirs = PlatformUtilities::instance()->additionalApplicationDirectories();
+  const QStringList extraDirs = QfPlatformUtilities::instance()->additionalApplicationDirectories();
   for ( const QString &dir : extraDirs )
   {
     if ( !dir.isEmpty() )
@@ -945,8 +945,8 @@ bool FileUtils::isDeletable( const QString &filePath )
       QStringLiteral( "Created Projects" ) };
 
     QStringList appRoots;
-    appRoots << PlatformUtilities::instance()->applicationDirectory();
-    appRoots << PlatformUtilities::instance()->additionalApplicationDirectories();
+    appRoots << QfPlatformUtilities::instance()->applicationDirectory();
+    appRoots << QfPlatformUtilities::instance()->additionalApplicationDirectories();
     appRoots.erase( std::remove_if( appRoots.begin(), appRoots.end(), []( const QString &appRoot ) {
                       return appRoot.isEmpty();
                     } ),
@@ -976,7 +976,7 @@ bool FileUtils::isDeletable( const QString &filePath )
   return allowedExtensions.contains( suffix );
 }
 
-QVariantMap FileUtils::deleteFiles( const QStringList &filePaths )
+QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
 {
   QVariantMap results;
 

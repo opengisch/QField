@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectinfo.cpp - ProjectInfo
+  qfprojectinfo.cpp - QfProjectInfo
 
  ---------------------
  begin                : 14.2.2021
@@ -30,18 +30,18 @@
 #include <qgsmarkersymbol.h>
 #include <qgssymbollayerutils.h>
 
-ProjectInfo::ProjectInfo( QObject *parent )
+QfProjectInfo::QfProjectInfo( QObject *parent )
   : QObject( parent )
 {
   mSaveExtentTimer.setSingleShot( true );
   mSaveRotationTimer.setSingleShot( true );
   mSaveTemporalStateTimer.setSingleShot( true );
-  connect( &mSaveExtentTimer, &QTimer::timeout, this, &ProjectInfo::saveExtent );
-  connect( &mSaveRotationTimer, &QTimer::timeout, this, &ProjectInfo::saveRotation );
-  connect( &mSaveTemporalStateTimer, &QTimer::timeout, this, &ProjectInfo::saveTemporalState );
+  connect( &mSaveExtentTimer, &QTimer::timeout, this, &QfProjectInfo::saveExtent );
+  connect( &mSaveRotationTimer, &QTimer::timeout, this, &QfProjectInfo::saveRotation );
+  connect( &mSaveTemporalStateTimer, &QTimer::timeout, this, &QfProjectInfo::saveTemporalState );
 }
 
-void ProjectInfo::setFilePath( const QString &filePath )
+void QfProjectInfo::setFilePath( const QString &filePath )
 {
   if ( mFilePath == filePath )
     return;
@@ -53,62 +53,62 @@ void ProjectInfo::setFilePath( const QString &filePath )
   emit activeLayerChanged();
 }
 
-QString ProjectInfo::filePath() const
+QString QfProjectInfo::filePath() const
 {
   return mFilePath;
 }
 
-void ProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfProjectInfo::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( !mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
-    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &ProjectInfo::rotationChanged );
-    disconnect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &ProjectInfo::temporalStateChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfProjectInfo::extentChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfProjectInfo::rotationChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &QfProjectInfo::temporalStateChanged );
   }
 
   mMapSettings = mapSettings;
-  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ProjectInfo::extentChanged );
-  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &ProjectInfo::rotationChanged );
-  connect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &ProjectInfo::temporalStateChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfProjectInfo::extentChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfProjectInfo::rotationChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::temporalStateChanged, this, &QfProjectInfo::temporalStateChanged );
 
   emit mapSettingsChanged();
 }
 
-QgsQuickMapSettings *ProjectInfo::mapSettings() const
+QgsQuickMapSettings *QfProjectInfo::mapSettings() const
 {
   return mMapSettings;
 }
 
-void ProjectInfo::setLayerTree( FlatLayerTreeModel *layerTree )
+void QfProjectInfo::setLayerTree( QfFlatLayerTreeModel *layerTree )
 {
   if ( mLayerTree == layerTree )
     return;
 
   if ( mLayerTree )
   {
-    disconnect( mLayerTree, &FlatLayerTreeModel::mapThemeChanged, this, &ProjectInfo::mapThemeChanged );
+    disconnect( mLayerTree, &QfFlatLayerTreeModel::mapThemeChanged, this, &QfProjectInfo::mapThemeChanged );
   }
 
   mLayerTree = layerTree;
 
   if ( mLayerTree )
   {
-    connect( mLayerTree, &FlatLayerTreeModel::mapThemeChanged, this, &ProjectInfo::mapThemeChanged );
+    connect( mLayerTree, &QfFlatLayerTreeModel::mapThemeChanged, this, &QfProjectInfo::mapThemeChanged );
   }
 
   emit layerTreeChanged();
 }
 
-FlatLayerTreeModel *ProjectInfo::layerTree() const
+QfFlatLayerTreeModel *QfProjectInfo::layerTree() const
 {
   return mLayerTree;
 }
 
-void ProjectInfo::setTrackingModel( TrackingModel *trackingModel )
+void QfProjectInfo::setTrackingModel( QfTrackingModel *trackingModel )
 {
   if ( mTrackingModel == trackingModel )
     return;
@@ -118,18 +118,18 @@ void ProjectInfo::setTrackingModel( TrackingModel *trackingModel )
   emit trackingModelChanged();
 }
 
-TrackingModel *ProjectInfo::trackingModel() const
+QfTrackingModel *QfProjectInfo::trackingModel() const
 {
   return mTrackingModel;
 }
 
 
-void ProjectInfo::saveTracker( QgsVectorLayer *layer )
+void QfProjectInfo::saveTracker( QgsVectorLayer *layer )
 {
   if ( !layer || !mTrackingModel || !mTrackingModel->layerInTracking( layer ) )
     return;
 
-  const Tracker *tracker = mTrackingModel->trackerForLayer( layer );
+  const QfTracker *tracker = mTrackingModel->trackerForLayer( layer );
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
   mSettings.setValue( "minimumDistance", tracker->minimumDistance() );
@@ -143,7 +143,7 @@ void ProjectInfo::saveTracker( QgsVectorLayer *layer )
   mSettings.endGroup();
 }
 
-QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
+QModelIndex QfProjectInfo::restoreTracker( QgsVectorLayer *layer )
 {
   if ( !layer || !mTrackingModel || mTrackingModel->layerInTracking( layer ) )
     return QModelIndex();
@@ -152,7 +152,7 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
     return QModelIndex();
 
   QModelIndex index = mTrackingModel->createTracker( layer );
-  Tracker *tracker = mTrackingModel->data( index, TrackingModel::TrackerPointer ).value<Tracker *>();
+  QfTracker *tracker = mTrackingModel->data( index, QfTrackingModel::TrackerPointer ).value<QfTracker *>();
 
   mSettings.beginGroup( QStringLiteral( "/qgis/projectInfo/trackers/%1" ).arg( layer->id() ) );
   tracker->setTimeInterval( mSettings.value( "timeInterval", 0 ).toInt() );
@@ -160,7 +160,7 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
   tracker->setMaximumDistance( mSettings.value( "maximumDistance", 0 ).toDouble() );
   tracker->setSensorCapture( mSettings.value( "sensorCapture", false ).toBool() );
   tracker->setConjunction( mSettings.value( "conjunction", false ).toBool() );
-  tracker->setMeasureType( static_cast<Tracker::MeasureType>( mSettings.value( "measureType", 0 ).toInt() ) );
+  tracker->setMeasureType( static_cast<QfTracker::MeasureType>( mSettings.value( "measureType", 0 ).toInt() ) );
   tracker->setVisible( mSettings.value( "visible", true ).toBool() );
   const QgsFeatureId fid = mSettings.value( "featureId", FID_NULL ).toLongLong();
   if ( fid >= 0 )
@@ -177,12 +177,12 @@ QModelIndex ProjectInfo::restoreTracker( QgsVectorLayer *layer )
   return index;
 }
 
-void ProjectInfo::extentChanged()
+void QfProjectInfo::extentChanged()
 {
   mSaveExtentTimer.start( 1000 );
 }
 
-void ProjectInfo::saveExtent()
+void QfProjectInfo::saveExtent()
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -193,12 +193,12 @@ void ProjectInfo::saveExtent()
   mSettings.endGroup();
 }
 
-void ProjectInfo::rotationChanged()
+void QfProjectInfo::rotationChanged()
 {
   mSaveRotationTimer.start( 1000 );
 }
 
-void ProjectInfo::saveRotation()
+void QfProjectInfo::saveRotation()
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -208,12 +208,12 @@ void ProjectInfo::saveRotation()
   mSettings.endGroup();
 }
 
-void ProjectInfo::temporalStateChanged()
+void QfProjectInfo::temporalStateChanged()
 {
   mSaveTemporalStateTimer.start( 1000 );
 }
 
-void ProjectInfo::saveTemporalState()
+void QfProjectInfo::saveTemporalState()
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -225,7 +225,7 @@ void ProjectInfo::saveTemporalState()
   mSettings.endGroup();
 }
 
-void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
+void QfProjectInfo::saveLayerStyle( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() || !layer )
     return;
@@ -253,7 +253,7 @@ void ProjectInfo::saveLayerStyle( QgsMapLayer *layer )
   mSettings.endGroup();
 }
 
-void ProjectInfo::saveLayerTreeState()
+void QfProjectInfo::saveLayerTreeState()
 {
   if ( mFilePath.isEmpty() || !mLayerTree )
     return;
@@ -278,7 +278,7 @@ void ProjectInfo::saveLayerTreeState()
   }
 }
 
-bool ProjectInfo::snappingEnabled() const
+bool QfProjectInfo::snappingEnabled() const
 {
   if ( mFilePath.isEmpty() )
     return false;
@@ -286,7 +286,7 @@ bool ProjectInfo::snappingEnabled() const
   return mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/layerSnapping/enabled" ).arg( mFilePath ), false ).toBool();
 }
 
-void ProjectInfo::setSnappingEnabled( bool enabled )
+void QfProjectInfo::setSnappingEnabled( bool enabled )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -298,12 +298,12 @@ void ProjectInfo::setSnappingEnabled( bool enabled )
   emit snappingEnabledChanged();
 }
 
-CloudUserInformation ProjectInfo::cloudUserInformation() const
+QfCloudUserInformation QfProjectInfo::cloudUserInformation() const
 {
   if ( mFilePath.isEmpty() )
-    return CloudUserInformation( QString(), QString() );
+    return QfCloudUserInformation( QString(), QString() );
 
-  CloudUserInformation userinfo(
+  QfCloudUserInformation userinfo(
     mSettings.value( QStringLiteral( "/qgis/projectInfo/%1/cloudUserInfo/json" ).arg( mFilePath ), QStringLiteral( "{}" ) )
       .toJsonValue()
       .toObject() );
@@ -311,7 +311,7 @@ CloudUserInformation ProjectInfo::cloudUserInformation() const
   return userinfo;
 }
 
-void ProjectInfo::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
+void QfProjectInfo::setCloudUserInformation( const QfCloudUserInformation &cloudUserInformation )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -330,12 +330,12 @@ void ProjectInfo::setCloudUserInformation( const CloudUserInformation &cloudUser
   emit cloudUserInformationChanged();
 }
 
-void ProjectInfo::restoreCloudUserInformation()
+void QfProjectInfo::restoreCloudUserInformation()
 {
   emit cloudUserInformationChanged();
 }
 
-void ProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
+void QfProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -366,7 +366,7 @@ void ProjectInfo::saveLayerSnappingConfiguration( QgsMapLayer *layer )
   mSettings.endGroup();
 }
 
-void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
+void QfProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -402,7 +402,7 @@ void ProjectInfo::saveLayerRememberedFields( QgsMapLayer *layer )
   mSettings.endGroup();
 }
 
-void ProjectInfo::setStateMode( const QString &mode )
+void QfProjectInfo::setStateMode( const QString &mode )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -412,7 +412,7 @@ void ProjectInfo::setStateMode( const QString &mode )
   mSettings.endGroup();
 }
 
-QString ProjectInfo::stateMode() const
+QString QfProjectInfo::stateMode() const
 {
   if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/stateMode" ).arg( mFilePath ) ) )
   {
@@ -422,7 +422,7 @@ QString ProjectInfo::stateMode() const
   return QgsProject::instance()->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "browse" ) );
 }
 
-void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
+void QfProjectInfo::setActiveLayer( QgsMapLayer *layer )
 {
   if ( mFilePath.isEmpty() || !layer )
     return;
@@ -434,7 +434,7 @@ void ProjectInfo::setActiveLayer( QgsMapLayer *layer )
   emit activeLayerChanged();
 }
 
-QgsMapLayer *ProjectInfo::activeLayer() const
+QgsMapLayer *QfProjectInfo::activeLayer() const
 {
   QString layerId;
   if ( mSettings.contains( QStringLiteral( "/qgis/projectInfo/%1/activeLayer" ).arg( mFilePath ) ) )
@@ -448,7 +448,7 @@ QgsMapLayer *ProjectInfo::activeLayer() const
   return !layerId.isEmpty() ? QgsProject::instance()->mapLayer( layerId ) : nullptr;
 }
 
-void ProjectInfo::mapThemeChanged()
+void QfProjectInfo::mapThemeChanged()
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -466,7 +466,7 @@ void ProjectInfo::mapThemeChanged()
   mSettings.endGroup();
 }
 
-void ProjectInfo::saveVariable( const QString &name, const QString &value )
+void QfProjectInfo::saveVariable( const QString &name, const QString &value )
 {
   if ( mFilePath.isEmpty() )
     return;
@@ -474,7 +474,7 @@ void ProjectInfo::saveVariable( const QString &name, const QString &value )
   mSettings.setValue( QStringLiteral( "/qgis/projectInfo/%1/variables/%2" ).arg( mFilePath, name ), value );
 }
 
-void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree )
+void QfProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, QfFlatLayerTreeModel *layerTree )
 {
   QSettings settings;
 
@@ -665,7 +665,7 @@ void ProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *project
   QgsExpressionContextUtils::setGlobalVariable( "cloud_useremail", cloudUserInformationObject.value( "email" ).toString() );
 }
 
-QVariantMap ProjectInfo::getTitleDecorationConfiguration()
+QVariantMap QfProjectInfo::getTitleDecorationConfiguration()
 {
   QVariantMap configuration;
   const QString configurationName = QStringLiteral( "TitleLabel" );
@@ -726,7 +726,7 @@ QVariantMap ProjectInfo::getTitleDecorationConfiguration()
   return configuration;
 }
 
-QVariantMap ProjectInfo::getCopyrightDecorationConfiguration()
+QVariantMap QfProjectInfo::getCopyrightDecorationConfiguration()
 {
   QVariantMap configuration;
   const QString configurationName = QStringLiteral( "CopyrightLabel" );
@@ -787,7 +787,7 @@ QVariantMap ProjectInfo::getCopyrightDecorationConfiguration()
   return configuration;
 }
 
-QVariantMap ProjectInfo::getImageDecorationConfiguration()
+QVariantMap QfProjectInfo::getImageDecorationConfiguration()
 {
   QVariantMap configuration;
   const QString configurationName = QStringLiteral( "Image" );
@@ -823,7 +823,7 @@ QVariantMap ProjectInfo::getImageDecorationConfiguration()
   return configuration;
 }
 
-QVariantMap ProjectInfo::getGridDecorationConfiguration()
+QVariantMap QfProjectInfo::getGridDecorationConfiguration()
 {
   QVariantMap configuration;
   const QString configurationName = QStringLiteral( "Grid" );
@@ -945,7 +945,7 @@ QVariantMap ProjectInfo::getGridDecorationConfiguration()
   return configuration;
 }
 
-QgsMapLayer *ProjectInfo::getDefaultActiveLayerForMapTheme( const QString &mapTheme )
+QgsMapLayer *QfProjectInfo::getDefaultActiveLayerForMapTheme( const QString &mapTheme )
 {
   if ( mapTheme.isEmpty() )
   {

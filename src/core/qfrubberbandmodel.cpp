@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfrubberbandmodel.cpp - RubberbandModel
+  qfrubberbandmodel.cpp - QfRubberbandModel
 
  ---------------------
  begin                : 10.6.2016
@@ -21,29 +21,29 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
-RubberbandModel::RubberbandModel( QObject *parent )
+QfRubberbandModel::QfRubberbandModel( QObject *parent )
   : QObject( parent )
   , mLayer( nullptr )
 {
   mPointList.insert( 0, QgsPoint() );
 }
 
-int RubberbandModel::vertexCount() const
+int QfRubberbandModel::vertexCount() const
 {
   return static_cast<int>( mPointList.size() );
 }
 
-bool RubberbandModel::isEmpty() const
+bool QfRubberbandModel::isEmpty() const
 {
   return mPointList.isEmpty();
 }
 
-QVector<QgsPoint> RubberbandModel::vertices() const
+QVector<QgsPoint> QfRubberbandModel::vertices() const
 {
   return mPointList;
 }
 
-QVector<QgsPoint> RubberbandModel::verticesCopy( bool skipCurrentPoint ) const
+QVector<QgsPoint> QfRubberbandModel::verticesCopy( bool skipCurrentPoint ) const
 {
   QVector<QgsPoint> points;
   for ( const QgsPoint &pt : mPointList )
@@ -56,7 +56,7 @@ QVector<QgsPoint> RubberbandModel::verticesCopy( bool skipCurrentPoint ) const
   return points;
 }
 
-QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType, bool closeLine ) const
+QgsPointSequence QfRubberbandModel::pointSequence( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType, bool closeLine ) const
 {
   QgsPointSequence sequence;
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
@@ -67,7 +67,7 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
     QgsPointXY p1 = ct.transform( pt.x(), pt.y() );
 
     //get point containing ZM if existing
-    QgsPoint p2 = SnappingUtils::newPoint( pt, wkbType );
+    QgsPoint p2 = QfSnappingUtils::newPoint( pt, wkbType );
     p2.setX( p1.x() );
     p2.setY( p1.y() );
 
@@ -92,7 +92,7 @@ QgsPointSequence RubberbandModel::pointSequence( const QgsCoordinateReferenceSys
   return sequence;
 }
 
-QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem &crs ) const
+QVector<QgsPointXY> QfRubberbandModel::flatPointSequence( const QgsCoordinateReferenceSystem &crs ) const
 {
   QVector<QgsPointXY> sequence;
 
@@ -106,7 +106,7 @@ QVector<QgsPointXY> RubberbandModel::flatPointSequence( const QgsCoordinateRefer
   return sequence;
 }
 
-QgsPoint RubberbandModel::vertexAt( int index, const QgsCoordinateReferenceSystem &crs ) const
+QgsPoint QfRubberbandModel::vertexAt( int index, const QgsCoordinateReferenceSystem &crs ) const
 {
   if ( index >= mPointList.size() )
     return QgsPoint();
@@ -121,7 +121,7 @@ QgsPoint RubberbandModel::vertexAt( int index, const QgsCoordinateReferenceSyste
   return point;
 }
 
-void RubberbandModel::setVertex( int index, QgsPoint coordinate )
+void QfRubberbandModel::setVertex( int index, QgsPoint coordinate )
 {
   if ( mPointList.at( index ) != coordinate )
   {
@@ -130,7 +130,7 @@ void RubberbandModel::setVertex( int index, QgsPoint coordinate )
   }
 }
 
-void RubberbandModel::insertVertices( int index, int count )
+void QfRubberbandModel::insertVertices( int index, int count )
 {
   for ( int i = 0; i < count; ++i )
   {
@@ -141,7 +141,7 @@ void RubberbandModel::insertVertices( int index, int count )
   emit vertexCountChanged();
 }
 
-void RubberbandModel::removeVertices( int index, int count, bool keepLast )
+void QfRubberbandModel::removeVertices( int index, int count, bool keepLast )
 {
   if ( mPointList.size() <= ( keepLast ? 1 : 0 ) )
     return;
@@ -157,12 +157,12 @@ void RubberbandModel::removeVertices( int index, int count, bool keepLast )
   emit vertexCountChanged();
 }
 
-int RubberbandModel::currentCoordinateIndex() const
+int QfRubberbandModel::currentCoordinateIndex() const
 {
   return mCurrentCoordinateIndex;
 }
 
-void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
+void QfRubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
 {
   if ( currentCoordinateIndex < 0 )
     currentCoordinateIndex = 0;
@@ -175,7 +175,7 @@ void RubberbandModel::setCurrentCoordinateIndex( int currentCoordinateIndex )
   emit currentCoordinateChanged();
 }
 
-QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType ) const
+QgsPoint QfRubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType ) const
 {
   QgsCoordinateTransform ct( mCrs, crs, QgsProject::instance()->transformContext() );
 
@@ -209,12 +209,12 @@ QgsPoint RubberbandModel::currentPoint( const QgsCoordinateReferenceSystem &crs,
   return resultPt;
 }
 
-QgsPoint RubberbandModel::currentCoordinate() const
+QgsPoint QfRubberbandModel::currentCoordinate() const
 {
   return mPointList.value( mCurrentCoordinateIndex );
 }
 
-QgsPoint RubberbandModel::firstCoordinate() const
+QgsPoint QfRubberbandModel::firstCoordinate() const
 {
   if ( mPointList.isEmpty() )
     return QgsPoint();
@@ -222,7 +222,7 @@ QgsPoint RubberbandModel::firstCoordinate() const
   return mPointList.at( 0 );
 }
 
-QgsPoint RubberbandModel::lastCoordinate() const
+QgsPoint QfRubberbandModel::lastCoordinate() const
 {
   if ( mPointList.isEmpty() )
     return QgsPoint();
@@ -230,7 +230,7 @@ QgsPoint RubberbandModel::lastCoordinate() const
   return mPointList.at( mCurrentCoordinateIndex > 0 ? mCurrentCoordinateIndex - 1 : 0 );
 }
 
-QgsPoint RubberbandModel::penultimateCoordinate() const
+QgsPoint QfRubberbandModel::penultimateCoordinate() const
 {
   if ( mPointList.size() < 3 )
     return QgsPoint();
@@ -238,7 +238,7 @@ QgsPoint RubberbandModel::penultimateCoordinate() const
   return mPointList.at( mCurrentCoordinateIndex > 1 ? mCurrentCoordinateIndex - 2 : 0 );
 }
 
-void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
+void QfRubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
 {
   if ( mPointList.count() == 0 )
   {
@@ -280,22 +280,22 @@ void RubberbandModel::setCurrentCoordinate( const QgsPoint &currentCoordinate )
   emit vertexChanged( mCurrentCoordinateIndex );
 }
 
-QDateTime RubberbandModel::currentPositionTimestamp() const
+QDateTime QfRubberbandModel::currentPositionTimestamp() const
 {
   return mCurrentPositionTimestamp;
 }
 
-void RubberbandModel::setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp )
+void QfRubberbandModel::setCurrentPositionTimestamp( const QDateTime &currentPositionTimestamp )
 {
   mCurrentPositionTimestamp = currentPositionTimestamp;
 }
 
-double RubberbandModel::measureValue() const
+double QfRubberbandModel::measureValue() const
 {
   return mMeasureValue;
 }
 
-void RubberbandModel::setMeasureValue( const double measureValue )
+void QfRubberbandModel::setMeasureValue( const double measureValue )
 {
   if ( mMeasureValue == measureValue )
     return;
@@ -312,7 +312,7 @@ void RubberbandModel::setMeasureValue( const double measureValue )
   }
 }
 
-void RubberbandModel::addVertex()
+void QfRubberbandModel::addVertex()
 {
   // Avoid double vertices accidentally
   if ( mPointList.size() > 1 && *( mPointList.end() - 1 ) == *( mPointList.end() - 2 ) )
@@ -324,19 +324,19 @@ void RubberbandModel::addVertex()
   setCurrentCoordinateIndex( mCurrentCoordinateIndex + 1 );
 }
 
-void RubberbandModel::addVertexFromPoint( const QgsPoint &point )
+void QfRubberbandModel::addVertexFromPoint( const QgsPoint &point )
 {
   setCurrentCoordinate( point );
   addVertex();
 }
 
-void RubberbandModel::removeVertex()
+void QfRubberbandModel::removeVertex()
 {
   setCurrentCoordinateIndex( mCurrentCoordinateIndex - 1 );
   removeVertices( mCurrentCoordinateIndex + 1, 1 );
 }
 
-void RubberbandModel::reset( bool keepLast )
+void QfRubberbandModel::reset( bool keepLast )
 {
   removeVertices( 0, static_cast<int>( mPointList.size() ) - ( keepLast ? 1 : 0 ), keepLast );
 
@@ -344,7 +344,7 @@ void RubberbandModel::reset( bool keepLast )
   emit frozenChanged();
 }
 
-void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex, double simplificationTolerance )
+void QfRubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex, double simplificationTolerance )
 {
   if ( firstVertex < 0 || lastVertex >= mPointList.size() || lastVertex - firstVertex < 2 )
   {
@@ -404,7 +404,7 @@ void RubberbandModel::smoothSegment( qsizetype firstVertex, qsizetype lastVertex
   emit currentCoordinateChanged();
 }
 
-void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordinateReferenceSystem &crs )
+void QfRubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordinateReferenceSystem &crs )
 {
   if ( geometry.type() != mGeometryType )
     return;
@@ -444,12 +444,12 @@ void RubberbandModel::setDataFromGeometry( QgsGeometry geometry, const QgsCoordi
   emit vertexCountChanged();
 }
 
-Qgis::GeometryType RubberbandModel::geometryType() const
+Qgis::GeometryType QfRubberbandModel::geometryType() const
 {
   return mGeometryType;
 }
 
-void RubberbandModel::setGeometryType( const Qgis::GeometryType &geometryType )
+void QfRubberbandModel::setGeometryType( const Qgis::GeometryType &geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
@@ -458,12 +458,12 @@ void RubberbandModel::setGeometryType( const Qgis::GeometryType &geometryType )
   emit geometryTypeChanged();
 }
 
-QgsCoordinateReferenceSystem RubberbandModel::crs() const
+QgsCoordinateReferenceSystem QfRubberbandModel::crs() const
 {
   return mCrs;
 }
 
-void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem &crs )
+void QfRubberbandModel::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( crs == mCrs )
     return;
@@ -472,12 +472,12 @@ void RubberbandModel::setCrs( const QgsCoordinateReferenceSystem &crs )
   emit crsChanged();
 }
 
-QgsVectorLayer *RubberbandModel::vectorLayer() const
+QgsVectorLayer *QfRubberbandModel::vectorLayer() const
 {
   return mLayer.data();
 }
 
-void RubberbandModel::setVectorLayer( QgsVectorLayer *vectorLayer )
+void QfRubberbandModel::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
   if ( vectorLayer == mLayer )
     return;
@@ -490,12 +490,12 @@ void RubberbandModel::setVectorLayer( QgsVectorLayer *vectorLayer )
   emit vectorLayerChanged();
 }
 
-bool RubberbandModel::frozen() const
+bool QfRubberbandModel::frozen() const
 {
   return mFrozen;
 }
 
-void RubberbandModel::setFrozen( const bool &frozen )
+void QfRubberbandModel::setFrozen( const bool &frozen )
 {
   if ( mFrozen == frozen )
     return;

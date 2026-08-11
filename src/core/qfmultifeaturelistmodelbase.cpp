@@ -34,13 +34,13 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectortilelayer.h>
 
-MultiFeatureListModelBase::MultiFeatureListModelBase( QObject *parent )
+QfMultiFeatureListModelBase::QfMultiFeatureListModelBase( QObject *parent )
   : QAbstractItemModel( parent )
 {
-  connect( this, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModelBase::countChanged );
+  connect( this, &QfMultiFeatureListModelBase::modelReset, this, &QfMultiFeatureListModelBase::countChanged );
 }
 
-void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests )
+void QfMultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests )
 {
   beginResetModel();
 
@@ -71,10 +71,10 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
     while ( fit.nextFeature( feat ) )
     {
       mFeatures.append( QPair<QgsMapLayer *, QgsFeature>( vl, feat ) );
-      connect( vl, &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
-      connect( vl, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
-      connect( vl, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
-      connect( vl, &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::destroyed, this, &QfMultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::featureDeleted, this, &QfMultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::attributeValueChanged, this, &QfMultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+      connect( vl, &QgsVectorLayer::geometryChanged, this, &QfMultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
       updateConditionalStylingDetails( vl, feat, expressionContext );
     }
   }
@@ -82,12 +82,12 @@ void MultiFeatureListModelBase::setFeatures( const QMap<QgsVectorLayer *, QgsFea
   endResetModel();
 }
 
-void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::IdentifyResult> &results )
+void QfMultiFeatureListModelBase::appendFeatures( const QList<QfIdentifyTool::IdentifyResult> &results )
 {
   QList<QPair<QgsMapLayer *, QgsFeature>> newFeatures;
 
   QMap<QString, QgsExpressionContext> expressionContext;
-  for ( const IdentifyTool::IdentifyResult &result : results )
+  for ( const QfIdentifyTool::IdentifyResult &result : results )
   {
     if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( result.layer ) )
     {
@@ -95,10 +95,10 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
       if ( !mFeatures.contains( item ) )
       {
         newFeatures.append( item );
-        connect( layer, &QgsVectorLayer::destroyed, this, &MultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
-        connect( layer, &QgsVectorLayer::featureDeleted, this, &MultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
-        connect( layer, &QgsVectorLayer::attributeValueChanged, this, &MultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
-        connect( layer, &QgsVectorLayer::geometryChanged, this, &MultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::destroyed, this, &QfMultiFeatureListModelBase::layerDeleted, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::featureDeleted, this, &QfMultiFeatureListModelBase::featureDeleted, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::attributeValueChanged, this, &QfMultiFeatureListModelBase::attributeValueChanged, Qt::UniqueConnection );
+        connect( layer, &QgsVectorLayer::geometryChanged, this, &QfMultiFeatureListModelBase::geometryChanged, Qt::UniqueConnection );
 
         if ( !expressionContext.contains( layer->id() ) )
         {
@@ -117,7 +117,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
         mSelectedFeatures.removeAll( item );
 
         QModelIndex index = createIndex( static_cast<int>( row ), 0 );
-        emit dataChanged( index, index, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+        emit dataChanged( index, index, QVector<int>() << QfMultiFeatureListModel::FeatureSelectedRole );
       }
     }
     else if ( QgsRasterLayer *layer = qobject_cast<QgsRasterLayer *>( result.layer ) )
@@ -187,7 +187,7 @@ void MultiFeatureListModelBase::appendFeatures( const QList<IdentifyTool::Identi
   }
 }
 
-void MultiFeatureListModelBase::clear( const bool keepSelected )
+void QfMultiFeatureListModelBase::clear( const bool keepSelected )
 {
   // the model is already empty, no need to trigger "resetModel"
   if ( mFeatures.isEmpty() )
@@ -224,7 +224,7 @@ void MultiFeatureListModelBase::clear( const bool keepSelected )
   endResetModel();
 }
 
-void MultiFeatureListModelBase::clearSelection()
+void QfMultiFeatureListModelBase::clearSelection()
 {
   if ( mSelectedFeatures.isEmpty() )
   {
@@ -232,11 +232,11 @@ void MultiFeatureListModelBase::clearSelection()
   }
 
   mSelectedFeatures.clear();
-  emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+  emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << QfMultiFeatureListModel::FeatureSelectedRole );
   emit selectedCountChanged();
 }
 
-void MultiFeatureListModelBase::toggleSelectedItem( int item )
+void QfMultiFeatureListModelBase::toggleSelectedItem( int item )
 {
   if ( !mSelectedFeatures.contains( mFeatures.at( item ) ) )
   {
@@ -248,11 +248,11 @@ void MultiFeatureListModelBase::toggleSelectedItem( int item )
   }
 
   QModelIndex modifiedIndex = index( item, 0 );
-  emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+  emit dataChanged( modifiedIndex, modifiedIndex, QVector<int>() << QfMultiFeatureListModel::FeatureSelectedRole );
   emit selectedCountChanged();
 }
 
-QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures() const
+QList<QgsFeature> QfMultiFeatureListModelBase::selectedFeatures() const
 {
   QList<QgsFeature> features;
   for ( const QPair<QgsMapLayer *, QgsFeature> &pair : mSelectedFeatures )
@@ -262,38 +262,38 @@ QList<QgsFeature> MultiFeatureListModelBase::selectedFeatures() const
   return features;
 }
 
-QgsVectorLayer *MultiFeatureListModelBase::selectedLayer() const
+QgsVectorLayer *QfMultiFeatureListModelBase::selectedLayer() const
 {
   return mSelectedFeatures.size() > 0 ? qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first ) : nullptr;
 }
 
-QHash<int, QByteArray> MultiFeatureListModelBase::roleNames() const
+QHash<int, QByteArray> QfMultiFeatureListModelBase::roleNames() const
 {
   QHash<int, QByteArray> roleNames;
 
   roleNames[Qt::DisplayRole] = "display";
-  roleNames[MultiFeatureListModel::FeatureIdRole] = "featureId";
-  roleNames[MultiFeatureListModel::FeatureSelectedRole] = "featureSelected";
-  roleNames[MultiFeatureListModel::FeatureNameRole] = "featureName";
-  roleNames[MultiFeatureListModel::FeatureRole] = "feature";
-  roleNames[MultiFeatureListModel::LayerNameRole] = "layerName";
-  roleNames[MultiFeatureListModel::LayerRole] = "currentLayer";
-  roleNames[MultiFeatureListModel::GeometryRole] = "geometry";
-  roleNames[MultiFeatureListModel::CrsRole] = "crs";
-  roleNames[MultiFeatureListModel::DeleteFeatureRole] = "deleteFeatureCapability";
-  roleNames[MultiFeatureListModel::EditGeometryRole] = "editGeometryCapability";
-  roleNames[MultiFeatureListModel::ConditionalTextColorRole] = "conditionalTextColor";
-  roleNames[MultiFeatureListModel::ConditionalBackgroundColorRole] = "conditionalBackgroundColor";
-  roleNames[MultiFeatureListModel::ConditionalFontUnderlineRole] = "conditionalFontUnderline";
-  roleNames[MultiFeatureListModel::ConditionalFontStrikeOutRole] = "conditionalFontStrikeOut";
-  roleNames[MultiFeatureListModel::ConditionalFontItalicRole] = "conditionalFontItalic";
-  roleNames[MultiFeatureListModel::ConditionalFontBoldRole] = "conditionalFontBold";
-  roleNames[MultiFeatureListModel::ExtrusionRole] = "extrusion";
+  roleNames[QfMultiFeatureListModel::FeatureIdRole] = "featureId";
+  roleNames[QfMultiFeatureListModel::FeatureSelectedRole] = "featureSelected";
+  roleNames[QfMultiFeatureListModel::FeatureNameRole] = "featureName";
+  roleNames[QfMultiFeatureListModel::FeatureRole] = "feature";
+  roleNames[QfMultiFeatureListModel::LayerNameRole] = "layerName";
+  roleNames[QfMultiFeatureListModel::LayerRole] = "currentLayer";
+  roleNames[QfMultiFeatureListModel::GeometryRole] = "geometry";
+  roleNames[QfMultiFeatureListModel::CrsRole] = "crs";
+  roleNames[QfMultiFeatureListModel::DeleteFeatureRole] = "deleteFeatureCapability";
+  roleNames[QfMultiFeatureListModel::EditGeometryRole] = "editGeometryCapability";
+  roleNames[QfMultiFeatureListModel::ConditionalTextColorRole] = "conditionalTextColor";
+  roleNames[QfMultiFeatureListModel::ConditionalBackgroundColorRole] = "conditionalBackgroundColor";
+  roleNames[QfMultiFeatureListModel::ConditionalFontUnderlineRole] = "conditionalFontUnderline";
+  roleNames[QfMultiFeatureListModel::ConditionalFontStrikeOutRole] = "conditionalFontStrikeOut";
+  roleNames[QfMultiFeatureListModel::ConditionalFontItalicRole] = "conditionalFontItalic";
+  roleNames[QfMultiFeatureListModel::ConditionalFontBoldRole] = "conditionalFontBold";
+  roleNames[QfMultiFeatureListModel::ExtrusionRole] = "extrusion";
 
   return roleNames;
 }
 
-QModelIndex MultiFeatureListModelBase::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex QfMultiFeatureListModelBase::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
 
@@ -303,13 +303,13 @@ QModelIndex MultiFeatureListModelBase::index( int row, int column, const QModelI
   return createIndex( row, column, const_cast<QPair<QgsMapLayer *, QgsFeature> *>( &mFeatures.at( row ) ) );
 }
 
-QModelIndex MultiFeatureListModelBase::parent( const QModelIndex &child ) const
+QModelIndex QfMultiFeatureListModelBase::parent( const QModelIndex &child ) const
 {
   Q_UNUSED( child )
   return QModelIndex();
 }
 
-int MultiFeatureListModelBase::rowCount( const QModelIndex &parent ) const
+int QfMultiFeatureListModelBase::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
     return 0;
@@ -317,13 +317,13 @@ int MultiFeatureListModelBase::rowCount( const QModelIndex &parent ) const
     return static_cast<int>( mFeatures.count() );
 }
 
-int MultiFeatureListModelBase::columnCount( const QModelIndex &parent ) const
+int QfMultiFeatureListModelBase::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) const
+QVariant QfMultiFeatureListModelBase::data( const QModelIndex &index, int role ) const
 {
   QPair<QgsMapLayer *, QgsFeature> *feature = toFeature( index );
   if ( !feature )
@@ -335,10 +335,10 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
 
   switch ( role )
   {
-    case MultiFeatureListModel::FeatureIdRole:
+    case QfMultiFeatureListModel::FeatureIdRole:
       return feature->second.id();
 
-    case MultiFeatureListModel::FeatureSelectedRole:
+    case QfMultiFeatureListModel::FeatureSelectedRole:
       for ( auto &pair : mSelectedFeatures )
       {
         if ( pair.first == mFeatures.at( index.row() ).first
@@ -349,28 +349,28 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       }
       return false;
 
-    case MultiFeatureListModel::FeatureRole:
+    case QfMultiFeatureListModel::FeatureRole:
       return feature->second;
 
     case Qt::DisplayRole:
-    case MultiFeatureListModel::FeatureNameRole:
+    case QfMultiFeatureListModel::FeatureNameRole:
     {
-      return vlayer ? FeatureUtils::displayName( vlayer, feature->second ) : "xxx";
+      return vlayer ? QfFeatureUtils::displayName( vlayer, feature->second ) : "xxx";
     }
 
-    case MultiFeatureListModel::LayerNameRole:
+    case QfMultiFeatureListModel::LayerNameRole:
       return feature->first->name();
 
-    case MultiFeatureListModel::LayerRole:
+    case QfMultiFeatureListModel::LayerRole:
       return QVariant::fromValue<QgsMapLayer *>( feature->first );
 
-    case MultiFeatureListModel::GeometryRole:
+    case QfMultiFeatureListModel::GeometryRole:
       return QVariant::fromValue<QgsGeometry>( feature->second.geometry() );
 
-    case MultiFeatureListModel::CrsRole:
+    case QfMultiFeatureListModel::CrsRole:
       return QVariant::fromValue<QgsCoordinateReferenceSystem>( feature->first->crs() );
 
-    case MultiFeatureListModel::DeleteFeatureRole:
+    case QfMultiFeatureListModel::DeleteFeatureRole:
       if ( vlayer )
       {
         return !vlayer->readOnly()
@@ -380,7 +380,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       }
       return false;
 
-    case MultiFeatureListModel::EditGeometryRole:
+    case QfMultiFeatureListModel::EditGeometryRole:
       if ( vlayer )
       {
         return !vlayer->readOnly()
@@ -390,7 +390,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       }
       return false;
 
-    case MultiFeatureListModel::ConditionalBackgroundColorRole:
+    case QfMultiFeatureListModel::ConditionalBackgroundColorRole:
       if ( vlayer )
       {
         const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
@@ -403,7 +403,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return QVariant();
       break;
 
-    case MultiFeatureListModel::ConditionalTextColorRole:
+    case QfMultiFeatureListModel::ConditionalTextColorRole:
       if ( vlayer )
       {
         const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
@@ -416,7 +416,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return QVariant();
       break;
 
-    case MultiFeatureListModel::ConditionalFontBoldRole:
+    case QfMultiFeatureListModel::ConditionalFontBoldRole:
       if ( vlayer )
       {
         const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
@@ -429,7 +429,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return false;
       break;
 
-    case MultiFeatureListModel::ConditionalFontItalicRole:
+    case QfMultiFeatureListModel::ConditionalFontItalicRole:
       if ( vlayer )
       {
         const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
@@ -442,7 +442,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return false;
       break;
 
-    case MultiFeatureListModel::ConditionalFontUnderlineRole:
+    case QfMultiFeatureListModel::ConditionalFontUnderlineRole:
       if ( vlayer )
       {
         const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
@@ -455,7 +455,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return false;
       break;
 
-    case MultiFeatureListModel::ConditionalFontStrikeOutRole:
+    case QfMultiFeatureListModel::ConditionalFontStrikeOutRole:
       if ( vlayer )
       {
         const QString featureUniqueKey = QStringLiteral( "%1:%2" ).arg( vlayer->id(), QString::number( feature->second.id() ) );
@@ -468,11 +468,11 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
       return false;
       break;
 
-    case MultiFeatureListModel::ExtrusionRole:
+    case QfMultiFeatureListModel::ExtrusionRole:
     {
       if ( vlayer )
       {
-        const QString heightField = LayerUtils::guessFriendlyHeightField( vlayer );
+        const QString heightField = QfLayerUtils::guessFriendlyHeightField( vlayer );
         if ( !heightField.isEmpty() )
         {
           return feature->second.attribute( heightField ).toDouble();
@@ -485,7 +485,7 @@ QVariant MultiFeatureListModelBase::data( const QModelIndex &index, int role ) c
   return QVariant();
 }
 
-bool MultiFeatureListModelBase::removeRows( int row, int count, const QModelIndex &parent = QModelIndex() )
+bool QfMultiFeatureListModelBase::removeRows( int row, int count, const QModelIndex &parent = QModelIndex() )
 {
   if ( !count )
     return true;
@@ -513,17 +513,17 @@ bool MultiFeatureListModelBase::removeRows( int row, int count, const QModelInde
   return true;
 }
 
-int MultiFeatureListModelBase::count() const
+int QfMultiFeatureListModelBase::count() const
 {
   return static_cast<int>( mFeatures.size() );
 }
 
-int MultiFeatureListModelBase::selectedCount() const
+int QfMultiFeatureListModelBase::selectedCount() const
 {
   return static_cast<int>( mSelectedFeatures.size() );
 }
 
-bool MultiFeatureListModelBase::canEditAttributesSelection() const
+bool QfMultiFeatureListModelBase::canEditAttributesSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -537,7 +537,7 @@ bool MultiFeatureListModelBase::canEditAttributesSelection() const
   return !isLocked && isCapable;
 }
 
-bool MultiFeatureListModelBase::canMergeSelection() const
+bool QfMultiFeatureListModelBase::canMergeSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -551,7 +551,7 @@ bool MultiFeatureListModelBase::canMergeSelection() const
   return !isLocked && isCapable;
 }
 
-bool MultiFeatureListModelBase::canDeleteSelection() const
+bool QfMultiFeatureListModelBase::canDeleteSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -565,7 +565,7 @@ bool MultiFeatureListModelBase::canDeleteSelection() const
   return !isLocked && isCapable;
 }
 
-bool MultiFeatureListModelBase::canDuplicateSelection() const
+bool QfMultiFeatureListModelBase::canDuplicateSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -579,7 +579,7 @@ bool MultiFeatureListModelBase::canDuplicateSelection() const
   return !isLocked && isCapable;
 }
 
-bool MultiFeatureListModelBase::canMoveSelection() const
+bool QfMultiFeatureListModelBase::canMoveSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -620,7 +620,7 @@ bool MultiFeatureListModelBase::canMoveSelection() const
   return true;
 }
 
-bool MultiFeatureListModelBase::canRotateSelection() const
+bool QfMultiFeatureListModelBase::canRotateSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -661,7 +661,7 @@ bool MultiFeatureListModelBase::canRotateSelection() const
   return true;
 }
 
-bool MultiFeatureListModelBase::canProcessSelection() const
+bool QfMultiFeatureListModelBase::canProcessSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
     return false;
@@ -702,7 +702,7 @@ bool MultiFeatureListModelBase::canProcessSelection() const
   return true;
 }
 
-bool MultiFeatureListModelBase::mergeSelection()
+bool QfMultiFeatureListModelBase::mergeSelection()
 {
   if ( !canMergeSelection() )
     return false;
@@ -784,7 +784,7 @@ bool MultiFeatureListModelBase::mergeSelection()
       // commit changes
       isSuccess = vlayer->commitChanges( !wasEditing );
       mSelectedFeatures.clear();
-      emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
+      emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << QfMultiFeatureListModel::FeatureSelectedRole );
       emit selectedCountChanged();
     }
     else
@@ -799,12 +799,12 @@ bool MultiFeatureListModelBase::mergeSelection()
   return isSuccess;
 }
 
-bool MultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction )
+bool QfMultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid, bool selectionAction )
 {
-  return LayerUtils::deleteFeature( QgsProject::instance(), layer, fid, selectionAction );
+  return QfLayerUtils::deleteFeature( QgsProject::instance(), layer, fid, selectionAction );
 }
 
-bool MultiFeatureListModelBase::deleteSelection()
+bool QfMultiFeatureListModelBase::deleteSelection()
 {
   if ( !canDeleteSelection() )
     return false;
@@ -843,9 +843,9 @@ bool MultiFeatureListModelBase::deleteSelection()
   return isSuccess;
 }
 
-bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+bool QfMultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
 {
-  QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( layer, feature );
+  QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( layer, feature );
   if ( feature.isValid() )
   {
     QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
@@ -862,7 +862,7 @@ bool MultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const Q
   return feature.isValid();
 }
 
-bool MultiFeatureListModelBase::duplicateSelection()
+bool QfMultiFeatureListModelBase::duplicateSelection()
 {
   if ( !canDuplicateSelection() )
     return false;
@@ -874,7 +874,7 @@ bool MultiFeatureListModelBase::duplicateSelection()
   bool isSuccess = false;
   for ( const auto &pair : selectedFeatures )
   {
-    QgsFeature duplicatedFeature = LayerUtils::duplicateFeature( vlayer, pair.second );
+    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( vlayer, pair.second );
     duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
     isSuccess = duplicatedFeature.isValid();
     if ( !isSuccess )
@@ -893,7 +893,7 @@ bool MultiFeatureListModelBase::duplicateSelection()
   return isSuccess;
 }
 
-bool MultiFeatureListModelBase::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
+bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
 {
   if ( !canMoveSelection() )
     return false;
@@ -973,7 +973,7 @@ bool MultiFeatureListModelBase::moveSelection( const double x, const double y, c
   return isSuccess;
 }
 
-bool MultiFeatureListModelBase::rotateSelection( const double angle )
+bool QfMultiFeatureListModelBase::rotateSelection( const double angle )
 {
   if ( !canRotateSelection() )
     return false;
@@ -1016,7 +1016,7 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
   return isSuccess;
 }
 
-void MultiFeatureListModelBase::layerDeleted( QObject *object )
+void QfMultiFeatureListModelBase::layerDeleted( QObject *object )
 {
   int firstRowToRemove = -1;
   int count = 0;
@@ -1051,7 +1051,7 @@ void MultiFeatureListModelBase::layerDeleted( QObject *object )
   emit selectedCountChanged();
 }
 
-void MultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
+void QfMultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
 {
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
@@ -1073,7 +1073,7 @@ void MultiFeatureListModelBase::featureDeleted( QgsFeatureId fid )
   mFeaturesConditionalStyle.remove( QStringLiteral( "%1:%2" ).arg( l->id(), QString::number( fid ) ) );
 }
 
-void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
+void QfMultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
 {
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
@@ -1087,19 +1087,19 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
       pair.second.setAttribute( idx, value );
 
       QList<int> rolesChanged = QVector<int>() << Qt::DisplayRole
-                                               << MultiFeatureListModel::FeatureRole
-                                               << MultiFeatureListModel::FeatureNameRole
-                                               << MultiFeatureListModel::DeleteFeatureRole
-                                               << MultiFeatureListModel::EditGeometryRole;
+                                               << QfMultiFeatureListModel::FeatureRole
+                                               << QfMultiFeatureListModel::FeatureNameRole
+                                               << QfMultiFeatureListModel::DeleteFeatureRole
+                                               << QfMultiFeatureListModel::EditGeometryRole;
 
       if ( updateConditionalStylingDetails( l, pair.second, expressionContext ) )
       {
-        rolesChanged << MultiFeatureListModel::ConditionalBackgroundColorRole
-                     << MultiFeatureListModel::ConditionalTextColorRole
-                     << MultiFeatureListModel::ConditionalFontBoldRole
-                     << MultiFeatureListModel::ConditionalFontItalicRole
-                     << MultiFeatureListModel::ConditionalFontUnderlineRole
-                     << MultiFeatureListModel::ConditionalFontStrikeOutRole;
+        rolesChanged << QfMultiFeatureListModel::ConditionalBackgroundColorRole
+                     << QfMultiFeatureListModel::ConditionalTextColorRole
+                     << QfMultiFeatureListModel::ConditionalFontBoldRole
+                     << QfMultiFeatureListModel::ConditionalFontItalicRole
+                     << QfMultiFeatureListModel::ConditionalFontUnderlineRole
+                     << QfMultiFeatureListModel::ConditionalFontStrikeOutRole;
       }
 
       QModelIndex indexChanged = createIndex( i, 0 );
@@ -1123,7 +1123,7 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
   }
 }
 
-void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
+void QfMultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeometry &geometry )
 {
   QgsVectorLayer *l = qobject_cast<QgsVectorLayer *>( sender() );
   Q_ASSERT( l );
@@ -1136,20 +1136,20 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
     {
       pair.second.setGeometry( geometry );
       QList<int> rolesChanged = QVector<int>() << Qt::DisplayRole
-                                               << MultiFeatureListModel::FeatureRole
-                                               << MultiFeatureListModel::FeatureNameRole
-                                               << MultiFeatureListModel::GeometryRole
-                                               << MultiFeatureListModel::DeleteFeatureRole
-                                               << MultiFeatureListModel::EditGeometryRole;
+                                               << QfMultiFeatureListModel::FeatureRole
+                                               << QfMultiFeatureListModel::FeatureNameRole
+                                               << QfMultiFeatureListModel::GeometryRole
+                                               << QfMultiFeatureListModel::DeleteFeatureRole
+                                               << QfMultiFeatureListModel::EditGeometryRole;
 
       if ( updateConditionalStylingDetails( l, pair.second, expressionContext ) )
       {
-        rolesChanged << MultiFeatureListModel::ConditionalBackgroundColorRole
-                     << MultiFeatureListModel::ConditionalTextColorRole
-                     << MultiFeatureListModel::ConditionalFontBoldRole
-                     << MultiFeatureListModel::ConditionalFontItalicRole
-                     << MultiFeatureListModel::ConditionalFontUnderlineRole
-                     << MultiFeatureListModel::ConditionalFontStrikeOutRole;
+        rolesChanged << QfMultiFeatureListModel::ConditionalBackgroundColorRole
+                     << QfMultiFeatureListModel::ConditionalTextColorRole
+                     << QfMultiFeatureListModel::ConditionalFontBoldRole
+                     << QfMultiFeatureListModel::ConditionalFontItalicRole
+                     << QfMultiFeatureListModel::ConditionalFontUnderlineRole
+                     << QfMultiFeatureListModel::ConditionalFontStrikeOutRole;
       }
 
       QModelIndex indexChanged = createIndex( i, 0 );
@@ -1173,7 +1173,7 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
   }
 }
 
-bool MultiFeatureListModelBase::updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext )
+bool QfMultiFeatureListModelBase::updateConditionalStylingDetails( QgsVectorLayer *vectorLayer, const QgsFeature &feature, QgsExpressionContext &expressionContext )
 {
   if ( !vectorLayer->conditionalStyles()->rowStyles().isEmpty() )
   {

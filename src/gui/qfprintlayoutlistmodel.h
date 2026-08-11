@@ -27,7 +27,7 @@ class QgsVectorLayer;
 /**
  * \ingroup core
  */
-class PrintLayoutListModel : public QAbstractListModel
+class QfPrintLayoutListModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -56,7 +56,7 @@ class PrintLayoutListModel : public QAbstractListModel
     };
 
   public:
-    explicit PrintLayoutListModel( QObject *parent = nullptr );
+    explicit QfPrintLayoutListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

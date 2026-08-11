@@ -37,14 +37,14 @@
 using Catch::Approx;
 
 /* The registry is a process-wide singleton the executor and operations model
- * both reach through CogoRegistry::instance(). The app sets it up once at
+ * both reach through QfCogoRegistry::instance(). The app sets it up once at
  * startup; a single shared instance mirrors that for the whole test run. */
-static CogoRegistry *cogoRegistry()
+static QfCogoRegistry *cogoRegistry()
 {
-  static CogoRegistry sRegistry;
-  if ( CogoRegistry::instance() != &sRegistry )
+  static QfCogoRegistry sRegistry;
+  if ( QfCogoRegistry::instance() != &sRegistry )
   {
-    CogoRegistry::setInstance( &sRegistry );
+    QfCogoRegistry::setInstance( &sRegistry );
   }
   return &sRegistry;
 }
@@ -54,17 +54,17 @@ static QVariant pointValue( double x, double y, double z = std::numeric_limits<d
   return std::isnan( z ) ? QVariant::fromValue( QgsPoint( x, y ) ) : QVariant::fromValue( QgsPoint( x, y, z ) );
 }
 
-static CogoParameter parameterByName( const QList<CogoParameter> &parameters, const QString &name )
+static QfCogoParameter parameterByName( const QList<QfCogoParameter> &parameters, const QString &name )
 {
-  for ( const CogoParameter &parameter : parameters )
+  for ( const QfCogoParameter &parameter : parameters )
   {
     if ( parameter.name == name )
       return parameter;
   }
-  return CogoParameter();
+  return QfCogoParameter();
 }
 
-class CogoOperationDummy : public CogoOperation
+class CogoOperationDummy : public QfCogoOperation
 {
   public:
     CogoOperationDummy() {}
@@ -74,11 +74,11 @@ class CogoOperationDummy : public CogoOperation
 };
 
 /*
- * CogoRegistry
+ * QfCogoRegistry
  */
 TEST_CASE( "CogoRegistry" )
 {
-  CogoRegistry registry;
+  QfCogoRegistry registry;
 
   SECTION( "registers the built-in operations" )
   {
@@ -90,7 +90,7 @@ TEST_CASE( "CogoRegistry" )
 
   SECTION( "returns the requested operation and null for the unknown" )
   {
-    CogoOperation *operation = registry.operation( QStringLiteral( "point_at_xyz" ) );
+    QfCogoOperation *operation = registry.operation( QStringLiteral( "point_at_xyz" ) );
     REQUIRE( operation != nullptr );
     REQUIRE( operation->name() == QStringLiteral( "point_at_xyz" ) );
     REQUIRE( registry.operation( QStringLiteral( "does_not_exist" ) ) == nullptr );
@@ -108,18 +108,18 @@ TEST_CASE( "CogoRegistry" )
   SECTION( "rejects a duplicate registration" )
   {
     const int before = registry.availableOperations().count();
-    REQUIRE( !registry.registerOperation( new CogoOperationPointAtXYZ() ) );
+    REQUIRE( !registry.registerOperation( new QfCogoOperationPointAtXYZ() ) );
     REQUIRE( registry.availableOperations().count() == before );
   }
 }
 
 /*
- * CogoOperationPointAtXYZ
+ * QfCogoOperationPointAtXYZ
  */
 TEST_CASE( "CogoOperationPointAtXYZ" )
 {
   cogoRegistry();
-  CogoOperationPointAtXYZ operation;
+  QfCogoOperationPointAtXYZ operation;
 
   SECTION( "exposes metadata" )
   {
@@ -130,11 +130,11 @@ TEST_CASE( "CogoOperationPointAtXYZ" )
 
   SECTION( "parameters reflect the geometry's Z ability" )
   {
-    const CogoParameter flatPoint = parameterByName( operation.parameters( Qgis::WkbType::Point ), QStringLiteral( "point" ) );
+    const QfCogoParameter flatPoint = parameterByName( operation.parameters( Qgis::WkbType::Point ), QStringLiteral( "point" ) );
     REQUIRE( flatPoint.name == QStringLiteral( "point" ) );
     REQUIRE( flatPoint.configuration.value( QStringLiteral( "hasZ" ) ).toBool() == false );
 
-    const CogoParameter zPoint = parameterByName( operation.parameters( Qgis::WkbType::PointZ ), QStringLiteral( "point" ) );
+    const QfCogoParameter zPoint = parameterByName( operation.parameters( Qgis::WkbType::PointZ ), QStringLiteral( "point" ) );
     REQUIRE( zPoint.configuration.value( QStringLiteral( "hasZ" ) ).toBool() == true );
   }
 
@@ -148,7 +148,7 @@ TEST_CASE( "CogoOperationPointAtXYZ" )
 
   SECTION( "execute adds a vertex at the point" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     const int before = rubberbandModel.vertexCount();
 
     REQUIRE( operation.execute( &rubberbandModel, { { QStringLiteral( "point" ), pointValue( 3.0, 4.0 ) } }, Qgis::WkbType::Point ) );
@@ -161,14 +161,14 @@ TEST_CASE( "CogoOperationPointAtXYZ" )
 
   SECTION( "execute fails without a rubberband or when not ready" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     REQUIRE( !operation.execute( nullptr, { { QStringLiteral( "point" ), pointValue( 1.0, 1.0 ) } }, Qgis::WkbType::Point ) );
     REQUIRE( !operation.execute( &rubberbandModel, QVariantMap(), Qgis::WkbType::Point ) );
   }
 
   SECTION( "executing the same point twice does not duplicate the vertex" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     const QVariantMap parameters = { { QStringLiteral( "point" ), pointValue( 3.0, 4.0 ) } };
 
     REQUIRE( operation.execute( &rubberbandModel, parameters, Qgis::WkbType::Point ) );
@@ -179,23 +179,23 @@ TEST_CASE( "CogoOperationPointAtXYZ" )
 }
 
 /*
- * CogoOperationPointAtDistanceAngle
+ * QfCogoOperationPointAtDistanceAngle
  * Angle is measured clockwise from north: 0 deg points +Y, 90 deg points +X.
  */
 TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 {
   cogoRegistry();
-  CogoOperationPointAtDistanceAngle operation;
+  QfCogoOperationPointAtDistanceAngle operation;
 
   SECTION( "parameters include elevation only with Z" )
   {
-    const QList<CogoParameter> flat = operation.parameters( Qgis::WkbType::Point );
+    const QList<QfCogoParameter> flat = operation.parameters( Qgis::WkbType::Point );
     REQUIRE( parameterByName( flat, QStringLiteral( "point" ) ).name == QStringLiteral( "point" ) );
     REQUIRE( parameterByName( flat, QStringLiteral( "distance" ) ).name == QStringLiteral( "distance" ) );
     REQUIRE( parameterByName( flat, QStringLiteral( "angle" ) ).name == QStringLiteral( "angle" ) );
     REQUIRE( parameterByName( flat, QStringLiteral( "elevation" ) ).name.isEmpty() );
 
-    const QList<CogoParameter> withZ = operation.parameters( Qgis::WkbType::PointZ );
+    const QList<QfCogoParameter> withZ = operation.parameters( Qgis::WkbType::PointZ );
     REQUIRE( parameterByName( withZ, QStringLiteral( "elevation" ) ).name == QStringLiteral( "elevation" ) );
   }
 
@@ -227,7 +227,7 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 
   SECTION( "execute places a vertex east at 90 degrees" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     QVariantMap parameters;
     parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
     parameters[QStringLiteral( "distance" )] = 10.0;
@@ -241,7 +241,7 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 
   SECTION( "execute places a vertex north at 0 degrees" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     QVariantMap parameters;
     parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
     parameters[QStringLiteral( "distance" )] = 10.0;
@@ -255,7 +255,7 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 
   SECTION( "an angle past a full turn wraps around" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     QVariantMap parameters;
     parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0 );
     parameters[QStringLiteral( "distance" )] = 10.0;
@@ -269,7 +269,7 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 
   SECTION( "a zero distance keeps the vertex on the source point" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     QVariantMap parameters;
     parameters[QStringLiteral( "point" )] = pointValue( 5.0, 5.0 );
     parameters[QStringLiteral( "distance" )] = 0.0;
@@ -283,7 +283,7 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 
   SECTION( "execute offsets the elevation" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     QVariantMap parameters;
     parameters[QStringLiteral( "point" )] = pointValue( 0.0, 0.0, 100.0 );
     parameters[QStringLiteral( "distance" )] = 10.0;
@@ -297,13 +297,13 @@ TEST_CASE( "CogoOperationPointAtDistanceAngle" )
 }
 
 /*
- * CogoOperationPointAtIntersectionCircles
+ * QfCogoOperationPointAtIntersectionCircles
  * Circles centred at (0,0) r=5 and (8,0) r=5 intersect at (4, +/-3).
  */
 TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
 {
   cogoRegistry();
-  CogoOperationPointAtIntersectionCircles operation;
+  QfCogoOperationPointAtIntersectionCircles operation;
 
   auto intersectingParameters = []() {
     QVariantMap parameters;
@@ -316,7 +316,7 @@ TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
 
   SECTION( "parameters expose the candidate toggle" )
   {
-    const CogoParameter candidate = parameterByName( operation.parameters( Qgis::WkbType::Point ), QStringLiteral( "candidate" ) );
+    const QfCogoParameter candidate = parameterByName( operation.parameters( Qgis::WkbType::Point ), QStringLiteral( "candidate" ) );
     REQUIRE( candidate.name == QStringLiteral( "candidate" ) );
     REQUIRE( candidate.type == QStringLiteral( "enum" ) );
     REQUIRE( candidate.configuration.value( QStringLiteral( "options" ) ).toStringList() == QStringList( { QStringLiteral( "A" ), QStringLiteral( "B" ) } ) );
@@ -345,7 +345,7 @@ TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
 
   SECTION( "execute defaults to candidate A" )
   {
-    RubberbandModel rubberbandModel;
+    QfRubberbandModel rubberbandModel;
     REQUIRE( operation.execute( &rubberbandModel, intersectingParameters(), Qgis::WkbType::Point ) );
 
     const QgsPoint added = rubberbandModel.vertexAt( 0 );
@@ -355,13 +355,13 @@ TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
 
   SECTION( "candidate selection picks the mirrored intersection" )
   {
-    RubberbandModel rubberbandModelA;
+    QfRubberbandModel rubberbandModelA;
     QVariantMap parametersA = intersectingParameters();
     parametersA[QStringLiteral( "candidate" )] = QStringLiteral( "A" );
     REQUIRE( operation.execute( &rubberbandModelA, parametersA, Qgis::WkbType::Point ) );
     const QgsPoint pointA = rubberbandModelA.vertexAt( 0 );
 
-    RubberbandModel rubberbandModelB;
+    QfRubberbandModel rubberbandModelB;
     QVariantMap parametersB = intersectingParameters();
     parametersB[QStringLiteral( "candidate" )] = QStringLiteral( "B" );
     REQUIRE( operation.execute( &rubberbandModelB, parametersB, Qgis::WkbType::Point ) );
@@ -374,22 +374,22 @@ TEST_CASE( "CogoOperationPointAtIntersectionCircles" )
 }
 
 /*
- * CogoExecutor
+ * QfCogoExecutor
  */
 TEST_CASE( "CogoExecutor" )
 {
   cogoRegistry();
 
   QgsVectorLayer *layer = new QgsVectorLayer( QStringLiteral( "Point?crs=epsg:4326" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
-  RubberbandModel rubberbandModel;
+  QfRubberbandModel rubberbandModel;
   rubberbandModel.setVectorLayer( layer );
 
-  CogoExecutor executor;
+  QfCogoExecutor executor;
   executor.setRubberbandModel( &rubberbandModel );
 
   SECTION( "setting the name loads parameters and clears values" )
   {
-    QSignalSpy parametersSpy( &executor, &CogoExecutor::parametersChanged );
+    QSignalSpy parametersSpy( &executor, &QfCogoExecutor::parametersChanged );
     executor.setName( QStringLiteral( "point_at_distance_angle" ) );
 
     REQUIRE( executor.name() == QStringLiteral( "point_at_distance_angle" ) );
@@ -403,7 +403,7 @@ TEST_CASE( "CogoExecutor" )
     executor.setName( QStringLiteral( "point_at_xyz" ) );
     REQUIRE( !executor.isReady() );
 
-    QSignalSpy readySpy( &executor, &CogoExecutor::isReadyChanged );
+    QSignalSpy readySpy( &executor, &QfCogoExecutor::isReadyChanged );
     executor.setParameterValues( { { QStringLiteral( "point" ), pointValue( 1.0, 2.0 ) } } );
     REQUIRE( executor.isReady() );
     REQUIRE( readySpy.count() == 1 );
@@ -441,11 +441,11 @@ TEST_CASE( "CogoExecutor" )
     mapSettings.setOutputSize( QSize( 1000, 500 ) );
     mapSettings.setExtent( QgsRectangle( -10.0, -10.0, 10.0, 10.0 ) );
 
-    QSignalSpy guidesSpy( &executor, &CogoExecutor::visualGuidesChanged );
+    QSignalSpy guidesSpy( &executor, &QfCogoExecutor::visualGuidesChanged );
     executor.setMapSettings( &mapSettings );
     REQUIRE( guidesSpy.count() >= 1 );
     REQUIRE( executor.visualGuides().size() == 1 );
-    REQUIRE( executor.visualGuides().at( 0 ).type == CogoVisualGuide::Point );
+    REQUIRE( executor.visualGuides().at( 0 ).type == QfCogoVisualGuide::Point );
   }
 
   SECTION( "visual guides regenerate when the map extent moves" )
@@ -461,7 +461,7 @@ TEST_CASE( "CogoExecutor" )
 
     const QPointF before = executor.visualGuides().at( 0 ).details.value( QStringLiteral( "point" ) ).toPointF();
 
-    QSignalSpy guidesSpy( &executor, &CogoExecutor::visualGuidesChanged );
+    QSignalSpy guidesSpy( &executor, &QfCogoExecutor::visualGuidesChanged );
     mapSettings.setExtent( QgsRectangle( 0.0, 0.0, 20.0, 10.0 ) );
     REQUIRE( guidesSpy.count() >= 1 );
 
@@ -473,12 +473,12 @@ TEST_CASE( "CogoExecutor" )
 }
 
 /*
- * CogoOperationsModel
+ * QfCogoOperationsModel
  */
 TEST_CASE( "CogoOperationsModel" )
 {
   cogoRegistry();
-  CogoOperationsModel model;
+  QfCogoOperationsModel model;
 
   SECTION( "rows match the registry" )
   {
@@ -488,9 +488,9 @@ TEST_CASE( "CogoOperationsModel" )
   SECTION( "role names" )
   {
     const QHash<int, QByteArray> roles = model.roleNames();
-    REQUIRE( roles.value( CogoOperationsModel::NameRole ) == QByteArray( "Name" ) );
-    REQUIRE( roles.value( CogoOperationsModel::DisplayNameRole ) == QByteArray( "DisplayName" ) );
-    REQUIRE( roles.value( CogoOperationsModel::IconRole ) == QByteArray( "Icon" ) );
+    REQUIRE( roles.value( QfCogoOperationsModel::NameRole ) == QByteArray( "Name" ) );
+    REQUIRE( roles.value( QfCogoOperationsModel::DisplayNameRole ) == QByteArray( "DisplayName" ) );
+    REQUIRE( roles.value( QfCogoOperationsModel::IconRole ) == QByteArray( "Icon" ) );
   }
 
   SECTION( "get by name returns the operation data" )

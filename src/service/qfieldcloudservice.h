@@ -34,7 +34,7 @@ class QFIELD_SERVICE_EXPORT QFieldCloudService : public QAndroidService
     void uploadPendingAttachments();
 
   private:
-    std::unique_ptr<QFieldCloudConnection> mCloudConnection;
+    std::unique_ptr<QfCloudConnection> mCloudConnection;
 };
 
 #endif // QFIELDCLOUDSERVICE_H

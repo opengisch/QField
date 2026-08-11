@@ -19,12 +19,12 @@
 
 #include <qgsvectorlayerref.h>
 
-LayerResolver::LayerResolver( QObject *parent )
+QfLayerResolver::QfLayerResolver( QObject *parent )
   : QObject( parent )
 {
 }
 
-void LayerResolver::resolve()
+void QfLayerResolver::resolve()
 {
   if ( !mProject )
   {
@@ -39,12 +39,12 @@ void LayerResolver::resolve()
   setLayer( ref.resolveByIdOrNameOnly( mProject ) );
 }
 
-QString LayerResolver::layerId() const
+QString QfLayerResolver::layerId() const
 {
   return mLayerId;
 }
 
-void LayerResolver::setLayerId( const QString &layerId )
+void QfLayerResolver::setLayerId( const QString &layerId )
 {
   if ( mLayerId == layerId )
     return;
@@ -54,12 +54,12 @@ void LayerResolver::setLayerId( const QString &layerId )
   emit layerIdChanged();
 }
 
-QString LayerResolver::layerName() const
+QString QfLayerResolver::layerName() const
 {
   return mLayerName;
 }
 
-void LayerResolver::setLayerName( const QString &layerName )
+void QfLayerResolver::setLayerName( const QString &layerName )
 {
   if ( mLayerName == layerName )
     return;
@@ -69,12 +69,12 @@ void LayerResolver::setLayerName( const QString &layerName )
   emit layerNameChanged();
 }
 
-QString LayerResolver::layerSource() const
+QString QfLayerResolver::layerSource() const
 {
   return mLayerSource;
 }
 
-void LayerResolver::setLayerSource( const QString &layerSource )
+void QfLayerResolver::setLayerSource( const QString &layerSource )
 {
   if ( mLayerSource == layerSource )
     return;
@@ -83,12 +83,12 @@ void LayerResolver::setLayerSource( const QString &layerSource )
   emit layerSourceChanged();
 }
 
-QString LayerResolver::layerProviderName() const
+QString QfLayerResolver::layerProviderName() const
 {
   return mLayerProviderName;
 }
 
-void LayerResolver::setLayerProviderName( const QString &layerProviderName )
+void QfLayerResolver::setLayerProviderName( const QString &layerProviderName )
 {
   if ( mLayerProviderName == layerProviderName )
     return;
@@ -98,12 +98,12 @@ void LayerResolver::setLayerProviderName( const QString &layerProviderName )
   emit layerProviderNameChanged();
 }
 
-QgsVectorLayer *LayerResolver::currentLayer() const
+QgsVectorLayer *QfLayerResolver::currentLayer() const
 {
   return mLayer.data();
 }
 
-void LayerResolver::setLayer( QgsVectorLayer *layer )
+void QfLayerResolver::setLayer( QgsVectorLayer *layer )
 {
   if ( mLayer == layer )
     return;
@@ -112,12 +112,12 @@ void LayerResolver::setLayer( QgsVectorLayer *layer )
   emit currentLayerChanged();
 }
 
-QgsProject *LayerResolver::project() const
+QgsProject *QfLayerResolver::project() const
 {
   return mProject;
 }
 
-void LayerResolver::setProject( QgsProject *project )
+void QfLayerResolver::setProject( QgsProject *project )
 {
   if ( project == mProject )
     return;

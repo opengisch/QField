@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfscalebarmeasurement.h - ScaleBarMeasurement
+  qfscalebarmeasurement.h - QfScaleBarMeasurement
 
  ---------------------
  begin                : 9.10.2021
@@ -26,7 +26,7 @@ class QgsProject;
 /**
  * \ingroup core
  */
-class ScaleBarMeasurement : public QObject
+class QfScaleBarMeasurement : public QObject
 {
     Q_OBJECT
 
@@ -39,7 +39,7 @@ class ScaleBarMeasurement : public QObject
     Q_PROPERTY( double referenceScreenLength READ referenceScreenLength WRITE setReferenceScreenLength NOTIFY referenceScreenLengthChanged )
 
   public:
-    explicit ScaleBarMeasurement( QObject *parent = nullptr );
+    explicit QfScaleBarMeasurement( QObject *parent = nullptr );
 
     double referenceScreenLength() const;
     void setReferenceScreenLength( double referenceScreenLength );

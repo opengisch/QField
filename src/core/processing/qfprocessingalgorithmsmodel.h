@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingalgorithmsmodel.h - ProcessingAlgorithmsModel
+  qfprocessingalgorithmsmodel.h - QfProcessingAlgorithmsModel
 
  ---------------------
  begin                : 18.06.2024
@@ -26,15 +26,15 @@ class QgsProcessingProvider;
 class QgsProcessingAlgorithm;
 class QgsVectorLayer;
 
-class ProcessingAlgorithmsModelBase;
+class QfProcessingAlgorithmsModelBase;
 
 /**
  * \ingroup core
  */
-class AlgorithmItem
+class QfAlgorithmItem
 {
   public:
-    explicit AlgorithmItem( const QgsProcessingAlgorithm *algorithm = nullptr )
+    explicit QfAlgorithmItem( const QgsProcessingAlgorithm *algorithm = nullptr )
       : mAlgorithm( algorithm )
     {}
     const QgsProcessingAlgorithm *algorithm() const { return mAlgorithm; }
@@ -50,11 +50,11 @@ class AlgorithmItem
  * the results.
  * \ingroup core
  */
-class ProcessingAlgorithmsModel : public QSortFilterProxyModel
+class QfProcessingAlgorithmsModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( ProcessingAlgorithmsModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
+    Q_PROPERTY( QfProcessingAlgorithmsModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
     Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
 
   public:
@@ -67,7 +67,7 @@ class ProcessingAlgorithmsModel : public QSortFilterProxyModel
     Q_DECLARE_FLAGS( Filters, Filter )
     Q_FLAGS( Filters )
 
-    explicit ProcessingAlgorithmsModel( QObject *parent = nullptr );
+    explicit QfProcessingAlgorithmsModel( QObject *parent = nullptr );
 
     //! Rebuilds the algorithms model.
     Q_INVOKABLE void rebuild();
@@ -76,13 +76,13 @@ class ProcessingAlgorithmsModel : public QSortFilterProxyModel
      * Returns any filters that affect how toolbox content is filtered.
      * \see setFilters()
      */
-    ProcessingAlgorithmsModel::Filters filters() const { return mFilters; }
+    QfProcessingAlgorithmsModel::Filters filters() const { return mFilters; }
 
     /**
      * Set \a filters that affect how toolbox content is filtered.
      * \see filters()
      */
-    void setFilters( ProcessingAlgorithmsModel::Filters filters );
+    void setFilters( QfProcessingAlgorithmsModel::Filters filters );
 
     /**
      * Returns the vector \a layer for in-place algorithm filter
@@ -109,8 +109,8 @@ class ProcessingAlgorithmsModel : public QSortFilterProxyModel
     void inPlaceLayerChanged();
 
   private:
-    ProcessingAlgorithmsModelBase *mModel = nullptr;
-    ProcessingAlgorithmsModel::Filters mFilters;
+    QfProcessingAlgorithmsModelBase *mModel = nullptr;
+    QfProcessingAlgorithmsModel::Filters mFilters;
     QPointer<QgsVectorLayer> mInPlaceLayer;
 };
 
@@ -120,7 +120,7 @@ class ProcessingAlgorithmsModel : public QSortFilterProxyModel
  * See ProcessingAlgorithmsProxyModel for a sorted, filterable version
  * of this model.
  */
-class ProcessingAlgorithmsModelBase : public QAbstractListModel
+class QfProcessingAlgorithmsModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -137,7 +137,7 @@ class ProcessingAlgorithmsModelBase : public QAbstractListModel
     };
     Q_ENUM( Role )
 
-    explicit ProcessingAlgorithmsModelBase( QObject *parent = nullptr );
+    explicit QfProcessingAlgorithmsModelBase( QObject *parent = nullptr );
 
     //! Rebuilds the algorithms model.
     Q_INVOKABLE void rebuild();
@@ -154,7 +154,7 @@ class ProcessingAlgorithmsModelBase : public QAbstractListModel
   private:
     void addProvider( QgsProcessingProvider *provider );
 
-    QList<AlgorithmItem> mAlgorithms;
+    QList<QfAlgorithmItem> mAlgorithms;
 };
 
 

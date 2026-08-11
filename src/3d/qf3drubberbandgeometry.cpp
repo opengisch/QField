@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3drubberbandgeometry.cpp - Quick3DRubberbandGeometry
+  qf3drubberbandgeometry.cpp - Qf3DRubberbandGeometry
 
  ---------------------
  begin                : 9.2.2026
@@ -25,12 +25,12 @@
 #include <algorithm>
 #include <cmath>
 
-Quick3DRubberbandGeometry::Quick3DRubberbandGeometry( QQuick3DObject *parent )
+Qf3DRubberbandGeometry::Qf3DRubberbandGeometry( QQuick3DObject *parent )
   : QQuick3DGeometry( parent )
 {
 }
 
-void Quick3DRubberbandGeometry::setRubberbandModel( RubberbandModel *model )
+void Qf3DRubberbandGeometry::setRubberbandModel( QfRubberbandModel *model )
 {
   if ( mRubberbandModel == model )
   {
@@ -46,10 +46,10 @@ void Quick3DRubberbandGeometry::setRubberbandModel( RubberbandModel *model )
 
   if ( mRubberbandModel )
   {
-    connect( mRubberbandModel, &RubberbandModel::currentCoordinateChanged, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
-    connect( mRubberbandModel, &RubberbandModel::vertexCountChanged, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
-    connect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
-    connect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mRubberbandModel, &QfRubberbandModel::currentCoordinateChanged, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexCountChanged, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mRubberbandModel, &QfRubberbandModel::verticesInserted, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mRubberbandModel, &QfRubberbandModel::verticesRemoved, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
   }
 
   mDirty = true;
@@ -57,7 +57,7 @@ void Quick3DRubberbandGeometry::setRubberbandModel( RubberbandModel *model )
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *provider )
+void Qf3DRubberbandGeometry::setTerrainProvider( Qf3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
   {
@@ -73,8 +73,8 @@ void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *prov
 
   if ( mTerrainProvider )
   {
-    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
-    connect( mTerrainProvider, &Quick3DTerrainProvider::normalizedDataChanged, this, &Quick3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::normalizedDataChanged, this, &Qf3DRubberbandGeometry::markDirtyAndUpdate );
   }
 
   mDirty = true;
@@ -82,7 +82,7 @@ void Quick3DRubberbandGeometry::setTerrainProvider( Quick3DTerrainProvider *prov
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::setRadius( float radius )
+void Qf3DRubberbandGeometry::setRadius( float radius )
 {
   radius = std::max( 0.1f, radius );
   if ( qFuzzyCompare( mRadius, radius ) )
@@ -96,7 +96,7 @@ void Quick3DRubberbandGeometry::setRadius( float radius )
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::setSegments( int segments )
+void Qf3DRubberbandGeometry::setSegments( int segments )
 {
   segments = qBound( 3, segments, 32 );
   if ( mSegments == segments )
@@ -110,7 +110,7 @@ void Quick3DRubberbandGeometry::setSegments( int segments )
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::setHeightOffset( float offset )
+void Qf3DRubberbandGeometry::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
   {
@@ -123,7 +123,7 @@ void Quick3DRubberbandGeometry::setHeightOffset( float offset )
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::setColor( const QColor &color )
+void Qf3DRubberbandGeometry::setColor( const QColor &color )
 {
   if ( mColor == color )
   {
@@ -136,13 +136,13 @@ void Quick3DRubberbandGeometry::setColor( const QColor &color )
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::markDirtyAndUpdate()
+void Qf3DRubberbandGeometry::markDirtyAndUpdate()
 {
   mDirty = true;
   updateGeometry();
 }
 
-void Quick3DRubberbandGeometry::updateGeometry()
+void Qf3DRubberbandGeometry::updateGeometry()
 {
   if ( !mDirty )
   {
@@ -195,8 +195,8 @@ void Quick3DRubberbandGeometry::updateGeometry()
   const float sphereRadius = mRadius * 2.25f;
   const int sphereStacks = 6;
   const int sphereSlices = 8;
-  const int sphereVertexCount = Quick3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
-  const int sphereIndexCount = Quick3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
+  const int sphereVertexCount = Qf3DGeometryUtils::sphereVertexCount( sphereStacks, sphereSlices );
+  const int sphereIndexCount = Qf3DGeometryUtils::sphereIndexCount( sphereStacks, sphereSlices );
 
   // Calculate totals across all sub-paths
   int totalPoints = 0;
@@ -213,7 +213,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
   const int totalIndexCount = tubeIndexCount + totalPoints * sphereIndexCount;
 
   // Per-vertex layout: pos(3) + normal(3) + rgba(4) = 10 floats
-  const int stride = Quick3DGeometryUtils::VERTEX_STRIDE;
+  const int stride = Qf3DGeometryUtils::VERTEX_STRIDE;
   const float colR = mColor.redF();
   const float colG = mColor.greenF();
   const float colB = mColor.blueF();
@@ -235,7 +235,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
   // --- Tubes: one circular cross-section ("ring") per path point ---
   for ( const QVector<QVector3D> &path : subPaths )
   {
-    Quick3DGeometryUtils::generateTube( path, mSegments, mRadius, colR, colG, colB, colA, vptr, iptr, vertexOffset, minBound, maxBound );
+    Qf3DGeometryUtils::generateTube( path, mSegments, mRadius, colR, colG, colB, colA, vptr, iptr, vertexOffset, minBound, maxBound );
   }
 
   // --- Sphere joints: a UV sphere at each path vertex ---
@@ -243,7 +243,7 @@ void Quick3DRubberbandGeometry::updateGeometry()
   {
     for ( const QVector3D &center : path )
     {
-      Quick3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, colR, colG, colB, colA, vptr, iptr, vertexOffset, minBound, maxBound );
+      Qf3DGeometryUtils::generateSphere( center, sphereRadius, sphereStacks, sphereSlices, colR, colG, colB, colA, vptr, iptr, vertexOffset, minBound, maxBound );
     }
   }
 

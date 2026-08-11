@@ -30,7 +30,7 @@
  * \brief A COGO operation exeuctor object allowing for property-driven access to COGO operations.
  * \ingroup core
  */
-class CogoExecutor : public QObject
+class QfCogoExecutor : public QObject
 {
     Q_OBJECT
 
@@ -42,7 +42,7 @@ class CogoExecutor : public QObject
     /**
      * The list of parameters of the COGO operation to be executed.
      */
-    Q_PROPERTY( QList<CogoParameter> parameters READ parameters NOTIFY parametersChanged )
+    Q_PROPERTY( QList<QfCogoParameter> parameters READ parameters NOTIFY parametersChanged )
 
     /**
      * The map of parameter values to be used when executing the COGO operation.
@@ -52,7 +52,7 @@ class CogoExecutor : public QObject
     /**
      * The visual guides returned by the COGO operation paired with the parameters.
      */
-    Q_PROPERTY( QList<CogoVisualGuide> visualGuides READ visualGuides NOTIFY visualGuidesChanged )
+    Q_PROPERTY( QList<QfCogoVisualGuide> visualGuides READ visualGuides NOTIFY visualGuidesChanged )
 
     /**
      * COGO operation paired with the parameters' readiness to be executed.
@@ -62,7 +62,7 @@ class CogoExecutor : public QObject
     /**
      * The rubberband model to be used when executing the COGO operation.
      */
-    Q_PROPERTY( RubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
+    Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
 
     /**
      * The map settings used when generating visual guides.
@@ -70,36 +70,36 @@ class CogoExecutor : public QObject
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
   public:
-    explicit CogoExecutor( QObject *parent = nullptr );
+    explicit QfCogoExecutor( QObject *parent = nullptr );
 
-    //! \copydoc CogoExecutor::name
+    //! \copydoc QfCogoExecutor::name
     QString name() const { return mName; }
-    //! \copydoc CogoExecutor::name
+    //! \copydoc QfCogoExecutor::name
     void setName( const QString &name );
 
-    //! \copydoc CogoExecutor::parameters
-    QList<CogoParameter> parameters() const { return mParameters; }
+    //! \copydoc QfCogoExecutor::parameters
+    QList<QfCogoParameter> parameters() const { return mParameters; }
 
-    //! \copydoc CogoExecutor::parameterValues
+    //! \copydoc QfCogoExecutor::parameterValues
     QVariantMap parameterValues() const { return mParameterValues; }
-    //! \copydoc CogoExecutor::parameterValues
+    //! \copydoc QfCogoExecutor::parameterValues
     void setParameterValues( const QVariantMap &parameterValues );
 
-    //! \copydoc CogoExecutor::visualGuides
-    QList<CogoVisualGuide> visualGuides() const;
+    //! \copydoc QfCogoExecutor::visualGuides
+    QList<QfCogoVisualGuide> visualGuides() const;
 
-    //! \copydoc CogoExecutor::isReady
+    //! \copydoc QfCogoExecutor::isReady
     bool isReady() const { return mIsReady; }
 
-    //! \copydoc CogoExecutor::mapSettings
+    //! \copydoc QfCogoExecutor::mapSettings
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
-    //! \copydoc CogoExecutor::mapSettings
+    //! \copydoc QfCogoExecutor::mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-    //! \copydoc CogoExecutor::rubberbandModel
-    RubberbandModel *rubberbandModel() const { return mRubberbandModel; }
-    //! \copydoc CogoExecutor::rubberbandModel
-    void setRubberbandModel( RubberbandModel *rubberbandModel );
+    //! \copydoc QfCogoExecutor::rubberbandModel
+    QfRubberbandModel *rubberbandModel() const { return mRubberbandModel; }
+    //! \copydoc QfCogoExecutor::rubberbandModel
+    void setRubberbandModel( QfRubberbandModel *rubberbandModel );
 
     /**
      * Executes the COGO operation.
@@ -107,19 +107,19 @@ class CogoExecutor : public QObject
     Q_INVOKABLE bool execute();
 
   signals:
-    //! \copydoc CogoExecutor::name
+    //! \copydoc QfCogoExecutor::name
     void nameChanged();
-    //! \copydoc CogoExecutor::parameters
+    //! \copydoc QfCogoExecutor::parameters
     void parametersChanged();
-    //! \copydoc CogoExecutor::parameterValuess
+    //! \copydoc QfCogoExecutor::parameterValuess
     void parameterValuesChanged();
-    //! \copydoc CogoExecutor::visualGuides
+    //! \copydoc QfCogoExecutor::visualGuides
     void visualGuidesChanged();
-    //! \copydoc CogoExecutor::isReady
+    //! \copydoc QfCogoExecutor::isReady
     void isReadyChanged();
-    //! \copydoc CogoExecutor::mapSettings
+    //! \copydoc QfCogoExecutor::mapSettings
     void mapSettingsChanged();
-    //! \copydoc CogoExecutor::rubberbandModel
+    //! \copydoc QfCogoExecutor::rubberbandModel
     void rubberbandModelChanged();
 
   private:
@@ -128,15 +128,15 @@ class CogoExecutor : public QObject
     void checkReadiness();
 
     QString mName;
-    QList<CogoParameter> mParameters;
+    QList<QfCogoParameter> mParameters;
 
     QVariantMap mParameterValues;
-    QList<CogoVisualGuide> mVisualGuides;
+    QList<QfCogoVisualGuide> mVisualGuides;
     bool mIsReady = false;
 
     QgsQuickMapSettings *mMapSettings = nullptr;
-    RubberbandModel *mRubberbandModel = nullptr;
+    QfRubberbandModel *mRubberbandModel = nullptr;
 };
 
-Q_DECLARE_METATYPE( CogoExecutor )
+Q_DECLARE_METATYPE( QfCogoExecutor )
 #endif // QFCOGOEXECUTOR_H

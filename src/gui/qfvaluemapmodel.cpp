@@ -19,38 +19,38 @@
 #include "qfvaluemapmodel.h"
 #include "qfvaluemapmodelbase.h"
 
-ValueMapModel::ValueMapModel( QObject *parent )
+QfValueMapModel::QfValueMapModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mSourceModel( new ValueMapModelBase( this ) )
+  , mSourceModel( new QfValueMapModelBase( this ) )
 {
   setSourceModel( mSourceModel );
 
   setFilterRole( ValueRole );
 
-  connect( mSourceModel, &ValueMapModelBase::mapChanged, this, &ValueMapModel::mapChanged );
+  connect( mSourceModel, &QfValueMapModelBase::mapChanged, this, &QfValueMapModel::mapChanged );
 }
 
-QVariant ValueMapModel::map() const
+QVariant QfValueMapModel::map() const
 {
   return mSourceModel->map();
 }
 
-void ValueMapModel::setMap( const QVariant &map )
+void QfValueMapModel::setMap( const QVariant &map )
 {
   mSourceModel->setMap( map );
 }
 
-int ValueMapModel::keyToIndex( const QVariant &key ) const
+int QfValueMapModel::keyToIndex( const QVariant &key ) const
 {
   return mSourceModel->keyToIndex( key );
 }
 
-QVariant ValueMapModel::keyForValue( const QString &value ) const
+QVariant QfValueMapModel::keyForValue( const QString &value ) const
 {
   return mSourceModel->keyForValue( value );
 }
 
-bool ValueMapModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool QfValueMapModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   QModelIndex index = sourceModel()->index( sourceRow, 0, sourceParent );
 

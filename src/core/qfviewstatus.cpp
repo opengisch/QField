@@ -16,7 +16,7 @@
 
 #include "qfviewstatus.h"
 
-ViewStatus::ViewStatus( QObject *parent )
+QfViewStatus::QfViewStatus( QObject *parent )
   : QObject( parent )
 {
 }

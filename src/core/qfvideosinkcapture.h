@@ -1,5 +1,5 @@
 /***************************************************************************
- qfvideosinkcapture.h - VideoSinkCapture
+ qfvideosinkcapture.h - QfVideoSinkCapture
 
  ---------------------
  begin                : 02.08.2026
@@ -25,14 +25,14 @@
  * This object allows capturing of still frames from a video sink.
  * \ingroup core
  */
-class VideoSinkCapture : public QObject
+class QfVideoSinkCapture : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( QVideoSink *videoSink READ videoSink WRITE setVideoSink NOTIFY videoSinkChanged )
 
   public:
-    explicit VideoSinkCapture() = default;
+    explicit QfVideoSinkCapture() = default;
 
     //! Returns the video sink from which still frames will be drawn from.
     QVideoSink *videoSink() const { return mVideoSink; }

@@ -18,12 +18,12 @@
 #include "qfresourcesource.h"
 
 
-class IosResourceSource : public ResourceSource
+class QfIosResourceSource : public QfResourceSource
 {
     Q_OBJECT
 
   public:
-    explicit IosResourceSource( const QString &prefix = QString(), const QString &resourceFilePath = QString(), QObject *parent = nullptr );
+    explicit QfIosResourceSource( const QString &prefix = QString(), const QString &resourceFilePath = QString(), QObject *parent = nullptr );
 
     QString resourceFilePath() const { return mResourceFilePath; }
     QString prefixPath() const { return mPrefixPath; }

@@ -40,15 +40,15 @@
 #define WEBDAV_CONFIGURATION_FILENAME QStringLiteral( "qfield_webdav_configuration.json" )
 #define WEBDAV_LOCK_FILENAME QStringLiteral( "qfield_webdav_configuration.lock" )
 
-WebdavConnection::WebdavConnection( QObject *parent )
+QfWebdavConnection::QfWebdavConnection( QObject *parent )
   : QObject( parent )
 {
-  connect( &mWebdavConnection, &QWebdav::errorChanged, this, &WebdavConnection::processConnectionError );
-  connect( &mWebdavDirParser, &QWebdavDirParser::errorChanged, this, &WebdavConnection::processDirParserError );
-  connect( &mWebdavDirParser, &QWebdavDirParser::finished, this, &WebdavConnection::processDirParserFinished );
+  connect( &mWebdavConnection, &QWebdav::errorChanged, this, &QfWebdavConnection::processConnectionError );
+  connect( &mWebdavDirParser, &QWebdavDirParser::errorChanged, this, &QfWebdavConnection::processDirParserError );
+  connect( &mWebdavDirParser, &QWebdavDirParser::finished, this, &QfWebdavConnection::processDirParserFinished );
 }
 
-void WebdavConnection::setUrl( const QString &url )
+void QfWebdavConnection::setUrl( const QString &url )
 {
   if ( mUrl == url.trimmed() )
   {
@@ -67,7 +67,7 @@ void WebdavConnection::setUrl( const QString &url )
   checkStoredPassword();
 }
 
-void WebdavConnection::setUsername( const QString &username )
+void QfWebdavConnection::setUsername( const QString &username )
 {
   if ( mUsername == username )
   {
@@ -87,7 +87,7 @@ void WebdavConnection::setUsername( const QString &username )
   checkStoredPassword();
 }
 
-void WebdavConnection::setPassword( const QString &password )
+void QfWebdavConnection::setPassword( const QString &password )
 {
   if ( mPassword == password )
   {
@@ -106,7 +106,7 @@ void WebdavConnection::setPassword( const QString &password )
   mWebdavConnection.clearAccessCache();
 }
 
-void WebdavConnection::setStorePassword( bool storePassword )
+void QfWebdavConnection::setStorePassword( bool storePassword )
 {
   if ( mStorePassword == storePassword )
   {
@@ -117,7 +117,7 @@ void WebdavConnection::setStorePassword( bool storePassword )
   emit storePasswordChanged();
 }
 
-void WebdavConnection::checkStoredPassword()
+void QfWebdavConnection::checkStoredPassword()
 {
   mStoredPassword.clear();
 
@@ -141,7 +141,7 @@ void WebdavConnection::checkStoredPassword()
   emit isPasswordStoredChanged();
 }
 
-void WebdavConnection::applyStoredPassword()
+void QfWebdavConnection::applyStoredPassword()
 {
   QgsAuthManager *authManager = QgsApplication::authManager();
   QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
@@ -208,14 +208,14 @@ void WebdavConnection::applyStoredPassword()
   }
 }
 
-void WebdavConnection::setupConnection()
+void QfWebdavConnection::setupConnection()
 {
   QUrl connectionUrl( mUrl );
   bool isHttps = connectionUrl.scheme() == QStringLiteral( "https" );
   mWebdavConnection.setConnectionSettings( isHttps ? QWebdav::HTTPS : QWebdav::HTTP, connectionUrl.host(), connectionUrl.path( QUrl::FullyEncoded ), mUsername, !mPassword.isEmpty() ? mPassword : mStoredPassword );
 }
 
-void WebdavConnection::fetchAvailablePaths( const QString &remotePath )
+void QfWebdavConnection::fetchAvailablePaths( const QString &remotePath )
 {
   if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() && mStoredPassword.isEmpty() ) )
   {
@@ -246,7 +246,7 @@ void WebdavConnection::fetchAvailablePaths( const QString &remotePath )
   mWebdavDirParser.listDirectory( &mWebdavConnection, path, false );
 }
 
-void WebdavConnection::processDirParserFinished()
+void QfWebdavConnection::processDirParserFinished()
 {
   const QList<QWebdavItem> list = mWebdavDirParser.getList();
   if ( !list.isEmpty() )
@@ -442,7 +442,7 @@ void WebdavConnection::processDirParserFinished()
   }
 }
 
-void WebdavConnection::getWebdavItems()
+void QfWebdavConnection::getWebdavItems()
 {
   if ( !mWebdavItems.isEmpty() )
   {
@@ -542,7 +542,7 @@ void WebdavConnection::getWebdavItems()
   }
 }
 
-void WebdavConnection::forgetHistory( const QString &url, const QString &username )
+void QfWebdavConnection::forgetHistory( const QString &url, const QString &username )
 {
   QgsAuthManager *authManager = QgsApplication::authManager();
   QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
@@ -598,11 +598,11 @@ void WebdavConnection::forgetHistory( const QString &url, const QString &usernam
   }
 }
 
-QVariantMap WebdavConnection::importHistory()
+QVariantMap QfWebdavConnection::importHistory()
 {
   // Collect imported folders
   QMap<QString, QVariantMap> importedFolders;
-  QDir importedProjectsDir( QStringLiteral( "%1/Imported Projects/" ).arg( PlatformUtilities::instance()->applicationDirectory() ) );
+  QDir importedProjectsDir( QStringLiteral( "%1/Imported Projects/" ).arg( QfPlatformUtilities::instance()->applicationDirectory() ) );
   const QStringList projectFolders = findWebdavProjectFolders( importedProjectsDir.absolutePath() );
 
   for ( const QString &projectFolder : projectFolders )
@@ -695,7 +695,7 @@ QVariantMap WebdavConnection::importHistory()
   return history;
 }
 
-QStringList WebdavConnection::findWebdavProjectFolders( const QString &basePath )
+QStringList QfWebdavConnection::findWebdavProjectFolders( const QString &basePath )
 {
   QStringList projects;
   if ( basePath.isEmpty() )
@@ -716,7 +716,7 @@ QStringList WebdavConnection::findWebdavProjectFolders( const QString &basePath 
   return projects;
 }
 
-void WebdavConnection::putLocalItems()
+void QfWebdavConnection::putLocalItems()
 {
   if ( !mWebdavMkDirs.isEmpty() )
   {
@@ -841,7 +841,7 @@ void WebdavConnection::putLocalItems()
   }
 }
 
-void WebdavConnection::finishUpload( bool success, const QString &errorMessage )
+void QfWebdavConnection::finishUpload( bool success, const QString &errorMessage )
 {
   mIsUploadingPath = false;
   emit isUploadingPathChanged();
@@ -865,7 +865,7 @@ void WebdavConnection::finishUpload( bool success, const QString &errorMessage )
   unlockUpload();
 }
 
-void WebdavConnection::importPath( const QString &remotePath, const QString &localPath, QString localFolder )
+void QfWebdavConnection::importPath( const QString &remotePath, const QString &localPath, QString localFolder )
 {
   if ( mUrl.isEmpty() || mUsername.isEmpty() || ( mPassword.isEmpty() && mStoredPassword.isEmpty() ) )
     return;
@@ -905,7 +905,7 @@ void WebdavConnection::importPath( const QString &remotePath, const QString &loc
   mWebdavDirParser.listDirectory( &mWebdavConnection, mProcessRemotePath, false );
 }
 
-void WebdavConnection::downloadPath( const QString &localPath )
+void QfWebdavConnection::downloadPath( const QString &localPath )
 {
   QDir dir( localPath );
   bool webdavConfigurationExists = dir.exists( WEBDAV_CONFIGURATION_FILENAME );
@@ -955,7 +955,7 @@ void WebdavConnection::downloadPath( const QString &localPath )
   }
 }
 
-bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage )
+bool QfWebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool requireConfirmation, bool autoUpload, bool force, QString *errorMessage )
 {
   auto fail = [&]( const QString &msg ) -> bool {
     if ( errorMessage )
@@ -1134,7 +1134,7 @@ bool WebdavConnection::uploadPathsInternal( const QStringList &localPaths, bool 
   return true;
 }
 
-void WebdavConnection::uploadPaths( const QStringList &localPaths )
+void QfWebdavConnection::uploadPaths( const QStringList &localPaths )
 {
   QString err;
   if ( !uploadPathsInternal( localPaths, true, false, false, &err ) )
@@ -1147,7 +1147,7 @@ void WebdavConnection::uploadPaths( const QStringList &localPaths )
   }
 }
 
-QString WebdavConnection::getCommonPath( const QString &addressA, const QString &addressB )
+QString QfWebdavConnection::getCommonPath( const QString &addressA, const QString &addressB )
 {
   const QStringList pathComponentsA = addressA.split( "/" );
   const QStringList pathComponentsB = addressB.split( "/" );
@@ -1180,7 +1180,7 @@ QString WebdavConnection::getCommonPath( const QString &addressA, const QString 
   return commonPath;
 }
 
-void WebdavConnection::confirmRequest()
+void QfWebdavConnection::confirmRequest()
 {
   if ( mIsDownloadingPath || mIsUploadingPath )
   {
@@ -1194,7 +1194,7 @@ void WebdavConnection::confirmRequest()
   }
 }
 
-void WebdavConnection::cancelRequest()
+void QfWebdavConnection::cancelRequest()
 {
   if ( mIsDownloadingPath )
   {
@@ -1217,7 +1217,7 @@ void WebdavConnection::cancelRequest()
   }
 }
 
-double WebdavConnection::progress() const
+double QfWebdavConnection::progress() const
 {
   if ( ( mIsImportingPath || mIsDownloadingPath || mIsUploadingPath ) && mBytesTotal > 0 )
   {
@@ -1227,19 +1227,19 @@ double WebdavConnection::progress() const
   return 0;
 }
 
-void WebdavConnection::processConnectionError( const QString &error )
+void QfWebdavConnection::processConnectionError( const QString &error )
 {
   mLastError = error;
   emit lastErrorChanged();
 }
 
-void WebdavConnection::processDirParserError( const QString &error )
+void QfWebdavConnection::processDirParserError( const QString &error )
 {
   mLastError = error;
   emit lastErrorChanged();
 }
 
-void WebdavConnection::requestUpload( const QString &projectPath, bool force )
+void QfWebdavConnection::requestUpload( const QString &projectPath, bool force )
 {
   const QString root = findWebdavRootForPath( projectPath );
   if ( root.isEmpty() )
@@ -1255,12 +1255,12 @@ void WebdavConnection::requestUpload( const QString &projectPath, bool force )
   }
 }
 
-bool WebdavConnection::hasWebdavConfiguration( const QString &path )
+bool QfWebdavConnection::hasWebdavConfiguration( const QString &path )
 {
   return !findWebdavRootForPath( path ).isEmpty();
 }
 
-bool WebdavConnection::tryLockUpload( const QString &root, QString *errorMessage )
+bool QfWebdavConnection::tryLockUpload( const QString &root, QString *errorMessage )
 {
   unlockUpload();
 
@@ -1280,7 +1280,7 @@ bool WebdavConnection::tryLockUpload( const QString &root, QString *errorMessage
   return true;
 }
 
-void WebdavConnection::unlockUpload()
+void QfWebdavConnection::unlockUpload()
 {
   if ( mUploadLock )
   {
@@ -1289,7 +1289,7 @@ void WebdavConnection::unlockUpload()
   }
 }
 
-void WebdavConnection::beginUpload( bool requireConfirmation )
+void QfWebdavConnection::beginUpload( bool requireConfirmation )
 {
   mBytesProcessed = 0;
   mBytesTotal = 0;
@@ -1310,12 +1310,12 @@ void WebdavConnection::beginUpload( bool requireConfirmation )
   }
 }
 
-bool WebdavConnection::isInHiddenDotFolder( const QString &relativePath ) const
+bool QfWebdavConnection::isInHiddenDotFolder( const QString &relativePath ) const
 {
   return relativePath.startsWith( QLatin1Char( '.' ) ) || relativePath.contains( QStringLiteral( "/." ) );
 }
 
-QString WebdavConnection::ensureTrailingSlash( QString path ) const
+QString QfWebdavConnection::ensureTrailingSlash( QString path ) const
 {
   if ( !path.endsWith( QLatin1Char( '/' ) ) )
   {
@@ -1324,7 +1324,7 @@ QString WebdavConnection::ensureTrailingSlash( QString path ) const
   return path;
 }
 
-QString WebdavConnection::findWebdavRootForPath( const QString &path )
+QString QfWebdavConnection::findWebdavRootForPath( const QString &path )
 {
   QFileInfo fi( QDir::cleanPath( path ) );
   QDir dir( fi.isFile() ? fi.absolutePath() : fi.absoluteFilePath() );
@@ -1340,7 +1340,7 @@ QString WebdavConnection::findWebdavRootForPath( const QString &path )
   return dir.absolutePath();
 }
 
-bool WebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &errorMessage ) const
+bool QfWebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &outConfig, QString &errorMessage ) const
 {
   QFile f( rootPath + QDir::separator() + WEBDAV_CONFIGURATION_FILENAME );
   if ( !f.open( QFile::ReadOnly ) )
@@ -1363,7 +1363,7 @@ bool WebdavConnection::readWebdavConfig( const QString &rootPath, QVariantMap &o
   return true;
 }
 
-QByteArray WebdavConnection::computeLocalSignature( const QString &rootPath ) const
+QByteArray QfWebdavConnection::computeLocalSignature( const QString &rootPath ) const
 {
   if ( rootPath.isEmpty() )
   {

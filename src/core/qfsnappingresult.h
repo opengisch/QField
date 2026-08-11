@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfsnappingresult.h - SnappingResult
+  qfsnappingresult.h - QfSnappingResult
 
  ---------------------
  begin                : 8.10.2016
@@ -23,7 +23,7 @@
 /**
  * \ingroup core
  */
-class SnappingResult
+class QfSnappingResult
 {
     Q_GADGET
     Q_PROPERTY( QgsPoint point READ point WRITE setPoint )
@@ -45,14 +45,14 @@ class SnappingResult
     Q_DECLARE_FLAGS( Types, Type )
 
     //! construct invalid match
-    SnappingResult();
+    QfSnappingResult();
 
-    SnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, const QgsPoint *edgePoints = nullptr );
+    QfSnappingResult( Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex = 0, const QgsPoint *edgePoints = nullptr );
 
-    bool operator==( const SnappingResult &other ) const;
-    bool operator!=( const SnappingResult &other ) const { return !operator==( other ); }
+    bool operator==( const QfSnappingResult &other ) const;
+    bool operator!=( const QfSnappingResult &other ) const { return !operator==( other ); }
 
-    explicit SnappingResult( const QgsPointLocator::Match &match );
+    explicit QfSnappingResult( const QgsPointLocator::Match &match );
 
     Type type() const;
 

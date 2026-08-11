@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfandroidresourcesource.cpp - AndroidResourceSource
+  qfandroidresourcesource.cpp - QfAndroidResourceSource
 
  ---------------------
  begin                : 5.7.2016
@@ -21,18 +21,18 @@
 #include <QFile>
 #include <QSettings>
 
-AndroidResourceSource::AndroidResourceSource( const QString &prefix, QObject *parent )
-  : ResourceSource( parent, prefix, QString() )
+QfAndroidResourceSource::QfAndroidResourceSource( const QString &prefix, QObject *parent )
+  : QfResourceSource( parent, prefix, QString() )
   , mPrefix( prefix )
 {
-  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
-  connect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
+  connect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceReceived, this, &QfAndroidResourceSource::handleResourceReceived );
+  connect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceCanceled, this, &QfAndroidResourceSource::handleResourceCanceled );
 }
 
-void AndroidResourceSource::handleResourceReceived( const QString &path )
+void QfAndroidResourceSource::handleResourceReceived( const QString &path )
 {
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceReceived, this, &QfAndroidResourceSource::handleResourceReceived );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceCanceled, this, &QfAndroidResourceSource::handleResourceCanceled );
 
   if ( QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool() )
   {
@@ -51,10 +51,10 @@ void AndroidResourceSource::handleResourceReceived( const QString &path )
   }
 }
 
-void AndroidResourceSource::handleResourceCanceled( const QString &message )
+void QfAndroidResourceSource::handleResourceCanceled( const QString &message )
 {
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceReceived, this, &AndroidResourceSource::handleResourceReceived );
-  disconnect( PlatformUtilities::instance(), &PlatformUtilities::resourceCanceled, this, &AndroidResourceSource::handleResourceCanceled );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceReceived, this, &QfAndroidResourceSource::handleResourceReceived );
+  disconnect( QfPlatformUtilities::instance(), &QfPlatformUtilities::resourceCanceled, this, &QfAndroidResourceSource::handleResourceCanceled );
 
   if ( QSettings().value( QStringLiteral( "QField/nativeCameraLaunched" ), false ).toBool() )
   {

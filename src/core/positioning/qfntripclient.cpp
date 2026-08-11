@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfntripclient.cpp - NtripClient
+  qfntripclient.cpp - QfNtripClient
 
  ---------------------
  begin                : 05.02.2026
@@ -25,17 +25,17 @@
 #include <QRegularExpression>
 
 
-NtripClient::NtripClient( QObject *parent )
+QfNtripClient::QfNtripClient( QObject *parent )
   : QObject( parent )
 {
 }
 
-NtripClient::~NtripClient() noexcept
+QfNtripClient::~QfNtripClient() noexcept
 {
   stop();
 }
 
-void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceiver *receiver )
+void QfNtripClient::start( const QfNtripSettings &ntripSettings, QfAbstractGnssReceiver *receiver )
 {
   if ( mSocket )
   {
@@ -44,11 +44,11 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
 
   if ( mReceiver )
   {
-    disconnect( this, &NtripClient::correctionDataReceived, mReceiver, &AbstractGnssReceiver::onCorrectionDataReceived );
+    disconnect( this, &QfNtripClient::correctionDataReceived, mReceiver, &QfAbstractGnssReceiver::onCorrectionDataReceived );
 
-    if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
+    if ( const QfNmeaGnssReceiver *nmeaReceiver = dynamic_cast<const QfNmeaGnssReceiver *>( mReceiver.get() ) )
     {
-      disconnect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, &NtripClient::nmeaSentenceReceived );
+      disconnect( nmeaReceiver, &QfNmeaGnssReceiver::nmeaSentenceReceived, this, &QfNtripClient::nmeaSentenceReceived );
     }
   }
 
@@ -56,13 +56,13 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
 
   if ( mReceiver )
   {
-    connect( this, &NtripClient::correctionDataReceived, mReceiver, &AbstractGnssReceiver::onCorrectionDataReceived );
+    connect( this, &QfNtripClient::correctionDataReceived, mReceiver, &QfAbstractGnssReceiver::onCorrectionDataReceived );
 
     if ( ntripSettings.forwardNmeaSentences() )
     {
-      if ( const NmeaGnssReceiver *nmeaReceiver = dynamic_cast<const NmeaGnssReceiver *>( mReceiver.get() ) )
+      if ( const QfNmeaGnssReceiver *nmeaReceiver = dynamic_cast<const QfNmeaGnssReceiver *>( mReceiver.get() ) )
       {
-        connect( nmeaReceiver, &NmeaGnssReceiver::nmeaSentenceReceived, this, &NtripClient::nmeaSentenceReceived );
+        connect( nmeaReceiver, &QfNmeaGnssReceiver::nmeaSentenceReceived, this, &QfNtripClient::nmeaSentenceReceived );
       }
     }
   }
@@ -72,9 +72,9 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   mBytesReceived = 0;
 
   qInfo() << QStringLiteral( "Starting NTRIP client: host %1, port %2, mount point %3" ).arg( ntripSettings.host(), QString::number( ntripSettings.port() ), ntripSettings.mountPoint() );
-  mSocket = new NtripSocket( this );
+  mSocket = new QfNtripSocket( this );
 
-  connect( mSocket, &NtripSocket::correctionDataReceived, this, [this]( const QByteArray &data ) {
+  connect( mSocket, &QfNtripSocket::correctionDataReceived, this, [this]( const QByteArray &data ) {
     mBytesReceived += data.size();
 
     emit correctionDataReceived( data );
@@ -83,16 +83,16 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
     logData( data );
   } );
 
-  connect( mSocket, &NtripSocket::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
+  connect( mSocket, &QfNtripSocket::errorOccurred, this, [this]( const QString &msg, bool isPermanent ) {
     qInfo() << msg;
     emit errorOccurred( msg, isPermanent );
   } );
 
-  connect( mSocket, &NtripSocket::streamConnected, this, [this]() {
+  connect( mSocket, &QfNtripSocket::streamConnected, this, [this]() {
     emit streamConnected();
   } );
 
-  connect( mSocket, &NtripSocket::streamDisconnected, this, [this]() {
+  connect( mSocket, &QfNtripSocket::streamDisconnected, this, [this]() {
     emit streamDisconnected();
   } );
 
@@ -100,7 +100,7 @@ void NtripClient::start( const NtripSettings &ntripSettings, AbstractGnssReceive
   emit bytesSentChanged();
 }
 
-void NtripClient::stop()
+void QfNtripClient::stop()
 {
   stopLogging();
 
@@ -112,7 +112,7 @@ void NtripClient::stop()
   }
 }
 
-void NtripClient::sendNmeaSentence( const QString &sentence )
+void QfNtripClient::sendNmeaSentence( const QString &sentence )
 {
   if ( !mSocket )
   {
@@ -127,7 +127,7 @@ void NtripClient::sendNmeaSentence( const QString &sentence )
   }
 }
 
-void NtripClient::startLogging( const QString &path )
+void QfNtripClient::startLogging( const QString &path )
 {
   if ( mLogFile.isOpen() )
   {
@@ -155,7 +155,7 @@ void NtripClient::startLogging( const QString &path )
   mLogBlockCount = 0;
 }
 
-void NtripClient::stopLogging()
+void QfNtripClient::stopLogging()
 {
   if ( mLogFile.isOpen() )
   {
@@ -166,7 +166,7 @@ void NtripClient::stopLogging()
   mLogBlockCount = 0;
 }
 
-void NtripClient::logData( const QByteArray &data )
+void QfNtripClient::logData( const QByteArray &data )
 {
   if ( !mLogFile.isOpen() )
   {
@@ -184,7 +184,7 @@ void NtripClient::logData( const QByteArray &data )
   }
 }
 
-void NtripClient::nmeaSentenceReceived( const QString &sentence )
+void QfNtripClient::nmeaSentenceReceived( const QString &sentence )
 {
   const qint64 epoch = QDateTime::currentMSecsSinceEpoch();
   if ( mLastNtripGgaSent != 0 && ( epoch - mLastNtripGgaSent ) < 10000 )
@@ -230,24 +230,24 @@ void NtripClient::nmeaSentenceReceived( const QString &sentence )
 
 // ---
 
-NtripSocket::NtripSocket( QObject *parent )
+QfNtripSocket::QfNtripSocket( QObject *parent )
   : QObject( parent )
   , mSocket( new QSslSocket( this ) )
 {
   mSocket->setSocketOption( QAbstractSocket::LowDelayOption, true );
 
-  connect( mSocket, &QAbstractSocket::connected, this, &NtripSocket::onConnected );
-  connect( mSocket, &QAbstractSocket::readyRead, this, &NtripSocket::onReadyRead );
-  connect( mSocket, &QAbstractSocket::disconnected, this, &NtripSocket::onDisconnected );
-  connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSocket::onSocketError );
+  connect( mSocket, &QAbstractSocket::connected, this, &QfNtripSocket::onConnected );
+  connect( mSocket, &QAbstractSocket::readyRead, this, &QfNtripSocket::onReadyRead );
+  connect( mSocket, &QAbstractSocket::disconnected, this, &QfNtripSocket::onDisconnected );
+  connect( mSocket, &QAbstractSocket::errorOccurred, this, &QfNtripSocket::onSocketError );
 }
 
-NtripSocket::~NtripSocket() noexcept
+QfNtripSocket::~QfNtripSocket() noexcept
 {
   abort();
 }
 
-qint64 NtripSocket::connectToHost( const NtripSettings &ntripSettings )
+qint64 QfNtripSocket::connectToHost( const QfNtripSettings &ntripSettings )
 {
   if ( mSocket->isOpen() )
   {
@@ -269,14 +269,14 @@ qint64 NtripSocket::connectToHost( const NtripSettings &ntripSettings )
 
   switch ( mProtocol )
   {
-    case NtripSettings::NtripSsl:
+    case QfNtripSettings::NtripSsl:
     {
       mSocket->connectToHostEncrypted( mHost, mPort );
       break;
     }
 
-    case NtripSettings::NtripVersion2:
-    case NtripSettings::NtripVersion1:
+    case QfNtripSettings::NtripVersion2:
+    case QfNtripSettings::NtripVersion1:
     {
       mSocket->connectToHost( mHost, mPort );
       break;
@@ -286,7 +286,7 @@ qint64 NtripSocket::connectToHost( const NtripSettings &ntripSettings )
   return estimateRequestSize();
 }
 
-qint64 NtripSocket::estimateRequestSize() const
+qint64 QfNtripSocket::estimateRequestSize() const
 {
   QString credentials = mUsername + ":" + mPassword;
   QByteArray base64 = credentials.toUtf8().toBase64();
@@ -294,7 +294,7 @@ qint64 NtripSocket::estimateRequestSize() const
   return 200 + base64.size() + mMountPoint.size();
 }
 
-qint64 NtripSocket::writeNmeaSentence( const QByteArray &sentence )
+qint64 QfNtripSocket::writeNmeaSentence( const QByteArray &sentence )
 {
   if ( !mSocket || !mSocket->isOpen() || mSocket->state() != QAbstractSocket::ConnectedState )
   {
@@ -310,7 +310,7 @@ qint64 NtripSocket::writeNmeaSentence( const QByteArray &sentence )
   return mSocket->write( payload );
 }
 
-void NtripSocket::abort()
+void QfNtripSocket::abort()
 {
   if ( mSocket->isOpen() )
   {
@@ -320,7 +320,7 @@ void NtripSocket::abort()
   mHeadersSent = false;
 }
 
-void NtripSocket::onConnected()
+void QfNtripSocket::onConnected()
 {
   qInfo() << QStringLiteral( "Connected to NTRIP caster:  host %1, port %2, mount point %3" ).arg( mHost, QString::number( mPort ), mMountPoint );
 
@@ -336,8 +336,8 @@ void NtripSocket::onConnected()
   QByteArray request;
   switch ( mProtocol )
   {
-    case NtripSettings::NtripSsl:
-    case NtripSettings::NtripVersion2:
+    case QfNtripSettings::NtripSsl:
+    case QfNtripSettings::NtripVersion2:
     {
       request.append( "GET " + mp + " HTTP/1.1\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
@@ -350,7 +350,7 @@ void NtripSocket::onConnected()
       break;
     }
 
-    case NtripSettings::NtripVersion1:
+    case QfNtripSettings::NtripVersion1:
     {
       request.append( "GET " + mp + " HTTP/1.0\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
@@ -367,7 +367,7 @@ void NtripSocket::onConnected()
   mSocket->flush();
 }
 
-void NtripSocket::onReadyRead()
+void QfNtripSocket::onReadyRead()
 {
   QByteArray data = mSocket->readAll();
 
@@ -487,7 +487,7 @@ void NtripSocket::onReadyRead()
   }
 }
 
-void NtripSocket::processChunkedData( const QByteArray &data )
+void QfNtripSocket::processChunkedData( const QByteArray &data )
 {
   mChunkBuffer.append( data );
 
@@ -548,7 +548,7 @@ void NtripSocket::processChunkedData( const QByteArray &data )
   }
 }
 
-void NtripSocket::onDisconnected()
+void QfNtripSocket::onDisconnected()
 {
   if ( mHeadersSent )
   {
@@ -565,7 +565,7 @@ void NtripSocket::onDisconnected()
   }
 }
 
-void NtripSocket::onSocketError( QAbstractSocket::SocketError error )
+void QfNtripSocket::onSocketError( QAbstractSocket::SocketError error )
 {
   emit errorOccurred( QStringLiteral( "NTRIP socket error on " ) + mHost
                         + QStringLiteral( ":" ) + QString::number( mPort )
@@ -575,7 +575,7 @@ void NtripSocket::onSocketError( QAbstractSocket::SocketError error )
                       false );
 }
 
-int NtripSocket::parseHttpStatusCode( const QByteArray &headerBlock )
+int QfNtripSocket::parseHttpStatusCode( const QByteArray &headerBlock )
 {
   // Match first line: "HTTP/1.0 200 OK", "ICY 200 OK", "SOURCETABLE 200 OK"
   const thread_local QRegularExpression re( QStringLiteral( "^(?:HTTP/\\d\\.\\d|ICY|SOURCETABLE)\\s+(\\d{3})" ) );
@@ -585,7 +585,7 @@ int NtripSocket::parseHttpStatusCode( const QByteArray &headerBlock )
   return match.hasMatch() ? match.captured( 1 ).toInt() : -1;
 }
 
-bool NtripSocket::isPermanentHttpError( int statusCode )
+bool QfNtripSocket::isPermanentHttpError( int statusCode )
 {
   return statusCode >= 400 && statusCode < 500;
 }

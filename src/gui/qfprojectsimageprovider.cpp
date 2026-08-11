@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflocalfilesimageprovider.cpp - LocalFilesImageProvider
+  qflocalfilesimageprovider.cpp - QfLocalFilesImageProvider
 
  ---------------------
  begin                : 18.05.2022
@@ -18,12 +18,12 @@
 
 #include <QFileInfo>
 
-ProjectsImageProvider::ProjectsImageProvider()
+QfProjectsImageProvider::QfProjectsImageProvider()
   : QQuickImageProvider( Pixmap )
 {
 }
 
-QImage ProjectsImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
+QImage QfProjectsImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
 {
   // the id is passed on as an encoded URL string which needs decoding
   const QString path = QUrl::fromPercentEncoding( id.toUtf8() );

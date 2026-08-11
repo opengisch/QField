@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dterraingeometry.h - Quick3DTerrainGeometry
+  qf3dterraingeometry.h - Qf3DTerrainGeometry
 
  ---------------------
  begin                : 26.1.2026
@@ -22,7 +22,7 @@
 #include <QVector3D>
 #include <QVector>
 
-class Quick3DTerrainProvider;
+class Qf3DTerrainProvider;
 
 /**
  * Custom Qt Quick 3D geometry for rendering terrain meshes with height data.
@@ -31,11 +31,11 @@ class Quick3DTerrainProvider;
  * texture coordinates based on provided elevation data. The geometry is suitable for
  * use with Qt Quick 3D Model items and supports dynamic updates when height data changes.
  *
- * \note QML Type: Quick3DTerrainGeometry
+ * \note QML Type: Qf3DTerrainGeometry
  * \ingroup core
  *
  */
-class Quick3DTerrainGeometry : public QQuick3DGeometry
+class Qf3DTerrainGeometry : public QQuick3DGeometry
 {
     Q_OBJECT
     QML_ELEMENT
@@ -63,7 +63,7 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
 
   public:
     //! Creates a new terrain geometry
-    explicit Quick3DTerrainGeometry( QQuick3DObject *parent = nullptr );
+    explicit Qf3DTerrainGeometry( QQuick3DObject *parent = nullptr );
 
     //! Returns the grid dimensions.
     QSize gridSize() const { return mGridSize; }
@@ -92,10 +92,10 @@ class Quick3DTerrainGeometry : public QQuick3DGeometry
     void setOffsetScale( double offsetScale );
 
     //! Builds and stores a 3x3 metagrid from the provider's normalized data
-    Q_INVOKABLE void buildMetagridFromProvider( const Quick3DTerrainProvider *provider );
+    Q_INVOKABLE void buildMetagridFromProvider( const Qf3DTerrainProvider *provider );
 
     //! Restores the original height data from the provider
-    Q_INVOKABLE void restoreHeightsFromProvider( const Quick3DTerrainProvider *provider );
+    Q_INVOKABLE void restoreHeightsFromProvider( const Qf3DTerrainProvider *provider );
 
   signals:
     void gridSizeChanged();

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflayerutils.h - LayerUtils
+  qflayerutils.h - QfLayerUtils
 
  ---------------------
  begin                : 01.03.2021
@@ -22,7 +22,7 @@
 #include <qgstextformat.h>
 #include <qgsvectorlayer.h>
 
-class FeatureModel;
+class QfFeatureModel;
 class QgsVectorLayer;
 class QgsRasterLayer;
 class QgsSymbol;
@@ -36,12 +36,12 @@ class QgsSymbol;
  *
  * \ingroup core
  */
-class FeatureIterator
+class QfFeatureIterator
 {
     Q_GADGET
 
   public:
-    FeatureIterator( QgsVectorLayer *layer = nullptr, const QgsFeatureRequest &request = QgsFeatureRequest() )
+    QfFeatureIterator( QgsVectorLayer *layer = nullptr, const QgsFeatureRequest &request = QgsFeatureRequest() )
     {
       if ( layer )
       {
@@ -88,12 +88,12 @@ class FeatureIterator
 /**
  * \ingroup core
  */
-class LayerUtils : public QObject
+class QfLayerUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit LayerUtils( QObject *parent = nullptr );
+    explicit QfLayerUtils( QObject *parent = nullptr );
 
     /**
     * Returns the default symbol for a given layer.
@@ -231,17 +231,17 @@ class LayerUtils : public QObject
     /**
      * Returns a feature iterator to get all features within the provided \a layer.
      */
-    Q_INVOKABLE static FeatureIterator createFeatureIterator( QgsVectorLayer *layer );
+    Q_INVOKABLE static QfFeatureIterator createFeatureIterator( QgsVectorLayer *layer );
 
     /**
      * Returns a feature iterator to get features matching a given \a expression within the provided \a layer.
      */
-    Q_INVOKABLE static FeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
+    Q_INVOKABLE static QfFeatureIterator createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression );
 
     /**
      * Returns a feature iterator to get features overlapping a given \a rectangle within the provided \a layer.
      */
-    Q_INVOKABLE static FeatureIterator createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle );
+    Q_INVOKABLE static QfFeatureIterator createFeatureIteratorFromRectangle( QgsVectorLayer *layer, const QgsRectangle &rectangle );
 
     /**
      * Saves a vector layer into an on-disk dataset a given path using the OGR provider.

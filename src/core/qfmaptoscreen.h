@@ -25,12 +25,12 @@
 #include <limits>
 
 /**
- * @brief The MapToScreen class transform a map point to screen coordinates.
+ * @brief The QfMapToScreen class transform a map point to screen coordinates.
  * The map point CRS is the one from the map settings.
  * Screen point will be automatically updated on map extent changes.
  * \ingroup core
  */
-class MapToScreen : public QObject
+class QfMapToScreen : public QObject
 {
     Q_OBJECT
 
@@ -46,7 +46,7 @@ class MapToScreen : public QObject
     Q_PROPERTY( double screenDistance READ screenDistance NOTIFY screenDistanceChanged )
 
   public:
-    explicit MapToScreen( QObject *parent = nullptr );
+    explicit QfMapToScreen( QObject *parent = nullptr );
 
     //! \copydoc mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );

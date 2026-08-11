@@ -30,24 +30,24 @@
 /**
  * \ingroup core
  */
-class FeatureModel : public QAbstractListModel
+class QfFeatureModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY( FeatureModel::ModelModes modelMode READ modelMode WRITE setModelMode NOTIFY modelModeChanged )
+    Q_PROPERTY( QfFeatureModel::ModelModes modelMode READ modelMode WRITE setModelMode NOTIFY modelModeChanged )
     Q_PROPERTY( QgsFeature feature READ feature WRITE setFeature NOTIFY featureChanged )
     Q_PROPERTY( QList<QgsFeature> features READ features WRITE setFeatures NOTIFY featuresChanged )
     Q_PROPERTY( QgsFeature linkedParentFeature READ linkedParentFeature WRITE setLinkedParentFeature NOTIFY linkedParentFeatureChanged )
     Q_PROPERTY( QgsRelation linkedRelation READ linkedRelation WRITE setLinkedRelation NOTIFY linkedRelationChanged )
     Q_PROPERTY( QString linkedRelationOrderingField READ linkedRelationOrderingField WRITE setLinkedRelationOrderingField NOTIFY linkedRelationOrderingFieldChanged )
-    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
-    Q_PROPERTY( Geometry *geometry READ geometry WRITE setGeometry NOTIFY geometryChanged )
+    Q_PROPERTY( QfVertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+    Q_PROPERTY( QfGeometry *geometry READ geometry WRITE setGeometry NOTIFY geometryChanged )
     Q_PROPERTY( bool featureAdditionLocked READ featureAdditionLocked NOTIFY featureAdditionLockedChanged )
     Q_PROPERTY( bool attributeEditingLocked READ attributeEditingLocked NOTIFY attributeEditingLockedChanged )
     Q_PROPERTY( bool geometryEditingLocked READ geometryEditingLocked NOTIFY geometryEditingLockedChanged )
     Q_PROPERTY( bool featureDeletionLocked READ featureDeletionLocked NOTIFY featureDeletionLockedChanged )
     Q_PROPERTY( QgsVectorLayer *currentLayer READ layer WRITE setCurrentLayer NOTIFY currentLayerChanged )
-    Q_PROPERTY( AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
-    Q_PROPERTY( SnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
+    Q_PROPERTY( QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
+    Q_PROPERTY( QfSnappingResult topSnappingResult READ topSnappingResult WRITE setTopSnappingResult NOTIFY topSnappingResultChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
     Q_PROPERTY( bool batchMode READ batchMode WRITE setBatchMode NOTIFY batchModeChanged )
 
@@ -77,7 +77,7 @@ class FeatureModel : public QAbstractListModel
     };
     Q_ENUM( FeatureRoles )
 
-    explicit FeatureModel( QObject *parent = nullptr );
+    explicit QfFeatureModel( QObject *parent = nullptr );
 
     void setModelMode( const ModelModes mode );
     ModelModes modelMode() const;
@@ -141,19 +141,19 @@ class FeatureModel : public QAbstractListModel
     /**
      * Returns the geometry object that will drive the feature geometry.
      */
-    Geometry *geometry();
+    QfGeometry *geometry();
 
     /**
      * Sets the geometry object that will drive the feature geometry.
      * \note This is not the QgsGeometry of the feature. To change that,
      * use the changeGeometry function.
      */
-    void setGeometry( Geometry *geometry );
+    void setGeometry( QfGeometry *geometry );
 
     //! Returns the vertex model is used to highlight vertices on the map.
-    VertexModel *vertexModel();
+    QfVertexModel *vertexModel();
     //! Sets the vertex \a model is used to highlight vertices on the map.
-    void setVertexModel( VertexModel *model );
+    void setVertexModel( QfVertexModel *model );
 
     bool featureAdditionLocked() const { return mFeatureAdditionLocked; }
     bool attributeEditingLocked() const { return mAttributeEditingLocked; }
@@ -235,23 +235,23 @@ class FeatureModel : public QAbstractListModel
     /**
      * Returns the application expression context scopes generator object
      */
-    AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
+    QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
 
     /**
      * Sets the application expression context scopes \a generator object
      */
-    void setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator );
+    void setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator );
 
     /**
      * Returns the top snapping result of the coordinate locator
      */
-    SnappingResult topSnappingResult() const;
+    QfSnappingResult topSnappingResult() const;
 
     /**
      * Sets the top snapping result of the coordinate locator
      * \param topSnappingResult the top snapping result object
      */
-    void setTopSnappingResult( const SnappingResult &topSnappingResult );
+    void setTopSnappingResult( const QfSnappingResult &topSnappingResult );
 
     /**
      * Apply the geometry object or vertex model object's geometry to the feature geometry.
@@ -363,10 +363,10 @@ class FeatureModel : public QAbstractListModel
     QgsRelation mLinkedRelation;
     QString mLinkedRelationOrderingField;
     QList<int> mLinkedAttributeIndexes;
-    VertexModel *mVertexModel = nullptr;
-    Geometry *mGeometry = nullptr;
-    QPointer<AppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
-    SnappingResult mTopSnappingResult;
+    QfVertexModel *mVertexModel = nullptr;
+    QfGeometry *mGeometry = nullptr;
+    QPointer<QfAppExpressionContextScopesGenerator> mAppExpressionContextScopesGenerator;
+    QfSnappingResult mTopSnappingResult;
     QgsProject *mProject = nullptr;
     QString mTempName;
 

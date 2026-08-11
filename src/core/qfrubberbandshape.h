@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfrubberbandshape.h - RubberbandShape
+  qfrubberbandshape.h - QfRubberbandShape
 
  ---------------------
  begin                : 11.6.2016
@@ -21,28 +21,28 @@
 #include <qgspoint.h>
 #include <qgswkbtypes.h>
 
-class RubberbandModel;
-class VertexModel;
+class QfRubberbandModel;
+class QfVertexModel;
 class QgsQuickMapSettings;
 
 /**
- * @brief The RubberbandShape class is used to provide the shape data to draw rubber bands
+ * @brief The QfRubberbandShape class is used to provide the shape data to draw rubber bands
  * on the map canvas using the QML Shape item.
- * It is aimed to be used with either a VertexModel or a RubberbandModel.
+ * It is aimed to be used with either a QfVertexModel or a QfRubberbandModel.
  * \ingroup core
  */
-class RubberbandShape : public QQuickItem
+class QfRubberbandShape : public QQuickItem
 {
     Q_OBJECT
 
     //! When set to TRUE, changes to the linked rubber band or vertex model as well as map settings will be ignored and the rubber band shape data will be left untouched
     Q_PROPERTY( bool freeze READ freeze WRITE setFreeze NOTIFY freezeChanged )
 
-    Q_PROPERTY( RubberbandModel *model READ model WRITE setModel NOTIFY modelChanged )
-    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+    Q_PROPERTY( QfRubberbandModel *model READ model WRITE setModel NOTIFY modelChanged )
+    Q_PROPERTY( QfVertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
 
-    //! Geometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
+    //! QfGeometry type used to render the rubber band (if not provided or set to null geometry, the type provided by the rubber band or vertex model will be used)
     Q_PROPERTY( Qgis::GeometryType geometryType READ geometryType WRITE setGeometryType NOTIFY geometryTypeChanged )
 
     //! Color of the rubberband
@@ -58,13 +58,13 @@ class RubberbandShape : public QQuickItem
     Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
   public:
-    explicit RubberbandShape( QQuickItem *parent = nullptr );
+    explicit QfRubberbandShape( QQuickItem *parent = nullptr );
 
-    RubberbandModel *model() const;
-    void setModel( RubberbandModel *model );
+    QfRubberbandModel *model() const;
+    void setModel( QfRubberbandModel *model );
 
-    VertexModel *vertexModel() const;
-    void setVertexModel( VertexModel *vertexModel );
+    QfVertexModel *vertexModel() const;
+    void setVertexModel( QfVertexModel *vertexModel );
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
@@ -128,8 +128,8 @@ class RubberbandShape : public QQuickItem
     void updateTransform();
     void createPolylines();
 
-    RubberbandModel *mRubberbandModel = nullptr;
-    VertexModel *mVertexModel = nullptr;
+    QfRubberbandModel *mRubberbandModel = nullptr;
+    QfVertexModel *mVertexModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
     bool mFreeze = false;
     bool mDirty = false;

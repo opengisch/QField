@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfauthutils.cpp - AuthUtils
+  qfauthutils.cpp - QfAuthUtils
 
  ---------------------
  begin                : 19.06.2026
@@ -19,19 +19,19 @@
 #include <qgsapplication.h>
 #include <qgsauthmanager.h>
 
-AuthUtils::AuthUtils( QObject *parent )
+QfAuthUtils::QfAuthUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-bool AuthUtils::hasAuthenticationConfigurations()
+bool QfAuthUtils::hasAuthenticationConfigurations()
 {
   QgsAuthManager *authManager = QgsApplication::authManager();
   const QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   return !configs.isEmpty();
 }
 
-QVariantList AuthUtils::authenticationConfigurationDetails( const QString &id )
+QVariantList QfAuthUtils::authenticationConfigurationDetails( const QString &id )
 {
   QVariantList details;
   QgsAuthManager *authManager = QgsApplication::authManager();
@@ -55,14 +55,14 @@ QVariantList AuthUtils::authenticationConfigurationDetails( const QString &id )
   return details;
 }
 
-bool AuthUtils::isAuthenticationConfigurationAvailable( const QString &id )
+bool QfAuthUtils::isAuthenticationConfigurationAvailable( const QString &id )
 {
   QgsAuthManager *authManager = QgsApplication::authManager();
   const QgsAuthMethodConfigsMap configs = authManager->availableAuthMethodConfigs();
   return configs.contains( id );
 }
 
-void AuthUtils::clearAuthenticationConfigurationCache( const QString &id )
+void QfAuthUtils::clearAuthenticationConfigurationCache( const QString &id )
 {
   QgsAuthManager *authManager = QgsApplication::authManager();
   if ( !id.isEmpty() )

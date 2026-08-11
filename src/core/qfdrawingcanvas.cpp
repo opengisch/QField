@@ -1,5 +1,5 @@
 /***************************************************************************
- qfdrawingcanvas.cpp - DrawingCanvas
+ qfdrawingcanvas.cpp - QfDrawingCanvas
 
  ---------------------
  begin                : 24.03.2024
@@ -24,7 +24,7 @@
 
 #include <cmath>
 
-DrawingCanvas::DrawingCanvas( QQuickItem *parent )
+QfDrawingCanvas::QfDrawingCanvas( QQuickItem *parent )
   : QQuickPaintedItem( parent )
 {
   setOpaquePainting( true );
@@ -32,7 +32,7 @@ DrawingCanvas::DrawingCanvas( QQuickItem *parent )
   setSmooth( true );
 }
 
-void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
+void QfDrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundColor )
 {
   clear();
 
@@ -47,7 +47,7 @@ void DrawingCanvas::createBlankCanvas( int width, int height, QColor backgroundC
   fitCanvas();
 }
 
-void DrawingCanvas::createCanvasFromImage( const QString &path )
+void QfDrawingCanvas::createCanvasFromImage( const QString &path )
 {
   clear();
 
@@ -76,7 +76,7 @@ void DrawingCanvas::createCanvasFromImage( const QString &path )
   fitCanvas();
 }
 
-void DrawingCanvas::clear()
+void QfDrawingCanvas::clear()
 {
   mStrokes.clear();
 
@@ -92,7 +92,7 @@ void DrawingCanvas::clear()
   update();
 }
 
-QString DrawingCanvas::save() const
+QString QfDrawingCanvas::save() const
 {
   QImage image( mBackgroundImage.size(), QImage::Format_RGBA8888 );
   image.fill( Qt::transparent );
@@ -126,7 +126,7 @@ QString DrawingCanvas::save() const
   return path;
 }
 
-void DrawingCanvas::fitCanvas()
+void QfDrawingCanvas::fitCanvas()
 {
   double scale = 1.0;
   if ( !mBackgroundImage.isNull() )
@@ -152,23 +152,23 @@ void DrawingCanvas::fitCanvas()
   update();
 }
 
-void DrawingCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition )
+void QfDrawingCanvas::pan( const QPointF &oldPosition, const QPointF &newPosition )
 {
   setOffset( QPointF( mOffset.x() + ( newPosition.x() - oldPosition.x() ),
                       mOffset.y() + ( newPosition.y() - oldPosition.y() ) ) );
 }
 
-void DrawingCanvas::zoom( double scale )
+void QfDrawingCanvas::zoom( double scale )
 {
   setZoomFactor( mZoomFactor * scale );
 }
 
-bool DrawingCanvas::isEmpty() const
+bool QfDrawingCanvas::isEmpty() const
 {
   return mIsEmpty;
 }
 
-void DrawingCanvas::setIsEmpty( bool empty )
+void QfDrawingCanvas::setIsEmpty( bool empty )
 {
   if ( mIsEmpty == empty )
   {
@@ -179,12 +179,12 @@ void DrawingCanvas::setIsEmpty( bool empty )
   emit isEmptyChanged();
 }
 
-bool DrawingCanvas::isDirty() const
+bool QfDrawingCanvas::isDirty() const
 {
   return mIsDirty;
 }
 
-void DrawingCanvas::setIsDirty( bool dirty )
+void QfDrawingCanvas::setIsDirty( bool dirty )
 {
   if ( mIsDirty == dirty )
   {
@@ -195,12 +195,12 @@ void DrawingCanvas::setIsDirty( bool dirty )
   emit isDirtyChanged();
 }
 
-QColor DrawingCanvas::frameColor() const
+QColor QfDrawingCanvas::frameColor() const
 {
   return mFrameColor;
 }
 
-void DrawingCanvas::setFrameColor( const QColor &color )
+void QfDrawingCanvas::setFrameColor( const QColor &color )
 {
   if ( mFrameColor == color )
   {
@@ -213,12 +213,12 @@ void DrawingCanvas::setFrameColor( const QColor &color )
   update();
 }
 
-double DrawingCanvas::zoomFactor() const
+double QfDrawingCanvas::zoomFactor() const
 {
   return mZoomFactor;
 }
 
-void DrawingCanvas::setZoomFactor( double factor )
+void QfDrawingCanvas::setZoomFactor( double factor )
 {
   if ( mZoomFactor == factor )
   {
@@ -231,12 +231,12 @@ void DrawingCanvas::setZoomFactor( double factor )
   update();
 }
 
-QPointF DrawingCanvas::offset() const
+QPointF QfDrawingCanvas::offset() const
 {
   return mOffset;
 }
 
-void DrawingCanvas::setOffset( const QPointF &offset )
+void QfDrawingCanvas::setOffset( const QPointF &offset )
 {
   if ( mOffset == offset )
   {
@@ -249,12 +249,12 @@ void DrawingCanvas::setOffset( const QPointF &offset )
   update();
 }
 
-DrawingStroke DrawingCanvas::currentStroke() const
+QfDrawingStroke QfDrawingCanvas::currentStroke() const
 {
   return mCurrentStroke;
 }
 
-void DrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
+void QfDrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
 {
   mCurrentStroke.points.clear();
   mCurrentStroke.color = color;
@@ -263,7 +263,7 @@ void DrawingCanvas::strokeBegin( const QPointF &point, const QColor color )
   mCurrentStroke.scenePoints << point;
 }
 
-void DrawingCanvas::strokeMove( const QPointF &point )
+void QfDrawingCanvas::strokeMove( const QPointF &point )
 {
   if ( mCurrentStroke.points.isEmpty() )
   {
@@ -279,7 +279,7 @@ void DrawingCanvas::strokeMove( const QPointF &point )
   }
 }
 
-void DrawingCanvas::strokeEnd( const QPointF &point )
+void QfDrawingCanvas::strokeEnd( const QPointF &point )
 {
   if ( mCurrentStroke.points.isEmpty() )
   {
@@ -303,7 +303,7 @@ void DrawingCanvas::strokeEnd( const QPointF &point )
   update();
 }
 
-void DrawingCanvas::drawStroke( QPainter *painter, const DrawingStroke &stroke, bool onCanvas ) const
+void QfDrawingCanvas::drawStroke( QPainter *painter, const QfDrawingStroke &stroke, bool onCanvas ) const
 {
   QPainterPath path( onCanvas ? stroke.points.at( 0 ) : canvasToItem( stroke.points.at( 0 ) ) );
   for ( int i = 1; i < stroke.points.size(); i++ )
@@ -319,7 +319,7 @@ void DrawingCanvas::drawStroke( QPainter *painter, const DrawingStroke &stroke, 
   painter->drawPath( path );
 }
 
-void DrawingCanvas::undo()
+void QfDrawingCanvas::undo()
 {
   if ( !mStrokes.isEmpty() )
   {
@@ -329,7 +329,7 @@ void DrawingCanvas::undo()
 
     // Reset image and redraw remaining strokes
     mDrawingImage = mBackgroundImage;
-    for ( const DrawingStroke &stroke : std::as_const( mStrokes ) )
+    for ( const QfDrawingStroke &stroke : std::as_const( mStrokes ) )
     {
       QPainter painter( &mDrawingImage );
       painter.setRenderHint( QPainter::Antialiasing, antialiasing() );
@@ -343,7 +343,7 @@ void DrawingCanvas::undo()
   }
 }
 
-QPointF DrawingCanvas::itemToCanvas( const QPointF &point ) const
+QPointF QfDrawingCanvas::itemToCanvas( const QPointF &point ) const
 {
   const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ) + mOffset.x(),
                                size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) + mOffset.y() );
@@ -351,7 +351,7 @@ QPointF DrawingCanvas::itemToCanvas( const QPointF &point ) const
                   ( point.y() - canvasTopLeft.y() ) / mZoomFactor );
 }
 
-QPointF DrawingCanvas::canvasToItem( const QPointF &point ) const
+QPointF QfDrawingCanvas::canvasToItem( const QPointF &point ) const
 {
   const QPointF canvasTopLeft( size().width() / 2 - ( mBackgroundImage.size().width() * mZoomFactor / 2 ) + mOffset.x(),
                                size().height() / 2 - ( mBackgroundImage.size().height() * mZoomFactor / 2 ) + mOffset.y() );
@@ -359,7 +359,7 @@ QPointF DrawingCanvas::canvasToItem( const QPointF &point ) const
                   canvasTopLeft.y() + ( point.y() * mZoomFactor ) );
 }
 
-void DrawingCanvas::paint( QPainter *painter )
+void QfDrawingCanvas::paint( QPainter *painter )
 {
   if ( !mBackgroundImage.isNull() )
   {

@@ -1,5 +1,5 @@
 /***************************************************************************
- qfaudioanalyzer.h - AudioAnalyzer
+ qfaudioanalyzer.h - QfAudioAnalyzer
 
  ---------------------
  begin                : 12.04.2026
@@ -22,12 +22,12 @@
 #include <QThread>
 #include <QUrl>
 
-class AudioPeaksGatherer : public QThread
+class QfAudioPeaksGatherer : public QThread
 {
     Q_OBJECT
 
   public:
-    AudioPeaksGatherer( const QUrl &source );
+    QfAudioPeaksGatherer( const QUrl &source );
 
     void run() override;
 
@@ -53,14 +53,14 @@ class AudioPeaksGatherer : public QThread
  * that can be used to visualize the audio's overall texture.
  * \ingroup core
  */
-class AudioAnalyzer : public QObject
+class QfAudioAnalyzer : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( int barCount READ barCount WRITE setBarCount NOTIFY barCountChanged )
 
   public:
-    explicit AudioAnalyzer( QObject *parent = nullptr );
+    explicit QfAudioAnalyzer( QObject *parent = nullptr );
 
     /**
      * Returns the bar count that will be returned upon successful audio clip analysis.
@@ -96,7 +96,7 @@ class AudioAnalyzer : public QObject
     void gathererThreadFinished();
 
   private:
-    AudioPeaksGatherer *mGatherer = nullptr;
+    QfAudioPeaksGatherer *mGatherer = nullptr;
 
     int mBarCount = 80;
 };

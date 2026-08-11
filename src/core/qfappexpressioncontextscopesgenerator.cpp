@@ -1,5 +1,5 @@
 /***************************************************************************
- qfappexpressioncontextscopesgenerator.cpp - AppExpressionContextScopesGenerator
+ qfappexpressioncontextscopesgenerator.cpp - QfAppExpressionContextScopesGenerator
 
  ---------------------
  begin                : 26.03.2025
@@ -17,17 +17,17 @@
 #include "qfappexpressioncontextscopesgenerator.h"
 #include "qfexpressioncontextutils.h"
 
-AppExpressionContextScopesGenerator::AppExpressionContextScopesGenerator( QObject *parent )
+QfAppExpressionContextScopesGenerator::QfAppExpressionContextScopesGenerator( QObject *parent )
   : QObject( parent )
 {
 }
 
-GnssPositionInformation AppExpressionContextScopesGenerator::positionInformation() const
+QfGnssPositionInformation QfAppExpressionContextScopesGenerator::positionInformation() const
 {
   return mPositionInformation;
 }
 
-void AppExpressionContextScopesGenerator::setPositionInformation( const GnssPositionInformation &positionInformation )
+void QfAppExpressionContextScopesGenerator::setPositionInformation( const QfGnssPositionInformation &positionInformation )
 {
   if ( mPositionInformation == positionInformation )
     return;
@@ -36,12 +36,12 @@ void AppExpressionContextScopesGenerator::setPositionInformation( const GnssPosi
   emit positionInformationChanged();
 }
 
-bool AppExpressionContextScopesGenerator::positionLocked() const
+bool QfAppExpressionContextScopesGenerator::positionLocked() const
 {
   return mPositionLocked;
 }
 
-void AppExpressionContextScopesGenerator::setPositionLocked( bool positionLocked )
+void QfAppExpressionContextScopesGenerator::setPositionLocked( bool positionLocked )
 {
   if ( mPositionLocked == positionLocked )
     return;
@@ -51,12 +51,12 @@ void AppExpressionContextScopesGenerator::setPositionLocked( bool positionLocked
   emit positionLockedChanged();
 }
 
-CloudUserInformation AppExpressionContextScopesGenerator::cloudUserInformation() const
+QfCloudUserInformation QfAppExpressionContextScopesGenerator::cloudUserInformation() const
 {
   return mCloudUserInformation;
 }
 
-void AppExpressionContextScopesGenerator::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
+void QfAppExpressionContextScopesGenerator::setCloudUserInformation( const QfCloudUserInformation &cloudUserInformation )
 {
   if ( mCloudUserInformation == cloudUserInformation )
     return;
@@ -65,15 +65,15 @@ void AppExpressionContextScopesGenerator::setCloudUserInformation( const CloudUs
   emit cloudUserInformationChanged();
 }
 
-QList<QgsExpressionContextScope *> AppExpressionContextScopesGenerator::generate()
+QList<QgsExpressionContextScope *> QfAppExpressionContextScopesGenerator::generate()
 {
   QList<QgsExpressionContextScope *> scopes;
 
   if ( mPositionInformation.isValid() )
   {
-    scopes << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
+    scopes << QfExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
   }
-  scopes << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+  scopes << QfExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
   return scopes;
 }

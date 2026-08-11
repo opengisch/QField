@@ -18,19 +18,19 @@
 
 #include <QObject>
 
-class NetworkReply;
+class QfNetworkReply;
 
 /**
  * \ingroup core
  *
- * QFieldCloudStatus fetches the QFieldCloud service status endpoint
+ * QfCloudStatus fetches the QFieldCloud service status endpoint
  * and exposes the health state of the service to QML.
  *
  * It fetches the /api/v1/status/ endpoint once per session and provides
  * properties to determine whether the service is degraded, has ongoing
  * incidents, or is under maintenance.
  */
-class QFieldCloudStatus : public QObject
+class QfCloudStatus : public QObject
 {
     Q_OBJECT
 
@@ -51,7 +51,7 @@ class QFieldCloudStatus : public QObject
     };
     Q_ENUM( StatusType )
 
-    explicit QFieldCloudStatus( QObject *parent = nullptr );
+    explicit QfCloudStatus( QObject *parent = nullptr );
 
     /**
      * Returns the base URL of the QFieldCloud server.
@@ -112,7 +112,7 @@ class QFieldCloudStatus : public QObject
     QString mStatusMessage;
     QString mDetailsMessage;
 
-    NetworkReply *mPendingReply = nullptr;
+    QfNetworkReply *mPendingReply = nullptr;
 };
 
 #endif // QFCLOUDSTATUS_H

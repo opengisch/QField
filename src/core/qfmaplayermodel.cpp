@@ -17,12 +17,12 @@
 #include "qfmaplayermodel.h"
 
 
-MapLayerBaseModel::MapLayerBaseModel( QObject *parent )
+QfMapLayerBaseModel::QfMapLayerBaseModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-void MapLayerBaseModel::resetModel()
+void QfMapLayerBaseModel::resetModel()
 {
   beginResetModel();
 
@@ -35,7 +35,7 @@ void MapLayerBaseModel::resetModel()
   endResetModel();
 }
 
-void MapLayerBaseModel::setEnabled( bool enabled )
+void QfMapLayerBaseModel::setEnabled( bool enabled )
 {
   if ( mEnabled == enabled )
   {
@@ -49,20 +49,20 @@ void MapLayerBaseModel::setEnabled( bool enabled )
   {
     if ( mEnabled )
     {
-      connect( mProject, &QgsProject::layersAdded, this, &MapLayerBaseModel::addLayers );
-      connect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &MapLayerBaseModel::removeLayers );
+      connect( mProject, &QgsProject::layersAdded, this, &QfMapLayerBaseModel::addLayers );
+      connect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfMapLayerBaseModel::removeLayers );
     }
     else
     {
-      disconnect( mProject, &QgsProject::layersAdded, this, &MapLayerBaseModel::addLayers );
-      disconnect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &MapLayerBaseModel::removeLayers );
+      disconnect( mProject, &QgsProject::layersAdded, this, &QfMapLayerBaseModel::addLayers );
+      disconnect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfMapLayerBaseModel::removeLayers );
     }
   }
 
   resetModel();
 }
 
-void MapLayerBaseModel::setProject( QgsProject *project )
+void QfMapLayerBaseModel::setProject( QgsProject *project )
 {
   if ( mProject == project )
   {
@@ -71,8 +71,8 @@ void MapLayerBaseModel::setProject( QgsProject *project )
 
   if ( mEnabled && mProject )
   {
-    disconnect( mProject, &QgsProject::layersAdded, this, &MapLayerBaseModel::addLayers );
-    disconnect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &MapLayerBaseModel::removeLayers );
+    disconnect( mProject, &QgsProject::layersAdded, this, &QfMapLayerBaseModel::addLayers );
+    disconnect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfMapLayerBaseModel::removeLayers );
   }
 
   mProject = project;
@@ -80,14 +80,14 @@ void MapLayerBaseModel::setProject( QgsProject *project )
 
   if ( mEnabled && mProject )
   {
-    connect( mProject, &QgsProject::layersAdded, this, &MapLayerBaseModel::addLayers );
-    connect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &MapLayerBaseModel::removeLayers );
+    connect( mProject, &QgsProject::layersAdded, this, &QfMapLayerBaseModel::addLayers );
+    connect( mProject, static_cast<void ( QgsProject::* )( const QStringList & )>( &QgsProject::layersWillBeRemoved ), this, &QfMapLayerBaseModel::removeLayers );
   }
 
   resetModel();
 }
 
-void MapLayerBaseModel::setTrackingModel( TrackingModel *trackingModel )
+void QfMapLayerBaseModel::setTrackingModel( QfTrackingModel *trackingModel )
 {
   if ( mTrackingModel == trackingModel )
   {
@@ -98,12 +98,12 @@ void MapLayerBaseModel::setTrackingModel( TrackingModel *trackingModel )
   emit trackingModelChanged();
 }
 
-void MapLayerBaseModel::removeLayers( const QStringList &layerIds )
+void QfMapLayerBaseModel::removeLayers( const QStringList &layerIds )
 {
   for ( const QString &layerId : layerIds )
   {
     QModelIndex startIndex = index( 0, 0 );
-    QModelIndexList list = match( startIndex, MapLayerModel::IdRole, layerId );
+    QModelIndexList list = match( startIndex, QfMapLayerModel::IdRole, layerId );
     if ( !list.isEmpty() )
     {
       QModelIndex index = list[0];
@@ -114,7 +114,7 @@ void MapLayerBaseModel::removeLayers( const QStringList &layerIds )
   }
 }
 
-void MapLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
+void QfMapLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
 {
   if ( !layers.isEmpty() )
   {
@@ -127,7 +127,7 @@ void MapLayerBaseModel::addLayers( const QList<QgsMapLayer *> &layers )
   }
 }
 
-int MapLayerBaseModel::rowCount( const QModelIndex &parent ) const
+int QfMapLayerBaseModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
   {
@@ -137,7 +137,7 @@ int MapLayerBaseModel::rowCount( const QModelIndex &parent ) const
   return mLayers.size();
 }
 
-QVariant MapLayerBaseModel::data( const QModelIndex &index, int role ) const
+QVariant QfMapLayerBaseModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 || index.row() >= mLayers.size() )
   {
@@ -149,22 +149,22 @@ QVariant MapLayerBaseModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case Qt::DisplayRole:
-    case MapLayerModel::NameRole:
+    case QfMapLayerModel::NameRole:
     {
       return layer ? layer->name() : QString();
     }
 
-    case MapLayerModel::IdRole:
+    case QfMapLayerModel::IdRole:
     {
       return layer ? layer->id() : QString();
     }
 
-    case MapLayerModel::LayerRole:
+    case QfMapLayerModel::LayerRole:
     {
       return QVariant::fromValue<QgsMapLayer *>( layer );
     }
 
-    case MapLayerModel::LayerTypeRole:
+    case QfMapLayerModel::LayerTypeRole:
     {
       if ( layer )
       {
@@ -173,7 +173,7 @@ QVariant MapLayerBaseModel::data( const QModelIndex &index, int role ) const
       return QVariant();
     }
 
-    case MapLayerModel::GeometryTypeRole:
+    case QfMapLayerModel::GeometryTypeRole:
     {
       if ( QgsVectorLayer *vlayer = dynamic_cast<QgsVectorLayer *>( layer ) )
       {
@@ -189,23 +189,23 @@ QVariant MapLayerBaseModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> MapLayerBaseModel::roleNames() const
+QHash<int, QByteArray> QfMapLayerBaseModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
 
-  roles[MapLayerModel::IdRole] = "Id";
-  roles[MapLayerModel::NameRole] = "Name";
-  roles[MapLayerModel::LayerTypeRole] = "LayerType";
-  roles[MapLayerModel::GeometryTypeRole] = "GeometryType";
-  roles[MapLayerModel::LayerRole] = "LayerPointer";
+  roles[QfMapLayerModel::IdRole] = "Id";
+  roles[QfMapLayerModel::NameRole] = "Name";
+  roles[QfMapLayerModel::LayerTypeRole] = "LayerType";
+  roles[QfMapLayerModel::GeometryTypeRole] = "GeometryType";
+  roles[QfMapLayerModel::LayerRole] = "LayerPointer";
 
   return roles;
 }
 
 
-MapLayerModel::MapLayerModel( QObject *parent )
+QfMapLayerModel::QfMapLayerModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mModel( new MapLayerBaseModel( this ) )
+  , mModel( new QfMapLayerBaseModel( this ) )
 {
   setSourceModel( mModel );
   setDynamicSortFilter( true );
@@ -213,37 +213,37 @@ MapLayerModel::MapLayerModel( QObject *parent )
   setFilterCaseSensitivity( Qt::CaseInsensitive );
   sort( 0 );
 
-  connect( mModel, &MapLayerBaseModel::enabledChanged, this, &MapLayerModel::enabledChanged );
-  connect( mModel, &MapLayerBaseModel::projectChanged, this, &MapLayerModel::projectChanged );
-  connect( mModel, &MapLayerBaseModel::trackingModelChanged, this, &MapLayerModel::trackingModelChanged );
+  connect( mModel, &QfMapLayerBaseModel::enabledChanged, this, &QfMapLayerModel::enabledChanged );
+  connect( mModel, &QfMapLayerBaseModel::projectChanged, this, &QfMapLayerModel::projectChanged );
+  connect( mModel, &QfMapLayerBaseModel::trackingModelChanged, this, &QfMapLayerModel::trackingModelChanged );
 }
 
-bool MapLayerModel::enabled() const
+bool QfMapLayerModel::enabled() const
 {
   return mModel->enabled();
 }
 
-void MapLayerModel::setEnabled( bool enabled )
+void QfMapLayerModel::setEnabled( bool enabled )
 {
   mModel->setEnabled( enabled );
 }
 
-QgsProject *MapLayerModel::project() const
+QgsProject *QfMapLayerModel::project() const
 {
   return mModel->project();
 }
 
-void MapLayerModel::setProject( QgsProject *project )
+void QfMapLayerModel::setProject( QgsProject *project )
 {
   mModel->setProject( project );
 }
 
-TrackingModel *MapLayerModel::trackingModel() const
+QfTrackingModel *QfMapLayerModel::trackingModel() const
 {
   return mModel->trackingModel();
 }
 
-void MapLayerModel::setTrackingModel( TrackingModel *trackingModel )
+void QfMapLayerModel::setTrackingModel( QfTrackingModel *trackingModel )
 {
   mModel->setTrackingModel( trackingModel );
 
@@ -254,7 +254,7 @@ void MapLayerModel::setTrackingModel( TrackingModel *trackingModel )
   }
 }
 
-void MapLayerModel::setFilters( Qgis::LayerFilters filters )
+void QfMapLayerModel::setFilters( Qgis::LayerFilters filters )
 {
   if ( mFilters == filters )
   {
@@ -268,7 +268,7 @@ void MapLayerModel::setFilters( Qgis::LayerFilters filters )
   emit filtersChanged();
 }
 
-void MapLayerModel::setRequiresTrackingAvailability( bool requiresTrackingAvailability )
+void QfMapLayerModel::setRequiresTrackingAvailability( bool requiresTrackingAvailability )
 {
   if ( mRequiresTrackingAvailability == requiresTrackingAvailability )
   {
@@ -282,12 +282,12 @@ void MapLayerModel::setRequiresTrackingAvailability( bool requiresTrackingAvaila
   emit requiresTrackingAvailabilityChanged();
 }
 
-int MapLayerModel::findLayer( QgsMapLayer *layer ) const
+int QfMapLayerModel::findLayer( QgsMapLayer *layer ) const
 {
   if ( layer )
   {
     QModelIndex startIndex = index( 0, 0 );
-    QModelIndexList list = match( startIndex, MapLayerModel::IdRole, layer->id() );
+    QModelIndexList list = match( startIndex, QfMapLayerModel::IdRole, layer->id() );
     if ( !list.isEmpty() )
     {
       QModelIndex index = list[0];
@@ -298,12 +298,12 @@ int MapLayerModel::findLayer( QgsMapLayer *layer ) const
   return -1;
 }
 
-int MapLayerModel::findLayerName( const QString &name ) const
+int QfMapLayerModel::findLayerName( const QString &name ) const
 {
   if ( !name.isEmpty() )
   {
     QModelIndex startIndex = index( 0, 0 );
-    QModelIndexList list = match( startIndex, MapLayerModel::NameRole, name );
+    QModelIndexList list = match( startIndex, QfMapLayerModel::NameRole, name );
     if ( !list.isEmpty() )
     {
       QModelIndex index = list[0];
@@ -314,7 +314,7 @@ int MapLayerModel::findLayerName( const QString &name ) const
   return -1;
 }
 
-QVariantMap MapLayerModel::get( int row ) const
+QVariantMap QfMapLayerModel::get( int row ) const
 {
   QVariantMap data;
   const QModelIndex idx = index( row, 0 );
@@ -334,18 +334,18 @@ QVariantMap MapLayerModel::get( int row ) const
   return data;
 }
 
-bool MapLayerModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool QfMapLayerModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   const QModelIndex sourceIndex = mModel->index( sourceRow, 0, sourceParent );
   if ( sourceIndex.isValid() )
   {
-    QgsMapLayer *layer = mModel->data( sourceIndex, MapLayerModel::LayerRole ).value<QgsMapLayer *>();
+    QgsMapLayer *layer = mModel->data( sourceIndex, QfMapLayerModel::LayerRole ).value<QgsMapLayer *>();
     return layerMatchesFilters( layer );
   }
   return false;
 }
 
-bool MapLayerModel::layerMatchesFilters( QgsMapLayer *layer ) const
+bool QfMapLayerModel::layerMatchesFilters( QgsMapLayer *layer ) const
 {
   if ( !layer )
   {
@@ -418,9 +418,9 @@ bool MapLayerModel::layerMatchesFilters( QgsMapLayer *layer ) const
   return false;
 }
 
-bool MapLayerModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
+bool QfMapLayerModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
-  const QString leftStr = mModel->data( left, MapLayerModel::NameRole ).toString();
-  const QString rightStr = mModel->data( right, MapLayerModel::NameRole ).toString();
+  const QString leftStr = mModel->data( left, QfMapLayerModel::NameRole ).toString();
+  const QString rightStr = mModel->data( right, QfMapLayerModel::NameRole ).toString();
   return QString::localeAwareCompare( leftStr, rightStr ) < 0;
 }

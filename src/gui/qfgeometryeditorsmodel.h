@@ -26,11 +26,11 @@
 /**
  * \ingroup core
  */
-class GeometryEditorsModel : public QStandardItemModel
+class QfGeometryEditorsModel : public QStandardItemModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( VertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
+    Q_PROPERTY( QfVertexModel *vertexModel READ vertexModel WRITE setVertexModel NOTIFY vertexModelChanged )
 
   public:
     enum ActionRoles
@@ -54,20 +54,20 @@ class GeometryEditorsModel : public QStandardItemModel
     Q_FLAG( SupportedGeometries )
 
 
-    explicit GeometryEditorsModel( QObject *parent = nullptr );
+    explicit QfGeometryEditorsModel( QObject *parent = nullptr );
     QHash<int, QByteArray> roleNames() const override;
     Q_INVOKABLE void addEditor( const QString &name, const QString &icon, const QString &toolbar, SupportedGeometries supportedGeometries = AllGeometries );
 
     Q_INVOKABLE static bool supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries );
 
-    VertexModel *vertexModel() const { return mVertexModel; }
-    void setVertexModel( VertexModel *vertexModel );
+    QfVertexModel *vertexModel() const { return mVertexModel; }
+    void setVertexModel( QfVertexModel *vertexModel );
 
   signals:
     void vertexModelChanged();
 
   private:
-    VertexModel *mVertexModel = nullptr;
+    QfVertexModel *mVertexModel = nullptr;
 };
 
 

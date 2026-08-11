@@ -24,17 +24,17 @@
 #include <qgsmessagelog.h>
 
 
-QFieldCloudStatus::QFieldCloudStatus( QObject *parent )
+QfCloudStatus::QfCloudStatus( QObject *parent )
   : QObject( parent )
 {
 }
 
-QString QFieldCloudStatus::url() const
+QString QfCloudStatus::url() const
 {
   return mUrl;
 }
 
-void QFieldCloudStatus::setUrl( const QString &url )
+void QfCloudStatus::setUrl( const QString &url )
 {
   if ( url == mUrl )
   {
@@ -53,37 +53,37 @@ void QFieldCloudStatus::setUrl( const QString &url )
   emit statusUpdated();
 }
 
-QFieldCloudStatus::StatusType QFieldCloudStatus::statusType() const
+QfCloudStatus::StatusType QfCloudStatus::statusType() const
 {
   return mStatusType;
 }
 
-bool QFieldCloudStatus::hasProblem() const
+bool QfCloudStatus::hasProblem() const
 {
   return mHasProblem;
 }
 
-QString QFieldCloudStatus::statusMessage() const
+QString QfCloudStatus::statusMessage() const
 {
   return mStatusMessage;
 }
 
-QString QFieldCloudStatus::detailsMessage() const
+QString QfCloudStatus::detailsMessage() const
 {
   return mDetailsMessage;
 }
 
-QString QFieldCloudStatus::statusPageUrl() const
+QString QfCloudStatus::statusPageUrl() const
 {
   return mStatusPageUrl;
 }
 
-void QFieldCloudStatus::refresh()
+void QfCloudStatus::refresh()
 {
   fetchStatus();
 }
 
-void QFieldCloudStatus::fetchStatus()
+void QfCloudStatus::fetchStatus()
 {
   if ( mUrl.isEmpty() )
   {
@@ -102,9 +102,9 @@ void QFieldCloudStatus::fetchStatus()
   QUrl requestUrl( mUrl + QStringLiteral( "/api/v1/status/" ) );
   request.setUrl( requestUrl );
 
-  mPendingReply = NetworkManager::get( request );
+  mPendingReply = QfNetworkManager::get( request );
 
-  connect( mPendingReply, &NetworkReply::finished, this, [this]() {
+  connect( mPendingReply, &QfNetworkReply::finished, this, [this]() {
     if ( !mPendingReply )
     {
       return;
@@ -138,7 +138,7 @@ void QFieldCloudStatus::fetchStatus()
   } );
 }
 
-void QFieldCloudStatus::parseStatusResponse( const QByteArray &data )
+void QfCloudStatus::parseStatusResponse( const QByteArray &data )
 {
   QJsonParseError jsonError;
   const QJsonDocument doc = QJsonDocument::fromJson( data, &jsonError );

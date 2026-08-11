@@ -18,12 +18,12 @@
 #include <qgslayoutatlas.h>
 #include <qgsproject.h>
 
-PrintLayoutListModel::PrintLayoutListModel( QObject *parent )
+QfPrintLayoutListModel::QfPrintLayoutListModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-QHash<int, QByteArray> PrintLayoutListModel::roleNames() const
+QHash<int, QByteArray> QfPrintLayoutListModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
   roles[TitleRow] = "Title";
@@ -32,12 +32,12 @@ QHash<int, QByteArray> PrintLayoutListModel::roleNames() const
   return roles;
 }
 
-QgsProject *PrintLayoutListModel::project() const
+QgsProject *QfPrintLayoutListModel::project() const
 {
   return mProject;
 }
 
-void PrintLayoutListModel::setProject( QgsProject *project )
+void QfPrintLayoutListModel::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
@@ -46,12 +46,12 @@ void PrintLayoutListModel::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-QgsVectorLayer *PrintLayoutListModel::atlasCoverageLayer() const
+QgsVectorLayer *QfPrintLayoutListModel::atlasCoverageLayer() const
 {
   return mAtlasCoverageLayr;
 }
 
-void PrintLayoutListModel::setAtlasCoverageLayer( QgsVectorLayer *layer )
+void QfPrintLayoutListModel::setAtlasCoverageLayer( QgsVectorLayer *layer )
 {
   if ( mAtlasCoverageLayr == layer )
     return;
@@ -62,7 +62,7 @@ void PrintLayoutListModel::setAtlasCoverageLayer( QgsVectorLayer *layer )
   reloadModel();
 }
 
-void PrintLayoutListModel::reloadModel()
+void QfPrintLayoutListModel::reloadModel()
 {
   beginResetModel();
   mPrintLayouts.clear();
@@ -88,12 +88,12 @@ void PrintLayoutListModel::reloadModel()
   endResetModel();
 }
 
-int PrintLayoutListModel::rowCount( const QModelIndex &parent ) const
+int QfPrintLayoutListModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mPrintLayouts.size() ) : 0;
 }
 
-QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const
+QVariant QfPrintLayoutListModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mPrintLayouts.size() || index.row() < 0 )
     return QVariant();
@@ -106,7 +106,7 @@ QVariant PrintLayoutListModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-const QString PrintLayoutListModel::titleAt( int row ) const
+const QString QfPrintLayoutListModel::titleAt( int row ) const
 {
   if ( row < 0 || row >= mPrintLayouts.size() )
     return QString();

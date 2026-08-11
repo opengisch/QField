@@ -28,12 +28,12 @@
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT StringUtils : public QObject
+class QFIELD_CORE_EXPORT QfStringUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit StringUtils( QObject *parent = nullptr );
+    explicit QfStringUtils( QObject *parent = nullptr );
 
     //! Returns a string with any URL (e.g., http(s)/ftp) and mailto: text converted to valid HTML <a …> links
     static Q_INVOKABLE QString insertLinks( const QString &string );

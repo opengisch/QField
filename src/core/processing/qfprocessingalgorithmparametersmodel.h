@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingalgorithmparametersmodel.h - ProcessingAlgorithmParametersModel
+  qfprocessingalgorithmparametersmodel.h - QfProcessingAlgorithmParametersModel
 
  ---------------------
  begin                : 21.06.2024
@@ -26,7 +26,7 @@
 class QgsProcessingAlgorithm;
 class QgsProcessingParameterDefinition;
 
-class ProcessingAlgorithmParametersModelBase;
+class QfProcessingAlgorithmParametersModelBase;
 
 
 /**
@@ -35,11 +35,11 @@ class ProcessingAlgorithmParametersModelBase;
  * the results.
  * \ingroup core
  */
-class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
+class QfProcessingAlgorithmParametersModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
-    Q_PROPERTY( ProcessingAlgorithmParametersModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
+    Q_PROPERTY( QfProcessingAlgorithmParametersModel::Filters filters READ filters WRITE setFilters NOTIFY filtersChanged )
 
     Q_PROPERTY( QString algorithmId READ algorithmId WRITE setAlgorithmId NOTIFY algorithmIdChanged )
     Q_PROPERTY( QgsVectorLayer *inPlaceLayer READ inPlaceLayer WRITE setInPlaceLayer NOTIFY inPlaceLayerChanged )
@@ -62,19 +62,19 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     Q_DECLARE_FLAGS( Filters, Filter )
     Q_FLAGS( Filters )
 
-    explicit ProcessingAlgorithmParametersModel( QObject *parent = nullptr );
+    explicit QfProcessingAlgorithmParametersModel( QObject *parent = nullptr );
 
     /**
        * Returns any filters that affect how toolbox content is filtered.
        * \see setFilters()
        */
-    ProcessingAlgorithmParametersModel::Filters filters() const { return mFilters; }
+    QfProcessingAlgorithmParametersModel::Filters filters() const { return mFilters; }
 
     /**
        * Set \a filters that affect how toolbox content is filtered.
        * \see filters()
        */
-    void setFilters( ProcessingAlgorithmParametersModel::Filters filters );
+    void setFilters( QfProcessingAlgorithmParametersModel::Filters filters );
 
     /**
      * Returns the current algorithm ID from which parameters are taken from.
@@ -155,14 +155,14 @@ class ProcessingAlgorithmParametersModel : public QSortFilterProxyModel
     void parametersChanged();
 
   private:
-    ProcessingAlgorithmParametersModel::Filters mFilters;
-    ProcessingAlgorithmParametersModelBase *mModel = nullptr;
+    QfProcessingAlgorithmParametersModel::Filters mFilters;
+    QfProcessingAlgorithmParametersModelBase *mModel = nullptr;
 };
 
 /**
  * \brief A model for configuring processing algorithm parameters
  */
-class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
+class QfProcessingAlgorithmParametersModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -179,7 +179,7 @@ class ProcessingAlgorithmParametersModelBase : public QAbstractListModel
     };
     Q_ENUM( Role )
 
-    explicit ProcessingAlgorithmParametersModelBase( QObject *parent = nullptr );
+    explicit QfProcessingAlgorithmParametersModelBase( QObject *parent = nullptr );
 
     /**
      * Returns the current algorithm ID from which parameters are taken from.

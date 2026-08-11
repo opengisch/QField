@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgeometryutils.cpp - GeometryUtils
+  qfgeometryutils.cpp - QfGeometryUtils
 
  ---------------------
  begin                : 05.03.2020
@@ -26,12 +26,12 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
-GeometryUtils::GeometryUtils( QObject *parent )
+QfGeometryUtils::QfGeometryUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
+QgsGeometry QfGeometryUtils::polygonFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
 {
   QgsPointSequence ring = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, true );
   QgsLineString ext( ring );
@@ -46,7 +46,7 @@ QgsGeometry GeometryUtils::polygonFromRubberband( RubberbandModel *rubberBandMod
   return g;
 }
 
-QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
+QgsGeometry QfGeometryUtils::lineFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs, Qgis::WkbType wkbType )
 {
   QgsPointSequence points = rubberBandModel->pointSequence( crs, Qgis::WkbType::Point, false );
   std::unique_ptr<QgsLineString> line = std::make_unique<QgsLineString>( points );
@@ -59,7 +59,7 @@ QgsGeometry GeometryUtils::lineFromRubberband( RubberbandModel *rubberBandModel,
   return g;
 }
 
-QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband( RubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
+QgsGeometry QfGeometryUtils::variableWidthBufferByMFromRubberband( QfRubberbandModel *rubberBandModel, const QgsCoordinateReferenceSystem &crs )
 {
   QgsPointSequence points = rubberBandModel->pointSequence( crs, Qgis::WkbType::PointM, false );
   std::unique_ptr<QgsLineString> line = std::make_unique<QgsLineString>( points );
@@ -67,20 +67,20 @@ QgsGeometry GeometryUtils::variableWidthBufferByMFromRubberband( RubberbandModel
   return g.variableWidthBufferByM( 5 );
 }
 
-GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+QfGeometryUtils::GeometryOperationResult QfGeometryUtils::reshapeFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel )
 {
   QgsFeature selectedFeature = layer->getFeature( fid );
   QgsGeometry selectedGeometry = selectedFeature.geometry();
   if ( selectedGeometry.isNull() || ( QgsWkbTypes::geometryType( selectedGeometry.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( selectedGeometry.wkbType() ) != Qgis::GeometryType::Polygon ) )
   {
-    return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
+    return QfGeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
   }
 
   const QgsPointSequence points = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
   const QgsLineString reshapeLineString( points );
   const QgsGeometry reshapeLineStringGeom( reshapeLineString.clone() );
 
-  GeometryUtils::GeometryOperationResult reshapeReturn = static_cast<GeometryUtils::GeometryOperationResult>( selectedGeometry.reshapeGeometry( reshapeLineString ) );
+  QfGeometryUtils::GeometryOperationResult reshapeReturn = static_cast<QfGeometryUtils::GeometryOperationResult>( selectedGeometry.reshapeGeometry( reshapeLineString ) );
 
   /* Implementation logic:
    * - When both avoid intersection and topological editing is off, no other feature geometries are changed
@@ -92,7 +92,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
    *   other features geometries except those from the target layer which will be reshaped when overlapping
    *   the reshape line
    */
-  if ( reshapeReturn == GeometryUtils::GeometryOperationResult::Success )
+  if ( reshapeReturn == QfGeometryUtils::GeometryOperationResult::Success )
   {
     //avoid intersections on polygon layers
     if ( layer->geometryType() == Qgis::GeometryType::Polygon )
@@ -125,7 +125,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
 
       if ( selectedGeometry.isEmpty() ) // Intersection removal might have removed the whole geometry
       {
-        return GeometryUtils::GeometryOperationResult::NothingHappened;
+        return QfGeometryUtils::GeometryOperationResult::NothingHappened;
       }
     }
 
@@ -145,8 +145,8 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
         const bool isPolygon = layer->geometryType() == Qgis::GeometryType::Polygon;
         if ( selectedGeometry.intersects( reshapeLineStringGeom ) && otherGeometry.intersects( reshapeLineStringGeom ) )
         {
-          GeometryUtils::GeometryOperationResult otherReturn = static_cast<GeometryUtils::GeometryOperationResult>( otherGeometry.reshapeGeometry( reshapeLineString ) );
-          if ( otherReturn == GeometryUtils::GeometryOperationResult::Success )
+          QfGeometryUtils::GeometryOperationResult otherReturn = static_cast<QfGeometryUtils::GeometryOperationResult>( otherGeometry.reshapeGeometry( reshapeLineString ) );
+          if ( otherReturn == QfGeometryUtils::GeometryOperationResult::Success )
           {
             if ( !isPolygon || ( !otherGeometry.intersects( selectedGeometry ) || otherGeometry.touches( selectedGeometry ) ) )
             {
@@ -219,13 +219,13 @@ GeometryUtils::GeometryOperationResult GeometryUtils::reshapeFromRubberband( Qgs
   return reshapeReturn;
 }
 
-GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+QfGeometryUtils::GeometryOperationResult QfGeometryUtils::eraseFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel )
 {
   QgsFeature feature = layer->getFeature( fid );
   QgsGeometry geom = feature.geometry();
   if ( geom.isNull() || ( QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Line && QgsWkbTypes::geometryType( geom.wkbType() ) != Qgis::GeometryType::Polygon ) )
   {
-    return GeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
+    return QfGeometryUtils::GeometryOperationResult::InvalidBaseGeometry;
   }
 
   const QgsGeometry diffGeom = variableWidthBufferByMFromRubberband( rubberBandModel, layer->crs() );
@@ -234,7 +234,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVe
   {
     if ( QgsWkbTypes::isMultiType( resultGeom.wkbType() ) && !QgsWkbTypes::isMultiType( layer->wkbType() ) )
     {
-      return GeometryUtils::GeometryOperationResult::AddPartNotMultiGeometry;
+      return QfGeometryUtils::GeometryOperationResult::AddPartNotMultiGeometry;
     }
 
     layer->changeGeometry( fid, resultGeom );
@@ -243,21 +243,21 @@ GeometryUtils::GeometryOperationResult GeometryUtils::eraseFromRubberband( QgsVe
     {
       layer->addTopologicalPoints( resultGeom );
     }
-    return GeometryUtils::GeometryOperationResult::Success;
+    return QfGeometryUtils::GeometryOperationResult::Success;
   }
 
-  return GeometryUtils::GeometryOperationResult::InvalidInputGeometryType;
+  return QfGeometryUtils::GeometryOperationResult::InvalidInputGeometryType;
 }
 
-GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+QfGeometryUtils::GeometryOperationResult QfGeometryUtils::addRingFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel )
 {
   if ( !layer || !rubberBandModel )
-    return GeometryUtils::GeometryOperationResult::NothingHappened;
+    return QfGeometryUtils::GeometryOperationResult::NothingHappened;
 
   QgsPointSequence ring = rubberBandModel->pointSequence( layer->crs(), layer->wkbType(), true );
   if ( ring.size() < 3 )
   {
-    return GeometryUtils::GeometryOperationResult::AddRingNotValid;
+    return QfGeometryUtils::GeometryOperationResult::AddRingNotValid;
   }
 
   // Try to fix invalid geometries, useful when being passed on a freehand digitized ring
@@ -268,7 +268,7 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
     const QgsLineString *line = qgsgeometry_cast<const QgsLineString *>( geometry.constGet() );
     if ( !line || line->isEmpty() )
     {
-      return GeometryUtils::GeometryOperationResult::AddRingNotValid;
+      return QfGeometryUtils::GeometryOperationResult::AddRingNotValid;
     }
 
     // Reset the ring to match the valid geometry
@@ -285,8 +285,8 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
     layer->commitChanges( false );
   }
 
-  GeometryUtils::GeometryOperationResult result = static_cast<GeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
-  if ( result != GeometryUtils::GeometryOperationResult::Success )
+  QfGeometryUtils::GeometryOperationResult result = static_cast<QfGeometryUtils::GeometryOperationResult>( layer->addRing( ring, &fid ) );
+  if ( result != QfGeometryUtils::GeometryOperationResult::Success )
   {
     layer->rollBack();
   }
@@ -298,10 +298,10 @@ GeometryUtils::GeometryOperationResult GeometryUtils::addRingFromRubberband( Qgs
   return result;
 }
 
-GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, RubberbandModel *rubberBandModel )
+QfGeometryUtils::GeometryOperationResult QfGeometryUtils::splitFeatureFromRubberband( QgsVectorLayer *layer, QgsFeatureId fid, QfRubberbandModel *rubberBandModel )
 {
   if ( !layer || !rubberBandModel )
-    return GeometryUtils::GeometryOperationResult::NothingHappened;
+    return QfGeometryUtils::GeometryOperationResult::NothingHappened;
 
   // The connection below will be triggered when the new feature is committed and will provide
   // the saved feature ID needed to fetch the saved feature back from the data provider
@@ -321,8 +321,8 @@ GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband
   }
 
   QgsPointSequence line = rubberBandModel->pointSequence( layer->crs(), Qgis::WkbType::Point, false );
-  GeometryUtils::GeometryOperationResult result = static_cast<GeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
-  if ( result != GeometryUtils::GeometryOperationResult::Success )
+  QfGeometryUtils::GeometryOperationResult result = static_cast<QfGeometryUtils::GeometryOperationResult>( layer->splitFeatures( line, true ) );
+  if ( result != QfGeometryUtils::GeometryOperationResult::Success )
   {
     layer->rollBack();
   }
@@ -350,17 +350,17 @@ GeometryUtils::GeometryOperationResult GeometryUtils::splitFeatureFromRubberband
   return result;
 }
 
-QgsPoint GeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )
+QgsPoint QfGeometryUtils::coordinateToPoint( const QGeoCoordinate &coor )
 {
   return QgsPoint( coor.longitude(), coor.latitude(), coor.altitude() );
 }
 
-double GeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end )
+double QfGeometryUtils::distanceBetweenPoints( const QgsPoint &start, const QgsPoint &end )
 {
   return start.distance( end );
 }
 
-QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
+QgsPoint QfGeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsCoordinateReferenceSystem &crs )
 {
   const QgsCoordinateReferenceSystem wgs84Crs = QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) );
   const QgsCoordinateTransform ct( crs, wgs84Crs, QgsProject::instance() );
@@ -381,7 +381,7 @@ QgsPoint GeometryUtils::reprojectPointToWgs84( const QgsPoint &point, const QgsC
                    point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
 
-QgsPoint GeometryUtils::centroid( const QgsGeometry &geometry )
+QgsPoint QfGeometryUtils::centroid( const QgsGeometry &geometry )
 {
   const QgsGeometry centroid = geometry.centroid();
   if ( !centroid.isEmpty() )
@@ -391,7 +391,7 @@ QgsPoint GeometryUtils::centroid( const QgsGeometry &geometry )
   return QgsPoint();
 }
 
-QgsPointXY GeometryUtils::reprojectPoint( const QgsPointXY &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+QgsPointXY QfGeometryUtils::reprojectPoint( const QgsPointXY &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
     return point;
@@ -411,7 +411,7 @@ QgsPointXY GeometryUtils::reprojectPoint( const QgsPointXY &point, const QgsCoor
   return reprojectedPoint;
 }
 
-QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+QgsPoint QfGeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
     return point;
@@ -434,7 +434,7 @@ QgsPoint GeometryUtils::reprojectPoint( const QgsPoint &point, const QgsCoordina
                    point.isMeasure() ? point.m() : std::numeric_limits<double>::quiet_NaN() );
 }
 
-QgsRectangle GeometryUtils::reprojectRectangle( const QgsRectangle &rectangle, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+QgsRectangle QfGeometryUtils::reprojectRectangle( const QgsRectangle &rectangle, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
   {
@@ -455,7 +455,7 @@ QgsRectangle GeometryUtils::reprojectRectangle( const QgsRectangle &rectangle, c
   return reprojectedRectangle;
 }
 
-QgsGeometry GeometryUtils::reprojectGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
+QgsGeometry QfGeometryUtils::reprojectGeometry( const QgsGeometry &geometry, const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs )
 {
   if ( sourceCrs == destinationCrs )
   {
@@ -479,22 +479,22 @@ QgsGeometry GeometryUtils::reprojectGeometry( const QgsGeometry &geometry, const
   return QgsGeometry();
 }
 
-QgsGeometry GeometryUtils::createGeometryFromWkt( const QString &wkt )
+QgsGeometry QfGeometryUtils::createGeometryFromWkt( const QString &wkt )
 {
   return QgsGeometry::fromWkt( wkt );
 }
 
-QgsRectangle GeometryUtils::createRectangleFromPoints( const QgsPoint &p1, const QgsPoint &p2 )
+QgsRectangle QfGeometryUtils::createRectangleFromPoints( const QgsPoint &p1, const QgsPoint &p2 )
 {
   return QgsRectangle( p1, p2 );
 }
 
-bool GeometryUtils::geometryWithin( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
+bool QfGeometryUtils::geometryWithin( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
 {
   return geometry.within( referenceGeometry );
 }
 
-bool GeometryUtils::geometryOverlaps( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
+bool QfGeometryUtils::geometryOverlaps( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
 {
   return geometry.overlaps( referenceGeometry );
 }

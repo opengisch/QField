@@ -26,22 +26,22 @@
 #include <qgsvectordataprovider.h>
 #include <qgsvectorlayer.h>
 
-MultiFeatureListModel::MultiFeatureListModel( QObject *parent )
+QfMultiFeatureListModel::QfMultiFeatureListModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mSourceModel( new MultiFeatureListModelBase( this ) )
+  , mSourceModel( new QfMultiFeatureListModelBase( this ) )
 {
   setSourceModel( mSourceModel );
-  connect( mSourceModel, &MultiFeatureListModelBase::modelReset, this, &MultiFeatureListModel::countChanged );
-  connect( mSourceModel, &MultiFeatureListModelBase::countChanged, this, &MultiFeatureListModel::countChanged );
-  connect( mSourceModel, &MultiFeatureListModelBase::selectedCountChanged, this, &MultiFeatureListModel::adjustFilterToSelectedCount );
+  connect( mSourceModel, &QfMultiFeatureListModelBase::modelReset, this, &QfMultiFeatureListModel::countChanged );
+  connect( mSourceModel, &QfMultiFeatureListModelBase::countChanged, this, &QfMultiFeatureListModel::countChanged );
+  connect( mSourceModel, &QfMultiFeatureListModelBase::selectedCountChanged, this, &QfMultiFeatureListModel::adjustFilterToSelectedCount );
 }
 
-void MultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests )
+void QfMultiFeatureListModel::setFeatures( const QMap<QgsVectorLayer *, QgsFeatureRequest> &requests )
 {
   mSourceModel->setFeatures( requests );
 }
 
-void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl, const QString &filter, const QgsRectangle &extent )
+void QfMultiFeatureListModel::setFeatures( QgsVectorLayer *vl, const QString &filter, const QgsRectangle &extent )
 {
   QgsFeatureRequest request;
   if ( !filter.isEmpty() )
@@ -75,12 +75,12 @@ void MultiFeatureListModel::setFeatures( QgsVectorLayer *vl, const QString &filt
   mSourceModel->setFeatures( requests );
 }
 
-void MultiFeatureListModel::appendFeatures( const QList<IdentifyTool::IdentifyResult> &results )
+void QfMultiFeatureListModel::appendFeatures( const QList<QfIdentifyTool::IdentifyResult> &results )
 {
   mSourceModel->appendFeatures( results );
 }
 
-void MultiFeatureListModel::clear( const bool keepSelected )
+void QfMultiFeatureListModel::clear( const bool keepSelected )
 {
   if ( !keepSelected )
   {
@@ -89,100 +89,100 @@ void MultiFeatureListModel::clear( const bool keepSelected )
   mSourceModel->clear( keepSelected );
 }
 
-void MultiFeatureListModel::clearSelection()
+void QfMultiFeatureListModel::clearSelection()
 {
   mFilterLayer = nullptr;
   mSourceModel->clearSelection();
 }
 
-int MultiFeatureListModel::count() const
+int QfMultiFeatureListModel::count() const
 {
   return mSourceModel->count();
 }
 
-int MultiFeatureListModel::selectedCount() const
+int QfMultiFeatureListModel::selectedCount() const
 {
   return mSourceModel->selectedCount();
 }
 
-bool MultiFeatureListModel::canEditAttributesSelection() const
+bool QfMultiFeatureListModel::canEditAttributesSelection() const
 {
   return mSourceModel->canEditAttributesSelection();
 }
 
-bool MultiFeatureListModel::canMergeSelection() const
+bool QfMultiFeatureListModel::canMergeSelection() const
 {
   return mSourceModel->canMergeSelection();
 }
 
-bool MultiFeatureListModel::canDeleteSelection() const
+bool QfMultiFeatureListModel::canDeleteSelection() const
 {
   return mSourceModel->canDeleteSelection();
 }
 
-bool MultiFeatureListModel::canDuplicateSelection() const
+bool QfMultiFeatureListModel::canDuplicateSelection() const
 {
   return mSourceModel->canDuplicateSelection();
 }
 
-bool MultiFeatureListModel::canMoveSelection() const
+bool QfMultiFeatureListModel::canMoveSelection() const
 {
   return mSourceModel->canMoveSelection();
 }
 
-bool MultiFeatureListModel::canRotateSelection() const
+bool QfMultiFeatureListModel::canRotateSelection() const
 {
   return mSourceModel->canRotateSelection();
 }
 
-bool MultiFeatureListModel::canProcessSelection() const
+bool QfMultiFeatureListModel::canProcessSelection() const
 {
   return mSourceModel->canProcessSelection();
 }
 
-bool MultiFeatureListModel::mergeSelection()
+bool QfMultiFeatureListModel::mergeSelection()
 {
   return mSourceModel->mergeSelection();
 }
 
-bool MultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
+bool QfMultiFeatureListModel::deleteFeature( QgsVectorLayer *layer, QgsFeatureId fid )
 {
   return mSourceModel->deleteFeature( layer, fid );
 }
 
-bool MultiFeatureListModel::deleteSelection()
+bool QfMultiFeatureListModel::deleteSelection()
 {
   return mSourceModel->deleteSelection();
 }
 
-bool MultiFeatureListModel::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
+bool QfMultiFeatureListModel::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
 {
   return mSourceModel->duplicateFeature( layer, feature );
 }
 
-bool MultiFeatureListModel::duplicateSelection()
+bool QfMultiFeatureListModel::duplicateSelection()
 {
   return mSourceModel->duplicateSelection();
 }
 
-bool MultiFeatureListModel::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
+bool QfMultiFeatureListModel::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
 {
   return mSourceModel->moveSelection( x, y, destinationPoint );
 }
 
-bool MultiFeatureListModel::rotateSelection( const double angle )
+bool QfMultiFeatureListModel::rotateSelection( const double angle )
 {
   return mSourceModel->rotateSelection( angle );
 }
 
-void MultiFeatureListModel::toggleSelectedItem( int item )
+void QfMultiFeatureListModel::toggleSelectedItem( int item )
 {
   QModelIndex sourceItem = mapToSource( index( item, 0 ) );
   mSourceModel->toggleSelectedItem( sourceItem.row() );
   if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
   {
     beginFilterChange();
-    mFilterLayer = mSourceModel->data( sourceItem, MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    mFilterLayer = mSourceModel->data( sourceItem, QfMultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
     endFilterChange( QSortFilterProxyModel::Direction::Rows );
     emit selectedLayerChanged();
   }
@@ -195,7 +195,7 @@ void MultiFeatureListModel::toggleSelectedItem( int item )
   }
 }
 
-void MultiFeatureListModel::adjustFilterToSelectedCount()
+void QfMultiFeatureListModel::adjustFilterToSelectedCount()
 {
   if ( mSourceModel->selectedCount() > 0 && mFilterLayer == nullptr )
   {
@@ -214,21 +214,21 @@ void MultiFeatureListModel::adjustFilterToSelectedCount()
   emit selectedCountChanged();
 }
 
-QList<QgsFeature> MultiFeatureListModel::selectedFeatures()
+QList<QgsFeature> QfMultiFeatureListModel::selectedFeatures()
 {
   return mSourceModel->selectedFeatures();
 }
 
-QgsVectorLayer *MultiFeatureListModel::selectedLayer()
+QgsVectorLayer *QfMultiFeatureListModel::selectedLayer()
 {
   return mFilterLayer.data();
 }
 
-bool MultiFeatureListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
+bool QfMultiFeatureListModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
   if ( mFilterLayer != nullptr )
   {
-    return mFilterLayer == mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), MultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
+    return mFilterLayer == mSourceModel->data( mSourceModel->index( source_row, 0, source_parent ), QfMultiFeatureListModel::LayerRole ).value<QgsVectorLayer *>();
   }
   return true;
 }

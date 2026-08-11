@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfmessagelogmodel.h - MessageLogModel
+  qfmessagelogmodel.h - QfMessageLogModel
 
  ---------------------
  begin                : 13.7.2016
@@ -25,7 +25,7 @@
  * messages received from there.
  * \ingroup core
  */
-class MessageLogModel : public QAbstractListModel
+class QfMessageLogModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -57,7 +57,7 @@ class MessageLogModel : public QAbstractListModel
     };
 
   public:
-    explicit MessageLogModel( QObject *parent = nullptr );
+    explicit QfMessageLogModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

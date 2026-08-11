@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeatureexpressionvaluesgatherer.h - FeatureExpressionValuesGatherer
+  qffeatureexpressionvaluesgatherer.h - QfFeatureExpressionValuesGatherer
 
  ---------------------
  begin                : 29.1.2021
@@ -31,7 +31,7 @@
  * \note This is a is an exact copy of QGIS' QgsFeatureExpressionValuesGatherer
  * \ingroup core
  */
-class FeatureExpressionValuesGatherer : public QThread
+class QfFeatureExpressionValuesGatherer : public QThread
 {
     Q_OBJECT
 
@@ -43,10 +43,10 @@ class FeatureExpressionValuesGatherer : public QThread
        * \param request the request to perform
        * \param identifierFields an optional list of fields name to be save in a variant list for an easier reuse
        */
-    explicit FeatureExpressionValuesGatherer( QgsVectorLayer *layer,
-                                              const QString &displayExpression = QString(),
-                                              const QgsFeatureRequest &request = QgsFeatureRequest(),
-                                              const QStringList &identifierFields = QStringList() )
+    explicit QfFeatureExpressionValuesGatherer( QgsVectorLayer *layer,
+                                                const QString &displayExpression = QString(),
+                                                const QgsFeatureRequest &request = QgsFeatureRequest(),
+                                                const QStringList &identifierFields = QStringList() )
       : mSource( new QgsVectorLayerFeatureSource( layer ) )
       , mDisplayExpression( displayExpression.isEmpty() ? layer->displayExpression() : displayExpression )
       , mExpressionContext( layer->createExpressionContext() )

@@ -19,11 +19,11 @@
 #include <QJsonObject>
 
 
-DeltaListModel::DeltaListModel()
+QfDeltaListModel::QfDeltaListModel()
 {
 }
 
-int DeltaListModel::rowCount( const QModelIndex &parent ) const
+int QfDeltaListModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
   {
@@ -33,7 +33,7 @@ int DeltaListModel::rowCount( const QModelIndex &parent ) const
   return static_cast<int>( mDeltas.size() );
 }
 
-QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
+QVariant QfDeltaListModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mDeltas.size() || index.row() < 0 )
     return QVariant();
@@ -61,7 +61,7 @@ QVariant DeltaListModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> DeltaListModel::roleNames() const
+QHash<int, QByteArray> QfDeltaListModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IdRole] = "Id";
@@ -75,27 +75,27 @@ QHash<int, QByteArray> DeltaListModel::roleNames() const
   return roles;
 }
 
-bool DeltaListModel::isValid() const
+bool QfDeltaListModel::isValid() const
 {
   return mIsValid;
 }
 
-bool DeltaListModel::isRefreshing() const
+bool QfDeltaListModel::isRefreshing() const
 {
   return mIsRefreshing;
 }
 
-QJsonDocument DeltaListModel::json() const
+QJsonDocument QfDeltaListModel::json() const
 {
   return mJson;
 }
 
-QString DeltaListModel::errorString() const
+QString QfDeltaListModel::errorString() const
 {
   return mErrorString;
 }
 
-void DeltaListModel::refresh()
+void QfDeltaListModel::refresh()
 {
   if ( !mDeltas.isEmpty() )
   {
@@ -112,8 +112,8 @@ void DeltaListModel::refresh()
   }
 
   setIsRefreshing( true );
-  NetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjectId ) );
-  connect( deltaStatusReply, &NetworkReply::finished, this, [this, deltaStatusReply]() {
+  QfNetworkReply *deltaStatusReply = mCloudConnection->get( QStringLiteral( "/api/v1/deltas/%1/" ).arg( mCloudProjectId ) );
+  connect( deltaStatusReply, &QfNetworkReply::finished, this, [this, deltaStatusReply]() {
     QNetworkReply *rawReply = deltaStatusReply->currentRawReply();
     deltaStatusReply->deleteLater();
 
@@ -131,7 +131,7 @@ void DeltaListModel::refresh()
     beginResetModel();
     QString errorString;
     bool isValid = false;
-    mDeltas = QFieldCloudUtils::parseDeltaJsonDocument( mJson, errorString, isValid );
+    mDeltas = QfCloudUtils::parseDeltaJsonDocument( mJson, errorString, isValid );
     endResetModel();
 
     if ( !errorString.isEmpty() )
@@ -150,7 +150,7 @@ void DeltaListModel::refresh()
   } );
 }
 
-void DeltaListModel::setCloudConnection( QFieldCloudConnection *cloudConnection )
+void QfDeltaListModel::setCloudConnection( QfCloudConnection *cloudConnection )
 {
   if ( mCloudConnection == cloudConnection )
   {
@@ -161,7 +161,7 @@ void DeltaListModel::setCloudConnection( QFieldCloudConnection *cloudConnection 
   emit cloudConnectionChanged();
 }
 
-void DeltaListModel::setCloudProjectId( const QString &cloudProjectId )
+void QfDeltaListModel::setCloudProjectId( const QString &cloudProjectId )
 {
   if ( mCloudProjectId == cloudProjectId )
   {
@@ -172,7 +172,7 @@ void DeltaListModel::setCloudProjectId( const QString &cloudProjectId )
   emit cloudProjectIdChanged();
 }
 
-void DeltaListModel::setIsRefreshing( bool isRefreshing )
+void QfDeltaListModel::setIsRefreshing( bool isRefreshing )
 {
   if ( mIsRefreshing == isRefreshing )
   {

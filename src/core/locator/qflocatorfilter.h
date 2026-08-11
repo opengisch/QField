@@ -25,13 +25,13 @@
 #include <qgslocatorfilter.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * QFieldLocatorFilter is a locator filter item for QField plugins to integrate with
+ * QfLocatorFilter is a locator filter item for QField plugins to integrate with
  * locator searches.
  */
-class QFieldLocatorFilter : public QgsLocatorFilter
+class QfLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -44,13 +44,13 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     Q_PROPERTY( QVariantMap parameters READ parameters WRITE setParameters NOTIFY parametersChanged )
     Q_PROPERTY( QUrl source READ source WRITE setSource NOTIFY sourceChanged )
 
-    Q_PROPERTY( LocatorModelSuperBridge *locatorBridge READ locatorBridge WRITE setLocatorBridge NOTIFY locatorBridgeChanged )
+    Q_PROPERTY( QfLocatorModelSuperBridge *locatorBridge READ locatorBridge WRITE setLocatorBridge NOTIFY locatorBridgeChanged )
 
   public:
-    explicit QFieldLocatorFilter( QObject *parent = nullptr );
+    explicit QfLocatorFilter( QObject *parent = nullptr );
 
     //! Clone the locator filter
-    QFieldLocatorFilter *clone() const override;
+    QfLocatorFilter *clone() const override;
 
     //! Returns the delay before which the fetching of results is triggered
     int delay() const { return fetchResultsDelay(); }
@@ -118,12 +118,12 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     /**
      * Returns the locator bridge object.
      */
-    LocatorModelSuperBridge *locatorBridge() const { return mLocatorBridge; }
+    QfLocatorModelSuperBridge *locatorBridge() const { return mLocatorBridge; }
 
     /**
      * Sets the locator bridge object.
      */
-    void setLocatorBridge( LocatorModelSuperBridge *locatorBridge );
+    void setLocatorBridge( QfLocatorModelSuperBridge *locatorBridge );
 
     Priority priority() const override { return Medium; }
     void fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback ) override;
@@ -170,7 +170,7 @@ class QFieldLocatorFilter : public QgsLocatorFilter
     QVariantMap mParameters;
     QUrl mSource;
 
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // QFLOCATORFILTER_H

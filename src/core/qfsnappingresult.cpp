@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfsnappingresult.cpp - SnappingResult
+  qfsnappingresult.cpp - QfSnappingResult
 
  ---------------------
  begin                : 8.10.2016
@@ -15,12 +15,12 @@
  ***************************************************************************/
 #include "qfsnappingresult.h"
 
-SnappingResult::Type matchTypeToSnappingResultType( QgsPointLocator::Type type )
+QfSnappingResult::Type matchTypeToSnappingResultType( QgsPointLocator::Type type )
 {
-  return static_cast<SnappingResult::Type>( type );
+  return static_cast<QfSnappingResult::Type>( type );
 }
 
-SnappingResult::SnappingResult()
+QfSnappingResult::QfSnappingResult()
   : mType( Invalid )
   , mDist( 0 )
   , mPoint()
@@ -29,7 +29,7 @@ SnappingResult::SnappingResult()
   , mVertexIndex( 0 )
 {}
 
-SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex, const QgsPoint *edgePoints )
+QfSnappingResult::QfSnappingResult( QfSnappingResult::Type t, QgsVectorLayer *vl, QgsFeatureId fid, double dist, const QgsPoint &pt, int vertexIndex, const QgsPoint *edgePoints )
   : mType( t )
   , mDist( dist )
   , mPoint( pt )
@@ -44,7 +44,7 @@ SnappingResult::SnappingResult( SnappingResult::Type t, QgsVectorLayer *vl, QgsF
   }
 }
 
-SnappingResult::SnappingResult( const QgsPointLocator::Match &match )
+QfSnappingResult::QfSnappingResult( const QgsPointLocator::Match &match )
   : mType( matchTypeToSnappingResultType( match.type() ) )
   , mDist( match.distance() )
   , mPoint( match.point() )
@@ -54,67 +54,67 @@ SnappingResult::SnappingResult( const QgsPointLocator::Match &match )
 {
 }
 
-bool SnappingResult::operator==( const SnappingResult &other ) const
+bool QfSnappingResult::operator==( const QfSnappingResult &other ) const
 {
   return mType == other.mType && mDist == other.mDist && mPoint == other.mPoint && mLayer == other.mLayer && mFid == other.mFid && mVertexIndex == other.mVertexIndex;
 }
 
-SnappingResult::Type SnappingResult::type() const
+QfSnappingResult::Type QfSnappingResult::type() const
 {
   return mType;
 }
 
-bool SnappingResult::isValid() const
+bool QfSnappingResult::isValid() const
 {
   return mType != Invalid;
 }
 
-bool SnappingResult::hasVertex() const
+bool QfSnappingResult::hasVertex() const
 {
   return mType == Vertex;
 }
 
-bool SnappingResult::hasEdge() const
+bool QfSnappingResult::hasEdge() const
 {
   return mType == Edge;
 }
 
-bool SnappingResult::hasArea() const
+bool QfSnappingResult::hasArea() const
 {
   return mType == Area;
 }
 
-double SnappingResult::distance() const
+double QfSnappingResult::distance() const
 {
   return mDist;
 }
 
-QgsPoint SnappingResult::point() const
+QgsPoint QfSnappingResult::point() const
 {
   return mPoint;
 }
 
-void SnappingResult::setPoint( const QgsPoint point )
+void QfSnappingResult::setPoint( const QgsPoint point )
 {
   mPoint = point;
 }
 
-int SnappingResult::vertexIndex() const
+int QfSnappingResult::vertexIndex() const
 {
   return mVertexIndex;
 }
 
-QgsVectorLayer *SnappingResult::layer() const
+QgsVectorLayer *QfSnappingResult::layer() const
 {
   return mLayer.data();
 }
 
-QgsFeatureId SnappingResult::featureId() const
+QgsFeatureId QfSnappingResult::featureId() const
 {
   return mFid;
 }
 
-void SnappingResult::edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const
+void QfSnappingResult::edgePoints( QgsPoint &pt1, QgsPoint &pt2 ) const
 {
   pt1 = mEdgePoints[0];
   pt2 = mEdgePoints[1];

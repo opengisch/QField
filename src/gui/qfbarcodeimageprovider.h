@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfbarcodeimageprovider.h - BarcodeImageProvider
+  qfbarcodeimageprovider.h - QfBarcodeImageProvider
 
  ---------------------
  begin                : 26.04.2025
@@ -23,10 +23,10 @@
 /**
  * \ingroup core
  */
-class BarcodeImageProvider : public QQuickImageProvider
+class QfBarcodeImageProvider : public QQuickImageProvider
 {
   public:
-    explicit BarcodeImageProvider();
+    explicit QfBarcodeImageProvider();
 
     QQmlImageProviderBase::ImageType imageType() const override { return QQmlImageProviderBase::Image; }
     QImage requestImage( const QString &id, QSize *size, const QSize &requestedSize ) override;

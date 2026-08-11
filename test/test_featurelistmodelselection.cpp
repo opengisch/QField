@@ -31,7 +31,7 @@
 
 TEST_CASE( "FeatureListModelSelection default state is safe" )
 {
-  FeatureListModelSelection selection;
+  QfFeatureListModelSelection selection;
 
   REQUIRE( selection.model() == nullptr );
   REQUIRE( selection.focusedItem() == -1 );
@@ -83,7 +83,7 @@ TEST_CASE( "FeatureListModelSelection behaviour" )
 
   layer->commitChanges();
 
-  MultiFeatureListModel model;
+  QfMultiFeatureListModel model;
   QMap<QgsVectorLayer *, QgsFeatureRequest> requests;
   requests.insert( layer.get(), QgsFeatureRequest() );
   model.setFeatures( requests );
@@ -113,10 +113,10 @@ TEST_CASE( "FeatureListModelSelection behaviour" )
   REQUIRE( rowA >= 0 );
 
   const QModelIndex idxA = model.index( rowA, 0 );
-  const QgsFeatureId fidA = model.data( idxA, MultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
+  const QgsFeatureId fidA = model.data( idxA, QfMultiFeatureListModel::FeatureIdRole ).value<QgsFeatureId>();
   REQUIRE( fidA >= 0 );
 
-  FeatureListModelSelection selection;
+  QfFeatureListModelSelection selection;
 
   // check setModel resets
   selection.setFocusedItem( 0 );
@@ -136,7 +136,7 @@ TEST_CASE( "FeatureListModelSelection behaviour" )
 
   // toggleSelectedItem forwards to the model and emits signal
   {
-    QSignalSpy selectedSpy( &selection, &FeatureListModelSelection::selectedFeaturesChanged );
+    QSignalSpy selectedSpy( &selection, &QfFeatureListModelSelection::selectedFeaturesChanged );
 
     selection.toggleSelectedItem( rowA );
 

@@ -23,13 +23,13 @@
 #include <qgslocatorfilter.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * ExpressionCalculatorLocatorFilter is a locator filter to type in expressions
+ * QfExpressionCalculatorLocatorFilter is a locator filter to type in expressions
  * and copy their returned value.
  */
-class ExpressionCalculatorLocatorFilter : public QgsLocatorFilter
+class QfExpressionCalculatorLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -40,8 +40,8 @@ class ExpressionCalculatorLocatorFilter : public QgsLocatorFilter
       Normal,
     };
 
-    explicit ExpressionCalculatorLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-    ExpressionCalculatorLocatorFilter *clone() const override;
+    explicit QfExpressionCalculatorLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    QfExpressionCalculatorLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "calculator" ); }
     QString displayName() const override { return tr( "Calculator" ); }
     QString description() const override { return tr( "Returns the value of an expression typed in the search bar." ); }
@@ -54,7 +54,7 @@ class ExpressionCalculatorLocatorFilter : public QgsLocatorFilter
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   private:
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // QFEXPRESSIONCALCULATORLOCATORFILTER_H

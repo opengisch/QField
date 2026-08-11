@@ -23,7 +23,7 @@
 #include <qgsgeocoderresult.h>
 #include <qgsproject.h>
 
-FinlandLocatorFilter::FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge )
+QfFinlandLocatorFilter::QfFinlandLocatorFilter( QgsGeocoderInterface *geocoder, QfLocatorModelSuperBridge *locatorBridge )
   : QgsAbstractGeocoderLocatorFilter( QStringLiteral( "pelias-finland" ), tr( "Finnish address search" ), QStringLiteral( "fia" ), geocoder )
   , mLocatorBridge( locatorBridge )
 {
@@ -32,12 +32,12 @@ FinlandLocatorFilter::FinlandLocatorFilter( QgsGeocoderInterface *geocoder, Loca
   setUseWithoutPrefix( false );
 }
 
-FinlandLocatorFilter *FinlandLocatorFilter::clone() const
+QfFinlandLocatorFilter *QfFinlandLocatorFilter::clone() const
 {
-  return new FinlandLocatorFilter( geocoder(), mLocatorBridge );
+  return new QfFinlandLocatorFilter( geocoder(), mLocatorBridge );
 }
 
-void FinlandLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result )
+void QfFinlandLocatorFilter::handleGeocodeResult( const QgsGeocoderResult &result )
 {
   const QgsCoordinateReferenceSystem currentCrs = mLocatorBridge->mapSettings()->mapSettings().destinationCrs();
   const QgsCoordinateReferenceSystem wgs84Crs( QStringLiteral( "EPSG:4326" ) );

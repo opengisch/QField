@@ -30,20 +30,20 @@
 
 typedef QMap<QUrl, QList<QgsGeocoderResult>> CachedGeocodeResult;
 Q_GLOBAL_STATIC( CachedGeocodeResult, sCachedResults )
-qint64 PeliasGeocoder::sLastRequestTimestamp = 0;
+qint64 QfPeliasGeocoder::sLastRequestTimestamp = 0;
 
-PeliasGeocoder::PeliasGeocoder( const QString &endpoint )
+QfPeliasGeocoder::QfPeliasGeocoder( const QString &endpoint )
   : QgsGeocoderInterface()
   , mEndpoint( endpoint )
 {
 }
 
-QgsGeocoderInterface::Flags PeliasGeocoder::flags() const
+QgsGeocoderInterface::Flags QfPeliasGeocoder::flags() const
 {
   return QgsGeocoderInterface::Flag::GeocodesStrings;
 }
 
-QgsFields PeliasGeocoder::appendedFields() const
+QgsFields QfPeliasGeocoder::appendedFields() const
 {
   QgsFields fields;
   fields.append( QgsField( QStringLiteral( "name" ), QMetaType::QString ) );
@@ -60,12 +60,12 @@ QgsFields PeliasGeocoder::appendedFields() const
   return fields;
 }
 
-Qgis::WkbType PeliasGeocoder::wkbType() const
+Qgis::WkbType QfPeliasGeocoder::wkbType() const
 {
   return Qgis::WkbType::Point;
 }
 
-QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback ) const
+QList<QgsGeocoderResult> QfPeliasGeocoder::geocodeString( const QString &string, const QgsGeocoderContext &context, QgsFeedback *feedback ) const
 {
   if ( string.trimmed().isEmpty() )
     return QList<QgsGeocoderResult>();
@@ -142,7 +142,7 @@ QList<QgsGeocoderResult> PeliasGeocoder::geocodeString( const QString &string, c
   return matches;
 }
 
-QUrl PeliasGeocoder::requestUrl( const QString &address, const QgsRectangle &bounds ) const
+QUrl QfPeliasGeocoder::requestUrl( const QString &address, const QgsRectangle &bounds ) const
 {
   QUrl res( mEndpoint );
   QUrlQuery query;
@@ -159,7 +159,7 @@ QUrl PeliasGeocoder::requestUrl( const QString &address, const QgsRectangle &bou
   return res;
 }
 
-QgsGeocoderResult PeliasGeocoder::jsonToResult( const QVariantMap &json ) const
+QgsGeocoderResult QfPeliasGeocoder::jsonToResult( const QVariantMap &json ) const
 {
   const QVariantMap properties = json.value( QStringLiteral( "properties" ) ).toMap();
 
@@ -202,12 +202,12 @@ QgsGeocoderResult PeliasGeocoder::jsonToResult( const QVariantMap &json ) const
   return res;
 }
 
-QString PeliasGeocoder::endpoint() const
+QString QfPeliasGeocoder::endpoint() const
 {
   return mEndpoint;
 }
 
-void PeliasGeocoder::setEndpoint( const QString &endpoint )
+void QfPeliasGeocoder::setEndpoint( const QString &endpoint )
 {
   mEndpoint = endpoint;
 }

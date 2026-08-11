@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dgeometryconfiguration.h - Quick3DGeometryConfiguration
+  qf3dgeometryconfiguration.h - Qf3DGeometryConfiguration
 
  ---------------------
  begin                : 16.6.2026
@@ -26,10 +26,10 @@
 /**
  * \brief Lightweight data item used by plugins to inject geometry into the 3D map scene.
  *
- * \note QML Type: Quick3DGeometryConfiguration
+ * \note QML Type: Qf3DGeometryConfiguration
  * \ingroup core
  */
-class Quick3DGeometryConfiguration : public QQuickItem
+class Qf3DGeometryConfiguration : public QQuickItem
 {
     Q_OBJECT
 
@@ -38,7 +38,7 @@ class Quick3DGeometryConfiguration : public QQuickItem
     //! Extra vertical offset added on top of the elevation chosen by altitudeClamping
     Q_PROPERTY( float heightOffset READ heightOffset WRITE setHeightOffset NOTIFY heightOffsetChanged )
     //! How the geometry's Z values are combined with the terrain elevation
-    Q_PROPERTY( Quick3DGeometry::AltitudeClamping altitudeClamping READ altitudeClamping WRITE setAltitudeClamping NOTIFY altitudeClampingChanged )
+    Q_PROPERTY( Qf3DGeometry::AltitudeClamping altitudeClamping READ altitudeClamping WRITE setAltitudeClamping NOTIFY altitudeClampingChanged )
     //! Coordinate reference system the geometry is expressed in
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
@@ -48,7 +48,7 @@ class Quick3DGeometryConfiguration : public QQuickItem
     Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
 
   public:
-    explicit Quick3DGeometryConfiguration( QQuickItem *parent = nullptr );
+    explicit Qf3DGeometryConfiguration( QQuickItem *parent = nullptr );
 
     QString wkt() const { return mWkt; }
     void setWkt( const QString &wkt );
@@ -59,8 +59,8 @@ class Quick3DGeometryConfiguration : public QQuickItem
     float heightOffset() const { return mHeightOffset; }
     void setHeightOffset( float offset );
 
-    Quick3DGeometry::AltitudeClamping altitudeClamping() const { return mAltitudeClamping; }
-    void setAltitudeClamping( Quick3DGeometry::AltitudeClamping clamping );
+    Qf3DGeometry::AltitudeClamping altitudeClamping() const { return mAltitudeClamping; }
+    void setAltitudeClamping( Qf3DGeometry::AltitudeClamping clamping );
 
     QColor color() const { return mColor; }
     void setColor( const QColor &color );
@@ -80,7 +80,7 @@ class Quick3DGeometryConfiguration : public QQuickItem
     QString mWkt;
     QgsCoordinateReferenceSystem mCrs;
     float mHeightOffset = 20.0f;
-    Quick3DGeometry::AltitudeClamping mAltitudeClamping = Quick3DGeometry::AltitudeClamping::Ignore;
+    Qf3DGeometry::AltitudeClamping mAltitudeClamping = Qf3DGeometry::AltitudeClamping::Ignore;
     QColor mColor = QColor( 255, 102, 0 );
     float mLineWidth = 4.0f;
 };

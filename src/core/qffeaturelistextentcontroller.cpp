@@ -20,34 +20,34 @@
 #include <qgsgeometry.h>
 #include <qgsvectorlayer.h>
 
-FeatureListExtentController::FeatureListExtentController( QObject *parent )
+QfFeatureListExtentController::QfFeatureListExtentController( QObject *parent )
   : QObject( parent )
 {
-  connect( this, &FeatureListExtentController::autoZoomChanged, this, [this]() { zoomToSelected(); } );
-  connect( this, &FeatureListExtentController::modelChanged, this, &FeatureListExtentController::onModelChanged );
-  connect( this, &FeatureListExtentController::selectionChanged, this, &FeatureListExtentController::onModelChanged );
+  connect( this, &QfFeatureListExtentController::autoZoomChanged, this, [this]() { zoomToSelected(); } );
+  connect( this, &QfFeatureListExtentController::modelChanged, this, &QfFeatureListExtentController::onModelChanged );
+  connect( this, &QfFeatureListExtentController::selectionChanged, this, &QfFeatureListExtentController::onModelChanged );
 }
 
-FeatureListExtentController::~FeatureListExtentController()
+QfFeatureListExtentController::~QfFeatureListExtentController()
 {
 }
 
-FeatureListModelSelection *FeatureListExtentController::selection() const
+QfFeatureListModelSelection *QfFeatureListExtentController::selection() const
 {
   return mSelection;
 }
 
-MultiFeatureListModel *FeatureListExtentController::model() const
+QfMultiFeatureListModel *QfFeatureListExtentController::model() const
 {
   return mModel;
 }
 
-void FeatureListExtentController::requestFeatureFormState()
+void QfFeatureListExtentController::requestFeatureFormState()
 {
   emit featureFormStateRequested();
 }
 
-void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
+void QfFeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
 {
   if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings && mSelection->focusedLayer() )
   {
@@ -77,7 +77,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
       {
         try
         {
-          const QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature );
+          const QgsRectangle extent = QfFeatureUtils::extent( mMapSettings, layer, feature );
           if ( !extent.isNull() && ( !skipIfIntersects || !mMapSettings->extent().intersects( extent ) ) )
           {
             const double scale = mKeepScale ? -1 : mMapSettings->computeScaleForExtent( extent, true );
@@ -94,7 +94,7 @@ void FeatureListExtentController::zoomToSelected( bool skipIfIntersects ) const
   }
 }
 
-void FeatureListExtentController::zoomToAllFeatures() const
+void QfFeatureListExtentController::zoomToAllFeatures() const
 {
   if ( !mModel || !mMapSettings )
   {
@@ -112,7 +112,7 @@ void FeatureListExtentController::zoomToAllFeatures() const
   for ( int i = 0; i < mModel->rowCount( QModelIndex() ); ++i )
   {
     const QModelIndex index = mModel->index( i, 0 );
-    QgsVectorLayer *layer = qvariant_cast<QgsVectorLayer *>( mModel->data( index, MultiFeatureListModel::LayerRole ) );
+    QgsVectorLayer *layer = qvariant_cast<QgsVectorLayer *>( mModel->data( index, QfMultiFeatureListModel::LayerRole ) );
     if ( !layer || layer->geometryType() == Qgis::GeometryType::Unknown || layer->geometryType() == Qgis::GeometryType::Null )
     {
       continue;
@@ -120,7 +120,7 @@ void FeatureListExtentController::zoomToAllFeatures() const
 
     try
     {
-      const QgsFeature feature = mModel->data( index, MultiFeatureListModel::FeatureRole ).value<QgsFeature>();
+      const QgsFeature feature = mModel->data( index, QfMultiFeatureListModel::FeatureRole ).value<QgsFeature>();
       const QgsGeometry geom( feature.geometry() );
       if ( geom.isNull() )
       {
@@ -132,7 +132,7 @@ void FeatureListExtentController::zoomToAllFeatures() const
         isSinglePointGeometry = false;
       }
 
-      const QgsRectangle extent = FeatureUtils::extent( mMapSettings, layer, feature, !isSinglePointGeometry );
+      const QgsRectangle extent = QfFeatureUtils::extent( mMapSettings, layer, feature, !isSinglePointGeometry );
       if ( extent.isNull() )
       {
         continue;
@@ -164,7 +164,7 @@ void FeatureListExtentController::zoomToAllFeatures() const
   }
 }
 
-QgsPoint FeatureListExtentController::getCentroidFromSelected() const
+QgsPoint QfFeatureListExtentController::getCentroidFromSelected() const
 {
   if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
   {
@@ -190,15 +190,15 @@ QgsPoint FeatureListExtentController::getCentroidFromSelected() const
   return QgsPoint();
 }
 
-void FeatureListExtentController::onModelChanged()
+void QfFeatureListExtentController::onModelChanged()
 {
   if ( mModel && mSelection )
   {
-    connect( mSelection, &FeatureListModelSelection::focusedItemChanged, this, &FeatureListExtentController::onCurrentSelectionChanged );
+    connect( mSelection, &QfFeatureListModelSelection::focusedItemChanged, this, &QfFeatureListExtentController::onCurrentSelectionChanged );
   }
 }
 
-void FeatureListExtentController::onCurrentSelectionChanged()
+void QfFeatureListExtentController::onCurrentSelectionChanged()
 {
   if ( mAutoZoom )
   {

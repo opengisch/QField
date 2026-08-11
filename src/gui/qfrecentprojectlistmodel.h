@@ -21,7 +21,7 @@
 /**
  * \ingroup core
  */
-class RecentProjectListModel : public QAbstractListModel
+class QfRecentProjectListModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -65,7 +65,7 @@ class RecentProjectListModel : public QAbstractListModel
     Q_ENUM( Role )
 
 
-    explicit RecentProjectListModel( QObject *parent = nullptr );
+    explicit QfRecentProjectListModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 

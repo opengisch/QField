@@ -17,122 +17,122 @@
 #include "qfattributeformmodel.h"
 #include "qfattributeformmodelbase.h"
 
-AttributeFormModel::AttributeFormModel( QObject *parent )
+QfAttributeFormModel::QfAttributeFormModel( QObject *parent )
   : QSortFilterProxyModel( parent )
-  , mSourceModel( new AttributeFormModelBase( this ) )
+  , mSourceModel( new QfAttributeFormModelBase( this ) )
 {
   setSourceModel( mSourceModel );
 
-  connect( mSourceModel, &AttributeFormModelBase::isWizardChanged, this, &AttributeFormModel::isWizardChanged );
-  connect( mSourceModel, &AttributeFormModelBase::hasTabsChanged, this, &AttributeFormModel::hasTabsChanged );
-  connect( mSourceModel, &AttributeFormModelBase::hasRemembranceChanged, this, &AttributeFormModel::hasRemembranceChanged );
-  connect( mSourceModel, &AttributeFormModelBase::hasConstraintsChanged, this, &AttributeFormModel::hasConstraintsChanged );
-  connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
-  connect( mSourceModel, &AttributeFormModelBase::constraintsHardValidChanged, this, &AttributeFormModel::constraintsHardValidChanged );
-  connect( mSourceModel, &AttributeFormModelBase::constraintsSoftValidChanged, this, &AttributeFormModel::constraintsSoftValidChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::isWizardChanged, this, &QfAttributeFormModel::isWizardChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::hasTabsChanged, this, &QfAttributeFormModel::hasTabsChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::hasRemembranceChanged, this, &QfAttributeFormModel::hasRemembranceChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::hasConstraintsChanged, this, &QfAttributeFormModel::hasConstraintsChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::featureModelChanged, this, &QfAttributeFormModel::featureModelChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::constraintsHardValidChanged, this, &QfAttributeFormModel::constraintsHardValidChanged );
+  connect( mSourceModel, &QfAttributeFormModelBase::constraintsSoftValidChanged, this, &QfAttributeFormModel::constraintsSoftValidChanged );
 }
 
-bool AttributeFormModel::isWizard() const
+bool QfAttributeFormModel::isWizard() const
 {
   return mSourceModel->isWizard();
 }
 
-bool AttributeFormModel::hasTabs() const
+bool QfAttributeFormModel::hasTabs() const
 {
   return mSourceModel->hasTabs();
 }
 
-bool AttributeFormModel::hasRemembrance() const
+bool QfAttributeFormModel::hasRemembrance() const
 {
   return mSourceModel->hasRemembrance();
 }
 
-bool AttributeFormModel::hasConstraints() const
+bool QfAttributeFormModel::hasConstraints() const
 {
   return mSourceModel->hasConstraints();
 }
 
-FeatureModel *AttributeFormModel::featureModel() const
+QfFeatureModel *QfAttributeFormModel::featureModel() const
 {
   return mSourceModel->featureModel();
 }
 
-void AttributeFormModel::setFeatureModel( FeatureModel *featureModel )
+void QfAttributeFormModel::setFeatureModel( QfFeatureModel *featureModel )
 {
   mSourceModel->setFeatureModel( featureModel );
 }
 
-bool AttributeFormModel::constraintsHardValid() const
+bool QfAttributeFormModel::constraintsHardValid() const
 {
   return mSourceModel->constraintsHardValid();
 }
 
-bool AttributeFormModel::constraintsSoftValid() const
+bool QfAttributeFormModel::constraintsSoftValid() const
 {
   return mSourceModel->constraintsSoftValid();
 }
 
-bool AttributeFormModel::save()
+bool QfAttributeFormModel::save()
 {
   return mSourceModel->save();
 }
 
-bool AttributeFormModel::create()
+bool QfAttributeFormModel::create()
 {
   return mSourceModel->create();
 }
 
-bool AttributeFormModel::deleteFeature()
+bool QfAttributeFormModel::deleteFeature()
 {
   return mSourceModel->deleteFeature();
 }
 
-QVariant AttributeFormModel::attribute( const QString &name )
+QVariant QfAttributeFormModel::attribute( const QString &name )
 {
   return mSourceModel->attribute( name );
 }
 
-bool AttributeFormModel::changeAttribute( const QString &name, const QVariant &value )
+bool QfAttributeFormModel::changeAttribute( const QString &name, const QVariant &value )
 {
   return mSourceModel->changeAttribute( name, value );
 }
 
-bool AttributeFormModel::changeGeometry( const QgsGeometry &geometry )
+bool QfAttributeFormModel::changeGeometry( const QgsGeometry &geometry )
 {
   return mSourceModel->changeGeometry( geometry );
 }
 
-void AttributeFormModel::applyFeatureModel()
+void QfAttributeFormModel::applyFeatureModel()
 {
   return mSourceModel->applyFeatureModel();
 }
 
-void AttributeFormModel::applyParentDefaultValues()
+void QfAttributeFormModel::applyParentDefaultValues()
 {
   return mSourceModel->applyParentDefaultValues();
 }
 
-void AttributeFormModel::applyRelationshipDefaultValues()
+void QfAttributeFormModel::applyRelationshipDefaultValues()
 {
   return mSourceModel->applyRelationshipDefaultValues();
 }
 
-void AttributeFormModel::activateAllRememberValues()
+void QfAttributeFormModel::activateAllRememberValues()
 {
   return mSourceModel->activateAllRememberValues();
 }
 
-void AttributeFormModel::deactivateAllRememberValues()
+void QfAttributeFormModel::deactivateAllRememberValues()
 {
   return mSourceModel->deactivateAllRememberValues();
 }
 
-QgsExpressionContext AttributeFormModel::createExpressionContext() const
+QgsExpressionContext QfAttributeFormModel::createExpressionContext() const
 {
   return mSourceModel->createExpressionContext();
 }
 
-bool AttributeFormModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
+bool QfAttributeFormModel::filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const
 {
   return mSourceModel->data( mSourceModel->index( sourceRow, 0, sourceParent ), CurrentlyVisible ).toBool();
 }

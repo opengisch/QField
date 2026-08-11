@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfntripsettings.h - NtripSettings
+  qfntripsettings.h - QfNtripSettings
  ---------------------
  begin                : 2026/05/14
  copyright            : (C) 2026 by Mathieu Pellerin
@@ -24,7 +24,7 @@
  * \brief A class containing NTRIP server settings.
  * \ingroup core
  */
-class NtripSettings
+class QfNtripSettings
 {
     Q_GADGET
 
@@ -50,10 +50,10 @@ class NtripSettings
     Q_ENUM( Protocol )
 
     //! The NTRIP settings constructor
-    NtripSettings();
+    QfNtripSettings();
 
-    bool operator==( const NtripSettings &other ) const;
-    bool operator!=( const NtripSettings &other ) const { return !operator==( other ); }
+    bool operator==( const QfNtripSettings &other ) const;
+    bool operator!=( const QfNtripSettings &other ) const { return !operator==( other ); }
 
     //! Returns TRUE if the settings are complete enough to connect to an NTRIP server
     bool isValid() const;
@@ -103,8 +103,8 @@ class NtripSettings
     //! Return a map of settings
     Q_INVOKABLE QVariantMap toMap() const;
 
-    //! Creates an NtripSettings object from a map of settings
-    static NtripSettings fromMap( const QVariantMap &settings );
+    //! Creates an QfNtripSettings object from a map of settings
+    static QfNtripSettings fromMap( const QVariantMap &settings );
 
   private:
     QString mHost;
@@ -117,13 +117,13 @@ class NtripSettings
 
     bool mForwardNmeaSentences = true;
 
-    friend QDataStream &operator<<( QDataStream &stream, const NtripSettings &settings );
-    friend QDataStream &operator>>( QDataStream &stream, NtripSettings &settings );
+    friend QDataStream &operator<<( QDataStream &stream, const QfNtripSettings &settings );
+    friend QDataStream &operator>>( QDataStream &stream, QfNtripSettings &settings );
 };
 
-Q_DECLARE_METATYPE( NtripSettings )
+Q_DECLARE_METATYPE( QfNtripSettings )
 
-QDataStream &operator<<( QDataStream &stream, const NtripSettings &settings );
-QDataStream &operator>>( QDataStream &stream, NtripSettings &settings );
+QDataStream &operator<<( QDataStream &stream, const QfNtripSettings &settings );
+QDataStream &operator>>( QDataStream &stream, QfNtripSettings &settings );
 
 #endif // QFNTRIPSETTINGS_H

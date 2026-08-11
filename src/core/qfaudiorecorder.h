@@ -1,5 +1,5 @@
 /***************************************************************************
- qfaudiorecorder.h - AudioRecorder
+ qfaudiorecorder.h - QfAudioRecorder
 
  ---------------------
  begin                : 19.02.2023
@@ -24,12 +24,12 @@
 #include <QObject>
 
 
-class AudioProbe : public QIODevice
+class QfAudioProbe : public QIODevice
 {
     Q_OBJECT
 
   public:
-    explicit AudioProbe( QObject *parent = nullptr );
+    explicit QfAudioProbe( QObject *parent = nullptr );
 
     qint64 readData( char *data, qint64 maxlen ) override;
     qint64 writeData( const char *data, qint64 len ) override;
@@ -42,7 +42,7 @@ class AudioProbe : public QIODevice
 /**
  * \ingroup core
  */
-class AudioRecorder : public QMediaRecorder
+class QfAudioRecorder : public QMediaRecorder
 {
     Q_OBJECT
 
@@ -51,7 +51,7 @@ class AudioRecorder : public QMediaRecorder
     Q_PROPERTY( double level READ level NOTIFY levelChanged )
 
   public:
-    explicit AudioRecorder( QObject *parent = nullptr );
+    explicit QfAudioRecorder( QObject *parent = nullptr );
 
     /**
      * Returns TRUE when audio is being recorded.
@@ -97,7 +97,7 @@ class AudioRecorder : public QMediaRecorder
     double mLevel = 0.0;
 
     QAudioSource *mAudioSource = nullptr;
-    AudioProbe *mProbe = nullptr;
+    QfAudioProbe *mProbe = nullptr;
 };
 
 #endif // QFAUDIORECORDER_H

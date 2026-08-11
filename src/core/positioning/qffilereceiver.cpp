@@ -1,5 +1,5 @@
 /***************************************************************************
- qftcpreceiver.cpp - TcpReceiver
+ qftcpreceiver.cpp - QfTcpReceiver
 
  ---------------------
  begin                : September 2022
@@ -18,10 +18,10 @@
 
 #include <QFileInfo>
 
-QLatin1String FileReceiver::identifier = QLatin1String( "file" );
+QLatin1String QfFileReceiver::identifier = QLatin1String( "file" );
 
-FileReceiver::FileReceiver( const QString &filePath, const int interval, QObject *parent )
-  : NmeaGnssReceiver( parent )
+QfFileReceiver::QfFileReceiver( const QString &filePath, const int interval, QObject *parent )
+  : QfNmeaGnssReceiver( parent )
   , mBuffer( new QBuffer() )
 {
   QFileInfo fi( filePath );
@@ -37,19 +37,19 @@ FileReceiver::FileReceiver( const QString &filePath, const int interval, QObject
 
   mTimer.setSingleShot( false );
   mTimer.setInterval( std::max( 50, interval ) );
-  connect( &mTimer, &QTimer::timeout, this, &FileReceiver::readLogsLine );
+  connect( &mTimer, &QTimer::timeout, this, &QfFileReceiver::readLogsLine );
 
   initNmeaConnection( mBuffer );
 }
 
-FileReceiver::~FileReceiver()
+QfFileReceiver::~QfFileReceiver()
 {
   disconnectDevice();
   mBuffer->deleteLater();
   mBuffer = nullptr;
 }
 
-void FileReceiver::handleConnectDevice()
+void QfFileReceiver::handleConnectDevice()
 {
   if ( !valid() )
   {
@@ -65,7 +65,7 @@ void FileReceiver::handleConnectDevice()
   }
 }
 
-void FileReceiver::handleDisconnectDevice()
+void QfFileReceiver::handleDisconnectDevice()
 {
   mTimer.stop();
 
@@ -75,7 +75,7 @@ void FileReceiver::handleDisconnectDevice()
   mBuffer->close();
 }
 
-void FileReceiver::readLogsLine()
+void QfFileReceiver::readLogsLine()
 {
   if ( mLogs.atEnd() )
   {

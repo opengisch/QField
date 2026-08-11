@@ -19,37 +19,37 @@
 #include <qgsnetworkaccessmanager.h>
 
 
-NetworkReply *NetworkManager::get( const QNetworkRequest &request )
+QfNetworkReply *QfNetworkManager::get( const QNetworkRequest &request )
 {
-  return new NetworkReply( QNetworkAccessManager::GetOperation, request, QByteArray() );
+  return new QfNetworkReply( QNetworkAccessManager::GetOperation, request, QByteArray() );
 }
 
 
-NetworkReply *NetworkManager::post( const QNetworkRequest &request, const QByteArray &payload )
+QfNetworkReply *QfNetworkManager::post( const QNetworkRequest &request, const QByteArray &payload )
 {
-  return new NetworkReply( QNetworkAccessManager::PostOperation, request, payload );
+  return new QfNetworkReply( QNetworkAccessManager::PostOperation, request, payload );
 }
 
 
-NetworkReply *NetworkManager::post( const QNetworkRequest &request, QHttpMultiPart *payload )
+QfNetworkReply *QfNetworkManager::post( const QNetworkRequest &request, QHttpMultiPart *payload )
 {
-  return new NetworkReply( QNetworkAccessManager::PostOperation, request, payload );
+  return new QfNetworkReply( QNetworkAccessManager::PostOperation, request, payload );
 }
 
 
-NetworkReply *NetworkManager::put( const QNetworkRequest &request, const QByteArray &payload )
+QfNetworkReply *QfNetworkManager::put( const QNetworkRequest &request, const QByteArray &payload )
 {
-  return new NetworkReply( QNetworkAccessManager::PutOperation, request, payload );
+  return new QfNetworkReply( QNetworkAccessManager::PutOperation, request, payload );
 }
 
 
-NetworkReply *NetworkManager::put( const QNetworkRequest &request, QHttpMultiPart *payload )
+QfNetworkReply *QfNetworkManager::put( const QNetworkRequest &request, QHttpMultiPart *payload )
 {
-  return new NetworkReply( QNetworkAccessManager::PutOperation, request, payload );
+  return new QfNetworkReply( QNetworkAccessManager::PutOperation, request, payload );
 }
 
 
-NetworkReply *NetworkManager::deleteResource( const QNetworkRequest &request, const QByteArray &payload )
+QfNetworkReply *QfNetworkManager::deleteResource( const QNetworkRequest &request, const QByteArray &payload )
 {
-  return new NetworkReply( QNetworkAccessManager::DeleteOperation, request, payload );
+  return new QfNetworkReply( QNetworkAccessManager::DeleteOperation, request, payload );
 }

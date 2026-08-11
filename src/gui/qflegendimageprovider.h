@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflegendimageprovider.h - LegendImageProvider
+  qflegendimageprovider.h - QfLegendImageProvider
 
  ---------------------
  begin                : 7.12.2016
@@ -31,10 +31,10 @@ class QgsLayerTree;
  * \brief This class provides legend images for the layer tree model.
  * \ingroup core
  */
-class LegendImageProvider : public QQuickImageProvider
+class QfLegendImageProvider : public QQuickImageProvider
 {
   public:
-    explicit LegendImageProvider( QgsLayerTreeModel *layerTreeModel );
+    explicit QfLegendImageProvider( QgsLayerTreeModel *layerTreeModel );
 
     QPixmap requestPixmap( const QString &id, QSize *size, const QSize &requestedSize ) override;
 
@@ -49,11 +49,11 @@ class LegendImageProvider : public QQuickImageProvider
  * tree model . Used for online WMS and AMS layers.
  * \ingroup core
  */
-class AsyncLegendImageResponse : public QQuickImageResponse
+class QfAsyncLegendImageResponse : public QQuickImageResponse
 {
   public:
-    AsyncLegendImageResponse( QgsRasterDataProvider *dataProvider = nullptr, const QgsMapSettings *mapSettings = nullptr );
-    ~AsyncLegendImageResponse();
+    QfAsyncLegendImageResponse( QgsRasterDataProvider *dataProvider = nullptr, const QgsMapSettings *mapSettings = nullptr );
+    ~QfAsyncLegendImageResponse();
 
     QQuickTextureFactory *textureFactory() const override;
 
@@ -74,10 +74,10 @@ class AsyncLegendImageResponse : public QQuickImageResponse
  * for online WMS and AMS layers.
  * \ingroup core
  */
-class AsyncLegendImageProvider : public QQuickAsyncImageProvider
+class QfAsyncLegendImageProvider : public QQuickAsyncImageProvider
 {
   public:
-    explicit AsyncLegendImageProvider( QgsLayerTreeModel *layerTreeModel );
+    explicit QfAsyncLegendImageProvider( QgsLayerTreeModel *layerTreeModel );
 
     QQuickImageResponse *requestImageResponse( const QString &id, const QSize &requestedSize ) override;
 

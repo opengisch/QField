@@ -26,14 +26,14 @@
 /**
  * \ingroup core
  */
-class DeltaListModel : public QAbstractListModel
+class QfDeltaListModel : public QAbstractListModel
 {
     Q_OBJECT
 
     Q_PROPERTY( bool isValid READ isValid NOTIFY isValidChanged )
     Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
 
-    Q_PROPERTY( QFieldCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
+    Q_PROPERTY( QfCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
     Q_PROPERTY( QString cloudProjectId READ cloudProjectId WRITE setCloudProjectId NOTIFY cloudProjectIdChanged )
 
     Q_PROPERTY( QString errorString READ errorString NOTIFY errorStringChanged )
@@ -52,7 +52,7 @@ class DeltaListModel : public QAbstractListModel
     };
     Q_ENUM( ColumnRole )
 
-    explicit DeltaListModel();
+    explicit QfDeltaListModel();
 
     //! Returns number of rows.
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
@@ -69,9 +69,9 @@ class DeltaListModel : public QAbstractListModel
     //! Holds the reason why it is invalid. Null string if not invalid.
     QString errorString() const;
 
-    QFieldCloudConnection *cloudConnection() const { return mCloudConnection; }
+    QfCloudConnection *cloudConnection() const { return mCloudConnection; }
 
-    void setCloudConnection( QFieldCloudConnection *cloudConnection );
+    void setCloudConnection( QfCloudConnection *cloudConnection );
 
     QString cloudProjectId() const { return mCloudProjectId; }
 
@@ -104,9 +104,9 @@ class DeltaListModel : public QAbstractListModel
     QJsonDocument mJson;
     QString mErrorString;
 
-    QList<QFieldCloudDelta> mDeltas;
+    QList<QfCloudDelta> mDeltas;
 
-    QFieldCloudConnection *mCloudConnection = nullptr;
+    QfCloudConnection *mCloudConnection = nullptr;
     QString mCloudProjectId;
 };
 

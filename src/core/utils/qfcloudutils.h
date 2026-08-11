@@ -22,14 +22,14 @@
 
 
 class QString;
-class QFieldCloudProjectsModel;
+class QfCloudProjectsModel;
 class DeltaFileWrapperTest;
 class TestLayerObserver;
 
 /**
  * \ingroup core
  */
-struct CloudUserInformation
+struct QfCloudUserInformation
 {
     Q_GADGET
 
@@ -37,19 +37,19 @@ struct CloudUserInformation
     Q_PROPERTY( QString email MEMBER email )
 
   public:
-    CloudUserInformation() = default;
+    QfCloudUserInformation() = default;
 
-    CloudUserInformation( const QString &username, const QString &email )
+    QfCloudUserInformation( const QString &username, const QString &email )
       : username( username )
       , email( email )
     {}
 
-    explicit CloudUserInformation( const QJsonObject cloudUserInformation )
+    explicit QfCloudUserInformation( const QJsonObject cloudUserInformation )
       : username( cloudUserInformation.value( QStringLiteral( "username" ) ).toString() )
       , email( cloudUserInformation.value( QStringLiteral( "email" ) ).toString() )
     {}
 
-    bool operator==( const CloudUserInformation &other ) const
+    bool operator==( const QfCloudUserInformation &other ) const
     {
       return username == other.username && email == other.email;
     }
@@ -77,7 +77,7 @@ struct CloudUserInformation
 /**
  * \ingroup core
  */
-struct QFieldCloudDelta
+struct QfCloudDelta
 {
     Q_GADGET
 
@@ -106,12 +106,12 @@ struct QFieldCloudDelta
     QString output;
 };
 
-Q_DECLARE_METATYPE( QFieldCloudDelta )
+Q_DECLARE_METATYPE( QfCloudDelta )
 
 /**
  * \ingroup core
  */
-struct CloudSubscriptionInformation
+struct QfCloudSubscriptionInformation
 {
     Q_GADGET
 
@@ -123,9 +123,9 @@ struct CloudSubscriptionInformation
     Q_PROPERTY( QString status MEMBER status )
 
   public:
-    CloudSubscriptionInformation() = default;
+    QfCloudSubscriptionInformation() = default;
 
-    explicit CloudSubscriptionInformation( const QJsonObject &subscriptionInformation )
+    explicit QfCloudSubscriptionInformation( const QJsonObject &subscriptionInformation )
       : plan( subscriptionInformation.value( QStringLiteral( "plan_display_name" ) ).toString() )
       , storageTotal( subscriptionInformation.value( QStringLiteral( "active_storage_total_bytes" ) ).toDouble() )
       , storageUsed( subscriptionInformation.value( QStringLiteral( "storage_used_bytes" ) ).toDouble() )
@@ -134,7 +134,7 @@ struct CloudSubscriptionInformation
       , status( subscriptionInformation.value( QStringLiteral( "status" ) ).toString() )
     {}
 
-    bool operator==( const CloudSubscriptionInformation &other ) const
+    bool operator==( const QfCloudSubscriptionInformation &other ) const
     {
       return plan == other.plan && storageTotal == other.storageTotal && storageUsed == other.storageUsed && storageThresholdWarning == other.storageThresholdWarning && storageThresholdCritical == other.storageThresholdCritical && status == other.status;
     }
@@ -147,7 +147,7 @@ struct CloudSubscriptionInformation
     QString status;
 };
 
-Q_DECLARE_METATYPE( CloudSubscriptionInformation )
+Q_DECLARE_METATYPE( QfCloudSubscriptionInformation )
 
 /**
  * \ingroup core
@@ -155,7 +155,7 @@ Q_DECLARE_METATYPE( CloudSubscriptionInformation )
  * Holds whitelabeling information advertised by a QFieldCloud server, such as the
  * displayed site title and branding assets.
  */
-struct CloudWhitelabelInformation
+struct QfCloudWhitelabelInformation
 {
     Q_GADGET
 
@@ -165,21 +165,21 @@ struct CloudWhitelabelInformation
     Q_PROPERTY( QString favicon MEMBER favicon )
 
   public:
-    CloudWhitelabelInformation() = default;
+    QfCloudWhitelabelInformation() = default;
 
-    explicit CloudWhitelabelInformation( const QVariantMap &whitelabel )
+    explicit QfCloudWhitelabelInformation( const QVariantMap &whitelabel )
       : siteTitle( whitelabel.value( QStringLiteral( "site_title" ) ).toString() )
       , logoMain( whitelabel.value( QStringLiteral( "logo_main" ) ).toString() )
       , logoNavbar( whitelabel.value( QStringLiteral( "logo_navbar" ) ).toString() )
       , favicon( whitelabel.value( QStringLiteral( "favicon" ) ).toString() )
     {}
 
-    bool operator==( const CloudWhitelabelInformation &other ) const
+    bool operator==( const QfCloudWhitelabelInformation &other ) const
     {
       return siteTitle == other.siteTitle && logoMain == other.logoMain && logoNavbar == other.logoNavbar && favicon == other.favicon;
     }
 
-    bool operator!=( const CloudWhitelabelInformation &other ) const
+    bool operator!=( const QfCloudWhitelabelInformation &other ) const
     {
       return !( *this == other );
     }
@@ -200,7 +200,7 @@ struct CloudWhitelabelInformation
     QString favicon;
 };
 
-Q_DECLARE_METATYPE( CloudWhitelabelInformation )
+Q_DECLARE_METATYPE( QfCloudWhitelabelInformation )
 
 /**
  * \ingroup core
@@ -208,27 +208,27 @@ Q_DECLARE_METATYPE( CloudWhitelabelInformation )
  * Public information about a QFieldCloud server, including whitelabel
  * branding and the new-user signup URL.
  */
-struct CloudServerInformation
+struct QfCloudServerInformation
 {
     Q_GADGET
 
-    Q_PROPERTY( CloudWhitelabelInformation whitelabel MEMBER whitelabel )
+    Q_PROPERTY( QfCloudWhitelabelInformation whitelabel MEMBER whitelabel )
     Q_PROPERTY( QString signupUrl MEMBER signupUrl )
 
   public:
-    CloudServerInformation() = default;
+    QfCloudServerInformation() = default;
 
-    explicit CloudServerInformation( const QVariantMap &serverInformation )
+    explicit QfCloudServerInformation( const QVariantMap &serverInformation )
       : whitelabel( serverInformation.value( QStringLiteral( "whitelabel" ) ).toMap() )
       , signupUrl( serverInformation.value( QStringLiteral( "signup_url" ) ).toString() )
     {}
 
-    bool operator==( const CloudServerInformation &other ) const
+    bool operator==( const QfCloudServerInformation &other ) const
     {
       return whitelabel == other.whitelabel && signupUrl == other.signupUrl;
     }
 
-    bool operator!=( const CloudServerInformation &other ) const
+    bool operator!=( const QfCloudServerInformation &other ) const
     {
       return !( *this == other );
     }
@@ -241,16 +241,16 @@ struct CloudServerInformation
       };
     }
 
-    CloudWhitelabelInformation whitelabel;
+    QfCloudWhitelabelInformation whitelabel;
     QString signupUrl;
 };
 
-Q_DECLARE_METATYPE( CloudServerInformation )
+Q_DECLARE_METATYPE( QfCloudServerInformation )
 
 /**
  * \ingroup core
  */
-class QFieldCloudUtils : public QObject
+class QfCloudUtils : public QObject
 {
     Q_OBJECT
 
@@ -333,7 +333,7 @@ class QFieldCloudUtils : public QObject
      * @param cloudConnection The cloud connection used to fetch file data.
      * @param checkSumCheck Whether to validate files by comparing checksums with the server.
      */
-    Q_INVOKABLE static void addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
+    Q_INVOKABLE static void addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QfCloudConnection *cloudConnection = nullptr, const bool &checkSumCheck = false );
 
     //! Removes a \a fileName for a given \a projectId to the pending attachments list
     Q_INVOKABLE static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
@@ -345,12 +345,12 @@ class QFieldCloudUtils : public QObject
     Q_INVOKABLE static QString subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username );
 
 
-    static QList<QFieldCloudDelta> parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid );
+    static QList<QfCloudDelta> parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid );
 
     static QString summarizeDeltaContent( const QList<QJsonObject> &deltaObjects, const QString &modificationSeparator = QStringLiteral( ", " ), const QString &layerSeparator = QStringLiteral( " / " ) );
 
   private:
-    static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection = nullptr );
+    static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QfCloudConnection *cloudConnection = nullptr );
     static void writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
     static void writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
 

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfmaptoview3d.cpp - MapToView3D
+  qfmaptoview3d.cpp - QfMapToView3D
 
  ---------------------
  begin                : 9.3.2026
@@ -16,17 +16,17 @@
 
 #include "qfmaptoview3d.h"
 
-MapToView3D::MapToView3D( QObject *parent )
+QfMapToView3D::QfMapToView3D( QObject *parent )
   : QObject( parent )
 {
 }
 
-Quick3DTerrainProvider *MapToView3D::terrainProvider() const
+Qf3DTerrainProvider *QfMapToView3D::terrainProvider() const
 {
   return mTerrainProvider;
 }
 
-void MapToView3D::setTerrainProvider( Quick3DTerrainProvider *provider )
+void QfMapToView3D::setTerrainProvider( Qf3DTerrainProvider *provider )
 {
   if ( mTerrainProvider == provider )
   {
@@ -35,26 +35,26 @@ void MapToView3D::setTerrainProvider( Quick3DTerrainProvider *provider )
 
   if ( mTerrainProvider )
   {
-    disconnect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &MapToView3D::transformPoint );
+    disconnect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &QfMapToView3D::transformPoint );
   }
 
   mTerrainProvider = provider;
 
   if ( mTerrainProvider )
   {
-    connect( mTerrainProvider, &Quick3DTerrainProvider::extentChanged, this, &MapToView3D::transformPoint );
+    connect( mTerrainProvider, &Qf3DTerrainProvider::extentChanged, this, &QfMapToView3D::transformPoint );
   }
 
   emit terrainProviderChanged();
   transformPoint();
 }
 
-QgsPoint MapToView3D::mapPoint() const
+QgsPoint QfMapToView3D::mapPoint() const
 {
   return mMapPoint;
 }
 
-void MapToView3D::setMapPoint( const QgsPoint &point )
+void QfMapToView3D::setMapPoint( const QgsPoint &point )
 {
   if ( mMapPoint == point )
   {
@@ -66,12 +66,12 @@ void MapToView3D::setMapPoint( const QgsPoint &point )
   transformPoint();
 }
 
-float MapToView3D::heightOffset() const
+float QfMapToView3D::heightOffset() const
 {
   return mHeightOffset;
 }
 
-void MapToView3D::setHeightOffset( float offset )
+void QfMapToView3D::setHeightOffset( float offset )
 {
   if ( qFuzzyCompare( mHeightOffset, offset ) )
   {
@@ -83,12 +83,12 @@ void MapToView3D::setHeightOffset( float offset )
   transformPoint();
 }
 
-QVector3D MapToView3D::viewPoint() const
+QVector3D QfMapToView3D::viewPoint() const
 {
   return mViewPoint;
 }
 
-void MapToView3D::transformPoint()
+void QfMapToView3D::transformPoint()
 {
   QVector3D newPoint;
   if ( mTerrainProvider && !mMapPoint.isEmpty() )

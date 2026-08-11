@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfrubberbandshape.cpp - RubberbandShape
+  qfrubberbandshape.cpp - QfRubberbandShape
 
  ---------------------
  begin                : 11.6.2016
@@ -20,7 +20,7 @@
 #include "qfvertexmodel.h"
 #include "qgsquickmapsettings.h"
 
-RubberbandShape::RubberbandShape( QQuickItem *parent )
+QfRubberbandShape::QfRubberbandShape( QQuickItem *parent )
   : QQuickItem( parent )
 {
   setFlags( QQuickItem::ItemHasContents );
@@ -28,12 +28,12 @@ RubberbandShape::RubberbandShape( QQuickItem *parent )
   setAntialiasing( true );
 }
 
-RubberbandModel *RubberbandShape::model() const
+QfRubberbandModel *QfRubberbandShape::model() const
 {
   return mRubberbandModel;
 }
 
-void RubberbandShape::setModel( RubberbandModel *model )
+void QfRubberbandShape::setModel( QfRubberbandModel *model )
 {
   if ( model )
     setVertexModel( nullptr );
@@ -43,9 +43,9 @@ void RubberbandShape::setModel( RubberbandModel *model )
 
   if ( mRubberbandModel )
   {
-    disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
-    disconnect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
-    disconnect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &RubberbandShape::markDirty );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfRubberbandShape::markDirty );
+    disconnect( mRubberbandModel, &QfRubberbandModel::verticesRemoved, this, &QfRubberbandShape::markDirty );
+    disconnect( mRubberbandModel, &QfRubberbandModel::verticesInserted, this, &QfRubberbandShape::markDirty );
   }
 
 
@@ -53,9 +53,9 @@ void RubberbandShape::setModel( RubberbandModel *model )
 
   if ( mRubberbandModel && !mFreeze )
   {
-    connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
-    connect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
-    connect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &RubberbandShape::markDirty );
+    connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfRubberbandShape::markDirty );
+    connect( mRubberbandModel, &QfRubberbandModel::verticesRemoved, this, &QfRubberbandShape::markDirty );
+    connect( mRubberbandModel, &QfRubberbandModel::verticesInserted, this, &QfRubberbandShape::markDirty );
   }
 
   markDirty();
@@ -63,12 +63,12 @@ void RubberbandShape::setModel( RubberbandModel *model )
   emit modelChanged();
 }
 
-VertexModel *RubberbandShape::vertexModel() const
+QfVertexModel *QfRubberbandShape::vertexModel() const
 {
   return mVertexModel;
 }
 
-void RubberbandShape::setVertexModel( VertexModel *vertexModel )
+void QfRubberbandShape::setVertexModel( QfVertexModel *vertexModel )
 {
   if ( vertexModel )
     setModel( nullptr );
@@ -78,18 +78,18 @@ void RubberbandShape::setVertexModel( VertexModel *vertexModel )
 
   if ( mVertexModel )
   {
-    disconnect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
-    disconnect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
-    disconnect( mVertexModel, &VertexModel::geometryChanged, this, &RubberbandShape::markDirty );
+    disconnect( mVertexModel, &QfVertexModel::dataChanged, this, &QfRubberbandShape::markDirty );
+    disconnect( mVertexModel, &QfVertexModel::vertexCountChanged, this, &QfRubberbandShape::markDirty );
+    disconnect( mVertexModel, &QfVertexModel::geometryChanged, this, &QfRubberbandShape::markDirty );
   }
 
   mVertexModel = vertexModel;
 
   if ( mVertexModel && !mFreeze )
   {
-    connect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
-    connect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
-    connect( mVertexModel, &VertexModel::geometryChanged, this, &RubberbandShape::markDirty );
+    connect( mVertexModel, &QfVertexModel::dataChanged, this, &QfRubberbandShape::markDirty );
+    connect( mVertexModel, &QfVertexModel::vertexCountChanged, this, &QfRubberbandShape::markDirty );
+    connect( mVertexModel, &QfVertexModel::geometryChanged, this, &QfRubberbandShape::markDirty );
   }
 
   markDirty();
@@ -97,12 +97,12 @@ void RubberbandShape::setVertexModel( VertexModel *vertexModel )
   emit vertexModelChanged();
 }
 
-bool RubberbandShape::freeze() const
+bool QfRubberbandShape::freeze() const
 {
   return mFreeze;
 }
 
-void RubberbandShape::setFreeze( bool freeze )
+void QfRubberbandShape::setFreeze( bool freeze )
 {
   if ( mFreeze == freeze )
     return;
@@ -114,68 +114,68 @@ void RubberbandShape::setFreeze( bool freeze )
   {
     if ( mVertexModel )
     {
-      disconnect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
-      disconnect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
-      disconnect( mVertexModel, &VertexModel::geometryChanged, this, &RubberbandShape::markDirty );
+      disconnect( mVertexModel, &QfVertexModel::dataChanged, this, &QfRubberbandShape::markDirty );
+      disconnect( mVertexModel, &QfVertexModel::vertexCountChanged, this, &QfRubberbandShape::markDirty );
+      disconnect( mVertexModel, &QfVertexModel::geometryChanged, this, &QfRubberbandShape::markDirty );
     }
     if ( mRubberbandModel )
     {
-      disconnect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
-      disconnect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
-      disconnect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &RubberbandShape::markDirty );
+      disconnect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfRubberbandShape::markDirty );
+      disconnect( mRubberbandModel, &QfRubberbandModel::verticesRemoved, this, &QfRubberbandShape::markDirty );
+      disconnect( mRubberbandModel, &QfRubberbandModel::verticesInserted, this, &QfRubberbandShape::markDirty );
     }
     if ( mMapSettings )
     {
-      disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
-      disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+      disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfRubberbandShape::visibleExtentChanged );
+      disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfRubberbandShape::rotationChanged );
     }
   }
   else
   {
     if ( mVertexModel )
     {
-      connect( mVertexModel, &VertexModel::dataChanged, this, &RubberbandShape::markDirty );
-      connect( mVertexModel, &VertexModel::vertexCountChanged, this, &RubberbandShape::markDirty );
-      connect( mVertexModel, &VertexModel::geometryChanged, this, &RubberbandShape::markDirty );
+      connect( mVertexModel, &QfVertexModel::dataChanged, this, &QfRubberbandShape::markDirty );
+      connect( mVertexModel, &QfVertexModel::vertexCountChanged, this, &QfRubberbandShape::markDirty );
+      connect( mVertexModel, &QfVertexModel::geometryChanged, this, &QfRubberbandShape::markDirty );
     }
     if ( mRubberbandModel )
     {
-      connect( mRubberbandModel, &RubberbandModel::vertexChanged, this, &RubberbandShape::markDirty );
-      connect( mRubberbandModel, &RubberbandModel::verticesRemoved, this, &RubberbandShape::markDirty );
-      connect( mRubberbandModel, &RubberbandModel::verticesInserted, this, &RubberbandShape::markDirty );
+      connect( mRubberbandModel, &QfRubberbandModel::vertexChanged, this, &QfRubberbandShape::markDirty );
+      connect( mRubberbandModel, &QfRubberbandModel::verticesRemoved, this, &QfRubberbandShape::markDirty );
+      connect( mRubberbandModel, &QfRubberbandModel::verticesInserted, this, &QfRubberbandShape::markDirty );
     }
     if ( mMapSettings && !mFreeze )
     {
-      connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
-      connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+      connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfRubberbandShape::visibleExtentChanged );
+      connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfRubberbandShape::rotationChanged );
     }
 
     markDirty();
   }
 }
 
-QgsQuickMapSettings *RubberbandShape::mapSettings() const
+QgsQuickMapSettings *QfRubberbandShape::mapSettings() const
 {
   return mMapSettings;
 }
 
-void RubberbandShape::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfRubberbandShape::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
-    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfRubberbandShape::visibleExtentChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfRubberbandShape::rotationChanged );
   }
 
   mMapSettings = mapSettings;
 
   if ( mMapSettings && !mFreeze )
   {
-    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &RubberbandShape::visibleExtentChanged );
-    connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &RubberbandShape::rotationChanged );
+    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfRubberbandShape::visibleExtentChanged );
+    connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfRubberbandShape::rotationChanged );
   }
 
   markDirty();
@@ -183,7 +183,7 @@ void RubberbandShape::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-void RubberbandShape::updateTransform()
+void QfRubberbandShape::updateTransform()
 {
   if ( !mMapSettings )
     return;
@@ -205,25 +205,25 @@ void RubberbandShape::updateTransform()
   setRotation( mMapSettings->rotation() );
 }
 
-void RubberbandShape::rotationChanged()
+void QfRubberbandShape::rotationChanged()
 {
   updateTransform();
 }
 
-void RubberbandShape::visibleExtentChanged()
+void QfRubberbandShape::visibleExtentChanged()
 {
   const double scaleChange = mGeometryMUPP / mMapSettings->mapUnitsPerPoint();
   mDirty = mDirty || mGeometryMUPP == 0.0 || scaleChange > 1.75 || scaleChange < 0.25;
   updateTransform();
 }
 
-void RubberbandShape::markDirty()
+void QfRubberbandShape::markDirty()
 {
   mDirty = true;
   updateTransform();
 }
 
-void RubberbandShape::createPolylines()
+void QfRubberbandShape::createPolylines()
 {
   const QgsRectangle visibleExtent = mMapSettings->visibleExtent();
   const double scaleFactor = 1.0 / mMapSettings->mapUnitsPerPoint();
@@ -264,7 +264,7 @@ void RubberbandShape::createPolylines()
   emit polylinesChanged();
 }
 
-void RubberbandShape::setGeometryType( const Qgis::GeometryType geometryType )
+void QfRubberbandShape::setGeometryType( const Qgis::GeometryType geometryType )
 {
   if ( mGeometryType == geometryType )
     return;
@@ -274,12 +274,12 @@ void RubberbandShape::setGeometryType( const Qgis::GeometryType geometryType )
   emit geometryTypeChanged();
 }
 
-float RubberbandShape::lineWidth() const
+float QfRubberbandShape::lineWidth() const
 {
   return mWidth;
 }
 
-void RubberbandShape::setLineWidth( float width )
+void QfRubberbandShape::setLineWidth( float width )
 {
   if ( mWidth == width )
     return;
@@ -289,12 +289,12 @@ void RubberbandShape::setLineWidth( float width )
   emit lineWidthChanged();
 }
 
-QColor RubberbandShape::color() const
+QColor QfRubberbandShape::color() const
 {
   return mColor;
 }
 
-void RubberbandShape::setColor( const QColor &color )
+void QfRubberbandShape::setColor( const QColor &color )
 {
   if ( mColor == color )
     return;
@@ -304,12 +304,12 @@ void RubberbandShape::setColor( const QColor &color )
   emit colorChanged();
 }
 
-QColor RubberbandShape::outlineColor() const
+QColor QfRubberbandShape::outlineColor() const
 {
   return mOutlineColor;
 }
 
-void RubberbandShape::setOutlineColor( const QColor &color )
+void QfRubberbandShape::setOutlineColor( const QColor &color )
 {
   if ( mOutlineColor == color )
     return;

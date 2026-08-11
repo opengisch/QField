@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectinfo.h - ProjectInfo
+  qfprojectinfo.h - QfProjectInfo
 
  ---------------------
  begin                : 14.2.2021
@@ -28,7 +28,7 @@
 #include <QSettings>
 #include <QTimer>
 
-class FlatLayerTreeModel;
+class QfFlatLayerTreeModel;
 
 /**
  * This class stores current projection information such as
@@ -36,7 +36,7 @@ class FlatLayerTreeModel;
  * afterwards restored when the project is re-opened.
  * \ingroup core
  */
-class ProjectInfo : public QObject
+class QfProjectInfo : public QObject
 {
     Q_OBJECT
 
@@ -53,7 +53,7 @@ class ProjectInfo : public QObject
     /**
      * The layer tree model object, used to keep track of details such as layer visibility, selected map theme, etc.
      */
-    Q_PROPERTY( FlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
+    Q_PROPERTY( QfFlatLayerTreeModel *layerTree READ layerTree WRITE setLayerTree NOTIFY layerTreeChanged )
 
     /**
      * The state mode (browse vs. digitizing) for the currently opened project.
@@ -68,7 +68,7 @@ class ProjectInfo : public QObject
     /**
      * The tracking model object, used to save and restore tracking session for individual vector layers.
      */
-    Q_PROPERTY( TrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
+    Q_PROPERTY( QfTrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
 
     /**
      * The snapping enabled state for the currently opened project.
@@ -78,36 +78,36 @@ class ProjectInfo : public QObject
     /**
      * Set cloud user information for offline usage.
      */
-    Q_PROPERTY( CloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
+    Q_PROPERTY( QfCloudUserInformation cloudUserInformation READ cloudUserInformation WRITE setCloudUserInformation NOTIFY cloudUserInformationChanged )
 
   public:
-    explicit ProjectInfo( QObject *parent = nullptr );
+    explicit QfProjectInfo( QObject *parent = nullptr );
 
-    virtual ~ProjectInfo() = default;
+    virtual ~QfProjectInfo() = default;
 
-    //! \copydoc ProjectInfo::filePath
+    //! \copydoc QfProjectInfo::filePath
     void setFilePath( const QString &filePath );
 
-    //! \copydoc ProjectInfo::filePath
+    //! \copydoc QfProjectInfo::filePath
     QString filePath() const;
 
-    //! \copydoc ProjectInfo::mapSettings
+    //! \copydoc QfProjectInfo::mapSettings
     void setMapSettings( QgsQuickMapSettings *mapSettings );
 
-    //! \copydoc ProjectInfo::mapSettings
+    //! \copydoc QfProjectInfo::mapSettings
     QgsQuickMapSettings *mapSettings() const;
 
-    //! \copydoc ProjectInfo::layerTree
-    void setLayerTree( FlatLayerTreeModel *layerTree );
+    //! \copydoc QfProjectInfo::layerTree
+    void setLayerTree( QfFlatLayerTreeModel *layerTree );
 
-    //! \copydoc ProjectInfo::layerTree
-    FlatLayerTreeModel *layerTree() const;
+    //! \copydoc QfProjectInfo::layerTree
+    QfFlatLayerTreeModel *layerTree() const;
 
-    //! \copydoc ProjectInfo::trackingModel
-    void setTrackingModel( TrackingModel *trackingModel );
+    //! \copydoc QfProjectInfo::trackingModel
+    void setTrackingModel( QfTrackingModel *trackingModel );
 
-    //! \copydoc ProjectInfo::trackingModel
-    TrackingModel *trackingModel() const;
+    //! \copydoc QfProjectInfo::trackingModel
+    QfTrackingModel *trackingModel() const;
 
     /**
      * Saves the \a layer style to the current project information settings
@@ -163,12 +163,12 @@ class ProjectInfo : public QObject
     /**
      * Returns the saved cloud user infomation for offline usage
      */
-    CloudUserInformation cloudUserInformation() const;
+    QfCloudUserInformation cloudUserInformation() const;
 
     /**
      * Saves the cloud user infomation for offline usage
      */
-    void setCloudUserInformation( const CloudUserInformation &cloudUserInformation );
+    void setCloudUserInformation( const QfCloudUserInformation &cloudUserInformation );
 
     /**
      * Restores last saved cloud user information details attached to the current project
@@ -184,7 +184,7 @@ class ProjectInfo : public QObject
     Q_INVOKABLE void saveVariable( const QString &name, const QString &value );
 
     //! Restore various project settings
-    static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, FlatLayerTreeModel *layerTree );
+    static void restoreSettings( QString &projectFilePath, QgsProject *project, QgsQuickMapCanvasMap *mapCanvas, QfFlatLayerTreeModel *layerTree );
 
     //! Retrieves configuration of the title decoration
     Q_INVOKABLE QVariantMap getTitleDecorationConfiguration();
@@ -232,8 +232,8 @@ class ProjectInfo : public QObject
     QTimer mSaveRotationTimer;
     QTimer mSaveTemporalStateTimer;
 
-    FlatLayerTreeModel *mLayerTree = nullptr;
-    TrackingModel *mTrackingModel = nullptr;
+    QfFlatLayerTreeModel *mLayerTree = nullptr;
+    QfTrackingModel *mTrackingModel = nullptr;
 
     bool mIsTemporal = false;
 };

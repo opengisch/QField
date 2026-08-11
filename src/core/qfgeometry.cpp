@@ -19,12 +19,12 @@
 #include <qgspolygon.h>
 #include <qgsvectorlayer.h>
 
-Geometry::Geometry( QObject *parent )
+QfGeometry::QfGeometry( QObject *parent )
   : QObject( parent )
 {
 }
 
-QgsGeometry Geometry::asQgsGeometry() const
+QgsGeometry QfGeometry::asQgsGeometry() const
 {
   QgsAbstractGeometry *geom = nullptr;
 
@@ -73,12 +73,12 @@ QgsGeometry Geometry::asQgsGeometry() const
   return geometry;
 }
 
-RubberbandModel *Geometry::rubberbandModel() const
+QfRubberbandModel *QfGeometry::rubberbandModel() const
 {
   return mRubberbandModel;
 }
 
-void Geometry::setRubberbandModel( RubberbandModel *rubberbandModel )
+void QfGeometry::setRubberbandModel( QfRubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
     return;
@@ -88,12 +88,12 @@ void Geometry::setRubberbandModel( RubberbandModel *rubberbandModel )
   emit rubberbandModelChanged();
 }
 
-void Geometry::applyRubberband()
+void QfGeometry::applyRubberband()
 {
   // TODO: Will need to be implemented for multipart features or polygons with holes.
 }
 
-void Geometry::updateRubberband( const QgsGeometry &geometry )
+void QfGeometry::updateRubberband( const QgsGeometry &geometry )
 {
   if ( !mRubberbandModel )
     return;
@@ -115,12 +115,12 @@ void Geometry::updateRubberband( const QgsGeometry &geometry )
   }
 }
 
-QgsVectorLayer *Geometry::vectorLayer() const
+QgsVectorLayer *QfGeometry::vectorLayer() const
 {
   return mVectorLayer.data();
 }
 
-void Geometry::setVectorLayer( QgsVectorLayer *vectorLayer )
+void QfGeometry::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
   if ( mVectorLayer == vectorLayer )
     return;

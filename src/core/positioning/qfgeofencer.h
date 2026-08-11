@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgeofencer.h - Geofencer
+  qfgeofencer.h - QfGeofencer
 
  ---------------------
  begin                : 27.06.2024
@@ -31,7 +31,7 @@
  * areas.
  * \ingroup core
  */
-class Geofencer : public QObject
+class QfGeofencer : public QObject
 {
     Q_OBJECT
 
@@ -58,8 +58,8 @@ class Geofencer : public QObject
     };
     Q_ENUM( Behaviors )
 
-    explicit Geofencer( QObject *parent = nullptr );
-    virtual ~Geofencer();
+    explicit QfGeofencer( QObject *parent = nullptr );
+    virtual ~QfGeofencer();
 
     /**
      * Sets the polygon layer holding areas from a given \a project.
@@ -167,14 +167,14 @@ class Geofencer : public QObject
     QgsCoordinateReferenceSystem mPositionCrs;
 
     QPointer<QgsVectorLayer> mAreasLayer;
-    QList<FeatureExpressionValuesGatherer::Entry> mAreas;
+    QList<QfFeatureExpressionValuesGatherer::Entry> mAreas;
 
     bool mIsAlerting = false;
 
     int mIsWithinIndex = -1;
     int mLastWithinIndex = -1;
 
-    FeatureExpressionValuesGatherer *mGatherer = nullptr;
+    QfFeatureExpressionValuesGatherer *mGatherer = nullptr;
 };
 
 #endif // QFGEOFENCER_H

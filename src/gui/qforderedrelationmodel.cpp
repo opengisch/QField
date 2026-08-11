@@ -1,5 +1,5 @@
 /***************************************************************************
-  qforderedrelationmodel.h - OrderedRelationModel
+  qforderedrelationmodel.h - QfOrderedRelationModel
 
  ---------------------
  begin                : Jun 2021
@@ -24,18 +24,18 @@
 
 #include <QAbstractTableModel>
 
-OrderedRelationModel::OrderedRelationModel( QObject *parent )
-  : ReferencingFeatureListModelBase( parent )
+QfOrderedRelationModel::QfOrderedRelationModel( QObject *parent )
+  : QfReferencingFeatureListModelBase( parent )
 {
-  connect( this, &ReferencingFeatureListModelBase::beforeModelUpdated, this, &OrderedRelationModel::sortEntries );
+  connect( this, &QfReferencingFeatureListModelBase::beforeModelUpdated, this, &QfOrderedRelationModel::sortEntries );
 }
 
-QString OrderedRelationModel::orderingField() const
+QString QfOrderedRelationModel::orderingField() const
 {
   return mOrderingField;
 }
 
-void OrderedRelationModel::setOrderingField( const QString &orderingField )
+void QfOrderedRelationModel::setOrderingField( const QString &orderingField )
 {
   if ( mOrderingField == orderingField )
     return;
@@ -45,12 +45,12 @@ void OrderedRelationModel::setOrderingField( const QString &orderingField )
   emit orderingFieldChanged();
 }
 
-QString OrderedRelationModel::imagePath() const
+QString QfOrderedRelationModel::imagePath() const
 {
   return mImagePath;
 }
 
-void OrderedRelationModel::setImagePath( const QString &imagePath )
+void QfOrderedRelationModel::setImagePath( const QString &imagePath )
 {
   if ( mImagePath == imagePath )
     return;
@@ -60,12 +60,12 @@ void OrderedRelationModel::setImagePath( const QString &imagePath )
   emit imagePathChanged();
 }
 
-QString OrderedRelationModel::description() const
+QString QfOrderedRelationModel::description() const
 {
   return mDescription;
 }
 
-void OrderedRelationModel::setDescription( const QString &description )
+void QfOrderedRelationModel::setDescription( const QString &description )
 {
   if ( mDescription == description )
     return;
@@ -75,19 +75,19 @@ void OrderedRelationModel::setDescription( const QString &description )
   emit descriptionChanged();
 }
 
-QHash<int, QByteArray> OrderedRelationModel::roleNames() const
+QHash<int, QByteArray> QfOrderedRelationModel::roleNames() const
 {
-  QHash<int, QByteArray> roles = ReferencingFeatureListModelBase::roleNames();
+  QHash<int, QByteArray> roles = QfReferencingFeatureListModelBase::roleNames();
 
-  roles[OrderedRelationModel::ImagePathRole] = "ImagePath";
-  roles[OrderedRelationModel::DescriptionRole] = "Description";
-  roles[OrderedRelationModel::FeatureIdRole] = "FeatureId";
-  roles[OrderedRelationModel::OrderingValueRole] = "OrderingValue";
+  roles[QfOrderedRelationModel::ImagePathRole] = "ImagePath";
+  roles[QfOrderedRelationModel::DescriptionRole] = "Description";
+  roles[QfOrderedRelationModel::FeatureIdRole] = "FeatureId";
+  roles[QfOrderedRelationModel::OrderingValueRole] = "OrderingValue";
 
   return roles;
 }
 
-QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
+QVariant QfOrderedRelationModel::data( const QModelIndex &index, int role ) const
 {
   QVariant result;
 
@@ -115,10 +115,10 @@ QVariant OrderedRelationModel::data( const QModelIndex &index, int role ) const
       return mEntries[index.row()].referencingFeature.attribute( mOrderingField ).toInt();
   }
 
-  return ReferencingFeatureListModelBase::data( index, role );
+  return QfReferencingFeatureListModelBase::data( index, role );
 }
 
-void OrderedRelationModel::triggerViewCurrentFeatureChange( int index )
+void QfOrderedRelationModel::triggerViewCurrentFeatureChange( int index )
 {
   if ( index < 0 || index >= rowCount( QModelIndex() ) )
     return;
@@ -126,7 +126,7 @@ void OrderedRelationModel::triggerViewCurrentFeatureChange( int index )
   emit currentFeatureChanged( mEntries[index].referencingFeature );
 }
 
-bool OrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
+bool QfOrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
 {
   if ( fromIdx == toIdx )
     return false;
@@ -185,7 +185,7 @@ bool OrderedRelationModel::moveItems( const int fromIdx, const int toIdx )
   return true;
 }
 
-bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
+bool QfOrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId )
 {
   int orderingFieldIdx = referencingLayer->fields().indexFromName( mOrderingField );
 
@@ -242,7 +242,7 @@ bool OrderedRelationModel::beforeDeleteFeature( QgsVectorLayer *referencingLayer
   return true;
 }
 
-void OrderedRelationModel::sortEntries()
+void QfOrderedRelationModel::sortEntries()
 {
   std::sort( mEntries.begin(), mEntries.end(), [this]( const Entry &e1, const Entry &e2 ) {
     return e1.referencingFeature.attribute( mOrderingField ).toInt() < e2.referencingFeature.attribute( mOrderingField ).toInt();

@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnmeagnssreceiver.cpp - NmeaGnssReceiver
+ qfnmeagnssreceiver.cpp - QfNmeaGnssReceiver
 
  ---------------------
  begin                : 21.10.2022
@@ -20,28 +20,28 @@
 #include <QFileInfo>
 #include <QSettings>
 
-NmeaGnssReceiver::NmeaGnssReceiver( QObject *parent )
-  : AbstractGnssReceiver( parent )
+QfNmeaGnssReceiver::QfNmeaGnssReceiver( QObject *parent )
+  : QfAbstractGnssReceiver( parent )
   , mImuPosition()
 {
 }
 
-AbstractGnssReceiver::Capabilities NmeaGnssReceiver::capabilities() const
+QfAbstractGnssReceiver::Capabilities QfNmeaGnssReceiver::capabilities() const
 {
-  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging;
+  return QfAbstractGnssReceiver::Capabilities() | QfAbstractGnssReceiver::OrthometricAltitude | QfAbstractGnssReceiver::Logging;
 }
 
-void NmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
+void QfNmeaGnssReceiver::initNmeaConnection( QIODevice *ioDevice )
 {
   mIODevice = ioDevice;
   mNmeaConnection = std::make_unique<QgsNmeaConnection>( ioDevice );
 
   ////QgsGpsConnection state changed (received location string)
-  connect( mNmeaConnection.get(), &QgsGpsConnection::stateChanged, this, &NmeaGnssReceiver::stateChanged );
-  connect( mNmeaConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, &NmeaGnssReceiver::onNmeaSentenceReceived );
+  connect( mNmeaConnection.get(), &QgsGpsConnection::stateChanged, this, &QfNmeaGnssReceiver::stateChanged );
+  connect( mNmeaConnection.get(), &QgsGpsConnection::nmeaSentenceReceived, this, &QfNmeaGnssReceiver::onNmeaSentenceReceived );
 }
 
-void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
+void QfNmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 {
   if ( mLastGnssPositionValid && std::isnan( info.latitude ) )
   {
@@ -51,9 +51,9 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
 
   bool ellipsoidalElevation = false;
   double antennaHeight = 0.0;
-  if ( const PositioningSource *positioningSource = qobject_cast<PositioningSource *>( parent() ) )
+  if ( const QfPositioningSource *positioningSource = qobject_cast<QfPositioningSource *>( parent() ) )
   {
-    ellipsoidalElevation = positioningSource->elevationCorrectionMode() != PositioningSource::ElevationCorrectionMode::OrthometricFromDevice;
+    ellipsoidalElevation = positioningSource->elevationCorrectionMode() != QfPositioningSource::ElevationCorrectionMode::OrthometricFromDevice;
     antennaHeight = positioningSource->antennaHeight();
   }
 
@@ -62,17 +62,17 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
     mLastGnssPositionUtcTime = info.utcTime;
     if ( mImuPosition.valid )
     {
-      mLastGnssPositionInformation = GnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
-                                                              ellipsoidalElevation ? mImuPosition.altitude : mImuPosition.altitude - info.elevation_diff,
-                                                              mImuPosition.speed * 1000 / 60 / 60, // QgsGpsInformation's speed is served in km/h, translate to m/s
-                                                              mImuPosition.direction,
-                                                              info.satellitesInView, info.pdop, info.hdop, info.vdop,
-                                                              info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
-                                                              info.quality,
-                                                              info.satellitesUsed, info.status,
-                                                              info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
-                                                              0, QStringLiteral( "nmea" ),
-                                                              mImuPosition.valid, mImuPosition.roll, mImuPosition.pitch, mImuPosition.heading, mImuPosition.steering );
+      mLastGnssPositionInformation = QfGnssPositionInformation( mImuPosition.latitude, mImuPosition.longitude,
+                                                                ellipsoidalElevation ? mImuPosition.altitude : mImuPosition.altitude - info.elevation_diff,
+                                                                mImuPosition.speed * 1000 / 60 / 60, // QgsGpsInformation's speed is served in km/h, translate to m/s
+                                                                mImuPosition.direction,
+                                                                info.satellitesInView, info.pdop, info.hdop, info.vdop,
+                                                                info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType,
+                                                                info.quality,
+                                                                info.satellitesUsed, info.status,
+                                                                info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
+                                                                0, QStringLiteral( "nmea" ),
+                                                                mImuPosition.valid, mImuPosition.roll, mImuPosition.pitch, mImuPosition.heading, mImuPosition.steering );
     }
     else
     {
@@ -82,17 +82,17 @@ void NmeaGnssReceiver::stateChanged( const QgsGpsInformation &info )
     emit lastGnssPositionInformationChanged( mLastGnssPositionInformation );
   }
 
-  mCurrentNmeaGnssPositionInformation = GnssPositionInformation( info.latitude, info.longitude,
-                                                                 info.elevation - antennaHeight + ( ellipsoidalElevation ? info.elevation_diff : 0 ),
-                                                                 info.speed * 1000 / 60 / 60, // QgsGpsInformation's speed is served in km/h, translate to m/s
-                                                                 info.direction,
-                                                                 info.satellitesInView, info.pdop, info.hdop, info.vdop,
-                                                                 info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
-                                                                 info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
-                                                                 0, QStringLiteral( "nmea" ) );
+  mCurrentNmeaGnssPositionInformation = QfGnssPositionInformation( info.latitude, info.longitude,
+                                                                   info.elevation - antennaHeight + ( ellipsoidalElevation ? info.elevation_diff : 0 ),
+                                                                   info.speed * 1000 / 60 / 60, // QgsGpsInformation's speed is served in km/h, translate to m/s
+                                                                   info.direction,
+                                                                   info.satellitesInView, info.pdop, info.hdop, info.vdop,
+                                                                   info.hacc, info.vacc, info.utcDateTime, info.fixMode, info.fixType, info.quality, info.satellitesUsed, info.status,
+                                                                   info.satPrn, info.satInfoComplete, std::numeric_limits<double>::quiet_NaN(), std::numeric_limits<double>::quiet_NaN(),
+                                                                   0, QStringLiteral( "nmea" ) );
 }
 
-void NmeaGnssReceiver::onNmeaSentenceReceived( const QString &substring )
+void QfNmeaGnssReceiver::onNmeaSentenceReceived( const QString &substring )
 {
   emit nmeaSentenceReceived( substring );
 
@@ -107,7 +107,7 @@ void NmeaGnssReceiver::onNmeaSentenceReceived( const QString &substring )
   }
 }
 
-void NmeaGnssReceiver::handleStartLogging( const QString &path )
+void QfNmeaGnssReceiver::handleStartLogging( const QString &path )
 {
   if ( QFileInfo::exists( path ) )
   {
@@ -122,14 +122,14 @@ void NmeaGnssReceiver::handleStartLogging( const QString &path )
   }
 }
 
-void NmeaGnssReceiver::handleStopLogging()
+void QfNmeaGnssReceiver::handleStopLogging()
 {
   mLogFile.close();
 }
 
-GnssPositionDetails NmeaGnssReceiver::details() const
+QfGnssPositionDetails QfNmeaGnssReceiver::details() const
 {
-  GnssPositionDetails dataList;
+  QfGnssPositionDetails dataList;
   dataList.append( "PDOP", QLocale::system().toString( mLastGnssPositionInformation.pdop(), 'f', 1 ) );
   dataList.append( "HDOP", QLocale::system().toString( mLastGnssPositionInformation.hdop(), 'f', 1 ) );
   dataList.append( "VDOP", QLocale::system().toString( mLastGnssPositionInformation.vdop(), 'f', 1 ) );
@@ -139,7 +139,7 @@ GnssPositionDetails NmeaGnssReceiver::details() const
   return dataList;
 }
 
-void NmeaGnssReceiver::processImuSentence( const QString &sentence )
+void QfNmeaGnssReceiver::processImuSentence( const QString &sentence )
 {
   static const int PARAMETER_STATUS_INDEX = 19;
 
@@ -215,7 +215,7 @@ void NmeaGnssReceiver::processImuSentence( const QString &sentence )
   mImuPosition.valid = true;
 }
 
-void NmeaGnssReceiver::onCorrectionDataReceived( const QByteArray &data )
+void QfNmeaGnssReceiver::onCorrectionDataReceived( const QByteArray &data )
 {
   if ( !mIODevice || !mIODevice->isOpen() )
   {

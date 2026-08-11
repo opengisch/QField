@@ -19,10 +19,10 @@
 
 #include "qfviewstatus.h"
 
-class AndroidViewStatus : public ViewStatus
+class QfAndroidViewStatus : public QfViewStatus
 {
   public:
-    AndroidViewStatus( QObject *parent = nullptr );
+    QfAndroidViewStatus( QObject *parent = nullptr );
 
   private slots:
     void handleResourceOpened( const QString &path );

@@ -23,13 +23,13 @@
 #include <qgslocatorfilter.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * GotoLocatorFilter is a locator filter to search
+ * QfGotoLocatorFilter is a locator filter to search
  * for and display coordinates.
  */
-class GotoLocatorFilter : public QgsLocatorFilter
+class QfGotoLocatorFilter : public QgsLocatorFilter
 {
     Q_OBJECT
 
@@ -38,11 +38,11 @@ class GotoLocatorFilter : public QgsLocatorFilter
     enum ActionOrigin
     {
       Normal,
-      Navigation,
+      QfNavigation,
     };
 
-    explicit GotoLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
-    GotoLocatorFilter *clone() const override;
+    explicit QfGotoLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent = nullptr );
+    QfGotoLocatorFilter *clone() const override;
     QString name() const override { return QStringLiteral( "goto" ); }
     QString displayName() const override { return tr( "Go to coordinate" ); }
     QString description() const override { return tr( "Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar." ); }
@@ -55,7 +55,7 @@ class GotoLocatorFilter : public QgsLocatorFilter
     void triggerResultFromAction( const QgsLocatorResult &result, const int actionId ) override;
 
   private:
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
 };
 
 #endif // QFGOTOLOCATORFILTER_H

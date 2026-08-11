@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dterrainprovider.h - Quick3DTerrainProvider
+  qf3dterrainprovider.h - Qf3DTerrainProvider
 
 ---------------------
 begin                : 26.1.2026
@@ -42,11 +42,11 @@ class QgsAbstractTerrainProvider;
  * is available. The data is normalized and provided as height samples for terrain mesh
  * generation in Qt Quick 3D.
  *
- * \note QML Type: Quick3DTerrainProvider
+ * \note QML Type: Qf3DTerrainProvider
  * \ingroup core
  *
  */
-class Quick3DTerrainProvider : public QObject
+class Qf3DTerrainProvider : public QObject
 {
     Q_OBJECT
 
@@ -88,8 +88,8 @@ class Quick3DTerrainProvider : public QObject
 
   public:
     //! Creates a new terrain provider
-    explicit Quick3DTerrainProvider( QObject *parent = nullptr );
-    ~Quick3DTerrainProvider() override;
+    explicit Qf3DTerrainProvider( QObject *parent = nullptr );
+    ~Qf3DTerrainProvider() override;
 
     //! Returns the project from which to read terrain configuration and DEM layer.
     QgsProject *project() const;

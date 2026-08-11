@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfcoordinatereferencesystemutils.cpp - CoordinateReferenceSystemUtils
+  qfcoordinatereferencesystemutils.cpp - QfCoordinateReferenceSystemUtils
 
  ---------------------
  begin                : 28.05.2022
@@ -18,12 +18,12 @@
 
 #include <qgscoordinatereferencesystemutils.h>
 
-CoordinateReferenceSystemUtils::CoordinateReferenceSystemUtils( QObject *parent )
+QfCoordinateReferenceSystemUtils::QfCoordinateReferenceSystemUtils( QObject *parent )
   : QObject( parent )
 {
 }
 
-bool CoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( const QgsCoordinateReferenceSystem &crs )
+bool QfCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrsIsXY( const QgsCoordinateReferenceSystem &crs )
 {
   return QgsCoordinateReferenceSystemUtils::defaultCoordinateOrderForCrs( crs ) == Qgis::CoordinateOrder::XY;
 }

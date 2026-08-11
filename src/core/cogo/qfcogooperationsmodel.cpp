@@ -19,22 +19,22 @@
 #include "qfcogoregistry.h"
 
 
-CogoOperationsModel::CogoOperationsModel( QObject *parent )
+QfCogoOperationsModel::QfCogoOperationsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  connect( CogoRegistry::instance(), &CogoRegistry::operationAdded, this, [this]() { buildModel(); } );
+  connect( QfCogoRegistry::instance(), &QfCogoRegistry::operationAdded, this, [this]() { buildModel(); } );
 
   buildModel();
 }
 
-void CogoOperationsModel::buildModel()
+void QfCogoOperationsModel::buildModel()
 {
   beginResetModel();
-  mOperationNames = CogoRegistry::instance()->availableOperations();
+  mOperationNames = QfCogoRegistry::instance()->availableOperations();
   endResetModel();
 }
 
-QVariantMap CogoOperationsModel::get( int row ) const
+QVariantMap QfCogoOperationsModel::get( int row ) const
 {
   QVariantMap data;
   const QModelIndex idx = index( row, 0 );
@@ -54,24 +54,24 @@ QVariantMap CogoOperationsModel::get( int row ) const
   return data;
 }
 
-QVariantMap CogoOperationsModel::get( const QString &name ) const
+QVariantMap QfCogoOperationsModel::get( const QString &name ) const
 {
   return get( mOperationNames.indexOf( name ) );
 }
 
-int CogoOperationsModel::rowCount( const QModelIndex &parent ) const
+int QfCogoOperationsModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mOperationNames.size() ) : 0;
 }
 
-QVariant CogoOperationsModel::data( const QModelIndex &index, int role ) const
+QVariant QfCogoOperationsModel::data( const QModelIndex &index, int role ) const
 {
   if ( !index.isValid() || index.row() >= mOperationNames.count() )
   {
     return QVariant();
   }
 
-  const CogoOperation *operation = CogoRegistry::instance()->operation( mOperationNames[index.row()] );
+  const QfCogoOperation *operation = QfCogoRegistry::instance()->operation( mOperationNames[index.row()] );
   if ( !operation )
   {
     return QVariant();
@@ -95,7 +95,7 @@ QVariant CogoOperationsModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> CogoOperationsModel::roleNames() const
+QHash<int, QByteArray> QfCogoOperationsModel::roleNames() const
 {
   return {
     { NameRole, "Name" },

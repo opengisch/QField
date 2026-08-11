@@ -21,7 +21,7 @@
 /**
  * \ingroup core
  */
-class PositioningDeviceModel : public QAbstractListModel
+class QfPositioningDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -63,7 +63,7 @@ class PositioningDeviceModel : public QAbstractListModel
     Q_ENUM( Role )
 
 
-    explicit PositioningDeviceModel( QObject *parent = nullptr );
+    explicit QfPositioningDeviceModel( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -91,7 +91,7 @@ class PositioningDeviceModel : public QAbstractListModel
 
     /**
      * Returns the device ID string for a specific \a device
-     * \note this is the string to be used with the Positioning deviceId property
+     * \note this is the string to be used with the QfPositioning deviceId property
      */
     Q_INVOKABLE const QString deviceId( const Device &device ) const;
 

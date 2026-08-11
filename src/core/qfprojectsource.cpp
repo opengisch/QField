@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectsource.cpp - ProjectSource
+  qfprojectsource.cpp - QfProjectSource
 
  ---------------------
  begin                : 19.3.2018
@@ -18,7 +18,7 @@
 
 #include <QQuickItem>
 
-ProjectSource::ProjectSource( QObject *parent )
+QfProjectSource::QfProjectSource( QObject *parent )
   : QObject( parent )
 {
 }

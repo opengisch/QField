@@ -26,7 +26,7 @@
  * A base model that manages the key/value pairs for a ValueMap widget.
  * \ingroup core
  */
-class ValueMapModelBase : public QAbstractListModel
+class QfValueMapModelBase : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -34,18 +34,18 @@ class ValueMapModelBase : public QAbstractListModel
     /**
      * Create a new value map model base
      */
-    explicit ValueMapModelBase( QObject *parent = nullptr );
+    explicit QfValueMapModelBase( QObject *parent = nullptr );
 
-    //! \copydoc ValueMapModel::map
+    //! \copydoc QfValueMapModel::map
     QVariant map() const;
 
-    //! \copydoc ValueMapModel::setMap
+    //! \copydoc QfValueMapModel::setMap
     void setMap( const QVariant &map );
 
-    //! \copydoc ValueMapModel::keyToIndex
+    //! \copydoc QfValueMapModel::keyToIndex
     int keyToIndex( const QVariant &key ) const;
 
-    //! \copydoc ValueMapModel::keyForValue
+    //! \copydoc QfValueMapModel::keyForValue
     QVariant keyForValue( const QString &value ) const;
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
@@ -55,7 +55,7 @@ class ValueMapModelBase : public QAbstractListModel
     QHash<int, QByteArray> roleNames() const override;
 
   signals:
-    //! \copydoc ValueMapModel::mapChanged
+    //! \copydoc QfValueMapModel::mapChanged
     void mapChanged();
 
   private:

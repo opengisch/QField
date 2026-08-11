@@ -23,21 +23,21 @@
 #include <qgsvectorlayereditbuffer.h>
 #include <qgsvectorlayerutils.h>
 
-FeatureHistory::FeatureHistory( const QgsProject *project, TrackingModel *trackingModel )
+QfFeatureHistory::QfFeatureHistory( const QgsProject *project, QfTrackingModel *trackingModel )
   : mProject( project )
   , mTrackingModel( trackingModel )
 {
-  connect( mProject, &QgsProject::homePathChanged, this, &FeatureHistory::onHomePathChanged );
-  connect( mProject, &QgsProject::layersAdded, this, &FeatureHistory::onLayersAdded );
-  connect( &mTimer, &QTimer::timeout, this, &FeatureHistory::onTimerTimeout );
+  connect( mProject, &QgsProject::homePathChanged, this, &QfFeatureHistory::onHomePathChanged );
+  connect( mProject, &QgsProject::layersAdded, this, &QfFeatureHistory::onLayersAdded );
+  connect( &mTimer, &QTimer::timeout, this, &QfFeatureHistory::onTimerTimeout );
 
   if ( mTrackingModel )
   {
-    connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &FeatureHistory::onLayerInTrackingChanged );
+    connect( mTrackingModel, &QfTrackingModel::layerInTrackingChanged, this, &QfFeatureHistory::onLayerInTrackingChanged );
   }
 }
 
-void FeatureHistory::onHomePathChanged()
+void QfFeatureHistory::onHomePathChanged()
 {
   if ( mProject->homePath().isNull() )
     return;
@@ -47,7 +47,7 @@ void FeatureHistory::onHomePathChanged()
   addLayerListeners();
 }
 
-void FeatureHistory::addLayerListeners()
+void QfFeatureHistory::addLayerListeners()
 {
   const QList<QgsMapLayer *> layers = mProject->mapLayers().values();
 
@@ -65,22 +65,22 @@ void FeatureHistory::addLayerListeners()
     }
 
     // make sure we disconnect vector layer signal slots for these events if they are already present
-    disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
-    disconnect( vl, &QgsVectorLayer::afterCommitChanges, this, &FeatureHistory::onAfterCommitChanges );
-    disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &FeatureHistory::onCommittedFeaturesAdded );
-    disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &FeatureHistory::onCommittedFeaturesRemoved );
+    disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &QfFeatureHistory::onBeforeCommitChanges );
+    disconnect( vl, &QgsVectorLayer::afterCommitChanges, this, &QfFeatureHistory::onAfterCommitChanges );
+    disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &QfFeatureHistory::onCommittedFeaturesAdded );
+    disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfFeatureHistory::onCommittedFeaturesRemoved );
 
-    connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
-    connect( vl, &QgsVectorLayer::afterCommitChanges, this, &FeatureHistory::onAfterCommitChanges );
-    connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &FeatureHistory::onCommittedFeaturesAdded );
-    connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &FeatureHistory::onCommittedFeaturesRemoved );
+    connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &QfFeatureHistory::onBeforeCommitChanges );
+    connect( vl, &QgsVectorLayer::afterCommitChanges, this, &QfFeatureHistory::onAfterCommitChanges );
+    connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &QfFeatureHistory::onCommittedFeaturesAdded );
+    connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfFeatureHistory::onCommittedFeaturesRemoved );
 
     mObservedLayerIds.insert( vl->id() );
   }
 }
 
 
-void FeatureHistory::onBeforeCommitChanges()
+void QfFeatureHistory::onBeforeCommitChanges()
 {
   if ( mIsApplyingModifications )
   {
@@ -147,7 +147,7 @@ void FeatureHistory::onBeforeCommitChanges()
 }
 
 
-void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures )
+void QfFeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, const QgsFeatureList &addedFeatures )
 {
   if ( mIsApplyingModifications )
   {
@@ -173,7 +173,7 @@ void FeatureHistory::onCommittedFeaturesAdded( const QString &localLayerId, cons
   mTempHistoryStep.insert( vl->id(), modifications );
 }
 
-void FeatureHistory::onCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
+void QfFeatureHistory::onCommittedFeaturesRemoved( const QString &layerId, const QgsFeatureIds &deletedFeatureIds )
 {
   if ( mIsApplyingModifications )
   {
@@ -197,7 +197,7 @@ void FeatureHistory::onCommittedFeaturesRemoved( const QString &layerId, const Q
   }
 }
 
-void FeatureHistory::onAfterCommitChanges()
+void QfFeatureHistory::onAfterCommitChanges()
 {
   if ( mIsApplyingModifications )
   {
@@ -238,31 +238,31 @@ void FeatureHistory::onAfterCommitChanges()
   }
 }
 
-void FeatureHistory::onLayersAdded( const QList<QgsMapLayer *> &layers )
+void QfFeatureHistory::onLayersAdded( const QList<QgsMapLayer *> &layers )
 {
   Q_UNUSED( layers );
   addLayerListeners();
 }
 
-void FeatureHistory::onLayerInTrackingChanged( QgsVectorLayer *vl, bool isTracking )
+void QfFeatureHistory::onLayerInTrackingChanged( QgsVectorLayer *vl, bool isTracking )
 {
   if ( isTracking )
   {
-    disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
-    disconnect( vl, &QgsVectorLayer::afterCommitChanges, this, &FeatureHistory::onAfterCommitChanges );
-    disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &FeatureHistory::onCommittedFeaturesAdded );
-    disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &FeatureHistory::onCommittedFeaturesRemoved );
+    disconnect( vl, &QgsVectorLayer::beforeCommitChanges, this, &QfFeatureHistory::onBeforeCommitChanges );
+    disconnect( vl, &QgsVectorLayer::afterCommitChanges, this, &QfFeatureHistory::onAfterCommitChanges );
+    disconnect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &QfFeatureHistory::onCommittedFeaturesAdded );
+    disconnect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfFeatureHistory::onCommittedFeaturesRemoved );
   }
   else
   {
-    connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &FeatureHistory::onBeforeCommitChanges );
-    connect( vl, &QgsVectorLayer::afterCommitChanges, this, &FeatureHistory::onAfterCommitChanges );
-    connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &FeatureHistory::onCommittedFeaturesAdded );
-    connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &FeatureHistory::onCommittedFeaturesRemoved );
+    connect( vl, &QgsVectorLayer::beforeCommitChanges, this, &QfFeatureHistory::onBeforeCommitChanges );
+    connect( vl, &QgsVectorLayer::afterCommitChanges, this, &QfFeatureHistory::onAfterCommitChanges );
+    connect( vl, &QgsVectorLayer::committedFeaturesAdded, this, &QfFeatureHistory::onCommittedFeaturesAdded );
+    connect( vl, &QgsVectorLayer::committedFeaturesRemoved, this, &QfFeatureHistory::onCommittedFeaturesRemoved );
   }
 }
 
-void FeatureHistory::onTimerTimeout()
+void QfFeatureHistory::onTimerTimeout()
 {
   mTimer.stop();
   mUndoHistory.append( mTempHistoryStep );
@@ -274,7 +274,7 @@ void FeatureHistory::onTimerTimeout()
   emit isRedoAvailableChanged();
 }
 
-QMap<QString, FeatureHistory::FeatureModifications> FeatureHistory::reverseModifications( QMap<QString, FeatureModifications> &modificationsByLayerId )
+QMap<QString, QfFeatureHistory::FeatureModifications> QfFeatureHistory::reverseModifications( QMap<QString, FeatureModifications> &modificationsByLayerId )
 {
   QMap<QString, FeatureModifications> reversedModificationsByLayerId;
 
@@ -312,7 +312,7 @@ QMap<QString, FeatureHistory::FeatureModifications> FeatureHistory::reverseModif
 }
 
 
-bool FeatureHistory::applyModifications( QMap<QString, FeatureModifications> &modificationsByLayerId )
+bool QfFeatureHistory::applyModifications( QMap<QString, FeatureModifications> &modificationsByLayerId )
 {
   mIsApplyingModifications = true;
 
@@ -393,7 +393,7 @@ bool FeatureHistory::applyModifications( QMap<QString, FeatureModifications> &mo
   return true;
 }
 
-bool FeatureHistory::undo()
+bool QfFeatureHistory::undo()
 {
   if ( mUndoHistory.isEmpty() )
   {
@@ -417,7 +417,7 @@ bool FeatureHistory::undo()
 }
 
 
-bool FeatureHistory::redo()
+bool QfFeatureHistory::redo()
 {
   if ( mRedoHistory.isEmpty() )
   {
@@ -441,18 +441,18 @@ bool FeatureHistory::redo()
 }
 
 
-bool FeatureHistory::isUndoAvailable()
+bool QfFeatureHistory::isUndoAvailable()
 {
   return !mUndoHistory.isEmpty();
 }
 
 
-bool FeatureHistory::isRedoAvailable()
+bool QfFeatureHistory::isRedoAvailable()
 {
   return !mRedoHistory.isEmpty();
 }
 
-const QString FeatureHistory::undoMessage()
+const QString QfFeatureHistory::undoMessage()
 {
   if ( mUndoHistory.isEmpty() )
   {
@@ -502,7 +502,7 @@ const QString FeatureHistory::undoMessage()
 }
 
 
-const QString FeatureHistory::redoMessage()
+const QString QfFeatureHistory::redoMessage()
 {
   if ( mRedoHistory.isEmpty() )
   {

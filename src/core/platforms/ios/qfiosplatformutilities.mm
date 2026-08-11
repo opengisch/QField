@@ -65,15 +65,15 @@
 }
 @end
 
-IosPlatformUtilities::IosPlatformUtilities() : PlatformUtilities() {
+QfIosPlatformUtilities::QfIosPlatformUtilities() : QfPlatformUtilities() {
   NSError *sessionError = nil;
   [[AVAudioSession sharedInstance]
       setCategory:AVAudioSessionCategoryPlayAndRecord
             error:&sessionError];
 }
 
-PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
-  PlatformUtilities::Capabilities capabilities =
+QfPlatformUtilities::Capabilities QfIosPlatformUtilities::capabilities() const {
+  QfPlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
       CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive;
 #if WITH_SENTRY
@@ -82,7 +82,7 @@ PlatformUtilities::Capabilities IosPlatformUtilities::capabilities() const {
   return capabilities;
 }
 
-void IosPlatformUtilities::afterUpdate() {
+void QfIosPlatformUtilities::afterUpdate() {
   // Create imported projects and datasets folders
   QDir appDir(applicationDirectory());
   appDir.mkdir(QStringLiteral("Imported Projects"));
@@ -94,24 +94,24 @@ void IosPlatformUtilities::afterUpdate() {
   appDir.mkpath(QStringLiteral("QField/logs"));
 }
 
-QString IosPlatformUtilities::systemSharedDataLocation() const {
+QString QfIosPlatformUtilities::systemSharedDataLocation() const {
   NSBundle *main = [NSBundle mainBundle];
   NSString *bundlePath = [main bundlePath];
   QString path = [bundlePath UTF8String];
   return path + "/share";
 }
 
-QString IosPlatformUtilities::applicationDirectory() const {
+QString QfIosPlatformUtilities::applicationDirectory() const {
   return QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
 }
 
-QStringList IosPlatformUtilities::appDataDirs() const {
+QStringList QfIosPlatformUtilities::appDataDirs() const {
   return QStringList() << QStringLiteral("%1/QField/")
                               .arg(QStandardPaths::writableLocation(
                                   QStandardPaths::DocumentsLocation));
 }
 
-void IosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
+void QfIosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
   if (allowLock) {
     [UIApplication sharedApplication].idleTimerDisabled = NO;
   } else {
@@ -119,43 +119,43 @@ void IosPlatformUtilities::setScreenLockPermission(const bool allowLock) {
   }
 }
 
-ResourceSource *
-IosPlatformUtilities::getCameraPicture(const QString &prefix,
-                                       const QString &pictureFilePath,
-                                       const QString &suffix, QObject *parent) {
-  IosResourceSource *pictureSource =
-      new IosResourceSource(prefix, pictureFilePath, parent);
+QfResourceSource *QfIosPlatformUtilities::getCameraPicture(
+    const QString &prefix, const QString &pictureFilePath,
+    const QString &suffix, QObject *parent) {
+  QfIosResourceSource *pictureSource =
+      new QfIosResourceSource(prefix, pictureFilePath, parent);
   pictureSource->takePicture();
   return pictureSource;
 }
 
-ResourceSource *
-IosPlatformUtilities::getCameraVideo(const QString &prefix,
-                                     const QString &videoFilePath,
-                                     const QString &suffix, QObject *parent) {
-  IosResourceSource *pictureSource =
-      new IosResourceSource(prefix, videoFilePath, parent);
+QfResourceSource *
+QfIosPlatformUtilities::getCameraVideo(const QString &prefix,
+                                       const QString &videoFilePath,
+                                       const QString &suffix, QObject *parent) {
+  QfIosResourceSource *pictureSource =
+      new QfIosResourceSource(prefix, videoFilePath, parent);
   pictureSource->takeVideo();
   return pictureSource;
 }
 
-ResourceSource *IosPlatformUtilities::getGalleryPicture(
+QfResourceSource *QfIosPlatformUtilities::getGalleryPicture(
     const QString &prefix, const QString &pictureFilePath, QObject *parent) {
-  IosResourceSource *pictureSource =
-      new IosResourceSource(prefix, pictureFilePath, parent);
+  QfIosResourceSource *pictureSource =
+      new QfIosResourceSource(prefix, pictureFilePath, parent);
   pictureSource->pickGalleryPicture();
   return pictureSource;
 }
 
-ResourceSource *IosPlatformUtilities::getGalleryVideo(
+QfResourceSource *QfIosPlatformUtilities::getGalleryVideo(
     const QString &prefix, const QString &videoFilePath, QObject *parent) {
-  IosResourceSource *videoSource =
-      new IosResourceSource(prefix, videoFilePath, parent);
+  QfIosResourceSource *videoSource =
+      new QfIosResourceSource(prefix, videoFilePath, parent);
   videoSource->pickGalleryVideo();
   return videoSource;
 }
 
-ViewStatus *IosPlatformUtilities::open(const QString &uri, bool, QObject *) {
+QfViewStatus *QfIosPlatformUtilities::open(const QString &uri, bool,
+                                           QObject *) {
   // Code from https://bugreports.qt.io/browse/QTBUG-42942
   NSString *nsFilePath = uri.toNSString();
   NSURL *nsFileUrl = [NSURL fileURLWithPath:nsFilePath];
@@ -180,14 +180,14 @@ ViewStatus *IosPlatformUtilities::open(const QString &uri, bool, QObject *) {
   return nullptr;
 }
 
-ProjectSource *IosPlatformUtilities::openProject(QObject *parent) {
+QfProjectSource *QfIosPlatformUtilities::openProject(QObject *parent) {
   QSettings settings;
-  IosProjectSource *projectSource = new IosProjectSource(parent);
+  QfIosProjectSource *projectSource = new QfIosProjectSource(parent);
   projectSource->pickProject();
   return projectSource;
 }
 
-bool IosPlatformUtilities::isSystemDarkTheme() const {
+bool QfIosPlatformUtilities::isSystemDarkTheme() const {
   if (@available(iOS 12.0, *)) {
     switch (UIScreen.mainScreen.traitCollection.userInterfaceStyle) {
     case UIUserInterfaceStyleDark:
@@ -202,7 +202,7 @@ bool IosPlatformUtilities::isSystemDarkTheme() const {
   return false;
 }
 
-Qt::PermissionStatus IosPlatformUtilities::checkCameraPermission() const {
+Qt::PermissionStatus QfIosPlatformUtilities::checkCameraPermission() const {
   switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo]) {
   case AVAuthorizationStatusNotDetermined: {
     return Qt::PermissionStatus::Undetermined;
@@ -218,7 +218,7 @@ Qt::PermissionStatus IosPlatformUtilities::checkCameraPermission() const {
   }
 }
 
-void IosPlatformUtilities::requestCameraPermission(
+void QfIosPlatformUtilities::requestCameraPermission(
     std::function<void(Qt::PermissionStatus)> func) {
   [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo
                            completionHandler:^(BOOL granted) {
@@ -227,7 +227,7 @@ void IosPlatformUtilities::requestCameraPermission(
                            }];
 }
 
-Qt::PermissionStatus IosPlatformUtilities::checkMicrophonePermission() const {
+Qt::PermissionStatus QfIosPlatformUtilities::checkMicrophonePermission() const {
   switch ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio]) {
   case AVAuthorizationStatusNotDetermined: {
     return Qt::PermissionStatus::Undetermined;
@@ -243,7 +243,7 @@ Qt::PermissionStatus IosPlatformUtilities::checkMicrophonePermission() const {
   }
 }
 
-void IosPlatformUtilities::requestMicrophonePermission(
+void QfIosPlatformUtilities::requestMicrophonePermission(
     std::function<void(Qt::PermissionStatus)> func) {
   [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio
                            completionHandler:^(BOOL granted) {
@@ -308,8 +308,8 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
     [url stopAccessingSecurityScopedResource];
 
     QString importedPath = QString::fromNSString(destPath);
-    if (AppInterface::instance()) {
-      emit AppInterface::instance()->openPath(importedPath);
+    if (QfAppInterface::instance()) {
+      emit QfAppInterface::instance()->openPath(importedPath);
     }
   } else if ([_mode isEqualToString:@"projectArchive"]) {
     NSString *baseName = [url.lastPathComponent stringByDeletingPathExtension];
@@ -322,11 +322,11 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
     QString zipPath = QString::fromNSString(url.path);
     QString destDir = QString::fromNSString(destPath);
     QStringList extractedFiles;
-    FileUtils::unzip(zipPath, destDir, extractedFiles, false);
+    QfFileUtils::unzip(zipPath, destDir, extractedFiles, false);
     [url stopAccessingSecurityScopedResource];
 
-    if (AppInterface::instance()) {
-      emit AppInterface::instance()->openPath(destDir);
+    if (QfAppInterface::instance()) {
+      emit QfAppInterface::instance()->openPath(destDir);
     }
   } else if ([_mode isEqualToString:@"datasets"]) {
     [fileManager createDirectoryAtPath:_importPath
@@ -345,22 +345,22 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
     }
 
     QString importedPath = QString::fromNSString(_importPath);
-    if (AppInterface::instance()) {
-      emit AppInterface::instance()->openPath(importedPath);
+    if (QfAppInterface::instance()) {
+      emit QfAppInterface::instance()->openPath(importedPath);
     }
   } else if ([_mode isEqualToString:@"updateFromArchive"]) {
-    if (AppInterface::instance()) {
-      AppInterface::instance()->clearProject();
+    if (QfAppInterface::instance()) {
+      QfAppInterface::instance()->clearProject();
     }
 
     QString zipPath = QString::fromNSString(url.path);
     QString destDir = QString::fromNSString(_importPath);
     QStringList extractedFiles;
-    FileUtils::unzip(zipPath, destDir, extractedFiles, false);
+    QfFileUtils::unzip(zipPath, destDir, extractedFiles, false);
     [url stopAccessingSecurityScopedResource];
 
-    if (AppInterface::instance()) {
-      AppInterface::instance()->reloadProject();
+    if (QfAppInterface::instance()) {
+      QfAppInterface::instance()->reloadProject();
     }
   }
 }
@@ -403,7 +403,7 @@ static void copyDirectoryContents(NSURL *sourceURL, NSString *destinationPath) {
 
 @end
 
-void IosPlatformUtilities::exportFolderTo(const QString &path) const {
+void QfIosPlatformUtilities::exportFolderTo(const QString &path) const {
   UIViewController *root = [[[[UIApplication sharedApplication] windows]
       firstObject] rootViewController];
 
@@ -421,7 +421,7 @@ void IosPlatformUtilities::exportFolderTo(const QString &path) const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::exportDatasetTo(const QString &path) const {
+void QfIosPlatformUtilities::exportDatasetTo(const QString &path) const {
   NSMutableArray<NSString *> *sourcePaths = [NSMutableArray array];
   [sourcePaths addObject:path.toNSString()];
 
@@ -447,7 +447,7 @@ void IosPlatformUtilities::exportDatasetTo(const QString &path) const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::importProjectFolder() const {
+void QfIosPlatformUtilities::importProjectFolder() const {
   QString appDir = applicationDirectory();
   NSString *importBasePath =
       (appDir + QStringLiteral("/Imported Projects/")).toNSString();
@@ -470,7 +470,7 @@ void IosPlatformUtilities::importProjectFolder() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::importProjectArchive() const {
+void QfIosPlatformUtilities::importProjectArchive() const {
   QString appDir = applicationDirectory();
   NSString *importBasePath =
       (appDir + QStringLiteral("/Imported Projects/")).toNSString();
@@ -494,7 +494,7 @@ void IosPlatformUtilities::importProjectArchive() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::importDatasets() const {
+void QfIosPlatformUtilities::importDatasets() const {
   QString appDir = applicationDirectory();
   NSString *importBasePath =
       (appDir + QStringLiteral("/Imported Datasets/")).toNSString();
@@ -517,7 +517,7 @@ void IosPlatformUtilities::importDatasets() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::sendDatasetTo(const QString &path) const {
+void QfIosPlatformUtilities::sendDatasetTo(const QString &path) const {
   NSMutableArray *items = [NSMutableArray array];
   [items addObject:[NSURL fileURLWithPath:path.toNSString()]];
 
@@ -553,7 +553,7 @@ void IosPlatformUtilities::sendDatasetTo(const QString &path) const {
   [root presentViewController:activityVC animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
+void QfIosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
   QString tempZipPath =
       QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
       QStringLiteral("/") + QFileInfo(path).fileName() + QStringLiteral(".zip");
@@ -586,7 +586,7 @@ void IosPlatformUtilities::sendCompressedFolderTo(const QString &path) const {
   [root presentViewController:activityVC animated:YES completion:nil];
 }
 
-void IosPlatformUtilities::updateProjectFromArchive(
+void QfIosPlatformUtilities::updateProjectFromArchive(
     const QString &projectPath) const {
   QString importPath = QFileInfo(projectPath).absolutePath();
   NSString *importBasePath = importPath.toNSString();

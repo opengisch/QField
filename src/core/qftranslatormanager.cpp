@@ -1,5 +1,5 @@
 /***************************************************************************
- qftranslatormanager.cpp - TranslatorManager
+ qftranslatormanager.cpp - QfTranslatorManager
 
  ---------------------
  begin                : June 2025
@@ -17,24 +17,24 @@
 
 #include <QTranslator>
 
-TranslatorManager::TranslatorManager()
+QfTranslatorManager::QfTranslatorManager()
   : mQFieldTranslator( std::make_unique<QTranslator>() )
   , mQtTranslator( std::make_unique<QTranslator>() )
 {
 }
 
-QTranslator *TranslatorManager::qfieldTranslator()
+QTranslator *QfTranslatorManager::qfieldTranslator()
 {
   return mQFieldTranslator.get();
 }
 
-QTranslator *TranslatorManager::qtTranslator()
+QTranslator *QfTranslatorManager::qtTranslator()
 {
   return mQtTranslator.get();
 }
 
-TranslatorManager *TranslatorManager::instance()
+QfTranslatorManager *QfTranslatorManager::instance()
 {
-  static TranslatorManager *sInstance = new TranslatorManager();
+  static QfTranslatorManager *sInstance = new QfTranslatorManager();
   return sInstance;
 }

@@ -45,15 +45,15 @@
 #include <qgsruntimeprofiler.h>
 #include <qgsziputils.h>
 
-AppInterface *AppInterface::sAppInterface = nullptr;
+QfAppInterface *QfAppInterface::sAppInterface = nullptr;
 
-AppInterface::AppInterface( QQmlEngine *engine, AppController *controller )
+QfAppInterface::QfAppInterface( QQmlEngine *engine, QfAppController *controller )
   : mEngine( engine )
   , mController( controller )
 {
 }
 
-QObject *AppInterface::rootObject() const
+QObject *QfAppInterface::rootObject() const
 {
   QQmlApplicationEngine *appEngine = qobject_cast<QQmlApplicationEngine *>( mEngine );
   if ( appEngine )
@@ -80,9 +80,9 @@ QObject *AppInterface::rootObject() const
   return mEngine;
 }
 
-QObject *AppInterface::createHttpRequest() const
+QObject *QfAppInterface::createHttpRequest() const
 {
-  QFieldXmlHttpRequest *request = new QFieldXmlHttpRequest();
+  QfXmlHttpRequest *request = new QfXmlHttpRequest();
 
   QObject *root = rootObject();
   if ( root && qmlEngine( root ) )
@@ -93,13 +93,13 @@ QObject *AppInterface::createHttpRequest() const
   return request;
 }
 
-QObject *AppInterface::findItemByObjectName( const QString &name ) const
+QObject *QfAppInterface::findItemByObjectName( const QString &name ) const
 {
   QObject *root = rootObject();
   return root ? root->findChild<QObject *>( name ) : nullptr;
 }
 
-void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
+void QfAppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
 {
   QObject *root = rootObject();
   if ( !root )
@@ -114,7 +114,7 @@ void AppInterface::addItemToPluginsToolbar( QQuickItem *item ) const
   }
 }
 
-void AppInterface::addItemToMapCanvas3D( QQuickItem *item ) const
+void QfAppInterface::addItemToMapCanvas3D( QQuickItem *item ) const
 {
   QObject *root = rootObject();
   if ( !root )
@@ -127,7 +127,7 @@ void AppInterface::addItemToMapCanvas3D( QQuickItem *item ) const
   }
 }
 
-void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
+void QfAppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
 {
   QObject *root = rootObject();
   if ( !root )
@@ -142,7 +142,7 @@ void AppInterface::addItemToCanvasActionsToolbar( QQuickItem *item ) const
   }
 }
 
-void AppInterface::addItemToDashboardActionsToolbar( QQuickItem *item ) const
+void QfAppInterface::addItemToDashboardActionsToolbar( QQuickItem *item ) const
 {
   QObject *root = rootObject();
   if ( !root )
@@ -157,17 +157,17 @@ void AppInterface::addItemToDashboardActionsToolbar( QQuickItem *item ) const
   }
 }
 
-void AppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
+void QfAppInterface::addItemToMainMenuActionsToolbar( QQuickItem *item ) const
 {
   addItemToDashboardActionsToolbar( item );
 }
 
-QObject *AppInterface::mainWindow() const
+QObject *QfAppInterface::mainWindow() const
 {
   return rootObject();
 }
 
-QObject *AppInterface::mapCanvas() const
+QObject *QfAppInterface::mapCanvas() const
 {
   QObject *root = rootObject();
   if ( !root )
@@ -178,7 +178,7 @@ QObject *AppInterface::mapCanvas() const
   return root->findChild<QObject *>( QStringLiteral( "mapCanvas" ) );
 }
 
-QObject *AppInterface::positioning() const
+QObject *QfAppInterface::positioning() const
 {
   QObject *root = rootObject();
   if ( !root )
@@ -189,9 +189,9 @@ QObject *AppInterface::positioning() const
   return root->findChild<QObject *>( QStringLiteral( "positionSource" ) );
 }
 
-bool AppInterface::hasProjectOnLaunch() const
+bool QfAppInterface::hasProjectOnLaunch() const
 {
-  if ( PlatformUtilities::instance()->hasQgsProject() )
+  if ( QfPlatformUtilities::instance()->hasQgsProject() )
   {
     return true;
   }
@@ -209,7 +209,7 @@ bool AppInterface::hasProjectOnLaunch() const
   return false;
 }
 
-bool AppInterface::loadFile( const QString &path, const QString &name )
+bool QfAppInterface::loadFile( const QString &path, const QString &name )
 {
   qInfo() << QStringLiteral( "AppInterface loading file: %1" ).arg( path );
   if ( !mController )
@@ -225,7 +225,7 @@ bool AppInterface::loadFile( const QString &path, const QString &name )
   return mController->loadProjectFile( url.isLocalFile() ? url.toLocalFile() : url.path(), name );
 }
 
-void AppInterface::reloadProject()
+void QfAppInterface::reloadProject()
 {
   if ( mController )
   {
@@ -233,7 +233,7 @@ void AppInterface::reloadProject()
   }
 }
 
-void AppInterface::readProject()
+void QfAppInterface::readProject()
 {
   if ( mController )
   {
@@ -241,37 +241,37 @@ void AppInterface::readProject()
   }
 }
 
-QString AppInterface::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
+QString QfAppInterface::readProjectEntry( const QString &scope, const QString &key, const QString &def ) const
 {
   return mController ? mController->readProjectEntry( scope, key, def ) : def;
 }
 
-int AppInterface::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
+int QfAppInterface::readProjectNumEntry( const QString &scope, const QString &key, int def ) const
 {
   return mController ? mController->readProjectNumEntry( scope, key, def ) : def;
 }
 
-double AppInterface::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
+double QfAppInterface::readProjectDoubleEntry( const QString &scope, const QString &key, double def ) const
 {
   return mController ? mController->readProjectDoubleEntry( scope, key, def ) : def;
 }
 
-bool AppInterface::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
+bool QfAppInterface::readProjectBoolEntry( const QString &scope, const QString &key, bool def ) const
 {
   return mController ? mController->readProjectBoolEntry( scope, key, def ) : def;
 }
 
-bool AppInterface::print( const QString &layoutName )
+bool QfAppInterface::print( const QString &layoutName )
 {
   return mController ? mController->print( layoutName ) : false;
 }
 
-bool AppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
+bool QfAppInterface::printAtlasFeatures( const QString &layoutName, const QList<long long> &featureIds )
 {
   return mController ? mController->printAtlasFeatures( layoutName, featureIds ) : false;
 }
 
-void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
+void QfAppInterface::setScreenDimmerTimeout( int timeoutSeconds )
 {
   if ( mController )
   {
@@ -279,12 +279,12 @@ void AppInterface::setScreenDimmerTimeout( int timeoutSeconds )
   }
 }
 
-void AppInterface::setupNetworkProxy() const
+void QfAppInterface::setupNetworkProxy() const
 {
   QgsNetworkAccessManager::instance()->setupDefaultProxyAndCache();
 }
 
-QVariantMap AppInterface::availableLanguages() const
+QVariantMap QfAppInterface::availableLanguages() const
 {
   QVariantMap languages;
   QDirIterator it( QStringLiteral( ":/i18n/" ), { QStringLiteral( "*.qm" ) }, QDir::Files );
@@ -318,7 +318,7 @@ QVariantMap AppInterface::availableLanguages() const
   return languages;
 }
 
-void AppInterface::changeLanguage( const QString &languageCode )
+void QfAppInterface::changeLanguage( const QString &languageCode )
 {
   if ( !languageCode.isEmpty() && !availableLanguages().contains( languageCode ) )
   {
@@ -326,8 +326,8 @@ void AppInterface::changeLanguage( const QString &languageCode )
     return;
   }
 
-  QTranslator *qfieldTranslator = TranslatorManager::instance()->qfieldTranslator();
-  QTranslator *qtTranslator = TranslatorManager::instance()->qtTranslator();
+  QTranslator *qfieldTranslator = QfTranslatorManager::instance()->qfieldTranslator();
+  QTranslator *qtTranslator = QfTranslatorManager::instance()->qtTranslator();
 
   QCoreApplication::removeTranslator( qtTranslator );
   QCoreApplication::removeTranslator( qfieldTranslator );
@@ -368,45 +368,45 @@ void AppInterface::changeLanguage( const QString &languageCode )
   }
 }
 
-bool AppInterface::isFileExtensionSupported( const QString &filename ) const
+bool QfAppInterface::isFileExtensionSupported( const QString &filename ) const
 {
   const QFileInfo fi( filename );
   const QString suffix = fi.suffix().toLower();
   return SUPPORTED_PROJECT_EXTENSIONS.contains( suffix ) || SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) || SUPPORTED_RASTER_EXTENSIONS.contains( suffix );
 }
 
-void AppInterface::logMessage( const QString &message )
+void QfAppInterface::logMessage( const QString &message )
 {
   QgsMessageLog::logMessage( message, QStringLiteral( "QField" ) );
 }
 
-void AppInterface::logRuntimeProfiler()
+void QfAppInterface::logRuntimeProfiler()
 {
   QgsMessageLog::logMessage( QgsApplication::profiler()->asText(), QStringLiteral( "QField" ) );
 }
 
-void AppInterface::sendLog( const QString &message, const QString &cloudUser )
+void QfAppInterface::sendLog( const QString &message, const QString &cloudUser )
 {
 #if WITH_SENTRY
   sentry_wrapper::capture_event( message.toUtf8().constData(), cloudUser.toUtf8().constData() );
 #endif
 }
 
-void AppInterface::initiateSentry() const
+void QfAppInterface::initiateSentry() const
 {
 #if WITH_SENTRY
   sentry_wrapper::init();
 #endif
 }
 
-void AppInterface::closeSentry() const
+void QfAppInterface::closeSentry() const
 {
 #if WITH_SENTRY
   sentry_wrapper::close();
 #endif
 }
 
-void AppInterface::clearProject() const
+void QfAppInterface::clearProject() const
 {
   if ( mController )
   {
@@ -414,7 +414,7 @@ void AppInterface::clearProject() const
   }
 }
 
-void AppInterface::importUrl( const QString &url, const QString &title, bool loadOnImport )
+void QfAppInterface::importUrl( const QString &url, const QString &title, bool loadOnImport )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
@@ -428,7 +428,7 @@ void AppInterface::importUrl( const QString &url, const QString &title, bool loa
     sanitizedUrl = QStringLiteral( "https://%1" ).arg( sanitizedUrl );
   }
 
-  const QString applicationDirectory = PlatformUtilities::instance()->applicationDirectory();
+  const QString applicationDirectory = QfPlatformUtilities::instance()->applicationDirectory();
   if ( applicationDirectory.isEmpty() )
   {
     return;
@@ -514,7 +514,7 @@ void AppInterface::importUrl( const QString &url, const QString &title, bool loa
             }
             QDir( zipDirectory ).mkpath( "." );
 
-            if ( FileUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
+            if ( QfFileUtils::unzip( filePath, zipDirectory, zipFiles, false ) )
             {
               // we need to close the project to safely flush the gpkg files and avoid file lock on Windows
               QDirIterator it( zipDirectory, { QStringLiteral( "*.qgs" ), QStringLiteral( "*.qgz" ) }, QDir::Filter::Files, QDirIterator::Subdirectories );

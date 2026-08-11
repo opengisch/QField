@@ -1,5 +1,5 @@
 /***************************************************************************
- qfinternalgnssreceiver.h - InternalGnssReceiver
+ qfinternalgnssreceiver.h - QfInternalGnssReceiver
 
  ---------------------
  begin                : 22.05.2022
@@ -26,13 +26,13 @@
 /**
  * \ingroup core
  */
-class InternalGnssReceiver : public AbstractGnssReceiver
+class QfInternalGnssReceiver : public QfAbstractGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit InternalGnssReceiver( QObject *parent = nullptr );
-    ~InternalGnssReceiver();
+    explicit QfInternalGnssReceiver( QObject *parent = nullptr );
+    ~QfInternalGnssReceiver();
 
   private slots:
 
@@ -51,7 +51,7 @@ class InternalGnssReceiver : public AbstractGnssReceiver
     std::unique_ptr<QGeoSatelliteInfoSource> mGeoSatelliteSource;
     bool mActive = false;
 
-    GnssPositionInformation mLastGnssPositionInformation;
+    QfGnssPositionInformation mLastGnssPositionInformation;
     bool mLastGnssPositionValid = false;
 
     QList<int> mSatellitesID;

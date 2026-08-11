@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfauthutils.h - AuthUtils
+  qfauthutils.h - QfAuthUtils
 
  ---------------------
  begin                : 19.06.2026
@@ -22,12 +22,12 @@
 /**
  * \ingroup core
  */
-class AuthUtils : public QObject
+class QfAuthUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit AuthUtils( QObject *parent = nullptr );
+    explicit QfAuthUtils( QObject *parent = nullptr );
 
     /**
      * Returns TRUE if the authentication manager has one or more stored configurations.

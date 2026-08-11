@@ -24,7 +24,7 @@
 #include <qgsfeedback.h>
 #include <qgsstringutils.h>
 
-HelpLocatorFilter::HelpLocatorFilter( LocatorModelSuperBridge *locatorBridge, QObject *parent )
+QfHelpLocatorFilter::QfHelpLocatorFilter( QfLocatorModelSuperBridge *locatorBridge, QObject *parent )
   : QgsLocatorFilter( parent )
   , mLocatorBridge( locatorBridge )
 {
@@ -32,12 +32,12 @@ HelpLocatorFilter::HelpLocatorFilter( LocatorModelSuperBridge *locatorBridge, QO
   setUseWithoutPrefix( false );
 }
 
-HelpLocatorFilter *HelpLocatorFilter::clone() const
+QfHelpLocatorFilter *QfHelpLocatorFilter::clone() const
 {
-  return new HelpLocatorFilter( mLocatorBridge );
+  return new QfHelpLocatorFilter( mLocatorBridge );
 }
 
-void HelpLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
+void QfHelpLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &, QgsFeedback *feedback )
 {
   Q_UNUSED( feedback )
 
@@ -147,12 +147,12 @@ void HelpLocatorFilter::fetchResults( const QString &string, const QgsLocatorCon
   }
 }
 
-void HelpLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfHelpLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   triggerResultFromAction( result, Normal );
 }
 
-void HelpLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
+void QfHelpLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int )
 {
   const QString url = result.userData().toString();
   QDesktopServices::openUrl( url );

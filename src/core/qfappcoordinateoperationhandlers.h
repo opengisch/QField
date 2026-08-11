@@ -26,11 +26,11 @@
  * QgsAppCoordinateOperationHandlers class created by QGIS developer Nyall Dawson.
  * \ingroup core
  */
-class AppMissingGridHandler : public QObject
+class QfAppMissingGridHandler : public QObject
 {
     Q_OBJECT
   public:
-    explicit AppMissingGridHandler( QObject *parent );
+    explicit QfAppMissingGridHandler( QObject *parent );
 
   signals:
 

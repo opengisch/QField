@@ -149,7 +149,7 @@ class Setup : public QObject
 
       QgsApplication::initQgis();
 #ifdef RELATIVE_PREFIX_PATH
-      QgsApplication::setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+      QgsApplication::setPkgDataPath( QfPlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 #endif
       QgsApplication::createDatabase();
     }
@@ -188,15 +188,15 @@ class Setup : public QObject
       QgsExifTools mExifTools;
       engine->rootContext()->setContextProperty( "ExifTools", QVariant::fromValue<QgsExifTools>( mExifTools ) );
 
-      Settings mSettings;
+      QfSettings mSettings;
       engine->rootContext()->setContextProperty( "settings", &mSettings );
 
-      AppInterface *iface = new AppInterface( engine );
+      QfAppInterface *iface = new QfAppInterface( engine );
       iface->setParent( engine );
-      AppInterface::setInstance( iface );
+      QfAppInterface::setInstance( iface );
       engine->rootContext()->setContextProperty( QStringLiteral( "iface" ), iface );
-      CogoRegistry *cogoRegistry = new CogoRegistry( engine );
-      CogoRegistry::setInstance( cogoRegistry );
+      QfCogoRegistry *cogoRegistry = new QfCogoRegistry( engine );
+      QfCogoRegistry::setInstance( cogoRegistry );
     }
 };
 

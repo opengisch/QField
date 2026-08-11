@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingutils.h - ProcessingUtils
+  qfprocessingutils.h - QfProcessingUtils
 
  ---------------------
  begin                : 20.08.2025
@@ -25,12 +25,12 @@
 /**
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT ProcessingUtils : public QObject
+class QFIELD_CORE_EXPORT QfProcessingUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit ProcessingUtils( QObject *parent = nullptr );
+    explicit QfProcessingUtils( QObject *parent = nullptr );
 
     /**
      * Returns the conversion factor between the specified areal units.

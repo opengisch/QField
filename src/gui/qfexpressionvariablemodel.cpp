@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfexpressionvariablemodel.cpp - ExpressionVariableModel
+  qfexpressionvariablemodel.cpp - QfExpressionVariableModel
 
  ---------------------
  begin                : 29.9.2016
@@ -22,15 +22,15 @@
 #include <qgsexpressioncontext.h>
 #include <qgsexpressioncontextutils.h>
 
-ExpressionVariableModel::ExpressionVariableModel( QObject *parent )
+QfExpressionVariableModel::QfExpressionVariableModel( QObject *parent )
   : QStandardItemModel( parent )
 {
   reloadVariables();
 
-  connect( this, &QStandardItemModel::dataChanged, this, &ExpressionVariableModel::onDataChanged );
+  connect( this, &QStandardItemModel::dataChanged, this, &QfExpressionVariableModel::onDataChanged );
 }
 
-bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfExpressionVariableModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   QStandardItem *rowItem = item( index.row() );
   if ( !rowItem || !rowItem->data( VariableEditableRole ).toBool() )
@@ -68,7 +68,7 @@ bool ExpressionVariableModel::setData( const QModelIndex &index, const QVariant 
   return false;
 }
 
-void ExpressionVariableModel::appendVariable( VariableScope scope, const QString &name, const QString &value, bool editable )
+void QfExpressionVariableModel::appendVariable( VariableScope scope, const QString &name, const QString &value, bool editable )
 {
   QStandardItem *nameItem = new QStandardItem( name );
   nameItem->setData( name, VariableNameRole );
@@ -81,7 +81,7 @@ void ExpressionVariableModel::appendVariable( VariableScope scope, const QString
   appendRow( QList<QStandardItem *>() << nameItem );
 }
 
-int ExpressionVariableModel::addVariable( VariableScope scope, const QString &name, const QString &value )
+int QfExpressionVariableModel::addVariable( VariableScope scope, const QString &name, const QString &value )
 {
   int lastEditableVariable = 0;
   while ( lastEditableVariable < rowCount() )
@@ -106,7 +106,7 @@ int ExpressionVariableModel::addVariable( VariableScope scope, const QString &na
   return lastEditableVariable;
 }
 
-void ExpressionVariableModel::removeVariable( VariableScope scope, const QString &name )
+void QfExpressionVariableModel::removeVariable( VariableScope scope, const QString &name )
 {
   for ( int i = 0; i < rowCount(); ++i )
   {
@@ -123,7 +123,7 @@ void ExpressionVariableModel::removeVariable( VariableScope scope, const QString
   }
 }
 
-void ExpressionVariableModel::save()
+void QfExpressionVariableModel::save()
 {
   for ( const QPair<VariableScope, QString> &variable : mRemovedVariables )
   {
@@ -152,19 +152,19 @@ void ExpressionVariableModel::save()
     }
     else if ( itemScope == VariableScope::ProjectScope )
     {
-      ExpressionContextUtils::setProjectVariable( mCurrentProject, itemName, itemValue );
+      QfExpressionContextUtils::setProjectVariable( mCurrentProject, itemName, itemValue );
     }
   }
 }
 
-void ExpressionVariableModel::reloadVariables()
+void QfExpressionVariableModel::reloadVariables()
 {
   clear();
 
   mRemovedVariables.clear();
 
   // First, add project variables
-  QVariantMap projectVariables = ExpressionContextUtils::projectVariables( mCurrentProject );
+  QVariantMap projectVariables = QfExpressionContextUtils::projectVariables( mCurrentProject );
   const QStringList projectVariableKeys = projectVariables.keys();
   for ( const QString &varName : projectVariableKeys )
   {
@@ -203,7 +203,7 @@ void ExpressionVariableModel::reloadVariables()
 }
 
 
-QHash<int, QByteArray> ExpressionVariableModel::roleNames() const
+QHash<int, QByteArray> QfExpressionVariableModel::roleNames() const
 {
   QHash<int, QByteArray> names = QStandardItemModel::roleNames();
   names[VariableNameRole] = "VariableName";
@@ -214,18 +214,18 @@ QHash<int, QByteArray> ExpressionVariableModel::roleNames() const
   return names;
 }
 
-void ExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
+void QfExpressionVariableModel::onDataChanged( const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles )
 {
   Q_UNUSED( bottomRight )
   Q_UNUSED( roles )
 }
 
-QgsProject *ExpressionVariableModel::currentProject() const
+QgsProject *QfExpressionVariableModel::currentProject() const
 {
   return mCurrentProject;
 }
 
-void ExpressionVariableModel::setCurrentProject( QgsProject *project )
+void QfExpressionVariableModel::setCurrentProject( QgsProject *project )
 {
   if ( mCurrentProject == project )
     return;

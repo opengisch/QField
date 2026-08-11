@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfntripclient.cpp - NtripSourceTableFetcher
+  qfntripclient.cpp - QfNtripSourceTableFetcher
 
  ---------------------
  begin                : 05.02.2026
@@ -18,12 +18,12 @@
 
 #include <qgspoint.h>
 
-NtripSourceTableFetcher::NtripSourceTableFetcher( QObject *parent )
+QfNtripSourceTableFetcher::QfNtripSourceTableFetcher( QObject *parent )
   : QObject( parent )
 {
 }
 
-void NtripSourceTableFetcher::fetch( const NtripSettings &ntripSettings )
+void QfNtripSourceTableFetcher::fetch( const QfNtripSettings &ntripSettings )
 {
   cancel();
 
@@ -37,24 +37,24 @@ void NtripSourceTableFetcher::fetch( const NtripSettings &ntripSettings )
   mHeadersParsed = false;
 
   mSocket = new QSslSocket( this );
-  connect( mSocket, &QAbstractSocket::connected, this, &NtripSourceTableFetcher::onSocketConnected );
-  connect( mSocket, &QAbstractSocket::readyRead, this, &NtripSourceTableFetcher::onSocketReadyRead );
-  connect( mSocket, &QAbstractSocket::disconnected, this, &NtripSourceTableFetcher::onSocketDisconnected );
-  connect( mSocket, &QAbstractSocket::errorOccurred, this, &NtripSourceTableFetcher::onSocketError );
+  connect( mSocket, &QAbstractSocket::connected, this, &QfNtripSourceTableFetcher::onSocketConnected );
+  connect( mSocket, &QAbstractSocket::readyRead, this, &QfNtripSourceTableFetcher::onSocketReadyRead );
+  connect( mSocket, &QAbstractSocket::disconnected, this, &QfNtripSourceTableFetcher::onSocketDisconnected );
+  connect( mSocket, &QAbstractSocket::errorOccurred, this, &QfNtripSourceTableFetcher::onSocketError );
 
   mIsFetching = true;
   emit isFetchingChanged();
 
   switch ( mProtocol )
   {
-    case NtripSettings::NtripSsl:
+    case QfNtripSettings::NtripSsl:
     {
       mSocket->connectToHostEncrypted( mHost, mPort );
       break;
     }
 
-    case NtripSettings::NtripVersion2:
-    case NtripSettings::NtripVersion1:
+    case QfNtripSettings::NtripVersion2:
+    case QfNtripSettings::NtripVersion1:
     {
       mSocket->connectToHost( mHost, mPort );
       break;
@@ -62,7 +62,7 @@ void NtripSourceTableFetcher::fetch( const NtripSettings &ntripSettings )
   }
 }
 
-void NtripSourceTableFetcher::cancel()
+void QfNtripSourceTableFetcher::cancel()
 {
   if ( mSocket )
   {
@@ -71,7 +71,7 @@ void NtripSourceTableFetcher::cancel()
   cleanup();
 }
 
-void NtripSourceTableFetcher::cleanup()
+void QfNtripSourceTableFetcher::cleanup()
 {
   if ( mSocket )
   {
@@ -85,7 +85,7 @@ void NtripSourceTableFetcher::cleanup()
   }
 }
 
-void NtripSourceTableFetcher::onSocketConnected()
+void QfNtripSourceTableFetcher::onSocketConnected()
 {
   QString credentials = mUsername + ":" + mPassword;
   QByteArray base64 = credentials.toUtf8().toBase64();
@@ -93,8 +93,8 @@ void NtripSourceTableFetcher::onSocketConnected()
   QByteArray request;
   switch ( mProtocol )
   {
-    case NtripSettings::NtripSsl:
-    case NtripSettings::NtripVersion2:
+    case QfNtripSettings::NtripSsl:
+    case QfNtripSettings::NtripVersion2:
     {
       request.append( "GET / HTTP/1.1\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
@@ -106,7 +106,7 @@ void NtripSourceTableFetcher::onSocketConnected()
       request.append( "\r\n" );
       break;
     }
-    case NtripSettings::NtripVersion1:
+    case QfNtripSettings::NtripVersion1:
     {
       request.append( "GET / HTTP/1.0\r\n" );
       request.append( "Host: " + mHost.toUtf8() + ":" + QByteArray::number( mPort ) + "\r\n" );
@@ -123,7 +123,7 @@ void NtripSourceTableFetcher::onSocketConnected()
   mSocket->flush();
 }
 
-void NtripSourceTableFetcher::onSocketReadyRead()
+void QfNtripSourceTableFetcher::onSocketReadyRead()
 {
   if ( !mSocket )
   {
@@ -156,7 +156,7 @@ void NtripSourceTableFetcher::onSocketReadyRead()
   }
 }
 
-void NtripSourceTableFetcher::onSocketDisconnected()
+void QfNtripSourceTableFetcher::onSocketDisconnected()
 {
   if ( !mIsFetching )
   {
@@ -170,7 +170,7 @@ void NtripSourceTableFetcher::onSocketDisconnected()
     return;
   }
 
-  const QList<NtripMountPoint> mountPoints = parseSourceTable( mBuffer );
+  const QList<QfNtripMountPoint> mountPoints = parseSourceTable( mBuffer );
 
   if ( !mountPoints.isEmpty() )
   {
@@ -188,7 +188,7 @@ void NtripSourceTableFetcher::onSocketDisconnected()
   cleanup();
 }
 
-void NtripSourceTableFetcher::onSocketError( QAbstractSocket::SocketError error )
+void QfNtripSourceTableFetcher::onSocketError( QAbstractSocket::SocketError error )
 {
   if ( !mIsFetching )
   {
@@ -206,9 +206,9 @@ void NtripSourceTableFetcher::onSocketError( QAbstractSocket::SocketError error 
   cleanup();
 }
 
-QList<NtripMountPoint> NtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) const
+QList<QfNtripMountPoint> QfNtripSourceTableFetcher::parseSourceTable( const QByteArray &data ) const
 {
-  QList<NtripMountPoint> mountPoints;
+  QList<QfNtripMountPoint> mountPoints;
 
   const int strBegin = data.indexOf( "STR;" );
   if ( strBegin >= 0 )
@@ -232,7 +232,7 @@ QList<NtripMountPoint> NtripSourceTableFetcher::parseSourceTable( const QByteArr
         const QgsPoint point = QgsPoint( QString::fromUtf8( fields.at( 10 ) ).toDouble(), QString::fromUtf8( fields.at( 9 ) ).toDouble() );
         if ( !mountpoint.isEmpty() )
         {
-          mountPoints.append( NtripMountPoint( mountpoint, identifier, format, point ) );
+          mountPoints.append( QfNtripMountPoint( mountpoint, identifier, format, point ) );
         }
       }
     }

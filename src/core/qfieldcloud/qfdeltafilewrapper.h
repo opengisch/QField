@@ -31,7 +31,7 @@ const QString DeltaFormatVersion = QStringLiteral( "1.0" );
  * A class that wraps the operations with a delta file. All read and write operations to a delta file should go through this class.
  * \ingroup core
  */
-class DeltaFileWrapper : public QObject
+class QfDeltaFileWrapper : public QObject
 {
     Q_OBJECT
 
@@ -68,12 +68,12 @@ class DeltaFileWrapper : public QObject
      * @param project the current project
      * @param fileName complete file name with path where the object should be stored
      */
-    DeltaFileWrapper( const QString &projectId, const QString &fileName );
+    QfDeltaFileWrapper( const QString &projectId, const QString &fileName );
 
     /**
      * Destroy the Delta File Wrapper object
      */
-    ~DeltaFileWrapper();
+    ~QfDeltaFileWrapper();
 
     /**
      * Returns a list of field names that have edit form as attachments
@@ -241,7 +241,7 @@ class DeltaFileWrapper : public QObject
     /**
      * Appends the provided deltas JSON array at the end of the current file.
      */
-    bool append( const DeltaFileWrapper *deltaFileWrapper );
+    bool append( const QfDeltaFileWrapper *deltaFileWrapper );
 
 
     /**

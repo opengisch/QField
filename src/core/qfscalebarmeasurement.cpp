@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfscalebarmeasurement.h - ScaleBarMeasurement
+  qfscalebarmeasurement.h - QfScaleBarMeasurement
 
  ---------------------
  begin                : 9.10.2021
@@ -20,12 +20,12 @@
 #include <qgsproject.h>
 #include <qgsunittypes.h>
 
-ScaleBarMeasurement::ScaleBarMeasurement( QObject *parent )
+QfScaleBarMeasurement::QfScaleBarMeasurement( QObject *parent )
   : QObject( parent )
 {
 }
 
-void ScaleBarMeasurement::resetDistanceArea()
+void QfScaleBarMeasurement::resetDistanceArea()
 {
   if ( mProject && mMapSettings && mMapSettings->mapSettings().destinationCrs().isValid() )
   {
@@ -38,27 +38,27 @@ void ScaleBarMeasurement::resetDistanceArea()
   }
 }
 
-QgsProject *ScaleBarMeasurement::project() const
+QgsProject *QfScaleBarMeasurement::project() const
 {
   return mProject;
 }
 
-void ScaleBarMeasurement::setProject( QgsProject *project )
+void QfScaleBarMeasurement::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
 
   if ( mProject )
   {
-    disconnect( mProject, &QgsProject::readProject, this, &ScaleBarMeasurement::resetDistanceArea );
-    disconnect( mProject, &QgsProject::ellipsoidChanged, this, &ScaleBarMeasurement::resetDistanceArea );
+    disconnect( mProject, &QgsProject::readProject, this, &QfScaleBarMeasurement::resetDistanceArea );
+    disconnect( mProject, &QgsProject::ellipsoidChanged, this, &QfScaleBarMeasurement::resetDistanceArea );
   }
 
   mProject = project;
   if ( mProject )
   {
-    connect( mProject, &QgsProject::readProject, this, &ScaleBarMeasurement::resetDistanceArea );
-    connect( mProject, &QgsProject::ellipsoidChanged, this, &ScaleBarMeasurement::resetDistanceArea );
+    connect( mProject, &QgsProject::readProject, this, &QfScaleBarMeasurement::resetDistanceArea );
+    connect( mProject, &QgsProject::ellipsoidChanged, this, &QfScaleBarMeasurement::resetDistanceArea );
   }
   resetDistanceArea();
   measure();
@@ -66,32 +66,32 @@ void ScaleBarMeasurement::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-void ScaleBarMeasurement::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfScaleBarMeasurement::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &ScaleBarMeasurement::resetDistanceArea );
-    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ScaleBarMeasurement::measure );
+    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfScaleBarMeasurement::resetDistanceArea );
+    disconnect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfScaleBarMeasurement::measure );
   }
 
   mMapSettings = mapSettings;
-  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &ScaleBarMeasurement::resetDistanceArea );
-  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &ScaleBarMeasurement::measure );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfScaleBarMeasurement::resetDistanceArea );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfScaleBarMeasurement::measure );
   resetDistanceArea();
   measure();
 
   emit mapSettingsChanged();
 }
 
-QgsQuickMapSettings *ScaleBarMeasurement::mapSettings() const
+QgsQuickMapSettings *QfScaleBarMeasurement::mapSettings() const
 {
   return mMapSettings;
 }
 
-void ScaleBarMeasurement::measure()
+void QfScaleBarMeasurement::measure()
 {
   if ( mProject && mMapSettings )
   {
@@ -170,7 +170,7 @@ void ScaleBarMeasurement::measure()
   emit labelChanged();
 }
 
-void ScaleBarMeasurement::setReferenceScreenLength( double referenceScreenLength )
+void QfScaleBarMeasurement::setReferenceScreenLength( double referenceScreenLength )
 {
   if ( mReferenceScreenLength == referenceScreenLength )
     return;
@@ -180,17 +180,17 @@ void ScaleBarMeasurement::setReferenceScreenLength( double referenceScreenLength
   emit referenceScreenLengthChanged();
 }
 
-double ScaleBarMeasurement::referenceScreenLength() const
+double QfScaleBarMeasurement::referenceScreenLength() const
 {
   return mReferenceScreenLength;
 }
 
-double ScaleBarMeasurement::screenLength() const
+double QfScaleBarMeasurement::screenLength() const
 {
   return mScreenLength;
 }
 
-QString ScaleBarMeasurement::label() const
+QString QfScaleBarMeasurement::label() const
 {
   return mLabel;
 }

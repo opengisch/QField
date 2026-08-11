@@ -22,14 +22,14 @@
 /**
  * \ingroup core
  */
-class ViewStatus : public QObject
+class QfViewStatus : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit ViewStatus( QObject *parent = nullptr );
+    explicit QfViewStatus( QObject *parent = nullptr );
 
-    virtual ~ViewStatus() = default;
+    virtual ~QfViewStatus() = default;
 
   signals:
     //! This signal is emitted when a status about the view action has been received

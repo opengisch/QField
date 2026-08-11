@@ -22,7 +22,7 @@
 //
 // AppMissingRequiredGridHandler
 //
-AppMissingGridHandler::AppMissingGridHandler( QObject *parent )
+QfAppMissingGridHandler::QfAppMissingGridHandler( QObject *parent )
   : QObject( parent )
 {
   QgsCoordinateTransform::setCustomMissingRequiredGridHandler( [this]( const QgsCoordinateReferenceSystem &sourceCrs,
@@ -56,11 +56,11 @@ AppMissingGridHandler::AppMissingGridHandler( QObject *parent )
     emit fallbackOperationOccurred( sourceCrs, destinationCrs, desired );
   } );
 
-  connect( this, &AppMissingGridHandler::missingRequiredGrid, this, &AppMissingGridHandler::onMissingRequiredGrid, Qt::QueuedConnection );
-  connect( this, &AppMissingGridHandler::missingPreferredGrid, this, &AppMissingGridHandler::onMissingPreferredGrid, Qt::QueuedConnection );
-  connect( this, &AppMissingGridHandler::coordinateOperationCreationError, this, &AppMissingGridHandler::onCoordinateOperationCreationError, Qt::QueuedConnection );
-  connect( this, &AppMissingGridHandler::missingGridUsedByContextHandler, this, &AppMissingGridHandler::onMissingGridUsedByContextHandler, Qt::QueuedConnection );
-  connect( this, &AppMissingGridHandler::fallbackOperationOccurred, this, &AppMissingGridHandler::onFallbackOperationOccurred, Qt::QueuedConnection );
+  connect( this, &QfAppMissingGridHandler::missingRequiredGrid, this, &QfAppMissingGridHandler::onMissingRequiredGrid, Qt::QueuedConnection );
+  connect( this, &QfAppMissingGridHandler::missingPreferredGrid, this, &QfAppMissingGridHandler::onMissingPreferredGrid, Qt::QueuedConnection );
+  connect( this, &QfAppMissingGridHandler::coordinateOperationCreationError, this, &QfAppMissingGridHandler::onCoordinateOperationCreationError, Qt::QueuedConnection );
+  connect( this, &QfAppMissingGridHandler::missingGridUsedByContextHandler, this, &QfAppMissingGridHandler::onMissingGridUsedByContextHandler, Qt::QueuedConnection );
+  connect( this, &QfAppMissingGridHandler::fallbackOperationOccurred, this, &QfAppMissingGridHandler::onFallbackOperationOccurred, Qt::QueuedConnection );
 
   connect( QgsProject::instance(), &QgsProject::cleared, this, [this] {
     mAlreadyWarnedPairsForProject.clear();
@@ -68,7 +68,7 @@ AppMissingGridHandler::AppMissingGridHandler( QObject *parent )
   } );
 }
 
-void AppMissingGridHandler::onMissingRequiredGrid( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::GridDetails &grid )
+void QfAppMissingGridHandler::onMissingRequiredGrid( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::GridDetails &grid )
 {
   if ( !shouldWarnAboutPair( sourceCrs, destinationCrs ) )
     return;
@@ -89,7 +89,7 @@ void AppMissingGridHandler::onMissingRequiredGrid( const QgsCoordinateReferenceS
   QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( shortMessage, downloadMessage ), tr( "projection" ) );
 }
 
-void AppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::TransformDetails &preferredOperation, const QgsDatumTransform::TransformDetails &availableOperation )
+void QfAppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::TransformDetails &preferredOperation, const QgsDatumTransform::TransformDetails &availableOperation )
 {
   if ( !shouldWarnAboutPair( sourceCrs, destinationCrs ) )
     return;
@@ -132,7 +132,7 @@ void AppMissingGridHandler::onMissingPreferredGrid( const QgsCoordinateReference
   QgsMessageLog::logMessage( QStringLiteral( "%1\n%2" ).arg( longMessage, downloadMessage ), tr( "projection" ) );
 }
 
-void AppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &error )
+void QfAppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &error )
 {
   if ( !shouldWarnAboutPairForCurrentProject( sourceCrs, destinationCrs ) )
     return;
@@ -142,7 +142,7 @@ void AppMissingGridHandler::onCoordinateOperationCreationError( const QgsCoordin
   QgsMessageLog::logMessage( longMessage, tr( "projection" ) );
 }
 
-void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::TransformDetails &desired )
+void QfAppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QgsDatumTransform::TransformDetails &desired )
 {
   if ( !shouldWarnAboutPairForCurrentProject( sourceCrs, destinationCrs ) )
     return;
@@ -173,7 +173,7 @@ void AppMissingGridHandler::onMissingGridUsedByContextHandler( const QgsCoordina
   QgsMessageLog::logMessage( QStringLiteral( "%1\n%2\n%3" ).arg( shortMessage, gridMessage, downloadMessage ), tr( "projection" ) );
 }
 
-void AppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &desired )
+void QfAppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateReferenceSystem &sourceCrs, const QgsCoordinateReferenceSystem &destinationCrs, const QString &desired )
 {
   Q_UNUSED( desired )
   if ( !shouldWarnAboutBallparkPairForCurrentProject( sourceCrs, destinationCrs ) )
@@ -183,7 +183,7 @@ void AppMissingGridHandler::onFallbackOperationOccurred( const QgsCoordinateRefe
   QgsMessageLog::logMessage( shortMessage, tr( "projection" ) );
 }
 
-bool AppMissingGridHandler::shouldWarnAboutPair( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
+bool QfAppMissingGridHandler::shouldWarnAboutPair( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
 {
   if ( mAlreadyWarnedPairs.contains( qMakePair( source, dest ) ) || mAlreadyWarnedPairs.contains( qMakePair( dest, source ) ) )
   {
@@ -194,7 +194,7 @@ bool AppMissingGridHandler::shouldWarnAboutPair( const QgsCoordinateReferenceSys
   return true;
 }
 
-bool AppMissingGridHandler::shouldWarnAboutPairForCurrentProject( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
+bool QfAppMissingGridHandler::shouldWarnAboutPairForCurrentProject( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
 {
   if ( mAlreadyWarnedPairsForProject.contains( qMakePair( source, dest ) ) || mAlreadyWarnedPairsForProject.contains( qMakePair( dest, source ) ) )
   {
@@ -205,7 +205,7 @@ bool AppMissingGridHandler::shouldWarnAboutPairForCurrentProject( const QgsCoord
   return true;
 }
 
-bool AppMissingGridHandler::shouldWarnAboutBallparkPairForCurrentProject( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
+bool QfAppMissingGridHandler::shouldWarnAboutBallparkPairForCurrentProject( const QgsCoordinateReferenceSystem &source, const QgsCoordinateReferenceSystem &dest )
 {
   if ( mAlreadyWarnedBallparkPairsForProject.contains( qMakePair( source, dest ) ) || mAlreadyWarnedBallparkPairsForProject.contains( qMakePair( dest, source ) ) )
   {

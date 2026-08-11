@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgridmodel.cpp - GridModel
+  qfgridmodel.cpp - QfGridModel
 
  ---------------------
  begin                : 4.10.2024
@@ -16,12 +16,12 @@
 
 #include "qfgridmodel.h"
 
-GridModel::GridModel( QObject *parent )
+QfGridModel::QfGridModel( QObject *parent )
   : QObject( parent )
 {
 }
 
-void GridModel::setEnabled( bool enabled )
+void QfGridModel::setEnabled( bool enabled )
 {
   if ( mEnabled == enabled )
     return;
@@ -39,7 +39,7 @@ void GridModel::setEnabled( bool enabled )
   }
 }
 
-void GridModel::setIndeterminate( bool indeterminate )
+void QfGridModel::setIndeterminate( bool indeterminate )
 {
   if ( mIndeterminate == indeterminate )
     return;
@@ -53,7 +53,7 @@ void GridModel::setIndeterminate( bool indeterminate )
   }
 }
 
-void GridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfGridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
   {
@@ -62,8 +62,8 @@ void GridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::backgroundColorChanged, this, &GridModel::updateColors );
-    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &GridModel::update );
+    disconnect( mMapSettings, &QgsQuickMapSettings::backgroundColorChanged, this, &QfGridModel::updateColors );
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfGridModel::update );
   }
 
   mMapSettings = mapSettings;
@@ -72,12 +72,12 @@ void GridModel::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
-    connect( mMapSettings, &QgsQuickMapSettings::backgroundColorChanged, this, &GridModel::updateColors );
-    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &GridModel::update );
+    connect( mMapSettings, &QgsQuickMapSettings::backgroundColorChanged, this, &QfGridModel::updateColors );
+    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfGridModel::update );
   }
 }
 
-void GridModel::setXInterval( double interval )
+void QfGridModel::setXInterval( double interval )
 {
   if ( mXInterval == interval )
     return;
@@ -88,7 +88,7 @@ void GridModel::setXInterval( double interval )
   update();
 }
 
-void GridModel::setYInterval( double interval )
+void QfGridModel::setYInterval( double interval )
 {
   if ( mYInterval == interval )
     return;
@@ -99,7 +99,7 @@ void GridModel::setYInterval( double interval )
   update();
 }
 
-void GridModel::setXOffset( double offset )
+void QfGridModel::setXOffset( double offset )
 {
   if ( mXOffset == offset )
     return;
@@ -110,7 +110,7 @@ void GridModel::setXOffset( double offset )
   update();
 }
 
-void GridModel::setYOffset( double offset )
+void QfGridModel::setYOffset( double offset )
 {
   if ( mYOffset == offset )
     return;
@@ -121,7 +121,7 @@ void GridModel::setYOffset( double offset )
   update();
 }
 
-void GridModel::setPrepareLines( bool prepare )
+void QfGridModel::setPrepareLines( bool prepare )
 {
   if ( mPrepareLines == prepare )
     return;
@@ -150,7 +150,7 @@ void GridModel::setPrepareLines( bool prepare )
   }
 }
 
-void GridModel::setPrepareMarkers( bool prepare )
+void QfGridModel::setPrepareMarkers( bool prepare )
 {
   if ( mPrepareMarkers == prepare )
     return;
@@ -173,7 +173,7 @@ void GridModel::setPrepareMarkers( bool prepare )
   }
 }
 
-void GridModel::setPrepareAnnotations( bool prepare )
+void QfGridModel::setPrepareAnnotations( bool prepare )
 {
   if ( mPrepareAnnotations == prepare )
     return;
@@ -195,7 +195,7 @@ void GridModel::setPrepareAnnotations( bool prepare )
   }
 }
 
-void GridModel::setAutoColor( bool autoColor )
+void QfGridModel::setAutoColor( bool autoColor )
 {
   if ( mAutoColor == autoColor )
   {
@@ -211,7 +211,7 @@ void GridModel::setAutoColor( bool autoColor )
   }
 }
 
-void GridModel::setMajorLineColor( const QColor &color )
+void QfGridModel::setMajorLineColor( const QColor &color )
 {
   if ( mMajorLineColor == color )
   {
@@ -222,7 +222,7 @@ void GridModel::setMajorLineColor( const QColor &color )
   emit majorLineColorChanged();
 }
 
-void GridModel::setMinorLineColor( const QColor &color )
+void QfGridModel::setMinorLineColor( const QColor &color )
 {
   if ( mMinorLineColor == color )
   {
@@ -233,7 +233,7 @@ void GridModel::setMinorLineColor( const QColor &color )
   emit minorLineColorChanged();
 }
 
-void GridModel::setMarkerColor( const QColor &color )
+void QfGridModel::setMarkerColor( const QColor &color )
 {
   if ( mMarkerColor == color )
   {
@@ -244,7 +244,7 @@ void GridModel::setMarkerColor( const QColor &color )
   emit markerColorChanged();
 }
 
-void GridModel::setAnnotationColor( const QColor &color )
+void QfGridModel::setAnnotationColor( const QColor &color )
 {
   if ( mAnnotationColor == color )
   {
@@ -255,7 +255,7 @@ void GridModel::setAnnotationColor( const QColor &color )
   emit annotationColorChanged();
 }
 
-void GridModel::setAnnotationOutlineColor( const QColor &color )
+void QfGridModel::setAnnotationOutlineColor( const QColor &color )
 {
   if ( mAnnotationOutlineColor == color )
   {
@@ -266,7 +266,7 @@ void GridModel::setAnnotationOutlineColor( const QColor &color )
   emit annotationOutlineColorChanged();
 }
 
-void GridModel::setAnnotationHasOutline( bool hasOutline )
+void QfGridModel::setAnnotationHasOutline( bool hasOutline )
 {
   if ( mAnnotationHasOutline == hasOutline )
   {
@@ -277,7 +277,7 @@ void GridModel::setAnnotationHasOutline( bool hasOutline )
   emit annotationHasOutlineChanged();
 }
 
-void GridModel::setAnnotationPrecision( int precision )
+void QfGridModel::setAnnotationPrecision( int precision )
 {
   if ( mAnnotationPrecision == precision )
   {
@@ -288,7 +288,7 @@ void GridModel::setAnnotationPrecision( int precision )
   emit annotationPrecisionChanged();
 }
 
-void GridModel::clear()
+void QfGridModel::clear()
 {
   if ( !mMajorLines.isEmpty() )
   {
@@ -315,7 +315,7 @@ void GridModel::clear()
   }
 }
 
-void GridModel::update()
+void QfGridModel::update()
 {
   if ( !mEnabled || !mMapSettings )
   {
@@ -449,11 +449,11 @@ void GridModel::update()
       {
         if ( currentLine.intersects( topBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Top, intersectionPoint, xPos );
+          mAnnotations << QfGridAnnotation( QfGridAnnotation::Top, intersectionPoint, xPos );
         }
         if ( currentLine.intersects( bottomBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Bottom, intersectionPoint, xPos );
+          mAnnotations << QfGridAnnotation( QfGridAnnotation::Bottom, intersectionPoint, xPos );
         }
       }
 
@@ -478,11 +478,11 @@ void GridModel::update()
       {
         if ( currentLine.intersects( leftBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Left, intersectionPoint, yPos );
+          mAnnotations << QfGridAnnotation( QfGridAnnotation::Left, intersectionPoint, yPos );
         }
         if ( currentLine.intersects( rightBorder, &intersectionPoint ) )
         {
-          mAnnotations << GridAnnotation( GridAnnotation::Right, intersectionPoint, yPos );
+          mAnnotations << QfGridAnnotation( QfGridAnnotation::Right, intersectionPoint, yPos );
         }
       }
 
@@ -537,7 +537,7 @@ void GridModel::update()
   }
 }
 
-void GridModel::updateColors()
+void QfGridModel::updateColors()
 {
   if ( !mAutoColor )
   {

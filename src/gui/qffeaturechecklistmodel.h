@@ -1,5 +1,5 @@
 /***************************************************************************
-  qffeaturechecklistmodel.h - FeatureCheckListModel
+  qffeaturechecklistmodel.h - QfFeatureCheckListModel
 
  ---------------------
  begin                : August 2019
@@ -25,12 +25,12 @@
 /**
  * \ingroup core
  */
-class FeatureCheckListModelBase : public FeatureListModel
+class QfFeatureCheckListModelBase : public QfFeatureListModel
 {
     Q_OBJECT
 
   public:
-    explicit FeatureCheckListModelBase( QObject *parent = nullptr );
+    explicit QfFeatureCheckListModelBase( QObject *parent = nullptr );
 
     enum FeatureListRoles
     {
@@ -96,7 +96,7 @@ class FeatureCheckListModelBase : public FeatureListModel
 /**
  * A proxy model for filtering and sorting feature checklist items.
  *
- * This model enhances a source model (typically a FeatureCheckListModel) by allowing:
+ * This model enhances a source model (typically a QfFeatureCheckListModel) by allowing:
  * - Text-based filtering using a search term.
  * - Optional sorting that prioritizes checked items.
  * - Fuzzy and prefix-based matching for search refinement.
@@ -106,7 +106,7 @@ class FeatureCheckListModelBase : public FeatureListModel
  *
  * \ingroup core
  */
-class FeatureCheckListModel : public QSortFilterProxyModel
+class QfFeatureCheckListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -144,7 +144,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     Q_PROPERTY( QgsFeature currentFormFeature READ currentFormFeature WRITE setCurrentFormFeature NOTIFY currentFormFeatureChanged )
 
     //! The application expression context scope generator used when filtering by expression
-    Q_PROPERTY( AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
+    Q_PROPERTY( QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator READ appExpressionContextScopesGenerator WRITE setAppExpressionContextScopesGenerator NOTIFY appExpressionContextScopesGeneratorChanged )
 
     //! The attribute value to generate checklist
     Q_PROPERTY( QVariant attributeValue READ attributeValue WRITE setAttributeValue NOTIFY attributeValueChanged )
@@ -162,7 +162,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     Q_PROPERTY( bool sortCheckedFirst READ sortCheckedFirst WRITE setSortCheckedFirst NOTIFY sortCheckedFirstChanged )
 
   public:
-    explicit FeatureCheckListModel( QObject *parent = nullptr );
+    explicit QfFeatureCheckListModel( QObject *parent = nullptr );
 
     Q_INVOKABLE QVariant dataFromRowIndex( int row, int role ) { return data( index( row, 0, QModelIndex() ), role ); }
 
@@ -264,12 +264,12 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     /**
     * Returns the application expression context scope generator used when filtering by expression
     */
-    AppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
+    QfAppExpressionContextScopesGenerator *appExpressionContextScopesGenerator() const;
 
     /**
     * Sets the application expression context scope generator used when filtering by expression
     */
-    void setAppExpressionContextScopesGenerator( AppExpressionContextScopesGenerator *generator );
+    void setAppExpressionContextScopesGenerator( QfAppExpressionContextScopesGenerator *generator );
 
     /**
      * the attribute value. A QVariantList or an hstore formatted string, depending on the field type.
@@ -333,7 +333,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
 
   signals:
-    // FeatureListModel signals
+    // QfFeatureListModel signals
     void currentLayerChanged();
     void keyFieldChanged();
     void displayValueFieldChanged();
@@ -348,7 +348,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void currentFormFeatureChanged();
     void appExpressionContextScopesGeneratorChanged();
 
-    // FeatureCheckListModel signals
+    // QfFeatureCheckListModel signals
     void attributeValueChanged();
     void attributeFieldChanged();
     void allowMultiChanged();
@@ -358,7 +358,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void sortCheckedFirstChanged();
 
   private:
-    FeatureCheckListModelBase *mSourceModel = nullptr;
+    QfFeatureCheckListModelBase *mSourceModel = nullptr;
     bool mSortCheckedFirst = false;
 };
 #endif // QFFEATURECHECKLISTMODEL_H

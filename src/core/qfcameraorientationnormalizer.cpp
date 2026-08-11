@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfcameraorientationnormalizer.cpp - CameraOrientationNormalizer
+  qfcameraorientationnormalizer.cpp - QfCameraOrientationNormalizer
 
  ---------------------
  begin                : 16.4.2026
@@ -23,7 +23,7 @@
 #include <QScreen>
 #include <QTransform>
 
-CameraOrientationNormalizer::CameraOrientationNormalizer( QObject *parent )
+QfCameraOrientationNormalizer::QfCameraOrientationNormalizer( QObject *parent )
   : QObject( parent )
 {
   QScreen *screen = QGuiApplication::primaryScreen();
@@ -31,21 +31,21 @@ CameraOrientationNormalizer::CameraOrientationNormalizer( QObject *parent )
   if ( screen )
   {
     mCurrentOrientation = screen->orientation();
-    connect( screen, &QScreen::orientationChanged, this, &CameraOrientationNormalizer::handleScreenOrientationChanged );
+    connect( screen, &QScreen::orientationChanged, this, &QfCameraOrientationNormalizer::handleScreenOrientationChanged );
   }
 }
 
-int CameraOrientationNormalizer::previewRotation() const
+int QfCameraOrientationNormalizer::previewRotation() const
 {
   return mPreviewRotation;
 }
 
-CameraOrientationNormalizer::CameraPosition CameraOrientationNormalizer::cameraPosition() const
+QfCameraOrientationNormalizer::CameraPosition QfCameraOrientationNormalizer::cameraPosition() const
 {
   return mCameraPosition;
 }
 
-void CameraOrientationNormalizer::setCameraPosition( CameraOrientationNormalizer::CameraPosition position )
+void QfCameraOrientationNormalizer::setCameraPosition( QfCameraOrientationNormalizer::CameraPosition position )
 {
   if ( mCameraPosition == position )
   {
@@ -57,13 +57,13 @@ void CameraOrientationNormalizer::setCameraPosition( CameraOrientationNormalizer
   updatePreviewRotation();
 }
 
-void CameraOrientationNormalizer::recordCaptureOrientation()
+void QfCameraOrientationNormalizer::recordCaptureOrientation()
 {
   QScreen *screen = QGuiApplication::primaryScreen();
   mCaptureOrientation = screen ? screen->orientation() : Qt::PortraitOrientation;
 }
 
-bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path )
+bool QfCameraOrientationNormalizer::normalizeImageOrientation( const QString &path )
 {
 #if defined( Q_OS_IOS ) || defined( Q_OS_WIN )
   if ( path.isEmpty() )
@@ -133,7 +133,7 @@ bool CameraOrientationNormalizer::normalizeImageOrientation( const QString &path
 #endif
 }
 
-bool CameraOrientationNormalizer::applyEditsToImage( const QString &path, int rotation, bool mirror )
+bool QfCameraOrientationNormalizer::applyEditsToImage( const QString &path, int rotation, bool mirror )
 {
   if ( path.isEmpty() )
   {
@@ -171,7 +171,7 @@ bool CameraOrientationNormalizer::applyEditsToImage( const QString &path, int ro
   return writer.write( image );
 }
 
-void CameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrientation orientation )
+void QfCameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrientation orientation )
 {
   if ( mCurrentOrientation == orientation )
   {
@@ -182,7 +182,7 @@ void CameraOrientationNormalizer::handleScreenOrientationChanged( Qt::ScreenOrie
   updatePreviewRotation();
 }
 
-void CameraOrientationNormalizer::updatePreviewRotation()
+void QfCameraOrientationNormalizer::updatePreviewRotation()
 {
 #if defined( Q_OS_IOS ) || defined( Q_OS_WIN )
   const QScreen *screen = QGuiApplication::primaryScreen();

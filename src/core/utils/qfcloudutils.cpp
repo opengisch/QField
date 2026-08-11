@@ -30,15 +30,15 @@
 static QString sLocalCloudDirectory;
 
 
-void QFieldCloudUtils::setLocalCloudDirectory( const QString &path )
+void QfCloudUtils::setLocalCloudDirectory( const QString &path )
 {
   sLocalCloudDirectory = path;
 }
 
-const QString QFieldCloudUtils::localCloudDirectory()
+const QString QfCloudUtils::localCloudDirectory()
 {
   QString cloudDirectoryPath = sLocalCloudDirectory.isNull()
-                                 ? PlatformUtilities::instance()->systemLocalDataLocation( QStringLiteral( "cloud_projects" ) )
+                                 ? QfPlatformUtilities::instance()->systemLocalDataLocation( QStringLiteral( "cloud_projects" ) )
                                  : sLocalCloudDirectory;
   // Remove trailing '/' or '\' if present
   while ( !cloudDirectoryPath.isEmpty() && ( cloudDirectoryPath.endsWith( '/' ) || cloudDirectoryPath.endsWith( '\\' ) ) )
@@ -48,9 +48,9 @@ const QString QFieldCloudUtils::localCloudDirectory()
   return cloudDirectoryPath;
 }
 
-const QString QFieldCloudUtils::localProjectFilePath( const QString &username, const QString &projectId )
+const QString QfCloudUtils::localProjectFilePath( const QString &username, const QString &projectId )
 {
-  QString project = QStringLiteral( "%1/%2/%3" ).arg( QFieldCloudUtils::localCloudDirectory(), username, projectId );
+  QString project = QStringLiteral( "%1/%2/%3" ).arg( QfCloudUtils::localCloudDirectory(), username, projectId );
   QDir projectDir( project );
   QStringList projectFiles = projectDir.entryList( QStringList() << QStringLiteral( "*.qgz" ) << QStringLiteral( "*.qgs" ) );
   if ( projectFiles.count() > 0 )
@@ -60,7 +60,7 @@ const QString QFieldCloudUtils::localProjectFilePath( const QString &username, c
   return QString();
 }
 
-bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
+bool QfCloudUtils::isCloudAction( const QgsMapLayer *layer )
 {
   Q_ASSERT( layer );
 
@@ -71,7 +71,7 @@ bool QFieldCloudUtils::isCloudAction( const QgsMapLayer *layer )
   return true;
 }
 
-const QString QFieldCloudUtils::getProjectId( const QString &fileName )
+const QString QfCloudUtils::getProjectId( const QString &fileName )
 {
   if ( fileName.isEmpty() )
     return QString();
@@ -80,7 +80,7 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   if ( path.isEmpty() )
     return QString();
 
-  const QString cloudPath = QFileInfo( QFieldCloudUtils::localCloudDirectory() ).canonicalFilePath();
+  const QString cloudPath = QFileInfo( QfCloudUtils::localCloudDirectory() ).canonicalFilePath();
   if ( cloudPath.isEmpty() || !path.startsWith( cloudPath ) )
     return QString();
 
@@ -97,7 +97,7 @@ const QString QFieldCloudUtils::getProjectId( const QString &fileName )
   return QString();
 }
 
-QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
+QString QfCloudUtils::userFriendlyErrorString( const QString &errorString )
 {
   QString resultErrorString = errorString.startsWith( "[QF/" ) ? tr( "A server error has occured, please try again." ) : tr( "A network error has occured, please try again." );
 
@@ -113,7 +113,7 @@ QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
   return resultErrorString;
 }
 
-QString QFieldCloudUtils::documentationFromErrorString( const QString &errorString )
+QString QfCloudUtils::documentationFromErrorString( const QString &errorString )
 {
   if ( errorString.contains( errorCodeOverQuota() ) )
   {
@@ -123,40 +123,40 @@ QString QFieldCloudUtils::documentationFromErrorString( const QString &errorStri
   return QString();
 }
 
-void QFieldCloudUtils::setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value )
+void QfCloudUtils::setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value )
 {
   thread_local QgsSettings settings;
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
   settings.setValue( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), value );
 }
 
-const QVariant QFieldCloudUtils::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
+const QVariant QfCloudUtils::projectSetting( const QString &projectId, const QString &setting, const QVariant &defaultValue )
 {
   thread_local QgsSettings settings;
   const QString projectPrefix = QStringLiteral( "QFieldCloud/projects/%1" ).arg( projectId );
   return settings.value( QStringLiteral( "%1/%2" ).arg( projectPrefix, setting ), defaultValue );
 }
 
-bool QFieldCloudUtils::hasPendingAttachments( const QString &username )
+bool QfCloudUtils::hasPendingAttachments( const QString &username )
 {
-  return !QFieldCloudUtils::getPendingAttachments( username ).isEmpty();
+  return !QfCloudUtils::getPendingAttachments( username ).isEmpty();
 }
 
-const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const QString &username )
+const QMultiMap<QString, QString> QfCloudUtils::getPendingAttachments( const QString &username )
 {
   // Migration for QField < 3.6
-  if ( QFileInfo::exists( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) ) )
+  if ( QFileInfo::exists( QStringLiteral( "%1/attachments.csv" ).arg( QfCloudUtils::localCloudDirectory() ) ) )
   {
     // Step 1: Load the already existing legacy `attachments.csv` file contents in the memory.
     QMultiMap<QString, QString> migrationFiles;
-    QFile migrationFile( QStringLiteral( "%1/attachments.csv" ).arg( QFieldCloudUtils::localCloudDirectory() ) );
+    QFile migrationFile( QStringLiteral( "%1/attachments.csv" ).arg( QfCloudUtils::localCloudDirectory() ) );
     if ( migrationFile.open( QFile::ReadWrite | QFile::Text ) )
     {
       QTextStream migrationStream( &migrationFile );
       while ( !migrationStream.atEnd() )
       {
         const QString line = migrationStream.readLine().trimmed();
-        const QStringList values = StringUtils::csvToStringList( line );
+        const QStringList values = QfStringUtils::csvToStringList( line );
         if ( values.size() >= 2 )
         {
           migrationFiles.insert( values.at( 0 ), values.at( 1 ) );
@@ -167,7 +167,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
     // Step 2: Group the attachments list by username, which is extracted from the path of the queued files to upload.
     QMap<QString, QMultiMap<QString, QString>> migratedAttachmentDetails;
     // Extract the username by capturing the child folder name to the parent local cloud directory using / or \ as folder separators
-    QRegularExpression re( QStringLiteral( "%1[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]" ).arg( QRegularExpression::escape( QFieldCloudUtils::localCloudDirectory() ) ) );
+    QRegularExpression re( QStringLiteral( "%1[\\/\\\\]([^\\/\\\\]+)[\\/\\\\]" ).arg( QRegularExpression::escape( QfCloudUtils::localCloudDirectory() ) ) );
     const QStringList projectIds = migrationFiles.uniqueKeys();
     for ( const QString &projectId : projectIds )
     {
@@ -190,7 +190,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
       for ( const QString &migratedProjectId : migratedProjectIds )
       {
         // Play safe, create the user folder
-        QDir().mkpath( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), migratedUsername ) );
+        QDir().mkpath( QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), migratedUsername ) );
         addPendingAttachments( migratedUsername, migratedProjectId, migratedAttachmentDetails[migratedUsername].values( migratedProjectId ) );
       }
     }
@@ -205,7 +205,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
     return files;
   }
 
-  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
+  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QfCloudUtils::localCloudDirectory(), username );
   QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
   if ( attachmentsLock.tryLock( 10000 ) )
   {
@@ -222,7 +222,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
       while ( !attachmentsStream.atEnd() )
       {
         const QString line = attachmentsStream.readLine().trimmed();
-        const QStringList values = StringUtils::csvToStringList( line );
+        const QStringList values = QfStringUtils::csvToStringList( line );
 
         // The expected CSV format must have two columns:
         // project_id,file_path
@@ -237,7 +237,7 @@ const QMultiMap<QString, QString> QFieldCloudUtils::getPendingAttachments( const
   return files;
 }
 
-void QFieldCloudUtils::addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QFieldCloudConnection *cloudConnection, const bool &checkSumCheck )
+void QfCloudUtils::addPendingAttachments( const QString &username, const QString &projectId, const QStringList &fileNames, QfCloudConnection *cloudConnection, const bool &checkSumCheck )
 {
   if ( username.isEmpty() || projectId.isEmpty() )
   {
@@ -245,7 +245,7 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
     return;
   }
 
-  if ( !QFileInfo::exists( QStringLiteral( "%1/%2" ).arg( QFieldCloudUtils::localCloudDirectory(), username ) ) )
+  if ( !QFileInfo::exists( QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username ) ) )
   {
     Q_ASSERT( false );
     return;
@@ -255,15 +255,15 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
   {
     QVariantMap params;
     params.insert( "skip_metadata", 1 );
-    NetworkReply *reply = cloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
+    QfNetworkReply *reply = cloudConnection->get( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
 
-    connect( reply, &NetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck, cloudConnection]() {
+    connect( reply, &QfNetworkReply::finished, reply, [reply, username, projectId, fileNames, checkSumCheck, cloudConnection]() {
       QNetworkReply *rawReply = reply->currentRawReply();
       reply->deleteLater();
 
       if ( rawReply->error() != QNetworkReply::NoError )
       {
-        QgsLogger::debug( QStringLiteral( "Project %1: failed to retrieve file information. %2" ).arg( projectId, QFieldCloudConnection::errorString( rawReply ) ) );
+        QgsLogger::debug( QStringLiteral( "Project %1: failed to retrieve file information. %2" ).arg( projectId, QfCloudConnection::errorString( rawReply ) ) );
         return;
       }
 
@@ -287,9 +287,9 @@ void QFieldCloudUtils::addPendingAttachments( const QString &username, const QSt
   }
 }
 
-void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection )
+void QfCloudUtils::writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QfCloudConnection *cloudConnection )
 {
-  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
+  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QfCloudUtils::localCloudDirectory(), username );
   QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
   if ( attachmentsLock.tryLock( 10000 ) )
   {
@@ -318,7 +318,7 @@ void QFieldCloudUtils::writeToAttachmentsFile( const QString &username, const QS
   }
 }
 
-void QFieldCloudUtils::writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
+void QfCloudUtils::writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
 {
   QDir dir( dirPath );
   if ( !dir.exists() )
@@ -341,9 +341,9 @@ void QFieldCloudUtils::writeFilesFromDirectory( const QString &dirPath, const QS
   }
 }
 
-void QFieldCloudUtils::writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
+void QfCloudUtils::writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream )
 {
-  const QString localEtag = FileUtils::fileEtag( fileName );
+  const QString localEtag = QfFileUtils::fileEtag( fileName );
   QString cloudFileName = "";
   const QStringList fileNameParts = fileName.split( projectId + "/" );
   if ( fileNameParts.size() > 1 )
@@ -354,17 +354,17 @@ void QFieldCloudUtils::writeFileDetails( const QString &fileName, const QString 
   if ( !checkSumCheck || localEtag != fileChecksumMap->value( cloudFileName ) )
   {
     QStringList values { projectId, fileName };
-    attachmentsStream << StringUtils::stringListToCsv( values ) << Qt::endl;
+    attachmentsStream << QfStringUtils::stringListToCsv( values ) << Qt::endl;
   }
 }
 
-void QFieldCloudUtils::removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName )
+void QfCloudUtils::removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName )
 {
-  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QFieldCloudUtils::localCloudDirectory(), username );
+  const QString localCloudUSerDirectory = QLatin1String( "%1/%2/" ).arg( QfCloudUtils::localCloudDirectory(), username );
   QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUSerDirectory ) );
   if ( attachmentsLock.tryLock( 10000 ) )
   {
-    const QString lineToRemove = StringUtils::stringListToCsv( QStringList() << projectId << fileName );
+    const QString lineToRemove = QfStringUtils::stringListToCsv( QStringList() << projectId << fileName );
     QString output;
     QFile attachmentsFile( QStringLiteral( "%1/attachments.csv" ).arg( localCloudUSerDirectory ) );
     if ( attachmentsFile.open( QFile::ReadWrite | QFile::Text ) )
@@ -386,9 +386,9 @@ void QFieldCloudUtils::removePendingAttachment( const QString &username, const Q
   }
 }
 
-QString QFieldCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username )
+QString QfCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username )
 {
-  if ( serverUrl != QFieldCloudConnection::defaultUrl() )
+  if ( serverUrl != QfCloudConnection::defaultUrl() )
   {
     return QString();
   }
@@ -407,9 +407,9 @@ QString QFieldCloudUtils::subscriptionManagementUrl( const QString &serverUrl, c
   return QString();
 }
 
-QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )
+QList<QfCloudDelta> QfCloudUtils::parseDeltaJsonDocument( const QJsonDocument &jsonDocument, QString &errorString, bool &isValid )
 {
-  QList<QFieldCloudDelta> deltas;
+  QList<QfCloudDelta> deltas;
 
   if ( !jsonDocument.isArray() )
   {
@@ -440,30 +440,30 @@ QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDoc
       break;
     }
 
-    QFieldCloudDelta delta;
+    QfCloudDelta delta;
     delta.output = deltaObject.value( QStringLiteral( "output" ) ).toString();
 
     QList<QJsonObject> deltaObjects;
     deltaObjects << deltaObject.value( "content" ).toObject();
-    delta.summary = QFieldCloudUtils::summarizeDeltaContent( deltaObjects );
+    delta.summary = QfCloudUtils::summarizeDeltaContent( deltaObjects );
 
     const QString statusString = deltaObject.value( QStringLiteral( "status" ) ).toString();
     if ( statusString == QStringLiteral( "STATUS_APPLIED" ) )
-      delta.status = QFieldCloudDelta::AppliedStatus;
+      delta.status = QfCloudDelta::AppliedStatus;
     else if ( statusString == QStringLiteral( "STATUS_CONFLICT" ) )
-      delta.status = QFieldCloudDelta::ConflictStatus;
+      delta.status = QfCloudDelta::ConflictStatus;
     else if ( statusString == QStringLiteral( "STATUS_NOT_APPLIED" ) )
-      delta.status = QFieldCloudDelta::NotAppliedStatus;
+      delta.status = QfCloudDelta::NotAppliedStatus;
     else if ( statusString == QStringLiteral( "STATUS_PENDING" ) )
-      delta.status = QFieldCloudDelta::PendingStatus;
+      delta.status = QfCloudDelta::PendingStatus;
     else if ( statusString == QStringLiteral( "STATUS_BUSY" ) )
-      delta.status = QFieldCloudDelta::BusyStatus;
+      delta.status = QfCloudDelta::BusyStatus;
     else if ( statusString == QStringLiteral( "STATUS_ERROR" ) )
-      delta.status = QFieldCloudDelta::ErrorStatus;
+      delta.status = QfCloudDelta::ErrorStatus;
     else if ( statusString == QStringLiteral( "STATUS_IGNORED" ) )
-      delta.status = QFieldCloudDelta::IgnoredStatus;
+      delta.status = QfCloudDelta::IgnoredStatus;
     else if ( statusString == QStringLiteral( "STATUS_UNPERMITTED" ) )
-      delta.status = QFieldCloudDelta::UnpermittedStatus;
+      delta.status = QfCloudDelta::UnpermittedStatus;
     else
     {
       errorString = tr( "Unrecognized status \"%1\" for $%2" ).arg( statusString, QString::number( deltas.size() ) );
@@ -481,12 +481,12 @@ QList<QFieldCloudDelta> QFieldCloudUtils::parseDeltaJsonDocument( const QJsonDoc
     deltas.append( delta );
   }
 
-  std::sort( deltas.begin(), deltas.end(), []( const QFieldCloudDelta &a, const QFieldCloudDelta &b ) { return a.createdAt > b.createdAt; } );
+  std::sort( deltas.begin(), deltas.end(), []( const QfCloudDelta &a, const QfCloudDelta &b ) { return a.createdAt > b.createdAt; } );
 
   return deltas;
 }
 
-QString QFieldCloudUtils::summarizeDeltaContent( const QList<QJsonObject> &deltaObjects, const QString &modificationSeparator, const QString &layerSeparator )
+QString QfCloudUtils::summarizeDeltaContent( const QList<QJsonObject> &deltaObjects, const QString &modificationSeparator, const QString &layerSeparator )
 {
   QMap<QString, int> createdFeatures;
   QMap<QString, int> patchedFeatures;

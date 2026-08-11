@@ -35,39 +35,39 @@
 #include <qgssettings.h>
 
 
-LocatorModelSuperBridge::LocatorModelSuperBridge( QObject *parent )
+QfLocatorModelSuperBridge::QfLocatorModelSuperBridge( QObject *parent )
   : QgsLocatorModelBridge( parent )
 {
-  locator()->registerFilter( new ActiveLayerFeaturesLocatorFilter( this ) );
-  locator()->registerFilter( new FeaturesLocatorFilter( this ) );
-  locator()->registerFilter( new GotoLocatorFilter( this ) );
-  locator()->registerFilter( new BookmarkLocatorFilter( this ) );
-  locator()->registerFilter( new ExpressionCalculatorLocatorFilter( this ) );
-  locator()->registerFilter( new HelpLocatorFilter( this ) );
+  locator()->registerFilter( new QfActiveLayerFeaturesLocatorFilter( this ) );
+  locator()->registerFilter( new QfFeaturesLocatorFilter( this ) );
+  locator()->registerFilter( new QfGotoLocatorFilter( this ) );
+  locator()->registerFilter( new QfBookmarkLocatorFilter( this ) );
+  locator()->registerFilter( new QfExpressionCalculatorLocatorFilter( this ) );
+  locator()->registerFilter( new QfHelpLocatorFilter( this ) );
 
   // Finnish's Digitransit geocoder (disabled until API access can be sorted)
-  //mFinlandGeocoder = new PeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
-  //locator()->registerFilter( new FinlandLocatorFilter( mFinlandGeocoder, this ) );
+  //mFinlandGeocoder = new QfPeliasGeocoder( QStringLiteral( "https://api.digitransit.fi/geocoding/v1/search" ) );
+  //locator()->registerFilter( new QfFinlandLocatorFilter( mFinlandGeocoder, this ) );
 }
 
-void LocatorModelSuperBridge::registerQFieldLocatorFilter( QFieldLocatorFilter *filter )
+void QfLocatorModelSuperBridge::registerQFieldLocatorFilter( QfLocatorFilter *filter )
 {
   locator()->registerFilter( filter );
   emit locatorFiltersChanged();
 }
 
-void LocatorModelSuperBridge::deregisterQFieldLocatorFilter( QFieldLocatorFilter *filter )
+void QfLocatorModelSuperBridge::deregisterQFieldLocatorFilter( QfLocatorFilter *filter )
 {
   locator()->deregisterFilter( filter );
   emit locatorFiltersChanged();
 }
 
-Navigation *LocatorModelSuperBridge::navigation() const
+QfNavigation *QfLocatorModelSuperBridge::navigation() const
 {
   return mNavigation;
 }
 
-void LocatorModelSuperBridge::setNavigation( Navigation *navigation )
+void QfLocatorModelSuperBridge::setNavigation( QfNavigation *navigation )
 {
   if ( navigation == mNavigation )
     return;
@@ -77,12 +77,12 @@ void LocatorModelSuperBridge::setNavigation( Navigation *navigation )
   emit navigationChanged();
 }
 
-BookmarkModel *LocatorModelSuperBridge::bookmarks() const
+QfBookmarkModel *QfLocatorModelSuperBridge::bookmarks() const
 {
   return mBookmarks;
 }
 
-void LocatorModelSuperBridge::setBookmarks( BookmarkModel *bookmarks )
+void QfLocatorModelSuperBridge::setBookmarks( QfBookmarkModel *bookmarks )
 {
   if ( bookmarks == mBookmarks )
     return;
@@ -92,12 +92,12 @@ void LocatorModelSuperBridge::setBookmarks( BookmarkModel *bookmarks )
   emit bookmarksChanged();
 }
 
-QgsQuickMapSettings *LocatorModelSuperBridge::mapSettings() const
+QgsQuickMapSettings *QfLocatorModelSuperBridge::mapSettings() const
 {
   return mMapSettings;
 }
 
-void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfLocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mapSettings == mMapSettings )
     return;
@@ -113,12 +113,12 @@ void LocatorModelSuperBridge::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-QObject *LocatorModelSuperBridge::geometryHighlighter() const
+QObject *QfLocatorModelSuperBridge::geometryHighlighter() const
 {
   return mGeometryHighlighter;
 }
 
-void LocatorModelSuperBridge::setGeometryHighlighter( QObject *geometryHighlighter )
+void QfLocatorModelSuperBridge::setGeometryHighlighter( QObject *geometryHighlighter )
 {
   if ( mGeometryHighlighter == geometryHighlighter )
     return;
@@ -127,12 +127,12 @@ void LocatorModelSuperBridge::setGeometryHighlighter( QObject *geometryHighlight
   emit geometryHighlighterChanged();
 }
 
-FeatureListExtentController *LocatorModelSuperBridge::featureListController() const
+QfFeatureListExtentController *QfLocatorModelSuperBridge::featureListController() const
 {
   return mFeatureListController;
 }
 
-void LocatorModelSuperBridge::setFeatureListController( FeatureListExtentController *featureListController )
+void QfLocatorModelSuperBridge::setFeatureListController( QfFeatureListExtentController *featureListController )
 {
   if ( featureListController == mFeatureListController )
     return;
@@ -141,12 +141,12 @@ void LocatorModelSuperBridge::setFeatureListController( FeatureListExtentControl
   emit featureListControllerChanged();
 }
 
-QgsMapLayer *LocatorModelSuperBridge::activeLayer() const
+QgsMapLayer *QfLocatorModelSuperBridge::activeLayer() const
 {
   return mActiveLayer.data();
 }
 
-void LocatorModelSuperBridge::setActiveLayer( QgsMapLayer *layer )
+void QfLocatorModelSuperBridge::setActiveLayer( QgsMapLayer *layer )
 {
   if ( mActiveLayer == layer )
     return;
@@ -155,12 +155,12 @@ void LocatorModelSuperBridge::setActiveLayer( QgsMapLayer *layer )
   emit activeLayerChanged();
 }
 
-bool LocatorModelSuperBridge::keepScale() const
+bool QfLocatorModelSuperBridge::keepScale() const
 {
   return mKeepScale;
 }
 
-void LocatorModelSuperBridge::setKeepScale( bool keepScale )
+void QfLocatorModelSuperBridge::setKeepScale( bool keepScale )
 {
   if ( keepScale == mKeepScale )
     return;
@@ -169,17 +169,17 @@ void LocatorModelSuperBridge::setKeepScale( bool keepScale )
   emit keepScaleChanged();
 }
 
-void LocatorModelSuperBridge::requestSearch( const QString &text )
+void QfLocatorModelSuperBridge::requestSearch( const QString &text )
 {
   emit searchRequested( text );
 }
 
-void LocatorModelSuperBridge::requestSearchTextChange( const QString &text )
+void QfLocatorModelSuperBridge::requestSearchTextChange( const QString &text )
 {
   emit searchTextChangeRequested( text );
 }
 
-LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int row )
+QfLocatorActionsModel *QfLocatorModelSuperBridge::contextMenuActionsModel( const int row )
 {
   const QModelIndex index = proxyModel()->index( row, 0 );
   if ( !index.isValid() )
@@ -188,13 +188,13 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   }
 
   const QList<QgsLocatorResult::ResultAction> actions = proxyModel()->data( index, static_cast<int>( QgsLocatorModel::CustomRole::ResultActions ) ).value<QList<QgsLocatorResult::ResultAction>>();
-  LocatorActionsModel *model = new LocatorActionsModel( static_cast<int>( actions.count() ), 1 );
+  QfLocatorActionsModel *model = new QfLocatorActionsModel( static_cast<int>( actions.count() ), 1 );
   int r = 0;
   for ( auto action : actions )
   {
     QStandardItem *item = new QStandardItem( action.text );
-    item->setData( action.id, LocatorActionsModel::IdRole );
-    item->setData( action.iconPath, LocatorActionsModel::IconPathRole );
+    item->setData( action.id, QfLocatorActionsModel::IdRole );
+    item->setData( action.iconPath, QfLocatorActionsModel::IconPathRole );
     model->setItem( r, 0, item );
     r++;
   }
@@ -202,7 +202,7 @@ LocatorActionsModel *LocatorModelSuperBridge::contextMenuActionsModel( const int
   return model;
 }
 
-QString LocatorModelSuperBridge::getLocatorModelDescription( const int row )
+QString QfLocatorModelSuperBridge::getLocatorModelDescription( const int row )
 {
   const QModelIndex index = proxyModel()->index( row, 1 );
   if ( !index.isValid() )
@@ -211,7 +211,7 @@ QString LocatorModelSuperBridge::getLocatorModelDescription( const int row )
   return proxyModel()->data( index, Qt::DisplayRole ).toString();
 }
 
-QString LocatorModelSuperBridge::getPrefixFromSearchString( const QString &string )
+QString QfLocatorModelSuperBridge::getPrefixFromSearchString( const QString &string )
 {
   QRegularExpression separatorRx( QStringLiteral( "^([^\\s]+)(?:\\s|$)" ) );
   QRegularExpressionMatch match = separatorRx.match( string.trimmed() );
@@ -226,12 +226,12 @@ QString LocatorModelSuperBridge::getPrefixFromSearchString( const QString &strin
   return QString();
 }
 
-void LocatorModelSuperBridge::emitMessage( const QString &text )
+void QfLocatorModelSuperBridge::emitMessage( const QString &text )
 {
   emit messageEmitted( text );
 }
 
-void LocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
+void QfLocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
 {
   const QModelIndex index = proxyModel()->index( row, 0 );
   if ( index.isValid() )
@@ -239,20 +239,20 @@ void LocatorModelSuperBridge::triggerResultAtRow( const int row, const int id )
 }
 
 //
-// LocatorActionsModel
+// QfLocatorActionsModel
 //
 
-LocatorActionsModel::LocatorActionsModel( QObject *parent )
+QfLocatorActionsModel::QfLocatorActionsModel( QObject *parent )
   : QStandardItemModel( parent )
 {
 }
 
-LocatorActionsModel::LocatorActionsModel( int rows, int columns, QObject *parent )
+QfLocatorActionsModel::QfLocatorActionsModel( int rows, int columns, QObject *parent )
   : QStandardItemModel( rows, columns, parent )
 {
 }
 
-QHash<int, QByteArray> LocatorActionsModel::roleNames() const
+QHash<int, QByteArray> QfLocatorActionsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IconPathRole] = "IconPath";
@@ -261,15 +261,15 @@ QHash<int, QByteArray> LocatorActionsModel::roleNames() const
 }
 
 //
-// LocatorFiltersModel
+// QfLocatorFiltersModel
 //
 
-LocatorFiltersModel::LocatorFiltersModel()
+QfLocatorFiltersModel::QfLocatorFiltersModel()
   : QAbstractListModel()
 {
 }
 
-int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
+int QfLocatorFiltersModel::rowCount( const QModelIndex &parent ) const
 {
   if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() || parent.isValid() )
     return 0;
@@ -277,7 +277,7 @@ int LocatorFiltersModel::rowCount( const QModelIndex &parent ) const
   return static_cast<int>( mLocatorModelSuperBridge->locator()->filters().count() );
 }
 
-QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
+QHash<int, QByteArray> QfLocatorFiltersModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
 
@@ -290,7 +290,7 @@ QHash<int, QByteArray> LocatorFiltersModel::roleNames() const
   return roles;
 }
 
-QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
+QVariant QfLocatorFiltersModel::data( const QModelIndex &index, int role ) const
 {
   if ( !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return QVariant();
@@ -317,7 +317,7 @@ QVariant LocatorFiltersModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfLocatorFiltersModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() || !index.isValid() || index.parent().isValid() || index.row() < 0 || index.row() >= rowCount( QModelIndex() ) )
     return false;
@@ -363,7 +363,7 @@ bool LocatorFiltersModel::setData( const QModelIndex &index, const QVariant &val
   return false;
 }
 
-void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssPositionInformation &position )
+void QfLocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const QfGnssPositionInformation &position )
 {
   if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() )
     return;
@@ -372,7 +372,7 @@ void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssP
   int i = 0;
   for ( QgsLocatorFilter *filter : mLocatorModelSuperBridge->locator()->filters() )
   {
-    FinlandLocatorFilter *f = dynamic_cast<FinlandLocatorFilter *>( filter );
+    QfFinlandLocatorFilter *f = dynamic_cast<QfFinlandLocatorFilter *>( filter );
     if ( f )
     {
       if ( f->boundingBox().contains( point ) )
@@ -394,7 +394,7 @@ void LocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition( const GnssP
   }
 }
 
-QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
+QgsLocatorFilter *QfLocatorFiltersModel::filterForIndex( const QModelIndex &index ) const
 {
   if ( !mLocatorModelSuperBridge || !mLocatorModelSuperBridge->locator() )
     return nullptr;
@@ -402,30 +402,30 @@ QgsLocatorFilter *LocatorFiltersModel::filterForIndex( const QModelIndex &index 
   return mLocatorModelSuperBridge->locator()->filters().at( index.row() );
 }
 
-LocatorModelSuperBridge *LocatorFiltersModel::locatorModelSuperBridge() const
+QfLocatorModelSuperBridge *QfLocatorFiltersModel::locatorModelSuperBridge() const
 {
   return mLocatorModelSuperBridge;
 }
 
-void LocatorFiltersModel::locatorFiltersChanged()
+void QfLocatorFiltersModel::locatorFiltersChanged()
 {
   emit beginResetModel();
   emit endResetModel();
 }
 
-void LocatorFiltersModel::setLocatorModelSuperBridge( LocatorModelSuperBridge *locatorModelSuperBridge )
+void QfLocatorFiltersModel::setLocatorModelSuperBridge( QfLocatorModelSuperBridge *locatorModelSuperBridge )
 {
   if ( mLocatorModelSuperBridge == locatorModelSuperBridge )
     return;
 
   if ( mLocatorModelSuperBridge )
   {
-    disconnect( mLocatorModelSuperBridge, &LocatorModelSuperBridge::locatorFiltersChanged, this, &LocatorFiltersModel::locatorFiltersChanged );
+    disconnect( mLocatorModelSuperBridge, &QfLocatorModelSuperBridge::locatorFiltersChanged, this, &QfLocatorFiltersModel::locatorFiltersChanged );
   }
   emit beginResetModel();
   mLocatorModelSuperBridge = locatorModelSuperBridge;
   emit locatorModelSuperBridgeChanged();
   emit endResetModel();
 
-  connect( mLocatorModelSuperBridge, &LocatorModelSuperBridge::locatorFiltersChanged, this, &LocatorFiltersModel::locatorFiltersChanged );
+  connect( mLocatorModelSuperBridge, &QfLocatorModelSuperBridge::locatorFiltersChanged, this, &QfLocatorFiltersModel::locatorFiltersChanged );
 }

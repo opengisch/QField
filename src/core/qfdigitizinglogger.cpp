@@ -1,5 +1,5 @@
 /***************************************************************************
- qfdigitizinglogger.cpp - DigitizingLogger
+ qfdigitizinglogger.cpp - QfDigitizingLogger
   ---------------------
  begin                : 7.6.2021
  copyright            : (C) 2021 by Mathieu Pellerin
@@ -23,11 +23,11 @@
 #include <qgsvectorlayerutils.h>
 #include <qgswkbtypes.h>
 
-DigitizingLogger::DigitizingLogger()
+QfDigitizingLogger::QfDigitizingLogger()
 {
 }
 
-void DigitizingLogger::setType( const QString &type )
+void QfDigitizingLogger::setType( const QString &type )
 {
   if ( mType == type )
     return;
@@ -37,7 +37,7 @@ void DigitizingLogger::setType( const QString &type )
   emit typeChanged();
 }
 
-void DigitizingLogger::setPositionInformation( const GnssPositionInformation &positionInformation )
+void QfDigitizingLogger::setPositionInformation( const QfGnssPositionInformation &positionInformation )
 {
   if ( mPositionInformation == positionInformation )
     return;
@@ -47,7 +47,7 @@ void DigitizingLogger::setPositionInformation( const GnssPositionInformation &po
   emit positionInformationChanged();
 }
 
-void DigitizingLogger::setPositionLocked( bool positionLocked )
+void QfDigitizingLogger::setPositionLocked( bool positionLocked )
 {
   if ( mPositionLocked == positionLocked )
     return;
@@ -57,7 +57,7 @@ void DigitizingLogger::setPositionLocked( bool positionLocked )
   emit positionLockedChanged();
 }
 
-void DigitizingLogger::setTopSnappingResult( const SnappingResult &topSnappingResult )
+void QfDigitizingLogger::setTopSnappingResult( const QfSnappingResult &topSnappingResult )
 {
   if ( mTopSnappingResult == topSnappingResult )
     return;
@@ -67,21 +67,21 @@ void DigitizingLogger::setTopSnappingResult( const SnappingResult &topSnappingRe
   emit topSnappingResultChanged();
 }
 
-void DigitizingLogger::setProject( QgsProject *project )
+void QfDigitizingLogger::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
 
   if ( mProject )
   {
-    disconnect( mProject, &QgsProject::readProject, this, &DigitizingLogger::findLogsLayer );
+    disconnect( mProject, &QgsProject::readProject, this, &QfDigitizingLogger::findLogsLayer );
   }
 
   mProject = project;
 
   if ( mProject )
   {
-    connect( mProject, &QgsProject::readProject, this, &DigitizingLogger::findLogsLayer );
+    connect( mProject, &QgsProject::readProject, this, &QfDigitizingLogger::findLogsLayer );
   }
 
   clearCoordinates();
@@ -90,7 +90,7 @@ void DigitizingLogger::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-void DigitizingLogger::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfDigitizingLogger::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
@@ -100,14 +100,14 @@ void DigitizingLogger::setMapSettings( QgsQuickMapSettings *mapSettings )
   emit mapSettingsChanged();
 }
 
-void DigitizingLogger::setCloudUserInformation( const CloudUserInformation &cloudUserInformation )
+void QfDigitizingLogger::setCloudUserInformation( const QfCloudUserInformation &cloudUserInformation )
 {
   mCloudUserInformation = cloudUserInformation;
 
   emit cloudUserInformationChanged();
 }
 
-void DigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
+void QfDigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
 {
   if ( mDigitizingLayer == layer )
     return;
@@ -117,7 +117,7 @@ void DigitizingLogger::setDigitizingLayer( QgsVectorLayer *layer )
   emit digitizingLayerChanged();
 }
 
-void DigitizingLogger::findLogsLayer()
+void QfDigitizingLogger::findLogsLayer()
 {
   mLogsLayer = nullptr;
   if ( mProject )
@@ -138,7 +138,7 @@ void DigitizingLogger::findLogsLayer()
   }
 }
 
-void DigitizingLogger::addCoordinate( const QgsPoint &point )
+void QfDigitizingLogger::addCoordinate( const QgsPoint &point )
 {
   if ( !mLogsLayer || mType.isEmpty() )
     return;
@@ -166,12 +166,12 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
     expressionContext << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
 
   if ( mPositionInformation.isValid() )
-    expressionContext << ExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
+    expressionContext << QfExpressionContextUtils::positionScope( mPositionInformation, mPositionLocked );
 
   if ( mTopSnappingResult.isValid() )
-    expressionContext << ExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
+    expressionContext << QfExpressionContextUtils::mapToolCaptureScope( mTopSnappingResult );
 
-  expressionContext << ExpressionContextUtils::cloudUserScope( mCloudUserInformation );
+  expressionContext << QfExpressionContextUtils::cloudUserScope( mCloudUserInformation );
 
   QgsExpressionContextScope *scope = new QgsExpressionContextScope( QObject::tr( "Digitizing Logger" ) );
   scope->addVariable( QgsExpressionContextScope::StaticVariable( QStringLiteral( "digitizing_type" ), mType, true, true ) );
@@ -207,13 +207,13 @@ void DigitizingLogger::addCoordinate( const QgsPoint &point )
   mPointFeatures << feature;
 }
 
-void DigitizingLogger::removeLastCoordinate()
+void QfDigitizingLogger::removeLastCoordinate()
 {
   if ( !mPointFeatures.isEmpty() )
     mPointFeatures.removeLast();
 }
 
-void DigitizingLogger::writeCoordinates()
+void QfDigitizingLogger::writeCoordinates()
 {
   if ( !mLogsLayer )
     return;
@@ -244,7 +244,7 @@ void DigitizingLogger::writeCoordinates()
   }
 }
 
-void DigitizingLogger::clearCoordinates()
+void QfDigitizingLogger::clearCoordinates()
 {
   mPointFeatures.clear();
 }

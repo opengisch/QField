@@ -1,5 +1,5 @@
 /***************************************************************************
-  qforderedrelationmodel.h - OrderedRelationModel
+  qforderedrelationmodel.h - QfOrderedRelationModel
 
  ---------------------
  begin                : Jun 2021
@@ -24,12 +24,12 @@
 
 #include <QSortFilterProxyModel>
 
-class FeatureExpressionValuesGatherer;
+class QfFeatureExpressionValuesGatherer;
 
 /**
  * \ingroup core
  */
-class OrderedRelationModel : public ReferencingFeatureListModelBase
+class QfOrderedRelationModel : public QfReferencingFeatureListModelBase
 {
     Q_OBJECT
 
@@ -38,7 +38,7 @@ class OrderedRelationModel : public ReferencingFeatureListModelBase
     Q_PROPERTY( QString description READ description WRITE setDescription NOTIFY descriptionChanged )
 
   public:
-    explicit OrderedRelationModel( QObject *parent = nullptr );
+    explicit QfOrderedRelationModel( QObject *parent = nullptr );
 
     enum Roles
     {

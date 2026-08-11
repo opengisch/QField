@@ -1,5 +1,5 @@
 /***************************************************************************
- qftranslatormanager.h - TranslatorManager
+ qftranslatormanager.h - QfTranslatorManager
 
  ---------------------
  begin                : June 2025
@@ -24,20 +24,20 @@ class QTranslator;
 /**
  * \brief Provides access to shared translator instances for runtime language switching.
  *
- * Translators are shared between startup (main.cpp) and runtime switching (AppInterface::changeLanguage).
+ * Translators are shared between startup (main.cpp) and runtime switching (QfAppInterface::changeLanguage).
  * \ingroup core
  */
-class TranslatorManager
+class QfTranslatorManager
 {
   public:
     //!  Constructor
-    TranslatorManager();
+    QfTranslatorManager();
 
     //! Copy constructor is deleted (singleton pattern)
-    TranslatorManager( const TranslatorManager & ) = delete;
+    QfTranslatorManager( const QfTranslatorManager & ) = delete;
 
     //! Assignment operator is deleted (singleton pattern)
-    TranslatorManager &operator=( const TranslatorManager & ) = delete;
+    QfTranslatorManager &operator=( const QfTranslatorManager & ) = delete;
 
     //! Returns the global QField translator instance.
     QTranslator *qfieldTranslator();
@@ -45,8 +45,8 @@ class TranslatorManager
     //! Returns the global Qt framework translator instance.
     QTranslator *qtTranslator();
 
-    //! Returns the singleton instance of TranslatorManager.
-    static TranslatorManager *instance();
+    //! Returns the singleton instance of QfTranslatorManager.
+    static QfTranslatorManager *instance();
 
   private:
     std::unique_ptr<QTranslator> mQFieldTranslator;

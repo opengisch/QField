@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnmeagnssreceiver.h - NmeaGnssReceiver
+ qfnmeagnssreceiver.h - QfNmeaGnssReceiver
 
  ---------------------
  begin                : 21.10.2022
@@ -25,18 +25,18 @@
 
 /**
  * The nmeareceiver connects to a device and feeds the QgsNmeaConnection.
- * It receives QgsGpsInformation and converts it to GnssPositionInformation
+ * It receives QgsGpsInformation and converts it to QfGnssPositionInformation
  * \ingroup coure
  */
-class NmeaGnssReceiver : public AbstractGnssReceiver
+class QfNmeaGnssReceiver : public QfAbstractGnssReceiver
 {
     Q_OBJECT
 
   public:
-    explicit NmeaGnssReceiver( QObject *parent = nullptr );
-    ~NmeaGnssReceiver() override = default;
+    explicit QfNmeaGnssReceiver( QObject *parent = nullptr );
+    ~QfNmeaGnssReceiver() override = default;
 
-    AbstractGnssReceiver::Capabilities capabilities() const override;
+    QfAbstractGnssReceiver::Capabilities capabilities() const override;
 
     void initNmeaConnection( QIODevice *ioDevice );
 
@@ -58,7 +58,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
   private:
     void handleStartLogging( const QString &path ) override;
     void handleStopLogging() override;
-    GnssPositionDetails details() const override;
+    QfGnssPositionDetails details() const override;
 
     void processImuSentence( const QString &sentence );
 
@@ -67,7 +67,7 @@ class NmeaGnssReceiver : public AbstractGnssReceiver
     QFile mLogFile;
     QTextStream mLogStream;
 
-    GnssPositionInformation mCurrentNmeaGnssPositionInformation;
+    QfGnssPositionInformation mCurrentNmeaGnssPositionInformation;
 
     QIODevice *mIODevice = nullptr;
 

@@ -26,31 +26,31 @@
  * \brief A project map layers base model.
  * \ingroup core
  */
-class MapLayerBaseModel : public QAbstractListModel
+class QfMapLayerBaseModel : public QAbstractListModel
 {
     Q_OBJECT
 
   public:
-    explicit MapLayerBaseModel( QObject *parent = nullptr );
+    explicit QfMapLayerBaseModel( QObject *parent = nullptr );
 
     int rowCount( const QModelIndex &parent ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    //! \copydoc MapLayerModel::enabled
+    //! \copydoc QfMapLayerModel::enabled
     bool enabled() const { return mEnabled; }
-    //! \copydoc MapLayerModel::enabled
+    //! \copydoc QfMapLayerModel::enabled
     void setEnabled( bool enabled );
 
-    //! \copydoc MapLayerModel::project
+    //! \copydoc QfMapLayerModel::project
     QgsProject *project() const { return mProject; }
-    //! \copydoc MapLayerModel::project
+    //! \copydoc QfMapLayerModel::project
     void setProject( QgsProject *project );
 
-    //! \copydoc MapLayerModel::trackingModel
-    TrackingModel *trackingModel() const { return mTrackingModel; }
-    //! \copydoc MapLayerModel::trackingModel
-    void setTrackingModel( TrackingModel *trackingModel );
+    //! \copydoc QfMapLayerModel::trackingModel
+    QfTrackingModel *trackingModel() const { return mTrackingModel; }
+    //! \copydoc QfMapLayerModel::trackingModel
+    void setTrackingModel( QfTrackingModel *trackingModel );
 
   signals:
     void enabledChanged();
@@ -67,7 +67,7 @@ class MapLayerBaseModel : public QAbstractListModel
     bool mEnabled = true;
     QList<QgsMapLayer *> mLayers;
     QgsProject *mProject = nullptr;
-    TrackingModel *mTrackingModel = nullptr;
+    QfTrackingModel *mTrackingModel = nullptr;
 };
 
 
@@ -75,7 +75,7 @@ class MapLayerBaseModel : public QAbstractListModel
  * \brief A project map layers model within filtering capabilities.
  * \ingroup core
  */
-class MapLayerModel : public QSortFilterProxyModel
+class QfMapLayerModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -89,7 +89,7 @@ class MapLayerModel : public QSortFilterProxyModel
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
 
     //! The tracking model against which  map layers' tracking availability will be checked against.
-    Q_PROPERTY( TrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
+    Q_PROPERTY( QfTrackingModel *trackingModel READ trackingModel WRITE setTrackingModel NOTIFY trackingModelChanged )
 
     //! The map layer filters.
     Q_PROPERTY( Qgis::LayerFilters filters READ filters WRITE setFilters NOTIFY filtersChanged )
@@ -109,31 +109,31 @@ class MapLayerModel : public QSortFilterProxyModel
     Q_ENUM( Role )
 
     //! The constructor
-    explicit MapLayerModel( QObject *parent = nullptr );
+    explicit QfMapLayerModel( QObject *parent = nullptr );
 
-    //! \copydoc MapLayerModel::enabled
+    //! \copydoc QfMapLayerModel::enabled
     bool enabled() const;
-    //! \copydoc MapLayerModel::enabled
+    //! \copydoc QfMapLayerModel::enabled
     void setEnabled( bool enabled );
 
-    //! \copydoc MapLayerModel::project
+    //! \copydoc QfMapLayerModel::project
     QgsProject *project() const;
-    //! \copydoc MapLayerModel::project
+    //! \copydoc QfMapLayerModel::project
     void setProject( QgsProject *project );
 
-    //! \copydoc MapLayerModel::trackingModel
-    TrackingModel *trackingModel() const;
-    //! \copydoc MapLayerModel::trackingModel
-    void setTrackingModel( TrackingModel *trackingModel );
+    //! \copydoc QfMapLayerModel::trackingModel
+    QfTrackingModel *trackingModel() const;
+    //! \copydoc QfMapLayerModel::trackingModel
+    void setTrackingModel( QfTrackingModel *trackingModel );
 
-    //! \copydoc MapLayerModel::filters
+    //! \copydoc QfMapLayerModel::filters
     Qgis::LayerFilters filters() const { return mFilters; }
-    //! \copydoc MapLayerModel::filters
+    //! \copydoc QfMapLayerModel::filters
     void setFilters( Qgis::LayerFilters filters );
 
-    //! \copydoc MapLayerModel::requiresTrackingAvailability
+    //! \copydoc QfMapLayerModel::requiresTrackingAvailability
     bool requiresTrackingAvailability() const { return mRequiresTrackingAvailability; }
-    //! \copydoc MapLayerModel::requiresTrackingAvailability
+    //! \copydoc QfMapLayerModel::requiresTrackingAvailability
     void setRequiresTrackingAvailability( bool requiresTrackingAvailability );
 
     /**
@@ -166,7 +166,7 @@ class MapLayerModel : public QSortFilterProxyModel
   private:
     bool layerMatchesFilters( QgsMapLayer *layer ) const;
 
-    MapLayerBaseModel *mModel = nullptr;
+    QfMapLayerBaseModel *mModel = nullptr;
     Qgis::LayerFilters mFilters = Qgis::LayerFilter::All;
     bool mRequiresTrackingAvailability = false;
 };

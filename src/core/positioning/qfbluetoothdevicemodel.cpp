@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfbluetoothdevicemodel.cpp - BluetoothDeviceModel
+  qfbluetoothdevicemodel.cpp - QfBluetoothDeviceModel
 
  ---------------------
  begin                : 20.11.2020
@@ -24,22 +24,22 @@
 #include <qgis.h>
 
 
-BluetoothDeviceModel::BluetoothDeviceModel( QObject *parent )
+QfBluetoothDeviceModel::QfBluetoothDeviceModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-BluetoothDeviceModel::~BluetoothDeviceModel()
+QfBluetoothDeviceModel::~QfBluetoothDeviceModel()
 {
   stopDeviceDiscovery();
 }
 
-void BluetoothDeviceModel::initiateDiscoveryAgent()
+void QfBluetoothDeviceModel::initiateDiscoveryAgent()
 {
   mLocalDevice = std::make_unique<QBluetoothLocalDevice>();
   mDeviceDiscoveryAgent = std::make_unique<QBluetoothDeviceDiscoveryAgent>();
 
-  connect( mDeviceDiscoveryAgent.get(), &QBluetoothDeviceDiscoveryAgent::deviceDiscovered, this, &BluetoothDeviceModel::deviceDiscovered );
+  connect( mDeviceDiscoveryAgent.get(), &QBluetoothDeviceDiscoveryAgent::deviceDiscovered, this, &QfBluetoothDeviceModel::deviceDiscovered );
   connect( mDeviceDiscoveryAgent.get(), qOverload<QBluetoothDeviceDiscoveryAgent::Error>( &QBluetoothDeviceDiscoveryAgent::errorOccurred ), this, [this]( QBluetoothDeviceDiscoveryAgent::Error error ) {
     if ( error != QBluetoothDeviceDiscoveryAgent::NoError )
     {
@@ -67,7 +67,7 @@ void BluetoothDeviceModel::initiateDiscoveryAgent()
   } );
 }
 
-void BluetoothDeviceModel::startDeviceDiscovery()
+void QfBluetoothDeviceModel::startDeviceDiscovery()
 {
   // Handle Bluetooth permission
   if ( !mBluetoothPermissionChecked )
@@ -153,7 +153,7 @@ void BluetoothDeviceModel::startDeviceDiscovery()
 #endif
 }
 
-void BluetoothDeviceModel::stopDeviceDiscovery()
+void QfBluetoothDeviceModel::stopDeviceDiscovery()
 {
   if ( !mDeviceDiscoveryAgent )
     return;
@@ -165,7 +165,7 @@ void BluetoothDeviceModel::stopDeviceDiscovery()
   }
 }
 
-void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
+void QfBluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
 {
   if ( info.name().isEmpty() )
   {
@@ -200,7 +200,7 @@ void BluetoothDeviceModel::deviceDiscovered( const QBluetoothDeviceInfo &info )
   mLastDiscoveredCount++;
 }
 
-int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
+int QfBluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
 {
   for ( int i = 0; i < mDiscoveredDevices.size(); i++ )
   {
@@ -213,12 +213,12 @@ int BluetoothDeviceModel::findIndexFromAddress( const QString &address ) const
   return -1;
 }
 
-int BluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
+int QfBluetoothDeviceModel::rowCount( const QModelIndex &parent ) const
 {
   return !parent.isValid() ? static_cast<int>( mDiscoveredDevices.size() ) : 0;
 }
 
-QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
+QVariant QfBluetoothDeviceModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() == -1 || index.row() >= mDiscoveredDevices.size() )
   {
@@ -249,7 +249,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
 #endif
       if ( info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration || info.coreConfigurations() & QBluetoothDeviceInfo::BaseRateAndLowEnergyCoreConfiguration )
       {
-        const QList<QBluetoothUuid> supportedServices = BluetoothLowEnergyReceiver::serviceChars.keys();
+        const QList<QBluetoothUuid> supportedServices = QfBluetoothLowEnergyReceiver::serviceChars.keys();
         return std::any_of( supportedServices.begin(), supportedServices.end(), [&info]( const QBluetoothUuid &service ) { return info.serviceUuids().contains( service ); } );
       }
       return false;
@@ -257,7 +257,7 @@ QVariant BluetoothDeviceModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
+QHash<int, QByteArray> QfBluetoothDeviceModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
@@ -270,7 +270,7 @@ QHash<int, QByteArray> BluetoothDeviceModel::roleNames() const
   return roles;
 }
 
-void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::ScanningStatus scanningStatus )
+void QfBluetoothDeviceModel::setScanningStatus( const QfBluetoothDeviceModel::ScanningStatus scanningStatus )
 {
   if ( mScanningStatus == scanningStatus )
   {
@@ -282,7 +282,7 @@ void BluetoothDeviceModel::setScanningStatus( const BluetoothDeviceModel::Scanni
   emit scanningStatusChanged( mScanningStatus );
 }
 
-void BluetoothDeviceModel::setLastError( const QString &lastError )
+void QfBluetoothDeviceModel::setLastError( const QString &lastError )
 {
   if ( mLastError == lastError )
   {
@@ -294,7 +294,7 @@ void BluetoothDeviceModel::setLastError( const QString &lastError )
   emit lastErrorChanged( mLastError );
 }
 
-int BluetoothDeviceModel::addDevice( const QString &name, const QString &address )
+int QfBluetoothDeviceModel::addDevice( const QString &name, const QString &address )
 {
   if ( name.isEmpty() || address.isEmpty() )
     return -1;
@@ -319,7 +319,7 @@ int BluetoothDeviceModel::addDevice( const QString &name, const QString &address
   return index;
 }
 
-QString BluetoothDeviceModel::deviceAddress( const QBluetoothDeviceInfo &info ) const
+QString QfBluetoothDeviceModel::deviceAddress( const QBluetoothDeviceInfo &info ) const
 {
 #if defined( Q_OS_IOS ) || defined( Q_OS_MACOS )
   return info.deviceUuid().toString();

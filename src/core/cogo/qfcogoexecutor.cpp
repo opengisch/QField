@@ -21,12 +21,12 @@
 #include <qgsvectorlayer.h>
 
 
-CogoExecutor::CogoExecutor( QObject *parent )
+QfCogoExecutor::QfCogoExecutor( QObject *parent )
   : QObject( parent )
 {
 }
 
-void CogoExecutor::setName( const QString &name )
+void QfCogoExecutor::setName( const QString &name )
 {
   if ( mName == name )
   {
@@ -40,7 +40,7 @@ void CogoExecutor::setName( const QString &name )
   getParameters();
 }
 
-void CogoExecutor::setParameterValues( const QVariantMap &parameterValues )
+void QfCogoExecutor::setParameterValues( const QVariantMap &parameterValues )
 {
   if ( mParameterValues == parameterValues )
   {
@@ -54,7 +54,7 @@ void CogoExecutor::setParameterValues( const QVariantMap &parameterValues )
   generateVisualGuides();
 }
 
-void CogoExecutor::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfCogoExecutor::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
   {
@@ -63,16 +63,16 @@ void CogoExecutor::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &CogoExecutor::generateVisualGuides );
-    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &CogoExecutor::generateVisualGuides );
+    disconnect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfCogoExecutor::generateVisualGuides );
+    disconnect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfCogoExecutor::generateVisualGuides );
   }
 
   mMapSettings = mapSettings;
 
   if ( mMapSettings )
   {
-    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &CogoExecutor::generateVisualGuides );
-    connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &CogoExecutor::generateVisualGuides );
+    connect( mMapSettings, &QgsQuickMapSettings::visibleExtentChanged, this, &QfCogoExecutor::generateVisualGuides );
+    connect( mMapSettings, &QgsQuickMapSettings::rotationChanged, this, &QfCogoExecutor::generateVisualGuides );
   }
 
   emit mapSettingsChanged();
@@ -80,7 +80,7 @@ void CogoExecutor::setMapSettings( QgsQuickMapSettings *mapSettings )
   generateVisualGuides();
 }
 
-void CogoExecutor::setRubberbandModel( RubberbandModel *rubberbandModel )
+void QfCogoExecutor::setRubberbandModel( QfRubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
   {
@@ -89,31 +89,31 @@ void CogoExecutor::setRubberbandModel( RubberbandModel *rubberbandModel )
 
   if ( mRubberbandModel )
   {
-    disconnect( mRubberbandModel, &RubberbandModel::vectorLayerChanged, this, &CogoExecutor::getParameters );
+    disconnect( mRubberbandModel, &QfRubberbandModel::vectorLayerChanged, this, &QfCogoExecutor::getParameters );
   }
 
   mRubberbandModel = rubberbandModel;
 
   if ( mRubberbandModel )
   {
-    connect( mRubberbandModel, &RubberbandModel::vectorLayerChanged, this, &CogoExecutor::getParameters );
+    connect( mRubberbandModel, &QfRubberbandModel::vectorLayerChanged, this, &QfCogoExecutor::getParameters );
   }
 
   emit rubberbandModelChanged();
 }
 
-QList<CogoVisualGuide> CogoExecutor::visualGuides() const
+QList<QfCogoVisualGuide> QfCogoExecutor::visualGuides() const
 {
   return mVisualGuides;
 }
 
-void CogoExecutor::getParameters()
+void QfCogoExecutor::getParameters()
 {
-  QList<CogoParameter> parameters;
+  QList<QfCogoParameter> parameters;
 
   if ( mRubberbandModel )
   {
-    if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+    if ( const QfCogoOperation *operation = QfCogoRegistry::instance()->operation( mName ) )
     {
       parameters = operation->parameters( mRubberbandModel->vectorLayer() ? mRubberbandModel->vectorLayer()->wkbType() : Qgis::WkbType::Unknown );
     }
@@ -126,7 +126,7 @@ void CogoExecutor::getParameters()
   }
 }
 
-void CogoExecutor::generateVisualGuides()
+void QfCogoExecutor::generateVisualGuides()
 {
   if ( !mMapSettings || mName.isEmpty() || mParameters.isEmpty() )
   {
@@ -138,7 +138,7 @@ void CogoExecutor::generateVisualGuides()
     return;
   }
 
-  if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+  if ( const QfCogoOperation *operation = QfCogoRegistry::instance()->operation( mName ) )
   {
     mVisualGuides = operation->visualGuides( mParameterValues, mMapSettings );
   }
@@ -150,13 +150,13 @@ void CogoExecutor::generateVisualGuides()
   emit visualGuidesChanged();
 }
 
-void CogoExecutor::checkReadiness()
+void QfCogoExecutor::checkReadiness()
 {
   bool isReady = false;
 
   if ( mRubberbandModel && !mParameterValues.isEmpty() )
   {
-    if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+    if ( const QfCogoOperation *operation = QfCogoRegistry::instance()->operation( mName ) )
     {
       isReady = operation->checkReadiness( mParameterValues, mRubberbandModel->vectorLayer() ? mRubberbandModel->vectorLayer()->wkbType() : Qgis::WkbType::Unknown );
     }
@@ -169,14 +169,14 @@ void CogoExecutor::checkReadiness()
   }
 }
 
-bool CogoExecutor::execute()
+bool QfCogoExecutor::execute()
 {
   if ( !mRubberbandModel )
   {
     return false;
   }
 
-  if ( const CogoOperation *operation = CogoRegistry::instance()->operation( mName ) )
+  if ( const QfCogoOperation *operation = QfCogoRegistry::instance()->operation( mName ) )
   {
     return operation->execute( mRubberbandModel, mParameterValues, mRubberbandModel->vectorLayer() ? mRubberbandModel->vectorLayer()->wkbType() : Qgis::WkbType::Unknown );
   }

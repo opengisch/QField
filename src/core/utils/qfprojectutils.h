@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprojectutils.h - ProjectUtils
+  qfprojectutils.h - QfProjectUtils
 
  ---------------------
  begin                : 19.04.2024
@@ -25,12 +25,12 @@
 /**
  * \ingroup core
  */
-class ProjectUtils : public QObject
+class QfProjectUtils : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit ProjectUtils( QObject *parent = nullptr );
+    explicit QfProjectUtils( QObject *parent = nullptr );
 
     /**
      * Returns a map of all registered layers by layer ID.
@@ -79,7 +79,7 @@ class ProjectUtils : public QObject
      * - tracks: set to TRUE to add a tracks layer
      * - track_on_launch: set to TRUE to start tracking position on project launch
      */
-    Q_INVOKABLE static QString createProject( const QVariantMap &options, const GnssPositionInformation &positionInformation = GnssPositionInformation() );
+    Q_INVOKABLE static QString createProject( const QVariantMap &options, const QfGnssPositionInformation &positionInformation = QfGnssPositionInformation() );
 };
 
 #endif // QFPROJECTUTILS_H

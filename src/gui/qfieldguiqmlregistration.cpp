@@ -44,35 +44,35 @@ namespace QFieldGui
 {
   void registerQmlTypes()
   {
-    qmlRegisterType<AttributeFormModel>( "org.qfield.gui", 1, 0, "AttributeFormModel" );
-    qmlRegisterType<CameraPermission>( "org.qfield.gui", 1, 0, "QfCameraPermission" );
-    qmlRegisterType<ExpressionEvaluator>( "org.qfield.gui", 1, 0, "ExpressionEvaluator" );
-    qmlRegisterType<ExpressionVariableModel>( "org.qfield.gui", 1, 0, "ExpressionVariableModel" );
-    qmlRegisterType<FeatureCheckListModel>( "org.qfield.gui", 1, 0, "FeatureCheckListModel" );
-    qmlRegisterType<FocusStack>( "org.qfield.gui", 1, 0, "FocusStack" );
-    qmlRegisterType<GeometryEditorsModel>( "org.qfield.gui", 1, 0, "GeometryEditorsModel" );
-    qmlRegisterType<LocalFilesModel>( "org.qfield.gui", 1, 0, "LocalFilesModel" );
-    qmlRegisterType<MicrophonePermission>( "org.qfield.gui", 1, 0, "QfMicrophonePermission" );
-    qmlRegisterType<OrderedRelationModel>( "org.qfield.gui", 1, 0, "OrderedRelationModel" );
-    qmlRegisterType<ParameterizedImage>( "org.qfield.gui", 1, 0, "ParameterizedImage" );
-    qmlRegisterType<PrintLayoutListModel>( "org.qfield.gui", 1, 0, "PrintLayoutListModel" );
-    qmlRegisterType<RecentProjectListModel>( "org.qfield.gui", 1, 0, "RecentProjectListModel" );
-    qmlRegisterType<ReferencingFeatureListModel>( "org.qfield.gui", 1, 0, "ReferencingFeatureListModel" );
-    qmlRegisterType<SensorListModel>( "org.qfield.gui", 1, 0, "SensorListModel" );
-    qmlRegisterType<ValueMapModel>( "org.qfield.gui", 1, 0, "ValueMapModel" );
+    qmlRegisterType<QfAttributeFormModel>( "org.qfield.gui", 1, 0, "AttributeFormModel" );
+    qmlRegisterType<QfCameraPermission>( "org.qfield.gui", 1, 0, "QfCameraPermission" );
+    qmlRegisterType<QfExpressionEvaluator>( "org.qfield.gui", 1, 0, "ExpressionEvaluator" );
+    qmlRegisterType<QfExpressionVariableModel>( "org.qfield.gui", 1, 0, "ExpressionVariableModel" );
+    qmlRegisterType<QfFeatureCheckListModel>( "org.qfield.gui", 1, 0, "FeatureCheckListModel" );
+    qmlRegisterType<QfFocusStack>( "org.qfield.gui", 1, 0, "FocusStack" );
+    qmlRegisterType<QfGeometryEditorsModel>( "org.qfield.gui", 1, 0, "GeometryEditorsModel" );
+    qmlRegisterType<QfLocalFilesModel>( "org.qfield.gui", 1, 0, "LocalFilesModel" );
+    qmlRegisterType<QfMicrophonePermission>( "org.qfield.gui", 1, 0, "QfMicrophonePermission" );
+    qmlRegisterType<QfOrderedRelationModel>( "org.qfield.gui", 1, 0, "OrderedRelationModel" );
+    qmlRegisterType<QfParameterizedImage>( "org.qfield.gui", 1, 0, "ParameterizedImage" );
+    qmlRegisterType<QfPrintLayoutListModel>( "org.qfield.gui", 1, 0, "PrintLayoutListModel" );
+    qmlRegisterType<QfRecentProjectListModel>( "org.qfield.gui", 1, 0, "RecentProjectListModel" );
+    qmlRegisterType<QfReferencingFeatureListModel>( "org.qfield.gui", 1, 0, "ReferencingFeatureListModel" );
+    qmlRegisterType<QfSensorListModel>( "org.qfield.gui", 1, 0, "SensorListModel" );
+    qmlRegisterType<QfValueMapModel>( "org.qfield.gui", 1, 0, "ValueMapModel" );
 
-    REGISTER_SINGLETON( "org.qfield.gui", GeometryEditorsModel, "GeometryEditorsModelSingleton" );
+    REGISTER_SINGLETON( "org.qfield.gui", QfGeometryEditorsModel, "GeometryEditorsModelSingleton" );
 
-    qmlRegisterSingletonType<Theme>( "org.qfield.gui", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject * {
+    qmlRegisterSingletonType<QfTheme>( "org.qfield.gui", 1, 0, "Theme", []( QQmlEngine *, QJSEngine * ) -> QObject * {
       QScreen *screen = QGuiApplication::primaryScreen();
       const qreal dpi = screen ? screen->logicalDotsPerInch() * screen->devicePixelRatio() : 96.0;
-      Theme *theme = new Theme();
+      QfTheme *theme = new QfTheme();
       theme->setScreenPpi( dpi );
-      theme->setSystemFontPointSize( PlatformUtilities::instance()->systemFontPointSize() );
+      theme->setSystemFontPointSize( QfPlatformUtilities::instance()->systemFontPointSize() );
       return theme;
     } );
 
-    qmlRegisterUncreatableType<MessageLogModel>( "org.qfield.gui", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
+    qmlRegisterUncreatableType<QfMessageLogModel>( "org.qfield.gui", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
   }
 } // namespace QFieldGui
 

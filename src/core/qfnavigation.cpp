@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnavigation.cpp - Navigation
+ qfnavigation.cpp - QfNavigation
 
  ---------------------
  begin                : 22.02.2022
@@ -22,18 +22,18 @@
 #include <qgsproject.h>
 #include <qgsvectorlayer.h>
 
-Navigation::Navigation()
+QfNavigation::QfNavigation()
   : QObject()
 {
-  mModel.reset( new NavigationModel() );
+  mModel.reset( new QfNavigationModel() );
   mModel->restore();
 
-  connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::isActiveChanged );
-  connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::destinationChanged );
-  connect( mModel.get(), &NavigationModel::destinationChanged, this, &Navigation::updateDetails );
-  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::isActiveChanged );
-  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::destinationChanged );
-  connect( mModel.get(), &NavigationModel::modelReset, this, &Navigation::updateDetails );
+  connect( mModel.get(), &QfNavigationModel::destinationChanged, this, &QfNavigation::isActiveChanged );
+  connect( mModel.get(), &QfNavigationModel::destinationChanged, this, &QfNavigation::destinationChanged );
+  connect( mModel.get(), &QfNavigationModel::destinationChanged, this, &QfNavigation::updateDetails );
+  connect( mModel.get(), &QfNavigationModel::modelReset, this, &QfNavigation::isActiveChanged );
+  connect( mModel.get(), &QfNavigationModel::modelReset, this, &QfNavigation::destinationChanged );
+  connect( mModel.get(), &QfNavigationModel::modelReset, this, &QfNavigation::updateDetails );
 
   mProximityAlarmTimer.setInterval( 250 );
   mProximityAlarmTimer.setSingleShot( false );
@@ -45,34 +45,34 @@ Navigation::Navigation()
   } );
 }
 
-Navigation::~Navigation()
+QfNavigation::~QfNavigation()
 {
 }
 
-bool Navigation::isActive() const
+bool QfNavigation::isActive() const
 {
   return !destination().isEmpty();
 }
 
-void Navigation::setMapSettings( QgsQuickMapSettings *mapSettings )
+void QfNavigation::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
     return;
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &Navigation::crsChanged );
+    disconnect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfNavigation::crsChanged );
   }
 
   mMapSettings = mapSettings;
 
-  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &Navigation::crsChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::destinationCrsChanged, this, &QfNavigation::crsChanged );
   crsChanged();
 
   emit mapSettingsChanged();
 }
 
-void Navigation::crsChanged()
+void QfNavigation::crsChanged()
 {
   mDa = QgsDistanceArea();
   mDa.setEllipsoid( QgsProject::instance()->ellipsoid() );
@@ -80,12 +80,12 @@ void Navigation::crsChanged()
   mModel->setCrs( mMapSettings->destinationCrs() );
 }
 
-QgsPoint Navigation::location() const
+QgsPoint QfNavigation::location() const
 {
   return mLocation;
 }
 
-void Navigation::setLocation( const QgsPoint &point )
+void QfNavigation::setLocation( const QgsPoint &point )
 {
   if ( mLocation == point )
     return;
@@ -96,23 +96,23 @@ void Navigation::setLocation( const QgsPoint &point )
   updateDetails();
 }
 
-QgsPoint Navigation::destination() const
+QgsPoint QfNavigation::destination() const
 {
   return mModel->destination();
 }
 
-void Navigation::setDestination( const QgsPoint &point )
+void QfNavigation::setDestination( const QgsPoint &point )
 {
   clearDestinationFeature();
   mModel->setDestination( point );
 }
 
-QString Navigation::destinationName() const
+QString QfNavigation::destinationName() const
 {
   return mDestinationName;
 }
 
-void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer )
+void QfNavigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLayer *layer )
 {
   if ( !layer || feature.geometry().isEmpty() )
     return;
@@ -130,7 +130,7 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
 
   if ( !mGeometry.isNull() )
   {
-    mFeatureName = FeatureUtils::displayName( layer, feature );
+    mFeatureName = QfFeatureUtils::displayName( layer, feature );
     mVertexCount = mGeometry.get()->nCoordinates() - ( mGeometry.type() == Qgis::GeometryType::Polygon ? 1 : 0 );
     emit destinationFeatureVertexCountChanged();
     mCurrentVertex = -1;
@@ -149,7 +149,7 @@ void Navigation::setDestinationFeature( const QgsFeature &feature, QgsVectorLaye
   }
 }
 
-void Navigation::clearDestinationFeature()
+void QfNavigation::clearDestinationFeature()
 {
   if ( !mGeometry.isNull() )
   {
@@ -164,7 +164,7 @@ void Navigation::clearDestinationFeature()
   }
 }
 
-void Navigation::nextDestinationVertex()
+void QfNavigation::nextDestinationVertex()
 {
   if ( mGeometry.isNull() )
     return;
@@ -184,7 +184,7 @@ void Navigation::nextDestinationVertex()
   setDestinationFromCurrentVertex();
 }
 
-void Navigation::previousDestinationVertex()
+void QfNavigation::previousDestinationVertex()
 {
   if ( mGeometry.isNull() )
     return;
@@ -204,7 +204,7 @@ void Navigation::previousDestinationVertex()
   setDestinationFromCurrentVertex();
 }
 
-void Navigation::setDestinationFromCurrentVertex()
+void QfNavigation::setDestinationFromCurrentVertex()
 {
   switch ( mGeometry.type() )
   {
@@ -243,17 +243,17 @@ void Navigation::setDestinationFromCurrentVertex()
   }
 }
 
-int Navigation::destinationFeatureCurrentVertex() const
+int QfNavigation::destinationFeatureCurrentVertex() const
 {
   return mCurrentVertex;
 }
 
-int Navigation::destinationFeatureVertexCount() const
+int QfNavigation::destinationFeatureVertexCount() const
 {
   return mVertexCount;
 }
 
-void Navigation::updateDetails()
+void QfNavigation::updateDetails()
 {
   QgsPointSequence points = mModel->points();
   if ( points.isEmpty() || mLocation.isEmpty() )
@@ -297,7 +297,7 @@ void Navigation::updateDetails()
   updateProximityAlarmState();
 }
 
-void Navigation::updateProximityAlarmState()
+void QfNavigation::updateProximityAlarmState()
 {
   if ( mProximityAlarm && mDa.lengthUnits() != Qgis::DistanceUnit::Unknown )
   {
@@ -327,7 +327,7 @@ void Navigation::updateProximityAlarmState()
   }
 }
 
-void Navigation::setProximityAlarm( const bool enabled )
+void QfNavigation::setProximityAlarm( const bool enabled )
 {
   if ( mProximityAlarm == enabled )
   {
@@ -340,7 +340,7 @@ void Navigation::setProximityAlarm( const bool enabled )
   updateProximityAlarmState();
 }
 
-void Navigation::setProximityAlarmThreshold( const double &threshold )
+void QfNavigation::setProximityAlarmThreshold( const double &threshold )
 {
   if ( mProximityAlarmThreshold == threshold )
   {
@@ -353,13 +353,13 @@ void Navigation::setProximityAlarmThreshold( const double &threshold )
   updateProximityAlarmState();
 }
 
-void Navigation::clear()
+void QfNavigation::clear()
 {
   mModel->clear();
   updateDetails();
 }
 
-void Navigation::triggerProximityAlarm()
+void QfNavigation::triggerProximityAlarm()
 {
   if ( !mProximitySound )
   {

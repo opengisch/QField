@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfandroidprojectsource.h - AndroidProjectSource
+  qfandroidprojectsource.h - QfAndroidProjectSource
 
  ---------------------
  begin                : 19.3.2018
@@ -22,12 +22,12 @@
 
 #include <QtCore/private/qandroidextras_p.h>
 
-class AndroidProjectSource : public ProjectSource, public QAndroidActivityResultReceiver
+class QfAndroidProjectSource : public QfProjectSource, public QAndroidActivityResultReceiver
 {
     Q_OBJECT
 
   public:
-    explicit AndroidProjectSource( QObject *parent = nullptr );
+    explicit QfAndroidProjectSource( QObject *parent = nullptr );
 
     void handleActivityResult( int receiverRequestCode, int resultCode, const QJniObject &data ) override;
 };

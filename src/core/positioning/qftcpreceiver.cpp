@@ -1,5 +1,5 @@
 /***************************************************************************
- qftcpreceiver.cpp - TcpReceiver
+ qftcpreceiver.cpp - QfTcpReceiver
 
  ---------------------
  begin                : September 2022
@@ -16,15 +16,15 @@
 
 #include "qftcpreceiver.h"
 
-QLatin1String TcpReceiver::identifier = QLatin1String( "tcp" );
+QLatin1String QfTcpReceiver::identifier = QLatin1String( "tcp" );
 
-TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *parent )
-  : NmeaGnssReceiver( parent )
+QfTcpReceiver::QfTcpReceiver( const QString &address, const int port, QObject *parent )
+  : QfNmeaGnssReceiver( parent )
   , mAddress( address )
   , mPort( port )
   , mSocket( new QTcpSocket() )
 {
-  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &TcpReceiver::handleError );
+  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &QfTcpReceiver::handleError );
   connect( mSocket, &QTcpSocket::stateChanged, this, [this]( QAbstractSocket::SocketState state ) {
     if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
     {
@@ -50,19 +50,19 @@ TcpReceiver::TcpReceiver( const QString &address, const int port, QObject *paren
   initNmeaConnection( mSocket );
 }
 
-TcpReceiver::~TcpReceiver()
+QfTcpReceiver::~QfTcpReceiver()
 {
   disconnectDevice();
   mSocket->deleteLater();
   mSocket = nullptr;
 }
 
-AbstractGnssReceiver::Capabilities TcpReceiver::capabilities() const
+QfAbstractGnssReceiver::Capabilities QfTcpReceiver::capabilities() const
 {
-  return AbstractGnssReceiver::Capabilities() | AbstractGnssReceiver::OrthometricAltitude | AbstractGnssReceiver::Logging | AbstractGnssReceiver::NtripCorrection;
+  return QfAbstractGnssReceiver::Capabilities() | QfAbstractGnssReceiver::OrthometricAltitude | QfAbstractGnssReceiver::Logging | QfAbstractGnssReceiver::NtripCorrection;
 }
 
-void TcpReceiver::handleConnectDevice()
+void QfTcpReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() || mPort == 0 )
   {
@@ -74,16 +74,16 @@ void TcpReceiver::handleConnectDevice()
   mSocket->connectToHost( mAddress, mPort, QTcpSocket::ReadWrite );
 }
 
-void TcpReceiver::handleDisconnectDevice()
+void QfTcpReceiver::handleDisconnectDevice()
 {
   mReconnectOnDisconnect = false;
   mSocket->disconnectFromHost();
 }
 
-QString TcpReceiver::socketStateString()
+QString QfTcpReceiver::socketStateString()
 {
   const QAbstractSocket::SocketState currentState = socketState();
-  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  QString socketStateString = QfAbstractGnssReceiver::socketStateString();
   if ( currentState == QAbstractSocket::UnconnectedState && mReconnectOnDisconnect )
   {
     socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
@@ -91,7 +91,7 @@ QString TcpReceiver::socketStateString()
   return socketStateString;
 }
 
-void TcpReceiver::handleError( QAbstractSocket::SocketError error )
+void QfTcpReceiver::handleError( QAbstractSocket::SocketError error )
 {
   switch ( error )
   {

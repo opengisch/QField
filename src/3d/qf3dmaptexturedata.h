@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dmaptexturedata.h - Quick3DMapTextureData
+  qf3dmaptexturedata.h - Qf3DMapTextureData
 
  ---------------------
  begin                : 30.1.2026
@@ -33,10 +33,10 @@ class QgsMapRendererParallelJob;
  * avoiding the need for temporary files. The map is rendered using QGIS rendering engine
  * and the result is exposed as texture data for Qt Quick 3D.
  *
- * \note QML Type: Quick3DMapTextureData
+ * \note QML Type: Qf3DMapTextureData
  * \ingroup core
  */
-class Quick3DMapTextureData : public QQuick3DTextureData
+class Qf3DMapTextureData : public QQuick3DTextureData
 {
     Q_OBJECT
     QML_ELEMENT
@@ -61,8 +61,8 @@ class Quick3DMapTextureData : public QQuick3DTextureData
 
   public:
     //! Creates a new map texture data provider
-    explicit Quick3DMapTextureData( QQuick3DObject *parent = nullptr );
-    ~Quick3DMapTextureData() override;
+    explicit Qf3DMapTextureData( QQuick3DObject *parent = nullptr );
+    ~Qf3DMapTextureData() override;
 
     //! Returns the map settings from which to get layers.
     QgsQuickMapSettings *mapSettings() const;

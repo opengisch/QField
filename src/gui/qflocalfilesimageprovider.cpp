@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflocalfilesimageprovider.cpp - LocalFilesImageProvider
+  qflocalfilesimageprovider.cpp - QfLocalFilesImageProvider
 
  ---------------------
  begin                : 18.05.2022
@@ -21,12 +21,12 @@
 
 #include <gdal.h>
 
-LocalFilesImageProvider::LocalFilesImageProvider()
+QfLocalFilesImageProvider::QfLocalFilesImageProvider()
   : QQuickImageProvider( Pixmap )
 {
 }
 
-QImage LocalFilesImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
+QImage QfLocalFilesImageProvider::requestImage( const QString &id, QSize *size, const QSize &requestedSize )
 {
   static const QIcon defaultIcon( QStringLiteral( ":/themes/qfield/nodpi/ic_file_green_48dp.svg" ) );
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- qftrackingmodel.cpp - TrackingModel
+ qftrackingmodel.cpp - QfTrackingModel
 
  ---------------------
  begin                : 20.02.2020
@@ -19,17 +19,17 @@
 #include <qgsproject.h>
 #include <qgsvectorlayerutils.h>
 
-TrackingModel::TrackingModel( QObject *parent )
+QfTrackingModel::QfTrackingModel( QObject *parent )
   : QAbstractItemModel( parent )
 {
 }
 
-TrackingModel::~TrackingModel()
+QfTrackingModel::~QfTrackingModel()
 {
   qDeleteAll( mTrackers );
 }
 
-QHash<int, QByteArray> TrackingModel::roleNames() const
+QHash<int, QByteArray> QfTrackingModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
@@ -39,7 +39,7 @@ QHash<int, QByteArray> TrackingModel::roleNames() const
   return roles;
 }
 
-QModelIndex TrackingModel::index( int row, int column, const QModelIndex &parent ) const
+QModelIndex QfTrackingModel::index( int row, int column, const QModelIndex &parent ) const
 {
   Q_UNUSED( column )
   Q_UNUSED( parent )
@@ -47,48 +47,48 @@ QModelIndex TrackingModel::index( int row, int column, const QModelIndex &parent
   return createIndex( row, 0, 1000 );
 }
 
-QModelIndex TrackingModel::parent( const QModelIndex &index ) const
+QModelIndex QfTrackingModel::parent( const QModelIndex &index ) const
 {
   Q_UNUSED( index )
 
   return QModelIndex();
 }
 
-int TrackingModel::rowCount( const QModelIndex &parent ) const
+int QfTrackingModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mTrackers.size() );
 }
 
-int TrackingModel::columnCount( const QModelIndex &parent ) const
+int QfTrackingModel::columnCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return 1;
 }
 
-QVariant TrackingModel::data( const QModelIndex &index, int role ) const
+QVariant QfTrackingModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() < 0 || index.row() >= mTrackers.size() )
     return QVariant();
 
-  Tracker *tracker = mTrackers[index.row()];
+  QfTracker *tracker = mTrackers[index.row()];
   switch ( role )
   {
     case DisplayString:
       return QString( "Tracker on layer %1" ).arg( tracker->vectorLayer()->name() );
     case TrackerPointer:
-      return QVariant::fromValue<Tracker *>( tracker );
+      return QVariant::fromValue<QfTracker *>( tracker );
     default:
       return QVariant();
   }
 }
 
-bool TrackingModel::setData( const QModelIndex &index, const QVariant &value, int role )
+bool QfTrackingModel::setData( const QModelIndex &index, const QVariant &value, int role )
 {
   return false;
 }
 
-bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId featureId )
+bool QfTrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId featureId )
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -102,7 +102,7 @@ bool TrackingModel::featureInTracking( QgsVectorLayer *layer, const QgsFeatureId
   return false;
 }
 
-bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features )
+bool QfTrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFeature> &features )
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -117,12 +117,12 @@ bool TrackingModel::featuresInTracking( QgsVectorLayer *layer, const QList<QgsFe
   return false;
 }
 
-bool TrackingModel::layerInTracking( QgsVectorLayer *layer ) const
+bool QfTrackingModel::layerInTracking( QgsVectorLayer *layer ) const
 {
   return trackerIterator( layer ) != mTrackers.constEnd();
 }
 
-bool TrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
+bool QfTrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -133,7 +133,7 @@ bool TrackingModel::layerInActiveTracking( QgsVectorLayer *layer ) const
   return false;
 }
 
-Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer ) const
+QfTracker *QfTrackingModel::trackerForLayer( QgsVectorLayer *layer ) const
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -144,7 +144,7 @@ Tracker *TrackingModel::trackerForLayer( QgsVectorLayer *layer ) const
   return nullptr;
 }
 
-void TrackingModel::reset()
+void QfTrackingModel::reset()
 {
   beginResetModel();
   qDeleteAll( mTrackers );
@@ -152,16 +152,16 @@ void TrackingModel::reset()
   endResetModel();
 }
 
-QModelIndex TrackingModel::createTracker( QgsVectorLayer *layer )
+QModelIndex QfTrackingModel::createTracker( QgsVectorLayer *layer )
 {
   const int trackersSize = static_cast<int>( mTrackers.size() );
   beginInsertRows( QModelIndex(), trackersSize, trackersSize );
-  mTrackers.append( new Tracker( layer ) );
+  mTrackers.append( new QfTracker( layer ) );
   endInsertRows();
   return index( trackersSize, 0 );
 }
 
-void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
+void QfTrackingModel::startTracker( QgsVectorLayer *layer, const QfGnssPositionInformation &positionInformation, const QgsPoint &projectedPosition )
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -172,7 +172,7 @@ void TrackingModel::startTracker( QgsVectorLayer *layer, const GnssPositionInfor
   }
 }
 
-void TrackingModel::stopTracker( QgsVectorLayer *layer )
+void QfTrackingModel::stopTracker( QgsVectorLayer *layer )
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -180,32 +180,32 @@ void TrackingModel::stopTracker( QgsVectorLayer *layer )
     const qsizetype idx = it - mTrackers.constBegin();
     mTrackers[idx]->stop();
     beginRemoveRows( QModelIndex(), static_cast<int>( idx ), static_cast<int>( idx ) );
-    Tracker *tracker = mTrackers.takeAt( idx );
+    QfTracker *tracker = mTrackers.takeAt( idx );
     endRemoveRows();
     delete tracker;
     emit layerInTrackingChanged( layer, false );
   }
 }
 
-void TrackingModel::stopTrackers()
+void QfTrackingModel::stopTrackers()
 {
   while ( !mTrackers.isEmpty() )
   {
     QgsVectorLayer *layer = mTrackers[0]->vectorLayer();
     mTrackers[0]->stop();
     beginRemoveRows( QModelIndex(), 0, 0 );
-    Tracker *tracker = mTrackers.takeAt( 0 );
+    QfTracker *tracker = mTrackers.takeAt( 0 );
     endRemoveRows();
     delete tracker;
     emit layerInTrackingChanged( layer, false );
   }
 }
 
-void TrackingModel::replayPositionInformationList( const QList<GnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
+void QfTrackingModel::replayPositionInformationList( const QList<QfGnssPositionInformation> &positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer )
 {
   for ( int i = 0; i < mTrackers.size(); i++ )
   {
-    Tracker *tracker = mTrackers[i];
+    QfTracker *tracker = mTrackers[i];
     if ( tracker->isSuspended() )
     {
       tracker->replayPositionInformationList( positionInformationList, coordinateTransformer );
@@ -213,11 +213,11 @@ void TrackingModel::replayPositionInformationList( const QList<GnssPositionInfor
   }
 }
 
-void TrackingModel::suspendUntilReplay()
+void QfTrackingModel::suspendUntilReplay()
 {
   for ( int i = 0; i < mTrackers.size(); i++ )
   {
-    Tracker *tracker = mTrackers[i];
+    QfTracker *tracker = mTrackers[i];
     if ( tracker->isActive() )
     {
       tracker->suspendUntilReplay();
@@ -225,7 +225,7 @@ void TrackingModel::suspendUntilReplay()
   }
 }
 
-void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
+void QfTrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
 {
   auto it = trackerIterator( layer );
   if ( it != mTrackers.constEnd() )
@@ -235,7 +235,7 @@ void TrackingModel::setTrackerVisibility( QgsVectorLayer *layer, bool visible )
   }
 }
 
-void TrackingModel::createProjectTrackers( QgsProject *project )
+void QfTrackingModel::createProjectTrackers( QgsProject *project )
 {
   if ( !project )
     return;
@@ -258,13 +258,13 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
         const int erroneousDistanceSafeguardMaximumMeters = layer->customProperty( "QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters", 250 ).toInt();
         const int measurementType = layer->customProperty( "QFieldSync/tracking_measurement_type", false ).toInt();
 
-        Tracker *tracker = new Tracker( vl );
+        QfTracker *tracker = new QfTracker( vl );
         tracker->setTimeInterval( timeRequirementActive ? timeRequirementIntervalSeconds : 0 );
         tracker->setMinimumDistance( distanceRequirementActive ? distanceRequirementMinimumMeters : 0 );
         tracker->setSensorCapture( sensorDataRequirementActive );
         tracker->setConjunction( allRequirementsActive );
         tracker->setMaximumDistance( erroneousDistanceSafeguardActive ? erroneousDistanceSafeguardMaximumMeters : 0 );
-        tracker->setMeasureType( static_cast<Tracker::MeasureType>( measurementType ) );
+        tracker->setMeasureType( static_cast<QfTracker::MeasureType>( measurementType ) );
 
         QgsExpressionContext context = vl->createExpressionContext();
         QgsFeature feature = QgsVectorLayerUtils::createFeature( vl, QgsGeometry(), QgsAttributeMap(), &context );
@@ -281,7 +281,7 @@ void TrackingModel::createProjectTrackers( QgsProject *project )
   }
 }
 
-QList<QgsVectorLayer *> TrackingModel::availableLayers( QgsProject *project ) const
+QList<QgsVectorLayer *> QfTrackingModel::availableLayers( QgsProject *project ) const
 {
   QList<QgsVectorLayer *> layers;
   if ( project )
@@ -306,7 +306,7 @@ QList<QgsVectorLayer *> TrackingModel::availableLayers( QgsProject *project ) co
   return layers;
 }
 
-QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
+QgsVectorLayer *QfTrackingModel::bestAvailableLayer( QgsProject *project ) const
 {
   QList<QgsVectorLayer *> layers = availableLayers( project );
   if ( !layers.isEmpty() )
@@ -348,12 +348,12 @@ QgsVectorLayer *TrackingModel::bestAvailableLayer( QgsProject *project ) const
   return nullptr;
 }
 
-void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )
+void QfTrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettings )
 {
   mRequestedTrackers << TrackerRequest( layer, skipSettings );
   if ( mRequestedTrackers.size() == 1 )
   {
-    const Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+    const QfTracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
     if ( tracker )
     {
       emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );
@@ -361,14 +361,14 @@ void TrackingModel::requestTrackingSetup( QgsVectorLayer *layer, bool skipSettin
   }
 }
 
-void TrackingModel::trackingSetupDone()
+void QfTrackingModel::trackingSetupDone()
 {
   if ( !mRequestedTrackers.isEmpty() )
   {
     mRequestedTrackers.removeFirst();
     if ( !mRequestedTrackers.isEmpty() )
     {
-      const Tracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
+      const QfTracker *tracker = trackerForLayer( mRequestedTrackers.first().layer );
       if ( tracker )
       {
         emit trackingSetupRequested( index( static_cast<int>( mTrackers.indexOf( tracker ) ), 0 ), mRequestedTrackers.first().skipSettings );

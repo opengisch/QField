@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgridmodel.h - GridModel
+  qfgridmodel.h - QfGridModel
 
  ---------------------
  begin                : 4.10.2024
@@ -23,7 +23,7 @@
  * Holds details for a given grid annotation.
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT GridAnnotation
+class QFIELD_CORE_EXPORT QfGridAnnotation
 {
     Q_GADGET
 
@@ -41,7 +41,7 @@ class QFIELD_CORE_EXPORT GridAnnotation
     };
     Q_ENUM( Positions )
 
-    GridAnnotation( const Positions position = Top, const QPointF coordinate = QPointF(), const double value = 0.0 )
+    QfGridAnnotation( const Positions position = Top, const QPointF coordinate = QPointF(), const double value = 0.0 )
       : position( position )
       , coordinate( coordinate )
       , value( value )
@@ -56,7 +56,7 @@ class QFIELD_CORE_EXPORT GridAnnotation
  * This model manages lists of lines, markers, and annotations representing a grid.
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT GridModel : public QObject
+class QFIELD_CORE_EXPORT QfGridModel : public QObject
 {
     Q_OBJECT
 
@@ -77,7 +77,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     Q_PROPERTY( QString majorLinesPath READ majorLinesPath NOTIFY majorLinesChanged )
     Q_PROPERTY( QString minorLinesPath READ minorLinesPath NOTIFY minorLinesChanged )
     Q_PROPERTY( QString markersPath READ markersPath NOTIFY markersChanged )
-    Q_PROPERTY( QList<GridAnnotation> annotations READ annotations NOTIFY annotationsChanged )
+    Q_PROPERTY( QList<QfGridAnnotation> annotations READ annotations NOTIFY annotationsChanged )
 
     Q_PROPERTY( bool autoColor READ autoColor WRITE setAutoColor NOTIFY autoColorChanged )
     Q_PROPERTY( QColor majorLineColor READ majorLineColor WRITE setMajorLineColor NOTIFY majorLineColorChanged )
@@ -91,7 +91,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
 
   public:
     //! Default constructor
-    explicit GridModel( QObject *parent = nullptr );
+    explicit QfGridModel( QObject *parent = nullptr );
 
     //! Returns TRUE when grid elements will be prepared
     bool enabled() const { return mEnabled; }
@@ -169,7 +169,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     void setPrepareAnnotations( bool prepare );
 
     //! Returns the grid annotations
-    QList<GridAnnotation> annotations() const { return mAnnotations; }
+    QList<QfGridAnnotation> annotations() const { return mAnnotations; }
 
     /**
      * Returns whether grid line and marker colors will be automatically assigned to
@@ -320,7 +320,7 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
     QString mMarkersPath;
 
     bool mPrepareAnnotations = false;
-    QList<GridAnnotation> mAnnotations;
+    QList<QfGridAnnotation> mAnnotations;
 
     bool mAutoColor = false;
     QColor mMajorLineColor = QColor( 0, 0, 0, 100 );
@@ -334,5 +334,5 @@ class QFIELD_CORE_EXPORT GridModel : public QObject
 
     QLocale mLocale;
 };
-Q_DECLARE_METATYPE( GridAnnotation )
+Q_DECLARE_METATYPE( QfGridAnnotation )
 #endif // QFGRIDMODEL_H

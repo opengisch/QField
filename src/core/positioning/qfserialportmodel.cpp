@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfserialportmodel.cpp - SerialPortModel
+  qfserialportmodel.cpp - QfSerialPortModel
 
  ---------------------
  begin                : 15.01.2023
@@ -16,19 +16,19 @@
 
 #include "qfserialportmodel.h"
 
-SerialPortModel::SerialPortModel( QObject *parent )
+QfSerialPortModel::QfSerialPortModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-void SerialPortModel::refresh()
+void QfSerialPortModel::refresh()
 {
   beginResetModel();
   mAvailablePorts = QSerialPortInfo::availablePorts();
   endResetModel();
 }
 
-int SerialPortModel::findIndexFromName( const QString &name ) const
+int QfSerialPortModel::findIndexFromName( const QString &name ) const
 {
   for ( int i = 0; i < mAvailablePorts.size(); i++ )
   {
@@ -41,13 +41,13 @@ int SerialPortModel::findIndexFromName( const QString &name ) const
   return -1;
 }
 
-int SerialPortModel::rowCount( const QModelIndex &parent ) const
+int QfSerialPortModel::rowCount( const QModelIndex &parent ) const
 {
   Q_UNUSED( parent )
   return static_cast<int>( mAvailablePorts.size() );
 }
 
-QVariant SerialPortModel::data( const QModelIndex &index, int role ) const
+QVariant QfSerialPortModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mAvailablePorts.size() )
   {
@@ -76,7 +76,7 @@ QVariant SerialPortModel::data( const QModelIndex &index, int role ) const
   return QVariant();
 }
 
-QHash<int, QByteArray> SerialPortModel::roleNames() const
+QHash<int, QByteArray> QfSerialPortModel::roleNames() const
 {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 

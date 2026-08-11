@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnearfieldreader.cpp - NearFieldReader
+ qfnearfieldreader.cpp - QfNearFieldReader
 
  ---------------------
  begin                : 27.08.2023
@@ -25,12 +25,12 @@
 #endif
 #include <QUrl>
 
-NearFieldReader::NearFieldReader( QObject *parent )
+QfNearFieldReader::QfNearFieldReader( QObject *parent )
   : QObject( parent )
 {
 }
 
-NearFieldReader::~NearFieldReader()
+QfNearFieldReader::~QfNearFieldReader()
 {
 #ifdef WITH_NFC
   if ( mNearFieldManager )
@@ -40,17 +40,17 @@ NearFieldReader::~NearFieldReader()
 #endif
 }
 
-QString NearFieldReader::readString() const
+QString QfNearFieldReader::readString() const
 {
   return mReadString;
 }
 
-bool NearFieldReader::active() const
+bool QfNearFieldReader::active() const
 {
   return mActive;
 }
 
-void NearFieldReader::setActive( bool active )
+void QfNearFieldReader::setActive( bool active )
 {
   if ( mActive == active )
     return;
@@ -65,8 +65,8 @@ void NearFieldReader::setActive( bool active )
     qDebug() << "NFC..";
     qDebug() << "NFC..";
     mNearFieldManager = new QNearFieldManager( this );
-    connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetDetected );
-    connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &NearFieldReader::handleTargetLost );
+    connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &QfNearFieldReader::handleTargetDetected );
+    connect( mNearFieldManager, &QNearFieldManager::targetDetected, this, &QfNearFieldReader::handleTargetLost );
   }
 
   if ( mActive )
@@ -80,12 +80,12 @@ void NearFieldReader::setActive( bool active )
 #endif
 }
 
-bool NearFieldReader::targetInRange() const
+bool QfNearFieldReader::targetInRange() const
 {
   return mTargetInRange;
 }
 
-bool NearFieldReader::isSupported()
+bool QfNearFieldReader::isSupported()
 {
 #ifdef WITH_NFC
   QNearFieldManager manager;
@@ -96,10 +96,10 @@ bool NearFieldReader::isSupported()
 }
 
 #ifdef WITH_NFC
-void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
+void QfNearFieldReader::handleTargetDetected( QNearFieldTarget *target )
 {
-  connect( target, &QNearFieldTarget::ndefMessageRead, this, &NearFieldReader::handleNdefMessageRead );
-  connect( target, &QNearFieldTarget::error, this, &NearFieldReader::handleTargetError );
+  connect( target, &QNearFieldTarget::ndefMessageRead, this, &QfNearFieldReader::handleNdefMessageRead );
+  connect( target, &QNearFieldTarget::error, this, &QfNearFieldReader::handleTargetError );
   mTargetInRange = true;
   emit targetInRangeChanged();
 
@@ -116,14 +116,14 @@ void NearFieldReader::handleTargetDetected( QNearFieldTarget *target )
   }
 }
 
-void NearFieldReader::handleTargetLost( QNearFieldTarget *target )
+void QfNearFieldReader::handleTargetLost( QNearFieldTarget *target )
 {
   disconnect( target );
   mTargetInRange = false;
   emit targetInRangeChanged();
 }
 
-void NearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
+void QfNearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
 {
   qInfo() << QStringLiteral( "Received %1 record message(s) from near-field target" ).arg( message.size() );
   for ( const QNdefRecord &record : message )
@@ -157,7 +157,7 @@ void NearFieldReader::handleNdefMessageRead( const QNdefMessage &message )
   }
 }
 
-void NearFieldReader::handleTargetError( QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id )
+void QfNearFieldReader::handleTargetError( QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id )
 {
   qWarning() << QStringLiteral( "Near-field target error: %1" ).arg( error );
 }

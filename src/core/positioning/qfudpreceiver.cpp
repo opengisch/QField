@@ -1,5 +1,5 @@
 /***************************************************************************
- qfudpreceiver.cpp - UdpReceiver
+ qfudpreceiver.cpp - QfUdpReceiver
 
  ---------------------
  begin                : December 2022
@@ -20,10 +20,10 @@
 #include <sys/socket.h>
 #endif
 
-QLatin1String UdpReceiver::identifier = QLatin1String( "udp" );
+QLatin1String QfUdpReceiver::identifier = QLatin1String( "udp" );
 
-UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *parent )
-  : NmeaGnssReceiver( parent )
+QfUdpReceiver::QfUdpReceiver( const QString &address, const int port, QObject *parent )
+  : QfNmeaGnssReceiver( parent )
   , mAddress( address )
   , mPort( port )
   , mSocket( new QUdpSocket() )
@@ -37,8 +37,8 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   mSocket->setSocketDescriptor( sockfd, QUdpSocket::UnconnectedState );
 #endif
 
-  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &UdpReceiver::handleError );
-  connect( mSocket, &QUdpSocket::stateChanged, this, &UdpReceiver::handleStateChanged );
+  connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &QfUdpReceiver::handleError );
+  connect( mSocket, &QUdpSocket::stateChanged, this, &QfUdpReceiver::handleStateChanged );
 
   connect( mSocket, &QUdpSocket::readyRead, this, [this]() {
     QByteArray datagram;
@@ -63,7 +63,7 @@ UdpReceiver::UdpReceiver( const QString &address, const int port, QObject *paren
   initNmeaConnection( mBuffer );
 }
 
-UdpReceiver::~UdpReceiver()
+QfUdpReceiver::~QfUdpReceiver()
 {
   disconnectDevice();
   mSocket->deleteLater();
@@ -72,7 +72,7 @@ UdpReceiver::~UdpReceiver()
   mBuffer = nullptr;
 }
 
-void UdpReceiver::handleConnectDevice()
+void QfUdpReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() || mPort == 0 )
   {
@@ -85,17 +85,17 @@ void UdpReceiver::handleConnectDevice()
   mSocket->bind( QHostAddress( mAddress ), mPort, QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint );
 }
 
-void UdpReceiver::handleDisconnectDevice()
+void QfUdpReceiver::handleDisconnectDevice()
 {
   mReconnectOnDisconnect = false;
   mBuffer->close();
   mSocket->close();
 }
 
-QString UdpReceiver::socketStateString()
+QString QfUdpReceiver::socketStateString()
 {
   const QAbstractSocket::SocketState currentState = socketState();
-  QString socketStateString = AbstractGnssReceiver::socketStateString();
+  QString socketStateString = QfAbstractGnssReceiver::socketStateString();
   if ( currentState == QAbstractSocket::UnconnectedState && mReconnectOnDisconnect )
   {
     socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
@@ -103,7 +103,7 @@ QString UdpReceiver::socketStateString()
   return socketStateString;
 }
 
-void UdpReceiver::handleStateChanged( QAbstractSocket::SocketState state )
+void QfUdpReceiver::handleStateChanged( QAbstractSocket::SocketState state )
 {
   switch ( state )
   {
@@ -132,7 +132,7 @@ void UdpReceiver::handleStateChanged( QAbstractSocket::SocketState state )
   setSocketState( state );
 }
 
-void UdpReceiver::handleError( QAbstractSocket::SocketError error )
+void QfUdpReceiver::handleError( QAbstractSocket::SocketError error )
 {
   switch ( error )
   {

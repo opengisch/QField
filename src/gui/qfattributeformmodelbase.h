@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfattributeformmodelbase.h - AttributeFormModelBase
+  qfattributeformmodelbase.h - QfAttributeFormModelBase
 
  ---------------------
  begin                : 16.8.2016
@@ -27,19 +27,19 @@
 /**
  * \ingroup core
  */
-class AttributeFormModelBase : public QStandardItemModel
+class QfAttributeFormModelBase : public QStandardItemModel
 {
     Q_OBJECT
 
   public:
-    explicit AttributeFormModelBase( QObject *parent = nullptr );
+    explicit QfAttributeFormModelBase( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 
     bool setData( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole ) override;
 
-    FeatureModel *featureModel() const;
-    void setFeatureModel( FeatureModel *featureModel );
+    QfFeatureModel *featureModel() const;
+    void setFeatureModel( QfFeatureModel *featureModel );
 
     bool isWizard() const;
     void setIsWizard( bool isWizard );
@@ -53,41 +53,41 @@ class AttributeFormModelBase : public QStandardItemModel
     bool hasConstraints() const;
     void setHasConstraints( bool hasConstraints );
 
-    //! \copydoc AttributeFormModel::save
+    //! \copydoc QfAttributeFormModel::save
     bool save();
 
-    //! \copydoc AttributeFormModel::create
+    //! \copydoc QfAttributeFormModel::create
     bool create();
 
-    //! \copydoc AttributeFormModel::deleteFeature
+    //! \copydoc QfAttributeFormModel::deleteFeature
     bool deleteFeature();
 
     bool constraintsHardValid() const;
 
     bool constraintsSoftValid() const;
 
-    //! \copydoc AttributeFormModel::attribute
+    //! \copydoc QfAttributeFormModel::attribute
     QVariant attribute( const QString &name );
 
-    //! \copydoc AttributeFormModel::setAttribute
+    //! \copydoc QfAttributeFormModel::setAttribute
     bool changeAttribute( const QString &name, const QVariant &value );
 
-    //! \copydoc AttributeFormModel::changeGeometry
+    //! \copydoc QfAttributeFormModel::changeGeometry
     bool changeGeometry( const QgsGeometry &geometry );
 
-    //! \copydoc AttributeFormModel::applyFeatureModel
+    //! \copydoc QfAttributeFormModel::applyFeatureModel
     void applyFeatureModel();
 
-    //! \copydoc AttributeFormModel::applyParentDefaultValues
+    //! \copydoc QfAttributeFormModel::applyParentDefaultValues
     void applyParentDefaultValues();
 
-    //! \copydoc AttributeFormModel::applyRelationshipDefaultValues
+    //! \copydoc QfAttributeFormModel::applyRelationshipDefaultValues
     void applyRelationshipDefaultValues();
 
-    //! \copydoc AttributeFormModel::activateAllRememberValues
+    //! \copydoc QfAttributeFormModel::activateAllRememberValues
     void activateAllRememberValues();
 
-    //! \copydoc AttributeFormModel::deactivateAllRememberValues
+    //! \copydoc QfAttributeFormModel::deactivateAllRememberValues
     void deactivateAllRememberValues();
 
     //! Creates an expression context
@@ -163,7 +163,7 @@ class AttributeFormModelBase : public QStandardItemModel
     //! Sets up a connection to listen to project map theme change
     void onMapThemeCollectionChanged();
 
-    FeatureModel *mFeatureModel = nullptr;
+    QfFeatureModel *mFeatureModel = nullptr;
     QPointer<QgsVectorLayer> mLayer;
     std::unique_ptr<QgsAttributeEditorContainer> mTemporaryContainer;
 

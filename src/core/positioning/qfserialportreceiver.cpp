@@ -1,5 +1,5 @@
 /***************************************************************************
- qfserialportreceiver.h - SerialPortReceiver
+ qfserialportreceiver.h - QfSerialPortReceiver
 
  ---------------------
  begin                : 15.01.2023
@@ -16,27 +16,27 @@
 
 #include "qfserialportreceiver.h"
 
-QLatin1String SerialPortReceiver::identifier = QLatin1String( "serial" );
+QLatin1String QfSerialPortReceiver::identifier = QLatin1String( "serial" );
 
-SerialPortReceiver::SerialPortReceiver( const QString &address, QObject *parent )
-  : NmeaGnssReceiver( parent )
+QfSerialPortReceiver::QfSerialPortReceiver( const QString &address, QObject *parent )
+  : QfNmeaGnssReceiver( parent )
   , mAddress( address )
   , mSerialPort( new QSerialPort() )
 {
-  connect( mSerialPort, qOverload<QSerialPort::SerialPortError>( &QSerialPort::errorOccurred ), this, &SerialPortReceiver::handleError );
+  connect( mSerialPort, qOverload<QSerialPort::SerialPortError>( &QSerialPort::errorOccurred ), this, &QfSerialPortReceiver::handleError );
 
   initNmeaConnection( mSerialPort );
 
   setValid( !mAddress.isEmpty() );
 }
 
-SerialPortReceiver::~SerialPortReceiver()
+QfSerialPortReceiver::~QfSerialPortReceiver()
 {
   mSerialPort->deleteLater();
   mSerialPort = nullptr;
 }
 
-void SerialPortReceiver::handleDisconnectDevice()
+void QfSerialPortReceiver::handleDisconnectDevice()
 {
   if ( socketState() == QAbstractSocket::ConnectedState )
   {
@@ -45,7 +45,7 @@ void SerialPortReceiver::handleDisconnectDevice()
   }
 }
 
-void SerialPortReceiver::handleConnectDevice()
+void QfSerialPortReceiver::handleConnectDevice()
 {
   if ( mAddress.isEmpty() )
   {
@@ -61,7 +61,7 @@ void SerialPortReceiver::handleConnectDevice()
   }
 }
 
-void SerialPortReceiver::handleError( QSerialPort::SerialPortError error )
+void QfSerialPortReceiver::handleError( QSerialPort::SerialPortError error )
 {
   if ( error == QSerialPort::NoError )
   {

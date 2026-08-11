@@ -65,7 +65,7 @@ TEST_CASE( "LayerObserver" )
   REQUIRE( QDir( settingsDir.path() ).mkpath( QStringLiteral( "cloud_projects/TEST_PROJECT_ID" ) ) );
 
   QDir projectDir( QStringLiteral( "%1/cloud_projects/TEST_PROJECT_ID" ).arg( settingsDir.path() ) );
-  QFieldCloudUtils::setLocalCloudDirectory( settingsDir.path() );
+  QfCloudUtils::setLocalCloudDirectory( settingsDir.path() );
   QFile projectFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "project.qgs" ) ) );
   QFile attachmentFile( QStringLiteral( "%1/%2" ).arg( projectDir.path(), QStringLiteral( "attachment.jpg" ) ) );
 
@@ -99,8 +99,8 @@ TEST_CASE( "LayerObserver" )
   REQUIRE( mLayer->commitChanges() );
 
   const QString dirPath = QFileInfo( QgsProject::instance()->absoluteFilePath() ).path();
-  std::unique_ptr<LayerObserver> mLayerObserver = std::make_unique<LayerObserver>( QgsProject::instance() );
-  std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper = std::make_unique<DeltaFileWrapper>( QFieldCloudUtils::getProjectId( QgsProject::instance()->fileName() ), QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
+  std::unique_ptr<QfLayerObserver> mLayerObserver = std::make_unique<QfLayerObserver>( QgsProject::instance() );
+  std::unique_ptr<QfDeltaFileWrapper> mDeltaFileWrapper = std::make_unique<QfDeltaFileWrapper>( QfCloudUtils::getProjectId( QgsProject::instance()->fileName() ), QStringLiteral( "%1/deltafile.json" ).arg( dirPath ) );
   mLayerObserver->setDeltaFileWrapper( mDeltaFileWrapper.get() );
 
   REQUIRE( QgsProject::instance()->addMapLayer( mLayer.get(), false, false ) );

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qf3dmaptexturedata.cpp - Quick3DMapTextureData
+  qf3dmaptexturedata.cpp - Qf3DMapTextureData
 
  ---------------------
  begin                : 30.1.2026
@@ -24,21 +24,21 @@
 #include <qgsmapsettings.h>
 
 
-Quick3DMapTextureData::Quick3DMapTextureData( QQuick3DObject *parent )
+Qf3DMapTextureData::Qf3DMapTextureData( QQuick3DObject *parent )
   : QQuick3DTextureData( parent )
 {
-  connect( &mMapUpdateTimer, &QTimer::timeout, this, &Quick3DMapTextureData::onRenderJobUpdated );
+  connect( &mMapUpdateTimer, &QTimer::timeout, this, &Qf3DMapTextureData::onRenderJobUpdated );
   mMapUpdateTimer.setSingleShot( false );
   mMapUpdateTimer.setInterval( 500 );
 
-  connect( &mRefreshTimer, &QTimer::timeout, this, &Quick3DMapTextureData::render );
+  connect( &mRefreshTimer, &QTimer::timeout, this, &Qf3DMapTextureData::render );
   mRefreshTimer.setSingleShot( true );
 
   setFormat( QQuick3DTextureData::RGBA8 );
   setHasTransparency( true );
 }
 
-Quick3DMapTextureData::~Quick3DMapTextureData()
+Qf3DMapTextureData::~Qf3DMapTextureData()
 {
   mMapUpdateTimer.stop();
   if ( mRenderJob )
@@ -47,12 +47,12 @@ Quick3DMapTextureData::~Quick3DMapTextureData()
   }
 }
 
-QgsQuickMapSettings *Quick3DMapTextureData::mapSettings() const
+QgsQuickMapSettings *Qf3DMapTextureData::mapSettings() const
 {
   return mMapSettings;
 }
 
-void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
+void Qf3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
 {
   if ( mMapSettings == mapSettings )
   {
@@ -61,7 +61,7 @@ void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
-    disconnect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
+    disconnect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Qf3DMapTextureData::render );
   }
 
   for ( const QMetaObject::Connection &conn : std::as_const( mLayerConnections ) )
@@ -74,24 +74,24 @@ void Quick3DMapTextureData::setMapSettings( QgsQuickMapSettings *mapSettings )
 
   if ( mMapSettings )
   {
-    connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Quick3DMapTextureData::render );
+    connect( mMapSettings, &QgsQuickMapSettings::layersChanged, this, &Qf3DMapTextureData::render );
 
     const QList<QgsMapLayer *> layers = mMapSettings->layers();
     for ( const QgsMapLayer *layer : layers )
     {
-      mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &Quick3DMapTextureData::layerRepaintRequested );
+      mLayerConnections << connect( layer, &QgsMapLayer::repaintRequested, this, &Qf3DMapTextureData::layerRepaintRequested );
     }
   }
 
   emit mapSettingsChanged();
 }
 
-QgsRectangle Quick3DMapTextureData::extent() const
+QgsRectangle Qf3DMapTextureData::extent() const
 {
   return mExtent;
 }
 
-void Quick3DMapTextureData::setExtent( const QgsRectangle &extent )
+void Qf3DMapTextureData::setExtent( const QgsRectangle &extent )
 {
   if ( mExtent == extent )
   {
@@ -102,17 +102,17 @@ void Quick3DMapTextureData::setExtent( const QgsRectangle &extent )
   emit extentChanged();
 }
 
-bool Quick3DMapTextureData::isReady() const
+bool Qf3DMapTextureData::isReady() const
 {
   return mIsReady;
 }
 
-bool Quick3DMapTextureData::incrementalRendering() const
+bool Qf3DMapTextureData::incrementalRendering() const
 {
   return mIncrementalRendering;
 }
 
-void Quick3DMapTextureData::setIncrementalRendering( bool incrementalRendering )
+void Qf3DMapTextureData::setIncrementalRendering( bool incrementalRendering )
 {
   if ( incrementalRendering == mIncrementalRendering )
   {
@@ -123,12 +123,12 @@ void Quick3DMapTextureData::setIncrementalRendering( bool incrementalRendering )
   emit incrementalRenderingChanged();
 }
 
-bool Quick3DMapTextureData::forceDeferredLayersRepaint() const
+bool Qf3DMapTextureData::forceDeferredLayersRepaint() const
 {
   return mForceDeferredLayersRepaint;
 }
 
-void Quick3DMapTextureData::setForceDeferredLayersRepaint( bool deferred )
+void Qf3DMapTextureData::setForceDeferredLayersRepaint( bool deferred )
 {
   if ( mForceDeferredLayersRepaint == deferred )
     return;
@@ -137,7 +137,7 @@ void Quick3DMapTextureData::setForceDeferredLayersRepaint( bool deferred )
   emit forceDeferredLayersRepaintChanged();
 }
 
-void Quick3DMapTextureData::layerRepaintRequested()
+void Qf3DMapTextureData::layerRepaintRequested()
 {
   if ( mForceDeferredLayersRepaint )
   {
@@ -156,12 +156,12 @@ void Quick3DMapTextureData::layerRepaintRequested()
   }
 }
 
-void Quick3DMapTextureData::refresh()
+void Qf3DMapTextureData::refresh()
 {
   mRefreshTimer.start( 1 );
 }
 
-void Quick3DMapTextureData::render()
+void Qf3DMapTextureData::render()
 {
   if ( !mMapSettings || mExtent.isEmpty() )
   {
@@ -218,13 +218,13 @@ void Quick3DMapTextureData::render()
     mMapUpdateTimer.start();
   }
 
-  connect( mRenderJob.get(), &QgsMapRendererJob::finished, this, &Quick3DMapTextureData::onRenderFinished );
+  connect( mRenderJob.get(), &QgsMapRendererJob::finished, this, &Qf3DMapTextureData::onRenderFinished );
   mRenderJob->start();
 
   emit isRenderingChanged();
 }
 
-void Quick3DMapTextureData::onRenderJobUpdated()
+void Qf3DMapTextureData::onRenderJobUpdated()
 {
   if ( !mRenderJob )
     return;
@@ -236,7 +236,7 @@ void Quick3DMapTextureData::onRenderJobUpdated()
   }
 }
 
-void Quick3DMapTextureData::onRenderFinished()
+void Qf3DMapTextureData::onRenderFinished()
 {
   mMapUpdateTimer.stop();
 
@@ -261,12 +261,12 @@ void Quick3DMapTextureData::onRenderFinished()
   }
 }
 
-bool Quick3DMapTextureData::isRendering() const
+bool Qf3DMapTextureData::isRendering() const
 {
   return mRenderJob && mRenderJob->isActive();
 }
 
-void Quick3DMapTextureData::updateTextureData( const QImage &image )
+void Qf3DMapTextureData::updateTextureData( const QImage &image )
 {
   const qsizetype dataSize = image.sizeInBytes();
   QByteArray textureData( reinterpret_cast<const char *>( image.constBits() ), dataSize );

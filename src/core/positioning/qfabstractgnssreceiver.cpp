@@ -1,5 +1,5 @@
 /***************************************************************************
- qfabstractgnssreceiver.cpp - AbstractGnssReceiver
+ qfabstractgnssreceiver.cpp - QfAbstractGnssReceiver
 
  ---------------------
  begin                : October 2024
@@ -16,17 +16,17 @@
 
 #include "qfabstractgnssreceiver.h"
 
-AbstractGnssReceiver::AbstractGnssReceiver( QObject *parent )
+QfAbstractGnssReceiver::QfAbstractGnssReceiver( QObject *parent )
   : QObject( parent )
 {
 }
 
-AbstractGnssReceiver::Capabilities AbstractGnssReceiver::capabilities() const
+QfAbstractGnssReceiver::Capabilities QfAbstractGnssReceiver::capabilities() const
 {
-  return AbstractGnssReceiver::NoCapabilities;
+  return QfAbstractGnssReceiver::NoCapabilities;
 }
 
-QString AbstractGnssReceiver::socketStateString()
+QString QfAbstractGnssReceiver::socketStateString()
 {
   switch ( mSocketState )
   {
@@ -43,7 +43,7 @@ QString AbstractGnssReceiver::socketStateString()
   }
 }
 
-void AbstractGnssReceiver::setSocketState( const QAbstractSocket::SocketState &state )
+void QfAbstractGnssReceiver::setSocketState( const QAbstractSocket::SocketState &state )
 {
   if ( mSocketState == state )
   {

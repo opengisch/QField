@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflayertreemapcanvasbridge.cpp - LayerTreeMapCanvasBridge
+  qflayertreemapcanvasbridge.cpp - QfLayerTreeMapCanvasBridge
 
  ---------------------
  begin                : 26.8.2016
@@ -25,7 +25,7 @@
 #include <qgsmaplayer.h>
 #include <qgsmaplayerstylemanager.h>
 
-LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent )
+QfLayerTreeMapCanvasBridge::QfLayerTreeMapCanvasBridge( QfFlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, QfTrackingModel *trackingModel, QObject *parent )
   : QObject( parent )
   , mRoot( model->layerTree() )
   , mModel( model )
@@ -37,25 +37,25 @@ LayerTreeMapCanvasBridge::LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, Q
   , mAutoEnableCrsTransform( true )
   , mHasLayersLoaded( !mRoot->findLayers().isEmpty() )
 {
-  connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &LayerTreeMapCanvasBridge::nodeVisibilityChanged );
-  connect( model, &FlatLayerTreeModel::mapThemeChanged, this, &LayerTreeMapCanvasBridge::mapThemeChanged );
-  connect( model, &FlatLayerTreeModel::layersAdded, this, &LayerTreeMapCanvasBridge::layersChanged );
-  connect( model, &FlatLayerTreeModel::layersRemoved, this, &LayerTreeMapCanvasBridge::layersChanged );
+  connect( mRoot, &QgsLayerTreeGroup::visibilityChanged, this, &QfLayerTreeMapCanvasBridge::nodeVisibilityChanged );
+  connect( model, &QfFlatLayerTreeModel::mapThemeChanged, this, &QfLayerTreeMapCanvasBridge::mapThemeChanged );
+  connect( model, &QfFlatLayerTreeModel::layersAdded, this, &QfLayerTreeMapCanvasBridge::layersChanged );
+  connect( model, &QfFlatLayerTreeModel::layersRemoved, this, &QfLayerTreeMapCanvasBridge::layersChanged );
 
-  connect( mTrackingModel, &TrackingModel::layerInTrackingChanged, this, &LayerTreeMapCanvasBridge::layerInTrackingChanged );
+  connect( mTrackingModel, &QfTrackingModel::layerInTrackingChanged, this, &QfLayerTreeMapCanvasBridge::layerInTrackingChanged );
 
-  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &LayerTreeMapCanvasBridge::extentChanged );
+  connect( mMapSettings, &QgsQuickMapSettings::extentChanged, this, &QfLayerTreeMapCanvasBridge::extentChanged );
   setCanvasLayers();
 }
 
-void LayerTreeMapCanvasBridge::extentChanged()
+void QfLayerTreeMapCanvasBridge::extentChanged()
 {
   // allow symbols in the legend update their preview if they use map units
   mModel->layerTreeModel()->setLegendMapViewData( mMapSettings->mapSettings().mapUnitsPerPixel(),
                                                   static_cast<int>( std::round( mMapSettings->outputDpi() ) ), mMapSettings->mapSettings().scale() );
 }
 
-void LayerTreeMapCanvasBridge::setCanvasLayers()
+void QfLayerTreeMapCanvasBridge::setCanvasLayers()
 {
   QList<QgsMapLayer *> canvasLayers, allLayerOrder;
 
@@ -114,7 +114,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers()
   mPendingCanvasUpdate = false;
 }
 
-void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &canvasLayers, QList<QgsMapLayer *> &allLayers )
+void QfLayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<QgsMapLayer *> &canvasLayers, QList<QgsMapLayer *> &allLayers )
 {
   if ( QgsLayerTree::isLayer( node ) )
   {
@@ -139,7 +139,7 @@ void LayerTreeMapCanvasBridge::setCanvasLayers( QgsLayerTreeNode *node, QList<Qg
     setCanvasLayers( child, canvasLayers, allLayers );
 }
 
-void LayerTreeMapCanvasBridge::deferredSetCanvasLayers()
+void QfLayerTreeMapCanvasBridge::deferredSetCanvasLayers()
 {
   if ( mPendingCanvasUpdate )
     return;
@@ -148,24 +148,24 @@ void LayerTreeMapCanvasBridge::deferredSetCanvasLayers()
   QMetaObject::invokeMethod( this, "setCanvasLayers", Qt::QueuedConnection );
 }
 
-void LayerTreeMapCanvasBridge::nodeVisibilityChanged()
+void QfLayerTreeMapCanvasBridge::nodeVisibilityChanged()
 {
   deferredSetCanvasLayers();
 }
 
 
-void LayerTreeMapCanvasBridge::mapThemeChanged()
+void QfLayerTreeMapCanvasBridge::mapThemeChanged()
 {
   if ( !mModel->mapTheme().isEmpty() )
     QgsProject::instance()->mapThemeCollection()->applyTheme( mModel->mapTheme(), mRoot, mModel->layerTreeModel() );
 }
 
-void LayerTreeMapCanvasBridge::layersChanged()
+void QfLayerTreeMapCanvasBridge::layersChanged()
 {
   deferredSetCanvasLayers();
 }
 
-void LayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bool tracking )
+void QfLayerTreeMapCanvasBridge::layerInTrackingChanged( QgsVectorLayer *layer, bool tracking )
 {
   if ( layer )
   {

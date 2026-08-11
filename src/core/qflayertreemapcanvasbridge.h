@@ -1,5 +1,5 @@
 /***************************************************************************
-  qflayertreemapcanvasbridge.h - LayerTreeMapCanvasBridge
+  qflayertreemapcanvasbridge.h - QfLayerTreeMapCanvasBridge
 
  ---------------------
  begin                : 26.8.2016
@@ -46,12 +46,12 @@ class QgsMapLayer;
  * Passes to the legend (LayerTreeModel) the information, if the layer is in a tracking session
  * \ingroup core
  */
-class LayerTreeMapCanvasBridge : public QObject
+class QfLayerTreeMapCanvasBridge : public QObject
 {
     Q_OBJECT
   public:
     //! Constructor: does not take ownership of the layer tree nor canvas
-    LayerTreeMapCanvasBridge( FlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, TrackingModel *trackingModel, QObject *parent = nullptr );
+    QfLayerTreeMapCanvasBridge( QfFlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, QfTrackingModel *trackingModel, QObject *parent = nullptr );
 
     QgsLayerTree *rootGroup() const { return mRoot; }
     QgsQuickMapSettings *mapSettings() const { return mMapSettings; }
@@ -88,9 +88,9 @@ class LayerTreeMapCanvasBridge : public QObject
     void deferredSetCanvasLayers();
 
     QgsLayerTree *mRoot = nullptr;
-    FlatLayerTreeModel *mModel = nullptr;
+    QfFlatLayerTreeModel *mModel = nullptr;
     QgsQuickMapSettings *mMapSettings = nullptr;
-    TrackingModel *mTrackingModel = nullptr;
+    QfTrackingModel *mTrackingModel = nullptr;
 
     bool mPendingCanvasUpdate;
 

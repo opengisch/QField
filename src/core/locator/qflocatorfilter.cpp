@@ -22,15 +22,15 @@
 #include <QUrlQuery>
 #include <qgsfeedback.h>
 
-QFieldLocatorFilter::QFieldLocatorFilter( QObject *parent )
+QfLocatorFilter::QfLocatorFilter( QObject *parent )
   : QgsLocatorFilter( parent )
 {
   setUseWithoutPrefix( false );
 }
 
-QFieldLocatorFilter *QFieldLocatorFilter::clone() const
+QfLocatorFilter *QfLocatorFilter::clone() const
 {
-  QFieldLocatorFilter *filter = new QFieldLocatorFilter();
+  QfLocatorFilter *filter = new QfLocatorFilter();
   filter->setFetchResultsDelay( fetchResultsDelay() );
   filter->setName( mName );
   filter->setDisplayName( mDisplayName );
@@ -41,7 +41,7 @@ QFieldLocatorFilter *QFieldLocatorFilter::clone() const
   return filter;
 }
 
-void QFieldLocatorFilter::setParameters( const QVariantMap &parameters )
+void QfLocatorFilter::setParameters( const QVariantMap &parameters )
 {
   if ( mParameters == parameters )
     return;
@@ -50,7 +50,7 @@ void QFieldLocatorFilter::setParameters( const QVariantMap &parameters )
   emit parametersChanged();
 }
 
-void QFieldLocatorFilter::setSource( const QUrl &source )
+void QfLocatorFilter::setSource( const QUrl &source )
 {
   if ( mSource.path() == source.path() )
     return;
@@ -66,7 +66,7 @@ void QFieldLocatorFilter::setSource( const QUrl &source )
   emit sourceChanged();
 }
 
-void QFieldLocatorFilter::setLocatorBridge( LocatorModelSuperBridge *locatorBridge )
+void QfLocatorFilter::setLocatorBridge( QfLocatorModelSuperBridge *locatorBridge )
 {
   if ( mLocatorBridge == locatorBridge )
     return;
@@ -75,7 +75,7 @@ void QFieldLocatorFilter::setLocatorBridge( LocatorModelSuperBridge *locatorBrid
   emit locatorBridgeChanged();
 }
 
-void QFieldLocatorFilter::setDelay( int delay )
+void QfLocatorFilter::setDelay( int delay )
 {
   if ( fetchResultsDelay() == delay )
     return;
@@ -84,7 +84,7 @@ void QFieldLocatorFilter::setDelay( int delay )
   emit delayChanged();
 }
 
-void QFieldLocatorFilter::setName( const QString &name )
+void QfLocatorFilter::setName( const QString &name )
 {
   if ( mName == name )
     return;
@@ -93,7 +93,7 @@ void QFieldLocatorFilter::setName( const QString &name )
   emit nameChanged();
 }
 
-void QFieldLocatorFilter::setDisplayName( const QString &displayName )
+void QfLocatorFilter::setDisplayName( const QString &displayName )
 {
   if ( mDisplayName == displayName )
     return;
@@ -102,7 +102,7 @@ void QFieldLocatorFilter::setDisplayName( const QString &displayName )
   emit displayNameChanged();
 }
 
-void QFieldLocatorFilter::setPrefix( const QString &prefix )
+void QfLocatorFilter::setPrefix( const QString &prefix )
 {
   if ( mPrefix == prefix )
     return;
@@ -111,7 +111,7 @@ void QFieldLocatorFilter::setPrefix( const QString &prefix )
   emit prefixChanged();
 }
 
-void QFieldLocatorFilter::setDescription( const QString &description )
+void QfLocatorFilter::setDescription( const QString &description )
 {
   if ( mDescription == description )
     return;
@@ -120,12 +120,12 @@ void QFieldLocatorFilter::setDescription( const QString &description )
   emit descriptionChanged();
 }
 
-void QFieldLocatorFilter::fetchResultsEnded()
+void QfLocatorFilter::fetchResultsEnded()
 {
   mFetchResultsEnded = true;
 }
 
-void QFieldLocatorFilter::prepareResult( const QVariant &details )
+void QfLocatorFilter::prepareResult( const QVariant &details )
 {
   const QVariantMap detailsMap = details.toMap();
   QgsLocatorResult result;
@@ -144,7 +144,7 @@ void QFieldLocatorFilter::prepareResult( const QVariant &details )
   emit resultFetched( result );
 }
 
-void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback )
+void QfLocatorFilter::fetchResults( const QString &string, const QgsLocatorContext &context, QgsFeedback *feedback )
 {
   if ( mSource.isEmpty() )
     return;
@@ -173,12 +173,12 @@ void QFieldLocatorFilter::fetchResults( const QString &string, const QgsLocatorC
   }
 }
 
-void QFieldLocatorFilter::triggerResult( const QgsLocatorResult &result )
+void QfLocatorFilter::triggerResult( const QgsLocatorResult &result )
 {
   QMetaObject::invokeMethod( this, QStringLiteral( "triggerResult" ).toStdString().c_str(), QVariant::fromValue<QgsLocatorResult>( result ) );
 }
 
-void QFieldLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
+void QfLocatorFilter::triggerResultFromAction( const QgsLocatorResult &result, const int actionId )
 {
   QMetaObject::invokeMethod( this, QStringLiteral( "triggerResultFromAction" ).toStdString().c_str(), QVariant::fromValue<QgsLocatorResult>( result ), QVariant( actionId ) );
 }

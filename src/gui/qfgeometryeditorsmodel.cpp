@@ -18,14 +18,14 @@
 
 #include <qgswkbtypes.h>
 
-GeometryEditorsModel::GeometryEditorsModel( QObject *parent )
+QfGeometryEditorsModel::QfGeometryEditorsModel( QObject *parent )
   : QStandardItemModel( parent )
 {
   setColumnCount( 1 );
 }
 
 
-QHash<int, QByteArray> GeometryEditorsModel::roleNames() const
+QHash<int, QByteArray> QfGeometryEditorsModel::roleNames() const
 {
   QHash<int, QByteArray> roles;
   roles[IconPathRole] = "iconPath";
@@ -35,7 +35,7 @@ QHash<int, QByteArray> GeometryEditorsModel::roleNames() const
   return roles;
 }
 
-void GeometryEditorsModel::addEditor( const QString &name, const QString &icon, const QString &toolbar, SupportedGeometries supportedGeometries )
+void QfGeometryEditorsModel::addEditor( const QString &name, const QString &icon, const QString &toolbar, SupportedGeometries supportedGeometries )
 {
   QStandardItem *item = new QStandardItem;
   item->setData( name, NameRole );
@@ -45,7 +45,7 @@ void GeometryEditorsModel::addEditor( const QString &name, const QString &icon, 
   appendRow( item );
 }
 
-bool GeometryEditorsModel::supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries )
+bool QfGeometryEditorsModel::supportsGeometry( const QgsGeometry &geometry, const SupportedGeometries &supportedGeometries )
 {
   switch ( geometry.type() )
   {
@@ -63,7 +63,7 @@ bool GeometryEditorsModel::supportsGeometry( const QgsGeometry &geometry, const 
   return false;
 }
 
-void GeometryEditorsModel::setVertexModel( VertexModel *vertexModel )
+void QfGeometryEditorsModel::setVertexModel( QfVertexModel *vertexModel )
 {
   if ( mVertexModel == vertexModel )
     return;

@@ -28,19 +28,19 @@ TEST_CASE( "FeatureModel" )
   std::unique_ptr<QgsVectorLayer> layer = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:4326&field=name:text&field=horizontal_accuracy:double(12,6)&field=vertical_accuracy:double(12,6)" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
   layer->setDefaultValueDefinition( 1, QgsDefaultValue( QStringLiteral( "@position_horizontal_accuracy" ), true ) );
   layer->setDefaultValueDefinition( 2, QgsDefaultValue( QStringLiteral( "@position_vertical_accuracy" ), true ) );
-  std::unique_ptr<FeatureModel> featureModel = std::make_unique<FeatureModel>();
+  std::unique_ptr<QfFeatureModel> featureModel = std::make_unique<QfFeatureModel>();
 
-  std::unique_ptr<AppExpressionContextScopesGenerator> appExpressionContextScopesGenerator = std::make_unique<AppExpressionContextScopesGenerator>();
+  std::unique_ptr<QfAppExpressionContextScopesGenerator> appExpressionContextScopesGenerator = std::make_unique<QfAppExpressionContextScopesGenerator>();
   featureModel->setAppExpressionContextScopesGenerator( appExpressionContextScopesGenerator.get() );
 
-  GnssPositionInformation position( 1.1, 2.2, 50.0, 50.0, 0.0, QList<QgsSatelliteInfo>(), 0, 0, 0, 5.5, 10.5, QDateTime(), QChar(), 0, 100 );
+  QfGnssPositionInformation position( 1.1, 2.2, 50.0, 50.0, 0.0, QList<QgsSatelliteInfo>(), 0, 0, 0, 5.5, 10.5, QDateTime(), QChar(), 0, 100 );
 
   featureModel->setCurrentLayer( layer.get() );
   featureModel->appExpressionContextScopesGenerator()->setPositionInformation( position );
   featureModel->appExpressionContextScopesGenerator()->setPositionLocked( true );
   featureModel->resetFeature();
   featureModel->resetAttributes();
-  featureModel->setData( featureModel->index( 0, 0 ), QStringLiteral( "created" ), FeatureModel::AttributeValue );
+  featureModel->setData( featureModel->index( 0, 0 ), QStringLiteral( "created" ), QfFeatureModel::AttributeValue );
   featureModel->create();
 
   QgsFeature feature = featureModel->feature();
@@ -48,7 +48,7 @@ TEST_CASE( "FeatureModel" )
   REQUIRE( feature.attribute( 1 ).toDouble() == 5.5 );
   REQUIRE( feature.attribute( 2 ).toDouble() == 10.5 );
 
-  featureModel->setData( featureModel->index( 0, 0 ), QStringLiteral( "updated" ), FeatureModel::AttributeValue );
+  featureModel->setData( featureModel->index( 0, 0 ), QStringLiteral( "updated" ), QfFeatureModel::AttributeValue );
   featureModel->save();
 
   feature = featureModel->feature();
@@ -56,6 +56,6 @@ TEST_CASE( "FeatureModel" )
   REQUIRE( feature.attribute( 1 ).toDouble() == 5.5 );
   REQUIRE( feature.attribute( 2 ).toDouble() == 10.5 );
 
-  std::unique_ptr<FeatureModel> modelTest = std::make_unique<FeatureModel>();
+  std::unique_ptr<QfFeatureModel> modelTest = std::make_unique<QfFeatureModel>();
   std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
 }

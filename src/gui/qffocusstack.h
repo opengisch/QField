@@ -22,13 +22,13 @@
 /**
  * \ingroup core
  */
-class FocusStack : public QObject
+class QfFocusStack : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit FocusStack( QObject *parent = nullptr );
-    ~FocusStack() = default;
+    explicit QfFocusStack( QObject *parent = nullptr );
+    ~QfFocusStack() = default;
 
     Q_INVOKABLE void addFocusTaker( QObject *object );
     Q_INVOKABLE void forceActiveFocusOnLastTaker();

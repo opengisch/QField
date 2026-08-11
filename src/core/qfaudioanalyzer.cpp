@@ -1,5 +1,5 @@
 /***************************************************************************
- qfaudioanalyzer.cpp - AudioRecorder
+ qfaudioanalyzer.cpp - QfAudioRecorder
 
  ---------------------
  begin                : 12.04.2026
@@ -27,12 +27,12 @@
 #include <cmath>
 
 
-AudioAnalyzer::AudioAnalyzer( QObject *parent )
+QfAudioAnalyzer::QfAudioAnalyzer( QObject *parent )
   : QObject( parent )
 {
 }
 
-void AudioAnalyzer::setBarCount( int barCount )
+void QfAudioAnalyzer::setBarCount( int barCount )
 {
   if ( mBarCount == barCount )
   {
@@ -43,25 +43,25 @@ void AudioAnalyzer::setBarCount( int barCount )
   emit barCountChanged();
 }
 
-void AudioAnalyzer::analyze( const QUrl &source )
+void QfAudioAnalyzer::analyze( const QUrl &source )
 {
   if ( mGatherer )
   {
-    disconnect( mGatherer, &AudioPeaksGatherer::collectedRawPeaks, this, &AudioAnalyzer::finalize );
-    disconnect( mGatherer, &AudioPeaksGatherer::finished, this, &AudioAnalyzer::gathererThreadFinished );
-    connect( mGatherer, &AudioPeaksGatherer::finished, mGatherer, &AudioPeaksGatherer::deleteLater );
+    disconnect( mGatherer, &QfAudioPeaksGatherer::collectedRawPeaks, this, &QfAudioAnalyzer::finalize );
+    disconnect( mGatherer, &QfAudioPeaksGatherer::finished, this, &QfAudioAnalyzer::gathererThreadFinished );
+    connect( mGatherer, &QfAudioPeaksGatherer::finished, mGatherer, &QfAudioPeaksGatherer::deleteLater );
     mGatherer->stop();
   }
 
-  mGatherer = new AudioPeaksGatherer( source );
+  mGatherer = new QfAudioPeaksGatherer( source );
 
-  connect( mGatherer, &AudioPeaksGatherer::collectedRawPeaks, this, &AudioAnalyzer::finalize );
-  connect( mGatherer, &AudioPeaksGatherer::finished, this, &AudioAnalyzer::gathererThreadFinished );
+  connect( mGatherer, &QfAudioPeaksGatherer::collectedRawPeaks, this, &QfAudioAnalyzer::finalize );
+  connect( mGatherer, &QfAudioPeaksGatherer::finished, this, &QfAudioAnalyzer::gathererThreadFinished );
 
   mGatherer->start();
 }
 
-void AudioAnalyzer::finalize()
+void QfAudioAnalyzer::finalize()
 {
   if ( !mGatherer )
   {
@@ -108,7 +108,7 @@ void AudioAnalyzer::finalize()
   emit ready( finalBars );
 }
 
-void AudioAnalyzer::gathererThreadFinished()
+void QfAudioAnalyzer::gathererThreadFinished()
 {
   if ( sender() != mGatherer )
   {
@@ -119,12 +119,12 @@ void AudioAnalyzer::gathererThreadFinished()
   mGatherer = nullptr;
 }
 
-AudioPeaksGatherer::AudioPeaksGatherer( const QUrl &source )
+QfAudioPeaksGatherer::QfAudioPeaksGatherer( const QUrl &source )
   : mSource( source )
 {
 }
 
-void AudioPeaksGatherer::run()
+void QfAudioPeaksGatherer::run()
 {
   mDecoder = new QAudioDecoder();
 
@@ -133,8 +133,8 @@ void AudioPeaksGatherer::run()
   format.setSampleFormat( QAudioFormat::Float );
   mDecoder->setAudioFormat( format );
 
-  connect( mDecoder, &QAudioDecoder::bufferReady, this, &AudioPeaksGatherer::processBuffer, Qt::DirectConnection );
-  connect( mDecoder, &QAudioDecoder::finished, this, &AudioPeaksGatherer::finalize, Qt::DirectConnection );
+  connect( mDecoder, &QAudioDecoder::bufferReady, this, &QfAudioPeaksGatherer::processBuffer, Qt::DirectConnection );
+  connect( mDecoder, &QAudioDecoder::finished, this, &QfAudioPeaksGatherer::finalize, Qt::DirectConnection );
   connect( mDecoder, qOverload<QAudioDecoder::Error>( &QAudioDecoder::error ), this, [this]( QAudioDecoder::Error error ) {
     qInfo() << "Audio Analyzer Error:" << error;
     finalize();
@@ -149,7 +149,7 @@ void AudioPeaksGatherer::run()
   mDecoder = nullptr;
 }
 
-void AudioPeaksGatherer::stop()
+void QfAudioPeaksGatherer::stop()
 {
   if ( mDecoder )
   {
@@ -157,7 +157,7 @@ void AudioPeaksGatherer::stop()
   }
 }
 
-void AudioPeaksGatherer::processBuffer()
+void QfAudioPeaksGatherer::processBuffer()
 {
   while ( mDecoder->bufferAvailable() )
   {
@@ -185,7 +185,7 @@ void AudioPeaksGatherer::processBuffer()
   }
 }
 
-void AudioPeaksGatherer::finalize()
+void QfAudioPeaksGatherer::finalize()
 {
   emit collectedRawPeaks();
   quit();

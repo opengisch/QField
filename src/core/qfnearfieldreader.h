@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnearfieldreader.h - NearFieldReader
+ qfnearfieldreader.h - QfNearFieldReader
 
  ---------------------
  begin                : 27.08.2023
@@ -24,12 +24,12 @@
 #endif
 
 /**
- * The NearFieldReader class allows for the scanning of near-field targets.
+ * The QfNearFieldReader class allows for the scanning of near-field targets.
  * When text strings are present on targets, the strings will be automatically
  * read and a signal emitted with the string values.
  * \ingroup core
  */
-class NearFieldReader : public QObject
+class QfNearFieldReader : public QObject
 {
     Q_OBJECT
 
@@ -38,8 +38,8 @@ class NearFieldReader : public QObject
     Q_PROPERTY( QString readString READ readString NOTIFY readStringChanged )
 
   public:
-    explicit NearFieldReader( QObject *parent = nullptr );
-    ~NearFieldReader();
+    explicit QfNearFieldReader( QObject *parent = nullptr );
+    ~QfNearFieldReader();
 
     /**
      * Returns whether the device is actively scanning and reading text strings from near-field targets.

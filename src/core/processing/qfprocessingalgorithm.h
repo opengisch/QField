@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfprocessingalgorithm.h - ProcessingAlgorithm
+  qfprocessingalgorithm.h - QfProcessingAlgorithm
 
  ---------------------
  begin                : 22.06.2024
@@ -33,7 +33,7 @@ class QgsVectorLayer;
  * \brief A processing algorithm item capable of runnning a given algorithm.
  * \ingroup core
  */
-class ProcessingAlgorithm : public QObject
+class QfProcessingAlgorithm : public QObject
 {
     Q_OBJECT
 
@@ -51,7 +51,7 @@ class ProcessingAlgorithm : public QObject
     Q_PROPERTY( QList<QgsGeometry> previewGeometries READ previewGeometries NOTIFY previewGeometriesChanged )
 
   public:
-    explicit ProcessingAlgorithm( QObject *parent = nullptr );
+    explicit QfProcessingAlgorithm( QObject *parent = nullptr );
 
     /**
      * Returns the current algorithm ID from which parameters are taken from.

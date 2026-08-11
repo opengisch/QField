@@ -1,5 +1,5 @@
 /***************************************************************************
- qfnavigationmodel.cpp - NavigationModel
+ qfnavigationmodel.cpp - QfNavigationModel
 
  ---------------------
  begin                : 22.02.2022
@@ -20,17 +20,17 @@
 #include <QSettings>
 #include <qgsproject.h>
 
-NavigationModel::NavigationModel()
+QfNavigationModel::QfNavigationModel()
   : QAbstractListModel()
 {
 }
 
-int NavigationModel::rowCount( const QModelIndex &parent ) const
+int QfNavigationModel::rowCount( const QModelIndex &parent ) const
 {
   return static_cast<int>( mPoints.size() );
 }
 
-QVariant NavigationModel::data( const QModelIndex &index, int role ) const
+QVariant QfNavigationModel::data( const QModelIndex &index, int role ) const
 {
   const int row = index.row();
   if ( row < 0 || row >= mPoints.size() )
@@ -38,27 +38,27 @@ QVariant NavigationModel::data( const QModelIndex &index, int role ) const
 
   switch ( role )
   {
-    case NavigationModel::Point:
+    case QfNavigationModel::Point:
     {
       QgsGeometry geom( new QgsPoint( mPoints.at( row ) ) );
       return geom;
     }
 
-    case NavigationModel::PointType:
+    case QfNavigationModel::PointType:
     {
-      return row == mPoints.size() - 1 ? NavigationModel::Destination : NavigationModel::Intermediate;
+      return row == mPoints.size() - 1 ? QfNavigationModel::Destination : QfNavigationModel::Intermediate;
     }
   }
 
   return QVariant();
 }
 
-QgsPoint NavigationModel::destination() const
+QgsPoint QfNavigationModel::destination() const
 {
   return !mPoints.isEmpty() ? mPoints.last() : QgsPoint();
 }
 
-void NavigationModel::setDestination( const QgsPoint &point )
+void QfNavigationModel::setDestination( const QgsPoint &point )
 {
   if ( !mPoints.isEmpty() )
   {
@@ -81,7 +81,7 @@ void NavigationModel::setDestination( const QgsPoint &point )
   emit destinationChanged();
 }
 
-void NavigationModel::setCrs( QgsCoordinateReferenceSystem crs )
+void QfNavigationModel::setCrs( QgsCoordinateReferenceSystem crs )
 {
   if ( mCrs == crs )
     return;
@@ -129,15 +129,15 @@ void NavigationModel::setCrs( QgsCoordinateReferenceSystem crs )
   save();
 }
 
-QHash<int, QByteArray> NavigationModel::roleNames() const
+QHash<int, QByteArray> QfNavigationModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QAbstractListModel::roleNames();
-  roleNames[NavigationModel::Point] = "Point";
-  roleNames[NavigationModel::PointType] = "PointType";
+  roleNames[QfNavigationModel::Point] = "Point";
+  roleNames[QfNavigationModel::PointType] = "PointType";
   return roleNames;
 }
 
-void NavigationModel::save()
+void QfNavigationModel::save()
 {
   QSettings settings;
   if ( !mPoints.isEmpty() )
@@ -159,7 +159,7 @@ void NavigationModel::save()
   }
 }
 
-void NavigationModel::restore()
+void QfNavigationModel::restore()
 {
   QSettings settings;
   if ( settings.contains( QStringLiteral( "/QField/navigation/points" ) ) )
@@ -181,7 +181,7 @@ void NavigationModel::restore()
   }
 }
 
-void NavigationModel::clear()
+void QfNavigationModel::clear()
 {
   beginResetModel();
   mPoints.clear();

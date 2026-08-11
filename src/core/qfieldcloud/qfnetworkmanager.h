@@ -20,54 +20,54 @@
 
 
 class QNetworkRequest;
-class NetworkReply;
+class QfNetworkReply;
 class QHttpMultiPart;
 class QgsNetworkAccessManager;
 
 
 /**
- * NetworkManager is used to make reliable and retriable network requests. It wraps around `QgsNetworkAccessManager`.
- * \note After the request has finished, it is the responsibility of the user to delete the NetworkReply object at an appropriate time.
+ * QfNetworkManager is used to make reliable and retriable network requests. It wraps around `QgsNetworkAccessManager`.
+ * \note After the request has finished, it is the responsibility of the user to delete the QfNetworkReply object at an appropriate time.
  * \note Do not directly delete it inside the slot connected to finished(). You can use the deleteLater() function.
  * \ingroup core
  */
-class NetworkManager
+class QfNetworkManager
 {
   public:
     /**
      * makes HTTP GET \a request and returns a reply.
      */
-    static NetworkReply *get( const QNetworkRequest &request );
+    static QfNetworkReply *get( const QNetworkRequest &request );
 
 
     /**
      * makes HTTP POST \a request with an optional \a payload and returns a reply
      */
-    static NetworkReply *post( const QNetworkRequest &request, const QByteArray &payload = QByteArray() );
+    static QfNetworkReply *post( const QNetworkRequest &request, const QByteArray &payload = QByteArray() );
 
 
     /**
      * makes HTTP POST \a request with a multipart \a payload and returns a reply
      */
-    static NetworkReply *post( const QNetworkRequest &request, QHttpMultiPart *payload );
+    static QfNetworkReply *post( const QNetworkRequest &request, QHttpMultiPart *payload );
 
 
     /**
      * makes HTTP PUT \a request with an optional \a payload and returns a reply
      */
-    static NetworkReply *put( const QNetworkRequest &request, const QByteArray &payload = QByteArray() );
+    static QfNetworkReply *put( const QNetworkRequest &request, const QByteArray &payload = QByteArray() );
 
 
     /**
      * makes HTTP PUT \a request with a multipart \a payload and returns a reply
      */
-    static NetworkReply *put( const QNetworkRequest &request, QHttpMultiPart *payload );
+    static QfNetworkReply *put( const QNetworkRequest &request, QHttpMultiPart *payload );
 
 
     /**
      * makes HTTP DELETE \a request with an optional \a payload and returns a reply
      */
-    static NetworkReply *deleteResource( const QNetworkRequest &request, const QByteArray &payload = QByteArray() );
+    static QfNetworkReply *deleteResource( const QNetworkRequest &request, const QByteArray &payload = QByteArray() );
 };
 
 

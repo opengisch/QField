@@ -22,19 +22,19 @@
 #include <qgsabstractgeocoderlocatorfilter.h>
 
 
-class LocatorModelSuperBridge;
+class QfLocatorModelSuperBridge;
 
 /**
- * FinlandLocatorFilter is a locator filter to search for addresses
+ * QfFinlandLocatorFilter is a locator filter to search for addresses
  * in Finland through Digitrans's API.
  */
-class FinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
+class QfFinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
 {
     Q_OBJECT
 
   public:
-    explicit FinlandLocatorFilter( QgsGeocoderInterface *geocoder, LocatorModelSuperBridge *locatorBridge );
-    FinlandLocatorFilter *clone() const override;
+    explicit QfFinlandLocatorFilter( QgsGeocoderInterface *geocoder, QfLocatorModelSuperBridge *locatorBridge );
+    QfFinlandLocatorFilter *clone() const override;
 
     const QgsRectangle boundingBox() const { return mBoundingBox; }
     void setBoundingBox( const QgsRectangle boundingBox ) { mBoundingBox = boundingBox; }
@@ -42,7 +42,7 @@ class FinlandLocatorFilter : public QgsAbstractGeocoderLocatorFilter
   private:
     void handleGeocodeResult( const QgsGeocoderResult &result ) override;
 
-    LocatorModelSuperBridge *mLocatorBridge = nullptr;
+    QfLocatorModelSuperBridge *mLocatorBridge = nullptr;
     QgsRectangle mBoundingBox;
 };
 

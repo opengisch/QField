@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfpositioningsource.cpp - PositioningSource
+  qfpositioningsource.cpp - QfPositioningSource
 
  ---------------------
  begin                : 20.12.2024
@@ -34,9 +34,9 @@
 #include <QDateTime>
 #include <QStandardPaths>
 
-QString PositioningSource::backgroundFilePath = QStringLiteral( "%1/positioning.background" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) );
+QString QfPositioningSource::backgroundFilePath = QStringLiteral( "%1/positioning.background" ).arg( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) );
 
-PositioningSource::PositioningSource( QObject *parent )
+QfPositioningSource::QfPositioningSource( QObject *parent )
   : QObject( parent )
 {
   // Setup internal gnss receiver by default
@@ -45,10 +45,10 @@ PositioningSource::PositioningSource( QObject *parent )
   // Setup the compass, use a timer instead of the compass's readingChanged signal to avoid handling
   // too many signals
   mCompassTimer.setInterval( 200 );
-  connect( &mCompassTimer, &QTimer::timeout, this, &PositioningSource::processCompassReading );
+  connect( &mCompassTimer, &QTimer::timeout, this, &QfPositioningSource::processCompassReading );
 }
 
-void PositioningSource::setActive( bool active )
+void QfPositioningSource::setActive( bool active )
 {
   if ( mActive == active )
     return;
@@ -86,7 +86,7 @@ void PositioningSource::setActive( bool active )
   emit activeChanged();
 }
 
-void PositioningSource::setDeviceId( const QString &id )
+void QfPositioningSource::setDeviceId( const QString &id )
 {
   if ( mDeviceId == id )
     return;
@@ -97,7 +97,7 @@ void PositioningSource::setDeviceId( const QString &id )
   emit deviceIdChanged();
 }
 
-void PositioningSource::setValid( bool valid )
+void QfPositioningSource::setValid( bool valid )
 {
   if ( mValid == valid )
     return;
@@ -107,7 +107,7 @@ void PositioningSource::setValid( bool valid )
   emit validChanged();
 }
 
-void PositioningSource::setLogging( bool logging )
+void QfPositioningSource::setLogging( bool logging )
 {
   if ( mLogging == logging )
     return;
@@ -137,7 +137,7 @@ void PositioningSource::setLogging( bool logging )
   emit loggingChanged();
 }
 
-void PositioningSource::setLoggingPath( const QString &path )
+void QfPositioningSource::setLoggingPath( const QString &path )
 {
   if ( mLoggingPath == path )
     return;
@@ -156,7 +156,7 @@ void PositioningSource::setLoggingPath( const QString &path )
   emit loggingPathChanged();
 }
 
-void PositioningSource::setBackgroundMode( bool backgroundMode )
+void QfPositioningSource::setBackgroundMode( bool backgroundMode )
 {
   if ( mBackgroundMode == backgroundMode )
     return;
@@ -176,7 +176,7 @@ void PositioningSource::setBackgroundMode( bool backgroundMode )
 }
 
 
-void PositioningSource::setEnableNtrip( bool enableNtrip )
+void QfPositioningSource::setEnableNtrip( bool enableNtrip )
 {
   if ( mEnableNtrip == enableNtrip )
   {
@@ -197,7 +197,7 @@ void PositioningSource::setEnableNtrip( bool enableNtrip )
   emit enableNtripChanged();
 }
 
-void PositioningSource::setNtripSettings( const NtripSettings &ntripSettings )
+void QfPositioningSource::setNtripSettings( const QfNtripSettings &ntripSettings )
 {
   if ( mNtripSettings == ntripSettings )
   {
@@ -214,9 +214,9 @@ void PositioningSource::setNtripSettings( const NtripSettings &ntripSettings )
   emit ntripSettingsChanged();
 }
 
-QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformation() const
+QList<QfGnssPositionInformation> QfPositioningSource::getBackgroundPositionInformation() const
 {
-  QList<GnssPositionInformation> positionInformationList;
+  QList<QfGnssPositionInformation> positionInformationList;
 
   QFile file( QStringLiteral( "%1.information" ).arg( backgroundFilePath ) );
   if ( file.exists() )
@@ -226,7 +226,7 @@ QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformati
       QDataStream stream( &file );
       while ( !stream.atEnd() )
       {
-        GnssPositionInformation positionInformation;
+        QfGnssPositionInformation positionInformation;
         stream >> positionInformation;
         positionInformationList << positionInformation;
       }
@@ -237,7 +237,7 @@ QList<GnssPositionInformation> PositioningSource::getBackgroundPositionInformati
   return positionInformationList;
 }
 
-void PositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
+void QfPositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elevationCorrectionMode )
 {
   if ( mElevationCorrectionMode == elevationCorrectionMode )
     return;
@@ -247,7 +247,7 @@ void PositioningSource::setElevationCorrectionMode( ElevationCorrectionMode elev
   emit elevationCorrectionModeChanged();
 }
 
-void PositioningSource::setAntennaHeight( double antennaHeight )
+void QfPositioningSource::setAntennaHeight( double antennaHeight )
 {
   if ( mAntennaHeight == antennaHeight )
     return;
@@ -257,19 +257,19 @@ void PositioningSource::setAntennaHeight( double antennaHeight )
   emit antennaHeightChanged();
 }
 
-void PositioningSource::setupDevice()
+void QfPositioningSource::setupDevice()
 {
   if ( mReceiver )
   {
     triggerDisconnectDevice();
     mReceiver->stopLogging();
 
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
-    disconnect( mReceiver.get(), &AbstractGnssReceiver::batteryLevelChanged, this, &PositioningSource::deviceBatteryLevelChanged );
+    disconnect( mReceiver.get(), &QfAbstractGnssReceiver::lastGnssPositionInformationChanged, this, &QfPositioningSource::lastGnssPositionInformationChanged );
+    disconnect( mReceiver.get(), &QfAbstractGnssReceiver::lastErrorChanged, this, &QfPositioningSource::deviceLastErrorChanged );
+    disconnect( mReceiver.get(), &QfAbstractGnssReceiver::socketStateChanged, this, &QfPositioningSource::deviceSocketStateChanged );
+    disconnect( mReceiver.get(), &QfAbstractGnssReceiver::socketStateStringChanged, this, &QfPositioningSource::deviceSocketStateStringChanged );
+    disconnect( mReceiver.get(), &QfAbstractGnssReceiver::socketStateChanged, this, &QfPositioningSource::onDeviceSocketStateChanged );
+    disconnect( mReceiver.get(), &QfAbstractGnssReceiver::batteryLevelChanged, this, &QfPositioningSource::deviceBatteryLevelChanged );
 
     mReceiver->deleteLater();
     mReceiver.reset();
@@ -278,72 +278,72 @@ void PositioningSource::setupDevice()
 
   if ( mDeviceId.isEmpty() )
   {
-    mReceiver = std::make_unique<InternalGnssReceiver>( this );
+    mReceiver = std::make_unique<QfInternalGnssReceiver>( this );
   }
   else
   {
-    if ( mDeviceId.startsWith( FileReceiver::identifier + ":" ) )
+    if ( mDeviceId.startsWith( QfFileReceiver::identifier + ":" ) )
     {
-      const qsizetype prefixLength = FileReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = QfFileReceiver::identifier.length() + 1;
       const qsizetype intervalSeparator = mDeviceId.lastIndexOf( ':' );
       const QString filePath = mDeviceId.mid( prefixLength, intervalSeparator - prefixLength );
       const int interval = mDeviceId.mid( intervalSeparator + 1 ).toInt();
-      mReceiver = std::make_unique<FileReceiver>( filePath, interval, this );
+      mReceiver = std::make_unique<QfFileReceiver>( filePath, interval, this );
     }
-    else if ( mDeviceId.startsWith( TcpReceiver::identifier + ":" ) )
+    else if ( mDeviceId.startsWith( QfTcpReceiver::identifier + ":" ) )
     {
-      const qsizetype prefixLength = TcpReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = QfTcpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = std::make_unique<TcpReceiver>( address, port, this );
+      mReceiver = std::make_unique<QfTcpReceiver>( address, port, this );
     }
-    else if ( mDeviceId.startsWith( UdpReceiver::identifier + ":" ) )
+    else if ( mDeviceId.startsWith( QfUdpReceiver::identifier + ":" ) )
     {
-      const qsizetype prefixLength = UdpReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = QfUdpReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = std::make_unique<UdpReceiver>( address, port, this );
+      mReceiver = std::make_unique<QfUdpReceiver>( address, port, this );
     }
-    else if ( mDeviceId.startsWith( EgenioussReceiver::identifier + ":" ) )
+    else if ( mDeviceId.startsWith( QfEgenioussReceiver::identifier + ":" ) )
     {
-      const qsizetype prefixLength = EgenioussReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = QfEgenioussReceiver::identifier.length() + 1;
       const qsizetype portSeparator = mDeviceId.lastIndexOf( ':' );
       const QString address = mDeviceId.mid( prefixLength, portSeparator - prefixLength );
       const int port = mDeviceId.mid( portSeparator + 1 ).toInt();
-      mReceiver = std::make_unique<EgenioussReceiver>( address, port, this );
+      mReceiver = std::make_unique<QfEgenioussReceiver>( address, port, this );
     }
 #ifdef WITH_SERIALPORT
-    else if ( mDeviceId.startsWith( SerialPortReceiver::identifier + ":" ) )
+    else if ( mDeviceId.startsWith( QfSerialPortReceiver::identifier + ":" ) )
     {
-      const qsizetype prefixLength = SerialPortReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = QfSerialPortReceiver::identifier.length() + 1;
       const QString address = mDeviceId.mid( prefixLength );
-      mReceiver = std::make_unique<SerialPortReceiver>( address, this );
+      mReceiver = std::make_unique<QfSerialPortReceiver>( address, this );
     }
 #endif
 #ifdef WITH_BLUETOOTH
-    else if ( mDeviceId.startsWith( BluetoothLowEnergyReceiver::identifier + ":" ) )
+    else if ( mDeviceId.startsWith( QfBluetoothLowEnergyReceiver::identifier + ":" ) )
     {
-      const qsizetype prefixLength = BluetoothLowEnergyReceiver::identifier.length() + 1;
+      const qsizetype prefixLength = QfBluetoothLowEnergyReceiver::identifier.length() + 1;
       const QString address = mDeviceId.mid( prefixLength );
-      mReceiver = std::make_unique<BluetoothLowEnergyReceiver>( address, this );
+      mReceiver = std::make_unique<QfBluetoothLowEnergyReceiver>( address, this );
     }
     else
     {
-      mReceiver = std::make_unique<BluetoothReceiver>( mDeviceId, this );
+      mReceiver = std::make_unique<QfBluetoothReceiver>( mDeviceId, this );
     }
 #endif
   }
 
   // Reset the position information to insure no cross contamination between receiver types
-  lastGnssPositionInformationChanged( GnssPositionInformation() );
-  connect( mReceiver.get(), &AbstractGnssReceiver::lastGnssPositionInformationChanged, this, &PositioningSource::lastGnssPositionInformationChanged );
-  connect( mReceiver.get(), &AbstractGnssReceiver::lastErrorChanged, this, &PositioningSource::deviceLastErrorChanged );
-  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::deviceSocketStateChanged );
-  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateChanged, this, &PositioningSource::onDeviceSocketStateChanged );
-  connect( mReceiver.get(), &AbstractGnssReceiver::socketStateStringChanged, this, &PositioningSource::deviceSocketStateStringChanged );
-  connect( mReceiver.get(), &AbstractGnssReceiver::batteryLevelChanged, this, &PositioningSource::deviceBatteryLevelChanged );
+  lastGnssPositionInformationChanged( QfGnssPositionInformation() );
+  connect( mReceiver.get(), &QfAbstractGnssReceiver::lastGnssPositionInformationChanged, this, &QfPositioningSource::lastGnssPositionInformationChanged );
+  connect( mReceiver.get(), &QfAbstractGnssReceiver::lastErrorChanged, this, &QfPositioningSource::deviceLastErrorChanged );
+  connect( mReceiver.get(), &QfAbstractGnssReceiver::socketStateChanged, this, &QfPositioningSource::deviceSocketStateChanged );
+  connect( mReceiver.get(), &QfAbstractGnssReceiver::socketStateChanged, this, &QfPositioningSource::onDeviceSocketStateChanged );
+  connect( mReceiver.get(), &QfAbstractGnssReceiver::socketStateStringChanged, this, &QfPositioningSource::deviceSocketStateStringChanged );
+  connect( mReceiver.get(), &QfAbstractGnssReceiver::batteryLevelChanged, this, &QfPositioningSource::deviceBatteryLevelChanged );
 
   setValid( mReceiver->valid() );
 
@@ -363,40 +363,40 @@ void PositioningSource::setupDevice()
   return;
 }
 
-void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionInformation &lastGnssPositionInformation )
+void QfPositioningSource::lastGnssPositionInformationChanged( const QfGnssPositionInformation &lastGnssPositionInformation )
 {
   if ( mPositionInformation == lastGnssPositionInformation )
     return;
 
-  const GnssPositionInformation positionInformation( lastGnssPositionInformation.latitude(),
-                                                     lastGnssPositionInformation.longitude(),
-                                                     lastGnssPositionInformation.elevation(),
-                                                     lastGnssPositionInformation.speed(),
-                                                     lastGnssPositionInformation.direction(),
-                                                     lastGnssPositionInformation.satellitesInView(),
-                                                     lastGnssPositionInformation.pdop(),
-                                                     lastGnssPositionInformation.hdop(),
-                                                     lastGnssPositionInformation.vdop(),
-                                                     lastGnssPositionInformation.hacc(),
-                                                     lastGnssPositionInformation.vacc(),
-                                                     lastGnssPositionInformation.utcDateTime().isValid() ? lastGnssPositionInformation.utcDateTime() : QDateTime::currentDateTimeUtc(),
-                                                     lastGnssPositionInformation.fixMode(),
-                                                     lastGnssPositionInformation.fixType(),
-                                                     lastGnssPositionInformation.quality(),
-                                                     lastGnssPositionInformation.satellitesUsed(),
-                                                     lastGnssPositionInformation.status(),
-                                                     lastGnssPositionInformation.satPrn(),
-                                                     lastGnssPositionInformation.satInfoComplete(),
-                                                     lastGnssPositionInformation.verticalSpeed(),
-                                                     lastGnssPositionInformation.magneticVariation(),
-                                                     lastGnssPositionInformation.averagedCount(),
-                                                     lastGnssPositionInformation.sourceName(),
-                                                     lastGnssPositionInformation.imuCorrection(),
-                                                     lastGnssPositionInformation.imuRoll(),
-                                                     lastGnssPositionInformation.imuPitch(),
-                                                     lastGnssPositionInformation.imuHeading(),
-                                                     lastGnssPositionInformation.imuSteering(),
-                                                     mOrientation );
+  const QfGnssPositionInformation positionInformation( lastGnssPositionInformation.latitude(),
+                                                       lastGnssPositionInformation.longitude(),
+                                                       lastGnssPositionInformation.elevation(),
+                                                       lastGnssPositionInformation.speed(),
+                                                       lastGnssPositionInformation.direction(),
+                                                       lastGnssPositionInformation.satellitesInView(),
+                                                       lastGnssPositionInformation.pdop(),
+                                                       lastGnssPositionInformation.hdop(),
+                                                       lastGnssPositionInformation.vdop(),
+                                                       lastGnssPositionInformation.hacc(),
+                                                       lastGnssPositionInformation.vacc(),
+                                                       lastGnssPositionInformation.utcDateTime().isValid() ? lastGnssPositionInformation.utcDateTime() : QDateTime::currentDateTimeUtc(),
+                                                       lastGnssPositionInformation.fixMode(),
+                                                       lastGnssPositionInformation.fixType(),
+                                                       lastGnssPositionInformation.quality(),
+                                                       lastGnssPositionInformation.satellitesUsed(),
+                                                       lastGnssPositionInformation.status(),
+                                                       lastGnssPositionInformation.satPrn(),
+                                                       lastGnssPositionInformation.satInfoComplete(),
+                                                       lastGnssPositionInformation.verticalSpeed(),
+                                                       lastGnssPositionInformation.magneticVariation(),
+                                                       lastGnssPositionInformation.averagedCount(),
+                                                       lastGnssPositionInformation.sourceName(),
+                                                       lastGnssPositionInformation.imuCorrection(),
+                                                       lastGnssPositionInformation.imuRoll(),
+                                                       lastGnssPositionInformation.imuPitch(),
+                                                       lastGnssPositionInformation.imuHeading(),
+                                                       lastGnssPositionInformation.imuSteering(),
+                                                       mOrientation );
   mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
@@ -415,7 +415,7 @@ void PositioningSource::lastGnssPositionInformationChanged( const GnssPositionIn
   }
 }
 
-void PositioningSource::processCompassReading()
+void QfPositioningSource::processCompassReading()
 {
   if ( mCompass.reading() )
   {
@@ -437,7 +437,7 @@ void PositioningSource::processCompassReading()
   }
 }
 
-void PositioningSource::onDeviceSocketStateChanged()
+void QfPositioningSource::onDeviceSocketStateChanged()
 {
   if ( mReceiver )
   {
@@ -456,7 +456,7 @@ void PositioningSource::onDeviceSocketStateChanged()
   }
 }
 
-void PositioningSource::triggerConnectDevice()
+void QfPositioningSource::triggerConnectDevice()
 {
   if ( mReceiver )
   {
@@ -469,7 +469,7 @@ void PositioningSource::triggerConnectDevice()
   }
 }
 
-void PositioningSource::triggerDisconnectDevice()
+void QfPositioningSource::triggerDisconnectDevice()
 {
   if ( mReceiver )
   {
@@ -478,42 +478,42 @@ void PositioningSource::triggerDisconnectDevice()
   }
 }
 
-void PositioningSource::startNtripClient()
+void QfPositioningSource::startNtripClient()
 {
   if ( !mNtripSettings.isValid() )
   {
     return;
   }
 
-  if ( !mReceiver || !( mReceiver->capabilities() & AbstractGnssReceiver::NtripCorrection ) )
+  if ( !mReceiver || !( mReceiver->capabilities() & QfAbstractGnssReceiver::NtripCorrection ) )
   {
     return;
   }
 
   if ( !mNtripClient )
   {
-    mNtripClient = std::make_unique<NtripClient>( this );
+    mNtripClient = std::make_unique<QfNtripClient>( this );
 
-    connect( mNtripClient.get(), &NtripClient::streamConnected, this, [this]() {
+    connect( mNtripClient.get(), &QfNtripClient::streamConnected, this, [this]() {
       setNtripState( NtripState::Connected );
       setNtripLastError( QString() );
     } );
 
-    connect( mNtripClient.get(), &NtripClient::streamDisconnected, this, [this]() {
+    connect( mNtripClient.get(), &QfNtripClient::streamDisconnected, this, [this]() {
       setNtripState( NtripState::Disconnected );
     } );
 
-    connect( mNtripClient.get(), &NtripClient::errorOccurred, this, [this]( const QString &msg ) {
+    connect( mNtripClient.get(), &QfNtripClient::errorOccurred, this, [this]( const QString &msg ) {
       setNtripLastError( msg );
       qInfo() << "NTRIP Client Error:" << msg;
     } );
 
-    connect( mNtripClient.get(), &NtripClient::bytesSentChanged, this, [this]() {
+    connect( mNtripClient.get(), &QfNtripClient::bytesSentChanged, this, [this]() {
       mNtripBytesSent = mNtripClient->bytesSent();
       emit ntripBytesSentChanged();
     } );
 
-    connect( mNtripClient.get(), &NtripClient::bytesReceivedChanged, this, [this]() {
+    connect( mNtripClient.get(), &QfNtripClient::bytesReceivedChanged, this, [this]() {
       mNtripBytesReceived = mNtripClient->bytesReceived();
       mNtripLastBytesReceivedUtcDateTime = QDateTime::currentDateTimeUtc();
       emit ntripBytesReceivedChanged();
@@ -538,7 +538,7 @@ void PositioningSource::startNtripClient()
   setNtripState( NtripState::Connecting );
 }
 
-void PositioningSource::stopNtripClient()
+void QfPositioningSource::stopNtripClient()
 {
   if ( mNtripClient )
   {
@@ -554,7 +554,7 @@ void PositioningSource::stopNtripClient()
   }
 }
 
-void PositioningSource::setNtripState( NtripState state )
+void QfPositioningSource::setNtripState( NtripState state )
 {
   if ( mNtripState == state )
   {
@@ -565,7 +565,7 @@ void PositioningSource::setNtripState( NtripState state )
   emit ntripStateChanged();
 }
 
-void PositioningSource::setNtripLastError( const QString &error )
+void QfPositioningSource::setNtripLastError( const QString &error )
 {
   if ( mNtripLastError == error )
   {
@@ -576,7 +576,7 @@ void PositioningSource::setNtripLastError( const QString &error )
   emit ntripLastErrorChanged();
 }
 
-int PositioningSource::deviceCapabilities() const
+int QfPositioningSource::deviceCapabilities() const
 {
-  return mReceiver ? mReceiver->capabilities() : AbstractGnssReceiver::NoCapabilities;
+  return mReceiver ? mReceiver->capabilities() : QfAbstractGnssReceiver::NoCapabilities;
 }

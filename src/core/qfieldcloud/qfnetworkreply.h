@@ -28,7 +28,7 @@
  * A wrapper around QNetworkReply that allows retriable requests.
  * \ingroup core
  */
-class NetworkReply : public QObject
+class QfNetworkReply : public QObject
 {
     Q_OBJECT
 
@@ -39,7 +39,7 @@ class NetworkReply : public QObject
      * @param request the request to be performed
      * @param payloadByteArray the request payload
      */
-    NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray );
+    QfNetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, const QByteArray &payloadByteArray );
 
 
     /**
@@ -48,7 +48,7 @@ class NetworkReply : public QObject
      * @param request the request to be performed
      * @param payloadMultiPart the request payload
      */
-    NetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart );
+    QfNetworkReply( const QNetworkAccessManager::Operation operation, const QNetworkRequest &request, QHttpMultiPart *payloadMultiPart );
 
 
     /**
@@ -58,7 +58,7 @@ class NetworkReply : public QObject
 
 
     /**
-     * Get the current `QNetworkReply` object. Note that it might get deleted even if the parent `NetworkReply` is not in case of redirect or internal retry. Do not delete it manually.
+     * Get the current `QNetworkReply` object. Note that it might get deleted even if the parent `QfNetworkReply` is not in case of redirect or internal retry. Do not delete it manually.
      * @return network currentRawReply
      */
     QNetworkReply *currentRawReply() const;

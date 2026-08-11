@@ -25,12 +25,12 @@
 #include <QVariantMap>
 
 class QgsGpkgFlusher;
-class QFieldCloudConnection;
+class QfCloudConnection;
 
 /**
  * \ingroup core
  */
-class QFieldCloudProject : public QObject
+class QfCloudProject : public QObject
 {
     Q_OBJECT
 
@@ -60,7 +60,7 @@ class QFieldCloudProject : public QObject
     Q_PROPERTY( double pushDeltaProgress READ pushDeltaProgress NOTIFY pushDeltaProgressChanged )
     Q_PROPERTY( DeltaFileStatus deltaFilePushStatus READ deltaFilePushStatus NOTIFY deltaFilePushStatusChanged )
     Q_PROPERTY( int deltasCount READ deltasCount NOTIFY deltasCountChanged )
-    Q_PROPERTY( DeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
+    Q_PROPERTY( QfDeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper NOTIFY deltaFileWrapperChanged )
 
     Q_PROPERTY( qint64 uploadBytesTotal READ uploadBytesTotal NOTIFY uploadBytesTotalChanged )
     Q_PROPERTY( qint64 uploadBytesSent READ uploadBytesSent NOTIFY uploadBytesSentChanged )
@@ -101,7 +101,7 @@ class QFieldCloudProject : public QObject
         QString tmpFile;
         qint64 bytesTransferred = 0;
         bool isFinished = false;
-        QPointer<NetworkReply> networkReply;
+        QPointer<QfNetworkReply> networkReply;
         QNetworkReply::NetworkError error = QNetworkReply::NoError;
         int redirectsCount = 0;
         QUrl lastRedirectUrl;
@@ -212,8 +212,8 @@ class QFieldCloudProject : public QObject
 
     Q_ENUM( ProjectRefreshReason )
 
-    QFieldCloudProject( const QString &id = QString(), QFieldCloudConnection *connection = nullptr, QgsGpkgFlusher *gpkgFlusher = nullptr );
-    ~QFieldCloudProject() = default;
+    QfCloudProject( const QString &id = QString(), QfCloudConnection *connection = nullptr, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    ~QfCloudProject() = default;
 
     QString id() const { return mId; }
 
@@ -354,7 +354,7 @@ class QFieldCloudProject : public QObject
     double uploadProgress() const { return mUploadProgress; }
 
     int deltasCount() const { return mDeltaFileWrapper ? mDeltaFileWrapper->count() : 0; }
-    DeltaFileWrapper *deltaFileWrapper() const { return mDeltaFileWrapper.get(); }
+    QfDeltaFileWrapper *deltaFileWrapper() const { return mDeltaFileWrapper.get(); }
 
     QString thumbnailPath() const { return mThumbnailPath; }
     void setThumbnailPath( const QString &thumbnailPath );
@@ -375,12 +375,12 @@ class QFieldCloudProject : public QObject
 
     void removeLocally();
 
-    static QFieldCloudProject::JobStatus getJobStatusFromString( const QString &status );
-    static QString getJobTypeAsString( QFieldCloudProject::JobType jobType );
+    static QfCloudProject::JobStatus getJobStatusFromString( const QString &status );
+    static QString getJobTypeAsString( QfCloudProject::JobType jobType );
 
-    static QFieldCloudProject *fromDetails( const QVariantHash &details, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
-    static QFieldCloudProject *fromLocalSettings( const QString &id, QFieldCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
-    static void restoreLocalSettings( QFieldCloudProject *project, const QDir &localPath );
+    static QfCloudProject *fromDetails( const QVariantHash &details, QfCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    static QfCloudProject *fromLocalSettings( const QString &id, QfCloudConnection *connection, QgsGpkgFlusher *gpkgFlusher = nullptr );
+    static void restoreLocalSettings( QfCloudProject *project, const QDir &localPath );
 
   signals:
     void idChanged();
@@ -487,7 +487,7 @@ class QFieldCloudProject : public QObject
 
     void setupDeltaFileWrapper();
 
-    NetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
+    QfNetworkReply *downloadFile( const QString &projectId, const QString &fileName, bool fromLatestPackage = true, bool autoRedirect = false );
     void downloadFileConnections( const QString &fileKey );
     void downloadAttachmentConnections( const QString &fileKey );
 
@@ -500,15 +500,15 @@ class QFieldCloudProject : public QObject
         Job(
           const QString &id,
           const QString &projectId,
-          const QFieldCloudProject::JobType type )
+          const QfCloudProject::JobType type )
           : id( id ), projectId( projectId ), type( type ) {};
 
         Job() = default;
 
         QString id;
         QString projectId;
-        QFieldCloudProject::JobType type = QFieldCloudProject::JobType::Package;
-        QFieldCloudProject::JobStatus status = QFieldCloudProject::JobPendingStatus;
+        QfCloudProject::JobType type = QfCloudProject::JobType::Package;
+        QfCloudProject::JobStatus status = QfCloudProject::JobPendingStatus;
     };
 
     QString mId;
@@ -562,13 +562,13 @@ class QFieldCloudProject : public QObject
     QString mUploadLocalPath;
     bool mUploadDeleteAfterSuccessfulUpload = false;
 
-    QMap<QString, QFieldCloudProject::FileTransfer> mUploadFileTransfers;
+    QMap<QString, QfCloudProject::FileTransfer> mUploadFileTransfers;
     int mUploadFilesFailed = 0;
     qint64 mUploadBytesTotal = 0;
     qint64 mUploadBytesSent = 0;
     double mUploadProgress = 0.0;
 
-    std::unique_ptr<DeltaFileWrapper> mDeltaFileWrapper;
+    std::unique_ptr<QfDeltaFileWrapper> mDeltaFileWrapper;
 
     QString mThumbnailPath;
 
@@ -591,7 +591,7 @@ class QFieldCloudProject : public QObject
 
     QMap<JobType, Job> mJobs;
 
-    QFieldCloudConnection *mCloudConnection = nullptr;
+    QfCloudConnection *mCloudConnection = nullptr;
     QString mUsername;
 
     QgsGpkgFlusher *mGpkgFlusher = nullptr;
@@ -599,12 +599,12 @@ class QFieldCloudProject : public QObject
     static const int sDelayBeforeStatusRetry = 1000;
 };
 
-Q_DECLARE_METATYPE( QFieldCloudProject::ProjectStatus )
-Q_DECLARE_METATYPE( QFieldCloudProject::ProjectCheckout )
-Q_DECLARE_METATYPE( QFieldCloudProject::ProjectCheckouts )
-Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProject::ProjectCheckouts )
-Q_DECLARE_METATYPE( QFieldCloudProject::ProjectModification )
-Q_DECLARE_METATYPE( QFieldCloudProject::ProjectModifications )
-Q_DECLARE_OPERATORS_FOR_FLAGS( QFieldCloudProject::ProjectModifications )
+Q_DECLARE_METATYPE( QfCloudProject::ProjectStatus )
+Q_DECLARE_METATYPE( QfCloudProject::ProjectCheckout )
+Q_DECLARE_METATYPE( QfCloudProject::ProjectCheckouts )
+Q_DECLARE_OPERATORS_FOR_FLAGS( QfCloudProject::ProjectCheckouts )
+Q_DECLARE_METATYPE( QfCloudProject::ProjectModification )
+Q_DECLARE_METATYPE( QfCloudProject::ProjectModifications )
+Q_DECLARE_OPERATORS_FOR_FLAGS( QfCloudProject::ProjectModifications )
 
 #endif // QFCLOUDPROJECT_H

@@ -11,9 +11,9 @@
 
 TEST_CASE( "IdentifyTool" )
 {
-  IdentifyTool tool;
+  QfIdentifyTool tool;
   QgsQuickMapSettings mapSettings;
-  MultiFeatureListModel model;
+  QfMultiFeatureListModel model;
 
   SECTION( "validation checks" )
   {
@@ -36,7 +36,7 @@ TEST_CASE( "IdentifyTool" )
   {
     tool.setMapSettings( &mapSettings );
     tool.setModel( &model );
-    QSignalSpy finishedSpy( &tool, &IdentifyTool::identifyFinished );
+    QSignalSpy finishedSpy( &tool, &QfIdentifyTool::identifyFinished );
 
     tool.setDeactivated( true );
     REQUIRE( tool.deactivated() );
@@ -48,9 +48,9 @@ TEST_CASE( "IdentifyTool" )
 
   SECTION( "signal emissions" )
   {
-    QSignalSpy mapSettingsSpy( &tool, &IdentifyTool::mapSettingsChanged );
-    QSignalSpy modelSpy( &tool, &IdentifyTool::modelChanged );
-    QSignalSpy radiusSpy( &tool, &IdentifyTool::searchRadiusMmChanged );
+    QSignalSpy mapSettingsSpy( &tool, &QfIdentifyTool::mapSettingsChanged );
+    QSignalSpy modelSpy( &tool, &QfIdentifyTool::modelChanged );
+    QSignalSpy radiusSpy( &tool, &QfIdentifyTool::searchRadiusMmChanged );
 
     tool.setMapSettings( &mapSettings );
     tool.setModel( &model );
@@ -66,7 +66,7 @@ TEST_CASE( "IdentifyTool" )
     tool.setMapSettings( &mapSettings );
     tool.setModel( &model );
 
-    QSignalSpy spy( &tool, &IdentifyTool::identifyFinished );
+    QSignalSpy spy( &tool, &QfIdentifyTool::identifyFinished );
     tool.identify( QPointF( 0, 0 ) );
 
     REQUIRE( spy.count() == 1 );
@@ -74,7 +74,7 @@ TEST_CASE( "IdentifyTool" )
 
   SECTION( "search radius management" )
   {
-    QSignalSpy radiusSpy( &tool, &IdentifyTool::searchRadiusMmChanged );
+    QSignalSpy radiusSpy( &tool, &QfIdentifyTool::searchRadiusMmChanged );
 
     tool.setSearchRadiusMm( 7.5 );
     REQUIRE( tool.searchRadiusMm() == 7.5 );
@@ -89,9 +89,9 @@ TEST_CASE( "IdentifyTool" )
 
 TEST_CASE( "IdentifyTool vector layer identification" )
 {
-  IdentifyTool tool;
+  QfIdentifyTool tool;
   QgsQuickMapSettings mapSettings;
-  MultiFeatureListModel model;
+  QfMultiFeatureListModel model;
 
   tool.setMapSettings( &mapSettings );
   tool.setModel( &model );
@@ -121,7 +121,7 @@ TEST_CASE( "IdentifyTool vector layer identification" )
 
     QgsPointXY testPoint( 0, 0 );
     QSettings().setValue( "/QField/identify/limit", 10 );
-    QList<IdentifyTool::IdentifyResult> results = tool.identifyVectorLayer( layer.get(), testPoint );
+    QList<QfIdentifyTool::IdentifyResult> results = tool.identifyVectorLayer( layer.get(), testPoint );
 
     REQUIRE_FALSE( results.isEmpty() );
     REQUIRE( results.size() == 2 );

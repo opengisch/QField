@@ -24,11 +24,11 @@
 class QgsGeometry;
 
 /**
- * @brief The LinePolygonShape class is used to provide the shape data to draw geometries
+ * @brief The QfLinePolygonShape class is used to provide the shape data to draw geometries
  * on the map canvas using the QML Shape item.
  * \ingroup core
  */
-class LinePolygonShape : public QQuickItem
+class QfLinePolygonShape : public QQuickItem
 {
     Q_OBJECT
 
@@ -43,7 +43,7 @@ class LinePolygonShape : public QQuickItem
     Q_PROPERTY( Qgis::GeometryType polylinesType READ polylinesType NOTIFY polylinesTypeChanged )
 
   public:
-    explicit LinePolygonShape( QQuickItem *parent = nullptr );
+    explicit QfLinePolygonShape( QQuickItem *parent = nullptr );
 
     QgsGeometryWrapper *geometry() const;
     void setGeometry( QgsGeometryWrapper *geometry );

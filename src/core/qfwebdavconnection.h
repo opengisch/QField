@@ -37,7 +37,7 @@ class QLockFile;
  * push/pull operations for imported content.
  * \ingroup core
  */
-class WebdavConnection : public QObject
+class QfWebdavConnection : public QObject
 {
     Q_OBJECT
 
@@ -59,8 +59,8 @@ class WebdavConnection : public QObject
     Q_PROPERTY( QString lastError READ lastError NOTIFY lastErrorChanged )
 
   public:
-    explicit WebdavConnection( QObject *parent = nullptr );
-    ~WebdavConnection() = default;
+    explicit QfWebdavConnection( QObject *parent = nullptr );
+    ~QfWebdavConnection() = default;
 
     /**
      * Returns the WebDAV URL endpoint used to connect, list, and transfer files.

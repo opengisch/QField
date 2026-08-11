@@ -17,22 +17,22 @@
 
 #include "qfcogoregistry.h"
 
-CogoRegistry *CogoRegistry::sCogoRegistryInterface = nullptr;
+QfCogoRegistry *QfCogoRegistry::sCogoRegistryInterface = nullptr;
 
-CogoRegistry::CogoRegistry( QObject *parent )
+QfCogoRegistry::QfCogoRegistry( QObject *parent )
   : QObject( parent )
 {
-  registerOperation( new CogoOperationPointAtXYZ() );
-  registerOperation( new CogoOperationPointAtDistanceAngle() );
-  registerOperation( new CogoOperationPointAtIntersectionCircles() );
+  registerOperation( new QfCogoOperationPointAtXYZ() );
+  registerOperation( new QfCogoOperationPointAtDistanceAngle() );
+  registerOperation( new QfCogoOperationPointAtIntersectionCircles() );
 }
 
-CogoRegistry::~CogoRegistry()
+QfCogoRegistry::~QfCogoRegistry()
 {
   qDeleteAll( mOperations );
 }
 
-bool CogoRegistry::registerOperation( CogoOperation *operation )
+bool QfCogoRegistry::registerOperation( QfCogoOperation *operation )
 {
   if ( !mOperations.contains( operation->name() ) )
   {
@@ -49,7 +49,7 @@ bool CogoRegistry::registerOperation( CogoOperation *operation )
   return false;
 }
 
-CogoOperation *CogoRegistry::operation( const QString &name )
+QfCogoOperation *QfCogoRegistry::operation( const QString &name )
 {
   return mOperations.contains( name ) ? mOperations[name] : nullptr;
 }

@@ -1,5 +1,5 @@
 /***************************************************************************
-  qftheme.h - Theme
+  qftheme.h - QfTheme
 
 ---------------------
 begin                : 22.2.2026
@@ -32,7 +32,7 @@ email                : kaustuv@opengis.ch
  *
  * \note Default colors are loaded from :/theme/theme.json
  */
-class QFIELD_GUI_EXPORT Theme final : public QObject
+class QFIELD_GUI_EXPORT QfTheme final : public QObject
 {
     Q_OBJECT
 
@@ -123,7 +123,7 @@ class QFIELD_GUI_EXPORT Theme final : public QObject
     Q_PROPERTY( int menuItemCheckLeftPadding READ menuItemCheckLeftPadding CONSTANT )
 
   public:
-    explicit Theme( QObject *parent = nullptr );
+    explicit QfTheme( QObject *parent = nullptr );
 
     enum BaseAppearance
     {
@@ -138,7 +138,7 @@ class QFIELD_GUI_EXPORT Theme final : public QObject
    * Applies the dark/light/system appearance setting and the matching color palette.
    * An optional \a extraColors map is applied on top for per-call overrides.
    * \note Material.theme and Application.styleHints.colorScheme are QML-only
-   * APIs; bind them in QML to \c Theme.darkTheme instead
+   * APIs; bind them in QML to \c QfTheme.darkTheme instead
    */
     Q_INVOKABLE void applyAppearance( const QVariantMap &extraColors = QVariantMap(), BaseAppearance baseAppearance = UseSettingsAppearance );
 
