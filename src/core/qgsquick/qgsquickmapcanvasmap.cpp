@@ -63,7 +63,26 @@ QgsQuickMapCanvasMap::QgsQuickMapCanvasMap( QQuickItem *parent )
 
 QgsQuickMapCanvasMap::~QgsQuickMapCanvasMap()
 {
-  stopRendering();
+  // Cancel render jobs blocking and delete them synchronously (mirrors
+  // QgsMapCanvas::cancelJobs()). The non-blocking stopRendering() path would
+  // let a still-active job outlive this canvas and dereference the freed
+  // mCache from its QFutureWatcher slots once the workers wind down.
+  if ( mJob )
+  {
+    whileBlocking( mJob )->cancel();
+    delete mJob;
+    mJob = nullptr;
+  }
+
+  for ( QgsMapRendererQImageJob *job : std::as_const( mPreviewJobs ) )
+  {
+    if ( job )
+    {
+      whileBlocking( job )->cancel();
+      delete job;
+    }
+  }
+  mPreviewJobs.clear();
 }
 
 QgsQuickMapSettings *QgsQuickMapCanvasMap::mapSettings() const
