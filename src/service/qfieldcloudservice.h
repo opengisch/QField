@@ -16,8 +16,8 @@
 #ifndef QFIELDCLOUDSERVICE_H
 #define QFIELDCLOUDSERVICE_H
 
+#include "qfcloudconnection.h"
 #include "qfield_service_export.h"
-#include "qfieldcloudconnection.h"
 
 #include <QtCore/private/qandroidextras_p.h>
 #include <QtGlobal>

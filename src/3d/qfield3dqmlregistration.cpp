@@ -13,14 +13,14 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "maptoview3d.h"
+#include "qf3dgeometry.h"
+#include "qf3dgeometryconfiguration.h"
+#include "qf3dmaptexturedata.h"
+#include "qf3drubberbandgeometry.h"
+#include "qf3dterraingeometry.h"
+#include "qf3dterrainprovider.h"
 #include "qfield3dqmlregistration.h"
-#include "quick3dgeometry.h"
-#include "quick3dgeometryconfiguration.h"
-#include "quick3dmaptexturedata.h"
-#include "quick3drubberbandgeometry.h"
-#include "quick3dterraingeometry.h"
-#include "quick3dterrainprovider.h"
+#include "qfmaptoview3d.h"
 
 #include <QtQml>
 

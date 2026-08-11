@@ -17,7 +17,7 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "referencingfeaturelistmodel.h"
+#include "qfreferencingfeaturelistmodel.h"
 
 #include <QAbstractItemModelTester>
 #include <QSignalSpy>

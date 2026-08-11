@@ -17,7 +17,7 @@
 
 
 #include "catch2.h"
-#include "featurelistmodel.h"
+#include "qffeaturelistmodel.h"
 
 #include <QCoreApplication>
 #include <QElapsedTimer>

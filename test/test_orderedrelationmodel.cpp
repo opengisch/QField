@@ -17,7 +17,7 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "orderedrelationmodel.h"
+#include "qforderedrelationmodel.h"
 
 #include <QAbstractItemModelTester>
 #include <QSignalSpy>

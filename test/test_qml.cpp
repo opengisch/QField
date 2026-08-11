@@ -15,11 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appinterface.h"
-#include "cogo/cogoregistry.h"
-#include "platformutilities.h"
+#include "cogo/qfcogoregistry.h"
+#include "qfappinterface.h"
 #include "qfield.h"
 #include "qfield_qml_init.h"
+#include "qfplatformutilities.h"
 #include "qgismobileapp.h"
 
 #include <qgis.h>

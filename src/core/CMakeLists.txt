@@ -1,274 +1,275 @@
 set(QFIELD_CORE_SRCS
-    cogo/cogoexecutor.cpp
-    cogo/cogooperation.cpp
-    cogo/cogooperationsmodel.cpp
-    cogo/cogoregistry.cpp
-    platforms/platformutilities.cpp
-    utils/authutils.cpp
-    utils/coordinatereferencesystemutils.cpp
-    utils/expressioncontextutils.cpp
-    utils/featureutils.cpp
-    utils/fileutils.cpp
-    utils/geometryutils.cpp
-    utils/layerutils.cpp
-    utils/positioningutils.cpp
-    utils/processingutils.cpp
-    utils/projectutils.cpp
-    utils/qfieldcloudutils.cpp
-    utils/relationutils.cpp
-    utils/snappingutils.cpp
-    utils/stringutils.cpp
-    utils/urlutils.cpp
+    cogo/qfcogoexecutor.cpp
+    cogo/qfcogooperation.cpp
+    cogo/qfcogooperationsmodel.cpp
+    cogo/qfcogoregistry.cpp
+    platforms/qfplatformutilities.cpp
+    utils/qfauthutils.cpp
+    utils/qfcoordinatereferencesystemutils.cpp
+    utils/qfexpressioncontextutils.cpp
+    utils/qffeatureutils.cpp
+    utils/qffileutils.cpp
+    utils/qfgeometryutils.cpp
+    utils/qflayerutils.cpp
+    utils/qfpositioningutils.cpp
+    utils/qfprocessingutils.cpp
+    utils/qfprojectutils.cpp
+    utils/qfcloudutils.cpp
+    utils/qfrelationutils.cpp
+    utils/qfsnappingutils.cpp
+    utils/qfstringutils.cpp
+    utils/qfurlutils.cpp
     qgsquick/qgsquickcoordinatetransformer.cpp
     qgsquick/qgsquickmapcanvasmap.cpp
     qgsquick/qgsquickelevationprofilecanvas.cpp
     qgsquick/qgsquickmapsettings.cpp
     qgsquick/qgsquickmaptransform.cpp
-    locator/activelayerfeatureslocatorfilter.cpp
-    locator/bookmarklocatorfilter.cpp
-    locator/expressioncalculatorlocatorfilter.cpp
-    locator/featureslocatorfilter.cpp
-    locator/finlandlocatorfilter.cpp
-    locator/gotolocatorfilter.cpp
-    locator/helplocatorfilter.cpp
-    locator/qfieldlocatorfilter.cpp
-    locator/locatormodelsuperbridge.cpp
-    positioning/abstractgnssreceiver.cpp
-    positioning/gnsspositioninformation.cpp
-    positioning/internalgnssreceiver.cpp
-    positioning/nmeagnssreceiver.cpp
-    positioning/egenioussreceiver.cpp
-    positioning/filereceiver.cpp
-    positioning/tcpreceiver.cpp
-    positioning/udpreceiver.cpp
-    positioning/positioning.cpp
-    positioning/positioningsource.cpp
-    positioning/ntripclient.cpp
-    positioning/ntripsettings.cpp
-    positioning/ntripsourcetablefetcher.cpp
-    positioning/positioningdevicemodel.cpp
-    positioning/geofencer.cpp
-    positioning/positioninginformationmodel.cpp
-    processing/processingalgorithm.cpp
-    processing/processingalgorithmparametersmodel.cpp
-    processing/processingalgorithmsmodel.cpp
-    qfieldcloud/deltafilewrapper.cpp
-    qfieldcloud/deltalistmodel.cpp
-    qfieldcloud/layerobserver.cpp
-    qfieldcloud/networkmanager.cpp
-    qfieldcloud/networkreply.cpp
-    qfieldcloud/qfieldcloudconnection.cpp
-    qfieldcloud/qfieldcloudproject.cpp
-    qfieldcloud/qfieldcloudprojectsmodel.cpp
-    qfieldcloud/qfieldcloudstatus.cpp
-    appcoordinateoperationhandlers.cpp
-    appexpressioncontextscopesgenerator.cpp
-    appinterface.cpp
-    audioanalyzer.cpp
-    audiorecorder.cpp
-    barcodedecoder.cpp
-    bookmarkmodel.cpp
-    cameraorientationnormalizer.cpp
-    digitizinglogger.cpp
-    distancearea.cpp
-    drawingcanvas.cpp
-    externalstorage.cpp
-    featurelistextentcontroller.cpp
-    featurelistmodel.cpp
-    featurelistmodelselection.cpp
-    featuremodel.cpp
-    geometry.cpp
-    gridmodel.cpp
-    identifytool.cpp
-    featurehistory.cpp
-    layerresolver.cpp
-    layertreemapcanvasbridge.cpp
-    layertreemodel.cpp
-    linepolygonshape.cpp
-    maplayermodel.cpp
-    maptoscreen.cpp
-    multifeaturelistmodel.cpp
-    multifeaturelistmodelbase.cpp
-    navigation.cpp
-    navigationmodel.cpp
-    nearfieldreader.cpp
-    peliasgeocoder.cpp
-    resourcesource.cpp
-    translatormanager.cpp
-    projectinfo.cpp
-    projectsource.cpp
+    locator/qfactivelayerfeatureslocatorfilter.cpp
+    locator/qfbookmarklocatorfilter.cpp
+    locator/qfexpressioncalculatorlocatorfilter.cpp
+    locator/qffeatureslocatorfilter.cpp
+    locator/qffinlandlocatorfilter.cpp
+    locator/qfgotolocatorfilter.cpp
+    locator/qfhelplocatorfilter.cpp
+    locator/qflocatorfilter.cpp
+    locator/qflocatormodelsuperbridge.cpp
+    positioning/qfabstractgnssreceiver.cpp
+    positioning/qfgnsspositioninformation.cpp
+    positioning/qfinternalgnssreceiver.cpp
+    positioning/qfnmeagnssreceiver.cpp
+    positioning/qfegenioussreceiver.cpp
+    positioning/qffilereceiver.cpp
+    positioning/qftcpreceiver.cpp
+    positioning/qfudpreceiver.cpp
+    positioning/qfpositioning.cpp
+    positioning/qfpositioningsource.cpp
+    positioning/qfntripclient.cpp
+    positioning/qfntripsettings.cpp
+    positioning/qfntripsourcetablefetcher.cpp
+    positioning/qfpositioningdevicemodel.cpp
+    positioning/qfgeofencer.cpp
+    positioning/qfpositioninginformationmodel.cpp
+    processing/qfprocessingalgorithm.cpp
+    processing/qfprocessingalgorithmparametersmodel.cpp
+    processing/qfprocessingalgorithmsmodel.cpp
+    qfieldcloud/qfdeltafilewrapper.cpp
+    qfieldcloud/qfdeltalistmodel.cpp
+    qfieldcloud/qflayerobserver.cpp
+    qfieldcloud/qfnetworkmanager.cpp
+    qfieldcloud/qfnetworkreply.cpp
+    qfieldcloud/qfcloudconnection.cpp
+    qfieldcloud/qfcloudproject.cpp
+    qfieldcloud/qfcloudprojectsmodel.cpp
+    qfieldcloud/qfcloudstatus.cpp
+    qfappcoordinateoperationhandlers.cpp
+    qfappexpressioncontextscopesgenerator.cpp
+    qfappinterface.cpp
+    qfaudioanalyzer.cpp
+    qfaudiorecorder.cpp
+    qfbarcodedecoder.cpp
+    qfbookmarkmodel.cpp
+    qfcameraorientationnormalizer.cpp
+    qfdigitizinglogger.cpp
+    qfdistancearea.cpp
+    qfdrawingcanvas.cpp
+    qfexternalstorage.cpp
+    qffeaturelistextentcontroller.cpp
+    qffeaturelistmodel.cpp
+    qffeaturelistmodelselection.cpp
+    qffeaturemodel.cpp
+    qfgeometry.cpp
+    qfgridmodel.cpp
+    qfidentifytool.cpp
+    qffeaturehistory.cpp
+    qflayerresolver.cpp
+    qflayertreemapcanvasbridge.cpp
+    qflayertreemodel.cpp
+    qflinepolygonshape.cpp
+    qfmaplayermodel.cpp
+    qfmaptoscreen.cpp
+    qfmultifeaturelistmodel.cpp
+    qfmultifeaturelistmodelbase.cpp
+    qfnavigation.cpp
+    qfnavigationmodel.cpp
+    qfnearfieldreader.cpp
+    qfpeliasgeocoder.cpp
+    qfresourcesource.cpp
+    qftranslatormanager.cpp
+    qfprojectinfo.cpp
+    qfprojectsource.cpp
     qfieldcoreqmlregistration.cpp
-    qfieldxmlhttprequest.cpp
+    qfxmlhttprequest.cpp
     qgsgeometrywrapper.cpp
     qgsgpkgflusher.cpp
-    rubberbandshape.cpp
-    rubberbandmodel.cpp
-    scalebarmeasurement.cpp
-    settings.cpp
-    snappingresult.cpp
-    submodel.cpp
-    tracker.cpp
-    trackingmodel.cpp
-    vertexmodel.cpp
-    videosinkcapture.cpp
-    viewstatus.cpp
-    webdavconnection.cpp)
+    qfrubberbandshape.cpp
+    qfrubberbandmodel.cpp
+    qfscalebarmeasurement.cpp
+    qfsettings.cpp
+    qfsnappingresult.cpp
+    qfsubmodel.cpp
+    qftracker.cpp
+    qftrackingmodel.cpp
+    qfvertexmodel.cpp
+    qfvideosinkcapture.cpp
+    qfviewstatus.cpp
+    qfwebdavconnection.cpp)
 
 set(QFIELD_CORE_HDRS
-    cogo/cogoexecutor.h
-    cogo/cogooperation.h
-    cogo/cogooperationsmodel.h
-    cogo/cogoregistry.h
-    platforms/platformutilities.h
-    utils/authutils.h
-    utils/coordinatereferencesystemutils.h
-    utils/expressioncontextutils.h
-    utils/featureutils.h
-    utils/fileutils.h
-    utils/geometryutils.h
-    utils/layerutils.h
-    utils/positioningutils.h
-    utils/processingutils.h
-    utils/projectutils.h
-    utils/qfieldcloudutils.h
-    utils/relationutils.h
-    utils/snappingutils.h
-    utils/stringutils.h
-    utils/urlutils.h
+    cogo/qfcogoexecutor.h
+    cogo/qfcogooperation.h
+    cogo/qfcogooperationsmodel.h
+    cogo/qfcogoregistry.h
+    platforms/qfplatformutilities.h
+    utils/qfauthutils.h
+    utils/qfcoordinatereferencesystemutils.h
+    utils/qfexpressioncontextutils.h
+    utils/qffeatureutils.h
+    utils/qffileutils.h
+    utils/qfgeometryutils.h
+    utils/qflayerutils.h
+    utils/qfpositioningutils.h
+    utils/qfprocessingutils.h
+    utils/qfprojectutils.h
+    utils/qfcloudutils.h
+    utils/qfrelationutils.h
+    utils/qfsnappingutils.h
+    utils/qfstringutils.h
+    utils/qfurlutils.h
     qgsquick/qgsquickcoordinatetransformer.h
     qgsquick/qgsquickmapcanvasmap.h
     qgsquick/qgsquickelevationprofilecanvas.h
     qgsquick/qgsquickmapsettings.h
     qgsquick/qgsquickmaptransform.h
-    locator/activelayerfeatureslocatorfilter.h
-    locator/bookmarklocatorfilter.h
-    locator/expressioncalculatorlocatorfilter.h
-    locator/featureslocatorfilter.h
-    locator/finlandlocatorfilter.h
-    locator/gotolocatorfilter.h
-    locator/helplocatorfilter.h
-    locator/qfieldlocatorfilter.h
-    locator/locatormodelsuperbridge.h
-    positioning/abstractgnssreceiver.h
-    positioning/gnsspositioninformation.h
-    positioning/positioning.h
-    positioning/positioningsource.h
-    positioning/positioningdevicemodel.h
-    positioning/internalgnssreceiver.h
-    positioning/nmeagnssreceiver.h
-    positioning/egenioussreceiver.h
-    positioning/filereceiver.h
-    positioning/ntripclient.h
-    positioning/ntripsettings.h
-    positioning/ntripsourcetablefetcher.h
-    positioning/tcpreceiver.h
-    positioning/udpreceiver.h
-    positioning/geofencer.h
-    positioning/positioninginformationmodel.h
-    processing/processingalgorithm.h
-    processing/processingalgorithmparametersmodel.h
-    processing/processingalgorithmsmodel.h
-    qfieldcloud/deltafilewrapper.h
-    qfieldcloud/deltalistmodel.h
-    qfieldcloud/layerobserver.h
-    qfieldcloud/networkmanager.h
-    qfieldcloud/networkreply.h
-    qfieldcloud/qfieldcloudconnection.h
-    qfieldcloud/qfieldcloudproject.h
-    qfieldcloud/qfieldcloudprojectsmodel.h
-    qfieldcloud/qfieldcloudstatus.h
-    appcontroller.h
-    appcoordinateoperationhandlers.h
-    appexpressioncontextscopesgenerator.h
-    appinterface.h
-    audioanalyzer.h
-    audiorecorder.h
-    barcodedecoder.h
-    bookmarkmodel.h
-    cameraorientationnormalizer.h
-    digitizinglogger.h
-    distancearea.h
-    drawingcanvas.h
-    externalstorage.h
-    featureexpressionvaluesgatherer.h
-    featurelistextentcontroller.h
-    featurelistmodel.h
-    featurelistmodelselection.h
-    featuremodel.h
-    geometry.h
-    gridmodel.h
-    identifytool.h
-    featurehistory.h
-    layerresolver.h
-    layertreemapcanvasbridge.h
-    layertreemodel.h
-    linepolygonshape.h
-    maplayermodel.h
-    maptoscreen.h
-    multifeaturelistmodel.h
-    multifeaturelistmodelbase.h
-    navigation.h
-    navigationmodel.h
-    nearfieldreader.h
-    peliasgeocoder.h
-    resourcesource.h
-    translatormanager.h
-    projectinfo.h
-    projectsource.h
+    locator/qfactivelayerfeatureslocatorfilter.h
+    locator/qfbookmarklocatorfilter.h
+    locator/qfexpressioncalculatorlocatorfilter.h
+    locator/qffeatureslocatorfilter.h
+    locator/qffinlandlocatorfilter.h
+    locator/qfgotolocatorfilter.h
+    locator/qfhelplocatorfilter.h
+    locator/qflocatorfilter.h
+    locator/qflocatormodelsuperbridge.h
+    positioning/qfabstractgnssreceiver.h
+    positioning/qfgnsspositioninformation.h
+    positioning/qfpositioning.h
+    positioning/qfpositioningsource.h
+    positioning/qfpositioningdevicemodel.h
+    positioning/qfinternalgnssreceiver.h
+    positioning/qfnmeagnssreceiver.h
+    positioning/qfegenioussreceiver.h
+    positioning/qffilereceiver.h
+    positioning/qfntripclient.h
+    positioning/qfntripsettings.h
+    positioning/qfntripsourcetablefetcher.h
+    positioning/qftcpreceiver.h
+    positioning/qfudpreceiver.h
+    positioning/qfgeofencer.h
+    positioning/qfpositioninginformationmodel.h
+    processing/qfprocessingalgorithm.h
+    processing/qfprocessingalgorithmparametersmodel.h
+    processing/qfprocessingalgorithmsmodel.h
+    qfieldcloud/qfdeltafilewrapper.h
+    qfieldcloud/qfdeltalistmodel.h
+    qfieldcloud/qflayerobserver.h
+    qfieldcloud/qfnetworkmanager.h
+    qfieldcloud/qfnetworkreply.h
+    qfieldcloud/qfcloudconnection.h
+    qfieldcloud/qfcloudproject.h
+    qfieldcloud/qfcloudprojectsmodel.h
+    qfieldcloud/qfcloudstatus.h
+    qfappcontroller.h
+    qfappcoordinateoperationhandlers.h
+    qfappexpressioncontextscopesgenerator.h
+    qfappinterface.h
+    qfaudioanalyzer.h
+    qfaudiorecorder.h
+    qfbarcodedecoder.h
+    qfbookmarkmodel.h
+    qfcameraorientationnormalizer.h
+    qfdigitizinglogger.h
+    qfdistancearea.h
+    qfdrawingcanvas.h
+    qfexternalstorage.h
+    qffeatureexpressionvaluesgatherer.h
+    qffeaturelistextentcontroller.h
+    qffeaturelistmodel.h
+    qffeaturelistmodelselection.h
+    qffeaturemodel.h
+    qfgeometry.h
+    qfgridmodel.h
+    qfidentifytool.h
+    qffeaturehistory.h
+    qflayerresolver.h
+    qflayertreemapcanvasbridge.h
+    qflayertreemodel.h
+    qflinepolygonshape.h
+    qfmaplayermodel.h
+    qfmaptoscreen.h
+    qfmultifeaturelistmodel.h
+    qfmultifeaturelistmodelbase.h
+    qfnavigation.h
+    qfnavigationmodel.h
+    qfnearfieldreader.h
+    qfpeliasgeocoder.h
+    qfresourcesource.h
+    qftranslatormanager.h
+    qfprojectinfo.h
+    qfprojectsource.h
     qfieldcoreqmlregistration.h
-    qfieldxmlhttprequest.h
+    qfxmlhttprequest.h
     qgsgeometrywrapper.h
     qgsgpkgflusher.h
-    rubberbandshape.h
-    rubberbandmodel.h
-    scalebarmeasurement.h
-    settings.h
-    snappingresult.h
-    submodel.h
-    tracker.h
-    trackingmodel.h
-    vertexmodel.h
-    videosinkcapture.h
-    viewstatus.h
-    webdavconnection.h
+    qfrubberbandshape.h
+    qfrubberbandmodel.h
+    qfscalebarmeasurement.h
+    qfsettings.h
+    qfsnappingresult.h
+    qfsubmodel.h
+    qftracker.h
+    qftrackingmodel.h
+    qfvertexmodel.h
+    qfvideosinkcapture.h
+    qfviewstatus.h
+    qfwebdavconnection.h
     ${CMAKE_CURRENT_BINARY_DIR}/qfield.h)
 
 if(WITH_BLUETOOTH)
-  list(APPEND QFIELD_CORE_SRCS positioning/bluetoothdevicemodel.cpp
-       positioning/bluetoothreceiver.cpp
-       positioning/bluetoothlowenergyreceiver.cpp)
-  list(APPEND QFIELD_CORE_HDRS positioning/bluetoothdevicemodel.h
-       positioning/bluetoothreceiver.h positioning/bluetoothlowenergyreceiver.h)
+  list(APPEND QFIELD_CORE_SRCS positioning/qfbluetoothdevicemodel.cpp
+       positioning/qfbluetoothreceiver.cpp
+       positioning/qfbluetoothlowenergyreceiver.cpp)
+  list(APPEND QFIELD_CORE_HDRS positioning/qfbluetoothdevicemodel.h
+       positioning/qfbluetoothreceiver.h
+       positioning/qfbluetoothlowenergyreceiver.h)
 endif()
 
 if(WITH_SERIALPORT)
-  list(APPEND QFIELD_CORE_SRCS positioning/serialportmodel.cpp
-       positioning/serialportreceiver.cpp)
-  list(APPEND QFIELD_CORE_HDRS positioning/serialportmodel.h
-       positioning/serialportreceiver.h)
+  list(APPEND QFIELD_CORE_SRCS positioning/qfserialportmodel.cpp
+       positioning/qfserialportreceiver.cpp)
+  list(APPEND QFIELD_CORE_HDRS positioning/qfserialportmodel.h
+       positioning/qfserialportreceiver.h)
 endif()
 
 if(ANDROID)
   set(QFIELD_CORE_HDRS
       ${QFIELD_CORE_HDRS}
-      platforms/android/androidplatformutilities.h
-      platforms/android/androidresourcesource.h
-      platforms/android/androidviewstatus.h
-      platforms/android/androidprojectsource.h
+      platforms/android/qfandroidplatformutilities.h
+      platforms/android/qfandroidresourcesource.h
+      platforms/android/qfandroidviewstatus.h
+      platforms/android/qfandroidprojectsource.h
       ${CMAKE_CURRENT_BINARY_DIR}/qfield_android.h)
   set(QFIELD_CORE_SRCS
       ${QFIELD_CORE_SRCS}
-      platforms/android/androidplatformutilities.cpp
-      platforms/android/androidresourcesource.cpp
-      platforms/android/androidviewstatus.cpp
-      platforms/android/androidprojectsource.cpp)
+      platforms/android/qfandroidplatformutilities.cpp
+      platforms/android/qfandroidresourcesource.cpp
+      platforms/android/qfandroidviewstatus.cpp
+      platforms/android/qfandroidprojectsource.cpp)
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
   set(QFIELD_CORE_HDRS
-      ${QFIELD_CORE_HDRS} platforms/ios/iosplatformutilities.h
-      platforms/ios/iosresourcesource.h platforms/ios/iosprojectsource.h)
+      ${QFIELD_CORE_HDRS} platforms/ios/qfiosplatformutilities.h
+      platforms/ios/qfiosresourcesource.h platforms/ios/qfiosprojectsource.h)
   set(QFIELD_CORE_SRCS
-      ${QFIELD_CORE_SRCS} platforms/ios/iosplatformutilities.mm
-      platforms/ios/iosresourcesource.mm platforms/ios/iosprojectsource.mm)
+      ${QFIELD_CORE_SRCS} platforms/ios/qfiosplatformutilities.mm
+      platforms/ios/qfiosresourcesource.mm platforms/ios/qfiosprojectsource.mm)
 endif()
 
 find_package(SQLite3 REQUIRED)
@@ -420,7 +421,7 @@ if(MSVC)
 endif()
 
 # generate_export_header() writes qfield_core_export.h into the build tree, and
-# installed public headers (qgsquickmapsettings.h, platformutilities.h, ...)
+# installed public headers (qgsquickmapsettings.h, qfplatformutilities.h, ...)
 # include it, so it has to ship alongside them.
 install(FILES ${QFIELD_CORE_HDRS}
               "${CMAKE_CURRENT_BINARY_DIR}/qfield_core_export.h"

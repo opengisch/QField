@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appinterface.h"
+#include "qfappinterface.h"
 #include "qfieldurlhandler.h"
 
 QFieldUrlHandler::QFieldUrlHandler( AppInterface *iface, QObject *parent )

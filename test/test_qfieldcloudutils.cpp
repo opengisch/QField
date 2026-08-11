@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "qfieldcloud/qfieldcloudconnection.h"
-#include "utils/qfieldcloudutils.h"
+#include "qfieldcloud/qfcloudconnection.h"
+#include "utils/qfcloudutils.h"
 
 #include <QJsonObject>
 

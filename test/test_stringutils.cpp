@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "utils/stringutils.h"
+#include "utils/qfstringutils.h"
 
 
 TEST_CASE( "StringUtils" )

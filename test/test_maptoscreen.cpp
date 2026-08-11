@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "maptoscreen.h"
+#include "qfmaptoscreen.h"
 #include "qgsquickmapsettings.h"
 
 #include <QSignalSpy>

@@ -17,7 +17,7 @@
 
 #include "catch2.h"
 #include "qgsvectorlayer.h"
-#include "utils/featureutils.h"
+#include "utils/qffeatureutils.h"
 
 
 TEST_CASE( "FeatureUtils" )

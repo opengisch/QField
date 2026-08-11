@@ -13,7 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
+#include "qfplatformutilities.h"
 #include "screendimmer.h"
 
 #include <QEvent>

@@ -15,10 +15,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appexpressioncontextscopesgenerator.h"
 #include "catch2.h"
-#include "featuremodel.h"
-#include "gnsspositioninformation.h"
+#include "qfappexpressioncontextscopesgenerator.h"
+#include "qffeaturemodel.h"
+#include "qfgnsspositioninformation.h"
 
 #include <QAbstractItemModelTester>
 #include <qgsvectorlayer.h>

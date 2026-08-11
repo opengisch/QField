@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 
-#include "bookmarkmodel.h"
 #include "catch2.h"
+#include "qfbookmarkmodel.h"
 
 #include <QSignalSpy>
 #include <qgsapplication.h>

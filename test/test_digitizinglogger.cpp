@@ -17,7 +17,7 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "digitizinglogger.h"
+#include "qfdigitizinglogger.h"
 
 #include <qgscoordinatereferencesystem.h>
 

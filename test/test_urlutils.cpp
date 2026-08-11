@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "utils/urlutils.h"
+#include "utils/qfurlutils.h"
 
 #include <QDebug>
 #include <QFileInfo>

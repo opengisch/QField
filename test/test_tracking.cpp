@@ -17,14 +17,14 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "featuremodel.h"
-#include "geometry.h"
-#include "positioning.h"
+#include "qffeaturemodel.h"
+#include "qfgeometry.h"
+#include "qfpositioning.h"
+#include "qfrubberbandmodel.h"
+#include "qftracker.h"
+#include "qftrackingmodel.h"
 #include "qgsquick/qgsquickcoordinatetransformer.h"
-#include "rubberbandmodel.h"
-#include "tracker.h"
-#include "trackingmodel.h"
-#include "utils/featureutils.h"
+#include "utils/qffeatureutils.h"
 
 #include <QEventLoop>
 #include <QTimer>

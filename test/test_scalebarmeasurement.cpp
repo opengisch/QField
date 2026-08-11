@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
+#include "qfscalebarmeasurement.h"
 #include "qgsquickmapsettings.h"
-#include "scalebarmeasurement.h"
 
 #include <QSignalSpy>
 #include <qgscoordinatereferencesystem.h>

@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "featurehistory.h"
-#include "utils/featureutils.h"
+#include "qffeaturehistory.h"
+#include "utils/qffeatureutils.h"
 
 #include <QEventLoop>
 #include <qgsproject.h>

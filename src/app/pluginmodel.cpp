@@ -14,9 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "pluginmanager.h"
 #include "pluginmodel.h"
+#include "qfplatformutilities.h"
 #include "qgsnetworkaccessmanager.h"
 
 #include <QDir>

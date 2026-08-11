@@ -16,8 +16,8 @@
 #ifndef QFIELDPOSITIONINGSERVICE_H
 #define QFIELDPOSITIONINGSERVICE_H
 
-#include "positioningsource.h"
 #include "qfield_service_export.h"
+#include "qfpositioningsource.h"
 
 #include <QRemoteObjectHost>
 #include <QTimer>

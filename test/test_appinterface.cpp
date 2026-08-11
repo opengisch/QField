@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appinterface.h"
 #include "catch2.h"
+#include "qfappinterface.h"
 
 
 TEST_CASE( "AppInterface" )

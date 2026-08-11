@@ -16,7 +16,7 @@
 
 
 #include "clipboardmanager.h"
-#include "featureutils.h"
+#include "qffeatureutils.h"
 
 #include <QApplication>
 #include <QDomDocument>

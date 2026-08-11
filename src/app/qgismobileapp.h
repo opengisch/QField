@@ -29,20 +29,20 @@
 #include <qgsunittypes.h>
 
 // QField includes
-#include "appcontroller.h"
-#include "appcoordinateoperationhandlers.h"
-#include "bookmarkmodel.h"
 #include "clipboardmanager.h"
-#include "cogoregistry.h"
-#include "drawingtemplatemodel.h"
-#include "focusstack.h"
 #include "pluginmanager.h"
+#include "qfappcontroller.h"
+#include "qfappcoordinateoperationhandlers.h"
+#include "qfbookmarkmodel.h"
+#include "qfcogoregistry.h"
+#include "qfdrawingtemplatemodel.h"
+#include "qffocusstack.h"
 #include "qfield_app_export.h"
 #include "qfieldappauthrequesthandler.h"
 #include "qfieldurlhandler.h"
+#include "qfsettings.h"
 #include "qgsgpkgflusher.h"
 #include "screendimmer.h"
-#include "settings.h"
 
 class AppInterface;
 class AppMissingGridHandler;

@@ -1,6 +1,6 @@
 #include "catch2.h"
-#include "identifytool.h"
-#include "multifeaturelistmodel.h"
+#include "qfidentifytool.h"
+#include "qfmultifeaturelistmodel.h"
 #include "qgsquickmapsettings.h"
 
 #include <QPointF>

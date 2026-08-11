@@ -17,12 +17,12 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "cogoexecutor.h"
-#include "cogooperation.h"
-#include "cogooperationsmodel.h"
-#include "cogoregistry.h"
+#include "qfcogoexecutor.h"
+#include "qfcogooperation.h"
+#include "qfcogooperationsmodel.h"
+#include "qfcogoregistry.h"
+#include "qfrubberbandmodel.h"
 #include "qgsquickmapsettings.h"
-#include "rubberbandmodel.h"
 
 #include <QSignalSpy>
 #include <qgscoordinatereferencesystem.h>

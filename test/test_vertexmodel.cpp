@@ -16,9 +16,9 @@
  ***************************************************************************/
 
 #include "catch2.h"
+#include "qfvertexmodel.h"
 #include "qgsgeometry.h"
 #include "qgsquickmapsettings.h"
-#include "vertexmodel.h"
 
 #include <QAbstractItemModelTester>
 #include <qgsapplication.h>

@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "layerobserver.h"
-#include "utils/qfieldcloudutils.h"
+#include "qflayerobserver.h"
+#include "utils/qfcloudutils.h"
 
 QStringList getDeltaOperations( QString fileName )
 {

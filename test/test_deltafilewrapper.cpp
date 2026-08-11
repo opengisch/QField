@@ -18,11 +18,11 @@
 #define QFIELDTEST_MAIN
 
 #include "catch2.h"
-#include "deltafilewrapper.h"
+#include "qfdeltafilewrapper.h"
 #include "qfield.h"
 #include "qgsvectorlayerjoininfo.h"
-#include "utils/fileutils.h"
-#include "utils/qfieldcloudutils.h"
+#include "utils/qfcloudutils.h"
+#include "utils/qffileutils.h"
 
 #include <QFileInfo>
 #include <qgsproject.h>

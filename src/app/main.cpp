@@ -16,10 +16,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "qfield.h"
+#include "qfplatformutilities.h"
+#include "qftranslatormanager.h"
 #include "qgismobileapp.h"
-#include "translatormanager.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif

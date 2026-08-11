@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "maplayermodel.h"
-#include "trackingmodel.h"
+#include "qfmaplayermodel.h"
+#include "qftrackingmodel.h"
 
 #include <QSignalSpy>
 #include <qgsfield.h>

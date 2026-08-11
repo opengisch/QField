@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "pluginmanager.h"
+#include "qfplatformutilities.h"
 #include "qgsziputils.h"
 
 #include <QCoreApplication>

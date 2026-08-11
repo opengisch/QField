@@ -13,7 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
+#include "qfplatformutilities.h"
 #include "qgsquickcoordinatetransformer.h"
 
 #include <QFile>

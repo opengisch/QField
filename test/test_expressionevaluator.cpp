@@ -15,10 +15,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appexpressioncontextscopesgenerator.h"
 #include "catch2.h"
-#include "expressionevaluator.h"
-#include "positioningutils.h"
+#include "qfappexpressioncontextscopesgenerator.h"
+#include "qfexpressionevaluator.h"
+#include "qfpositioningutils.h"
 
 #include <QTemporaryFile>
 #include <qgsvectorlayer.h>

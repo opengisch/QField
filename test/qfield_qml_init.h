@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "layerutils.h"
+#include "qflayerutils.h"
 
 #include <QQmlContext>
 #include <QQmlEngine>

@@ -14,10 +14,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "abstractgnssreceiver.h"
-#include "positioningsource.h"
+#include "qfabstractgnssreceiver.h"
 #include "qfield_android.h"
 #include "qfieldpositioningservice.h"
+#include "qfpositioningsource.h"
 
 #include <QFile>
 #include <QJniObject>

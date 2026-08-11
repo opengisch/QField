@@ -17,8 +17,8 @@
 
 
 #include "catch2.h"
-#include "rubberbandmodel.h"
-#include "utils/geometryutils.h"
+#include "qfrubberbandmodel.h"
+#include "utils/qfgeometryutils.h"
 
 #include <qgis.h>
 #include <qgsproject.h>

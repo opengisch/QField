@@ -16,9 +16,9 @@
  ***************************************************************************/
 
 #define QFIELDTEST_MAIN
-#include "attributeformmodel.h"
 #include "catch2.h"
-#include "featuremodel.h"
+#include "qfattributeformmodel.h"
+#include "qffeaturemodel.h"
 
 #include <QAbstractItemModelTester>
 
