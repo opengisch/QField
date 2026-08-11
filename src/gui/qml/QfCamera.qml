@@ -16,8 +16,7 @@ Popup {
 
   property bool isCapturing: false
 
-  readonly property bool isAiming: state == "PhotoCapture" || state == "VideoCapture"
-  readonly property bool isReady: isCapturing && isAiming
+  readonly property bool isReady: !isCapturing && (state == "PhotoCapture" || state == "VideoCapture")
   readonly property bool isPortraitMode: mainWindow.height > mainWindow.width
 
   property string currentPath: ''
@@ -202,7 +201,7 @@ Popup {
           CameraOrientationNormalizer {
             id: orientationNormalizer
             cameraPosition: {
-              let device = camera.cameraDevice;
+              const device = camera.cameraDevice;
               if (device.position === CameraDevice.FrontFace) {
                 return CameraOrientationNormalizer.FrontFace;
               }
@@ -233,7 +232,7 @@ Popup {
           VideoOutput {
             id: videoOutput
             anchors.fill: parent
-            visible: cameraItem.isAiming
+            visible: cameraItem.state == "PhotoCapture" || cameraItem.state == "VideoCapture"
             orientation: orientationNormalizer.previewRotation
           }
 
@@ -957,8 +956,7 @@ Popup {
 
     QfToolButtonDrawer {
       name: "cameraSettingsDrawer"
-      visible: cameraItem.isAiming
-
+      visible: cameraItem.isReady
       anchors.left: parent.left
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
       anchors.top: backButton.bottom
@@ -1093,15 +1091,8 @@ Popup {
             if (checked && cameraSettings.deviceId !== modelData.id) {
               cameraSettings.deviceId = modelData.id;
               if (captureLoader.item) {
-                if (Qt.platform.os === "ios") {
-                  captureLoader.item.camera.restarting = true;
-                  captureLoader.item.camera.cameraDevice = modelData;
-                  captureLoader.item.camera.applyCameraFormat();
-                  captureLoader.item.camera.restarting = false;
-                } else {
-                  captureLoader.item.camera.cameraDevice = modelData;
-                  captureLoader.item.camera.applyCameraFormat();
-                }
+                captureLoader.item.camera.cameraDevice = modelData;
+                captureLoader.item.camera.applyCameraFormat();
               }
             }
           }
