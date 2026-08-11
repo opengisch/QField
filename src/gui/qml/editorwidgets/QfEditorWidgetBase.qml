@@ -11,7 +11,7 @@ Item {
    */
   property bool isLoaded: false
   property bool hasMenu: false
-  readonly property bool isNull: FeatureUtils.attributeIsNull(value)
+  readonly property bool isNull: QfFeatureUtils.attributeIsNull(value)
   readonly property bool isEmpty: value === ''
 
   property Menu menu: QfMenu {

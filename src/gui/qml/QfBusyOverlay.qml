@@ -18,7 +18,7 @@ Rectangle {
   signal actionClicked
 
   anchors.fill: parent
-  color: Theme.darkGraySemiOpaque
+  color: QfTheme.darkGraySemiOpaque
   opacity: 0
   visible: false
 
@@ -98,7 +98,7 @@ Rectangle {
     anchors.centerIn: parent
     width: Math.min(parent.width * 0.8, 420)
     height: contentColumn.height + 24
-    color: Theme.mainBackgroundColor
+    color: QfTheme.mainBackgroundColor
     radius: 12
     z: 2
 
@@ -112,8 +112,8 @@ Rectangle {
         id: busyMessage
         Layout.fillWidth: true
         horizontalAlignment: Text.AlignLeft
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
         text: ''
         wrapMode: Text.Wrap
         visible: text.length > 0
@@ -143,7 +143,7 @@ Rectangle {
           background: Rectangle {
             implicitHeight: 6
             radius: 3
-            color: Theme.controlBackgroundAlternateColor
+            color: QfTheme.controlBackgroundAlternateColor
           }
 
           contentItem: Item {
@@ -153,7 +153,7 @@ Rectangle {
               width: busyProgress.visualPosition * parent.width
               height: parent.height
               radius: 3
-              color: Theme.mainColor
+              color: QfTheme.mainColor
 
               Behavior on width {
                 NumberAnimation {
@@ -169,8 +169,8 @@ Rectangle {
           Layout.fillWidth: true
           horizontalAlignment: Text.AlignRight
           text: Math.round(busyProgress.value * 100) + "%"
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
         }
       }
 
@@ -181,8 +181,8 @@ Rectangle {
         horizontalAlignment: Text.AlignRight
         visible: busyOverlay.actionText !== ""
         text: busyOverlay.actionText
-        font: Theme.defaultFont
-        color: Theme.mainColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainColor
 
         MouseArea {
           anchors.fill: parent

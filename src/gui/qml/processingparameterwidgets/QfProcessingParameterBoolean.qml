@@ -20,8 +20,8 @@ QfProcessingParameterWidgetBase {
 
       anchors.verticalCenter: parent.verticalCenter
       width: parent.width - checkBox.width
-      font.pointSize: Theme.defaultFont.pointSize
-      font.bold: Theme.defaultFont.bold
+      font.pointSize: QfTheme.defaultFont.pointSize
+      font.bold: QfTheme.defaultFont.bold
 
       text: value ? qsTr("True") : qsTr("False")
     }

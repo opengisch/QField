@@ -16,7 +16,7 @@ Item {
   property alias deviceInterval: interval.text
 
   function generateName() {
-    return FileUtils.fileName(deviceFilePath) + ' (' + deviceInterval + ' ms)';
+    return QfFileUtils.fileName(deviceFilePath) + ' (' + deviceInterval + ' ms)';
   }
 
   function setSettings(settings) {
@@ -43,17 +43,17 @@ Item {
       TextField {
         id: filePath
         Layout.fillWidth: true
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         placeholderText: qsTr("File path")
         text: ''
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       }
       QfToolButton {
-        width: Theme.toolButtonSize
-        height: Theme.toolButtonSize
+        width: QfTheme.toolButtonSize
+        height: QfTheme.toolButtonSize
 
-        iconSource: Theme.getThemeVectorIcon("ic_folder_open_black_24dp")
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_folder_open_black_24dp")
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
 
         onClicked: {
@@ -65,7 +65,7 @@ Item {
     TextField {
       id: interval
       Layout.fillWidth: true
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       placeholderText: qsTr("Interval (in milliseconds)")
       text: '100'
       inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -74,6 +74,6 @@ Item {
 
   FileDialog {
     id: fileDialog
-    onAccepted: filePath.text = UrlUtils.toLocalFile(selectedFile)
+    onAccepted: filePath.text = QfUrlUtils.toLocalFile(selectedFile)
   }
 }

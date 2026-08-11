@@ -10,7 +10,7 @@ import org.qfield.gui
 QfVisibilityFadingRow {
   id: digitizingToolbar
 
-  property RubberbandModel rubberbandModel
+  property QfRubberbandModel rubberbandModel
   property MapSettings mapSettings
 
   property bool cogoEnabled: false
@@ -58,7 +58,7 @@ QfVisibilityFadingRow {
     }
   }
 
-  DigitizingLogger {
+  QfDigitizingLogger {
     id: digitizingLogger
 
     project: qgisProject
@@ -73,10 +73,10 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: cancelButton
-    iconSource: Theme.getThemeVectorIcon("ic_clear_white_24dp")
+    iconSource: QfTheme.getThemeVectorIcon("ic_clear_white_24dp")
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: Theme.darkRed
+    bgcolor: QfTheme.darkRed
 
     onClicked: {
       dashBoard.shouldReturnHome = false;
@@ -92,7 +92,7 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: confirmButton
-    iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
+    iconSource: QfTheme.getThemeVectorIcon("ic_check_white_24dp")
     visible: {
       if (!showConfirmButton) {
         false;
@@ -101,7 +101,7 @@ QfVisibilityFadingRow {
       }
     }
     round: true
-    bgcolor: !enabled ? Theme.toolButtonBackgroundSemiOpaqueColor : Theme.mainColor
+    bgcolor: !enabled ? QfTheme.toolButtonBackgroundSemiOpaqueColor : QfTheme.mainColor
 
     onClicked: {
       dashBoard.shouldReturnHome = false;
@@ -129,7 +129,7 @@ QfVisibilityFadingRow {
       digitizingToolbar.requestPosition(item, fromCoordinateLocator);
     }
 
-    CogoExecutor {
+    QfCogoExecutor {
       id: cogoExecutor
 
       name: digitizingToolbar.cogoOperationSettings ? digitizingToolbar.cogoOperationSettings.name : ""
@@ -162,11 +162,11 @@ QfVisibilityFadingRow {
 
   QfToolButton {
     id: removeVertexButton
-    iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
-    iconColor: Theme.toolButtonColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+    iconColor: QfTheme.toolButtonColor
     visible: rubberbandModel && rubberbandModel.vertexCount > 1
     round: true
-    bgcolor: Theme.toolButtonBackgroundColor
+    bgcolor: QfTheme.toolButtonBackgroundColor
 
     onPressed: {
       removeVertex();
@@ -187,17 +187,17 @@ QfVisibilityFadingRow {
     enabled: (cogoEnabled && cogoExecutor.isReady) || (!cogoEnabled && !screenHovering)
     bgcolor: {
       if (!enabled) {
-        Theme.toolButtonBackgroundSemiOpaqueColor;
+        QfTheme.toolButtonBackgroundSemiOpaqueColor;
       } else if (!showConfirmButton) {
-        Theme.toolButtonBackgroundColor;
+        QfTheme.toolButtonBackgroundColor;
       } else if (Number(rubberbandModel ? rubberbandModel.geometryType : 0) === Qgis.GeometryType.Point || Number(rubberbandModel.geometryType) === Qgis.GeometryType.Null) {
-        Theme.mainColor;
+        QfTheme.mainColor;
       } else {
-        Theme.toolButtonBackgroundColor;
+        QfTheme.toolButtonBackgroundColor;
       }
     }
-    iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
-    iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+    iconColor: enabled ? QfTheme.toolButtonColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
 
     property bool lastAdditionAveraged: false
     property bool averagedPositionPressAndHeld: false

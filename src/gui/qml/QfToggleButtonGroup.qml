@@ -35,7 +35,7 @@ Item {
   /**
    * Minimum width for buttons to handle empty text gracefully
    */
-  property real buttonMininumWidth: Theme.toolButtonSize
+  property real buttonMininumWidth: QfTheme.toolButtonSize
 
   /**
    * Spacing between buttons
@@ -75,8 +75,8 @@ Item {
         width: visible ? Math.max(toggleButtonGroup.buttonMininumWidth, Math.min(flow.width - 16, innerText.implicitWidth + 16)) : 0
         height: visible ? Material.textFieldHeight : 0
         radius: 4
-        color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainColor : Theme.controlBorderColor : "transparent"
-        border.color: toggleButtonGroup.editing ? selected ? Theme.mainColor : mouseArea.containsMouse ? Material.primaryTextColor : Material.hintTextColor : "transparent"
+        color: selected ? toggleButtonGroup.editable && toggleButtonGroup.editing ? QfTheme.mainColor : QfTheme.controlBorderColor : "transparent"
+        border.color: toggleButtonGroup.editing ? selected ? QfTheme.mainColor : mouseArea.containsMouse ? Material.primaryTextColor : Material.hintTextColor : "transparent"
         border.width: 1
 
         Behavior on color {
@@ -92,7 +92,7 @@ Item {
           elide: Text.ElideRight
           anchors.centerIn: parent
           font: fontMetrics.font
-          color: !toggleButtonGroup.editable && toggleButtonGroup.editing ? Theme.mainTextDisabledColor : selected && toggleButtonGroup.editing ? Theme.buttonColor : Theme.mainTextColor
+          color: !toggleButtonGroup.editable && toggleButtonGroup.editing ? QfTheme.mainTextDisabledColor : selected && toggleButtonGroup.editing ? QfTheme.buttonColor : QfTheme.mainTextColor
         }
 
         MouseArea {
@@ -121,7 +121,7 @@ Item {
             height: parent.height
             pressed: mouseArea.pressed
             anchor: parent
-            color: Theme.darkTheme ? "#22ffffff" : "#22000000"
+            color: QfTheme.darkTheme ? "#22ffffff" : "#22000000"
           }
         }
       }
@@ -130,6 +130,6 @@ Item {
 
   FontMetrics {
     id: fontMetrics
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
   }
 }

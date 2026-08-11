@@ -16,9 +16,9 @@
  ***************************************************************************/
 
 #include "catch2.h"
+#include "qfvertexmodel.h"
 #include "qgsgeometry.h"
 #include "qgsquickmapsettings.h"
-#include "vertexmodel.h"
 
 #include <QAbstractItemModelTester>
 #include <qgsapplication.h>
@@ -34,7 +34,7 @@ using Catch::Approx;
 class VertexModelTest
 {
   public:
-    static void setCurrentVertex( std::unique_ptr<VertexModel> &model, int newVertex, bool forceUpdate = false )
+    static void setCurrentVertex( std::unique_ptr<QfVertexModel> &model, int newVertex, bool forceUpdate = false )
     {
       model->setCurrentVertex( newVertex, forceUpdate );
     }
@@ -43,7 +43,7 @@ class VertexModelTest
 
 TEST_CASE( "VertexModel" )
 {
-  std::unique_ptr<VertexModel> model = std::make_unique<VertexModel>();
+  std::unique_ptr<QfVertexModel> model = std::make_unique<QfVertexModel>();
 
   QgsLineString *lineString = new QgsLineString( QVector<QgsPoint>() << QgsPoint( 0, 0 ) << QgsPoint( 2, 2 ) << QgsPoint( 4, 4 ) );
   QgsGeometry lineGeometry( lineString );
@@ -136,13 +136,13 @@ TEST_CASE( "VertexModel" )
     // line
     model->setGeometry( lineGeometry );
     REQUIRE( !model->canRemoveVertex() );
-    model->setEditingMode( VertexModel::EditVertex );
+    model->setEditingMode( QfVertexModel::EditVertex );
     REQUIRE( model->canRemoveVertex() );
 
-    model->setEditingMode( VertexModel::NoEditing );
-    REQUIRE( model->editingMode() == VertexModel::NoEditing );
+    model->setEditingMode( QfVertexModel::NoEditing );
+    REQUIRE( model->editingMode() == QfVertexModel::NoEditing );
     VertexModelTest::setCurrentVertex( model, 1 );
-    REQUIRE( model->editingMode() == VertexModel::EditVertex );
+    REQUIRE( model->editingMode() == QfVertexModel::EditVertex );
 
     REQUIRE( model->vertexCount() == 7 );
     model->removeCurrentVertex();
@@ -151,7 +151,7 @@ TEST_CASE( "VertexModel" )
 
     // polygon
     model->setGeometry( polygonGeometry );
-    REQUIRE( model->editingMode() == VertexModel::NoEditing );
+    REQUIRE( model->editingMode() == QfVertexModel::NoEditing );
     REQUIRE( !model->canRemoveVertex() );
     VertexModelTest::setCurrentVertex( model, 1 );
     REQUIRE( model->vertexCount() == 8 );
@@ -164,14 +164,14 @@ TEST_CASE( "VertexModel" )
   {
     model->setGeometry( polygonGeometry );
     REQUIRE( model->vertexCount() == 8 );
-    model->setEditingMode( VertexModel::AddVertex );
+    model->setEditingMode( QfVertexModel::AddVertex );
     VertexModelTest::setCurrentVertex( model, 0 );
     model->setCurrentPoint( QgsPoint( -3, 0 ) );
     REQUIRE( model->vertexCount() == 10 );
 
     model->setGeometry( polygonZMGeometry );
     REQUIRE( model->vertexCount() == 8 );
-    model->setEditingMode( VertexModel::AddVertex );
+    model->setEditingMode( QfVertexModel::AddVertex );
     VertexModelTest::setCurrentVertex( model, 0 );
     model->setCurrentPoint( QgsPoint( -3, 0 ) );
     REQUIRE( model->vertexCount() == 10 );
@@ -179,7 +179,7 @@ TEST_CASE( "VertexModel" )
     REQUIRE( model->vertices().at( 1 ).point == QgsPoint( -3, 0, 0, 0 ) );
 
     model->setGeometry( lineGeometry );
-    model->setEditingMode( VertexModel::AddVertex );
+    model->setEditingMode( QfVertexModel::AddVertex );
     VertexModelTest::setCurrentVertex( model, 2 );
     REQUIRE( model->currentVertexIndex() == 2 );
     REQUIRE( model->canPreviousVertex() );
@@ -190,7 +190,7 @@ TEST_CASE( "VertexModel" )
     REQUIRE( model->currentVertexIndex() == 2 );
 
     model->setGeometry( lineGeometry );
-    model->setEditingMode( VertexModel::AddVertex );
+    model->setEditingMode( QfVertexModel::AddVertex );
     VertexModelTest::setCurrentVertex( model, 0 );
     REQUIRE( model->currentVertexIndex() == 0 );
     REQUIRE( model->currentPoint() == QgsPoint( -.5, -.5 ) );
@@ -210,9 +210,9 @@ TEST_CASE( "VertexModel" )
   SECTION( "EditingMode" )
   {
     model->setGeometry( ringPolygonGeometry );
-    REQUIRE( model->editingMode() == VertexModel::NoEditing );
+    REQUIRE( model->editingMode() == QfVertexModel::NoEditing );
     REQUIRE( model->currentVertexIndex() == -1 );
-    model->setEditingMode( VertexModel::AddVertex );
+    model->setEditingMode( QfVertexModel::AddVertex );
     REQUIRE( model->currentVertexIndex() == 0 );
     REQUIRE( model->vertices().at( 0 ).currentVertex == true );
     model->setCurrentPoint( QgsPoint( 1, 0 ) );
@@ -249,21 +249,21 @@ TEST_CASE( "VertexModel" )
     model->selectVertexAtPosition( QgsPoint( 6.12515656, 46.943546146 ), 10 );
     REQUIRE( model->currentVertexIndex() == 1 );
 
-    REQUIRE( model->editingMode() == VertexModel::EditVertex );
+    REQUIRE( model->editingMode() == QfVertexModel::EditVertex );
 
-    model->setEditingMode( VertexModel::AddVertex );
+    model->setEditingMode( QfVertexModel::AddVertex );
     REQUIRE( model->currentVertexIndex() == 2 );
 
     // selecting a candidate will make it a vertex
     REQUIRE( model->vertices().count() == 7 );
     model->selectVertexAtPosition( QgsPoint( 6.12515333, 46.94354385 ), 10 );
-    REQUIRE( model->editingMode() == VertexModel::EditVertex );
+    REQUIRE( model->editingMode() == QfVertexModel::EditVertex );
     REQUIRE( model->vertices().count() == 9 );
   }
 
   SECTION( "QAbstractItemModelTester" )
   {
-    std::unique_ptr<VertexModel> modelTest = std::make_unique<VertexModel>();
+    std::unique_ptr<QfVertexModel> modelTest = std::make_unique<QfVertexModel>();
     std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

@@ -18,8 +18,8 @@ QfPopup {
   property alias author: authorText.text
 
   parent: mainWindow.contentItem
-  width: Math.min(450, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
-  height: Math.min(popupLayout.childrenRect.height + pageHeader.childrenRect.height + 30, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: Math.min(450, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
+  height: Math.min(popupLayout.childrenRect.height + pageHeader.childrenRect.height + 30, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -67,8 +67,8 @@ QfPopup {
 
           wrapMode: Text.Wrap
           text: ""
-          font: Theme.strongTitleFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongTitleFont
+          color: QfTheme.mainTextColor
         }
 
         Text {
@@ -79,8 +79,8 @@ QfPopup {
           wrapMode: Text.Wrap
           textFormat: Text.MarkdownText
           text: ""
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
         }
 
         ColumnLayout {
@@ -91,8 +91,8 @@ QfPopup {
           Text {
             id: authorLabel
             Layout.fillWidth: true
-            font: Theme.strongFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongFont
+            color: QfTheme.mainTextColor
 
             text: qsTr("Author")
           }
@@ -104,8 +104,8 @@ QfPopup {
             wrapMode: Text.Wrap
             textFormat: Text.MarkdownText
             text: ""
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
             clip: true
           }
         }

@@ -1,0 +1,83 @@
+/***************************************************************************
+
+               ----------------------------------------------------
+              date                 : 27.12.2014
+              copyright            : (C) 2014 by Matthias Kuhn
+              email                : matthias.kuhn (at) opengis.ch
+ ***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#ifndef QFFEATURELISTEXTENTCONTROLLER_H
+#define QFFEATURELISTEXTENTCONTROLLER_H
+
+#include "qffeaturelistmodelselection.h"
+#include "qfmultifeaturelistmodel.h"
+#include "qgsquickmapsettings.h"
+
+#include <QObject>
+#include <QQuickItem>
+
+/**
+ * \ingroup core
+ */
+class QfFeatureListExtentController : public QObject
+{
+    Q_OBJECT
+
+    Q_PROPERTY( QfMultiFeatureListModel *model MEMBER mModel NOTIFY modelChanged )
+    Q_PROPERTY( QfFeatureListModelSelection *selection MEMBER mSelection NOTIFY selectionChanged )
+    Q_PROPERTY( bool autoZoom MEMBER mAutoZoom NOTIFY autoZoomChanged )
+    Q_PROPERTY( bool keepScale MEMBER mKeepScale NOTIFY keepScaleChanged )
+    Q_PROPERTY( QgsQuickMapSettings *mapSettings MEMBER mMapSettings NOTIFY mapSettingsChanged )
+
+  public:
+    explicit QfFeatureListExtentController( QObject *parent = nullptr );
+    ~QfFeatureListExtentController();
+
+    //! Returns the selection of the feature list model
+    QfFeatureListModelSelection *selection() const;
+
+    //! Returns the feature list model
+    QfMultiFeatureListModel *model() const;
+
+    //! This will emit a signal to request a state change in the feature form
+    void requestFeatureFormState();
+
+  public slots:
+    //! zoom to the selected features.
+    //! If \a skipIfIntersects is true, no change will be applied if bounding box intersects with canvas extent
+    void zoomToSelected( bool skipIfIntersects = false ) const;
+
+    //! Zoom to the combined extent of all features in the model
+    void zoomToAllFeatures() const;
+
+    QgsPoint getCentroidFromSelected() const;
+
+  signals:
+    void autoZoomChanged();
+    void keepScaleChanged();
+    void selectionChanged();
+    void modelChanged();
+    void mapSettingsChanged();
+    void featureFormStateRequested();
+    void requestJumpToPoint( const QgsPoint &center, const double &scale = -1.0, bool handleMargins = false ) const;
+
+  private slots:
+    void onModelChanged();
+    void onCurrentSelectionChanged();
+
+  private:
+    QfMultiFeatureListModel *mModel = nullptr;
+    QfFeatureListModelSelection *mSelection = nullptr;
+    QgsQuickMapSettings *mMapSettings = nullptr;
+    bool mAutoZoom = false;
+    bool mKeepScale = false;
+};
+
+#endif // QFFEATURELISTEXTENTCONTROLLER_H

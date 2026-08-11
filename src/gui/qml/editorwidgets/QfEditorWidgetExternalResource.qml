@@ -14,7 +14,7 @@ QfEditorWidgetBase {
 
   height: childrenRect.height + 4
 
-  ExpressionEvaluator {
+  QfExpressionEvaluator {
     id: rootPathEvaluator
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
@@ -58,8 +58,8 @@ QfEditorWidgetBase {
     return path;
   }
 
-  property ResourceSource __resourceSource
-  property ViewStatus __viewStatus
+  property QfResourceSource __resourceSource
+  property QfViewStatus __viewStatus
 
   // DocumentViewer enum values matching QgsExternalResourceWidget::DocumentViewerContent, check
   // https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79
@@ -83,10 +83,10 @@ QfEditorWidgetBase {
     if (currentValue != undefined && currentValue !== '') {
       const isHttp = value.startsWith('http://') || value.startsWith('https://');
       const fullValue = isHttp ? value : prefixToRelativePath + value;
-      if (!isHttp && !FileUtils.fileExists(fullValue)) {
+      if (!isHttp && !QfFileUtils.fileExists(fullValue)) {
         prepareValue("");
         if (externalStorage.type != "") {
-          if (config["StorageAuthConfigId"] !== "" && !AuthUtils.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
+          if (config["StorageAuthConfigId"] !== "" && !QfAuthUtils.isAuthenticationConfigurationAvailable(config["StorageAuthConfigId"])) {
             mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(appName), "error", qsTr("Learn more"), function () {
               Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
             });
@@ -114,8 +114,8 @@ QfEditorWidgetBase {
 
   function prepareValue(fullValue) {
     if (fullValue != "" && !config.UseLink) { // coercion needed
-      const mimeType = FileUtils.mimeTypeName(fullValue);
-      isImage = mimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(mimeType);
+      const mimeType = QfFileUtils.mimeTypeName(fullValue);
+      isImage = mimeType.startsWith("image/") && QfFileUtils.isImageMimeTypeSupported(mimeType);
       isAudio = mimeType.startsWith("audio/");
       isVideo = mimeType.startsWith("video/");
     } else {
@@ -130,7 +130,7 @@ QfEditorWidgetBase {
       image.visible = true;
       image.opacity = 1;
       image.anchors.topMargin = 0;
-      image.source = UrlUtils.fromString(fullValue);
+      image.source = QfUrlUtils.fromString(fullValue);
       geoTagBadge.visible = true;
       geoTagBadge.hasGeoTag = ExifTools.hasGeoTag(fullValue);
 
@@ -147,7 +147,7 @@ QfEditorWidgetBase {
       geoTagBadge.visible = false;
 
       player.firstFrameDrawn = false;
-      player.sourceUrl = UrlUtils.fromString(fullValue);
+      player.sourceUrl = QfUrlUtils.fromString(fullValue);
 
       audioSourcePath = fullValue;
       audioAnalyzer.analyze(player.sourceUrl);
@@ -160,7 +160,7 @@ QfEditorWidgetBase {
       geoTagBadge.visible = false;
 
       player.firstFrameDrawn = false;
-      player.sourceUrl = UrlUtils.fromString(fullValue);
+      player.sourceUrl = QfUrlUtils.fromString(fullValue);
 
       audioSourcePath = '';
     } else {
@@ -178,7 +178,7 @@ QfEditorWidgetBase {
     }
   }
 
-  ExternalStorage {
+  QfExternalStorage {
     id: externalStorage
     type: config["StorageType"] !== undefined ? config["StorageType"] : ""
 
@@ -193,7 +193,7 @@ QfEditorWidgetBase {
     }
   }
 
-  ExpressionEvaluator {
+  QfExpressionEvaluator {
     id: expressionEvaluator
     feature: currentFeature
     layer: currentLayer
@@ -202,7 +202,7 @@ QfEditorWidgetBase {
     expressionText: ExternalResourceUtils.getAttachmentNaming(currentLayer, field.name)
   }
 
-  AudioAnalyzer {
+  QfAudioAnalyzer {
     id: audioAnalyzer
     barCount: 80
     onReady: bars => {
@@ -211,7 +211,7 @@ QfEditorWidgetBase {
   }
 
   function getResourceFilePath() {
-    return ExternalResourceUtils.getAttachmentFilePath(expressionEvaluator.evaluate(), documentViewer, FileUtils);
+    return ExternalResourceUtils.getAttachmentFilePath(expressionEvaluator.evaluate(), documentViewer, QfFileUtils);
   }
 
   Label {
@@ -229,9 +229,9 @@ QfEditorWidgetBase {
     anchors.right: cameraButton.left
     color: {
       if ((!isEditable && isEditing) || isNull || isEmpty) {
-        return Theme.mainTextDisabledColor;
+        return QfTheme.mainTextDisabledColor;
       }
-      return FileUtils.fileExists(prefixToRelativePath + value) ? Theme.mainColor : Theme.secondaryTextColor;
+      return QfFileUtils.fileExists(prefixToRelativePath + value) ? QfTheme.mainColor : QfTheme.secondaryTextColor;
     }
 
     text: {
@@ -243,17 +243,17 @@ QfEditorWidgetBase {
       let fieldValue = qsTr('No Value');
       if (hasValue) {
         fieldValue = prefixToRelativePath + currentValue;
-        if (UrlUtils.isRelativeOrFileUrl(fieldValue)) {
-          fieldValue = config.FullUrl ? fieldValue : FileUtils.fileName(fieldValue);
+        if (QfUrlUtils.isRelativeOrFileUrl(fieldValue)) {
+          fieldValue = config.FullUrl ? fieldValue : QfFileUtils.fileName(fieldValue);
         }
-        fieldValue = StringUtils.insertLinks(fieldValue);
+        fieldValue = QfStringUtils.insertLinks(fieldValue);
       }
       return fieldValue;
     }
 
-    font.pointSize: Theme.defaultFont.pointSize
+    font.pointSize: QfTheme.defaultFont.pointSize
     font.italic: !hasValue
-    font.underline: FileUtils.fileExists(prefixToRelativePath + value) || FileUtils.fileExists(value)
+    font.underline: QfFileUtils.fileExists(prefixToRelativePath + value) || QfFileUtils.fileExists(value)
     verticalAlignment: Text.AlignVCenter
     elide: Text.ElideMiddle
 
@@ -263,10 +263,10 @@ QfEditorWidgetBase {
       onClicked: {
         if (!value)
           return;
-        if (!UrlUtils.isRelativeOrFileUrl(value)) {
+        if (!QfUrlUtils.isRelativeOrFileUrl(value)) {
           // matches `http://...` but not `file://...` paths
           Qt.openUrlExternally(value);
-        } else if (FileUtils.fileExists(prefixToRelativePath + value)) {
+        } else if (QfFileUtils.fileExists(prefixToRelativePath + value)) {
           __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
       }
@@ -283,7 +283,7 @@ QfEditorWidgetBase {
     width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.isVisible
-    color: Theme.controlBorderColor
+    color: QfTheme.controlBorderColor
     radius: 5
     clip: true
 
@@ -339,7 +339,7 @@ QfEditorWidgetBase {
         fillMode: Image.PreserveAspectFit
         width: 24
         height: 24
-        source: hasGeoTag ? Theme.getThemeVectorIcon("ic_geotag_white_24dp") : Theme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
+        source: hasGeoTag ? QfTheme.getThemeVectorIcon("ic_geotag_white_24dp") : QfTheme.getThemeVectorIcon("ic_geotag_missing_white_24dp")
         sourceSize.width: 24 * Screen.devicePixelRatio
         sourceSize.height: 24 * Screen.devicePixelRatio
       }
@@ -389,9 +389,9 @@ QfEditorWidgetBase {
             anchors.verticalCenter: parent.verticalCenter
             color: {
               if (player.active && player.item && player.item.duration > 0 && index < (player.item.position / player.item.duration * audioWaveformBars.barCount)) {
-                return Theme.mainColor;
+                return QfTheme.mainColor;
               }
-              return Theme.mainTextDisabledColor;
+              return QfTheme.mainTextDisabledColor;
             }
             opacity: {
               if (player.active && player.item && player.item.duration > 0 && index < (player.item.position / player.item.duration * audioWaveformBars.barCount)) {
@@ -410,7 +410,7 @@ QfEditorWidgetBase {
         width: 2
         height: parent.height
         radius: 1
-        color: Theme.mainColor
+        color: QfTheme.mainColor
       }
     }
 
@@ -470,7 +470,7 @@ QfEditorWidgetBase {
       height: playerControls.visible ? player.height - 54 : image.height
 
       onClicked: {
-        if (FileUtils.fileExists(prefixToRelativePath + value)) {
+        if (QfFileUtils.fileExists(prefixToRelativePath + value)) {
           platformUtilities.requestStoragePermission();
           __viewStatus = platformUtilities.open(prefixToRelativePath + value, isEnabled, this);
         }
@@ -484,9 +484,9 @@ QfEditorWidgetBase {
       visible: image.source !== '' && image.status === Image.Ready && isEnabled
 
       round: true
-      iconSource: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
-      iconColor: Theme.toolButtonColor
-      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_freehand_white_24dp")
+      iconColor: QfTheme.toolButtonColor
+      bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
       onClicked: {
         sketcherConnection.enabled = true;
@@ -501,12 +501,12 @@ QfEditorWidgetBase {
       enabled: false
 
       function onFinished(path) {
-        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        const filepath = QfStringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
 
         // In order to insure an edited image gets refreshed in the feature form, reset the source
         image.source = '';
-        image.source = UrlUtils.fromString(prefixToRelativePath + filepath);
+        image.source = QfUrlUtils.fromString(prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         enabled = false;
       }
@@ -530,8 +530,8 @@ QfEditorWidgetBase {
       QfToolButton {
         id: playButton
 
-        iconSource: player.active && player.item.playbackState === MediaPlayer.PlayingState ? Theme.getThemeVectorIcon('ic_pause_black_24dp') : Theme.getThemeVectorIcon('ic_play_black_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: player.active && player.item.playbackState === MediaPlayer.PlayingState ? QfTheme.getThemeVectorIcon('ic_pause_black_24dp') : QfTheme.getThemeVectorIcon('ic_play_black_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
 
         onClicked: {
@@ -562,8 +562,8 @@ QfEditorWidgetBase {
         Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
         Layout.rightMargin: 14
 
-        color: player.active && player.item.playbackState === MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
-        font: Theme.tipFont
+        color: player.active && player.item.playbackState === MediaPlayer.PlayingState ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
+        font: QfTheme.tipFont
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
@@ -590,8 +590,8 @@ QfEditorWidgetBase {
 
   QfToolButton {
     id: cameraButton
-    width: visible ? Theme.toolButtonSize : 0
-    height: Theme.toolButtonSize
+    width: visible ? QfTheme.toolButtonSize : 0
+    height: QfTheme.toolButtonSize
 
     // QField has historically handled no viewer type as image, let's carry that on
     visible: documentViewer == QfEditorWidgetExternalResource.DocumentImage && isEnabled
@@ -599,8 +599,8 @@ QfEditorWidgetBase {
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
 
-    iconSource: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
-    iconColor: Theme.mainTextColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: capturePhoto()
@@ -608,16 +608,16 @@ QfEditorWidgetBase {
 
   QfToolButton {
     id: cameraVideoButton
-    width: visible ? Theme.toolButtonSize : 0
-    height: Theme.toolButtonSize
+    width: visible ? QfTheme.toolButtonSize : 0
+    height: QfTheme.toolButtonSize
 
     visible: documentViewer == QfEditorWidgetExternalResource.DocumentVideo && isEnabled
 
     anchors.right: microphoneButton.left
     anchors.top: parent.top
 
-    iconSource: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
-    iconColor: Theme.mainTextColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp")
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: captureVideo()
@@ -625,16 +625,16 @@ QfEditorWidgetBase {
 
   QfToolButton {
     id: microphoneButton
-    width: visible ? Theme.toolButtonSize : 0
-    height: Theme.toolButtonSize
+    width: visible ? QfTheme.toolButtonSize : 0
+    height: QfTheme.toolButtonSize
 
     visible: documentViewer == QfEditorWidgetExternalResource.DocumentAudio && isEnabled
 
     anchors.right: fileButton.left
     anchors.top: parent.top
 
-    iconSource: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
-    iconColor: Theme.mainTextColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_microphone_black_24dp")
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: captureAudio()
@@ -642,16 +642,16 @@ QfEditorWidgetBase {
 
   QfToolButton {
     id: fileButton
-    width: visible ? Theme.toolButtonSize : 0
-    height: Theme.toolButtonSize
+    width: visible ? QfTheme.toolButtonSize : 0
+    height: QfTheme.toolButtonSize
 
-    visible: platformUtilities.capabilities & PlatformUtilities.FilePicker && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
+    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
 
-    iconSource: Theme.getThemeVectorIcon("ic_file_black_24dp")
-    iconColor: Theme.mainTextColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_file_black_24dp")
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: attachFile()
@@ -684,7 +684,7 @@ QfEditorWidgetBase {
       }
 
       onFinished: path => {
-        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        const filepath = QfStringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
         valueChangeRequested(filepath, false);
         close();
@@ -718,12 +718,12 @@ QfEditorWidgetBase {
       }
 
       onFinished: path => {
-        const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
+        const filepath = QfStringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
-        if (!FileUtils.mimeTypeName(path).startsWith("video/")) {
+        if (!QfFileUtils.mimeTypeName(path).startsWith("video/")) {
           const maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
           if (maximumWidhtHeight > 0) {
-            FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight);
+            QfFileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight);
           }
         }
         valueChangeRequested(filepath, false);
@@ -741,7 +741,7 @@ QfEditorWidgetBase {
       if (path) {
         const maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
         if (maximumWidhtHeight > 0) {
-          FileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight);
+          QfFileUtils.restrictImageSize(prefixToRelativePath + path, maximumWidhtHeight);
         }
         valueChangeRequested(path, false);
       }
@@ -814,11 +814,11 @@ QfEditorWidgetBase {
 
   function capturePhoto() {
     Qt.inputMethod.hide();
-    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
+    if (platformUtilities.capabilities & QfPlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = getResourceFilePath();
       // Pictures taken by cameras will always be JPG
       filepath = filepath.replace('{extension}', 'JPG');
-      __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
+      __resourceSource = platformUtilities.getCameraPicture(qgisProject.homePath + '/', filepath, QfFileUtils.fileSuffix(filepath), this);
     } else {
       platformUtilities.createDir(qgisProject.homePath, 'DCIM');
       cameraLoader.isVideo = false;
@@ -828,11 +828,11 @@ QfEditorWidgetBase {
 
   function captureVideo() {
     Qt.inputMethod.hide();
-    if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
+    if (platformUtilities.capabilities & QfPlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = getResourceFilePath();
       // Video taken by cameras will always be MP4
       filepath = filepath.replace('{extension}', 'MP4');
-      __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath + '/', filepath, FileUtils.fileSuffix(filepath), this);
+      __resourceSource = platformUtilities.getCameraVideo(qgisProject.homePath + '/', filepath, QfFileUtils.fileSuffix(filepath), this);
     } else {
       platformUtilities.createDir(qgisProject.homePath, 'DCIM');
       cameraLoader.isVideo = true;
@@ -850,7 +850,7 @@ QfEditorWidgetBase {
     menu.addItem(captureVideoMenuItem);
     menu.addItem(captureAudioMenuItem);
     menu.addItem(separatorGalleryItem);
-    if (platformUtilities.capabilities & PlatformUtilities.FilePicker) {
+    if (platformUtilities.capabilities & QfPlatformUtilities.FilePicker) {
       menu.addItem(attachFileMenuItem);
     }
     menu.addItem(attachGalleryMenuItem);
@@ -866,10 +866,10 @@ QfEditorWidgetBase {
       id: capturePhotoMenuItem
       text: qsTr('Take a photo')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_camera_photo_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: capturePhoto()
     }
@@ -878,10 +878,10 @@ QfEditorWidgetBase {
       id: captureVideoMenuItem
       text: qsTr('Take a video')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_camera_video_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: captureVideo()
     }
@@ -890,10 +890,10 @@ QfEditorWidgetBase {
       id: captureAudioMenuItem
       text: qsTr('Record an audio clip')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_microphone_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_microphone_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: captureAudio()
     }
@@ -907,10 +907,10 @@ QfEditorWidgetBase {
       id: attachGalleryMenuItem
       text: qsTr('Attach a gallery item')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_gallery_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_gallery_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: attachGallery()
     }
@@ -919,10 +919,10 @@ QfEditorWidgetBase {
       id: attachFileMenuItem
       text: qsTr('Attach a file')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_file_black_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_file_black_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: attachFile()
     }
@@ -936,10 +936,10 @@ QfEditorWidgetBase {
       id: attachDrawingMenuItem
       text: qsTr('Draw a sketch')
 
-      font: Theme.defaultFont
-      icon.source: Theme.getThemeVectorIcon("ic_freehand_white_24dp")
+      font: QfTheme.defaultFont
+      icon.source: QfTheme.getThemeVectorIcon("ic_freehand_white_24dp")
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
         sketcherConnection.enabled = true;

@@ -163,7 +163,7 @@ Popup {
       return 0;
     }
 
-    color: Theme.mainBackgroundColor
+    color: QfTheme.mainBackgroundColor
     objectName: "hintPanel"
     width: Math.max(250, baseRoot.width / 2)
     height: 88 + description.height + (animatedHint.visible ? animatedHint.height + 8 : 20)
@@ -222,7 +222,7 @@ Popup {
     Text {
       id: title
       objectName: "guideInternalTitle"
-      font: Theme.strongFont
+      font: QfTheme.strongFont
       elide: Text.ElideRight
       text: {
         if (internalObject.step) {
@@ -230,7 +230,7 @@ Popup {
         }
         return "";
       }
-      color: Theme.mainColor
+      color: QfTheme.mainColor
       anchors {
         top: parent.top
         left: parent.left
@@ -244,9 +244,9 @@ Popup {
     Text {
       id: description
       objectName: "guideInternalDescription"
-      font: Theme.tipFont
+      font: QfTheme.tipFont
       wrapMode: Text.WordWrap
-      color: Theme.mainTextColor
+      color: QfTheme.mainTextColor
       text: {
         if (internalObject.step) {
           return internalObject.step.description;
@@ -290,7 +290,7 @@ Popup {
         rightMargin: 15
         bottomMargin: 15
       }
-      bgcolor: Theme.mainColor
+      bgcolor: QfTheme.mainColor
       height: 32
       radius: 5
       onClicked: {
@@ -308,7 +308,7 @@ Popup {
       objectName: "previousButton"
       text: guide.previousText
       bgcolor: "transparent"
-      color: Theme.mainColor
+      color: QfTheme.mainColor
       height: 32
       radius: 5
       visible: guide.index !== 0
@@ -336,8 +336,8 @@ Popup {
       }
       width: 30
       height: width
-      icon.color: Theme.mainTextColor
-      icon.source: Theme.getThemeVectorIcon('ic_close_white_24dp')
+      icon.color: QfTheme.mainTextColor
+      icon.source: QfTheme.getThemeVectorIcon('ic_close_white_24dp')
       padding: 0
       bgcolor: "transparent"
 
@@ -366,9 +366,9 @@ Popup {
     }
 
     ShapePath {
-      fillColor: Theme.mainBackgroundColor
+      fillColor: QfTheme.mainBackgroundColor
       strokeWidth: 1
-      strokeColor: Theme.mainBackgroundColor
+      strokeColor: QfTheme.mainBackgroundColor
       PathSvg {
         path: "M 0 0 L 20 0 L 10 10 Z"
       }

@@ -13,7 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
+#include "qfplatformutilities.h"
 #include "screendimmer.h"
 
 #include <QEvent>
@@ -45,7 +45,7 @@ void ScreenDimmer::setTimeout( int timeoutSeconds )
     mTimer.stop();
     if ( mDimmed )
     {
-      PlatformUtilities::instance()->restoreBrightness();
+      QfPlatformUtilities::instance()->restoreBrightness();
       mDimmed = false;
     }
   }
@@ -61,7 +61,7 @@ void ScreenDimmer::setSuspend( bool suspend )
       mTimer.stop();
       if ( mDimmed )
       {
-        PlatformUtilities::instance()->restoreBrightness();
+        QfPlatformUtilities::instance()->restoreBrightness();
         mDimmed = false;
       }
     }
@@ -82,7 +82,7 @@ bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
 
     if ( mDimmed )
     {
-      PlatformUtilities::instance()->restoreBrightness();
+      QfPlatformUtilities::instance()->restoreBrightness();
       mDimmed = false;
       return true;
     }
@@ -93,6 +93,6 @@ bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
 
 void ScreenDimmer::timeout()
 {
-  PlatformUtilities::instance()->dimBrightness();
+  QfPlatformUtilities::instance()->dimBrightness();
   mDimmed = true;
 }

@@ -12,19 +12,19 @@ import org.qfield.gui
 Item {
   id: processingAlgorithmForm
 
-  property ProcessingAlgorithmParametersModel algorithmParametersModel: processingAlgorithmParametersModel
+  property QfProcessingAlgorithmParametersModel algorithmParametersModel: processingAlgorithmParametersModel
   property alias inPlaceLayer: processingAlgorithmParametersModel.inPlaceLayer
   property alias algorithmId: processingAlgorithmParametersModel.algorithmId
   property alias algorithmDisplayName: processingAlgorithmParametersModel.algorithmDisplayName
   property alias algorithmShortHelp: processingAlgorithmParametersModel.algorithmShortHelp
   property real bottomMargin: 0
 
-  ProcessingAlgorithmParametersModel {
+  QfProcessingAlgorithmParametersModel {
     id: processingAlgorithmParametersModel
-    filters: ProcessingAlgorithmParametersModel.GeneralParameterFilter
+    filters: QfProcessingAlgorithmParametersModel.GeneralParameterFilter
 
     onAlgorithmIdChanged: {
-      filters = ProcessingAlgorithmParametersModel.GeneralParameterFilter;
+      filters = QfProcessingAlgorithmParametersModel.GeneralParameterFilter;
     }
   }
 
@@ -66,8 +66,8 @@ Item {
           width: paintedWidth
           height: parent.height
           text: tabButton.text
-          color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : Theme.mainColor
-          font.pointSize: Theme.tipFont.pointSize
+          color: !tabButton.enabled ? QfTheme.darkGray : tabButton.down ? Qt.darker(QfTheme.mainColor, 1.5) : QfTheme.mainColor
+          font.pointSize: QfTheme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
           horizontalAlignment: Text.AlignHCenter
@@ -76,7 +76,7 @@ Item {
       }
 
       onCurrentIndexChanged: {
-        processingAlgorithmParametersModel.filters = currentIndex == 0 ? ProcessingAlgorithmParametersModel.GeneralParameterFilter : ProcessingAlgorithmParametersModel.AdvancedParameterFilter;
+        processingAlgorithmParametersModel.filters = currentIndex == 0 ? QfProcessingAlgorithmParametersModel.GeneralParameterFilter : QfProcessingAlgorithmParametersModel.AdvancedParameterFilter;
       }
     }
 
@@ -94,7 +94,7 @@ Item {
 
       Rectangle {
         anchors.fill: parent
-        color: Theme.mainBackgroundColor
+        color: QfTheme.mainBackgroundColor
       }
 
       Flow {
@@ -117,8 +117,8 @@ Item {
         visible: contentRepeater.count == 0
         padding: 10
 
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.secondaryTextColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         wrapMode: Text.WordWrap
@@ -145,7 +145,7 @@ Item {
         contentItem: Rectangle {
           implicitWidth: 6
           implicitHeight: 25
-          color: Theme.mainColor
+          color: QfTheme.mainColor
         }
       }
 
@@ -160,8 +160,8 @@ Item {
           width: parent.width - parent.leftPadding - parent.rightPadding
           visible: tabRow.currentIndex === tabRow.model.length - 1
 
-          font: Theme.strongFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
 
           text: qsTr('Algorithm description')
@@ -171,8 +171,8 @@ Item {
           width: parent.width - parent.leftPadding - parent.rightPadding
           visible: tabRow.currentIndex === tabRow.model.length - 1
 
-          font: Theme.tipFont
-          color: Theme.mainTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
 
           text: processingAlgorithmParametersModel.algorithmShortHelp
@@ -197,7 +197,7 @@ Item {
         width: parent.width
         wrapMode: Text.WordWrap
         text: ParameterDescription
-        font: Theme.tipFont
+        font: QfTheme.tipFont
       }
 
       Item {

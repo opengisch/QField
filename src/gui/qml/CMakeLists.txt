@@ -135,7 +135,7 @@ set_source_files_properties(editorwidgets/ExternalResourceUtils.js
 # Generate a qmldir for each of the QML subdirectories.
 qt_policy(SET QTP0004 NEW)
 
-# Type registration stays imperative, in QFieldGui::registerQmlTypes().
+# Type registration stays imperative, in QfGui::registerQmlTypes().
 qt_add_qml_module(
   qfield_gui
   URI

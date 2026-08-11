@@ -65,7 +65,7 @@ set(QFIELD_APP_SRCS
     pluginmodel.cpp
     qfieldappauthrequesthandler.cpp
     qfieldurlhandler.cpp
-    qfieldappqmlregistration.cpp
+    qfapp.cpp
     qgismobileapp.cpp
     screendimmer.cpp)
 
@@ -77,7 +77,7 @@ set(QFIELD_APP_HDRS
     pluginmodel.h
     qfieldappauthrequesthandler.h
     qfieldurlhandler.h
-    qfieldappqmlregistration.h
+    qfapp.h
     qgismobileapp.h
     screendimmer.h)
 

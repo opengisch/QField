@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "layerutils.h"
+#include "qflayerutils.h"
 
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -28,7 +28,7 @@ void qmlInit( QQmlEngine *engine )
 {
   Q_UNUSED( engine )
 
-  REGISTER_SINGLETON( "org.qfield", LayerUtils, "LayerUtils" );
+  REGISTER_SINGLETON( "org.qfield", QfLayerUtils, "LayerUtils" );
 
   qRegisterMetaType<QgsField>( "QgsField" );
   qRegisterMetaType<QMetaType::Type>( "QMetaType::Type" );

@@ -7,7 +7,7 @@ QfEditorWidgetBase {
   id: rangeItem
   enabled: isEnabled
 
-  property bool isDouble: field === undefined || (LayerUtils.fieldType(field) !== 'int' && LayerUtils.fieldType(field) !== 'qlonglong')
+  property bool isDouble: field === undefined || (QfLayerUtils.fieldType(field) !== 'int' && QfLayerUtils.fieldType(field) !== 'qlonglong')
   property string widgetStyle: config["Style"] ? config["Style"] : "TextField"
   property int precision: config["Precision"] ? config["Precision"] : isDouble ? 2 : 0
   property real min: config["Min"] !== undefined ? config["Min"] : -Infinity
@@ -32,8 +32,8 @@ QfEditorWidgetBase {
       bottomPadding: 10
       leftPadding: 0
       visible: !isEditing
-      font: Theme.defaultFont
-      color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
       opacity: 1
       wrapMode: Text.Wrap
       text: {
@@ -52,8 +52,8 @@ QfEditorWidgetBase {
       width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
       visible: isEditing
 
-      font: Theme.defaultFont
-      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
       suffixText: rangeItem.suffix
 
       text: isNull ? '' : value
@@ -115,13 +115,13 @@ QfEditorWidgetBase {
 
     QfToolButton {
       id: decreaseButton
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
-      iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: enabled
 
@@ -147,13 +147,13 @@ QfEditorWidgetBase {
 
     QfToolButton {
       id: increaseButton
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
-      iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: enabled
 
@@ -267,8 +267,8 @@ QfEditorWidgetBase {
       }
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignLeft
-      font: Theme.defaultFont
-      color: (!isEditable && isEditing) || isNull || isEmpty ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
     }
 
     QfSlider {

@@ -13,7 +13,7 @@ TextField {
 
   echoMode: TextInput.Normal
   passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
-  font: Theme.defaultFont
+  font: QfTheme.defaultFont
   rightPadding: showPasswordButton.visible ? showPasswordButton.width : (suffixLabel.visible ? suffixLabel.implicitWidth + 16 : leftPadding)
   inputMethodHints: Qt.ImhNone
 
@@ -25,7 +25,7 @@ TextField {
     anchors.rightMargin: 10
     anchors.verticalCenter: parent.verticalCenter
     font: parent.font
-    color: enabled ? Theme.secondaryTextColor : Theme.mainTextDisabledColor
+    color: enabled ? QfTheme.secondaryTextColor : QfTheme.mainTextDisabledColor
   }
 
   QfToolButton {
@@ -33,8 +33,8 @@ TextField {
     property int originalEchoMode: TextInput.Normal
     z: 1
     visible: (!!textField.echoMode && textField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
-    iconSource: textField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-    iconColor: textField.enabled ? Theme.mainTextColor : Theme.mainTextDisabledColor
+    iconSource: textField.echoMode === TextInput.Normal ? QfTheme.getThemeVectorIcon('ic_hide_green_48dp') : QfTheme.getThemeVectorIcon('ic_show_green_48dp')
+    iconColor: textField.enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
     anchors.right: textField.right
     anchors.verticalCenter: textField.verticalCenter
     opacity: textField.text.length > 0 ? 1 : 0.25
@@ -51,6 +51,6 @@ TextField {
 
   FontMetrics {
     id: fontMetrics
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
   }
 }

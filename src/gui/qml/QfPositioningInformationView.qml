@@ -15,13 +15,13 @@ Rectangle {
   property alias antennaHeight: positioningInformationModel.antennaHeight
 
   property color backgroundColor: "transparent"
-  property color alternateBackgroundColor: Theme.positionBackgroundColor
-  property color textColor: positionSource.currentness ? Theme.mainTextColor : Theme.secondaryTextColor
+  property color alternateBackgroundColor: QfTheme.positionBackgroundColor
+  property color textColor: positionSource.currentness ? QfTheme.mainTextColor : QfTheme.secondaryTextColor
   property double cellHeight: 26
   property double cellPadding: 6
   property real contentHeight: grid.numberOfRows * cellHeight
 
-  color: Theme.mainBackgroundColorSemiOpaque
+  color: QfTheme.mainBackgroundColorSemiOpaque
   anchors.margins: 20
   width: parent.width
   clip: true
@@ -41,7 +41,7 @@ Rectangle {
 
       flow: GridView.FlowTopToBottom
       boundsBehavior: Flickable.StopAtBounds
-      model: PositioningInformationModel {
+      model: QfPositioningInformationModel {
         id: positioningInformationModel
         distanceUnits: projectInfo.distanceUnits
         coordinateDisplayCrs: projectInfo.coordinateDisplayCrs
@@ -74,8 +74,8 @@ Rectangle {
 
           Text {
             Layout.maximumWidth: parent.width * 0.66
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: Name
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
@@ -83,7 +83,7 @@ Rectangle {
 
           Text {
             Layout.fillWidth: true
-            font: Theme.tipFont
+            font: QfTheme.tipFont
             color: positioningInformationView.textColor
             text: Value ? Value : qsTr("N/A")
             verticalAlignment: Text.AlignVCenter

@@ -17,7 +17,7 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "orderedrelationmodel.h"
+#include "qforderedrelationmodel.h"
 
 #include <QAbstractItemModelTester>
 #include <QSignalSpy>
@@ -83,7 +83,7 @@ TEST_CASE( "OrderedRelationModel" )
   mReferencedLayer->commitChanges();
   REQUIRE( mReferencedLayer->featureCount() == 1L );
 
-  std::unique_ptr<OrderedRelationModel> mModel( new OrderedRelationModel() );
+  std::unique_ptr<QfOrderedRelationModel> mModel( new QfOrderedRelationModel() );
 
   SECTION( "DeleteFeature" )
   {
@@ -93,11 +93,11 @@ TEST_CASE( "OrderedRelationModel" )
     mModel->setOrderingField( QStringLiteral( "rank" ) );
     mModel->setFeature( mReferencedLayer->getFeature( 1 ) );
 
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
 
     REQUIRE( mModel->rowCount() == 4 );
     REQUIRE( mModel->deleteFeature( 2 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
     REQUIRE( mModel->rowCount() == 3 );
     REQUIRE( !mReferencingLayer->getFeature( 2 ).isValid() );
     REQUIRE( mReferencingLayer->getFeature( 1 ).attribute( QStringLiteral( "rank" ) ).toInt() == 1 );
@@ -113,7 +113,7 @@ TEST_CASE( "OrderedRelationModel" )
     mModel->setOrderingField( QStringLiteral( "rank" ) );
     mModel->setFeature( mReferencedLayer->getFeature( 1 ) );
 
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
 
     REQUIRE( mModel->rowCount() == 4 );
     // try to move items out of range
@@ -131,7 +131,7 @@ TEST_CASE( "OrderedRelationModel" )
     REQUIRE( mReferencingLayer->getFeature( 4 ).attribute( QStringLiteral( "rank" ) ).toInt() == 4 );
 
     REQUIRE( mModel->moveItems( 1, 3 ) );
-    REQUIRE( QSignalSpy( mModel.get(), &ReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
+    REQUIRE( QSignalSpy( mModel.get(), &QfReferencingFeatureListModelBase::modelUpdated ).wait( 1000 ) );
     REQUIRE( mModel->rowCount() == 4 );
     REQUIRE( mReferencingLayer->getFeature( 1 ).attribute( QStringLiteral( "rank" ) ).toInt() == 1 );
     REQUIRE( mReferencingLayer->getFeature( 2 ).attribute( QStringLiteral( "rank" ) ).toInt() == 4 );
@@ -139,15 +139,15 @@ TEST_CASE( "OrderedRelationModel" )
     REQUIRE( mReferencingLayer->getFeature( 4 ).attribute( QStringLiteral( "rank" ) ).toInt() == 3 );
 
     // check feature ordering
-    REQUIRE( mModel->data( mModel->index( 0, 0 ), OrderedRelationModel::FeatureIdRole ) == 1 );
-    REQUIRE( mModel->data( mModel->index( 1, 0 ), OrderedRelationModel::FeatureIdRole ) == 3 );
-    REQUIRE( mModel->data( mModel->index( 2, 0 ), OrderedRelationModel::FeatureIdRole ) == 4 );
-    REQUIRE( mModel->data( mModel->index( 3, 0 ), OrderedRelationModel::FeatureIdRole ) == 2 );
+    REQUIRE( mModel->data( mModel->index( 0, 0 ), QfOrderedRelationModel::FeatureIdRole ) == 1 );
+    REQUIRE( mModel->data( mModel->index( 1, 0 ), QfOrderedRelationModel::FeatureIdRole ) == 3 );
+    REQUIRE( mModel->data( mModel->index( 2, 0 ), QfOrderedRelationModel::FeatureIdRole ) == 4 );
+    REQUIRE( mModel->data( mModel->index( 3, 0 ), QfOrderedRelationModel::FeatureIdRole ) == 2 );
   }
 
   SECTION( "QAbstractItemModelTester" )
   {
-    std::unique_ptr<OrderedRelationModel> modelTest = std::make_unique<OrderedRelationModel>();
+    std::unique_ptr<QfOrderedRelationModel> modelTest = std::make_unique<QfOrderedRelationModel>();
     std::unique_ptr<QAbstractItemModelTester> modelTester = std::make_unique<QAbstractItemModelTester>( modelTest.get(), QAbstractItemModelTester::FailureReportingMode::Fatal );
   }
 }

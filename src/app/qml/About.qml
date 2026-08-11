@@ -73,8 +73,8 @@ Item {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
             horizontalAlignment: Text.AlignHCenter
-            font: Theme.strongFont
-            color: Theme.light
+            font: QfTheme.strongFont
+            color: QfTheme.light
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
 
@@ -125,8 +125,8 @@ Item {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
             horizontalAlignment: Text.AlignHCenter
-            font: Theme.strongFont
-            color: Theme.light
+            font: QfTheme.strongFont
+            color: QfTheme.light
             textFormat: Text.RichText
             text: qsTr("Developed by") + '<br><a href="https://opengis.ch">OPENGIS.ch</a>'
             onLinkActivated: link => Qt.openUrlExternally(link)
@@ -142,8 +142,8 @@ Item {
       Layout.alignment: Qt.AlignCenter
       Layout.bottomMargin: 10
       horizontalAlignment: Text.AlignHCenter
-      font: Theme.tinyFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.tinyFont
+      color: QfTheme.secondaryTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
 
@@ -155,7 +155,7 @@ Item {
           label = dataDirs.length > 1 ? qsTr('%1 app directories').arg(appName) : qsTr('%1 app directory').arg(appName);
           for (let dataDir of dataDirs) {
             if (isDesktopPlatform) {
-              label += '<br><a href="' + UrlUtils.fromString(dataDir) + '">' + dataDir + '</a>';
+              label += '<br><a href="' + QfUrlUtils.fromString(dataDir) + '">' + dataDir + '</a>';
             } else {
               label += '<br>' + dataDir;
             }
@@ -170,7 +170,7 @@ Item {
     QfButton {
       id: sponsorshipButton
       Layout.fillWidth: true
-      icon.source: Theme.getThemeVectorIcon('ic_sponsor_white_24dp')
+      icon.source: QfTheme.getThemeVectorIcon('ic_sponsor_white_24dp')
       enabled: appName === "QField"
       visible: enabled
 
@@ -182,7 +182,7 @@ Item {
       id: linksButton
       dropdown: appName === "QField"
       Layout.fillWidth: true
-      icon.source: Theme.getThemeVectorIcon('ic_book_white_24dp')
+      icon.source: QfTheme.getThemeVectorIcon('ic_book_white_24dp')
 
       text: qsTr('Documentation')
 
@@ -203,10 +203,10 @@ Item {
     MenuItem {
       text: qsTr('Changelog')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon('ic_speaker_white_24dp')
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon('ic_speaker_white_24dp')
 
       onTriggered: {
         changelogPopup.open();

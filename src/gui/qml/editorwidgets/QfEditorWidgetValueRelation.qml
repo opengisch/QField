@@ -57,7 +57,7 @@ QfEditorWidgetBase {
     }
   }
 
-  LayerResolver {
+  QfLayerResolver {
     id: layerResolver
 
     layerId: config['Layer'] !== undefined ? config['Layer'] : ''
@@ -67,7 +67,7 @@ QfEditorWidgetBase {
     project: qgisProject
   }
 
-  FeatureCheckListModel {
+  QfFeatureCheckListModel {
     id: listModel
 
     property int count: 0
@@ -154,7 +154,7 @@ QfEditorWidgetBase {
     layerResolver: layerResolver
     allowAddFeature: currentLayer && currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') !== undefined ? currentLayer.customProperty('QFieldSync/allow_value_relation_feature_addition') : false
 
-    displayedTextColor: FeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+    displayedTextColor: QfFeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       valueRelation.requestJumpToPoint(center, scale, handleMargins);
     }
@@ -191,8 +191,8 @@ QfEditorWidgetBase {
       width: parent.width
       height: Math.min(8 * itemHeight, valueGridView.implicitHeight + 2)
 
-      color: Theme.mainBackgroundColor
-      border.color: Theme.controlBorderColor
+      color: QfTheme.mainBackgroundColor
+      border.color: QfTheme.controlBorderColor
       border.width: 1
 
       Flickable {
@@ -253,8 +253,8 @@ QfEditorWidgetBase {
                 width: parent.width
                 height: isVisible ? visibleHeight : 0
 
-                color: Theme.controlBorderColor
-                border.color: Theme.controlBorderColor
+                color: QfTheme.controlBorderColor
+                border.color: QfTheme.controlBorderColor
                 border.width: 1
                 clip: true
 
@@ -262,8 +262,8 @@ QfEditorWidgetBase {
                   id: groupFieldValueText
                   width: parent.width
                   text: groupFieldValue ? groupFieldValue : ""
-                  font: Theme.strongResultFont
-                  color: Theme.mainTextColor
+                  font: QfTheme.strongResultFont
+                  color: QfTheme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   anchors.verticalCenter: parent.verticalCenter
                   wrapMode: Text.WordWrap
@@ -278,7 +278,7 @@ QfEditorWidgetBase {
                 anchors.top: header.bottom
                 anchors.topMargin: !header.visible && rowContainsHeader ? header.visibleHeight : 0
                 anchors.bottom: parent.bottom
-                color: Theme.mainBackgroundColor
+                color: QfTheme.mainBackgroundColor
 
                 CheckDelegate {
                   id: checkBox
@@ -306,8 +306,8 @@ QfEditorWidgetBase {
                   width: parent.width - checkBox.width
                   topPadding: 4
                   bottomPadding: 4
-                  font: Theme.defaultFont
-                  color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+                  font: QfTheme.defaultFont
+                  color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
                   text: model.displayString
                   wrapMode: Text.WordWrap
                   elide: Text.ElideRight
@@ -327,7 +327,7 @@ QfEditorWidgetBase {
                 id: bottomLine
                 anchors.bottom: parent.bottom
                 height: 1
-                color: Theme.controlBackgroundAlternateColor
+                color: QfTheme.controlBackgroundAlternateColor
                 width: parent.width
               }
             }

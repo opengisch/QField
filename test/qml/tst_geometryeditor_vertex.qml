@@ -15,8 +15,8 @@ TestCase {
   readonly property string lineJson: '{"type":"FeatureCollection","features":[{"type":"Feature","id":0,"geometry":{"type":"LineString","coordinates":[[0,0],[5,0],[10,0]]},"properties":{}}]}'
 
   function init() {
-    testLayer = LayerUtils.memoryLayerFromJsonString("vertex_test", squareJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
-    lineLayer = LayerUtils.memoryLayerFromJsonString("vertex_line_test", lineJson, CoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
+    testLayer = QfLayerUtils.memoryLayerFromJsonString("vertex_test", squareJson, QfCoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
+    lineLayer = QfLayerUtils.memoryLayerFromJsonString("vertex_line_test", lineJson, QfCoordinateReferenceSystemUtils.fromDescription("EPSG:3857"));
   }
 
   function cleanup() {
@@ -36,12 +36,12 @@ TestCase {
   }
 
   function selectVertexAt(x, y) {
-    const screenPoint = mapSettingsItem.coordinateToScreen(GeometryUtils.point(x, y));
+    const screenPoint = mapSettingsItem.coordinateToScreen(QfGeometryUtils.point(x, y));
     vertexTool.canvasClicked(screenPoint, "");
   }
 
   function moveCurrentVertexTo(x, y) {
-    geometryEditingVertexModel.currentPoint = GeometryUtils.point(x, y);
+    geometryEditingVertexModel.currentPoint = QfGeometryUtils.point(x, y);
   }
 
   function button(name) {
@@ -50,16 +50,16 @@ TestCase {
 
   MapSettings {
     id: mapSettingsItem
-    destinationCrs: CoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
+    destinationCrs: QfCoordinateReferenceSystemUtils.fromDescription("EPSG:3857")
     outputSize: Qt.size(1000, 1000)
-    extent: GeometryUtils.createRectangleFromPoints(GeometryUtils.point(-5, -5), GeometryUtils.point(15, 15))
+    extent: QfGeometryUtils.createRectangleFromPoints(QfGeometryUtils.point(-5, -5), QfGeometryUtils.point(15, 15))
   }
 
-  FeatureModel {
+  QfFeatureModel {
     id: featureModel
     project: qgisProject
 
-    vertexModel: VertexModel {
+    vertexModel: QfVertexModel {
       id: geometryEditingVertexModel
       mapSettings: mapSettingsItem
     }
@@ -156,7 +156,7 @@ TestCase {
 
   Item {
     id: coordinateLocator
-    property var currentCoordinate: GeometryUtils.point(0, 0)
+    property var currentCoordinate: QfGeometryUtils.point(0, 0)
     property string positionInformation: ""
     property var topSnappingResult
     property bool positionLocked: false

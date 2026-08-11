@@ -18,10 +18,10 @@ Item {
 
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  /// type:QgsGeometryWrapper
+  /// type:QfGeometryWrapper
   property alias geometryWrapper: geometryWrapper
 
-  QgsGeometryWrapper {
+  QfGeometryWrapper {
     id: geometryWrapper
   }
 
@@ -48,10 +48,10 @@ Item {
           sourceCrs: geometryWrapper.crs
           sourcePosition: modelData
           destinationCrs: mapCanvas.mapSettings.destinationCrs
-          transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
+          transformContext: qgisProject ? qgisProject.transformContext : QfCoordinateReferenceSystemUtils.emptyTransformContext()
         }
 
-        MapToScreen {
+        QfMapToScreen {
           id: mapToScreenPosition
           mapSettings: mapCanvas.mapSettings
           mapPoint: _ct.projectedPosition
@@ -74,13 +74,13 @@ Item {
             fillColor: {
               switch (bookmarkRenderer.bookmarkGroup) {
               case 'red':
-                return Theme.bookmarkRed;
+                return QfTheme.bookmarkRed;
               case 'orange':
-                return Theme.bookmarkOrange;
+                return QfTheme.bookmarkOrange;
               case 'blue':
-                return Theme.bookmarkBlue;
+                return QfTheme.bookmarkBlue;
               default:
-                return Theme.bookmarkDefault;
+                return QfTheme.bookmarkDefault;
               }
             }
 

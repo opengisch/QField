@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "maplayermodel.h"
-#include "trackingmodel.h"
+#include "qfmaplayermodel.h"
+#include "qftrackingmodel.h"
 
 #include <QSignalSpy>
 #include <qgsfield.h>
@@ -40,7 +40,7 @@ TEST_CASE( "MapLayerBaseModel" )
 {
   SECTION( "starts empty with no project" )
   {
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
     REQUIRE( model.project() == nullptr );
     REQUIRE( model.enabled() );
@@ -50,7 +50,7 @@ TEST_CASE( "MapLayerBaseModel" )
   {
     QgsProject project;
     project.addMapLayers( { makeLayer( QStringLiteral( "A" ) ), makeLayer( QStringLiteral( "B" ) ) } );
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &project );
     REQUIRE( model.rowCount( QModelIndex() ) == 2 );
   }
@@ -58,7 +58,7 @@ TEST_CASE( "MapLayerBaseModel" )
   SECTION( "tracks layer addition and removal via project signals" )
   {
     QgsProject project;
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &project );
     QgsVectorLayer *layer = makeLayer( QStringLiteral( "Dynamic" ) );
     const QString layerId = layer->id();
@@ -73,20 +73,20 @@ TEST_CASE( "MapLayerBaseModel" )
     QgsProject project;
     QgsVectorLayer *layer = makeLayer( QStringLiteral( "RoleLayer" ), Qgis::WkbType::Polygon );
     project.addMapLayer( layer );
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &project );
     const QModelIndex idx = model.index( 0, 0 );
     REQUIRE( model.data( idx, Qt::DisplayRole ).toString() == QStringLiteral( "RoleLayer" ) );
-    REQUIRE( model.data( idx, MapLayerModel::NameRole ).toString() == QStringLiteral( "RoleLayer" ) );
-    REQUIRE( model.data( idx, MapLayerModel::IdRole ).toString() == layer->id() );
-    REQUIRE( model.data( idx, MapLayerModel::LayerRole ).value<QgsMapLayer *>() == layer );
-    REQUIRE( model.data( idx, MapLayerModel::LayerTypeRole ).value<Qgis::LayerType>() == Qgis::LayerType::Vector );
-    REQUIRE( model.data( idx, MapLayerModel::GeometryTypeRole ).value<Qgis::GeometryType>() == Qgis::GeometryType::Polygon );
+    REQUIRE( model.data( idx, QfMapLayerModel::NameRole ).toString() == QStringLiteral( "RoleLayer" ) );
+    REQUIRE( model.data( idx, QfMapLayerModel::IdRole ).toString() == layer->id() );
+    REQUIRE( model.data( idx, QfMapLayerModel::LayerRole ).value<QgsMapLayer *>() == layer );
+    REQUIRE( model.data( idx, QfMapLayerModel::LayerTypeRole ).value<Qgis::LayerType>() == Qgis::LayerType::Vector );
+    REQUIRE( model.data( idx, QfMapLayerModel::GeometryTypeRole ).value<Qgis::GeometryType>() == Qgis::GeometryType::Polygon );
   }
 
   SECTION( "data returns invalid variant for out-of-range index" )
   {
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     // Empty model: index(0,0) has row=0 >= mLayers.size()=0, returns QVariant()
     REQUIRE_FALSE( model.data( model.index( 0, 0 ), Qt::DisplayRole ).isValid() );
   }
@@ -95,7 +95,7 @@ TEST_CASE( "MapLayerBaseModel" )
   {
     QgsProject project;
     project.addMapLayer( makeLayer( QStringLiteral( "P" ) ) );
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &project );
     REQUIRE( model.rowCount( model.index( 0, 0 ) ) == 0 );
   }
@@ -104,7 +104,7 @@ TEST_CASE( "MapLayerBaseModel" )
   {
     QgsProject project;
     project.addMapLayer( makeLayer( QStringLiteral( "Pre" ) ) );
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &project );
     model.setEnabled( false );
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
@@ -121,7 +121,7 @@ TEST_CASE( "MapLayerBaseModel" )
     projectA.addMapLayer( makeLayer( QStringLiteral( "A" ) ) );
     QgsProject projectB;
     projectB.addMapLayer( makeLayer( QStringLiteral( "B" ) ) );
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &projectA );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
     model.setEnabled( false );
@@ -133,14 +133,14 @@ TEST_CASE( "MapLayerBaseModel" )
     // setEnabled(true)-> reconnects signals on projectB, then resetModel() populates from projectB
     model.setEnabled( true );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "B" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "B" ) );
   }
 
   SECTION( "setEnabled and setProject emit signals only on actual change" )
   {
-    MapLayerBaseModel model;
-    QSignalSpy enabledSpy( &model, &MapLayerBaseModel::enabledChanged );
-    QSignalSpy projectSpy( &model, &MapLayerBaseModel::projectChanged );
+    QfMapLayerBaseModel model;
+    QSignalSpy enabledSpy( &model, &QfMapLayerBaseModel::enabledChanged );
+    QSignalSpy projectSpy( &model, &QfMapLayerBaseModel::projectChanged );
     model.setEnabled( false );
     model.setEnabled( false ); // duplicate guard: if ( mEnabled == enabled ) return
     REQUIRE( enabledSpy.count() == 1 );
@@ -156,7 +156,7 @@ TEST_CASE( "MapLayerBaseModel" )
     projectA.addMapLayer( makeLayer( QStringLiteral( "A" ) ) );
     QgsProject projectB;
     projectB.addMapLayers( { makeLayer( QStringLiteral( "B1" ) ), makeLayer( QStringLiteral( "B2" ) ) } );
-    MapLayerBaseModel model;
+    QfMapLayerBaseModel model;
     model.setProject( &projectA );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
     model.setProject( &projectB );
@@ -171,7 +171,7 @@ TEST_CASE( "MapLayerModel" )
 {
   SECTION( "default state" )
   {
-    MapLayerModel model;
+    QfMapLayerModel model;
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
     REQUIRE( model.enabled() );
     REQUIRE( model.project() == nullptr );
@@ -183,11 +183,11 @@ TEST_CASE( "MapLayerModel" )
   {
     QgsProject project;
     project.addMapLayers( { makeLayer( QStringLiteral( "Zebra" ) ), makeLayer( QStringLiteral( "Apple" ) ), makeLayer( QStringLiteral( "Mango" ) ) } );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Apple" ) );
-    REQUIRE( model.index( 1, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Mango" ) );
-    REQUIRE( model.index( 2, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Zebra" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Apple" ) );
+    REQUIRE( model.index( 1, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Mango" ) );
+    REQUIRE( model.index( 2, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Zebra" ) );
   }
 
   SECTION( "geometry-type filters" )
@@ -198,20 +198,20 @@ TEST_CASE( "MapLayerModel" )
     project.addMapLayer( makeLayer( QStringLiteral( "Polygon" ), Qgis::WkbType::Polygon ) );
     project.addMapLayer( makeLayer( QStringLiteral( "None" ), Qgis::WkbType::NoGeometry ) );
 
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     model.setFilters( Qgis::LayerFilter::PointLayer );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Point" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Point" ) );
     model.setFilters( Qgis::LayerFilter::LineLayer );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Line" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Line" ) );
     model.setFilters( Qgis::LayerFilter::PolygonLayer );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Polygon" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Polygon" ) );
     model.setFilters( Qgis::LayerFilter::NoGeometry );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "None" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "None" ) );
     // HasGeometry is checked inside the detectGeometry block, which requires at least one of
     // PointLayer|LineLayer|PolygonLayer|NoGeometry to be set. When used in combination it works
     model.setFilters( Qgis::LayerFilter::HasGeometry | Qgis::LayerFilter::PointLayer );
@@ -228,17 +228,17 @@ TEST_CASE( "MapLayerModel" )
     QgsVectorLayer *readOnly = makeLayer( QStringLiteral( "ReadOnly" ) );
     readOnly->setReadOnly( true );
     project.addMapLayers( { writable, readOnly } );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     model.setFilters( Qgis::LayerFilter::WritableLayer | Qgis::LayerFilter::All );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "Writable" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "Writable" ) );
   }
 
   SECTION( "setFilters emits filtersChanged only on actual change" )
   {
-    MapLayerModel model;
-    QSignalSpy spy( &model, &MapLayerModel::filtersChanged );
+    QfMapLayerModel model;
+    QSignalSpy spy( &model, &QfMapLayerModel::filtersChanged );
     model.setFilters( Qgis::LayerFilter::PointLayer );
     model.setFilters( Qgis::LayerFilter::PointLayer ); // duplicate guard: if ( mFilters == filters ) return
     REQUIRE( spy.count() == 1 );
@@ -250,7 +250,7 @@ TEST_CASE( "MapLayerModel" )
     QgsVectorLayer *alpha = makeLayer( QStringLiteral( "Alpha" ) );
     QgsVectorLayer *beta = makeLayer( QStringLiteral( "Beta" ) );
     project.addMapLayers( { alpha, beta } );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     REQUIRE( model.findLayer( alpha ) == 0 ); // "Alpha" sorts before "Beta"
     REQUIRE( model.findLayer( beta ) == 1 );
@@ -263,7 +263,7 @@ TEST_CASE( "MapLayerModel" )
   {
     QgsProject project;
     project.addMapLayer( makeLayer( QStringLiteral( "GetTest" ) ) );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     const QVariantMap data = model.get( 0 );
     REQUIRE( data.value( QStringLiteral( "Name" ) ).toString() == QStringLiteral( "GetTest" ) );
@@ -276,7 +276,7 @@ TEST_CASE( "MapLayerModel" )
   {
     QgsProject project;
     project.addMapLayer( makeLayer( QStringLiteral( "Hidden" ) ) );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     model.setEnabled( false );
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
@@ -287,7 +287,7 @@ TEST_CASE( "MapLayerModel" )
     // !mModel->trackingModel() is true -> layerMatchesFilters returns false for every layer
     QgsProject project;
     project.addMapLayer( makeLayer( QStringLiteral( "Point" ) ) );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     model.setRequiresTrackingAvailability( true );
     REQUIRE( model.rowCount( QModelIndex() ) == 0 );
@@ -298,20 +298,20 @@ TEST_CASE( "MapLayerModel" )
     QgsProject project;
     QgsVectorLayer *layer = makeLayer( QStringLiteral( "TrackCandidate" ), Qgis::WkbType::LineString );
     project.addMapLayer( layer );
-    TrackingModel trackingModel;
+    QfTrackingModel trackingModel;
     REQUIRE_FALSE( trackingModel.layerInActiveTracking( layer ) );
-    MapLayerModel model;
+    QfMapLayerModel model;
     model.setProject( &project );
     model.setTrackingModel( &trackingModel );
     model.setRequiresTrackingAvailability( true );
     REQUIRE( model.rowCount( QModelIndex() ) == 1 );
-    REQUIRE( model.index( 0, 0 ).data( MapLayerModel::NameRole ).toString() == QStringLiteral( "TrackCandidate" ) );
+    REQUIRE( model.index( 0, 0 ).data( QfMapLayerModel::NameRole ).toString() == QStringLiteral( "TrackCandidate" ) );
   }
 
   SECTION( "requiresTrackingAvailability emits signal only on actual change" )
   {
-    MapLayerModel model;
-    QSignalSpy spy( &model, &MapLayerModel::requiresTrackingAvailabilityChanged );
+    QfMapLayerModel model;
+    QSignalSpy spy( &model, &QfMapLayerModel::requiresTrackingAvailabilityChanged );
     model.setRequiresTrackingAvailability( true );
     model.setRequiresTrackingAvailability( true );
     REQUIRE( spy.count() == 1 );

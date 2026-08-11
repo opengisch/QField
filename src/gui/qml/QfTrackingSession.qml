@@ -12,7 +12,7 @@ Item {
 
   property var tracker: model.tracker
 
-  property Positioning positionSource
+  property QfPositioning positionSource
   property bool filterAccuracy: false
   property var project
   property MapSettings mapSettings
@@ -50,7 +50,7 @@ Item {
     }
   }
 
-  RubberbandModel {
+  QfRubberbandModel {
     id: rubberbandModel
     frozen: false
     vectorLayer: tracker.vectorLayer
@@ -69,7 +69,7 @@ Item {
     model: rubberbandModel
   }
 
-  FeatureModel {
+  QfFeatureModel {
     id: featureModel
     project: trackingSession.project
     currentLayer: tracker.vectorLayer
@@ -81,13 +81,13 @@ Item {
       }
     }
 
-    geometry: Geometry {
+    geometry: QfGeometry {
       id: featureModelGeometry
       rubberbandModel: rubberbandModel
       vectorLayer: tracker.vectorLayer
     }
 
-    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+    appExpressionContextScopesGenerator: QfAppExpressionContextScopesGenerator {
       positionLocked: true
       cloudUserInformation: trackingSession.cloudUserInformation
     }

@@ -15,7 +15,7 @@ ToolButton {
   property bool backgroundless: false
   property alias innerActionIcon: innerAction
 
-  height: Theme.toolButtonSize
+  height: QfTheme.toolButtonSize
   width: height + (buttonText.visible ? buttonText.width + 24 : 0) + (innerAction.visible ? 32 : 0)
   clip: true
 
@@ -27,27 +27,27 @@ ToolButton {
 
   background: Rectangle {
     width: parent.width
-    height: Theme.toolButtonSize
-    color: backgroundless ? "transparent" : Theme.toolButtonBackgroundSemiOpaqueColor
+    height: QfTheme.toolButtonSize
+    color: backgroundless ? "transparent" : QfTheme.toolButtonBackgroundSemiOpaqueColor
     radius: height / 2
 
     QfToolButton {
       anchors.left: parent.left
       anchors.top: parent.top
-      width: Theme.toolButtonSize
-      height: Theme.toolButtonSize
+      width: QfTheme.toolButtonSize
+      height: QfTheme.toolButtonSize
       enabled: false
       round: true
       iconSource: button.toolImage
-      iconColor: button.backgroundless ? Theme.mainTextColor : Theme.toolButtonColor
-      bgcolor: button.backgroundless ? "transparent" : Theme.toolButtonBackgroundColor
+      iconColor: button.backgroundless ? QfTheme.mainTextColor : QfTheme.toolButtonColor
+      bgcolor: button.backgroundless ? "transparent" : QfTheme.toolButtonBackgroundColor
     }
 
     Ripple {
       id: ripple
       clip: true
       width: parent.width
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
       clipRadius: 4
       pressed: button.down
       anchor: parent
@@ -58,7 +58,7 @@ ToolButton {
 
   contentItem: Row {
     anchors.left: parent.left
-    anchors.leftMargin: Theme.toolButtonSize + 8
+    anchors.leftMargin: QfTheme.toolButtonSize + 8
     spacing: 8
     padding: 0
     visible: button.toolText !== ""
@@ -68,8 +68,8 @@ ToolButton {
       anchors.verticalCenter: parent.verticalCenter
       verticalAlignment: Text.AlignVCenter
       text: button.toolText
-      color: button.backgroundless ? Theme.mainTextColor : Theme.toolButtonColor
-      font: Theme.strongFont
+      color: button.backgroundless ? QfTheme.mainTextColor : QfTheme.toolButtonColor
+      font: QfTheme.strongFont
     }
 
     Image {
@@ -80,7 +80,7 @@ ToolButton {
       fillMode: Image.PreserveAspectFit
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
-      source: Theme.getThemeVectorIcon("ic_close_white_24dp")
+      source: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
       sourceSize.width: 24 * Screen.devicePixelRatio
       sourceSize.height: 24 * Screen.devicePixelRatio
       visible: true

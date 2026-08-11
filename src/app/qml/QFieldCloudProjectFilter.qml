@@ -126,7 +126,7 @@ Pane {
       ownerComboBox.editText = previousOwner;
       blockQueryUpdate = false;
 
-      if (!filterPanel.organizationsFetched && cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      if (!filterPanel.organizationsFetched && cloudConnection.status === QfCloudConnection.LoggedIn) {
         cloudConnection.getUserOrganizations(filterPanel.currentUsername);
         filterPanel.organizationsFetched = true;
       }
@@ -135,7 +135,7 @@ Pane {
 
   padding: 0
   background: Rectangle {
-    color: Theme.mainBackgroundColor
+    color: QfTheme.mainBackgroundColor
   }
 
   ScrollView {
@@ -152,8 +152,8 @@ Pane {
       Label {
         Layout.fillWidth: true
         text: qsTr("Predefined Filters")
-        font: Theme.strongTipFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongTipFont
+        color: QfTheme.mainTextColor
       }
 
       ListView {
@@ -169,10 +169,10 @@ Pane {
           readonly property bool isActive: filterPanel.activePreset === modelData.id
           height: ListView.view.height
           text: modelData.label
-          font.pointSize: Theme.tipFont.pointSize
+          font.pointSize: QfTheme.tipFont.pointSize
           radius: 4
-          bgcolor: isActive ? Theme.mainColor : "transparent"
-          color: isActive ? Theme.mainBackgroundColor : Theme.mainColor
+          bgcolor: isActive ? QfTheme.mainColor : "transparent"
+          color: isActive ? QfTheme.mainBackgroundColor : QfTheme.mainColor
           onClicked: {
             filterPanel.activePreset = modelData.id;
             if (filterPanel.queryString !== modelData.query) {
@@ -187,8 +187,8 @@ Pane {
       Label {
         Layout.fillWidth: true
         text: qsTr("Criteria")
-        font: Theme.strongTipFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongTipFont
+        color: QfTheme.mainTextColor
       }
 
       ColumnLayout {
@@ -198,14 +198,14 @@ Pane {
         Label {
           Layout.fillWidth: true
           text: qsTr("Title or description contains")
-          font: Theme.tipFont
-          color: Theme.mainTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.mainTextColor
         }
 
         QfTextField {
           id: searchTermTextField
           Layout.fillWidth: true
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
 
           onTextEdited: {
             updateQuery();
@@ -215,16 +215,16 @@ Pane {
         Label {
           Layout.fillWidth: true
           text: qsTr("Owner is")
-          font: Theme.tipFont
-          color: Theme.mainTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.mainTextColor
         }
 
         QfComboBox {
           id: ownerComboBox
           Layout.fillWidth: true
           editable: true
-          Material.accent: Theme.mainColor
-          font: Theme.defaultFont
+          Material.accent: QfTheme.mainColor
+          font: QfTheme.defaultFont
           inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
 
           onEditTextChanged: {
@@ -238,8 +238,8 @@ Pane {
           Label {
             Layout.fillWidth: true
             text: qsTr("Include public projects")
-            font: Theme.tipFont
-            color: Theme.mainTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.mainTextColor
           }
 
           Switch {
@@ -270,8 +270,8 @@ Pane {
       anchors.right: parent.right
       anchors.topMargin: 10
       text: qsTr("Search")
-      bgcolor: Theme.mainColor
-      color: Theme.mainBackgroundColor
+      bgcolor: QfTheme.mainColor
+      color: QfTheme.mainBackgroundColor
 
       onClicked: {
         filterPanel.applyFilter();

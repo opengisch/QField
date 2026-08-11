@@ -19,7 +19,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    color: Theme.controlBackgroundColor
+    color: QfTheme.controlBackgroundColor
   }
 
   ColumnLayout {
@@ -60,8 +60,8 @@ Item {
           width: paintedWidth
           height: parent.height
           text: tabButton.text
-          color: !tabButton.enabled ? Theme.darkGray : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : Theme.mainColor
-          font.pointSize: Theme.tipFont.pointSize
+          color: !tabButton.enabled ? QfTheme.darkGray : tabButton.down ? Qt.darker(QfTheme.mainColor, 1.5) : QfTheme.mainColor
+          font.pointSize: QfTheme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
           horizontalAlignment: Text.AlignHCenter
@@ -70,7 +70,7 @@ Item {
       }
 
       onCurrentIndexChanged: {
-        processingAlgorithmsModel.filters = currentIndex == 0 ? ProcessingAlgorithmsModel.InPlaceFilter | ProcessingAlgorithmsModel.FavoriteFilter : ProcessingAlgorithmsModel.InPlaceFilter;
+        processingAlgorithmsModel.filters = currentIndex == 0 ? QfProcessingAlgorithmsModel.InPlaceFilter | QfProcessingAlgorithmsModel.FavoriteFilter : QfProcessingAlgorithmsModel.InPlaceFilter;
       }
     }
 
@@ -80,9 +80,9 @@ Item {
       Layout.fillHeight: true
       clip: true
 
-      model: ProcessingAlgorithmsModel {
+      model: QfProcessingAlgorithmsModel {
         id: processingAlgorithmsModel
-        filters: ProcessingAlgorithmsModel.InPlaceFilter | ProcessingAlgorithmsModel.FavoriteFilter
+        filters: QfProcessingAlgorithmsModel.InPlaceFilter | QfProcessingAlgorithmsModel.FavoriteFilter
       }
 
       section.property: "AlgorithmGroup"
@@ -91,15 +91,15 @@ Item {
         Rectangle {
           width: parent.width
           height: 30
-          color: Theme.controlBorderColor
+          color: QfTheme.controlBorderColor
 
           Text {
             anchors {
               horizontalCenter: parent.horizontalCenter
               verticalCenter: parent.verticalCenter
             }
-            font: Theme.strongResultFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongResultFont
+            color: QfTheme.mainTextColor
             text: section
           }
         }
@@ -133,8 +133,8 @@ Item {
             verticalCenter: parent.verticalCenter
           }
           width: parent.width - favoriteButton.width - 10
-          font: Theme.resultFont
-          color: Theme.mainTextColor
+          font: QfTheme.resultFont
+          color: QfTheme.mainTextColor
           text: AlgorithmName
         }
 
@@ -154,10 +154,10 @@ Item {
             right: parent.right
             verticalCenter: parent.verticalCenter
           }
-          width: Theme.toolButtonSize
+          width: QfTheme.toolButtonSize
 
-          iconSource: Theme.getThemeVectorIcon("ic_star_white_24dp")
-          iconColor: AlgorithmFavorite ? Theme.mainColor : Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_star_white_24dp")
+          iconColor: AlgorithmFavorite ? QfTheme.mainColor : QfTheme.mainTextColor
           opacity: AlgorithmFavorite ? 1.0 : 0.75
 
           onClicked: {
@@ -168,7 +168,7 @@ Item {
         Rectangle {
           anchors.bottom: parent.bottom
           height: 1
-          color: Theme.controlBorderColor
+          color: QfTheme.controlBorderColor
           width: parent.width
         }
       }

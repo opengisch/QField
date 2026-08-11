@@ -16,8 +16,8 @@
 #ifndef QFIELDCLOUDSERVICE_H
 #define QFIELDCLOUDSERVICE_H
 
+#include "qfcloudconnection.h"
 #include "qfield_service_export.h"
-#include "qfieldcloudconnection.h"
 
 #include <QtCore/private/qandroidextras_p.h>
 #include <QtGlobal>
@@ -34,7 +34,7 @@ class QFIELD_SERVICE_EXPORT QFieldCloudService : public QAndroidService
     void uploadPendingAttachments();
 
   private:
-    std::unique_ptr<QFieldCloudConnection> mCloudConnection;
+    std::unique_ptr<QfCloudConnection> mCloudConnection;
 };
 
 #endif // QFIELDCLOUDSERVICE_H

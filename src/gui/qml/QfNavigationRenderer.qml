@@ -11,14 +11,14 @@ Item {
   id: navigationRenderer
 
   property var pointIndex: undefined
-  property int pointType: NavigationModel.Destination
+  property int pointType: QfNavigationModel.Destination
 
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  /// type:QgsGeometryWrapper
+  /// type:QfGeometryWrapper
   property alias geometryWrapper: geometryWrapper
 
-  QgsGeometryWrapper {
+  QfGeometryWrapper {
     id: geometryWrapper
   }
 
@@ -45,10 +45,10 @@ Item {
           sourceCrs: geometryWrapper.crs
           sourcePosition: modelData
           destinationCrs: mapCanvas.mapSettings.destinationCrs
-          transformContext: qgisProject ? qgisProject.transformContext : CoordinateReferenceSystemUtils.emptyTransformContext()
+          transformContext: qgisProject ? qgisProject.transformContext : QfCoordinateReferenceSystemUtils.emptyTransformContext()
         }
 
-        MapToScreen {
+        QfMapToScreen {
           id: mapToScreenPosition
           mapSettings: mapCanvas.mapSettings
           mapPoint: _ct.projectedPosition
@@ -63,7 +63,7 @@ Item {
 
           width: 16
           height: 16
-          color: Theme.navigationColor
+          color: QfTheme.navigationColor
           border.color: "white"
           border.width: 3
           transform: Rotation {
@@ -102,7 +102,7 @@ Item {
             strokeWidth: 3
             strokeColor: "white"
             strokeStyle: ShapePath.SolidLine
-            fillColor: Theme.navigationColor
+            fillColor: QfTheme.navigationColor
             joinStyle: ShapePath.MiterJoin
             startX: 10
             startY: 0

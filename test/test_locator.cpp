@@ -16,21 +16,21 @@
  ***************************************************************************/
 
 #define QFIELDTEST_MAIN
-#include "activelayerfeatureslocatorfilter.h"
-#include "bookmarklocatorfilter.h"
-#include "bookmarkmodel.h"
 #include "catch2.h"
-#include "expressioncalculatorlocatorfilter.h"
-#include "featurelistextentcontroller.h"
-#include "featurelistmodelselection.h"
-#include "featureslocatorfilter.h"
-#include "finlandlocatorfilter.h"
-#include "gotolocatorfilter.h"
-#include "helplocatorfilter.h"
-#include "locatormodelsuperbridge.h"
-#include "multifeaturelistmodel.h"
-#include "navigation.h"
-#include "qfieldlocatorfilter.h"
+#include "qfactivelayerfeatureslocatorfilter.h"
+#include "qfbookmarklocatorfilter.h"
+#include "qfbookmarkmodel.h"
+#include "qfexpressioncalculatorlocatorfilter.h"
+#include "qffeaturelistextentcontroller.h"
+#include "qffeaturelistmodelselection.h"
+#include "qffeatureslocatorfilter.h"
+#include "qffinlandlocatorfilter.h"
+#include "qfgotolocatorfilter.h"
+#include "qfhelplocatorfilter.h"
+#include "qflocatorfilter.h"
+#include "qflocatormodelsuperbridge.h"
+#include "qfmultifeaturelistmodel.h"
+#include "qfnavigation.h"
 #include "qgsquickmapsettings.h"
 
 #include <QCoreApplication>
@@ -138,14 +138,14 @@ class ScopedIniSettings
 };
 
 /*
- * ExpressionCalculatorLocatorFilter
+ * QfExpressionCalculatorLocatorFilter
  * The trigger path copies to the clipboard through QGuiApplication, which is not
  * available in this GUI-less harness, so only fetching is exercised
  */
 TEST_CASE( "ExpressionCalculatorLocatorFilter" )
 {
-  LocatorModelSuperBridge bridge;
-  ExpressionCalculatorLocatorFilter filter( &bridge );
+  QfLocatorModelSuperBridge bridge;
+  QfExpressionCalculatorLocatorFilter filter( &bridge );
 
   SECTION( "Metadata" )
   {
@@ -158,7 +158,7 @@ TEST_CASE( "ExpressionCalculatorLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<ExpressionCalculatorLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfExpressionCalculatorLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->prefix() == filter.prefix() );
@@ -195,11 +195,11 @@ TEST_CASE( "ExpressionCalculatorLocatorFilter" )
 }
 
 /*
- * GotoLocatorFilter
+ * QfGotoLocatorFilter
  */
 TEST_CASE( "GotoLocatorFilter" )
 {
-  LocatorModelSuperBridge bridge;
+  QfLocatorModelSuperBridge bridge;
 
   QgsQuickMapSettings mapSettings;
   mapSettings.setDestinationCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
@@ -207,7 +207,7 @@ TEST_CASE( "GotoLocatorFilter" )
   mapSettings.setExtent( QgsRectangle( -10.0, -10.0, 10.0, 10.0 ) );
   bridge.setMapSettings( &mapSettings );
 
-  GotoLocatorFilter filter( &bridge );
+  QfGotoLocatorFilter filter( &bridge );
 
   SECTION( "Metadata" )
   {
@@ -220,7 +220,7 @@ TEST_CASE( "GotoLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<GotoLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfGotoLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->prefix() == filter.prefix() );
@@ -274,7 +274,7 @@ TEST_CASE( "GotoLocatorFilter" )
   {
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "1.5 2.5" ) );
     REQUIRE( results.size() == 1 );
-    REQUIRE( hasAction( results.at( 0 ), GotoLocatorFilter::Navigation ) );
+    REQUIRE( hasAction( results.at( 0 ), QfGotoLocatorFilter::QfNavigation ) );
   }
 
   SECTION( "NoResultOnInvalidInput" )
@@ -295,9 +295,9 @@ TEST_CASE( "GotoLocatorFilter" )
     projectedSettings.setOutputSize( QSize( 1000, 500 ) );
     projectedSettings.setExtent( QgsRectangle( -1000.0, -1000.0, 1000.0, 1000.0 ) );
 
-    LocatorModelSuperBridge projectedBridge;
+    QfLocatorModelSuperBridge projectedBridge;
     projectedBridge.setMapSettings( &projectedSettings );
-    GotoLocatorFilter projectedFilter( &projectedBridge );
+    QfGotoLocatorFilter projectedFilter( &projectedBridge );
 
     const QList<QgsLocatorResult> results = fetchResults( &projectedFilter, QStringLiteral( "1.5 2.5" ) );
     REQUIRE( results.size() == 2 );
@@ -311,14 +311,14 @@ TEST_CASE( "GotoLocatorFilter" )
 }
 
 /*
- * BookmarkLocatorFilter
+ * QfBookmarkLocatorFilter
  * Triggering a result moves the map extent and writes onto the geometry highlighter,
  * neither of which has a lightweight headless equivalent, so only fetching is covered
  */
 TEST_CASE( "BookmarkLocatorFilter" )
 {
-  LocatorModelSuperBridge bridge;
-  BookmarkLocatorFilter filter( &bridge );
+  QfLocatorModelSuperBridge bridge;
+  QfBookmarkLocatorFilter filter( &bridge );
 
   SECTION( "Metadata" )
   {
@@ -331,7 +331,7 @@ TEST_CASE( "BookmarkLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<BookmarkLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfBookmarkLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->prefix() == filter.prefix() );
@@ -347,7 +347,7 @@ TEST_CASE( "BookmarkLocatorFilter" )
     QgsBookmarkManager manager;
     manager.addBookmark( makeBookmark( QStringLiteral( "Alpha" ) ) );
     manager.addBookmark( makeBookmark( QStringLiteral( "Beta" ) ) );
-    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    QfBookmarkModel model( &manager, QgsApplication::bookmarkManager() );
     bridge.setBookmarks( &model );
 
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
@@ -363,12 +363,12 @@ TEST_CASE( "BookmarkLocatorFilter" )
   {
     QgsBookmarkManager manager;
     manager.addBookmark( makeBookmark( QStringLiteral( "Alpha" ) ) );
-    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    QfBookmarkModel model( &manager, QgsApplication::bookmarkManager() );
     bridge.setBookmarks( &model );
 
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
     REQUIRE( results.size() == 1 );
-    REQUIRE( hasAction( results.at( 0 ), BookmarkLocatorFilter::Navigation ) );
+    REQUIRE( hasAction( results.at( 0 ), QfBookmarkLocatorFilter::QfNavigation ) );
   }
 
   SECTION( "NavigationActionSetsDestinationInMapCrs" )
@@ -379,20 +379,20 @@ TEST_CASE( "BookmarkLocatorFilter" )
     mapSettings.setExtent( QgsRectangle( -20000000.0, -20000000.0, 20000000.0, 20000000.0 ) );
     bridge.setMapSettings( &mapSettings );
 
-    Navigation navigation;
+    QfNavigation navigation;
     navigation.setMapSettings( &mapSettings );
     bridge.setNavigation( &navigation );
 
     QgsBookmarkManager manager;
     manager.addBookmark( makeBookmark( QStringLiteral( "Alpha" ) ) );
-    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    QfBookmarkModel model( &manager, QgsApplication::bookmarkManager() );
     model.setMapSettings( &mapSettings );
     bridge.setBookmarks( &model );
 
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
     REQUIRE( results.size() == 1 );
 
-    filter.triggerResultFromAction( results.at( 0 ), BookmarkLocatorFilter::Navigation );
+    filter.triggerResultFromAction( results.at( 0 ), QfBookmarkLocatorFilter::QfNavigation );
 
     REQUIRE( navigation.isActive() );
 
@@ -403,14 +403,14 @@ TEST_CASE( "BookmarkLocatorFilter" )
 }
 
 /*
- * HelpLocatorFilter
+ * QfHelpLocatorFilter
  * The live documentation index is replaced with a local one to exercise fetching and
  * parsing; triggering opens a browser, so it is not exercised
  */
 TEST_CASE( "HelpLocatorFilter" )
 {
-  LocatorModelSuperBridge bridge;
-  HelpLocatorFilter filter( &bridge );
+  QfLocatorModelSuperBridge bridge;
+  QfHelpLocatorFilter filter( &bridge );
 
   SECTION( "Metadata" )
   {
@@ -422,7 +422,7 @@ TEST_CASE( "HelpLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<HelpLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfHelpLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->prefix() == filter.prefix() );
@@ -449,7 +449,7 @@ TEST_CASE( "HelpLocatorFilter" )
 }
 
 /*
- * ActiveLayerFeaturesLocatorFilter
+ * QfActiveLayerFeaturesLocatorFilter
  * Triggering a result needs a feature list controller whose model and selection are
  * only populated from QML, so coverage stops at prepare() and fetchResults()
  */
@@ -457,8 +457,8 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
 {
   QgsProject::instance()->clear();
 
-  LocatorModelSuperBridge bridge;
-  ActiveLayerFeaturesLocatorFilter filter( &bridge );
+  QfLocatorModelSuperBridge bridge;
+  QfActiveLayerFeaturesLocatorFilter filter( &bridge );
 
   SECTION( "Metadata" )
   {
@@ -470,7 +470,7 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<ActiveLayerFeaturesLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfActiveLayerFeaturesLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->prefix() == filter.prefix() );
@@ -517,8 +517,8 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
     const QVariantList data = results.at( 0 ).userData().toList();
     REQUIRE( data.size() == 2 );
     REQUIRE( data.at( 1 ).toString() == QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 )->id() );
-    REQUIRE( hasAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::OpenForm ) );
-    REQUIRE( hasAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::Navigation ) );
+    REQUIRE( hasAction( results.at( 0 ), QfActiveLayerFeaturesLocatorFilter::OpenForm ) );
+    REQUIRE( hasAction( results.at( 0 ), QfActiveLayerFeaturesLocatorFilter::QfNavigation ) );
   }
 
   SECTION( "ProposesFieldRestrictionsOnEmptySearch" )
@@ -534,7 +534,7 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
     REQUIRE( results.size() == 2 );
     REQUIRE( results.at( 0 ).displayString == QStringLiteral( "@fid" ) );
     REQUIRE( results.at( 1 ).displayString == QStringLiteral( "@str" ) );
-    REQUIRE( results.at( 0 ).userData().toMap().value( QStringLiteral( "type" ) ).value<ActiveLayerFeaturesLocatorFilter::ResultType>() == ActiveLayerFeaturesLocatorFilter::ResultType::FieldRestriction );
+    REQUIRE( results.at( 0 ).userData().toMap().value( QStringLiteral( "type" ) ).value<QfActiveLayerFeaturesLocatorFilter::ResultType>() == QfActiveLayerFeaturesLocatorFilter::ResultType::FieldRestriction );
   }
 
   SECTION( "RestrictsSearchToSingleField" )
@@ -554,9 +554,9 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
     addPointLayer( QStringLiteral( "points" ) );
     bridge.setActiveLayer( QgsProject::instance()->mapLayersByName( QStringLiteral( "points" ) ).at( 0 ) );
 
-    MultiFeatureListModel featureListModel;
-    FeatureListModelSelection selection;
-    FeatureListExtentController controller;
+    QfMultiFeatureListModel featureListModel;
+    QfFeatureListModelSelection selection;
+    QfFeatureListExtentController controller;
     controller.setProperty( "model", QVariant::fromValue( &featureListModel ) );
     controller.setProperty( "selection", QVariant::fromValue( &selection ) );
     bridge.setFeatureListController( &controller );
@@ -565,8 +565,8 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
     REQUIRE( results.size() == 1 );
 
-    QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
-    filter.triggerResultFromAction( results.at( 0 ), ActiveLayerFeaturesLocatorFilter::OpenForm );
+    QSignalSpy formStateSpy( &controller, &QfFeatureListExtentController::featureFormStateRequested );
+    filter.triggerResultFromAction( results.at( 0 ), QfActiveLayerFeaturesLocatorFilter::OpenForm );
 
     REQUIRE( featureListModel.rowCount() == 1 );
     REQUIRE( selection.focusedItem() == 0 );
@@ -577,7 +577,7 @@ TEST_CASE( "ActiveLayerFeaturesLocatorFilter" )
 }
 
 /*
- * FeaturesLocatorFilter
+ * QfFeaturesLocatorFilter
  * As with the active layer filter, triggering depends on QML-populated objects and is
  * left out; prepare() and fetchResults() carry the searchable behaviour
  */
@@ -585,8 +585,8 @@ TEST_CASE( "FeaturesLocatorFilter" )
 {
   QgsProject::instance()->clear();
 
-  LocatorModelSuperBridge bridge;
-  FeaturesLocatorFilter filter( &bridge );
+  QfLocatorModelSuperBridge bridge;
+  QfFeaturesLocatorFilter filter( &bridge );
 
   SECTION( "Metadata" )
   {
@@ -598,7 +598,7 @@ TEST_CASE( "FeaturesLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<FeaturesLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfFeaturesLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->prefix() == filter.prefix() );
@@ -625,8 +625,8 @@ TEST_CASE( "FeaturesLocatorFilter" )
     {
       REQUIRE( result.displayString == QStringLiteral( "Alpha" ) );
       REQUIRE( result.userData().toList().size() == 2 );
-      REQUIRE( hasAction( result, FeaturesLocatorFilter::OpenForm ) );
-      REQUIRE( hasAction( result, FeaturesLocatorFilter::Navigation ) );
+      REQUIRE( hasAction( result, QfFeaturesLocatorFilter::OpenForm ) );
+      REQUIRE( hasAction( result, QfFeaturesLocatorFilter::QfNavigation ) );
     }
   }
 
@@ -652,17 +652,17 @@ TEST_CASE( "FeaturesLocatorFilter" )
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
 
     REQUIRE( results.size() == 1 );
-    REQUIRE( hasAction( results.at( 0 ), FeaturesLocatorFilter::OpenForm ) );
-    REQUIRE( !hasAction( results.at( 0 ), FeaturesLocatorFilter::Navigation ) );
+    REQUIRE( hasAction( results.at( 0 ), QfFeaturesLocatorFilter::OpenForm ) );
+    REQUIRE( !hasAction( results.at( 0 ), QfFeaturesLocatorFilter::QfNavigation ) );
   }
 
   SECTION( "OpenFormActionFeedsTheFeatureList" )
   {
     addPointLayer( QStringLiteral( "points" ) );
 
-    MultiFeatureListModel featureListModel;
-    FeatureListModelSelection selection;
-    FeatureListExtentController controller;
+    QfMultiFeatureListModel featureListModel;
+    QfFeatureListModelSelection selection;
+    QfFeatureListExtentController controller;
     controller.setProperty( "model", QVariant::fromValue( &featureListModel ) );
     controller.setProperty( "selection", QVariant::fromValue( &selection ) );
     bridge.setFeatureListController( &controller );
@@ -671,8 +671,8 @@ TEST_CASE( "FeaturesLocatorFilter" )
     const QList<QgsLocatorResult> results = fetchResults( &filter, QStringLiteral( "Alpha" ) );
     REQUIRE( results.size() == 1 );
 
-    QSignalSpy formStateSpy( &controller, &FeatureListExtentController::featureFormStateRequested );
-    filter.triggerResultFromAction( results.at( 0 ), FeaturesLocatorFilter::OpenForm );
+    QSignalSpy formStateSpy( &controller, &QfFeatureListExtentController::featureFormStateRequested );
+    filter.triggerResultFromAction( results.at( 0 ), QfFeaturesLocatorFilter::OpenForm );
 
     REQUIRE( featureListModel.rowCount() == 1 );
     REQUIRE( selection.focusedItem() == 0 );
@@ -683,15 +683,15 @@ TEST_CASE( "FeaturesLocatorFilter" )
 }
 
 /*
- * FinlandLocatorFilter
+ * QfFinlandLocatorFilter
  * The filter is currently not registered by the bridge and its geocoding path is
  * network backed, so only its construction time contract is covered
  */
 TEST_CASE( "FinlandLocatorFilter" )
 {
-  LocatorModelSuperBridge bridge;
+  QfLocatorModelSuperBridge bridge;
   DummyGeocoder geocoder;
-  FinlandLocatorFilter filter( &geocoder, &bridge );
+  QfFinlandLocatorFilter filter( &geocoder, &bridge );
 
   SECTION( "Metadata" )
   {
@@ -716,7 +716,7 @@ TEST_CASE( "FinlandLocatorFilter" )
 
   SECTION( "Clone" )
   {
-    std::unique_ptr<FinlandLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfFinlandLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == filter.name() );
     REQUIRE( cloned->geocoder() == &geocoder );
@@ -724,11 +724,11 @@ TEST_CASE( "FinlandLocatorFilter" )
 }
 
 /*
- * QFieldLocatorFilter
+ * QfLocatorFilter
  */
 TEST_CASE( "QFieldLocatorFilter" )
 {
-  QFieldLocatorFilter filter;
+  QfLocatorFilter filter;
 
   SECTION( "Defaults" )
   {
@@ -740,7 +740,7 @@ TEST_CASE( "QFieldLocatorFilter" )
 
   SECTION( "PropertiesRoundTripAndNotifyOnce" )
   {
-    QSignalSpy nameSpy( &filter, &QFieldLocatorFilter::nameChanged );
+    QSignalSpy nameSpy( &filter, &QfLocatorFilter::nameChanged );
     filter.setName( QStringLiteral( "plugin" ) );
     REQUIRE( filter.name() == QStringLiteral( "plugin" ) );
     REQUIRE( nameSpy.count() == 1 );
@@ -748,27 +748,27 @@ TEST_CASE( "QFieldLocatorFilter" )
     filter.setName( QStringLiteral( "plugin" ) );
     REQUIRE( nameSpy.count() == 1 );
 
-    QSignalSpy displayNameSpy( &filter, &QFieldLocatorFilter::displayNameChanged );
+    QSignalSpy displayNameSpy( &filter, &QfLocatorFilter::displayNameChanged );
     filter.setDisplayName( QStringLiteral( "Plugin filter" ) );
     REQUIRE( filter.displayName() == QStringLiteral( "Plugin filter" ) );
     REQUIRE( displayNameSpy.count() == 1 );
 
-    QSignalSpy prefixSpy( &filter, &QFieldLocatorFilter::prefixChanged );
+    QSignalSpy prefixSpy( &filter, &QfLocatorFilter::prefixChanged );
     filter.setPrefix( QStringLiteral( "plg" ) );
     REQUIRE( filter.prefix() == QStringLiteral( "plg" ) );
     REQUIRE( prefixSpy.count() == 1 );
 
-    QSignalSpy descriptionSpy( &filter, &QFieldLocatorFilter::descriptionChanged );
+    QSignalSpy descriptionSpy( &filter, &QfLocatorFilter::descriptionChanged );
     filter.setDescription( QStringLiteral( "A plugin filter" ) );
     REQUIRE( filter.description() == QStringLiteral( "A plugin filter" ) );
     REQUIRE( descriptionSpy.count() == 1 );
 
-    QSignalSpy delaySpy( &filter, &QFieldLocatorFilter::delayChanged );
+    QSignalSpy delaySpy( &filter, &QfLocatorFilter::delayChanged );
     filter.setDelay( 500 );
     REQUIRE( filter.delay() == 500 );
     REQUIRE( delaySpy.count() == 1 );
 
-    QSignalSpy parametersSpy( &filter, &QFieldLocatorFilter::parametersChanged );
+    QSignalSpy parametersSpy( &filter, &QfLocatorFilter::parametersChanged );
     const QVariantMap parameters( { { QStringLiteral( "key" ), QStringLiteral( "value" ) } } );
     filter.setParameters( parameters );
     REQUIRE( filter.parameters() == parameters );
@@ -777,7 +777,7 @@ TEST_CASE( "QFieldLocatorFilter" )
 
   SECTION( "SourceGetsCacheBustingQuery" )
   {
-    QSignalSpy sourceSpy( &filter, &QFieldLocatorFilter::sourceChanged );
+    QSignalSpy sourceSpy( &filter, &QfLocatorFilter::sourceChanged );
     filter.setSource( QUrl( QStringLiteral( "file:///tmp/filter.qml" ) ) );
 
     REQUIRE( sourceSpy.count() == 1 );
@@ -787,7 +787,7 @@ TEST_CASE( "QFieldLocatorFilter" )
 
   SECTION( "CloneCopiesConfiguration" )
   {
-    LocatorModelSuperBridge bridge;
+    QfLocatorModelSuperBridge bridge;
     filter.setName( QStringLiteral( "plugin" ) );
     filter.setDisplayName( QStringLiteral( "Plugin filter" ) );
     filter.setPrefix( QStringLiteral( "plg" ) );
@@ -796,7 +796,7 @@ TEST_CASE( "QFieldLocatorFilter" )
     filter.setSource( QUrl( QStringLiteral( "file:///tmp/filter.qml" ) ) );
     filter.setLocatorBridge( &bridge );
 
-    std::unique_ptr<QFieldLocatorFilter> cloned( filter.clone() );
+    std::unique_ptr<QfLocatorFilter> cloned( filter.clone() );
     REQUIRE( cloned );
     REQUIRE( cloned->name() == QStringLiteral( "plugin" ) );
     REQUIRE( cloned->displayName() == QStringLiteral( "Plugin filter" ) );
@@ -814,11 +814,11 @@ TEST_CASE( "QFieldLocatorFilter" )
 }
 
 /*
- * LocatorModelSuperBridge
+ * QfLocatorModelSuperBridge
  */
 TEST_CASE( "LocatorModelSuperBridge" )
 {
-  LocatorModelSuperBridge bridge;
+  QfLocatorModelSuperBridge bridge;
 
   SECTION( "RegistersQFieldFilters" )
   {
@@ -839,9 +839,9 @@ TEST_CASE( "LocatorModelSuperBridge" )
   SECTION( "RegistersAndDeregistersPluginFilters" )
   {
     const int initialCount = static_cast<int>( bridge.locator()->filters().count() );
-    QSignalSpy spy( &bridge, &LocatorModelSuperBridge::locatorFiltersChanged );
+    QSignalSpy spy( &bridge, &QfLocatorModelSuperBridge::locatorFiltersChanged );
 
-    QFieldLocatorFilter *filter = new QFieldLocatorFilter();
+    QfLocatorFilter *filter = new QfLocatorFilter();
     filter->setName( QStringLiteral( "plugin" ) );
     bridge.registerQFieldLocatorFilter( filter );
     REQUIRE( bridge.locator()->filters().count() == initialCount + 1 );
@@ -862,7 +862,7 @@ TEST_CASE( "LocatorModelSuperBridge" )
 
   SECTION( "PropertiesRoundTripAndNotifyOnce" )
   {
-    QSignalSpy keepScaleSpy( &bridge, &LocatorModelSuperBridge::keepScaleChanged );
+    QSignalSpy keepScaleSpy( &bridge, &QfLocatorModelSuperBridge::keepScaleChanged );
     REQUIRE( !bridge.keepScale() );
     bridge.setKeepScale( true );
     REQUIRE( bridge.keepScale() );
@@ -871,14 +871,14 @@ TEST_CASE( "LocatorModelSuperBridge" )
     REQUIRE( keepScaleSpy.count() == 1 );
 
     QgsVectorLayer layer( QStringLiteral( "Point?crs=epsg:4326" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
-    QSignalSpy activeLayerSpy( &bridge, &LocatorModelSuperBridge::activeLayerChanged );
+    QSignalSpy activeLayerSpy( &bridge, &QfLocatorModelSuperBridge::activeLayerChanged );
     bridge.setActiveLayer( &layer );
     REQUIRE( bridge.activeLayer() == &layer );
     REQUIRE( activeLayerSpy.count() == 1 );
 
     QgsBookmarkManager manager;
-    BookmarkModel model( &manager, QgsApplication::bookmarkManager() );
-    QSignalSpy bookmarksSpy( &bridge, &LocatorModelSuperBridge::bookmarksChanged );
+    QfBookmarkModel model( &manager, QgsApplication::bookmarkManager() );
+    QSignalSpy bookmarksSpy( &bridge, &QfLocatorModelSuperBridge::bookmarksChanged );
     bridge.setBookmarks( &model );
     REQUIRE( bridge.bookmarks() == &model );
     REQUIRE( bookmarksSpy.count() == 1 );
@@ -886,23 +886,23 @@ TEST_CASE( "LocatorModelSuperBridge" )
 
   SECTION( "EmitsSearchRequests" )
   {
-    QSignalSpy searchSpy( &bridge, &LocatorModelSuperBridge::searchRequested );
+    QSignalSpy searchSpy( &bridge, &QfLocatorModelSuperBridge::searchRequested );
     bridge.requestSearch( QStringLiteral( "Alpha" ) );
     REQUIRE( searchSpy.count() == 1 );
     REQUIRE( searchSpy.at( 0 ).at( 0 ).toString() == QStringLiteral( "Alpha" ) );
 
-    QSignalSpy messageSpy( &bridge, &LocatorModelSuperBridge::messageEmitted );
+    QSignalSpy messageSpy( &bridge, &QfLocatorModelSuperBridge::messageEmitted );
     bridge.emitMessage( QStringLiteral( "Something happened" ) );
     REQUIRE( messageSpy.count() == 1 );
   }
 }
 
 /*
- * LocatorFiltersModel
+ * QfLocatorFiltersModel
  */
 TEST_CASE( "LocatorFiltersModel" )
 {
-  LocatorFiltersModel model;
+  QfLocatorFiltersModel model;
 
   SECTION( "EmptyWithoutBridge" )
   {
@@ -915,17 +915,17 @@ TEST_CASE( "LocatorFiltersModel" )
   SECTION( "RoleNames" )
   {
     const QHash<int, QByteArray> roles = model.roleNames();
-    REQUIRE( roles.contains( LocatorFiltersModel::NameRole ) );
-    REQUIRE( roles.contains( LocatorFiltersModel::DescriptionRole ) );
-    REQUIRE( roles.contains( LocatorFiltersModel::PrefixRole ) );
-    REQUIRE( roles.contains( LocatorFiltersModel::ActiveRole ) );
-    REQUIRE( roles.contains( LocatorFiltersModel::DefaultRole ) );
+    REQUIRE( roles.contains( QfLocatorFiltersModel::NameRole ) );
+    REQUIRE( roles.contains( QfLocatorFiltersModel::DescriptionRole ) );
+    REQUIRE( roles.contains( QfLocatorFiltersModel::PrefixRole ) );
+    REQUIRE( roles.contains( QfLocatorFiltersModel::ActiveRole ) );
+    REQUIRE( roles.contains( QfLocatorFiltersModel::DefaultRole ) );
   }
 
   SECTION( "ListsRegisteredFilters" )
   {
-    LocatorModelSuperBridge bridge;
-    LocatorFiltersModel boundModel;
+    QfLocatorModelSuperBridge bridge;
+    QfLocatorFiltersModel boundModel;
     boundModel.setLocatorModelSuperBridge( &bridge );
 
     REQUIRE( boundModel.rowCount() == bridge.locator()->filters().count() );
@@ -933,9 +933,9 @@ TEST_CASE( "LocatorFiltersModel" )
     const QModelIndex index = boundModel.index( 0, 0 );
     QgsLocatorFilter *filter = boundModel.filterForIndex( index );
     REQUIRE( filter );
-    REQUIRE( boundModel.data( index, LocatorFiltersModel::NameRole ).toString() == filter->displayName() );
-    REQUIRE( boundModel.data( index, LocatorFiltersModel::DescriptionRole ).toString() == filter->description() );
-    REQUIRE( boundModel.data( index, LocatorFiltersModel::ActiveRole ).toBool() == filter->enabled() );
+    REQUIRE( boundModel.data( index, QfLocatorFiltersModel::NameRole ).toString() == filter->displayName() );
+    REQUIRE( boundModel.data( index, QfLocatorFiltersModel::DescriptionRole ).toString() == filter->description() );
+    REQUIRE( boundModel.data( index, QfLocatorFiltersModel::ActiveRole ).toBool() == filter->enabled() );
   }
 
   SECTION( "TogglesFilterStateThroughSetData" )
@@ -944,23 +944,23 @@ TEST_CASE( "LocatorFiltersModel" )
     REQUIRE( settingsDir.isValid() );
     const ScopedIniSettings scopedSettings( settingsDir.path() );
 
-    LocatorModelSuperBridge bridge;
-    LocatorFiltersModel boundModel;
+    QfLocatorModelSuperBridge bridge;
+    QfLocatorFiltersModel boundModel;
     boundModel.setLocatorModelSuperBridge( &bridge );
 
     const QModelIndex index = boundModel.index( 0, 0 );
     QgsLocatorFilter *filter = boundModel.filterForIndex( index );
     const bool wasEnabled = filter->enabled();
 
-    REQUIRE( boundModel.setData( index, !wasEnabled, LocatorFiltersModel::ActiveRole ) );
+    REQUIRE( boundModel.setData( index, !wasEnabled, QfLocatorFiltersModel::ActiveRole ) );
     REQUIRE( filter->enabled() == !wasEnabled );
-    REQUIRE( !boundModel.setData( index, !wasEnabled, LocatorFiltersModel::ActiveRole ) );
+    REQUIRE( !boundModel.setData( index, !wasEnabled, QfLocatorFiltersModel::ActiveRole ) );
 
     const bool wasDefault = filter->useWithoutPrefix();
-    REQUIRE( boundModel.setData( index, !wasDefault, LocatorFiltersModel::DefaultRole ) );
+    REQUIRE( boundModel.setData( index, !wasDefault, QfLocatorFiltersModel::DefaultRole ) );
     REQUIRE( filter->useWithoutPrefix() == !wasDefault );
 
-    REQUIRE( !boundModel.setData( index, QStringLiteral( "nope" ), LocatorFiltersModel::NameRole ) );
-    REQUIRE( !boundModel.setData( index, QStringLiteral( "nope" ), LocatorFiltersModel::PrefixRole ) );
+    REQUIRE( !boundModel.setData( index, QStringLiteral( "nope" ), QfLocatorFiltersModel::NameRole ) );
+    REQUIRE( !boundModel.setData( index, QStringLiteral( "nope" ), QfLocatorFiltersModel::PrefixRole ) );
   }
 }

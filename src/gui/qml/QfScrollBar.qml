@@ -10,8 +10,8 @@ import org.qfield.gui
 T.ScrollBar {
   id: control
 
-  property color color: Theme.mainColor
-  property color backgroundColor: Theme.scrollBarBackgroundColor
+  property color color: QfTheme.mainColor
+  property color backgroundColor: QfTheme.scrollBarBackgroundColor
   property real _maxSize: 8
   property real _minSize: 4
 

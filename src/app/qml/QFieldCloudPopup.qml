@@ -15,7 +15,7 @@ Popup {
   rightPadding: mainWindow.sceneRightMargin
   closePolicy: Popup.CloseOnPressOutside
 
-  property QFieldCloudStatus cloudServiceStatus: null
+  property QfCloudStatus cloudServiceStatus: null
   property string pendingAction: ""
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
@@ -43,7 +43,7 @@ Popup {
       showCancelButton: false
       showApplyButton: false
 
-      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QFieldCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing || cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading) ? 'on' : 'off'
+      busyIndicatorState: cloudProjectsModel.currentProject && (cloudConnection.status === QfCloudConnection.Connecting || cloudProjectsModel.currentProject.status === QfCloudProject.Pushing || cloudProjectsModel.currentProject.status === QfCloudProject.Downloading) ? 'on' : 'off'
 
       topMargin: mainWindow.sceneTopMargin
 
@@ -85,7 +85,7 @@ Popup {
         width: 48
         height: 48
         radius: width / 2
-        color: Theme.controlBackgroundAlternateColor
+        color: QfTheme.controlBackgroundAlternateColor
         layer.enabled: true
 
         Rectangle {
@@ -125,7 +125,7 @@ Popup {
             anchors.fill: parent
 
             onClicked: {
-              if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
+              if (cloudConnection.status !== QfCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QfCloudProject.Idle)
                 return;
               connectionSettings.visible = !connectionSettings.visible;
               storageMeterBar.visible = Qt.binding(() => (storageMeterBar.value > 0 || storageMeterBar.loading) && !connectionSettings.visible);
@@ -171,8 +171,8 @@ Popup {
           Text {
             id: wrongAccountText
             visible: cloudProjectsModel.currentProjectId != '' && cloudProjectsModel.currentProject && cloudProjectsModel.currentProjectId !== cloudProjectsModel.currentProject.id
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: qsTr('This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.')
 
             wrapMode: Text.WordWrap
@@ -183,15 +183,15 @@ Popup {
 
           Text {
             id: statusText
-            visible: (cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)) || (cloudProjectCreationConnection.target && (cloudProjectCreationConnection.target.status === QFieldCloudProject.Downloading))
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            visible: (cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QfCloudProject.Downloading || cloudProjectsModel.currentProject.status === QfCloudProject.Pushing)) || (cloudProjectCreationConnection.target && (cloudProjectCreationConnection.target.status === QfCloudProject.Downloading))
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: {
-              let status = QFieldCloudProject.Idle;
-              let packagingStatus = QFieldCloudProject.PackagingFinishedStatus;
+              let status = QfCloudProject.Idle;
+              let packagingStatus = QfCloudProject.PackagingFinishedStatus;
               let downloadProgress = 0.0;
               let downloadBytesTotal = 0;
-              let deltaFilePushStatus = QFieldCloudProject.DeltaFileLocalStatus;
+              let deltaFilePushStatus = QfCloudProject.DeltaFileLocalStatus;
               if (cloudProjectsModel.currentProject) {
                 status = cloudProjectsModel.currentProject.status;
                 packagingStatus = cloudProjectsModel.currentProject.packagingStatus;
@@ -208,13 +208,13 @@ Popup {
                 return '';
               }
               switch (status) {
-              case QFieldCloudProject.Downloading:
-                if (packagingStatus === QFieldCloudProject.PackagingBusyStatus) {
+              case QfCloudProject.Downloading:
+                if (packagingStatus === QfCloudProject.PackagingBusyStatus) {
                   return qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
                 } else {
-                  if (packagingStatus === QFieldCloudProject.PackagingFinishedStatus || downloadProgress > 0.0) {
+                  if (packagingStatus === QfCloudProject.PackagingFinishedStatus || downloadProgress > 0.0) {
                     if (downloadBytesTotal > 0) {
-                      return qsTr('Downloading, %1% of %2 fetched').arg(Math.round(downloadProgress * 100)).arg(FileUtils.representFileSize(downloadBytesTotal));
+                      return qsTr('Downloading, %1% of %2 fetched').arg(Math.round(downloadProgress * 100)).arg(QfFileUtils.representFileSize(downloadBytesTotal));
                     } else {
                       return qsTr('Downloading, %1% fetched').arg(Math.round(downloadProgress * 100));
                     }
@@ -222,9 +222,9 @@ Popup {
                     return qsTr('Reaching out to QFieldCloud to download project');
                   }
                 }
-              case QFieldCloudProject.Pushing:
+              case QfCloudProject.Pushing:
                 switch (deltaFilePushStatus) {
-                case QFieldCloudProject.DeltaFileLocalStatus:
+                case QfCloudProject.DeltaFileLocalStatus:
                   return qsTr('Pushing changes, %1%…').arg(Math.round(cloudProjectsModel.currentProject.pushDeltaProgress * 100));
                 default:
                   return qsTr('QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…');
@@ -259,9 +259,9 @@ Popup {
               fillMode: Image.PreserveAspectFit
               smooth: true
               source: {
-                let status = QFieldCloudProject.Idle;
-                let packagingStatus = QFieldCloudProject.PackagingFinishedStatus;
-                let deltaFilePushStatus = QFieldCloudProject.DeltaFileLocalStatus;
+                let status = QfCloudProject.Idle;
+                let packagingStatus = QfCloudProject.PackagingFinishedStatus;
+                let deltaFilePushStatus = QfCloudProject.DeltaFileLocalStatus;
                 if (cloudProjectsModel.currentProject) {
                   status = cloudProjectsModel.currentProject.status;
                   packagingStatus = cloudProjectsModel.currentProject.packagingStatus;
@@ -274,19 +274,19 @@ Popup {
                   return '';
                 }
                 switch (status) {
-                case QFieldCloudProject.Downloading:
+                case QfCloudProject.Downloading:
                   switch (packagingStatus) {
-                  case QFieldCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProject.downloadProgress > 0.0:
-                    return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+                  case QfCloudProject.PackagingFinishedStatus || cloudProjectsModel.currentProject.downloadProgress > 0.0:
+                    return QfTheme.getThemeVectorIcon('ic_cloud_download_24dp');
                   default:
-                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                    return QfTheme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProject.Pushing:
+                case QfCloudProject.Pushing:
                   switch (deltaFilePushStatus) {
-                  case QFieldCloudProject.DeltaFileLocalStatus:
-                    return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                  case QfCloudProject.DeltaFileLocalStatus:
+                    return QfTheme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
-                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                    return QfTheme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
                 default:
                   '';
@@ -323,9 +323,9 @@ Popup {
               anchors.horizontalCenter: parent.horizontalCenter
               width: parent.width
               height: 6
-              indeterminate: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.packagingStatus !== QFieldCloudProject.PackagingFinishedStatus && cloudProjectsModel.currentProject.downloadProgress === 0.0)
+              indeterminate: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.packagingStatus !== QfCloudProject.PackagingFinishedStatus && cloudProjectsModel.currentProject.downloadProgress === 0.0)
               value: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.downloadProgress ? cloudProjectsModel.currentProject.downloadProgress : 0
-              visible: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.ProjectStatus.Downloading
+              visible: cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.ProjectStatus.Downloading
             }
           }
 
@@ -334,19 +334,19 @@ Popup {
 
             property bool hasError: false
 
-            visible: hasError && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle && !connectionSettings.visible
+            visible: hasError && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle && !connectionSettings.visible
 
             Layout.fillWidth: true
             Layout.leftMargin: 10
             Layout.rightMargin: 10
 
-            color: Theme.darkRed
-            detailsColor: Theme.secondaryTextColor
-            font: Theme.tipFont
-            iconSource: Theme.getThemeVectorIcon('ic_error_outline_24dp')
+            color: QfTheme.darkRed
+            detailsColor: QfTheme.secondaryTextColor
+            font: QfTheme.tipFont
+            iconSource: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
 
-            externalLink: QFieldCloudUtils.documentationFromErrorString(detailsText)
-            titleText: QFieldCloudUtils.userFriendlyErrorString(detailsText)
+            externalLink: QfCloudUtils.documentationFromErrorString(detailsText)
+            titleText: QfCloudUtils.userFriendlyErrorString(detailsText)
             detailsText: ''
 
             Connections {
@@ -372,16 +372,16 @@ Popup {
             QfContainerCard {
               id: cloudifyCard
               Layout.fillWidth: true
-              accentColor: Theme.cloudColor
-              iconSource: Theme.getThemeVectorIcon('ic_cloud_active_24dp')
+              accentColor: QfTheme.cloudColor
+              iconSource: QfTheme.getThemeVectorIcon('ic_cloud_active_24dp')
               title: qsTr('Cloudify project')
               description: localProjectGrid.isCloudifying ? qsTr('Uploading the current project to QFieldCloud.') : qsTr('The current project is not stored on QFieldCloud. Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
 
               QfButton {
                 Layout.fillWidth: true
                 Layout.topMargin: 4
-                bgcolor: Theme.cloudColor
-                color: Theme.light
+                bgcolor: QfTheme.cloudColor
+                color: QfTheme.light
                 text: localProjectGrid.isCloudifying ? (localProjectGrid.cloudifyProgress > 0 ? qsTr('Cloudifying %1%').arg(Math.round(localProjectGrid.cloudifyProgress * 100)) : qsTr('Cloudifying')) : qsTr('Cloudify project')
                 enabled: !localProjectGrid.isCloudifying
                 showProgress: localProjectGrid.isCloudifying
@@ -389,7 +389,7 @@ Popup {
 
                 onClicked: {
                   if (qgisProject.fileName != "") {
-                    cloudify(ProjectUtils.title(qgisProject), FileUtils.absolutePath(qgisProject.fileName));
+                    cloudify(QfProjectUtils.title(qgisProject), QfFileUtils.absolutePath(qgisProject.fileName));
                   }
                 }
               }
@@ -401,20 +401,20 @@ Popup {
             Layout.margins: 10
             Layout.maximumWidth: 525
             Layout.alignment: Qt.AlignHCenter
-            visible: !connectionSettings.visible && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle
+            visible: !connectionSettings.visible && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle
 
             readonly property bool hasDeltaFileWrapper: !!cloudProjectsModel.layerObserver.deltaFileWrapper
             readonly property bool hasDeltaError: hasDeltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.hasError
             readonly property int changesCount: hasDeltaFileWrapper ? cloudProjectsModel.layerObserver.deltaFileWrapper.count : 0
-            readonly property bool isProjectIdle: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle)
+            readonly property bool isProjectIdle: !!(cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle)
             readonly property bool canUpload: isProjectIdle && changesCount > 0 && !hasDeltaError
             readonly property bool canSynchronize: isProjectIdle && hasDeltaFileWrapper && !hasDeltaError
 
             Text {
               id: changesText
               visible: cloudProjectGrid.hasDeltaError
-              font: Theme.tipFont
-              color: Theme.errorColor
+              font: QfTheme.tipFont
+              color: QfTheme.errorColor
               text: visible ? qsTr('The locally stored cloud project has been corrupted') + '\n' + cloudProjectsModel.layerObserver.deltaFileWrapper.errorString : ''
               wrapMode: Text.WordWrap
               horizontalAlignment: Text.AlignHCenter
@@ -432,8 +432,8 @@ Popup {
               QfContainerCard {
                 id: uploadCard
                 Layout.fillWidth: true
-                accentColor: Theme.cloudColor
-                iconSource: Theme.getThemeVectorIcon('ic_cloud_upload_24dp')
+                accentColor: QfTheme.cloudColor
+                iconSource: QfTheme.getThemeVectorIcon('ic_cloud_upload_24dp')
                 title: qsTr('Upload local changes')
                 indicatorVisible: cloudProjectGrid.changesCount > 0
                 indicatorCount: cloudProjectGrid.changesCount
@@ -459,8 +459,8 @@ Popup {
                 QfButton {
                   Layout.fillWidth: true
                   Layout.topMargin: 4
-                  bgcolor: Theme.cloudColor
-                  color: Theme.light
+                  bgcolor: QfTheme.cloudColor
+                  color: QfTheme.light
                   text: qsTr('Upload')
                   enabled: cloudProjectGrid.canUpload
 
@@ -473,7 +473,7 @@ Popup {
                   Layout.bottomMargin: 6
                   Layout.preferredHeight: 1
 
-                  color: Theme.controlBorderColor
+                  color: QfTheme.controlBorderColor
                 }
 
                 RowLayout {
@@ -484,9 +484,9 @@ Popup {
                     id: autoPushText
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
-                    font: Theme.tipFont
+                    font: QfTheme.tipFont
                     wrapMode: Text.WordWrap
-                    color: autoPush.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                    color: autoPush.checked ? QfTheme.mainTextColor : QfTheme.secondaryTextColor
 
                     text: qsTr('Auto-upload every %n minute(s)', '', 0 + (cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.autoPushIntervalMins : 0))
 
@@ -527,8 +527,8 @@ Popup {
               QfContainerCard {
                 id: synchronizeCard
                 Layout.fillWidth: true
-                accentColor: Theme.mainColor
-                iconSource: Theme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
+                accentColor: QfTheme.mainColor
+                iconSource: QfTheme.getThemeVectorIcon('ic_cloud_synchronize_24dp')
                 title: qsTr('Synchronize project')
                 indicatorVisible: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.isOutdated || cloudProjectsModel.currentProject.isProjectOutdated)
                 description: qsTr('Uploads your edits, then downloads the latest project from QFieldCloud so everything is up to date.')
@@ -554,7 +554,7 @@ Popup {
                   Layout.fillWidth: true
                   Layout.topMargin: 4
                   bgcolor: "transparent"
-                  color: Theme.mainColor
+                  color: QfTheme.mainColor
                   text: qsTr('Synchronize')
                   enabled: cloudProjectGrid.canSynchronize
 
@@ -605,17 +605,17 @@ Popup {
                   id: uploadHistoryEntryButton
                   Layout.alignment: Qt.AlignHCenter
                   round: true
-                  bgcolor: Qt.rgba(Theme.cloudColor.r, Theme.cloudColor.g, Theme.cloudColor.b, 0.1)
-                  iconSource: Theme.getThemeVectorIcon('ic_baseline-list_white_24dp')
-                  iconColor: Theme.cloudColor
+                  bgcolor: Qt.rgba(QfTheme.cloudColor.r, QfTheme.cloudColor.g, QfTheme.cloudColor.b, 0.1)
+                  iconSource: QfTheme.getThemeVectorIcon('ic_baseline-list_white_24dp')
+                  iconColor: QfTheme.cloudColor
 
                   onClicked: showHistory()
                 }
 
                 Text {
                   Layout.fillWidth: true
-                  font: Theme.tipFont
-                  color: Theme.mainTextColor
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   wrapMode: Text.WordWrap
                   text: qsTr('Upload history')
@@ -636,9 +636,9 @@ Popup {
                   id: dangerZoneEntryButton
                   Layout.alignment: Qt.AlignHCenter
                   round: true
-                  bgcolor: Qt.rgba(Theme.darkRed.r, Theme.darkRed.g, Theme.darkRed.b, 0.1)
-                  iconSource: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-                  iconColor: Theme.darkRed
+                  bgcolor: Qt.rgba(QfTheme.darkRed.r, QfTheme.darkRed.g, QfTheme.darkRed.b, 0.1)
+                  iconSource: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
+                  iconColor: QfTheme.darkRed
 
                   onClicked: swipeView.currentIndex = 1
                 }
@@ -646,8 +646,8 @@ Popup {
                 Text {
                   Layout.fillWidth: true
                   Layout.alignment: Qt.AlignHCenter
-                  font: Theme.tipFont
-                  color: Theme.mainTextColor
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   wrapMode: Text.WordWrap
                   text: qsTr('Danger zone')
@@ -667,7 +667,7 @@ Popup {
             Layout.fillHeight: true
             spacing: 2
 
-            visible: (cloudProjectsModel.currentProjectId || popup.pendingAction != "") && cloudConnection.status !== QFieldCloudConnection.LoggedIn
+            visible: (cloudProjectsModel.currentProjectId || popup.pendingAction != "") && cloudConnection.status !== QfCloudConnection.LoggedIn
 
             ScrollView {
               Layout.fillWidth: true
@@ -714,7 +714,7 @@ Popup {
       height: isVisible ? uploadLabel.contentHeight + uploadProgress.height + 25 : 0
 
       radius: 8
-      color: Theme.groupBoxBackgroundColor
+      color: QfTheme.groupBoxBackgroundColor
       clip: true
       opacity: isVisible ? 1 : 0
 
@@ -734,8 +734,8 @@ Popup {
           width: parent.width
           wrapMode: Text.WordWrap
           text: ""
-          font: Theme.tipFont
-          color: Theme.mainTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.mainTextColor
         }
 
         ProgressBar {
@@ -753,7 +753,7 @@ Popup {
     target: cloudConnection
 
     function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         fetchSubscriptionInformation();
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
@@ -761,7 +761,7 @@ Popup {
         } else if (popup.pendingAction == "connect") {
           popup.visible = false;
         }
-      } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+      } else if (cloudConnection.status === QfCloudConnection.Disconnected) {
         lastSubscriptionUser = "";
         storageMeterBar.visible = false;
         storageMeterBar.value = 0;
@@ -915,7 +915,7 @@ Popup {
     if (swipeView.currentIndex === 1) {
       swipeView.currentIndex = 0;
     } else if (connectionSettings.visible) {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         connectionSettings.visible = false;
       } else {
         popup.close();
@@ -929,16 +929,16 @@ Popup {
     if (opened) {
       return;
     }
-    if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+    if (cloudConnection.status === QfCloudConnection.Disconnected) {
       if ((cloudConnection.hasToken || cloudConnection.hasProviderConfiguration)) {
         cloudConnection.login();
       }
       cloudConnection.getServerInformation();
     }
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn) {
       fetchSubscriptionInformation();
     }
-    if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+    if (cloudConnection.status === QfCloudConnection.Connecting) {
       displayToast(qsTr('Connecting cloud'));
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isProjectOutdated) {
       displayToast(qsTr('This project has an updated project file on the cloud, you are advised to synchronize.'), 'attention');
@@ -951,22 +951,22 @@ Popup {
   function projectPush(shouldDownloadUpdates) {
     if (shouldDownloadUpdates && storageMeterBar.value >= 1.0) {
       if (storageMeterBar.relatedUrl != "") {
-        displayToast(qsTr("Project %1 cannot be packaged as your available storage is full.").arg(ProjectUtils.title(qgisProject)), 'info', qsTr('Upgrade storage'), function () {
+        displayToast(qsTr("Project %1 cannot be packaged as your available storage is full.").arg(QfProjectUtils.title(qgisProject)), 'info', qsTr('Upgrade storage'), function () {
           Qt.openUrlExternally(storageMeterBar.relatedUrl);
         });
       } else {
-        displayToast(qsTr("Project %1 cannot be packaged as the project owner's available storage is full.").arg(ProjectUtils.title(qgisProject)), 'warning');
+        displayToast(qsTr("Project %1 cannot be packaged as the project owner's available storage is full.").arg(QfProjectUtils.title(qgisProject)), 'warning');
       }
       return;
     }
 
-    if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) {
+    if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle) {
       cloudProjectsModel.projectPush(cloudProjectsModel.currentProjectId, shouldDownloadUpdates);
     }
   }
 
   function revertLocalChangesFromCurrentProject() {
-    if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) {
+    if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle) {
       if (cloudProjectsModel.revertLocalChangesFromCurrentProject()) {
         displayToast(qsTr('Local changes discarded'));
       } else {
@@ -988,7 +988,7 @@ Popup {
     }
     pendingCreationTitle = title;
     pendingUploadPath = path;
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn) {
       pendingCreationTitle = title;
       pendingUploadPath = path;
       cloudProjectsModel.createProject(title);
@@ -998,7 +998,7 @@ Popup {
   }
 
   function fetchSubscriptionInformation() {
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn) {
       const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
       const isOwnSubscription = !cloudProjectsModel.currentProject || owner === cloudConnection.username;
       if (owner !== lastSubscriptionUser) {
@@ -1020,15 +1020,15 @@ Popup {
     const warnRatio = thresholdWarningBytes > 0 ? 1.0 - (thresholdWarningBytes / totalBytes) : 0.8;
     const critRatio = thresholdCriticalBytes > 0 ? 1.0 - (thresholdCriticalBytes / totalBytes) : 0.95;
     storageMeterBar.value = usageRatio;
-    storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
-    storageMeterBar.relatedUrl = Qt.platform !== "ios" ? QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username) : "";
+    storageMeterBar.usageText = qsTr("Used %1 of %2").arg(QfFileUtils.representFileSize(usedBytes, true)).arg(QfFileUtils.representFileSize(totalBytes, true));
+    storageMeterBar.relatedUrl = Qt.platform !== "ios" ? QfCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username) : "";
     storageMeterBar.warningThreshold = warnRatio;
     storageMeterBar.criticalThreshold = critRatio;
     storageMeterBar.visible = true;
   }
 
   function showHistory() {
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
       qfieldCloudDeltaHistory.model.cloudProjectId = cloudProjectsModel.currentProject.id;
       qfieldCloudDeltaHistory.open();
     }

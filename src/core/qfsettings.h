@@ -1,0 +1,65 @@
+/***************************************************************************
+                            qfsettings.h
+                              -------------------
+              begin                : 10.12.2014
+              copyright            : (C) 2014 by Matthias Kuhn
+              email                : matthias.kuhn (at) opengis.ch
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+
+#ifndef QFSETTINGS_H
+#define QFSETTINGS_H
+
+#include <QSettings>
+
+/**
+ * \ingroup core
+ */
+class QfSettings : public QSettings
+{
+    Q_OBJECT
+
+  public:
+    explicit QfSettings( QObject *parent = nullptr );
+
+    Q_INVOKABLE void setValue( const QString &key, const QVariant &value );
+
+    Q_INVOKABLE QVariant value( const QString &key, const QVariant &defaultValue );
+
+    /**
+     * Properly evaluates the returned value to be boolean.
+     * If the normal value() is used instead, a string "true" or "false"
+     * will be returned which will be evaluated to true either way by JS.
+     */
+    Q_INVOKABLE bool valueBool( const QString &key, bool defaultValue );
+
+    /**
+     * Properly evaluates the returned value to be int.
+     * If the normal value() is used instead, a string "1" or "-456"
+     * will be returned.
+     */
+    Q_INVOKABLE int valueInt( const QString &key, int defaultValue );
+
+    /**
+     * Removes the given \a key from settings.
+     */
+    Q_INVOKABLE void remove( const QString &key );
+
+    /**
+     * Writes any unsaved changes to permanent storage, and reloads the settings.
+     */
+    Q_INVOKABLE void sync();
+
+  signals:
+    void settingChanged( const QString &key );
+};
+
+#endif // QFSETTINGS_H

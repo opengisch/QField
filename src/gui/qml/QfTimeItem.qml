@@ -19,14 +19,14 @@ Item {
 
     Label {
       text: qsTr("Hours")
-      font: Theme.strongTipFont
+      font: QfTheme.strongTipFont
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
     }
 
     Label {
       text: qsTr("Minutes")
-      font: Theme.strongTipFont
+      font: QfTheme.strongTipFont
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
       Layout.column: __verticalView ? 0 : 1
@@ -35,7 +35,7 @@ Item {
 
     Label {
       text: qsTr("Seconds")
-      font: Theme.strongTipFont
+      font: QfTheme.strongTipFont
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
       Layout.column: __verticalView ? 0 : 2
@@ -49,7 +49,7 @@ Item {
       to: 23
       value: 12
       inputMethodHints: Qt.ImhTime
-      font: Theme.tipFont
+      font: QfTheme.tipFont
       Layout.fillWidth: true
       Layout.column: 0
       Layout.row: 1
@@ -62,7 +62,7 @@ Item {
       to: 59
       value: 30
       inputMethodHints: Qt.ImhTime
-      font: Theme.tipFont
+      font: QfTheme.tipFont
       Layout.fillWidth: true
       Layout.column: __verticalView ? 0 : 1
       Layout.row: __verticalView ? 3 : 1
@@ -75,7 +75,7 @@ Item {
       to: 59
       value: 30
       inputMethodHints: Qt.ImhTime
-      font: Theme.tipFont
+      font: QfTheme.tipFont
       Layout.fillWidth: true
       Layout.column: __verticalView ? 0 : 2
       Layout.row: __verticalView ? 5 : 1

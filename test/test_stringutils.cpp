@@ -16,29 +16,29 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "utils/stringutils.h"
+#include "utils/qfstringutils.h"
 
 
 TEST_CASE( "StringUtils" )
 {
   SECTION( "InsertLinks" )
   {
-    REQUIRE( StringUtils::insertLinks( QStringLiteral( "http://osm.org/" ) ) == QStringLiteral( "<a href=\"http://osm.org/\">http://osm.org/</a>" ) );
-    REQUIRE( StringUtils::insertLinks( QStringLiteral( "https://osm.org/" ) ) == QStringLiteral( "<a href=\"https://osm.org/\">https://osm.org/</a>" ) );
-    REQUIRE( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/ after" ) ) == QStringLiteral( "before <a href=\"https://osm.org/\">https://osm.org/</a> after" ) );
-    REQUIRE( StringUtils::insertLinks( QStringLiteral( "before https://osm.org/path?resource=;or=this%20one after" ) ) == QStringLiteral( "before <a href=\"https://osm.org/path?resource=;or=this%20one\">https://osm.org/path?resource=;or=this%20one</a> after" ) );
+    REQUIRE( QfStringUtils::insertLinks( QStringLiteral( "http://osm.org/" ) ) == QStringLiteral( "<a href=\"http://osm.org/\">http://osm.org/</a>" ) );
+    REQUIRE( QfStringUtils::insertLinks( QStringLiteral( "https://osm.org/" ) ) == QStringLiteral( "<a href=\"https://osm.org/\">https://osm.org/</a>" ) );
+    REQUIRE( QfStringUtils::insertLinks( QStringLiteral( "before https://osm.org/ after" ) ) == QStringLiteral( "before <a href=\"https://osm.org/\">https://osm.org/</a> after" ) );
+    REQUIRE( QfStringUtils::insertLinks( QStringLiteral( "before https://osm.org/path?resource=;or=this%20one after" ) ) == QStringLiteral( "before <a href=\"https://osm.org/path?resource=;or=this%20one\">https://osm.org/path?resource=;or=this%20one</a> after" ) );
   }
 
   SECTION( "HighlightText" )
   {
-    REQUIRE( StringUtils::highlightText( "QField roxx", "", QColor( Qt::black ) ) == "QField roxx" );
-    REQUIRE( StringUtils::highlightText( "QField roxx", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span>x" );
-    REQUIRE( StringUtils::highlightText( "QField roxx", "doxx", QColor( Qt::black ) ) == "QField roxx" );
-    REQUIRE( StringUtils::highlightText( "QField <roxx>", "rox", QColor( Qt::black ) ) == "QField &lt;<span style=\"text-decoration:underline;color:#000000\">rox</span>x&gt;" );
-    REQUIRE( StringUtils::highlightText( "QField rox - rox", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span> - <span style=\"text-decoration:underline;color:#000000\">rox</span>" );
+    REQUIRE( QfStringUtils::highlightText( "QField roxx", "", QColor( Qt::black ) ) == "QField roxx" );
+    REQUIRE( QfStringUtils::highlightText( "QField roxx", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span>x" );
+    REQUIRE( QfStringUtils::highlightText( "QField roxx", "doxx", QColor( Qt::black ) ) == "QField roxx" );
+    REQUIRE( QfStringUtils::highlightText( "QField <roxx>", "rox", QColor( Qt::black ) ) == "QField &lt;<span style=\"text-decoration:underline;color:#000000\">rox</span>x&gt;" );
+    REQUIRE( QfStringUtils::highlightText( "QField rox - rox", "rox", QColor( Qt::black ) ) == "QField <span style=\"text-decoration:underline;color:#000000\">rox</span> - <span style=\"text-decoration:underline;color:#000000\">rox</span>" );
 
-    REQUIRE( StringUtils::highlightText( "Béziers", "bez", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Béz</span>iers" );
-    REQUIRE( StringUtils::highlightText( "Crème brûlée", "creme", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Crème</span> brûlée" );
-    REQUIRE( StringUtils::highlightText( "beziers", "béz", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">bez</span>iers" );
+    REQUIRE( QfStringUtils::highlightText( "Béziers", "bez", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Béz</span>iers" );
+    REQUIRE( QfStringUtils::highlightText( "Crème brûlée", "creme", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">Crème</span> brûlée" );
+    REQUIRE( QfStringUtils::highlightText( "beziers", "béz", QColor( Qt::black ) ) == "<span style=\"text-decoration:underline;color:#000000\">bez</span>iers" );
   }
 }

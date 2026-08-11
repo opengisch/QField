@@ -29,7 +29,7 @@ set(QFIELD_APP_QML_FILES
     ScreenLocker.qml
     WelcomeScreen.qml)
 
-# Type registration stays imperative, in QFieldApp::registerQmlTypes().
+# Type registration stays imperative, in QfApp::registerQmlTypes().
 qt_add_qml_module(
   qfield_app
   URI

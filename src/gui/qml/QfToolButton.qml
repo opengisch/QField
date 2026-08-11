@@ -15,15 +15,15 @@ RoundButton {
   property alias iconColor: button.icon.color
   property alias statusBadge: badge
   property string bottomRightIndicatorText: ''
-  property string bottomRightIndicatorBgColor: Theme.cloudColor
-  property string bottomRightIndicatorFgColor: Theme.light
+  property string bottomRightIndicatorBgColor: QfTheme.cloudColor
+  property string bottomRightIndicatorFgColor: QfTheme.light
   property bool round: false
   property bool roundborder: false
   property alias bgcolor: backgroundRectangle.color
   property color borderColor: 'transparent'
 
-  width: Theme.toolButtonSize
-  height: Theme.toolButtonSize
+  width: QfTheme.toolButtonSize
+  height: QfTheme.toolButtonSize
   implicitWidth: width
   implicitHeight: height
   focusPolicy: Qt.NoFocus
@@ -59,7 +59,7 @@ RoundButton {
       pressed: button.down
       anchor: parent
       active: button.down
-      color: Theme.darkTheme ? bgcolor == "#ffffff" ? "#10000000" : "#10ffffff" : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
+      color: QfTheme.darkTheme ? bgcolor == "#ffffff" ? "#10000000" : "#10ffffff" : bgcolor == "#ffffff" || bgcolor == "#00000000" ? "#10000000" : "#22ffffff"
     }
   }
 
@@ -69,7 +69,7 @@ RoundButton {
   icon.height: Math.min(width, height) / 2
 
   Material.foreground: icon.color
-  font: Theme.tipFont
+  font: QfTheme.tipFont
 
   QfBadge {
     id: badge
@@ -80,7 +80,7 @@ RoundButton {
     height: width
     visible: bottomRightIndicatorText
     color: bottomRightIndicatorBgColor
-    border.color: Theme.mainBackgroundColor
+    border.color: QfTheme.mainBackgroundColor
     border.width: Math.max(1, button.width / 24)
 
     badgeText.color: bottomRightIndicatorFgColor

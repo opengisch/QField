@@ -29,10 +29,10 @@ QfEditorWidgetBase {
   enabled: isEnabled
 
   property bool isDateTimeType: field.isDateOrTime
-  property bool fieldIsDateTime: LayerUtils.fieldType(field) === 'QDateTime'
-  property bool fieldIsDate: LayerUtils.fieldType(field) === 'QDate'
-  property bool fieldIsTime: LayerUtils.fieldType(field) === 'QTime'
-  property bool fieldIsString: LayerUtils.fieldType(field) === 'QString'
+  property bool fieldIsDateTime: QfLayerUtils.fieldType(field) === 'QDateTime'
+  property bool fieldIsDate: QfLayerUtils.fieldType(field) === 'QDate'
+  property bool fieldIsTime: QfLayerUtils.fieldType(field) === 'QTime'
+  property bool fieldIsString: QfLayerUtils.fieldType(field) === 'QString'
 
   property var currentValue: {
     const formattedDate = formatDateTime(value);
@@ -42,7 +42,7 @@ QfEditorWidgetBase {
 
   function formatDateTime(value) {
     // Will handle both null and undefined as date values
-    if (FeatureUtils.attributeIsNull(value) || value === '') {
+    if (QfFeatureUtils.attributeIsNull(value) || value === '') {
       return qsTr('(no date)');
     } else {
       let displayFormat = config['display_format'];
@@ -85,8 +85,8 @@ QfEditorWidgetBase {
       Layout.fillWidth: true
 
       verticalAlignment: Text.AlignVCenter
-      font: Theme.defaultFont
-      color: (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
       topPadding: 6
       bottomPadding: 6
       rightPadding: 0
@@ -160,8 +160,8 @@ QfEditorWidgetBase {
         width: 40
         height: label.height
         padding: 0
-        iconSource: Theme.getThemeVectorIcon('ic_clear_white_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_clear_white_24dp')
+        iconColor: QfTheme.mainTextColor
         visible: (value !== undefined) && enabled && (config['allow_null'] === undefined || config['allow_null'])
 
         onClicked: {
@@ -174,11 +174,11 @@ QfEditorWidgetBase {
 
     QfToolButton {
       id: todayButton
-      width: enabled ? Theme.toolButtonSize : 0
+      width: enabled ? QfTheme.toolButtonSize : 0
       visible: enabled
 
-      iconSource: Theme.getThemeVectorIcon("ic_calendar_today_black_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_calendar_today_black_24dp")
+      iconColor: QfTheme.mainTextColor
 
       onClicked: {
         const currentDate = new Date();

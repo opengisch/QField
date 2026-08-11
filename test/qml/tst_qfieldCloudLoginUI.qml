@@ -29,7 +29,7 @@ TestCase {
     property int sceneRightMargin: 0
   }
 
-  QFieldCloudConnection {
+  QfCloudConnection {
     id: cloudConnection
   }
 
@@ -92,9 +92,9 @@ TestCase {
   // This function is called after each test function that is executed in the TestCase type.
   function cleanup() {
     // Logout after each test
-    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+    if (cloudConnection.status === QfCloudConnection.LoggedIn) {
       cloudConnection.logout();
-      tryCompare(cloudConnection, "status", QFieldCloudConnection.Disconnected, 5000);
+      tryCompare(cloudConnection, "status", QfCloudConnection.Disconnected, 5000);
     }
 
     // Reset component state
@@ -114,7 +114,7 @@ TestCase {
     return serverConfigs();
   }
   function test_01_fieldsVisibilityByConnectionStatus(data) {
-    compare(cloudConnection.status, QFieldCloudConnection.Disconnected);
+    compare(cloudConnection.status, QfCloudConnection.Disconnected);
     verify(usernameField.visible);
     verify(passwordField.visible);
     // Register label requires a signup URL from server info, verify after fetch
@@ -125,7 +125,7 @@ TestCase {
     cloudConnection.username = data.username;
     cloudConnection.login(data.password);
     wait(5000);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    tryCompare(cloudConnection, "status", QfCloudConnection.LoggedIn, 15000);
     compare(usernameField.visible, false);
     compare(passwordField.visible, false);
     compare(cloudRegisterLabel.visible, false);
@@ -169,7 +169,7 @@ TestCase {
     cloudConnection.username = data.username;
     cloudConnection.login(data.password);
     wait(2000);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    tryCompare(cloudConnection, "status", QfCloudConnection.LoggedIn, 15000);
     compare(loginFeedbackLabel.visible, false);
   }
 
@@ -257,7 +257,7 @@ TestCase {
     cloudConnection.url = data.url;
     cloudConnection.username = data.username;
     cloudConnection.login(data.password);
-    tryCompare(cloudConnection, "status", QFieldCloudConnection.LoggedIn, 15000);
+    tryCompare(cloudConnection, "status", QfCloudConnection.LoggedIn, 15000);
     compare(usernameField.text, cloudConnection.username);
   }
 }

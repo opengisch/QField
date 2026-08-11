@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
+#include "qfscalebarmeasurement.h"
 #include "qgsquickmapsettings.h"
-#include "scalebarmeasurement.h"
 
 #include <QSignalSpy>
 #include <qgscoordinatereferencesystem.h>
@@ -38,21 +38,21 @@ TEST_CASE( "ScaleBarMeasurement" )
 {
   SECTION( "default state: screenLength is 0 and label is empty" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     REQUIRE( sbm.screenLength() == 0.0 );
     REQUIRE( sbm.label().isEmpty() );
   }
 
   SECTION( "default referenceScreenLength is 300" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     REQUIRE( sbm.referenceScreenLength() == 300.0 );
   }
 
   SECTION( "setReferenceScreenLength updates value and emits signal" )
   {
-    ScaleBarMeasurement sbm;
-    QSignalSpy spy( &sbm, &ScaleBarMeasurement::referenceScreenLengthChanged );
+    QfScaleBarMeasurement sbm;
+    QSignalSpy spy( &sbm, &QfScaleBarMeasurement::referenceScreenLengthChanged );
     sbm.setReferenceScreenLength( 150.0 );
     REQUIRE( sbm.referenceScreenLength() == 150.0 );
     REQUIRE( spy.count() == 1 );
@@ -60,53 +60,53 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "setReferenceScreenLength with same value does not emit signal" )
   {
-    ScaleBarMeasurement sbm;
-    QSignalSpy spy( &sbm, &ScaleBarMeasurement::referenceScreenLengthChanged );
+    QfScaleBarMeasurement sbm;
+    QSignalSpy spy( &sbm, &QfScaleBarMeasurement::referenceScreenLengthChanged );
     sbm.setReferenceScreenLength( 300.0 );
     REQUIRE( spy.count() == 0 );
   }
 
   SECTION( "setProject emits projectChanged" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
-    QSignalSpy spy( &sbm, &ScaleBarMeasurement::projectChanged );
+    QSignalSpy spy( &sbm, &QfScaleBarMeasurement::projectChanged );
     sbm.setProject( &project );
     REQUIRE( spy.count() == 1 );
   }
 
   SECTION( "setProject with same pointer does not emit signal" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     sbm.setProject( &project );
-    QSignalSpy spy( &sbm, &ScaleBarMeasurement::projectChanged );
+    QSignalSpy spy( &sbm, &QfScaleBarMeasurement::projectChanged );
     sbm.setProject( &project );
     REQUIRE( spy.count() == 0 );
   }
 
   SECTION( "setMapSettings emits mapSettingsChanged" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsQuickMapSettings ms;
-    QSignalSpy spy( &sbm, &ScaleBarMeasurement::mapSettingsChanged );
+    QSignalSpy spy( &sbm, &QfScaleBarMeasurement::mapSettingsChanged );
     sbm.setMapSettings( &ms );
     REQUIRE( spy.count() == 1 );
   }
 
   SECTION( "setMapSettings with same pointer does not emit signal" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsQuickMapSettings ms;
     sbm.setMapSettings( &ms );
-    QSignalSpy spy( &sbm, &ScaleBarMeasurement::mapSettingsChanged );
+    QSignalSpy spy( &sbm, &QfScaleBarMeasurement::mapSettingsChanged );
     sbm.setMapSettings( &ms );
     REQUIRE( spy.count() == 0 );
   }
 
   SECTION( "without project, screenLength stays 0 even with mapSettings" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsQuickMapSettings ms;
     setupMapSettings( ms );
     sbm.setMapSettings( &ms );
@@ -117,7 +117,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "with project and mapSettings, screenLength is positive and label is non-empty" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms;
@@ -130,7 +130,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "label contains correct numeric value and km unit for projected CRS" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms;
@@ -151,7 +151,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "changing extent triggers measure and updates screenLength" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms;
@@ -167,7 +167,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "screenLengthChanged and labelChanged emitted after extent change" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms;
@@ -175,8 +175,8 @@ TEST_CASE( "ScaleBarMeasurement" )
     sbm.setProject( &project );
     sbm.setMapSettings( &ms );
 
-    QSignalSpy screenSpy( &sbm, &ScaleBarMeasurement::screenLengthChanged );
-    QSignalSpy labelSpy( &sbm, &ScaleBarMeasurement::labelChanged );
+    QSignalSpy screenSpy( &sbm, &QfScaleBarMeasurement::screenLengthChanged );
+    QSignalSpy labelSpy( &sbm, &QfScaleBarMeasurement::labelChanged );
     ms.setExtent( QgsRectangle( 0.0, 0.0, 500000.0, 250000.0 ) );
     REQUIRE( screenSpy.count() >= 1 );
     REQUIRE( labelSpy.count() >= 1 );
@@ -184,7 +184,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "degree-based CRS produces label prefixed with ~" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:4326" ) ) );
     QgsQuickMapSettings ms;
@@ -199,7 +199,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "removing mapSettings by setting new one disconnects old signals" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms1;
@@ -219,7 +219,7 @@ TEST_CASE( "ScaleBarMeasurement" )
 
   SECTION( "ellipsoid change on project triggers resetDistanceArea" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms;
@@ -233,14 +233,14 @@ TEST_CASE( "ScaleBarMeasurement" )
     project.setEllipsoid( QStringLiteral( "GRS80" ) );
     REQUIRE( sbm.screenLength() == lengthBefore );
     // a subsequent extent change now uses the updated distance area
-    QSignalSpy screenSpy( &sbm, &ScaleBarMeasurement::screenLengthChanged );
+    QSignalSpy screenSpy( &sbm, &QfScaleBarMeasurement::screenLengthChanged );
     ms.setExtent( QgsRectangle( 0.0, 0.0, 200000.0, 100000.0 ) );
     REQUIRE( screenSpy.count() >= 1 );
   }
 
   SECTION( "setProject to nullptr after having a project resets label to empty" )
   {
-    ScaleBarMeasurement sbm;
+    QfScaleBarMeasurement sbm;
     QgsProject project;
     project.setCrs( QgsCoordinateReferenceSystem( QStringLiteral( "EPSG:3857" ) ) );
     QgsQuickMapSettings ms;

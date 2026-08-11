@@ -12,9 +12,9 @@ QfPopup {
   id: trackerSettings
 
   parent: mainWindow.contentItem
-  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeHorizontalMargin
+  width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: QfTheme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
   focus: visible
@@ -132,8 +132,8 @@ QfPopup {
 
         Label {
           text: qsTr('Layer')
-          font: Theme.strongFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.topMargin: 5
@@ -147,7 +147,7 @@ QfPopup {
           Layout.topMargin: 5
           Layout.columnSpan: 2
 
-          model: MapLayerModel {
+          model: QfMapLayerModel {
             id: layersModel
             enabled: false
             project: qgisProject
@@ -165,17 +165,17 @@ QfPopup {
             icon.source: {
               switch (GeometryType) {
               case Qgis.GeometryType.Point:
-                return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_point_24dp');
               case Qgis.GeometryType.Line:
-                return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_line_24dp');
               case Qgis.GeometryType.Polygon:
-                return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+                return QfTheme.getThemeVectorIcon('ic_geometry_polygon_24dp');
               default:
                 return '';
               }
             }
             text: Name
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             highlighted: layersComboBox.highlightedIndex === index
           }
 
@@ -189,11 +189,11 @@ QfPopup {
               if (layersComboBox.currentIndex >= 0) {
                 switch (layersComboBox.model.get(layersComboBox.currentIndex).GeometryType) {
                 case Qgis.GeometryType.Point:
-                  return Theme.getThemeVectorIcon('ic_geometry_point_24dp');
+                  return QfTheme.getThemeVectorIcon('ic_geometry_point_24dp');
                 case Qgis.GeometryType.Line:
-                  return Theme.getThemeVectorIcon('ic_geometry_line_24dp');
+                  return QfTheme.getThemeVectorIcon('ic_geometry_line_24dp');
                 case Qgis.GeometryType.Polygon:
-                  return Theme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+                  return QfTheme.getThemeVectorIcon('ic_geometry_polygon_24dp');
                 default:
                   return '';
                 }
@@ -201,7 +201,7 @@ QfPopup {
               return '';
             }
             text: layersComboBox.currentText
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
 
             onClicked: layersComboBox.popup.open()
           }
@@ -218,8 +218,8 @@ QfPopup {
 
         Label {
           text: qsTr('Requirement Settings')
-          font: Theme.strongFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.topMargin: 5
@@ -228,7 +228,7 @@ QfPopup {
 
         Label {
           text: qsTr("Time requirement")
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
 
@@ -256,15 +256,15 @@ QfPopup {
 
           Label {
             text: qsTr("Minimum time")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
           QfTextField {
             id: timeIntervalValue
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             horizontalAlignment: TextInput.AlignRight
             suffixText: qsTr("sec")
             inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -280,8 +280,8 @@ QfPopup {
 
         Label {
           text: qsTr("When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -292,7 +292,7 @@ QfPopup {
 
         Label {
           text: qsTr("Distance requirement")
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
 
@@ -312,10 +312,10 @@ QfPopup {
           }
         }
 
-        DistanceArea {
+        QfDistanceArea {
           id: infoDistanceArea
           project: qgisProject
-          crs: qgisProject ? qgisProject.crs : CoordinateReferenceSystemUtils.invalidCrs()
+          crs: qgisProject ? qgisProject.crs : QfCoordinateReferenceSystemUtils.invalidCrs()
         }
 
         RowLayout {
@@ -326,15 +326,15 @@ QfPopup {
 
           Label {
             text: qsTr("Minimum distance")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
           QfTextField {
             id: minimumDistanceValue
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             horizontalAlignment: TextInput.AlignRight
             suffixText: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
             inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -350,8 +350,8 @@ QfPopup {
 
         Label {
           text: qsTr("When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -362,7 +362,7 @@ QfPopup {
 
         Label {
           text: qsTr("Sensor data requirement")
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
 
@@ -384,8 +384,8 @@ QfPopup {
 
         Label {
           text: qsTr("When enabled, vertex additions will occur when sensors have captured new data.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -396,7 +396,7 @@ QfPopup {
 
         Label {
           text: qsTr("Wait for all active requirements")
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
 
@@ -418,8 +418,8 @@ QfPopup {
 
         Label {
           text: qsTr("When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
           textFormat: Qt.RichText
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -432,8 +432,8 @@ QfPopup {
 
         Label {
           text: qsTr('General Settings')
-          font: Theme.strongFont
-          color: Theme.mainTextColor
+          font: QfTheme.strongFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.columnSpan: 2
@@ -442,7 +442,7 @@ QfPopup {
 
         Label {
           text: qsTr("Erroneous distance safeguard")
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
 
@@ -470,15 +470,15 @@ QfPopup {
 
           Label {
             text: qsTr("Maximum tolerated distance")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
           QfTextField {
             id: erroneousDistanceValue
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             horizontalAlignment: TextInput.AlignRight
             suffixText: UnitTypes.toAbbreviatedString(infoDistanceArea.lengthUnits)
             inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -494,8 +494,8 @@ QfPopup {
 
         Label {
           text: qsTr("When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
 
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -505,7 +505,7 @@ QfPopup {
         Label {
           id: measureLabel
           text: qsTr("Measure (M) value attached to vertices:")
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
 
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
@@ -515,19 +515,19 @@ QfPopup {
 
         QfComboBox {
           id: measureComboBox
-          enabled: LayerUtils.hasMValue(featureModel.currentLayer)
+          enabled: QfLayerUtils.hasMValue(featureModel.currentLayer)
           Layout.fillWidth: true
           Layout.columnSpan: 2
           Layout.alignment: Qt.AlignVCenter
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
 
-          popup.font: Theme.defaultFont
+          popup.font: QfTheme.defaultFont
           popup.topMargin: mainWindow.sceneTopMargin
           popup.bottomMargin: mainWindow.sceneTopMargin
 
           property bool loaded: false
           Component.onCompleted: {
-            // This list matches the Tracker::MeasureType enum
+            // This list matches the QfTracker::MeasureType enum
             var measurements = [qsTr("Elapsed time (seconds since start of tracking)"), qsTr("Timestamp (seconds since epoch)"), qsTr("Ground speed"), qsTr("Bearing"), qsTr("Horizontal accuracy"), qsTr("Vertical accuracy"), qsTr("PDOP"), qsTr("HDOP"), qsTr("VDOP")];
             model = measurements;
             loaded = true;
@@ -542,11 +542,11 @@ QfPopup {
 
         Label {
           id: measureTipLabel
-          visible: !LayerUtils.hasMValue(featureModel.currentLayer)
+          visible: !QfLayerUtils.hasMValue(featureModel.currentLayer)
           Layout.fillWidth: true
           text: qsTr("To active the measurement functionality, make sure the vector layer's geometry type used for the tracking session has an M dimension.")
-          font: Theme.tipFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
 
           wrapMode: Text.WordWrap
         }
@@ -564,7 +564,7 @@ QfPopup {
     anchors.bottomMargin: -5
 
     height: startTrackingButton.height + (resumeTrackingButton.visible ? resumeTrackingButton.height : 0) + 20
-    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+    color: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
 
     Column {
       anchors.left: parent.left
@@ -579,7 +579,7 @@ QfPopup {
         id: startTrackingButton
         width: parent.width
         text: qsTr("Start tracking")
-        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
+        icon.source: QfTheme.getThemeVectorIcon('directions_walk_24dp')
 
         onClicked: {
           applySettingsToTracker();
@@ -597,10 +597,10 @@ QfPopup {
         id: resumeTrackingButton
         width: parent.width
         text: qsTr("Resume tracking")
-        icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
-        icon.color: Theme.mainColor
+        icon.source: QfTheme.getThemeVectorIcon('directions_walk_24dp')
+        icon.color: QfTheme.mainColor
         bgcolor: "transparent"
-        color: Theme.mainColor
+        color: QfTheme.mainColor
         visible: false
 
         onClicked: {
@@ -616,13 +616,13 @@ QfPopup {
     }
   }
 
-  FeatureModel {
+  QfFeatureModel {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {}
+    geometry: QfGeometry {}
 
-    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+    appExpressionContextScopesGenerator: QfAppExpressionContextScopesGenerator {
       positionInformation: appScopesGenerator.positionInformation
       positionLocked: true
       cloudUserInformation: appScopesGenerator.cloudUserInformation

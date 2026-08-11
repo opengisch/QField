@@ -14,11 +14,11 @@ Menu {
 
   readonly property int numberOfButtons: menuItemsView.count
 
-  property int bandWidth: Theme.toolButtonSize
+  property int bandWidth: QfTheme.toolButtonSize
   property real openingAngle: 0
 
   property alias strokeColor: shapePath.strokeColor
-  property color linkColor: Theme.positionColor
+  property color linkColor: QfTheme.positionColor
   property var targetPoint: null
   property bool showConnectionLine: false
 
@@ -102,7 +102,7 @@ Menu {
       ShapePath {
         id: shapePath
         strokeWidth: pieMenu.bandWidth
-        strokeColor: Qt.hsla(Theme.toolButtonBackgroundColor.hslHue, Theme.toolButtonBackgroundColor.hslSaturation, Theme.toolButtonBackgroundColor.hslLightness, 0.3)
+        strokeColor: Qt.hsla(QfTheme.toolButtonBackgroundColor.hslHue, QfTheme.toolButtonBackgroundColor.hslSaturation, QfTheme.toolButtonBackgroundColor.hslLightness, 0.3)
         fillColor: "transparent"
         capStyle: ShapePath.RoundCap
 
@@ -184,7 +184,7 @@ Menu {
       Rectangle {
         id: centralBg
         anchors.fill: parent
-        color: Qt.hsla(Theme.toolButtonBackgroundColor.hslHue, Theme.toolButtonBackgroundColor.hslSaturation, Theme.toolButtonBackgroundColor.hslLightness, 0.3)
+        color: Qt.hsla(QfTheme.toolButtonBackgroundColor.hslHue, QfTheme.toolButtonBackgroundColor.hslSaturation, QfTheme.toolButtonBackgroundColor.hslLightness, 0.3)
         radius: width / 2
       }
 

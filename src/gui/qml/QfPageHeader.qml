@@ -32,7 +32,7 @@ ToolBar {
   signal remove
   signal openMenu
 
-  height: topMargin + Theme.toolButtonSize
+  height: topMargin + QfTheme.toolButtonSize
 
   topPadding: 0
   leftPadding: 0
@@ -47,7 +47,7 @@ ToolBar {
 
   background: Rectangle {
     id: backgroundRect
-    color: backgroundFill ? Theme.mainColor : "transparent"
+    color: backgroundFill ? QfTheme.mainColor : "transparent"
 
     ProgressBar {
       id: busyIndicator
@@ -119,8 +119,8 @@ ToolBar {
 
       Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
       clip: true
-      iconSource: backAsCancel ? Theme.getThemeVectorIcon('ic_close_white_24dp') : Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+      iconSource: backAsCancel ? QfTheme.getThemeVectorIcon('ic_close_white_24dp') : QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
 
       onClicked: {
         if (backAsCancel) {
@@ -137,8 +137,8 @@ ToolBar {
 
       Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
       clip: true
-      iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
 
       onClicked: {
         apply();
@@ -148,10 +148,10 @@ ToolBar {
 
     Label {
       id: titleLabel
-      leftPadding: !showApplyButton && (showCancelButton || showRemoveButton) ? Theme.toolButtonSize : 0
-      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showRemoveButton && !showMenuButton ? Theme.toolButtonSize : 0
-      font: Theme.strongTitleFont
-      color: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+      leftPadding: !showApplyButton && (showCancelButton || showRemoveButton) ? QfTheme.toolButtonSize : 0
+      rightPadding: (showApplyButton || showBackButton) && !showCancelButton && !showRemoveButton && !showMenuButton ? QfTheme.toolButtonSize : 0
+      font: QfTheme.strongTitleFont
+      color: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
       elide: Label.ElideRight
       horizontalAlignment: Qt.AlignHCenter
       verticalAlignment: Qt.AlignVCenter
@@ -164,8 +164,8 @@ ToolBar {
       Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
       visible: false
       clip: true
-      iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
-      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
 
       onClicked: {
         remove();
@@ -178,8 +178,8 @@ ToolBar {
 
       Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
       clip: true
-      iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
-      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
 
       onClicked: {
         cancel();
@@ -194,8 +194,8 @@ ToolBar {
       clip: true
       visible: false
 
-      iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-      iconColor: backgroundFill ? Theme.mainOverlayColor : Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+      iconColor: backgroundFill ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
 
       onClicked: {
         openMenu();

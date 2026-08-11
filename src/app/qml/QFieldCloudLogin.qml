@@ -14,14 +14,14 @@ Item {
   property bool hasCredentialsAuthentication: true
   property bool isServerUrlEditingActive: false
   property bool isVisible: false
-  property QFieldCloudStatus cloudServiceStatus: null
+  property QfCloudStatus cloudServiceStatus: null
 
   width: parent.width
   height: connectionSettings.childrenRect.height
 
   FontMetrics {
     id: fontMetrics
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
   }
 
   ColumnLayout {
@@ -59,8 +59,8 @@ Item {
       visible: false
       text: qsTr("Failed to sign in")
       horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.errorColor
+      font: QfTheme.defaultFont
+      color: QfTheme.errorColor
       wrapMode: Text.Wrap
 
       Connections {
@@ -74,11 +74,11 @@ Item {
         }
 
         function onStatusChanged() {
-          if (cloudConnection.status === QFieldCloudConnection.Connecting) {
+          if (cloudConnection.status === QfCloudConnection.Connecting) {
             loginFeedbackLabel.visible = false;
             loginFeedbackLabel.text = '';
           } else {
-            loginFeedbackLabel.visible = cloudConnection.status === QFieldCloudConnection.Disconnected && loginFeedbackLabel.text.length;
+            loginFeedbackLabel.visible = cloudConnection.status === QfCloudConnection.Disconnected && loginFeedbackLabel.text.length;
           }
         }
       }
@@ -87,11 +87,11 @@ Item {
     Text {
       id: serverUrlLabel
       Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
+      visible: cloudConnection.status === QfCloudConnection.Disconnected && (cloudConnection.url !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       text: qsTr("%1Server URL\n(Leave empty to use the default server)").arg(cloudConnection.serverInformation.whitelabel.siteTitle !== '' ? cloudConnection.serverInformation.whitelabel.siteTitle + ' ' : '')
       horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       wrapMode: Text.WordWrap
     }
 
@@ -99,9 +99,9 @@ Item {
       id: serverUrlComboBox
       Layout.fillWidth: true
       Layout.bottomMargin: 10
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
+      visible: cloudConnection.status === QfCloudConnection.Disconnected && (prefixUrlWithProtocol(cloudConnection.url) !== cloudConnection.defaultUrl || isServerUrlEditingActive)
       enabled: visible
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       editable: true
       model: [''].concat(cloudConnection.urls)
 
@@ -125,13 +125,13 @@ Item {
         id: serverUrlField
 
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
-        visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: cloudConnection.status === QfCloudConnection.Disconnected
         enabled: visible
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         horizontalAlignment: Text.AlignLeft
         text: parent.displayText
-        selectionColor: Theme.mainColor
-        selectedTextColor: Theme.light
+        selectionColor: QfTheme.mainColor
+        selectedTextColor: QfTheme.light
         onTextChanged: {
           const cleanedText = text.replace(/\s+/g, '');
           if (cleanedText !== cloudConnection.url) {
@@ -167,9 +167,9 @@ Item {
       id: usernameField
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
       Layout.fillWidth: true
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
+      visible: cloudConnection.status === QfCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       horizontalAlignment: Text.AlignLeft
       placeholderText: qsTr("Username or email")
 
@@ -185,9 +185,9 @@ Item {
       Layout.fillWidth: true
       Layout.bottomMargin: 10
       rightPadding: 50
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
+      visible: cloudConnection.status === QfCloudConnection.Disconnected && qfieldCloudLogin.hasCredentialsAuthentication
       enabled: visible
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       horizontalAlignment: Text.AlignLeft
       placeholderText: qsTr("Password")
 
@@ -200,8 +200,8 @@ Item {
         property int originalEchoMode: TextInput.Normal
 
         visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
-        iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-        iconColor: Theme.mainColor
+        iconSource: linkedField.echoMode === TextInput.Normal ? QfTheme.getThemeVectorIcon('ic_hide_green_48dp') : QfTheme.getThemeVectorIcon('ic_show_green_48dp')
+        iconColor: QfTheme.mainColor
         anchors.right: linkedField.right
         anchors.verticalCenter: linkedField.verticalCenter
         opacity: linkedField.text.length > 0 ? 1 : 0.25
@@ -223,9 +223,9 @@ Item {
 
     QfButton {
       Layout.fillWidth: true
-      text: cloudConnection.status == QFieldCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QFieldCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
-      enabled: cloudConnection.status != QFieldCloudConnection.Connecting
-      visible: qfieldCloudLogin.hasCredentialsAuthentication || cloudConnection.status != QFieldCloudConnection.Disconnected
+      text: cloudConnection.status == QfCloudConnection.LoggedIn ? qsTr("Sign out") : cloudConnection.status == QfCloudConnection.Connecting ? qsTr("Signing in, please wait") : qsTr("Sign in")
+      enabled: cloudConnection.status != QfCloudConnection.Connecting
+      visible: qfieldCloudLogin.hasCredentialsAuthentication || cloudConnection.status != QfCloudConnection.Disconnected
 
       onClicked: loginFormSumbitHandler()
     }
@@ -233,10 +233,10 @@ Item {
     Label {
       Layout.fillWidth: true
       text: "- " + qsTr("or") + " -"
-      font: Theme.tipFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.tipFont
+      color: QfTheme.secondaryTextColor
       horizontalAlignment: Qt.AlignHCenter
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count >= 2)
+      visible: cloudConnection.status === QfCloudConnection.Disconnected && (qfieldCloudLogin.hasCredentialsAuthentication && availableProvidersRepeater.count >= 2)
     }
 
     Repeater {
@@ -244,15 +244,15 @@ Item {
       model: []
 
       QfButton {
-        visible: modelData.id !== "credentials" && cloudConnection.status === QFieldCloudConnection.Disconnected
+        visible: modelData.id !== "credentials" && cloudConnection.status === QfCloudConnection.Disconnected
         Layout.fillWidth: true
         text: qsTr("Sign in using %1").arg(modelData.name)
         height: 48
 
-        bgcolor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_fill : modelData.details.styles.light.color_fill : Theme.mainColor
-        borderColor: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_stroke : modelData.details.styles.light.color_stroke : Theme.mainColor
-        color: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : Theme.buttonColor
-        icon.source: modelData.details.styles !== undefined ? Theme.darkTheme ? modelData.details.styles.dark.logo : modelData.details.styles.light.logo : ""
+        bgcolor: modelData.details.styles !== undefined ? QfTheme.darkTheme ? modelData.details.styles.dark.color_fill : modelData.details.styles.light.color_fill : QfTheme.mainColor
+        borderColor: modelData.details.styles !== undefined ? QfTheme.darkTheme ? modelData.details.styles.dark.color_stroke : modelData.details.styles.light.color_stroke : QfTheme.mainColor
+        color: modelData.details.styles !== undefined ? QfTheme.darkTheme ? modelData.details.styles.dark.color_text : modelData.details.styles.light.color_text : QfTheme.buttonColor
+        icon.source: modelData.details.styles !== undefined ? QfTheme.darkTheme ? modelData.details.styles.dark.logo : modelData.details.styles.light.logo : ""
         icon.color: "transparent"
 
         onClicked: {
@@ -267,11 +267,11 @@ Item {
       Layout.topMargin: 16
       text: qsTr('Visit the %1settings page%2 to manage your account.').arg('<a href="' + cloudConnection.defaultUrl + '/settings/' + cloudConnection.username + '">').arg('</a>')
       horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: Qt.platform.os !== "ios" && cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.url === cloudConnection.defaultUrl
+      visible: Qt.platform.os !== "ios" && cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.url === cloudConnection.defaultUrl
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
@@ -290,11 +290,11 @@ Item {
       Layout.topMargin: 16
       text: cloudConnection.serverInformation.signupUrl !== '' ? qsTr('New user?') + ' <a href="' + cloudConnection.serverInformation.signupUrl + '">' + qsTr('Register an account') + '</a>.' : ''
       horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: Qt.platform.os !== "ios" && cloudConnection.status === QFieldCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
+      visible: Qt.platform.os !== "ios" && cloudConnection.status === QfCloudConnection.Disconnected && cloudConnection.serverInformation.signupUrl !== ''
 
       onLinkActivated: link => {
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
@@ -312,11 +312,11 @@ Item {
       Layout.fillWidth: true
       text: qsTr('The easiest way to transfer you project from QGIS to your devices!') + (Qt.platform.os !== "ios" ? ' <a href="https://qfield.cloud/">' + qsTr('Learn more about QFieldCloud') + '</a>.' : '')
       horizontalAlignment: Text.AlignHCenter
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
       textFormat: Text.RichText
       wrapMode: Text.WordWrap
-      visible: cloudConnection.status === QFieldCloudConnection.Disconnected
+      visible: cloudConnection.status === QfCloudConnection.Disconnected
 
       onLinkActivated: link => {
         Qt.openUrlExternally(link);
@@ -334,7 +334,7 @@ Item {
     target: cloudConnection
 
     function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         usernameField.text = cloudConnection.username;
       }
     }
@@ -378,7 +378,7 @@ Item {
   }
 
   function loginFormSumbitHandler() {
-    if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+    if (cloudConnection.status == QfCloudConnection.LoggedIn) {
       cloudConnection.logout();
     } else {
       cloudConnection.username = usernameField.text;

@@ -39,7 +39,7 @@ Item {
     TextField {
       id: udpDeviceAddress
       Layout.fillWidth: true
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       placeholderText: qsTr("Address")
       text: '127.0.0.1'
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
@@ -48,7 +48,7 @@ Item {
     TextField {
       id: udpDevicePort
       Layout.fillWidth: true
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       placeholderText: qsTr("Port")
       text: '11111'
       inputMethodHints: Qt.ImhFormattedNumbersOnly

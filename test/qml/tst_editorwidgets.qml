@@ -21,7 +21,7 @@ TestCase {
     property int sceneRightMargin: 10
   }
 
-  AppExpressionContextScopesGenerator {
+  QfAppExpressionContextScopesGenerator {
     id: appScopesGenerator
   }
 
@@ -30,7 +30,7 @@ TestCase {
     property var mainWindow: mainWindowItem
     property string value: "DEFAULT_VALUE"
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.String)
     property bool isEnabled: true
   }
 
@@ -39,7 +39,7 @@ TestCase {
     property var mainWindow: mainWindowItem
     property real value: default_value
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.Double, "", 20, 10)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.Double, "", 20, 10)
     property bool isEnabled: true
 
     readonly property real default_value: 999
@@ -60,7 +60,7 @@ TestCase {
     fieldIsString: false
     property string value: "2022-01-01"
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.String)
     property bool isEnabled: true
   }
 
@@ -69,7 +69,7 @@ TestCase {
     property var mainWindow: mainWindowItem
     property bool value: false
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.String)
     property bool isEnabled: true
   }
 
@@ -78,7 +78,7 @@ TestCase {
     property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.String)
     property var currentLayer: undefined
     property bool isEnabled: true
     property string fieldLabel: "dummy"
@@ -115,9 +115,9 @@ TestCase {
     property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.String)
     property var currentLayer: undefined
-    property var currentFeature: FeatureUtils.createBlankFeature()
+    property var currentFeature: QfFeatureUtils.createBlankFeature()
     property bool isEnabled: false
     property string fieldLabel: "dummy"
 
@@ -157,9 +157,9 @@ TestCase {
     property var mainWindow: mainWindowItem
     property var value: undefined
     property var config: ({})
-    property var field: FeatureUtils.createField("dummy", FeatureUtils.String)
+    property var field: QfFeatureUtils.createField("dummy", QfFeatureUtils.String)
     property var currentLayer: undefined
-    property var currentFeature: FeatureUtils.createBlankFeature()
+    property var currentFeature: QfFeatureUtils.createBlankFeature()
     property bool isEnabled: false
     property string fieldLabel: "dummy"
 
@@ -411,7 +411,7 @@ TestCase {
       "UncheckedState": "DEFAULT_UNCHECKED_STATE"
     };
     checkBox.value = true;
-    checkBox.field = FeatureUtils.createField("dummy", FeatureUtils.Bool);
+    checkBox.field = QfFeatureUtils.createField("dummy", QfFeatureUtils.Bool);
     compare(checkBox.value, true);
     compare(checkBox.isBool, true);
     compare(checkBox.isNull, false);
@@ -439,7 +439,7 @@ TestCase {
       "CheckedState": "DEFAULT_CHECKED_STATE",
       "UncheckedState": "DEFAULT_UNCHECKED_STATE"
     };
-    checkBox.field = FeatureUtils.createField("dummy", FeatureUtils.String);
+    checkBox.field = QfFeatureUtils.createField("dummy", QfFeatureUtils.String);
     checkBox.value = true;
     compare(labelItem.text, "DEFAULT_UNCHECKED_STATE"); // NOTE: value is true but it in unchecked state
     compare(checkBoxItem.checked, false); // NOTE: value is true but its not checked
@@ -629,7 +629,7 @@ TestCase {
 
     // check every element inside combobox model is correctly setted
     for (let i = 0; i < comboBoxItem.count; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, namesInList[i]);
     }
   }
@@ -671,7 +671,7 @@ TestCase {
 
     // check every element inside combobox model is correctly setted
     for (let i = 0; i < comboBoxItem.count; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, namesInList[i]);
     }
   }
@@ -756,7 +756,7 @@ TestCase {
 
     // check every element inside combobox model is correctly setted
     for (let i = 1; i < comboBoxItem.count - 1; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, namesInList[i - 1]);
     }
   }
@@ -853,7 +853,7 @@ TestCase {
     };
     compare(valueRelationRepeater.count, expectedOrderedData["name"].length);
     for (let i = 0; i < valueRelationRepeater.count; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, expectedOrderedData["name"][i]);
     }
   }
@@ -893,7 +893,7 @@ TestCase {
     };
     compare(valueRelationRepeater.count, expectedOrderedData["name"].length);
     for (let i = 0; i < valueRelationRepeater.count; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, expectedOrderedData["name"][i]);
     }
   }
@@ -1011,7 +1011,7 @@ TestCase {
     compare(searchFeatureResultsList.count, 8);
     const expectedOrderedData = ["Ethan", "Olivia", "Mason", "Liam", "Mathieu", "Sophia", "Noah", "Ava"];
     for (let i = 0; i < searchFeatureResultsList.count; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(expectedOrderedData[i], value);
     }
     searchBarTextField.text = "ai";
@@ -1024,7 +1024,7 @@ TestCase {
 
     compare(searchFeatureResultsList.count, expectedOrderedData2.length);
     for (let j = 0; j < searchFeatureResultsList.count; ++j) {
-      const value = featureListModel.dataFromRowIndex(j, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(j, QfFeatureListModel.DisplayStringRole);
       compare(value, expectedOrderedData2[j]);
     }
     wait(500);
@@ -1125,7 +1125,7 @@ TestCase {
     compare(comboBoxItem.count, namesInList.length);
 
     for (let i = 0; i < comboBoxItem.count; ++i) {
-      const value = featureListModel.dataFromRowIndex(i, FeatureListModel.DisplayStringRole);
+      const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, namesInList[i]);
     }
   }

@@ -17,7 +17,7 @@ Container {
   }
 
   property string name: ''
-  property real size: Theme.toolButtonSize
+  property real size: QfTheme.toolButtonSize
   property int direction: QfToolButtonDrawer.Direction.Down
   property bool collapsed: true
   property alias round: toggleButton.round

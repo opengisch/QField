@@ -18,10 +18,10 @@ QfPopup {
 
   property bool preRecording: true
   property bool hasRecordedClip: player.duration > 0
-  property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - Theme.popupScreenEdgeVerticalMargin : mainWindow.height - Theme.popupScreenEdgeVerticalMargin)
+  property int popupWidth: Math.min(400, mainWindow.width <= mainWindow.height ? mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin : mainWindow.height - QfTheme.popupScreenEdgeVerticalMargin)
 
   width: popupWidth
-  height: Math.min(mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
+  height: Math.min(mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4), popupWidth + toolBar.height + recordButton.height)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
@@ -44,7 +44,7 @@ QfPopup {
     id: microphonePermission
   }
 
-  AudioRecorder {
+  QfAudioRecorder {
     id: recorder
   }
 
@@ -52,7 +52,7 @@ QfPopup {
     id: captureSessionLoader
     active: microphonePermission.status !== Qt.PermissionStatus.Undetermined
 
-    property AudioRecorder audioRecorder: recorder
+    property QfAudioRecorder audioRecorder: recorder
 
     sourceComponent: Component {
       CaptureSession {
@@ -74,7 +74,7 @@ QfPopup {
     running: false
 
     onTriggered: {
-      player.source = UrlUtils.fromString(recorder.actualLocation.toString());
+      player.source = QfUrlUtils.fromString(recorder.actualLocation.toString());
     }
   }
 
@@ -120,20 +120,20 @@ QfPopup {
 
       background: Rectangle {
         color: "transparent"
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
       }
 
       RowLayout {
         width: parent.width
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
 
         Label {
           Layout.leftMargin: 58
           Layout.fillWidth: true
           Layout.alignment: Qt.AlignVCenter
           text: qsTr('Audio Recorder')
-          font: Theme.strongFont
-          color: Theme.mainColor
+          font: QfTheme.strongFont
+          color: QfTheme.mainColor
           horizontalAlignment: Text.AlignHCenter
           wrapMode: Text.WordWrap
         }
@@ -142,8 +142,8 @@ QfPopup {
           id: closeButton
           Layout.rightMargin: 10
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeVectorIcon('ic_close_white_24dp')
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+          iconColor: QfTheme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -250,8 +250,8 @@ QfPopup {
           enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.25
 
-          iconSource: player.playbackState == MediaPlayer.PlayingState ? Theme.getThemeVectorIcon('ic_pause_black_24dp') : Theme.getThemeVectorIcon('ic_play_black_24dp')
-          iconColor: Theme.mainTextColor
+          iconSource: player.playbackState == MediaPlayer.PlayingState ? QfTheme.getThemeVectorIcon('ic_pause_black_24dp') : QfTheme.getThemeVectorIcon('ic_play_black_24dp')
+          iconColor: QfTheme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -283,8 +283,8 @@ QfPopup {
           Layout.preferredWidth: durationLabelMetrics.boundingRect('00:00:00').width
           Layout.rightMargin: 14
 
-          color: player.playbackState == MediaPlayer.PlayingState ? Theme.mainTextColor : Theme.mainTextDisabledColor
-          font: Theme.tipFont
+          color: player.playbackState == MediaPlayer.PlayingState ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
+          font: QfTheme.tipFont
           horizontalAlignment: Text.AlignHCenter
           verticalAlignment: Text.AlignVCenter
 
@@ -312,14 +312,14 @@ QfPopup {
           enabled: audioRecorder.hasRecordedClip
           opacity: enabled ? 1 : 0.2
           Layout.alignment: Qt.AlignVCenter
-          iconSource: Theme.getThemeVectorIcon('ic_check_white_24dp')
-          iconColor: enabled ? Theme.toolButtonColor : Theme.toolButtonBackgroundSemiOpaqueColor
-          bgcolor: enabled ? Theme.mainColor : "transparent"
+          iconSource: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
+          iconColor: enabled ? QfTheme.toolButtonColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
+          bgcolor: enabled ? QfTheme.mainColor : "transparent"
           round: true
 
           onClicked: {
             const path = recorder.actualLocation.toString();
-            audioRecorder.finished(UrlUtils.toLocalFile(path));
+            audioRecorder.finished(QfUrlUtils.toLocalFile(path));
             audioRecorder.close();
           }
         }

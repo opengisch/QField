@@ -1,24 +1,24 @@
 set(QFIELD_3D_SRCS
-    maptoview3d.cpp
-    qfield3dqmlregistration.cpp
-    quick3dgeometry.cpp
-    quick3dgeometryconfiguration.cpp
-    quick3dgeometryutils.cpp
-    quick3dmaptexturedata.cpp
-    quick3drubberbandgeometry.cpp
-    quick3dterraingeometry.cpp
-    quick3dterrainprovider.cpp)
+    qfmaptoview3d.cpp
+    qf3d.cpp
+    qf3dgeometry.cpp
+    qf3dgeometryconfiguration.cpp
+    qf3dgeometryutils.cpp
+    qf3dmaptexturedata.cpp
+    qf3drubberbandgeometry.cpp
+    qf3dterraingeometry.cpp
+    qf3dterrainprovider.cpp)
 
 set(QFIELD_3D_HDRS
-    maptoview3d.h
-    qfield3dqmlregistration.h
-    quick3dgeometry.h
-    quick3dgeometryconfiguration.h
-    quick3dgeometryutils.h
-    quick3dmaptexturedata.h
-    quick3drubberbandgeometry.h
-    quick3dterraingeometry.h
-    quick3dterrainprovider.h)
+    qfmaptoview3d.h
+    qf3d.h
+    qf3dgeometry.h
+    qf3dgeometryconfiguration.h
+    qf3dgeometryutils.h
+    qf3dmaptexturedata.h
+    qf3drubberbandgeometry.h
+    qf3dterraingeometry.h
+    qf3dterrainprovider.h)
 
 add_library(qfield_3d STATIC ${QFIELD_3D_SRCS} ${QFIELD_3D_HDRS})
 

@@ -20,27 +20,27 @@ TestCase {
    */
   function test_00_fullRelationWorkflow() {
     // 1) Create referenced layer
-    let referencedFields = FeatureUtils.createFields([FeatureUtils.createField("district_uuid", FeatureUtils.String), FeatureUtils.createField("district_name", FeatureUtils.String)]);
-    let referencedLayer = LayerUtils.createMemoryLayer("Districts", referencedFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let referencedFields = QfFeatureUtils.createFields([QfFeatureUtils.createField("district_uuid", QfFeatureUtils.String), QfFeatureUtils.createField("district_name", QfFeatureUtils.String)]);
+    let referencedLayer = QfLayerUtils.createMemoryLayer("Districts", referencedFields, Qgis.WkbType.Point, QfCoordinateReferenceSystemUtils.wgs84Crs());
     verify(referencedLayer !== null, "Referenced layer must be created");
     compare(referencedLayer.fields.count, 2);
     verify(referencedLayer.fields.indexFromName("district_uuid") >= 0);
     verify(referencedLayer.fields.indexFromName("district_name") >= 0);
 
     // 2) Create referencing layer
-    let referencingFields = FeatureUtils.createFields([FeatureUtils.createField("village_uuid", FeatureUtils.String), FeatureUtils.createField("village_name", FeatureUtils.String), FeatureUtils.createField("parent_district_uuid", FeatureUtils.String), FeatureUtils.createField("population", FeatureUtils.Int)]);
-    let referencingLayer = LayerUtils.createMemoryLayer("Villages", referencingFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let referencingFields = QfFeatureUtils.createFields([QfFeatureUtils.createField("village_uuid", QfFeatureUtils.String), QfFeatureUtils.createField("village_name", QfFeatureUtils.String), QfFeatureUtils.createField("parent_district_uuid", QfFeatureUtils.String), QfFeatureUtils.createField("population", QfFeatureUtils.Int)]);
+    let referencingLayer = QfLayerUtils.createMemoryLayer("Villages", referencingFields, Qgis.WkbType.Point, QfCoordinateReferenceSystemUtils.wgs84Crs());
     verify(referencingLayer !== null, "Referencing layer must be created");
     compare(referencingLayer.fields.count, 4);
     verify(referencingLayer.fields.indexFromName("village_uuid") >= 0);
     verify(referencingLayer.fields.indexFromName("parent_district_uuid") >= 0);
 
     // 3) Register layers in project
-    ProjectUtils.addMapLayer(qgisProject, referencedLayer);
-    ProjectUtils.addMapLayer(qgisProject, referencingLayer);
+    QfProjectUtils.addMapLayer(qgisProject, referencedLayer);
+    QfProjectUtils.addMapLayer(qgisProject, referencingLayer);
 
     // 4) Create and register relation
-    let relation = RelationUtils.createRelation(referencedLayer, referencingLayer, {
+    let relation = QfRelationUtils.createRelation(referencedLayer, referencingLayer, {
       "district_uuid": "parent_district_uuid"
     });
     verify(relation.isValid, "Relation should be valid");
@@ -52,27 +52,27 @@ TestCase {
     compare(registeredRelation.referencingLayer.id, referencingLayer.id);
 
     // 5) Add referenced feature
-    let referencedFeature = FeatureUtils.createFeature(referencedLayer);
+    let referencedFeature = QfFeatureUtils.createFeature(referencedLayer);
     referencedFeature.setAttribute(0, "uuid-001");
     referencedFeature.setAttribute(1, "Central District");
     referencedLayer.startEditing();
-    verify(LayerUtils.addFeature(referencedLayer, referencedFeature), "Referenced feature insertion failed");
+    verify(QfLayerUtils.addFeature(referencedLayer, referencedFeature), "Referenced feature insertion failed");
     referencedLayer.commitChanges();
 
     // 6) Add referencing features
     referencingLayer.startEditing();
-    let child1 = FeatureUtils.createFeature(referencingLayer);
+    let child1 = QfFeatureUtils.createFeature(referencingLayer);
     child1.setAttribute(0, "village-uuid-001");
     child1.setAttribute(1, "Village Alpha");
     child1.setAttribute(2, "uuid-001");
     child1.setAttribute(3, 2500);
-    let child2 = FeatureUtils.createFeature(referencingLayer);
+    let child2 = QfFeatureUtils.createFeature(referencingLayer);
     child2.setAttribute(0, "village-uuid-002");
     child2.setAttribute(1, "Village Beta");
     child2.setAttribute(2, "uuid-001");
     child2.setAttribute(3, 2555);
-    verify(LayerUtils.addFeature(referencingLayer, child1), "Child1 insertion failed");
-    verify(LayerUtils.addFeature(referencingLayer, child2), "Child2 insertion failed");
+    verify(QfLayerUtils.addFeature(referencingLayer, child1), "Child1 insertion failed");
+    verify(QfLayerUtils.addFeature(referencingLayer, child2), "Child2 insertion failed");
     referencingLayer.commitChanges();
 
     // 7) Relation integrity check
@@ -109,12 +109,12 @@ TestCase {
 
     // 10) Add a new child feature
     referencingLayer.startEditing();
-    let child3 = FeatureUtils.createFeature(referencingLayer);
+    let child3 = QfFeatureUtils.createFeature(referencingLayer);
     child3.setAttribute(0, "village-uuid-003");
     child3.setAttribute(1, "Village Gamma");
     child3.setAttribute(2, "uuid-001");
     child3.setAttribute(3, 3000);
-    verify(LayerUtils.addFeature(referencingLayer, child3), "Child3 insertion failed");
+    verify(QfLayerUtils.addFeature(referencingLayer, child3), "Child3 insertion failed");
     referencingLayer.commitChanges();
     wait(200);
     compare(relation_editor.item.relationEditorModel.rowCount(), 3);
@@ -158,63 +158,63 @@ TestCase {
    */
   function test_02_polymorphicRelation() {
     // 1) Create first parent layer (Points1)
-    let parent1Fields = FeatureUtils.createFields([FeatureUtils.createField("uuid", FeatureUtils.String), FeatureUtils.createField("name", FeatureUtils.String)]);
-    let parent1Layer = LayerUtils.createMemoryLayer("Points1", parent1Fields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let parent1Fields = QfFeatureUtils.createFields([QfFeatureUtils.createField("uuid", QfFeatureUtils.String), QfFeatureUtils.createField("name", QfFeatureUtils.String)]);
+    let parent1Layer = QfLayerUtils.createMemoryLayer("Points1", parent1Fields, Qgis.WkbType.Point, QfCoordinateReferenceSystemUtils.wgs84Crs());
     verify(parent1Layer !== null, "Parent1 layer must be created");
 
     // 2) Create second parent layer (Points2)
-    let parent2Fields = FeatureUtils.createFields([FeatureUtils.createField("uuid", FeatureUtils.String), FeatureUtils.createField("name", FeatureUtils.String)]);
-    let parent2Layer = LayerUtils.createMemoryLayer("Points2", parent2Fields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let parent2Fields = QfFeatureUtils.createFields([QfFeatureUtils.createField("uuid", QfFeatureUtils.String), QfFeatureUtils.createField("name", QfFeatureUtils.String)]);
+    let parent2Layer = QfLayerUtils.createMemoryLayer("Points2", parent2Fields, Qgis.WkbType.Point, QfCoordinateReferenceSystemUtils.wgs84Crs());
     verify(parent2Layer !== null, "Parent2 layer must be created");
 
     // 3) Create child layer with parent_layer field to store which parent it belongs to
-    let childFields = FeatureUtils.createFields([FeatureUtils.createField("child_id", FeatureUtils.String), FeatureUtils.createField("parent_uuid", FeatureUtils.String), FeatureUtils.createField("parent_layer", FeatureUtils.String), FeatureUtils.createField("description", FeatureUtils.String)]);
-    let childLayer = LayerUtils.createMemoryLayer("Photos", childFields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
+    let childFields = QfFeatureUtils.createFields([QfFeatureUtils.createField("child_id", QfFeatureUtils.String), QfFeatureUtils.createField("parent_uuid", QfFeatureUtils.String), QfFeatureUtils.createField("parent_layer", QfFeatureUtils.String), QfFeatureUtils.createField("description", QfFeatureUtils.String)]);
+    let childLayer = QfLayerUtils.createMemoryLayer("Photos", childFields, Qgis.WkbType.Point, QfCoordinateReferenceSystemUtils.wgs84Crs());
     verify(childLayer !== null, "Child layer must be created");
 
     // 4) Register all layers in project
-    ProjectUtils.addMapLayer(qgisProject, parent1Layer);
-    ProjectUtils.addMapLayer(qgisProject, parent2Layer);
-    ProjectUtils.addMapLayer(qgisProject, childLayer);
+    QfProjectUtils.addMapLayer(qgisProject, parent1Layer);
+    QfProjectUtils.addMapLayer(qgisProject, parent2Layer);
+    QfProjectUtils.addMapLayer(qgisProject, childLayer);
 
     // 5) Create and register polymorphic relation
-    let polymorphicRelation = RelationUtils.addPolymorphicRelation(qgisProject, [parent1Layer, parent2Layer], childLayer, {
+    let polymorphicRelation = QfRelationUtils.addPolymorphicRelation(qgisProject, [parent1Layer, parent2Layer], childLayer, {
       "uuid": "parent_uuid"
     }, "parent_layer", "@layer_name");
     verify(polymorphicRelation.isValid, "Polymorphic relation should be valid");
 
     // 6) Add features to first parent layer
     parent1Layer.startEditing();
-    let parent1Feature = FeatureUtils.createFeature(parent1Layer);
+    let parent1Feature = QfFeatureUtils.createFeature(parent1Layer);
     parent1Feature.setAttribute(0, "parent1-uuid-001");
     parent1Feature.setAttribute(1, "Point ABC");
-    verify(LayerUtils.addFeature(parent1Layer, parent1Feature), "Parent1 feature insertion failed");
+    verify(QfLayerUtils.addFeature(parent1Layer, parent1Feature), "Parent1 feature insertion failed");
     parent1Layer.commitChanges();
 
     // 7) Add features to second parent layer
     parent2Layer.startEditing();
-    let parent2Feature = FeatureUtils.createFeature(parent2Layer);
+    let parent2Feature = QfFeatureUtils.createFeature(parent2Layer);
     parent2Feature.setAttribute(0, "parent2-uuid-001");
     parent2Feature.setAttribute(1, "Point XYZ");
-    verify(LayerUtils.addFeature(parent2Layer, parent2Feature), "Parent2 feature insertion failed");
+    verify(QfLayerUtils.addFeature(parent2Layer, parent2Feature), "Parent2 feature insertion failed");
     parent2Layer.commitChanges();
 
     // 8) Add child feature linked to first parent
     childLayer.startEditing();
-    let child1 = FeatureUtils.createFeature(childLayer);
+    let child1 = QfFeatureUtils.createFeature(childLayer);
     child1.setAttribute(0, "child-001");
     child1.setAttribute(1, "parent1-uuid-001");
     child1.setAttribute(2, "Points1");
     child1.setAttribute(3, "Photo from Points1");
-    verify(LayerUtils.addFeature(childLayer, child1), "Child1 insertion failed");
+    verify(QfLayerUtils.addFeature(childLayer, child1), "Child1 insertion failed");
 
     // 9) Add child feature linked to second parent
-    let child2 = FeatureUtils.createFeature(childLayer);
+    let child2 = QfFeatureUtils.createFeature(childLayer);
     child2.setAttribute(0, "child-002");
     child2.setAttribute(1, "parent2-uuid-001");
     child2.setAttribute(2, "Points2");
     child2.setAttribute(3, "Photo from Points2");
-    verify(LayerUtils.addFeature(childLayer, child2), "Child2 insertion failed");
+    verify(QfLayerUtils.addFeature(childLayer, child2), "Child2 insertion failed");
     childLayer.commitChanges();
 
     // 10) Verify polymorphic relation properties directly from created relation

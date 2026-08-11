@@ -12,9 +12,9 @@ QfPopup {
   id: trackingFeatureForm
 
   parent: mainWindow.contentItem
-  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeHorizontalMargin
+  width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: QfTheme.popupScreenEdgeHorizontalMargin
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.NoAutoClose
 
@@ -49,20 +49,20 @@ QfPopup {
     trackingModel.trackingSetupDone();
   }
 
-  FeatureModel {
+  QfFeatureModel {
     id: featureModel
     project: qgisProject
 
-    geometry: Geometry {}
+    geometry: QfGeometry {}
 
-    appExpressionContextScopesGenerator: AppExpressionContextScopesGenerator {
+    appExpressionContextScopesGenerator: QfAppExpressionContextScopesGenerator {
       positionInformation: appScopesGenerator.positionInformation
       positionLocked: true
       cloudUserInformation: appScopesGenerator.cloudUserInformation
     }
   }
 
-  AttributeFormModel {
+  QfAttributeFormModel {
     id: embeddedAttributeFormModel
     featureModel: featureModel
   }
@@ -85,10 +85,10 @@ QfPopup {
       id: embeddedFeatureFormPopup
       parent: mainWindow.contentItem
 
-      x: Theme.popupScreenEdgeHorizontalMargin
-      y: Theme.popupScreenEdgeVerticalMargin
-      width: parent.width - Theme.popupScreenEdgeHorizontalMargin * 2
-      height: parent.height - Theme.popupScreenEdgeVerticalMargin * 2
+      x: QfTheme.popupScreenEdgeHorizontalMargin
+      y: QfTheme.popupScreenEdgeVerticalMargin
+      width: parent.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+      height: parent.height - QfTheme.popupScreenEdgeVerticalMargin * 2
       closePolicy: Popup.NoAutoClose
 
       QfFeatureForm {

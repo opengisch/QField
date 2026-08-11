@@ -17,7 +17,7 @@
 
 #include "catch2.h"
 #include "qgsvectorlayer.h"
-#include "utils/featureutils.h"
+#include "utils/qffeatureutils.h"
 
 
 TEST_CASE( "FeatureUtils" )
@@ -26,7 +26,7 @@ TEST_CASE( "FeatureUtils" )
 
   QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
 
-  QgsFeature f = FeatureUtils::createFeature( vl.get(), geometry );
+  QgsFeature f = QfFeatureUtils::createFeature( vl.get(), geometry );
 
   REQUIRE( f.fields() == vl->fields() );
   REQUIRE( f.geometry().isExactlyEqual( geometry ) );

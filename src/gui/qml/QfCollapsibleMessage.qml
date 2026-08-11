@@ -13,7 +13,7 @@ Item {
 
   property bool collapsed: true
   property string externalLink: ""
-  property color color: Theme.mainTextColor
+  property color color: QfTheme.mainTextColor
   property alias iconSource: messageIcon.iconSource
   property alias detailsColor: detailsText.color
   property alias font: titleText.font
@@ -61,8 +61,8 @@ Item {
     topPadding: 10
     bottomPadding: 10
     clip: true
-    font: Theme.defaultFont
-    color: Theme.mainTextColor
+    font: QfTheme.defaultFont
+    color: QfTheme.mainTextColor
     horizontalAlignment: Text.AlignLeft
     wrapMode: Text.WordWrap
   }
@@ -77,7 +77,7 @@ Item {
     anchors.right: parent.right
     anchors.rightMargin: 4
     highlighted: true
-    Material.accent: Theme.mainBackgroundColor
+    Material.accent: QfTheme.mainBackgroundColor
     font.bold: true
     onClicked: {
       Qt.openUrlExternally(externalLink);

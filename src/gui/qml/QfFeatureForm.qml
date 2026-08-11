@@ -35,7 +35,7 @@ Page {
   property QfDigitizingToolbar digitizingToolbar
   property QfCodeReader codeReader
 
-  property AttributeFormModel model
+  property QfAttributeFormModel model
 
   property alias currentTab: swipeView.currentIndex
   property alias toolbarVisible: toolbar.visible
@@ -139,7 +139,7 @@ Page {
             width: 10
             height: 10
             radius: 5
-            color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+            color: !ConstraintHardValid ? QfTheme.errorColor : QfTheme.warningColor
             visible: !form.model.isWizard && (!ConstraintHardValid || !ConstraintSoftValid)
           }
         }
@@ -152,8 +152,8 @@ Page {
           height: parent.height
           leftPadding: form.model.isWizard ? 4 : 0
           text: tabButton.text
-          color: !tabButton.enabled ? Theme.mainTextDisabledColor : tabButton.down ? Qt.darker(Theme.mainColor, 1.5) : isCurrentIndex ? Theme.mainColor : Theme.mainTextColor
-          font.pointSize: Theme.tipFont.pointSize
+          color: !tabButton.enabled ? QfTheme.mainTextDisabledColor : tabButton.down ? Qt.darker(QfTheme.mainColor, 1.5) : isCurrentIndex ? QfTheme.mainColor : QfTheme.mainTextColor
+          font.pointSize: QfTheme.tipFont.pointSize
           font.weight: isCurrentIndex ? Font.DemiBold : Font.Normal
 
           horizontalAlignment: form.model.isWizard ? Text.AlignLeft : Text.AlignHCenter
@@ -211,7 +211,7 @@ Page {
 
             Rectangle {
               anchors.fill: parent
-              color: Theme.mainBackgroundColor
+              color: QfTheme.mainBackgroundColor
             }
 
             Flow {
@@ -219,7 +219,7 @@ Page {
               width: form.width - form.leftMargin - form.rightMargin
               bottomPadding: 10
 
-              SubModel {
+              QfSubModel {
                 id: contentModel
                 model: form.model
                 rootIndex: form.model.index(form.model.hasTabs ? contentIndex : -1, 0)
@@ -246,7 +246,7 @@ Page {
     anchors.bottom: parent.bottom
 
     height: wizardNavigationLayout.childrenRect.height + form.bottomMargin + 20
-    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+    color: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
     visible: form.model.isWizard && (tabRow.count > 1 || form.state !== 'ReadOnly')
 
     RowLayout {
@@ -266,9 +266,9 @@ Page {
 
         Layout.preferredWidth: (parent.width - progressRing.size - 20) / 2
         visible: tabRow.count > 1
-        borderColor: Theme.secondaryTextColor
+        borderColor: QfTheme.secondaryTextColor
         bgcolor: "transparent"
-        color: Theme.mainTextColor
+        color: QfTheme.mainTextColor
         text: qsTr("Previous page")
         opacity: isFirstPage ? 0.5 : 1.0
 
@@ -294,13 +294,13 @@ Page {
             }
             if (tabRow.currentItem) {
               if (!tabRow.currentItem.constraintHardValid) {
-                return Theme.errorColor;
+                return QfTheme.errorColor;
               } else if (!tabRow.currentItem.constraintSoftValid) {
-                return Theme.warningColor;
+                return QfTheme.warningColor;
               }
             }
           }
-          return Theme.mainTextColor;
+          return QfTheme.mainTextColor;
         }
         backgroundColor: Qt.hsla(color.hslHue, color.hslSaturation, color.hslLightness, 0.2)
       }
@@ -313,9 +313,9 @@ Page {
 
         Layout.fillWidth: tabRow.count <= 1
         Layout.preferredWidth: (parent.width - progressRing.size - 20) / 2
-        borderColor: isLastPage && form.state !== 'ReadOnly' ? bgcolor : Theme.secondaryTextColor
-        bgcolor: isLastPage && form.state !== 'ReadOnly' ? !form.model.constraintsHardValid ? Theme.errorColor : !form.model.constraintsSoftValid ? Theme.warningColor : Theme.mainColor : "transparent"
-        color: isLastPage && form.state !== 'ReadOnly' ? Theme.mainOverlayColor : Theme.mainTextColor
+        borderColor: isLastPage && form.state !== 'ReadOnly' ? bgcolor : QfTheme.secondaryTextColor
+        bgcolor: isLastPage && form.state !== 'ReadOnly' ? !form.model.constraintsHardValid ? QfTheme.errorColor : !form.model.constraintsSoftValid ? QfTheme.warningColor : QfTheme.mainColor : "transparent"
+        color: isLastPage && form.state !== 'ReadOnly' ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
         text: isLastPage && form.state !== 'ReadOnly' ? qsTr("Save") : qsTr("Next page")
         opacity: (isLastPage && form.state === 'ReadOnly') ? 0.5 : 1.0
 
@@ -357,7 +357,7 @@ Page {
           width: parent.width * 0.66
           height: 3
           radius: 1
-          color: Theme.controlBackgroundAlternateColor
+          color: QfTheme.controlBackgroundAlternateColor
           visible: containerName !== ""
         }
       }
@@ -382,18 +382,18 @@ Page {
         height: containerName !== '' ? undefined : topPadding + bottomPadding
         text: containerName
         wrapMode: Text.WordWrap
-        font.pointSize: Theme.tinyFont.pointSize
+        font.pointSize: QfTheme.tinyFont.pointSize
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : QfTheme.mainTextColor
       }
 
       Text {
         id: textContent
         text: containerCode
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         anchors {
           left: parent.left
           right: parent.right
@@ -401,8 +401,8 @@ Page {
         }
         bottomPadding: 10
         opacity: textLabel.opacity
-        color: Theme.mainTextColor
-        linkColor: Theme.mainColor
+        color: QfTheme.mainTextColor
+        linkColor: QfTheme.mainColor
         onLinkActivated: link => {
           Qt.openUrlExternally(link);
         }
@@ -414,7 +414,7 @@ Page {
     id: qmlContainer
 
     Item {
-      property ExpressionEvaluator expression: ExpressionEvaluator {
+      property QfExpressionEvaluator expression: QfExpressionEvaluator {
         attributeFormModel: form.model
 
         feature: form.model.featureModel.feature
@@ -436,11 +436,11 @@ Page {
         height: containerName !== '' ? undefined : topPadding + bottomPadding
         text: containerName
         wrapMode: Text.WordWrap
-        font.pointSize: Theme.tinyFont.pointSize
+        font.pointSize: QfTheme.tinyFont.pointSize
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : QfTheme.mainTextColor
       }
 
       Item {
@@ -487,11 +487,11 @@ Page {
         height: containerName !== '' ? undefined : topPadding + bottomPadding
         text: containerName
         wrapMode: Text.WordWrap
-        font.pointSize: Theme.tinyFont.pointSize
+        font.pointSize: QfTheme.tinyFont.pointSize
         font.bold: true
         topPadding: 10
         bottomPadding: 5
-        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : Theme.mainTextColor
+        color: labelOverrideColor !== undefined && labelOverrideColor ? labelColor : QfTheme.mainTextColor
       }
 
       Item {
@@ -548,7 +548,7 @@ Page {
         }
 
         Repeater {
-          model: SubModel {
+          model: QfSubModel {
             id: innerSubModel
             model: form.model
             rootIndex: form.model.mapFromSource(containerGroupIndex)
@@ -628,7 +628,7 @@ Page {
         property var labelColor: LabelColor
         property string itemType: Type
 
-        active: form.model.featureModel.modelMode !== FeatureModel.MultiFeatureModel
+        active: form.model.featureModel.modelMode !== QfFeatureModel.MultiFeatureModel
         height: status == Loader.Ready ? item.childrenRect.height : 0
         anchors {
           left: parent.left
@@ -674,7 +674,7 @@ Page {
 
         width: parent.width
         height: GroupName !== '' ? childrenRect.height : 0
-        color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : Theme.controlBorderColor
+        color: GroupColor ? Qt.hsla(GroupColor.hslHue, GroupColor.hslSaturation, GroupColor.hslLightness, 0.5) : QfTheme.controlBorderColor
 
         Rectangle {
           width: 5
@@ -690,9 +690,9 @@ Page {
           topPadding: 5
           bottomPadding: 5
           width: parent.width
-          font.pointSize: Theme.tipFont.pointSize
+          font.pointSize: QfTheme.tipFont.pointSize
           font.bold: true
-          color: Theme.mainTextColor
+          color: QfTheme.mainTextColor
           text: GroupName || ''
           wrapMode: Text.WordWrap
         }
@@ -748,8 +748,8 @@ Page {
           height: Name !== '' ? undefined : topPadding + bottomPadding
           text: Name || ''
           wrapMode: Text.WordWrap
-          font.family: LabelOverrideFont ? LabelFont.family : Theme.tinyFont.family
-          font.pointSize: Theme.tinyFont.pointSize
+          font.family: LabelOverrideFont ? LabelFont.family : QfTheme.tinyFont.family
+          font.pointSize: QfTheme.tinyFont.pointSize
           font.bold: LabelOverrideFont ? LabelFont.bold : true
           font.italic: LabelOverrideFont ? LabelFont.italic : false
           font.underline: LabelOverrideFont ? LabelFont.underline : false
@@ -757,7 +757,7 @@ Page {
           topPadding: 10
           bottomPadding: 5
           opacity: !AttributeEditable && form.state === "Edit" ? (LabelOverrideColor ? 0.5 : 1.0) : 1.0
-          color: LabelOverrideColor ? LabelColor : (!AttributeEditable && form.state !== "ReadOnly" ? Theme.mainTextDisabledColor : Theme.mainTextColor)
+          color: LabelOverrideColor ? LabelColor : (!AttributeEditable && form.state !== "ReadOnly" ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor)
         }
 
         Label {
@@ -778,7 +778,7 @@ Page {
           height: !ConstraintHardValid || !ConstraintSoftValid ? undefined : 0
           visible: !ConstraintHardValid || !ConstraintSoftValid
           opacity: fieldLabel.opacity
-          color: !ConstraintHardValid ? Theme.errorColor : Theme.warningColor
+          color: !ConstraintHardValid ? QfTheme.errorColor : QfTheme.warningColor
           wrapMode: Text.WordWrap
         }
 
@@ -808,8 +808,8 @@ Page {
             // - a relation in multi edit mode
             property bool isAdding: form.state === 'Add'
             property bool isEditing: form.state !== 'ReadOnly'
-            property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
-            property bool isEditable: !!AttributeEditable && !(Type === 'relation' && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel)
+            property bool isEnabled: !!AttributeEditable && form.state !== 'ReadOnly' && !(Type === 'relation' && form.model.featureModel.modelMode == QfFeatureModel.MultiFeatureModel)
+            property bool isEditable: !!AttributeEditable && !(Type === 'relation' && form.model.featureModel.modelMode == QfFeatureModel.MultiFeatureModel)
 
             property var value: AttributeValue
             property var config: (EditorWidgetConfig || {})
@@ -856,7 +856,7 @@ Page {
                 let oldValue = AttributeValue;
                 AttributeValue = isNull ? undefined : value;
                 valueChanged(Field, oldValue, AttributeValue);
-                if (!AttributeAllowEdit && form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel) {
+                if (!AttributeAllowEdit && form.model.featureModel.modelMode == QfFeatureModel.MultiFeatureModel) {
                   AttributeAllowEdit = true;
                 }
                 if (qfieldSettings.autoSave && !setupOnly && !master.ignoreChanges) {
@@ -892,10 +892,10 @@ Page {
 
           visible: attributeEditorLoader.isEnabled && attributeEditorLoader.item && attributeEditorLoader.item.hasMenu
           enabled: visible
-          width: visible ? Theme.toolButtonSize : 0
+          width: visible ? QfTheme.toolButtonSize : 0
 
-          iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+          iconColor: QfTheme.mainTextColor
           bgcolor: "transparent"
 
           onClicked: {
@@ -906,10 +906,10 @@ Page {
         QfToolButton {
           id: rememberButton
           visible: !!CanRememberValue && form.state === "Add" && EditorWidget !== "Hidden" && EditorWidget !== 'RelationEditor'
-          width: visible ? Theme.toolButtonSize : 0
+          width: visible ? QfTheme.toolButtonSize : 0
 
-          iconSource: Theme.getThemeVectorIcon("ic_pin_black_24dp")
-          iconColor: RememberValue ? Theme.mainColor : Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_pin_black_24dp")
+          iconColor: RememberValue ? QfTheme.mainColor : QfTheme.mainTextColor
           bgcolor: "transparent"
 
           anchors {
@@ -933,16 +933,16 @@ Page {
         Label {
           id: multiEditAttributeLabel
           text: (AttributeAllowEdit ? qsTr("Value applied") : qsTr("Value skipped")) + qsTr(" (click to toggle)")
-          visible: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel && Type !== 'relation'
-          height: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? undefined : 0
-          bottomPadding: form.model.featureModel.modelMode == FeatureModel.MultiFeatureModel ? 15 : 0
+          visible: form.model.featureModel.modelMode == QfFeatureModel.MultiFeatureModel && Type !== 'relation'
+          height: form.model.featureModel.modelMode == QfFeatureModel.MultiFeatureModel ? undefined : 0
+          bottomPadding: form.model.featureModel.modelMode == QfFeatureModel.MultiFeatureModel ? 15 : 0
           anchors {
             left: parent.left
             top: placeholder.bottom
             rightMargin: 10
           }
-          font: Theme.tipFont
-          color: AttributeAllowEdit ? Theme.mainColor : Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: AttributeAllowEdit ? QfTheme.mainColor : QfTheme.secondaryTextColor
 
           MouseArea {
             anchors.fill: parent
@@ -1044,7 +1044,7 @@ Page {
     rightPadding: 0
     bottomPadding: 0
 
-    height: visible ? form.topMargin + Theme.toolButtonSize + 10 : 0
+    height: visible ? form.topMargin + QfTheme.toolButtonSize + 10 : 0
     visible: form.state === 'Add'
     objectName: "toolbar"
     background: Rectangle {
@@ -1060,7 +1060,7 @@ Page {
       anchors.top: parent.top
       anchors.topMargin: form.topMargin + 6
 
-      color: Theme.controlBorderColor
+      color: QfTheme.controlBorderColor
       visible: isDraggable
     }
 
@@ -1077,14 +1077,14 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignLeft
         visible: isVisible
-        width: Theme.toolButtonSize
-        height: Theme.toolButtonSize
+        width: QfTheme.toolButtonSize
+        height: QfTheme.toolButtonSize
         clip: true
 
-        iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-        iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? Theme.errorColor : !model.constraintsSoftValid ? Theme.warningColor : model.hasConstraints ? Theme.goodColor : "transparent"
-        borderColor: Theme.mainBackgroundColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_check_white_24dp")
+        iconColor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
+        bgcolor: (form.state === 'Add' && model.featureModel.featureAdditionLocked) || !model.constraintsHardValid ? QfTheme.errorColor : !model.constraintsSoftValid ? QfTheme.warningColor : model.hasConstraints ? QfTheme.goodColor : "transparent"
+        borderColor: QfTheme.mainBackgroundColor
         roundborder: true
         round: true
 
@@ -1105,12 +1105,12 @@ Page {
 
         Layout.fillWidth: true
         Layout.preferredHeight: parent.height
-        Layout.leftMargin: (!saveButton.isVisible ? Theme.toolButtonSize : 0) + (!setupOnly && form.model.hasRemembrance ? Theme.toolButtonSize : 0)
-        Layout.rightMargin: !setupOnly ? 0 : Theme.toolButtonSize
+        Layout.leftMargin: (!saveButton.isVisible ? QfTheme.toolButtonSize : 0) + (!setupOnly && form.model.hasRemembrance ? QfTheme.toolButtonSize : 0)
+        Layout.rightMargin: !setupOnly ? 0 : QfTheme.toolButtonSize
         objectName: "titleLabel"
 
-        font: Theme.strongFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongFont
+        color: QfTheme.mainTextColor
 
         text: {
           const featureModel = model.featureModel;
@@ -1169,13 +1169,13 @@ Page {
         property bool isVisible: !setupOnly
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
-        width: Theme.toolButtonSize
-        height: Theme.toolButtonSize
+        width: QfTheme.toolButtonSize
+        height: QfTheme.toolButtonSize
         clip: true
         visible: isVisible
 
-        iconSource: form.state === 'Add' ? Theme.getThemeVectorIcon('ic_delete_forever_white_24dp') : Theme.getThemeVectorIcon('ic_close_white_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: form.state === 'Add' ? QfTheme.getThemeVectorIcon('ic_delete_forever_white_24dp') : QfTheme.getThemeVectorIcon('ic_close_white_24dp')
+        iconColor: QfTheme.mainTextColor
 
         onClicked: {
           Qt.inputMethod.hide();
@@ -1194,13 +1194,13 @@ Page {
 
         Layout.alignment: Qt.AlignTop | Qt.AlignRight
 
-        width: Theme.toolButtonSize
-        height: Theme.toolButtonSize
+        width: QfTheme.toolButtonSize
+        height: QfTheme.toolButtonSize
         clip: true
         visible: isVisible
 
-        iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+        iconColor: QfTheme.mainTextColor
 
         onClicked: {
           featureFormMenu.popup(featureFormMenuButton.x + featureFormMenuButton.width - featureFormMenuButton.width, featureFormMenuButton.y);
@@ -1221,9 +1221,9 @@ Page {
     MenuItem {
       text: qsTr('Remember All Reusable Values')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
+      leftPadding: QfTheme.menuItemCheckLeftPadding
 
       onTriggered: form.model.activateAllRememberValues()
     }
@@ -1231,9 +1231,9 @@ Page {
     MenuItem {
       text: qsTr('Forget All Reusable Values')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemCheckLeftPadding
+      leftPadding: QfTheme.menuItemCheckLeftPadding
 
       onTriggered: form.model.deactivateAllRememberValues()
     }

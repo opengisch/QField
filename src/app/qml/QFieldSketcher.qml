@@ -35,12 +35,12 @@ Popup {
     height: parent.height
     padding: 0
 
-    DrawingCanvas {
+    QfDrawingCanvas {
       id: drawingCanvas
       anchors.fill: parent
 
-      fillColor: Theme.mainBackgroundColor
-      frameColor: Theme.mainColor
+      fillColor: QfTheme.mainBackgroundColor
+      frameColor: QfTheme.mainColor
 
       Behavior on zoomFactor {
         enabled: !pinchHandler.active
@@ -175,8 +175,8 @@ Popup {
         QfToolButton {
           property color colorValue: modelData[0]
 
-          width: Theme.toolButtonSize
-          height: Theme.toolButtonSize
+          width: QfTheme.toolButtonSize
+          height: QfTheme.toolButtonSize
           round: true
           borderColor: modelData[1]
           scale: settings.strokeColor == colorValue ? 1 : 0.66
@@ -214,7 +214,7 @@ Popup {
       height: Math.max(200, parent.height / 3)
       x: 0
       y: parent.height / 3 * 2 - height / 2
-      color: Theme.controlBackgroundAlternateColor
+      color: QfTheme.controlBackgroundAlternateColor
 
       ColumnLayout {
         anchors.fill: parent
@@ -224,8 +224,8 @@ Popup {
           Layout.fillWidth: true
           Layout.alignment: Qt.AlignHCenter
           text: qsTr('Select drawing template')
-          font: Theme.defaultFont
-          color: Theme.mainColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainColor
           wrapMode: Text.WordWrap
           horizontalAlignment: Text.AlignHCenter
         }
@@ -249,7 +249,7 @@ Popup {
               anchors.margins: 5
               visible: templatePath !== ''
               fillMode: Image.PreserveAspectFit
-              source: templatePath !== '' ? UrlUtils.fromString(templatePath) : ''
+              source: templatePath !== '' ? QfUrlUtils.fromString(templatePath) : ''
             }
 
             Rectangle {
@@ -273,7 +273,7 @@ Popup {
                 anchors.centerIn: parent
                 width: templateItem.width
                 text: templateTitle
-                font: Theme.tipFont
+                font: QfTheme.tipFont
                 color: "#ffffff"
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideMiddle
@@ -303,9 +303,9 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
-      iconColor: Theme.toolButtonColor
-      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_chevron_left_white_24dp")
+      iconColor: QfTheme.toolButtonColor
+      bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {
@@ -323,9 +323,9 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeVectorIcon("ic_undo_black_24dp")
-      iconColor: Theme.toolButtonColor
-      bgcolor: Theme.toolButtonBackgroundSemiOpaqueColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_undo_black_24dp")
+      iconColor: QfTheme.toolButtonColor
+      bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {
@@ -342,9 +342,9 @@ Popup {
       anchors.top: parent.top
       anchors.topMargin: mainWindow.sceneTopMargin + 5
 
-      iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
-      iconColor: Theme.toolButtonColor
-      bgcolor: drawingCanvas.isDirty ? Theme.mainColor : Theme.toolButtonBackgroundSemiOpaqueColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_check_white_24dp")
+      iconColor: QfTheme.toolButtonColor
+      bgcolor: drawingCanvas.isDirty ? QfTheme.mainColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
       round: true
 
       onClicked: {
@@ -355,7 +355,7 @@ Popup {
   }
 
   function loadImage(path) {
-    drawingCanvas.createCanvasFromImage(UrlUtils.toLocalFile(path));
+    drawingCanvas.createCanvasFromImage(QfUrlUtils.toLocalFile(path));
   }
 
   function clear() {

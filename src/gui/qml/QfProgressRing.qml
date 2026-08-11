@@ -12,8 +12,8 @@ ProgressBar {
 
   property int size: 56
   property real strokeWidth: 6
-  property color color: Theme.mainColor
-  property color backgroundColor: Theme.lightGray
+  property color color: QfTheme.mainColor
+  property color backgroundColor: QfTheme.lightGray
 
   implicitWidth: control.size
   implicitHeight: control.size

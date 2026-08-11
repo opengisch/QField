@@ -14,10 +14,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "abstractgnssreceiver.h"
-#include "positioningsource.h"
+#include "qfabstractgnssreceiver.h"
 #include "qfield_android.h"
 #include "qfieldpositioningservice.h"
+#include "qfpositioningsource.h"
 
 #include <QFile>
 #include <QJniObject>
@@ -29,10 +29,10 @@
 QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   : QAndroidService( argc, argv )
 {
-  qRegisterMetaType<GnssPositionInformation>( "GnssPositionInformation" );
-  qRegisterMetaType<AbstractGnssReceiver>( "AbstractGnssReceiver" );
+  qRegisterMetaType<QfGnssPositionInformation>( "QfGnssPositionInformation" );
+  qRegisterMetaType<QfAbstractGnssReceiver>( "QfAbstractGnssReceiver" );
 
-  mPositioningSource.reset( new PositioningSource( this ) );
+  mPositioningSource.reset( new QfPositioningSource( this ) );
   mHost.setHostUrl( QUrl( QStringLiteral( "localabstract:" APP_PACKAGE_NAME "replica" ) ) );
   mHost.enableRemoting( mPositioningSource.get(), "PositioningSource" );
 
@@ -40,14 +40,14 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
   mNotificationTimer.setSingleShot( false );
   connect( &mNotificationTimer, &QTimer::timeout, this, &QFieldPositioningService::triggerShowNotification );
 
-  connect( mPositioningSource.get(), &PositioningSource::positionInformationChanged, this, [=] {
-    if ( !mPositioningSource->backgroundMode() && QFile::exists( PositioningSource::backgroundFilePath ) )
+  connect( mPositioningSource.get(), &QfPositioningSource::positionInformationChanged, this, [=] {
+    if ( !mPositioningSource->backgroundMode() && QFile::exists( QfPositioningSource::backgroundFilePath ) )
     {
       mPositioningSource->setBackgroundMode( true );
     }
   } );
 
-  connect( mPositioningSource.get(), &PositioningSource::backgroundModeChanged, this, [=] {
+  connect( mPositioningSource.get(), &QfPositioningSource::backgroundModeChanged, this, [=] {
     if ( mPositioningSource->active() )
     {
       if ( mPositioningSource->backgroundMode() )
@@ -63,7 +63,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
     }
   } );
 
-  connect( mPositioningSource.get(), &PositioningSource::activeChanged, this, [=] {
+  connect( mPositioningSource.get(), &QfPositioningSource::activeChanged, this, [=] {
     if ( mPositioningSource->active() )
     {
       if ( mPositioningSource->backgroundMode() )
@@ -86,7 +86,7 @@ QFieldPositioningService::QFieldPositioningService( int &argc, char **argv )
 
 void QFieldPositioningService::triggerShowNotification()
 {
-  const GnssPositionInformation pos = mPositioningSource->positionInformation();
+  const QfGnssPositionInformation pos = mPositioningSource->positionInformation();
   QJniObject message = QJniObject::fromString( tr( "Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°" ).arg( QLocale::system().toString( pos.latitude(), 'f', 7 ), QLocale::system().toString( pos.longitude(), 'f', 7 ), QLocale::system().toString( pos.elevation(), 'f', 3 ), QLocale::system().toString( pos.speed(), 'f', 1 ), QLocale::system().toString( pos.direction(), 'f', 1 ) ) );
   QJniObject::callStaticMethod<void>( "ch/opengis/" APP_PACKAGE_NAME "/QFieldPositioningService",
                                       "triggerShowNotification",

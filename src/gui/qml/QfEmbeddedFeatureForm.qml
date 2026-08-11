@@ -50,9 +50,9 @@ QfPopup {
   parent: mainWindow.contentItem
   closePolicy: form.state === "ReadOnly" ? Popup.CloseOnEscape : Popup.NoAutoClose // prevent accidental feature addition and editing
 
-  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
-  x: Theme.popupScreenEdgeVerticalMargin / 2
+  width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  x: QfTheme.popupScreenEdgeVerticalMargin / 2
   y: (mainWindow.height - height) / 2
   z: 1000 + embeddedLevel
   focus: visible
@@ -62,9 +62,9 @@ QfPopup {
 
     property bool isSaved: false
 
-    model: AttributeFormModel {
+    model: QfAttributeFormModel {
       id: formAttributeFormModel
-      featureModel: FeatureModel {
+      featureModel: QfFeatureModel {
         id: formFeatureModel
         project: qgisProject
         appExpressionContextScopesGenerator: appScopesGenerator

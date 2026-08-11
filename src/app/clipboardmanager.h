@@ -95,4 +95,4 @@ class ClipboardManager : public QObject
     QString mHtmlFeature;
 };
 
-#endif // PROJECTINFO_H
+#endif // QFPROJECTINFO_H

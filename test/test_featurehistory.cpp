@@ -17,8 +17,8 @@
 
 #define QFIELDTEST_MAIN
 #include "catch2.h"
-#include "featurehistory.h"
-#include "utils/featureutils.h"
+#include "qffeaturehistory.h"
+#include "utils/qffeatureutils.h"
 
 #include <QEventLoop>
 #include <qgsproject.h>
@@ -29,13 +29,13 @@
 TEST_CASE( "FeatureHistory" )
 {
   std::unique_ptr<QgsProject> project = std::make_unique<QgsProject>();
-  std::unique_ptr<FeatureHistory> history = std::make_unique<FeatureHistory>( project.get() );
+  std::unique_ptr<QfFeatureHistory> history = std::make_unique<QfFeatureHistory>( project.get() );
 
   std::unique_ptr<QgsVectorLayer> vl = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946&field=fid:integer&field=str1:string" ), QStringLiteral( "vl" ), QStringLiteral( "memory" ) );
   std::unique_ptr<QgsVectorLayer> vl2 = std::make_unique<QgsVectorLayer>( QStringLiteral( "Polygon?crs=epsg:3946&field=parent_fid:integer&field=str:string" ), QStringLiteral( "vl2" ), QStringLiteral( "memory" ) );
 
   QgsGeometry geometry = QgsGeometry::fromWkt( QStringLiteral( "Polygon (((8 8, 9 8, 8 9, 8 8)))" ) );
-  QgsFeature f = FeatureUtils::createFeature( vl.get(), geometry );
+  QgsFeature f = QfFeatureUtils::createFeature( vl.get(), geometry );
   vl->dataProvider()->addFeature( f );
 
   project->addMapLayer( vl.get() );
@@ -48,8 +48,8 @@ TEST_CASE( "FeatureHistory" )
   vl->addJoin( joinInfo );
 
   QEventLoop loop;
-  QObject::connect( history.get(), &FeatureHistory::isUndoAvailableChanged, &loop, &QEventLoop::quit );
-  QObject::connect( history.get(), &FeatureHistory::isRedoAvailableChanged, &loop, &QEventLoop::quit );
+  QObject::connect( history.get(), &QfFeatureHistory::isUndoAvailableChanged, &loop, &QEventLoop::quit );
+  QObject::connect( history.get(), &QfFeatureHistory::isRedoAvailableChanged, &loop, &QEventLoop::quit );
 
   vl->startEditing();
   vl->changeAttributeValue( 1, 1, "changed" );
@@ -67,7 +67,7 @@ TEST_CASE( "FeatureHistory" )
   REQUIRE( history->isUndoAvailable() );
   REQUIRE( !history->isRedoAvailable() );
 
-  f = FeatureUtils::createFeature( vl.get(), geometry );
+  f = QfFeatureUtils::createFeature( vl.get(), geometry );
   vl->startEditing();
   vl->addFeature( f );
   vl->commitChanges();

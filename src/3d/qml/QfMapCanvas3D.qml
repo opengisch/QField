@@ -26,10 +26,10 @@ Item {
   property color gnssMarkerColor: "#2060ff"
   property color gnssMarkerSemiOpaqueColor: Qt.hsla(gnssMarkerColor.hslHue, gnssMarkerColor.hslSaturation, gnssMarkerColor.hslLightness, 0.4)
 
-  property FeatureListModelSelection selectionModel: null
+  property QfFeatureListModelSelection selectionModel: null
   property alias selectionColor: selectionHighlight.selectedColor
 
-  property TrackingModel trackingModel: null
+  property QfTrackingModel trackingModel: null
 
   property alias terrainProvider: mapTerrainProvider
   property Item pluginContainer: null
@@ -37,7 +37,7 @@ Item {
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
 
-  Quick3DTerrainProvider {
+  Qf3DTerrainProvider {
     id: mapTerrainProvider
     project: qgisProject
     mapSettings: mapArea.mapSettings
@@ -59,7 +59,7 @@ Item {
     }
   }
 
-  Quick3DMapTextureData {
+  Qf3DMapTextureData {
     id: mapTextureData
     mapSettings: mapArea.mapSettings
     extent: mapTerrainProvider.normalizedDataExtent
@@ -140,7 +140,7 @@ Item {
       position: gnssMarkerMapToScreen3D.viewPoint
       eulerRotation: mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0 ? Qt.vector3d(0, -mapArea.gnssDirection, 0) : Qt.vector3d(0, 0, 0)
 
-      MapToView3D {
+      QfMapToView3D {
         id: gnssMarkerMapToScreen3D
         terrainProvider: mapTerrainProvider
         mapPoint: mapArea.gnssPosition
@@ -264,11 +264,11 @@ Item {
       model: mapArea.pluginContainer ? mapArea.pluginContainer.children : null
 
       Node {
-        required property Quick3DGeometryConfiguration modelData
+        required property Qf3DGeometryConfiguration modelData
 
         Model {
-          geometry: Quick3DGeometry {
-            qgsGeometry: GeometryUtils.createGeometryFromWkt(modelData.wkt)
+          geometry: Qf3DGeometry {
+            qgsGeometry: QfGeometryUtils.createGeometryFromWkt(modelData.wkt)
             crs: modelData.crs
             lineWidth: modelData.lineWidth
             heightOffset: modelData.heightOffset

@@ -3,7 +3,7 @@ import QtQuick3D
 import org.qfield._3d
 
 /**
- * Wraps Quick3DRubberbandGeometry in a ready-to-use Node with a matte PBR material.
+ * Wraps Qf3DRubberbandGeometry in a ready-to-use Node with a matte PBR material.
  * \ingroup qml
  */
 Node {
@@ -19,7 +19,7 @@ Node {
   Model {
     id: rubberbandModel3D
 
-    geometry: Quick3DRubberbandGeometry {
+    geometry: Qf3DRubberbandGeometry {
       id: rubberbandGeometry
     }
 

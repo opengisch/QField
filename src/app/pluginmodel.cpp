@@ -14,9 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "pluginmanager.h"
 #include "pluginmodel.h"
+#include "qfplatformutilities.h"
 #include "qgsnetworkaccessmanager.h"
 
 #include <QDir>
@@ -344,7 +344,7 @@ void PluginModel::populateRemotePlugins()
 void PluginModel::populateLocalPlugins()
 {
   QMap<QString, PluginInformation> foundLocalPlugins;
-  const QStringList dirs = QStringList() << QStringLiteral( "%1/qfield" ).arg( PlatformUtilities::instance()->systemSharedDataLocation() ) << PlatformUtilities::instance()->appDataDirs();
+  const QStringList dirs = QStringList() << QStringLiteral( "%1/qfield" ).arg( QfPlatformUtilities::instance()->systemSharedDataLocation() ) << QfPlatformUtilities::instance()->appDataDirs();
   for ( const QString &dir : dirs )
   {
     QDir pluginsDir( dir );
@@ -391,7 +391,7 @@ PluginInformation PluginModel::readPluginMetadata( const QFileInfo &pluginDir )
   }
 
   PluginInformation plugin( pluginDir.fileName(), name, description, author, homepage, icon );
-  plugin.bundled = path.startsWith( PlatformUtilities::instance()->systemSharedDataLocation() );
+  plugin.bundled = path.startsWith( QfPlatformUtilities::instance()->systemSharedDataLocation() );
   plugin.version = version;
   plugin.path = path;
   plugin.locallyAvailable = true;

@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "pluginmanager.h"
+#include "qfplatformutilities.h"
 #include "qgsziputils.h"
 
 #include <QCoreApplication>
@@ -408,7 +408,7 @@ void PluginManager::installFromUrl( const QString &url )
   } );
 
   connect( reply, &QNetworkReply::finished, this, [this, reply, url]() {
-    const QString dataDir = PlatformUtilities::instance()->appDataDirs().at( 0 );
+    const QString dataDir = QfPlatformUtilities::instance()->appDataDirs().at( 0 );
     QString error;
     if ( !dataDir.isEmpty() && reply->error() == QNetworkReply::NoError )
     {

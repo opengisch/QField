@@ -9,7 +9,7 @@ import org.qfield.gui
 Dialog {
   visible: false
   modal: true
-  font: Theme.defaultFont
+  font: QfTheme.defaultFont
   standardButtons: Dialog.Ok | Dialog.Cancel
 
   x: (mainWindow.width - width) / 2

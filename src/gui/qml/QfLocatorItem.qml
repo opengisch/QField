@@ -12,7 +12,7 @@ import org.qfield.gui
 Item {
   id: locatorItem
 
-  property LocatorModelSuperBridge locatorBridge
+  property QfLocatorModelSuperBridge locatorBridge
 
   property bool showAvailableSearchDescription: true
   property bool searchFieldVisible: searchField.visible
@@ -40,7 +40,7 @@ Item {
       }
       PropertyChanges {
         target: searchFieldRect
-        width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin - (Theme.toolButtonSize + 14)
+        width: mainWindow.width - mainWindow.sceneLeftMargin - mainWindow.sceneRightMargin - (QfTheme.toolButtonSize + 14)
       }
       PropertyChanges {
         target: codeReaderButton
@@ -71,7 +71,7 @@ Item {
       }
       PropertyChanges {
         target: searchFieldRect
-        width: Theme.toolButtonSize
+        width: QfTheme.toolButtonSize
       }
       PropertyChanges {
         target: searchFieldRect
@@ -147,7 +147,7 @@ Item {
     }
   ]
 
-  LocatorFiltersModel {
+  QfLocatorFiltersModel {
     id: locatorFilters
     locatorModelSuperBridge: locatorBridge
   }
@@ -199,17 +199,17 @@ Item {
     z: 10
     anchors.top: parent.top
     anchors.right: parent.right
-    width: Theme.toolButtonSize
-    height: Theme.toolButtonSize
+    width: QfTheme.toolButtonSize
+    height: QfTheme.toolButtonSize
     radius: height / 2
-    color: Theme.controlBackgroundColor
+    color: QfTheme.controlBackgroundColor
     visible: false
 
     TextField {
       id: searchField
       focus: locatorItem.state == "on" ? true : false
       width: parent.width - busyIndicator.width - 76
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
       anchors.top: parent.top
       anchors.left: parent.left
       anchors.verticalCenter: searchFieldRect.verticalCenter
@@ -217,12 +217,12 @@ Item {
       leftPadding: 24
       rightPadding: 0
       bottomPadding: 0
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
       selectByMouse: true
       verticalAlignment: TextInput.AlignVCenter
       background: Rectangle {
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
         radius: height / 2
         color: "transparent"
       }
@@ -262,8 +262,8 @@ Item {
     padding: 2
     z: 12
 
-    iconSource: Theme.getThemeVectorIcon("ic_clear_black_18dp")
-    iconColor: Theme.mainTextColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_clear_black_18dp")
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
     opacity: searchField.displayText.length > 0 ? 1 : 0.25
 
@@ -289,8 +289,8 @@ Item {
     anchors.verticalCenter: searchFieldRect.verticalCenter
     visible: false
 
-    iconSource: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-    iconColor: Theme.mainTextColor
+    iconSource: withNfc ? QfTheme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
+    iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -308,9 +308,9 @@ Item {
       top: parent.top
     }
 
-    iconSource: Theme.getThemeVectorIcon("ic_baseline_search_white")
-    iconColor: Theme.mainOverlayColor
-    bgcolor: Theme.mainColor
+    iconSource: QfTheme.getThemeVectorIcon("ic_baseline_search_white")
+    iconColor: QfTheme.mainOverlayColor
+    bgcolor: QfTheme.mainColor
     round: true
 
     onClicked: {
@@ -331,7 +331,7 @@ Item {
     anchors.top: searchFieldRect.top
     anchors.left: searchFieldRect.left
     anchors.topMargin: searchFieldRect.height / 2
-    color: Theme.mainBackgroundColor
+    color: QfTheme.mainBackgroundColor
     visible: searchFieldRect.visible && resultsList.count > 0
     clip: true
 
@@ -395,8 +395,8 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: Name + ' (' + Prefix + ')' + (Prefix === 'f' && dashBoard.activeLayer ? ' — ' + dashBoard.activeLayer.name : '')
-            font: Theme.resultFont
-            color: Theme.mainTextColor
+            font: QfTheme.resultFont
+            color: QfTheme.mainTextColor
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignLeft
           }
@@ -408,8 +408,8 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: Description || ''
-            font: Theme.resultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.resultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignLeft
           }
@@ -419,7 +419,7 @@ Item {
         Rectangle {
           anchors.bottom: parent.bottom
           height: 1
-          color: Theme.controlBorderColor
+          color: QfTheme.controlBorderColor
           width: parent.width
         }
 
@@ -451,7 +451,7 @@ Item {
         anchors.margins: 10
         height: isFilterName || isGroup ? 30 : Math.max(actionsRow.childrenRect.height, textArea.childrenRect.height + textArea.topPadding + textArea.bottomPadding)
         width: resultsList.width
-        color: isFilterName ? Theme.mainColor : isGroup ? Theme.controlBorderColor : "transparent"
+        color: isFilterName ? QfTheme.mainColor : isGroup ? QfTheme.controlBorderColor : "transparent"
         opacity: 0.95
 
         Ripple {
@@ -481,8 +481,8 @@ Item {
             anchors.rightMargin: 5
             text: isFilterName ? ResultFilterName : typeof (model.Text) == 'string' ? model.Text.trim() : ''
             font.bold: isFilterName || isGroup
-            font.pointSize: Theme.resultFont.pointSize
-            color: isFilterName ? Theme.mainOverlayColor : Theme.mainTextColor
+            font.pointSize: QfTheme.resultFont.pointSize
+            color: isFilterName ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
             elide: Text.ElideRight
             horizontalAlignment: isFilterName || isGroup ? Text.AlignHCenter : Text.AlignLeft
           }
@@ -495,8 +495,8 @@ Item {
             anchors.leftMargin: 5
             anchors.rightMargin: 5
             text: locatorBridge.getLocatorModelDescription(index)
-            font: Theme.resultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.resultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignLeft
           }
@@ -522,7 +522,7 @@ Item {
               iconSource: IconPath
               iconColor: {
                 const colorMatch = IconPath.match(/(?:\?|&)color=([^\s&]+)(?:&|$)/);
-                return colorMatch !== null ? Theme[colorMatch[1]] : "transparent";
+                return colorMatch !== null ? QfTheme[colorMatch[1]] : "transparent";
               }
 
               onClicked: {
@@ -537,7 +537,7 @@ Item {
         Rectangle {
           anchors.bottom: parent.bottom
           height: isFilterName || isGroup ? 0 : 1
-          color: Theme.controlBorderColor
+          color: QfTheme.controlBorderColor
           width: parent.width
         }
 

@@ -32,10 +32,10 @@ ListView {
   delegate: Rectangle {
     id: rectangle
     property int itemPadding: 30 * TreeLevel
-    property bool isSelectedLayer: Type === FlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer
+    property bool isSelectedLayer: Type === QfFlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer
     width: parent ? parent.width : undefined
     height: line.height + 7
-    color: isSelectedLayer ? Theme.mainColor : "transparent"
+    color: isSelectedLayer ? QfTheme.mainColor : "transparent"
     radius: 2
 
     MouseArea {
@@ -99,8 +99,8 @@ ListView {
             height: 35
             width: height
             anchors.centerIn: parent
-            iconSource: Theme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
-            iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon('ic_legend_collapsed_state_24dp')
+            iconColor: isSelectedLayer ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
             bgcolor: "transparent"
             visible: HasChildren
             enabled: HasChildren
@@ -133,7 +133,7 @@ ListView {
         spacing: 5
 
         Rectangle {
-          visible: Type == FlatLayerTreeModel.Image
+          visible: Type == QfFlatLayerTreeModel.Image
           width: rectangle.width - itemPadding - 36
           height: legendImage.height + 8
           color: "#f2f2f2" // hard-coded color as most legends are intented to be displayed against white backgrounds
@@ -154,7 +154,7 @@ ListView {
               smooth: true
               mipmap: true
               source: {
-                if (!legend.isVisible || Type != FlatLayerTreeModel.Image)
+                if (!legend.isVisible || Type != QfFlatLayerTreeModel.Image)
                   return '';
                 return LegendImage;
               }
@@ -175,12 +175,12 @@ ListView {
             width: height
             opacity: Visible ? 1 : 0.25
             anchors.centerIn: parent
-            iconSource: !Visible ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-            iconColor: isSelectedLayer ? Theme.mainOverlayColor : Theme.mainTextColor
+            iconSource: !Visible ? QfTheme.getThemeVectorIcon('ic_hide_green_48dp') : QfTheme.getThemeVectorIcon('ic_show_green_48dp')
+            iconColor: isSelectedLayer ? QfTheme.mainOverlayColor : QfTheme.mainTextColor
             bgcolor: "transparent"
             enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
             onClicked: {
-              layerTree.setData(legend.model.index(index, 0), !Visible, FlatLayerTreeModel.Visible);
+              layerTree.setData(legend.model.index(index, 0), !Visible, QfFlatLayerTreeModel.Visible);
               projectInfo.saveLayerTreeState();
               flatLayerTree.mapTheme = '';
             }
@@ -192,7 +192,7 @@ ListView {
           height: 24
           width: 24
           anchors.verticalCenter: parent.verticalCenter
-          visible: Type != FlatLayerTreeModel.Image
+          visible: Type != QfFlatLayerTreeModel.Image
 
           Image {
             anchors.fill: parent
@@ -202,34 +202,34 @@ ListView {
             smooth: true
             mipmap: true
             source: {
-              if (!legend.isVisible || Type == FlatLayerTreeModel.Image)
+              if (!legend.isVisible || Type == QfFlatLayerTreeModel.Image)
                 return '';
               if (LegendImage != '') {
                 return LegendImage;
-              } else if (Type == FlatLayerTreeModel.Layer) {
+              } else if (Type == QfFlatLayerTreeModel.Layer) {
                 if (LayerType == "vectorlayer") {
                   switch (VectorLayerPointer.geometryType()) {
                   case Qgis.GeometryType.Point:
-                    return Theme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
+                    return QfTheme.getThemeVectorIcon('ic_vectorlayer_point_18dp');
                   case Qgis.GeometryType.Line:
-                    return Theme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
+                    return QfTheme.getThemeVectorIcon('ic_vectorlayer_line_18dp');
                   case Qgis.GeometryType.Polygon:
-                    return Theme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
+                    return QfTheme.getThemeVectorIcon('ic_vectorlayer_polygon_18dp');
                   case Qgis.GeometryType.Null:
                   case Qgis.GeometryType.Unknown:
-                    return Theme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
+                    return QfTheme.getThemeVectorIcon('ic_vectorlayer_table_18dp');
                   }
                 } else if (LayerType == "rasterlayer") {
-                  return Theme.getThemeVectorIcon('ic_rasterlayer_18dp');
+                  return QfTheme.getThemeVectorIcon('ic_rasterlayer_18dp');
                 } else if (LayerType == "meshlayer") {
-                  return Theme.getThemeVectorIcon('ic_meshlayer_18dp');
+                  return QfTheme.getThemeVectorIcon('ic_meshlayer_18dp');
                 } else if (LayerType == "vectortilelayer") {
-                  return Theme.getThemeVectorIcon('ic_vectortilelayer_18dp');
+                  return QfTheme.getThemeVectorIcon('ic_vectortilelayer_18dp');
                 } else if (LayerType == "annotationlayer") {
-                  return Theme.getThemeVectorIcon('ic_annotationlayer_18dp');
+                  return QfTheme.getThemeVectorIcon('ic_annotationlayer_18dp');
                 }
-              } else if (Type == FlatLayerTreeModel.Group) {
-                return Theme.getThemeVectorIcon('ic_group_18dp');
+              } else if (Type == QfFlatLayerTreeModel.Group) {
+                return QfTheme.getThemeVectorIcon('ic_group_18dp');
               } else {
                 return '';
               }
@@ -240,30 +240,30 @@ ListView {
 
         Text {
           id: layerName
-          visible: Type != FlatLayerTreeModel.Image
+          visible: Type != QfFlatLayerTreeModel.Image
           width: rectangle.width - itemPadding - 46 // legend icon + right padding
           - collapsedState.width - (layerVisibility.isVisible ? layerVisibility.width : -5) - badges.width
           padding: 3
           leftPadding: 0
           text: Name
           horizontalAlignment: Text.AlignLeft
-          font.pointSize: Theme.tipFont.pointSize
-          font.bold: Type == FlatLayerTreeModel.Group || (Type == FlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
+          font.pointSize: QfTheme.tipFont.pointSize
+          font.bold: Type == QfFlatLayerTreeModel.Group || (Type == QfFlatLayerTreeModel.Layer && VectorLayerPointer && VectorLayerPointer == activeLayer) ? true : false
           elide: Text.ElideRight
           opacity: Visible ? 1 : 0.25
           color: {
             if (isSelectedLayer)
-              return Theme.mainOverlayColor;
+              return QfTheme.mainOverlayColor;
             else if (IsValid)
-              return Theme.mainTextColor;
+              return QfTheme.mainTextColor;
             else
-              return Theme.secondaryTextColor;
+              return QfTheme.secondaryTextColor;
           }
         }
 
         RowLayout {
           id: badges
-          visible: Type != FlatLayerTreeModel.Image
+          visible: Type != QfFlatLayerTreeModel.Image
           anchors.verticalCenter: parent.verticalCenter
           spacing: 4
 
@@ -276,9 +276,9 @@ ListView {
             padding: 4
             enabled: isVisible
             round: true
-            bgcolor: Theme.mainColor
-            icon.source: Theme.getThemeVectorIcon('directions_walk_24dp')
-            icon.color: Theme.mainTextColor
+            bgcolor: QfTheme.mainColor
+            icon.source: QfTheme.getThemeVectorIcon('directions_walk_24dp')
+            icon.color: QfTheme.mainTextColor
 
             onClicked: {
               displayToast(qsTr('Tracking active on this layer.'), 'info', qsTr('Stop'), function () {
@@ -293,14 +293,14 @@ ListView {
               running: isVisible && legend.isVisible
               loops: Animation.Infinite
               ColorAnimation {
-                from: Theme.mainColor
+                from: QfTheme.mainColor
                 to: "#5a8725"
                 duration: 2000
                 easing.type: Easing.InOutQuad
               }
               ColorAnimation {
                 from: "#5a8725"
-                to: Theme.mainColor
+                to: QfTheme.mainColor
                 duration: 1000
                 easing.type: Easing.InOutQuad
               }
@@ -309,7 +309,7 @@ ListView {
 
           QfToolButton {
             id: invalidBadge
-            property bool isVisible: Type == FlatLayerTreeModel.Layer && !IsValid
+            property bool isVisible: Type == QfFlatLayerTreeModel.Layer && !IsValid
             visible: isVisible
             height: 24
             width: 24
@@ -317,8 +317,8 @@ ListView {
             enabled: isVisible
             bgcolor: 'transparent'
             opacity: 0.5
-            icon.source: Theme.getThemeVectorIcon('ic_error_outline_24dp')
-            icon.color: Theme.errorColor
+            icon.source: QfTheme.getThemeVectorIcon('ic_error_outline_24dp')
+            icon.color: QfTheme.errorColor
 
             onClicked: {
               displayToast(qsTr('This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.'));
@@ -336,8 +336,8 @@ ListView {
             bgcolor: 'transparent'
             opacity: 0.5
 
-            icon.source: Theme.getThemeVectorIcon('ic_lock_black_24dp')
-            icon.color: Theme.mainTextColor
+            icon.source: QfTheme.getThemeVectorIcon('ic_lock_black_24dp')
+            icon.color: QfTheme.mainTextColor
 
             onClicked: {
               if (ReadOnly) {
@@ -359,8 +359,8 @@ ListView {
             bgcolor: 'transparent'
             opacity: 0.5
 
-            icon.source: Theme.getThemeVectorIcon('ic_note_white_24dp')
-            icon.color: Theme.mainTextColor
+            icon.source: QfTheme.getThemeVectorIcon('ic_note_white_24dp')
+            icon.color: QfTheme.mainTextColor
 
             onClicked: {
               informationPopup.header = MapLayerPointer.name;
@@ -374,17 +374,17 @@ ListView {
 
           QfToolButton {
             id: snappingBadge
-            property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === FlatLayerTreeModel.Layer && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
+            property bool isVisible: stateMachine.state === "digitize" && qgisProject.snappingConfig.mode === Qgis.SnappingMode.AdvancedConfiguration && Type === QfFlatLayerTreeModel.Layer && LayerType === "vectorlayer" && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Null && VectorLayerPointer.geometryType() !== Qgis.GeometryType.Unknown
             visible: isVisible
             height: 24
             width: 24
             padding: 4
             enabled: isVisible
             round: true
-            bgcolor: SnappingEnabled ? Theme.mainColor : Theme.controlBackgroundColor
+            bgcolor: SnappingEnabled ? QfTheme.mainColor : QfTheme.controlBackgroundColor
             opacity: SnappingEnabled ? 1.0 : 0.5
-            icon.source: Theme.getThemeVectorIcon('ic_snapping_white_24dp')
-            icon.color: SnappingEnabled ? 'white' : Theme.mainTextColor
+            icon.source: QfTheme.getThemeVectorIcon('ic_snapping_white_24dp')
+            icon.color: SnappingEnabled ? 'white' : QfTheme.mainTextColor
 
             onClicked: {
               SnappingEnabled = !SnappingEnabled;

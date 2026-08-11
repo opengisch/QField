@@ -10,7 +10,7 @@ import org.qfield.gui
 Item {
   id: bluetoothDeviceChooser
 
-  property bool isScanning: bluetoothDeviceModel.scanningStatus === BluetoothDeviceModel.Discovering
+  property bool isScanning: bluetoothDeviceModel.scanningStatus === QfBluetoothDeviceModel.Discovering
   property bool scannedOnce: false
 
   width: parent.width
@@ -83,7 +83,7 @@ Item {
     Label {
       Layout.fillWidth: true
       text: bluetoothDeviceComboBox.count > 0 ? qsTr("Select the Bluetooth device from the list below:") : !bluetoothDeviceChooser.isScanning && bluetoothDeviceChooser.scannedOnce ? qsTr("No Bluetooth devices detected.") : ""
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       wrapMode: Text.WordWrap
     }
 
@@ -91,14 +91,14 @@ Item {
       id: bluetoothDeviceComboBox
       Layout.fillWidth: true
       visible: bluetoothDeviceComboBox.count > 0
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
 
-      popup.font: Theme.defaultFont
+      popup.font: QfTheme.defaultFont
       popup.topMargin: mainWindow.sceneTopMargin
       popup.bottomMargin: mainWindow.sceneTopMargin
 
       textRole: 'display'
-      model: BluetoothDeviceModel {
+      model: QfBluetoothDeviceModel {
         id: bluetoothDeviceModel
 
         onModelReset: {
@@ -112,20 +112,20 @@ Item {
 
         onScanningStatusChanged: scanningStatus => {
           switch (scanningStatus) {
-          case BluetoothDeviceModel.Discovering:
+          case QfBluetoothDeviceModel.Discovering:
             displayToast(qsTr('Scanning for paired devices'));
             break;
-          case BluetoothDeviceModel.Failed:
+          case QfBluetoothDeviceModel.Failed:
             displayToast(qsTr('Scanning failed: %1').arg(bluetoothDeviceModel.lastError), 'error');
             break;
-          case BluetoothDeviceModel.Succeeded:
+          case QfBluetoothDeviceModel.Succeeded:
             let message = qsTr('Scanning done');
             if (bluetoothDeviceModel.lastDiscoveredCount > 0) {
               message += ': ' + qsTr('%n device(s) found', '', bluetoothDeviceModel.lastDiscoveredCount);
             }
             displayToast(message);
             break;
-          case BluetoothDeviceModel.Canceled:
+          case QfBluetoothDeviceModel.Canceled:
             displayToast(qsTr('Scanning canceled'));
             break;
           }
@@ -136,11 +136,11 @@ Item {
 
       onCurrentIndexChanged: {
         let idx = bluetoothDeviceModel.index(currentIndex, 0);
-        deviceName = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceNameRole).trim();
-        deviceAddress = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceAddressRole);
-        deviceClassicSupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceClassicSupportRole);
-        deviceLowEnergySupport = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceLowEnergySupportRole);
-        deviceLowEnergyByDefault = bluetoothDeviceModel.data(idx, BluetoothDeviceModel.DeviceLowEnergyByDefaultRole);
+        deviceName = bluetoothDeviceModel.data(idx, QfBluetoothDeviceModel.DeviceNameRole).trim();
+        deviceAddress = bluetoothDeviceModel.data(idx, QfBluetoothDeviceModel.DeviceAddressRole);
+        deviceClassicSupport = bluetoothDeviceModel.data(idx, QfBluetoothDeviceModel.DeviceClassicSupportRole);
+        deviceLowEnergySupport = bluetoothDeviceModel.data(idx, QfBluetoothDeviceModel.DeviceLowEnergySupportRole);
+        deviceLowEnergyByDefault = bluetoothDeviceModel.data(idx, QfBluetoothDeviceModel.DeviceLowEnergyByDefaultRole);
         selectedBluetoothDevice = bluetoothDeviceAddress.text;
 
         preferBLESwitch.checked = deviceLowEnergyByDefault;
@@ -157,13 +157,13 @@ Item {
         id: preferBLELabel
         Layout.fillWidth: true
         text: qsTr('Use Bluetooth Low Energy (BLE)')
-        font: Theme.defaultFont
+        font: QfTheme.defaultFont
         wrapMode: Text.WordWrap
       }
 
       QfSwitch {
         id: preferBLESwitch
-        Layout.preferredWidth: Theme.toolButtonSize
+        Layout.preferredWidth: QfTheme.toolButtonSize
         Layout.alignment: Qt.AlignVCenter
         visible: Qt.platform.os !== "ios" && deviceClassicSupport
         checked: false
@@ -179,8 +179,8 @@ Item {
       Layout.fillWidth: true
       Layout.leftMargin: 10
       visible: deviceAddress != ''
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       text: qsTr('Bluetooth device name:') + '\n ' + deviceName
       wrapMode: Text.WordWrap
     }
@@ -190,8 +190,8 @@ Item {
       Layout.fillWidth: true
       Layout.leftMargin: 10
       visible: deviceAddress != ''
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       text: qsTr('Bluetooth device address:') + '\n ' + deviceAddress
       wrapMode: Text.WordWrap
     }
@@ -201,8 +201,8 @@ Item {
       Layout.fillWidth: true
       Layout.leftMargin: 10
       visible: deviceAddress != ''
-      font: Theme.defaultFont
-      color: Theme.secondaryTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.secondaryTextColor
       text: qsTr('Bluetooth device configuration:') + '\n ' + (deviceBLE ? qsTr("Low Energy (BLE)") : qsTr("Classic (BT)"))
       wrapMode: Text.WordWrap
     }

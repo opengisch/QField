@@ -16,7 +16,7 @@ Page {
   signal viewProjectFolder(string projectPath)
 
   property string requestedProjectDetails: ""
-  property QFieldCloudStatus cloudServiceStatus: null
+  property QfCloudStatus cloudServiceStatus: null
 
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
@@ -29,14 +29,14 @@ Page {
     showCancelButton: false
     showMenuButton: true
 
-    busyIndicatorState: cloudConnection.status === QFieldCloudConnection.Connecting ? 'on' : 'off'
+    busyIndicatorState: cloudConnection.status === QfCloudConnection.Connecting ? 'on' : 'off'
     busyIndicatorValue: busyIndicatorState === 'on' ? 0 : 1
 
     topMargin: mainWindow.sceneTopMargin
 
     onFinished: {
       if (connectionSettings.visible) {
-        if (cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0) {
+        if (cloudConnection.status === QfCloudConnection.LoggedIn || table.count > 0) {
           connectionSettings.visible = false;
           projectsSwipeView.visible = true;
         } else {
@@ -62,7 +62,7 @@ Page {
       id: connectionInformation
       spacing: 2
       Layout.fillWidth: true
-      visible: (cloudConnection.status === QFieldCloudConnection.LoggedIn || table.count > 0) && projectsSwipeView.currentIndex !== 1
+      visible: (cloudConnection.status === QfCloudConnection.LoggedIn || table.count > 0) && projectsSwipeView.currentIndex !== 1
 
       Label {
         Layout.fillWidth: true
@@ -80,8 +80,8 @@ Page {
           break;
         }
         wrapMode: Text.WordWrap
-        font: Theme.tipFont
-        color: Theme.mainTextColor
+        font: QfTheme.tipFont
+        color: QfTheme.mainTextColor
       }
 
       Rectangle {
@@ -91,7 +91,7 @@ Page {
         width: 48
         height: 48
         radius: width / 2
-        color: Theme.controlBackgroundAlternateColor
+        color: QfTheme.controlBackgroundAlternateColor
         layer.enabled: true
 
         Rectangle {
@@ -275,8 +275,8 @@ Page {
         Rectangle {
           Layout.fillWidth: true
           Layout.fillHeight: true
-          color: Theme.controlBackgroundColor
-          border.color: Theme.controlBorderColor
+          color: QfTheme.controlBackgroundColor
+          border.color: QfTheme.controlBorderColor
           border.width: 1
 
           ListView {
@@ -284,10 +284,10 @@ Page {
 
             property bool overshootRefresh: false
 
-            model: QFieldCloudProjectsFilterModel {
+            model: QfCloudProjectsFilterModel {
               id: filterModel
               projectsModel: cloudProjectsModel
-              showLocalOnly: cloudConnection.status !== QFieldCloudConnection.LoggedIn
+              showLocalOnly: cloudConnection.status !== QfCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
             }
 
@@ -304,15 +304,15 @@ Page {
               Rectangle {
                 width: parent.width
                 height: 30
-                color: Theme.controlBorderColor
+                color: QfTheme.controlBorderColor
 
                 Text {
                   anchors {
                     horizontalCenter: parent.horizontalCenter
                     verticalCenter: parent.verticalCenter
                   }
-                  font: Theme.strongResultFont
-                  color: Theme.mainTextColor
+                  font: QfTheme.strongResultFont
+                  color: QfTheme.mainTextColor
                   text: section
                 }
               }
@@ -322,7 +322,7 @@ Page {
             clip: true
 
             onMovingChanged: {
-              if (!moving && overshootRefresh && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
+              if (!moving && overshootRefresh && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
                 refreshProjectsList(false);
               }
               overshootRefresh = false;
@@ -349,7 +349,7 @@ Page {
               width: parent ? parent.width : undefined
               height: line.height
               color: "transparent"
-              border.color: Theme.controlBorderColor
+              border.color: QfTheme.controlBorderColor
               border.width: 1
               radius: 2
 
@@ -358,9 +358,9 @@ Page {
                 anchors.left: line.left
                 anchors.right: parent.right
                 height: 4
-                indeterminate: PackagingStatus !== QFieldCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
+                indeterminate: PackagingStatus !== QfCloudProject.PackagingFinishedStatus && DownloadProgress === 0.0
                 value: DownloadProgress
-                visible: Status === QFieldCloudProject.ProjectStatus.Downloading
+                visible: Status === QfCloudProject.ProjectStatus.Downloading
                 z: 1
               }
 
@@ -373,44 +373,44 @@ Page {
                 bottomPadding: 6
                 spacing: 2
 
-                ParameterizedImage {
+                QfParameterizedImage {
                   id: type
                   anchors.verticalCenter: line.verticalCenter
 
-                  strokeColor: Theme.mainColor
+                  strokeColor: QfTheme.mainColor
                   parameters: {
-                    "cloud": Theme.cloudColor
+                    "cloud": QfTheme.cloudColor
                   }
 
                   source: {
-                    if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                      return Theme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
+                    if (cloudConnection.status !== QfCloudConnection.LoggedIn) {
+                      return QfTheme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
                     } else {
                       var status = '';
                       switch (Status) {
-                      case QFieldCloudProject.ProjectStatus.Downloading:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_download_param_48dp');
-                      case QFieldCloudProject.ProjectStatus.Pushing:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_upload_param_48dp');
-                      case QFieldCloudProject.ProjectStatus.Failing:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_failed_param_48dp');
+                      case QfCloudProject.ProjectStatus.Downloading:
+                        return QfTheme.getThemeVectorIcon('ic_cloud_project_download_param_48dp');
+                      case QfCloudProject.ProjectStatus.Pushing:
+                        return QfTheme.getThemeVectorIcon('ic_cloud_project_upload_param_48dp');
+                      case QfCloudProject.ProjectStatus.Failing:
+                        return QfTheme.getThemeVectorIcon('ic_cloud_project_failed_param_48dp');
                       default:
                         break;
                       }
                       switch (Checkout) {
-                      case QFieldCloudProject.LocalCheckout:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
-                      case QFieldCloudProject.RemoteCheckout:
-                        return Theme.getThemeVectorIcon('ic_cloud_project_download_param_48dp');
+                      case QfCloudProject.LocalCheckout:
+                        return QfTheme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
+                      case QfCloudProject.RemoteCheckout:
+                        return QfTheme.getThemeVectorIcon('ic_cloud_project_download_param_48dp');
                       default:
                         break;
                       }
-                      return Theme.getThemeVectorIcon('ic_cloud_project_param_48dp');
+                      return QfTheme.getThemeVectorIcon('ic_cloud_project_param_48dp');
                     }
                   }
                   width: 40
                   height: 40
-                  opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.3 : 1
+                  opacity: Status === QfCloudProject.ProjectStatus.Downloading ? 0.3 : 1
 
                   QfToolButton {
                     anchors.top: parent.top
@@ -420,10 +420,10 @@ Page {
                     width: 24
                     height: 24
                     padding: 2
-                    iconSource: Theme.getThemeVectorIcon('ic_star_filled_white_24dp')
-                    iconColor: Theme.mainColor
+                    iconSource: QfTheme.getThemeVectorIcon('ic_star_filled_white_24dp')
+                    iconColor: QfTheme.mainColor
                     enabled: false
-                    bgcolor: Theme.controlBackgroundColor
+                    bgcolor: QfTheme.controlBackgroundColor
                     round: true
                     visible: Featured
                   }
@@ -440,8 +440,8 @@ Page {
                     Layout.fillWidth: true
                     leftPadding: 3
                     text: Name
-                    font.pointSize: Theme.tipFont.pointSize
-                    color: Theme.mainTextColor
+                    font.pointSize: QfTheme.tipFont.pointSize
+                    color: QfTheme.mainTextColor
                     opacity: projectDelegate.isPressed ? 0.8 : 1
                     wrapMode: Text.Wrap
                   }
@@ -450,22 +450,22 @@ Page {
                     Layout.fillWidth: true
                     leftPadding: 3
                     text: {
-                      if (cloudConnection.status !== QFieldCloudConnection.LoggedIn) {
-                        return StringUtils.snippet(Description);
+                      if (cloudConnection.status !== QfCloudConnection.LoggedIn) {
+                        return QfStringUtils.snippet(Description);
                       } else {
                         var status = '';
 
                         // TODO I think these should be shown as UI badges
                         switch (Status) {
-                        case QFieldCloudProject.Idle:
+                        case QfCloudProject.Idle:
                           break;
-                        case QFieldCloudProject.Downloading:
-                          if (PackagingStatus === QFieldCloudProject.PackagingBusyStatus) {
+                        case QfCloudProject.Downloading:
+                          if (PackagingStatus === QfCloudProject.PackagingBusyStatus) {
                             status = qsTr('QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight');
                           } else {
-                            if (PackagingStatus === QFieldCloudProject.PackagingFinishedStatus || DownloadProgress > 0.0) {
+                            if (PackagingStatus === QfCloudProject.PackagingFinishedStatus || DownloadProgress > 0.0) {
                               if (DownloadSize > 0) {
-                                status = qsTr('Downloading, %1% of %2 fetched').arg(Math.round(DownloadProgress * 100)).arg(FileUtils.representFileSize(DownloadSize));
+                                status = qsTr('Downloading, %1% of %2 fetched').arg(Math.round(DownloadProgress * 100)).arg(QfFileUtils.representFileSize(DownloadSize));
                               } else {
                                 status = qsTr('Downloading, %1% fetched').arg(Math.round(DownloadProgress * 100));
                               }
@@ -474,25 +474,25 @@ Page {
                             }
                           }
                           break;
-                        case QFieldCloudProject.Pushing:
+                        case QfCloudProject.Pushing:
                           status = qsTr('Uploading…');
                           break;
                         default:
                           break;
                         }
                         switch (ErrorStatus) {
-                        case QFieldCloudProject.NoErrorStatus:
+                        case QfCloudProject.NoErrorStatus:
                           break;
-                        case QFieldCloudProject.DownloadErrorStatus:
-                          status = qsTr('Downloading error. ') + QFieldCloudUtils.userFriendlyErrorString(ErrorString);
+                        case QfCloudProject.DownloadErrorStatus:
+                          status = qsTr('Downloading error. ') + QfCloudUtils.userFriendlyErrorString(ErrorString);
                           break;
-                        case QFieldCloudProject.PushErrorStatus:
-                          status = qsTr('Uploading error. ') + QFieldCloudUtils.userFriendlyErrorString(ErrorString);
+                        case QfCloudProject.PushErrorStatus:
+                          status = qsTr('Uploading error. ') + QfCloudUtils.userFriendlyErrorString(ErrorString);
                           break;
                         }
 
                         if (!status) {
-                          status = StringUtils.snippet(Description);
+                          status = QfStringUtils.snippet(Description);
                         }
 
                         var str = status;
@@ -500,27 +500,27 @@ Page {
                       }
                     }
                     visible: text !== ""
-                    font.pointSize: Theme.tipFont.pointSize - 2
-                    color: Theme.secondaryTextColor
+                    font.pointSize: QfTheme.tipFont.pointSize - 2
+                    color: QfTheme.secondaryTextColor
                     wrapMode: Text.WordWrap
                   }
                 }
 
                 Item {
-                  width: Theme.toolButtonSize
-                  height: Theme.toolButtonSize
+                  width: QfTheme.toolButtonSize
+                  height: QfTheme.toolButtonSize
                   anchors.verticalCenter: line.verticalCenter
 
                   QfToolButton {
                     id: downloadActionButton
 
                     visible: LocalPath === ''
-                    iconSource: Status === QFieldCloudProject.ProjectStatus.Downloading ? Theme.getThemeVectorIcon("ic_clear_white_24dp") : Theme.getThemeVectorIcon("ic_download_white_24dp")
-                    iconColor: Status === QFieldCloudProject.ProjectStatus.Downloading ? Theme.mainTextColor : Theme.mainColor
-                    opacity: Status === QFieldCloudProject.ProjectStatus.Downloading ? 0.5 : 1
+                    iconSource: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_download_white_24dp")
+                    iconColor: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.mainTextColor : QfTheme.mainColor
+                    opacity: Status === QfCloudProject.ProjectStatus.Downloading ? 0.5 : 1
 
                     onClicked: {
-                      if (Status === QFieldCloudProject.ProjectStatus.Downloading) {
+                      if (Status === QfCloudProject.ProjectStatus.Downloading) {
                         cloudProjectsModel.projectCancelDownload(Id);
                       } else {
                         cloudProjectsModel.projectPackageAndDownload(Id);
@@ -532,13 +532,13 @@ Page {
                     id: menuButton
                     round: true
                     opacity: 0.5
-                    width: Theme.toolButtonSize
-                    height: Theme.toolButtonSize
+                    width: QfTheme.toolButtonSize
+                    height: QfTheme.toolButtonSize
                     visible: LocalPath !== ''
 
                     bgcolor: "transparent"
-                    iconSource: Theme.getThemeVectorIcon("ic_dot_menu_black_24dp")
-                    iconColor: Theme.mainTextColor
+                    iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
+                    iconColor: QfTheme.mainTextColor
 
                     onClicked: mouse => {
                       projectActions.projectId = Id;
@@ -558,7 +558,7 @@ Page {
                   QfBadge {
                     alignment: QfBadge.Alignment.TopRight
                     visible: showSync || showPush
-                    color: showSync ? Theme.mainColor : Theme.cloudColor
+                    color: showSync ? QfTheme.mainColor : QfTheme.cloudColor
                     topMargin: 5
                     rightMargin: 5
                     enableGradient: showSync && showPush
@@ -575,7 +575,7 @@ Page {
               property Item pressedItem
               propagateComposedEvents: false
               anchors.fill: parent
-              anchors.rightMargin: Theme.toolButtonSize
+              anchors.rightMargin: QfTheme.toolButtonSize
               onClicked: mouse => {
                 var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
                 if (item) {
@@ -628,7 +628,7 @@ Page {
           Label {
             anchors.fill: parent
             anchors.margins: 20
-            visible: cloudConnection.status === QFieldCloudConnection.LoggedIn && filterBar.currentIndex === 0 && table.count === 0
+            visible: cloudConnection.status === QfCloudConnection.LoggedIn && filterBar.currentIndex === 0 && table.count === 0
             text: {
               let labelText = "";
               if (cloudProjectsModel.isRefreshing) {
@@ -654,7 +654,7 @@ Page {
               return labelText;
             }
             textFormat: Text.MarkdownText
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -677,7 +677,7 @@ Page {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
             text: qsTr("Refresh projects list")
-            enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             showProgress: cloudProjectsModel.isRefreshing || table.model.isSearching
             progressValue: 0
             onClicked: {
@@ -687,12 +687,12 @@ Page {
 
           QfToolButton {
             id: scanProjectBtn
-            enabled: cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudConnection.state === QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
+            enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             visible: enabled
 
             bgcolor: "transparent"
-            iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
+            iconColor: QfTheme.mainTextColor
 
             onClicked: {
               codeReaderConnection.enabled = true;
@@ -721,14 +721,14 @@ Page {
     x: parent.width - width - 8
 
     MenuItem {
-      text: cloudConnection.status === QFieldCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
-      font: Theme.defaultFont
+      text: cloudConnection.status === QfCloudConnection.LoggedIn ? qsTr('Sign out') : qsTr('Sign in')
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: cloudConnection.status === QFieldCloudConnection.LoggedIn ? Theme.getThemeVectorIcon('ic_logout_24dp') : Theme.getThemeVectorIcon('ic_login_24dp')
-      enabled: cloudConnection.state !== QFieldCloudConnection.Busy
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: cloudConnection.status === QfCloudConnection.LoggedIn ? QfTheme.getThemeVectorIcon('ic_logout_24dp') : QfTheme.getThemeVectorIcon('ic_login_24dp')
+      enabled: cloudConnection.state !== QfCloudConnection.Busy
       onTriggered: {
-        if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        if (cloudConnection.status === QfCloudConnection.LoggedIn) {
           cloudConnection.logout();
         } else {
           prepareCloudScreen();
@@ -740,12 +740,12 @@ Page {
       property bool isVisible: Qt.platform.os !== "ios" && cloudConnection.url === cloudConnection.defaultUrl
 
       text: qsTr('Settings page')
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       visible: isVisible
       height: isVisible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon('ic_tune_white_24dp')
-      enabled: cloudConnection.state !== QFieldCloudConnection.Busy && cloudConnection.status === QFieldCloudConnection.LoggedIn
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon('ic_tune_white_24dp')
+      enabled: cloudConnection.state !== QfCloudConnection.Busy && cloudConnection.status === QfCloudConnection.LoggedIn
       onTriggered: {
         const link = cloudConnection.defaultUrl + '/settings/' + cloudConnection.username;
         if (Qt.platform.os === "ios" || Qt.platform.os === "android") {
@@ -764,9 +764,9 @@ Page {
 
     MenuItem {
       text: qsTr('Show invalid projects')
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
       checkable: true
       checked: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
       onTriggered: {
@@ -794,10 +794,10 @@ Page {
     MenuItem {
       id: openProject
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       text: qsTr("Open Project")
       onTriggered: {
@@ -815,10 +815,10 @@ Page {
     MenuItem {
       id: syncProject
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       text: qsTr("Synchronize")
       onTriggered: {
@@ -832,17 +832,17 @@ Page {
         rightMargin: 5
         alignment: QfBadge.Alignment.TopRight
         visible: projectActions.projectOutdated
-        color: Theme.mainColor
+        color: QfTheme.mainColor
         border.color: "transparent"
       }
     }
     MenuItem {
       id: pushProject
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
       enabled: projectActions.localDeltasCount > 0
 
       text: qsTr("Upload local changes")
@@ -857,9 +857,9 @@ Page {
         rightMargin: 5
         alignment: QfBadge.Alignment.TopRight
         visible: projectActions.localDeltasCount > 0
-        color: Theme.cloudColor
+        color: QfTheme.cloudColor
         badgeText.text: projectActions.localDeltasCount
-        badgeText.color: Theme.light
+        badgeText.color: QfTheme.light
         border.color: "transparent"
       }
     }
@@ -867,10 +867,10 @@ Page {
     MenuItem {
       id: cloneProject
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       text: qsTr("Clone Project")
       onTriggered: {
@@ -883,10 +883,10 @@ Page {
     MenuItem {
       id: removeProject
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       text: qsTr("Remove Stored Project")
       onTriggered: {
@@ -901,10 +901,10 @@ Page {
     MenuItem {
       id: viewProjectDetails
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       text: qsTr("View Project Details")
       onTriggered: {
@@ -915,10 +915,10 @@ Page {
     MenuItem {
       id: viewProjectFolder
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
+      leftPadding: QfTheme.menuItemLeftPadding
 
       text: qsTr("View Project Folder")
       onTriggered: {
@@ -987,7 +987,7 @@ Page {
     enabled: false
 
     function onDecoded(string) {
-      const details = UrlUtils.getActionDetails(string);
+      const details = QfUrlUtils.getActionDetails(string);
       if (details.type !== undefined && details.type === "cloud" && details.project !== undefined && details.project !== "") {
         codeReader.close();
         prepareProjectRequest(details);
@@ -1003,9 +1003,9 @@ Page {
     target: cloudConnection
 
     function onStatusChanged() {
-      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      if (cloudConnection.status === QfCloudConnection.LoggedIn) {
         prepareCloudScreen();
-      } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+      } else if (cloudConnection.status === QfCloudConnection.Disconnected) {
         if (table.count === 0) {
           projectsSwipeView.visible = false;
           connectionSettings.visible = true;
@@ -1040,7 +1040,7 @@ Page {
   }
 
   function refreshProjectsList(shouldResetModel) {
-    if (cloudConnection.state !== QFieldCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
+    if (cloudConnection.state !== QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0) {
       return;
     }
     cloudProjectsModel.refreshProjectsList(shouldResetModel);
@@ -1065,7 +1065,7 @@ Page {
   function prepareCloudScreen() {
     if (visible) {
       switch (cloudConnection.status) {
-      case QFieldCloudConnection.Disconnected:
+      case QfCloudConnection.Disconnected:
         if (cloudConnection.hasToken || cloudConnection.hasProviderConfiguration) {
           cloudConnection.login();
           if (requestedProjectDetails != "") {
@@ -1083,12 +1083,12 @@ Page {
         }
         cloudConnection.getServerInformation();
         break;
-      case QFieldCloudConnection.Connecting:
+      case QfCloudConnection.Connecting:
         const hasProjects = table.count !== 0;
         projectsSwipeView.visible = hasProjects;
         connectionSettings.visible = !hasProjects;
         break;
-      case QFieldCloudConnection.LoggedIn:
+      case QfCloudConnection.LoggedIn:
         projectsSwipeView.visible = true;
         connectionSettings.visible = false;
         if (requestedProjectDetails != "") {

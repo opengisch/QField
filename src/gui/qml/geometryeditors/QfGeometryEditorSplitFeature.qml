@@ -38,8 +38,8 @@ QfGeometryEditorBase {
     onConfirmed: {
       digitizingLogger.writeCoordinates();
       rubberbandModel.frozen = true;
-      const result = GeometryUtils.splitFeatureFromRubberband(featureModel.currentLayer, featureModel.feature.id, drawLineToolbar.rubberbandModel);
-      if (result !== GeometryUtils.Success) {
+      const result = QfGeometryUtils.splitFeatureFromRubberband(featureModel.currentLayer, featureModel.feature.id, drawLineToolbar.rubberbandModel);
+      if (result !== QfGeometryUtils.Success) {
         displayToast(qsTr('Feature could not be split'), 'error');
       }
       rubberbandModel.reset();

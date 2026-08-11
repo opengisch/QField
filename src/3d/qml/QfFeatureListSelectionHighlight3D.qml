@@ -9,8 +9,8 @@ import org.qfield.core
 Node {
   id: featureListSelectionHighlight3D
 
-  property FeatureListModelSelection selectionModel
-  property Quick3DTerrainProvider terrainProvider
+  property QfFeatureListModelSelection selectionModel
+  property Qf3DTerrainProvider terrainProvider
 
   property color color: "yellow"
   property color focusedColor: "red"
@@ -18,7 +18,7 @@ Node {
 
   property real lineWidth: 3.0
   property real heightOffset: 15.0
-  property int altitudeClamping: Quick3DGeometry.Ignore
+  property int altitudeClamping: Qf3DGeometry.Ignore
 
   Repeater3D {
     model: featureListSelectionHighlight3D.selectionModel ? featureListSelectionHighlight3D.selectionModel.model : null
@@ -30,7 +30,7 @@ Node {
       visible: featureListSelectionHighlight3D.visible
 
       Model {
-        geometry: Quick3DGeometry {
+        geometry: Qf3DGeometry {
           qgsGeometry: model.geometry
           crs: model.crs
           terrainProvider: featureListSelectionHighlight3D.terrainProvider

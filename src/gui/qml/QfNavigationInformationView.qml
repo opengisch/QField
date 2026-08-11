@@ -11,21 +11,21 @@ import org.qfield.gui
 Rectangle {
   id: navigationInformationView
 
-  property Navigation navigation
+  property QfNavigation navigation
 
-  property var coordinates: GeometryUtils.reprojectPoint(navigation.destination, navigation.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
-  property bool coordinatesIsXY: CoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
+  property var coordinates: QfGeometryUtils.reprojectPoint(navigation.destination, navigation.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs)
+  property bool coordinatesIsXY: QfCoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
   property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
 
   property int ceilsCount: 4
   property double cellHeight: 26
   property double cellPadding: 6
   property color backgroundColor: "transparent"
-  property color alternateBackgroundColor: Theme.navigationBackgroundColor
-  property color textColor: Theme.mainTextColor
+  property color alternateBackgroundColor: QfTheme.navigationBackgroundColor
+  property color textColor: QfTheme.mainTextColor
   property real contentHeight: content.height
 
-  color: Theme.mainBackgroundColorSemiOpaque
+  color: QfTheme.mainBackgroundColorSemiOpaque
 
   Timer {
     id: featureVertexTimer
@@ -65,8 +65,8 @@ Rectangle {
           height: 36
           round: true
           bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon("ic_chevron_left_white_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_chevron_left_white_24dp")
+          iconColor: QfTheme.mainTextColor
 
           onPressed: {
             navigation.previousDestinationVertex();
@@ -87,10 +87,10 @@ Rectangle {
           Layout.margins: 5
           visible: navigation.destinationName != ''
           horizontalAlignment: Text.AlignHCenter
-          font: Theme.strongTipFont
+          font: QfTheme.strongTipFont
           elide: Text.ElideMiddle
           wrapMode: Text.NoWrap
-          color: Theme.mainTextColor
+          color: QfTheme.mainTextColor
           text: navigation.destinationName
         }
 
@@ -102,8 +102,8 @@ Rectangle {
           height: 36
           round: true
           bgcolor: "transparent"
-          iconSource: Theme.getThemeVectorIcon("ic_chevron_right_white_24dp")
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon("ic_chevron_right_white_24dp")
+          iconColor: QfTheme.mainTextColor
 
           onPressed: {
             navigation.nextDestinationVertex();
@@ -144,14 +144,14 @@ Rectangle {
 
           Text {
             Layout.fillWidth: false
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: coordinatesIsXY ? coordinatesIsGeographic ? qsTr("Lon") : qsTr("X") : coordinatesIsGeographic ? qsTr("Lat") : qsTr("Y")
           }
 
           Text {
             Layout.fillWidth: true
-            font: Theme.tipFont
+            font: QfTheme.tipFont
             color: textColor
             text: coordinatesIsXY ? Number(coordinates.x).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : Number(coordinates.y).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3)
             elide: Text.ElideRight
@@ -172,14 +172,14 @@ Rectangle {
 
           Text {
             Layout.fillWidth: false
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: coordinatesIsXY ? coordinatesIsGeographic ? qsTr("Lat") : qsTr("Y") : coordinatesIsGeographic ? qsTr("Lon") : qsTr("X")
           }
 
           Text {
             Layout.fillWidth: true
-            font: Theme.tipFont
+            font: QfTheme.tipFont
             color: textColor
             text: coordinatesIsXY ? Number(coordinates.y).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3) : Number(coordinates.x).toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 7 : 3)
             elide: Text.ElideRight
@@ -200,14 +200,14 @@ Rectangle {
 
           Text {
             Layout.fillWidth: false
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: qsTr("Dist.")
           }
 
           Text {
             Layout.fillWidth: true
-            font: Theme.tipFont
+            font: QfTheme.tipFont
             color: textColor
             text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? UnitTypes.formatDistance(navigation.distance * UnitTypes.fromUnitToUnitFactor(navigation.distanceUnits, projectInfo.distanceUnits), 3, projectInfo.distanceUnits) : qsTr("N/A")
             elide: Text.ElideRight
@@ -228,14 +228,14 @@ Rectangle {
 
           Text {
             Layout.fillWidth: false
-            font: Theme.tipFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.tipFont
+            color: QfTheme.secondaryTextColor
             text: qsTr("Bearing")
           }
 
           Text {
             Layout.fillWidth: true
-            font: Theme.tipFont
+            font: QfTheme.tipFont
             color: textColor
             text: positionSource.active && positionSource.positionInformation && positionSource.positionInformation.latitudeValid ? Number(navigation.bearing).toLocaleString(Qt.locale(), 'f', 1) + '°' : qsTr("N/A")
             elide: Text.ElideRight

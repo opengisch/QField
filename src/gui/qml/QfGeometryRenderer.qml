@@ -10,14 +10,14 @@ Item {
 
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  /// type:QgsGeometryWrapper
+  /// type:QfGeometryWrapper
   property alias geometryWrapper: geometryWrapper
   property double lineWidth: 3.5
   property color color: "#ff0000"
   property double pointSize: 20
   property double borderSize: 3
 
-  QgsGeometryWrapper {
+  QfGeometryWrapper {
     id: geometryWrapper
   }
 
@@ -62,7 +62,7 @@ Item {
           transformContext: qgisProject.transformContext
         }
 
-        MapToScreen {
+        QfMapToScreen {
           id: mapToScreenPosition
           mapSettings: mapCanvas.mapSettings
           mapPoint: _ct.projectedPosition

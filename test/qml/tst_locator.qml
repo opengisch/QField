@@ -7,7 +7,7 @@ import org.qfield.core as QFieldControls
 /**
  * test_locator.cpp covers each filter's logic in isolation. These tests instead
  * drive the locator the way the search bar does: performSearch() on a wired-up
- * LocatorModelSuperBridge, reading results back from proxyModel().
+ * QfLocatorModelSuperBridge, reading results back from proxyModel().
  */
 TestCase {
   id: testCase
@@ -28,7 +28,7 @@ TestCase {
     property var crs
   }
 
-  LocatorModelSuperBridge {
+  QfLocatorModelSuperBridge {
     id: locatorBridge
 
     mapSettings: mapCanvas.mapSettings
@@ -42,7 +42,7 @@ TestCase {
     signalName: "requestJumpToPoint"
   }
 
-  LocatorFiltersModel {
+  QfLocatorFiltersModel {
     id: locatorFiltersModel
 
     locatorModelSuperBridge: locatorBridge
@@ -51,7 +51,7 @@ TestCase {
   Component {
     id: pluginFilterComponent
 
-    QFieldLocatorFilter {
+    QfLocatorFilter {
       name: "echo"
       displayName: "Echo"
       prefix: "echo"
@@ -65,13 +65,13 @@ TestCase {
 
   function initTestCase() {
     let mapSettings = mapCanvas.mapSettings;
-    mapSettings.destinationCrs = CoordinateReferenceSystemUtils.wgs84Crs();
+    mapSettings.destinationCrs = QfCoordinateReferenceSystemUtils.wgs84Crs();
     mapSettings.outputSize = Qt.size(1000, 500);
-    mapSettings.extent = GeometryUtils.createRectangleFromPoints(GeometryUtils.point(-10, -10), GeometryUtils.point(10, 10));
+    mapSettings.extent = QfGeometryUtils.createRectangleFromPoints(QfGeometryUtils.point(-10, -10), QfGeometryUtils.point(10, 10));
 
-    let fields = FeatureUtils.createFields([FeatureUtils.createField("name", FeatureUtils.String), FeatureUtils.createField("fid", FeatureUtils.Int)]);
-    searchLayer = LayerUtils.createMemoryLayer("LocatorPoints", fields, Qgis.WkbType.Point, CoordinateReferenceSystemUtils.wgs84Crs());
-    ProjectUtils.addMapLayer(qgisProject, searchLayer);
+    let fields = QfFeatureUtils.createFields([QfFeatureUtils.createField("name", QfFeatureUtils.String), QfFeatureUtils.createField("fid", QfFeatureUtils.Int)]);
+    searchLayer = QfLayerUtils.createMemoryLayer("LocatorPoints", fields, Qgis.WkbType.Point, QfCoordinateReferenceSystemUtils.wgs84Crs());
+    QfProjectUtils.addMapLayer(qgisProject, searchLayer);
 
     searchLayer.startEditing();
     addPoint(1, "Alpha", 1, 1);
@@ -83,7 +83,7 @@ TestCase {
 
   function cleanupTestCase() {
     locatorBridge.activeLayer = null;
-    ProjectUtils.removeMapLayer(qgisProject, searchLayer);
+    QfProjectUtils.removeMapLayer(qgisProject, searchLayer);
   }
 
   function cleanup() {
@@ -91,10 +91,10 @@ TestCase {
   }
 
   function addPoint(fid, name, x, y) {
-    let feature = FeatureUtils.createBlankFeature(searchLayer.fields, GeometryUtils.createGeometryFromWkt("POINT(" + x + " " + y + ")"));
+    let feature = QfFeatureUtils.createBlankFeature(searchLayer.fields, QfGeometryUtils.createGeometryFromWkt("POINT(" + x + " " + y + ")"));
     feature.setAttribute(searchLayer.fields.indexOf("fid"), fid);
     feature.setAttribute(searchLayer.fields.indexOf("name"), name);
-    LayerUtils.addFeature(searchLayer, feature);
+    QfLayerUtils.addFeature(searchLayer, feature);
   }
 
   // Searches and waits for the asynchronous fetch to settle before returning
@@ -129,7 +129,7 @@ TestCase {
 
   function filterRow(prefix) {
     for (let row = 0; row < locatorFiltersModel.rowCount(); ++row) {
-      if (locatorFiltersModel.data(locatorFiltersModel.index(row, 0), LocatorFiltersModel.PrefixRole) === prefix) {
+      if (locatorFiltersModel.data(locatorFiltersModel.index(row, 0), QfLocatorFiltersModel.PrefixRole) === prefix) {
         return row;
       }
     }
@@ -194,11 +194,11 @@ TestCase {
     verify(gotoRow !== -1);
 
     let index = locatorFiltersModel.index(gotoRow, 0);
-    let wasDefault = locatorFiltersModel.data(index, LocatorFiltersModel.DefaultRole);
-    verify(locatorFiltersModel.setData(index, !wasDefault, LocatorFiltersModel.DefaultRole));
-    compare(locatorFiltersModel.data(index, LocatorFiltersModel.DefaultRole), !wasDefault);
+    let wasDefault = locatorFiltersModel.data(index, QfLocatorFiltersModel.DefaultRole);
+    verify(locatorFiltersModel.setData(index, !wasDefault, QfLocatorFiltersModel.DefaultRole));
+    compare(locatorFiltersModel.data(index, QfLocatorFiltersModel.DefaultRole), !wasDefault);
 
-    locatorFiltersModel.setData(index, wasDefault, LocatorFiltersModel.DefaultRole);
+    locatorFiltersModel.setData(index, wasDefault, QfLocatorFiltersModel.DefaultRole);
   }
 
   function test_pluginFilterContributesResults() {

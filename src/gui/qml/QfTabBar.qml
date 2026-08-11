@@ -18,7 +18,7 @@ ListView {
   highlight: Item {
     Rectangle {
       height: 2
-      color: Theme.mainColor
+      color: QfTheme.mainColor
       radius: 4
       width: parent.width
       anchors.bottom: parent.bottom
@@ -29,7 +29,7 @@ ListView {
     text: modelData
     height: tabRow.defaultHeight
     width: tabRow.parent.width / tabRow.count
-    font: Theme.defaultFont
+    font: QfTheme.defaultFont
     checked: tabRow.currentIndex === index
     onClicked: {
       tabRow.currentIndex = index;

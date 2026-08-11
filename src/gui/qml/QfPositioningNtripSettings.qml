@@ -17,8 +17,8 @@ QfPopup {
 
   signal apply
 
-  width: mainWindow.width - Theme.popupScreenEdgeHorizontalMargin * 2
-  height: mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
+  width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
+  height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   focus: visible
@@ -71,16 +71,16 @@ QfPopup {
 
           Label {
             text: qsTr("Host")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
           }
 
           Label {
             text: qsTr("Port")
-            font: Theme.defaultFont
-            color: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
             wrapMode: Text.WordWrap
             Layout.preferredWidth: 100
           }
@@ -88,22 +88,22 @@ QfPopup {
           QfTextField {
             id: ntripHostTextField
             Layout.fillWidth: true
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
           }
 
           QfTextField {
             id: ntripPortTextField
             Layout.preferredWidth: 100
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText
           }
         }
 
         Label {
           text: qsTr("Protocol")
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -111,24 +111,24 @@ QfPopup {
         QfComboBox {
           id: ntripProtocolComboBox
           Layout.fillWidth: true
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
 
-          popup.font: Theme.defaultFont
+          popup.font: QfTheme.defaultFont
           popup.topMargin: mainWindow.sceneTopMargin
           popup.bottomMargin: mainWindow.sceneTopMargin
 
           model: ListModel {
             ListElement {
               name: qsTr('NTRIP Revision 1')
-              value: NtripSettings.NtripVersion1
+              value: QfNtripSettings.NtripVersion1
             }
             ListElement {
               name: qsTr('NTRIP Revision 2')
-              value: NtripSettings.NtripVersion2
+              value: QfNtripSettings.NtripVersion2
             }
             ListElement {
               name: qsTr('NTRIP SSL/TLS')
-              value: NtripSettings.NtripSsl
+              value: QfNtripSettings.NtripSsl
             }
           }
 
@@ -138,8 +138,8 @@ QfPopup {
 
         Label {
           text: qsTr("Username")
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -147,14 +147,14 @@ QfPopup {
         QfTextField {
           id: ntripUsernameTextField
           Layout.fillWidth: true
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
         }
 
         Label {
           text: qsTr("Password")
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -162,7 +162,7 @@ QfPopup {
         QfTextField {
           id: ntripPasswordTextField
           Layout.fillWidth: true
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           echoMode: TextInput.Password
           passwordMaskDelay: Qt.platform.os === "ios" || Qt.platform.os === "android" ? 1000 : 0
           inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
@@ -170,8 +170,8 @@ QfPopup {
 
         Label {
           text: qsTr("Mount point")
-          font: Theme.defaultFont
-          color: Theme.mainTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
         }
@@ -182,9 +182,9 @@ QfPopup {
           QfComboBox {
             id: ntripMountPointComboBox
             Layout.fillWidth: true
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
 
-            popup.font: Theme.defaultFont
+            popup.font: QfTheme.defaultFont
             popup.topMargin: mainWindow.sceneTopMargin
             popup.bottomMargin: mainWindow.sceneTopMargin
 
@@ -220,7 +220,7 @@ QfPopup {
                   Layout.fillWidth: true
                   Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                   font: ntripMountPointComboBox.font
-                  color: Theme.mainTextColor
+                  color: QfTheme.mainTextColor
                   elide: Text.ElideRight
                   text: model.mountPoint
                 }
@@ -230,12 +230,12 @@ QfPopup {
                   Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                   visible: text !== ''
                   font: ntripMountPointComboBox.font
-                  color: Theme.secondaryTextColor
+                  color: QfTheme.secondaryTextColor
                   horizontalAlignment: Text.AlignRight
                   text: {
                     if (ntripMountPointComboBox.popup.visible && positionSource.positionInformation.latitudeValid) {
-                      const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
-                      const distance = GeometryUtils.distanceBetweenPoints(model.point, pos) * UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Degrees, projectInfo.distanceUnits);
+                      const pos = QfGeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+                      const distance = QfGeometryUtils.distanceBetweenPoints(model.point, pos) * UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Degrees, projectInfo.distanceUnits);
                       return UnitTypes.formatDistance(distance, 2, projectInfo.distanceUnits);
                     }
                     return '';
@@ -255,15 +255,15 @@ QfPopup {
             id: refreshNtripMountPointsButton
             enabled: !ntripSourceTableFetcher.isFetching && ntripHostTextField.text !== "" && ntripPortTextField.text !== ""
             visible: !ntripSourceTableFetcher.isFetching
-            iconSource: Theme.getThemeVectorIcon("refresh_24dp")
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon("refresh_24dp")
+            iconColor: QfTheme.mainTextColor
             bgcolor: "transparent"
-            Layout.preferredWidth: Theme.toolButtonSize
-            Layout.preferredHeight: Theme.toolButtonSize
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
             padding: 0
 
             onClicked: {
-              ntripSourceTableFetcher.fetch(PositioningUtils.createNtripSettings(createSettingsMap()));
+              ntripSourceTableFetcher.fetch(QfPositioningUtils.createNtripSettings(createSettingsMap()));
             }
           }
 
@@ -280,8 +280,8 @@ QfPopup {
         Label {
           id: ntripMountPointsDetails
           visible: text !== ""
-          font: Theme.defaultFont
-          color: Theme.secondaryTextColor
+          font: QfTheme.defaultFont
+          color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.leftMargin: 10
@@ -297,8 +297,8 @@ QfPopup {
                 details.push(qsTr("Data format:") + " " + ntripMountPointComboBox.model[idx].format);
               }
               if (positionSource.positionInformation.latitudeValid) {
-                const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
-                const distance = GeometryUtils.distanceBetweenPoints(ntripMountPointComboBox.model[idx].point, pos) * UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Degrees, projectInfo.distanceUnits);
+                const pos = QfGeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+                const distance = QfGeometryUtils.distanceBetweenPoints(ntripMountPointComboBox.model[idx].point, pos) * UnitTypes.fromUnitToUnitFactor(Qgis.DistanceUnit.Degrees, projectInfo.distanceUnits);
                 details.push(qsTr("Distance:") + " " + UnitTypes.formatDistance(distance, 2, projectInfo.distanceUnits));
               }
             }
@@ -309,8 +309,8 @@ QfPopup {
         Label {
           id: refreshNtripMountPointsFeedback
           visible: text !== ""
-          font: Theme.defaultFont
-          color: Theme.errorColor
+          font: QfTheme.defaultFont
+          color: QfTheme.errorColor
           wrapMode: Text.WordWrap
           Layout.fillWidth: true
           Layout.leftMargin: 10
@@ -323,7 +323,7 @@ QfPopup {
             id: ntripForwardNmeaSentencesLabel
             Layout.fillWidth: true
             text: qsTr('Forward position to NTRIP caster')
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             wrapMode: Text.WordWrap
 
             MouseArea {
@@ -334,14 +334,14 @@ QfPopup {
 
           QfSwitch {
             id: ntripForwardNmeaSentencesSwitch
-            Layout.preferredWidth: Theme.toolButtonSize
+            Layout.preferredWidth: QfTheme.toolButtonSize
           }
         }
       }
     }
   }
 
-  NtripSourceTableFetcher {
+  QfNtripSourceTableFetcher {
     id: ntripSourceTableFetcher
 
     onMountPointsChanged: {
@@ -349,9 +349,9 @@ QfPopup {
       const previousMountPoint = ntripMountPointComboBox.editText;
       let mps = [...mountPoints];
       if (positionSource.positionInformation.latitudeValid) {
-        const pos = GeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
+        const pos = QfGeometryUtils.point(positionSource.positionInformation.longitude, positionSource.positionInformation.latitude);
         mps.sort((a, b) => {
-          return GeometryUtils.distanceBetweenPoints(a.point, pos) > GeometryUtils.distanceBetweenPoints(b.point, pos) ? 1 : -1;
+          return QfGeometryUtils.distanceBetweenPoints(a.point, pos) > QfGeometryUtils.distanceBetweenPoints(b.point, pos) ? 1 : -1;
         });
       } else {
         mps.sort((a, b) => {

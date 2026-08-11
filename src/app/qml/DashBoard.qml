@@ -27,7 +27,7 @@ Drawer {
   property alias allowActiveLayerChange: legend.allowActiveLayerChange
   /// type:QgsVectorLayer
   property alias activeLayer: legend.activeLayer
-  /// type:FlatLayerTreeModel
+  /// type:QfFlatLayerTreeModel
   property alias layerTree: legend.model
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
@@ -72,7 +72,7 @@ Drawer {
 
   background: Rectangle {
     anchors.fill: parent
-    color: Theme.mainBackgroundColor
+    color: QfTheme.mainBackgroundColor
   }
 
   ColumnLayout {
@@ -90,8 +90,8 @@ Drawer {
         anchors.left: parent.left
         anchors.leftMargin: mainWindow.sceneLeftMargin
         anchors.verticalCenter: buttonsRowContainer.verticalCenter
-        iconSource: Theme.getThemeVectorIcon('ic_arrow_left_white_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_arrow_left_white_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         onClicked: close()
       }
@@ -111,8 +111,8 @@ Drawer {
 
         ScrollBar.horizontal: QfScrollBar {
           visible: !dashBoard.interactive
-          color: Theme.mainOverlayColor
-          backgroundColor: Theme.mainColor
+          color: QfTheme.mainOverlayColor
+          backgroundColor: QfTheme.mainColor
           _minSize: 2
           _maxSize: 2
         }
@@ -120,7 +120,7 @@ Drawer {
         Row {
           id: buttonsRow
           objectName: "dashboardActionsToolbar"
-          height: Theme.toolButtonSize
+          height: QfTheme.toolButtonSize
           spacing: 1
 
           QfToolButton {
@@ -128,8 +128,8 @@ Drawer {
             objectName: "measurementButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
-            iconSource: Theme.getThemeVectorIcon("ic_measurement_black_24dp")
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_measurement_black_24dp")
+            iconColor: QfTheme.mainTextColor
             bgcolor: "transparent"
             onClicked: {
               toggleMeasurementTool();
@@ -142,8 +142,8 @@ Drawer {
             objectName: "view3DButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
-            iconSource: Theme.getThemeVectorIcon("ic_3d_white_24dp")
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
+            iconColor: QfTheme.mainTextColor
             bgcolor: "transparent"
             onClicked: {
               toggle3DView();
@@ -156,8 +156,8 @@ Drawer {
             objectName: "printItemButton"
             anchors.verticalCenter: parent.verticalCenter
             round: true
-            iconSource: Theme.getThemeVectorIcon("ic_print_black_24dp")
-            iconColor: Theme.mainTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_print_black_24dp")
+            iconColor: QfTheme.mainTextColor
             onClicked: {
               const p = mapToItem(mainWindow.contentItem, 0, 0);
               showPrintLayouts(p);
@@ -170,36 +170,36 @@ Drawer {
             objectName: "cloudButton"
             anchors.verticalCenter: parent.verticalCenter
             iconSource: {
-              if (cloudConnection.status === QFieldCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
+              if (cloudConnection.status === QfCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
                 switch (cloudProjectsModel.currentProject.status) {
-                case QFieldCloudProject.Downloading:
+                case QfCloudProject.Downloading:
                   switch (cloudProjectsModel.currentProject.packagingStatus) {
-                  case QFieldCloudProject.PackagingFinishedStatus:
-                    return Theme.getThemeVectorIcon('ic_cloud_download_24dp');
+                  case QfCloudProject.PackagingFinishedStatus:
+                    return QfTheme.getThemeVectorIcon('ic_cloud_download_24dp');
                   default:
-                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                    return QfTheme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProject.Pushing:
+                case QfCloudProject.Pushing:
                   switch (cloudProjectsModel.currentProject.deltaFilePushStatus) {
-                  case QFieldCloudProject.DeltaFileLocalStatus:
-                    return Theme.getThemeVectorIcon('ic_cloud_upload_24dp');
+                  case QfCloudProject.DeltaFileLocalStatus:
+                    return QfTheme.getThemeVectorIcon('ic_cloud_upload_24dp');
                   default:
-                    return Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                    return QfTheme.getThemeVectorIcon('ic_cloud_active_24dp');
                   }
-                case QFieldCloudProject.Idle:
-                  return cloudProjectsModel.currentProject.isProjectOutdated ? Theme.getThemeVectorIcon('ic_cloud_attention_24dp') : Theme.getThemeVectorIcon('ic_cloud_active_24dp');
+                case QfCloudProject.Idle:
+                  return cloudProjectsModel.currentProject.isProjectOutdated ? QfTheme.getThemeVectorIcon('ic_cloud_attention_24dp') : QfTheme.getThemeVectorIcon('ic_cloud_active_24dp');
                 default:
-                  return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
+                  return QfTheme.getThemeVectorIcon('ic_cloud_white_24dp');
                 }
               } else {
-                return Theme.getThemeVectorIcon('ic_cloud_white_24dp');
+                return QfTheme.getThemeVectorIcon('ic_cloud_white_24dp');
               }
             }
             iconColor: {
-              if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject) {
-                return Theme.mainTextColor;
+              if (cloudConnection.status !== QfCloudConnection.LoggedIn || !cloudProjectsModel.currentProject) {
+                return QfTheme.mainTextColor;
               } else {
-                return Theme.cloudColor;
+                return QfTheme.cloudColor;
               }
             }
             bgcolor: "transparent"
@@ -228,7 +228,7 @@ Drawer {
                 duration: 2000
                 target: cloudButton
               }
-              running: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QFieldCloudProject.Downloading || cloudProjectsModel.currentProject.status === QFieldCloudProject.Pushing)
+              running: cloudProjectsModel.currentProject && (cloudProjectsModel.currentProject.status === QfCloudProject.Downloading || cloudProjectsModel.currentProject.status === QfCloudProject.Pushing)
               loops: Animation.Infinite
 
               onStopped: {
@@ -237,10 +237,10 @@ Drawer {
             }
 
             statusBadge.visible: showSync || showPush
-            statusBadge.color: showSync ? Theme.mainColor : Theme.cloudColor
+            statusBadge.color: showSync ? QfTheme.mainColor : QfTheme.cloudColor
             statusBadge.enableGradient: showSync && showPush
             statusBadge.width: cloudButton.width / 2.8
-            statusBadge.badgeText.color: Theme.light
+            statusBadge.badgeText.color: QfTheme.light
             statusBadge.badgeText.text: {
               if (cloudProjectsModel.layerObserver.deltaFileWrapper && cloudProjectsModel.layerObserver.deltaFileWrapper.count > 0) {
                 return cloudProjectsModel.layerObserver.deltaFileWrapper.count >= 10 ? '+' : cloudProjectsModel.layerObserver.deltaFileWrapper.count;
@@ -256,9 +256,9 @@ Drawer {
             id: projectFolderButton
             objectName: "projectFolderButton"
             anchors.verticalCenter: parent.verticalCenter
-            font: Theme.defaultFont
-            iconSource: Theme.getThemeVectorIcon("ic_project_folder_black_24dp")
-            iconColor: Theme.mainTextColor
+            font: QfTheme.defaultFont
+            iconSource: QfTheme.getThemeVectorIcon("ic_project_folder_black_24dp")
+            iconColor: QfTheme.mainTextColor
             round: true
             onClicked: {
               showProjectFolder();
@@ -271,8 +271,8 @@ Drawer {
         id: menuButton
         anchors.right: parent.right
         anchors.verticalCenter: buttonsRowContainer.verticalCenter
-        iconSource: Theme.getThemeVectorIcon('ic_dot_menu_black_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_dot_menu_black_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         onClicked: {
           let p = mapToItem(mainWindow.contentItem, width, 0);
@@ -299,13 +299,13 @@ Drawer {
             } else if (cloudProjectsModel.currentProject) {
               return cloudProjectsModel.currentProject.name;
             } else {
-              return FileUtils.fileName(qgisProject.fileName, false);
+              return QfFileUtils.fileName(qgisProject.fileName, false);
             }
           }
           return "";
         }
-        font: Theme.strongFont
-        color: Theme.mainTextColor
+        font: QfTheme.strongFont
+        color: QfTheme.mainTextColor
         elide: Text.ElideRight
       }
 
@@ -316,8 +316,8 @@ Drawer {
         height: 36
         padding: 0
         visible: flatLayerTree.isTemporal
-        iconSource: Theme.getThemeVectorIcon('ic_temporal_black_24dp')
-        iconColor: mapSettings.isTemporal ? Theme.mainColor : Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_temporal_black_24dp')
+        iconColor: mapSettings.isTemporal ? QfTheme.mainColor : QfTheme.mainTextColor
         bgcolor: "transparent"
         onClicked: temporalProperties.open()
       }
@@ -352,8 +352,8 @@ Drawer {
         width: 36
         height: 36
         padding: 0
-        iconSource: Theme.getThemeVectorIcon('ic_info_white_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_info_white_24dp')
+        iconColor: QfTheme.mainTextColor
         bgcolor: "transparent"
         onClicked: {
           informationPopup.header = qsTr("Project Information");
@@ -386,8 +386,8 @@ Drawer {
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
-        color: Theme.mainTextColor
-        font: Theme.strongTipFont
+        color: QfTheme.mainTextColor
+        font: QfTheme.strongTipFont
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
       }
@@ -403,9 +403,9 @@ Drawer {
           id: mapThemeComboBox
           Layout.fillWidth: true
           Layout.leftMargin: mainWindow.sceneLeftMargin
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
 
-          popup.font: Theme.defaultFont
+          popup.font: QfTheme.defaultFont
           popup.topMargin: mainWindow.sceneTopMargin
           popup.bottomMargin: mainWindow.sceneTopMargin
 
@@ -451,7 +451,7 @@ Drawer {
             height: 36
             text: modelData
             font.weight: mapThemeComboBox.currentIndex === index ? Font.DemiBold : Font.Normal
-            font.pointSize: Theme.tipFont.pointSize
+            font.pointSize: QfTheme.tipFont.pointSize
             highlighted: mapThemeComboBox.highlightedIndex == index
           }
         }
@@ -479,8 +479,8 @@ Drawer {
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
-        color: Theme.mainTextColor
-        font: Theme.strongTipFont
+        color: QfTheme.mainTextColor
+        font: QfTheme.strongTipFont
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
         clip: true
@@ -496,12 +496,12 @@ Drawer {
           visible: legend.model.hasCollapsibleItems
 
           text: legend.model.isCollapsed ? qsTr('Expand All') : qsTr('Collapse All')
-          bgcolor: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
-          color: Theme.mainTextColor
-          icon.source: legend.model.isCollapsed ? Theme.getThemeVectorIcon('ic_expand_all_24dp') : Theme.getThemeVectorIcon('ic_collapse_all_24dp')
+          bgcolor: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
+          color: QfTheme.mainTextColor
+          icon.source: legend.model.isCollapsed ? QfTheme.getThemeVectorIcon('ic_expand_all_24dp') : QfTheme.getThemeVectorIcon('ic_collapse_all_24dp')
           icon.width: 14
           icon.height: 14
-          font.pointSize: Theme.tinyFont.pointSize - 2
+          font.pointSize: QfTheme.tinyFont.pointSize - 2
 
           onClicked: {
             legend.model.setAllCollapsed(!legend.model.isCollapsed);
@@ -525,13 +525,13 @@ Drawer {
 
   Rectangle {
     id: bottomRow
-    height: Theme.toolButtonSize + mainWindow.sceneBottomMargin
+    height: QfTheme.toolButtonSize + mainWindow.sceneBottomMargin
     width: parent.width
     anchors.bottom: parent.bottom
-    color: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+    color: QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGraySemiOpaque
 
     Item {
-      height: Theme.toolButtonSize
+      height: QfTheme.toolButtonSize
       anchors.bottom: parent.bottom
       anchors.bottomMargin: mainWindow.sceneBottomMargin
       anchors.left: parent.left
@@ -543,10 +543,10 @@ Drawer {
         width: parent.width - modeSwitch.width
         height: parent.height
         anchors.verticalCenter: parent.verticalCenter
-        icon.source: Theme.getThemeVectorIcon("ic_home_black_24dp")
-        icon.width: Theme.toolButtonSize / 2
-        icon.height: Theme.toolButtonSize / 2
-        font: Theme.defaultFont
+        icon.source: QfTheme.getThemeVectorIcon("ic_home_black_24dp")
+        icon.width: QfTheme.toolButtonSize / 2
+        icon.height: QfTheme.toolButtonSize / 2
+        font: QfTheme.defaultFont
         text: qsTr("Return home")
 
         onClicked: returnHome()
@@ -555,7 +555,7 @@ Drawer {
       QfSwitch {
         id: modeSwitch
         objectName: "modeSwitch"
-        height: Theme.toolButtonSize
+        height: QfTheme.toolButtonSize
         width: height * 1.9
         leftPadding: height / 3
         anchors.right: parent.right
@@ -574,7 +574,7 @@ Drawer {
             anchors.left: parent.left
             anchors.leftMargin: modeSwitch.height / 12
             anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeVectorIcon('ic_map_white_24dp')
+            source: QfTheme.getThemeVectorIcon('ic_map_white_24dp')
             sourceSize.width: parent.height * screen.devicePixelRatio
             sourceSize.height: parent.width * screen.devicePixelRatio
             opacity: 0.6
@@ -585,7 +585,7 @@ Drawer {
             anchors.right: parent.right
             anchors.rightMargin: modeSwitch.height / 12
             anchors.verticalCenter: parent.verticalCenter
-            source: Theme.getThemeVectorIcon('ic_create_white_24dp')
+            source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
             sourceSize.width: parent.height * screen.devicePixelRatio
             sourceSize.height: parent.width * screen.devicePixelRatio
             opacity: 0.6
@@ -595,13 +595,13 @@ Drawer {
             width: modeSwitch.height * 0.75
             height: width
             radius: modeSwitch.height / 12
-            color: projectInfo.insertRights ? Theme.mainColor : Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGray
-            border.color: Theme.mainOverlayColor
+            color: projectInfo.insertRights ? QfTheme.mainColor : QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGray
+            border.color: QfTheme.mainOverlayColor
             Image {
               width: modeSwitch.height * 0.58
               height: width
               anchors.centerIn: parent
-              source: modeSwitch.checked ? Theme.getThemeVectorIcon('ic_create_white_24dp') : Theme.getThemeVectorIcon('ic_map_white_24dp')
+              source: modeSwitch.checked ? QfTheme.getThemeVectorIcon('ic_create_white_24dp') : QfTheme.getThemeVectorIcon('ic_map_white_24dp')
               sourceSize.width: parent.height * screen.devicePixelRatio
               sourceSize.height: parent.width * screen.devicePixelRatio
             }

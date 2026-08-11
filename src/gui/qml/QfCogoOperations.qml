@@ -8,10 +8,10 @@ import org.qfield.gui
 Item {
   id: cogoOperations
 
-  property FeatureModel featureModel //<! the feature which has its geometry being edited
+  property QfFeatureModel featureModel //<! the feature which has its geometry being edited
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
-  property RubberbandModel rubberbandModel //<! the rubberband model attached to the ferature model to build its geometry
+  property QfRubberbandModel rubberbandModel //<! the rubberband model attached to the ferature model to build its geometry
 
   property var cogoOperationSettings: undefined
 
@@ -37,7 +37,7 @@ Item {
   }
 
   width: content.contentWidth + cogoOperationsContainer.spacing * 2
-  height: Theme.toolButtonSize
+  height: QfTheme.toolButtonSize
   enabled: false
   visible: enabled
 
@@ -60,14 +60,14 @@ Item {
     focusPolicy: Qt.NoFocus
 
     contentItem: Rectangle {
-      radius: Theme.toolButtonSize / 2
-      color: Theme.toolButtonBackgroundSemiOpaqueColor
+      radius: QfTheme.toolButtonSize / 2
+      color: QfTheme.toolButtonBackgroundSemiOpaqueColor
       clip: true
 
       ListView {
         id: content
         width: content.contentWidth
-        height: Theme.toolButtonSize - 2
+        height: QfTheme.toolButtonSize - 2
         x: 4
         y: 4
         model: cogoOperationsContainer.contentModel
@@ -78,7 +78,7 @@ Item {
     }
 
     Repeater {
-      model: CogoOperationsModel {
+      model: QfCogoOperationsModel {
         id: cogoOperationsModel
       }
       delegate: QfToolButton {
@@ -86,9 +86,9 @@ Item {
         height: 40
         padding: 2
         round: true
-        bgcolor: cogoOperationSettings && cogoOperationSettings.name === Name ? Theme.toolButtonBackgroundColor : Theme.toolButtonBackgroundSemiOpaqueColor
-        iconSource: Theme.getThemeVectorIcon(Icon)
-        iconColor: cogoOperationSettings && cogoOperationSettings.name === Name ? Theme.mainColor : Theme.toolButtonColor
+        bgcolor: cogoOperationSettings && cogoOperationSettings.name === Name ? QfTheme.toolButtonBackgroundColor : QfTheme.toolButtonBackgroundSemiOpaqueColor
+        iconSource: QfTheme.getThemeVectorIcon(Icon)
+        iconColor: cogoOperationSettings && cogoOperationSettings.name === Name ? QfTheme.mainColor : QfTheme.toolButtonColor
 
         onClicked: {
           Qt.inputMethod.hide();

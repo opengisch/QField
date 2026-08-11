@@ -115,9 +115,9 @@ Drawer {
 
     property bool isSaved: false
 
-    model: AttributeFormModel {
+    model: QfAttributeFormModel {
       id: attributeFormModel
-      featureModel: FeatureModel {
+      featureModel: QfFeatureModel {
         project: qgisProject
         appExpressionContextScopesGenerator: appScopesGenerator
         topSnappingResult: coordinateLocator.topSnappingResult

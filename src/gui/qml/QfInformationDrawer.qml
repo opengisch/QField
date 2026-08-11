@@ -34,13 +34,13 @@ Item {
   property bool navigationInformationViewEnabled: navigation.isActive && !elevationProfile.visible
 
   // QfPositioningInformationView
-  property Navigation navigation
+  property QfNavigation navigation
   property bool positioningInformationViewEnabled: positioningSettings.showPositionInformation && !elevationProfile.visible
 
   // QfPositioningPreciseView
   property alias positioningPreciseView: positioningPreciseView
   property QtObject positioningSettings
-  property Positioning positionSource
+  property QfPositioning positionSource
   property bool positioningPreciseEnabled: !elevationProfile.visible && !isNaN(navigation.distance) && navigation.isActive && (positioningSettings.alwaysShowPreciseView || (positioningPreciseView.hasAcceptableAccuracy && positioningPreciseView.projectDistance < positioningPreciseView.precision))
 
   // QfElevationProfile
@@ -69,8 +69,8 @@ Item {
         width: 24
         height: 24
         padding: 2
-        iconSource: Theme.getThemeVectorIcon('ic_tune_white_24dp')
-        iconColor: Theme.mainTextColor
+        iconSource: QfTheme.getThemeVectorIcon('ic_tune_white_24dp')
+        iconColor: QfTheme.mainTextColor
         onClicked: {
           const globalPoint = preciseViewSettings.mapToGlobal(preciseViewSettings.width - positioningPreciseView.menu.width, preciseViewSettings.height);
           const localPoint = positioningPreciseView.menu.parent.mapFromGlobal(globalPoint.x, globalPoint.y);
@@ -121,10 +121,10 @@ Item {
 
       header: RowLayout {
         Text {
-          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection
           text: qsTr("NTRIP")
-          font: Theme.tipFont
-          color: positionSource.ntripState === Positioning.NtripState.Connected ? Theme.mainTextColor : Theme.secondaryTextColor
+          font: QfTheme.tipFont
+          color: positionSource.ntripState === QfPositioning.NtripState.Connected ? QfTheme.mainTextColor : QfTheme.secondaryTextColor
         }
 
         Rectangle {
@@ -133,18 +133,18 @@ Item {
           Layout.preferredWidth: 12
           Layout.preferredHeight: 12
           Layout.bottomMargin: 1
-          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & AbstractGnssReceiver.NtripCorrection
+          visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection
           radius: height / 2
           opacity: 1
           color: {
-            if (positionSource.ntripState === Positioning.NtripState.Connected) {
-              return positionSource.ntripCurrentness ? Theme.positionColor : Theme.warningColor;
+            if (positionSource.ntripState === QfPositioning.NtripState.Connected) {
+              return positionSource.ntripCurrentness ? QfTheme.positionColor : QfTheme.warningColor;
             }
-            return Theme.secondaryTextColor;
+            return QfTheme.secondaryTextColor;
           }
 
           SequentialAnimation {
-            running: positioningInformationViewEnabled && positionSource.ntripState === Positioning.NtripState.Connected && !positionSource.ntripCurrentness
+            running: positioningInformationViewEnabled && positionSource.ntripState === QfPositioning.NtripState.Connected && !positionSource.ntripCurrentness
             loops: Animation.Infinite
 
             onStopped: ntripIndicator.opacity = 1.0
@@ -177,7 +177,7 @@ Item {
 
           color: "transparent"
           border.width: 2
-          border.color: Theme.mainTextColor
+          border.color: QfTheme.mainTextColor
           radius: 2
 
           Rectangle {
@@ -187,7 +187,7 @@ Item {
             anchors.leftMargin: 3
             height: parent.height - 6
             width: (parent.width - 6) * positionSource.deviceBatteryLevel
-            color: positionSource.deviceBatteryLevel > 0.20 ? Theme.goodColor : positionSource.deviceBatteryLevel > 0.05 ? Theme.warningColor : Theme.errorColor
+            color: positionSource.deviceBatteryLevel > 0.20 ? QfTheme.goodColor : positionSource.deviceBatteryLevel > 0.05 ? QfTheme.warningColor : QfTheme.errorColor
           }
         }
       }

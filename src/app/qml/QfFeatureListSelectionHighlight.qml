@@ -9,7 +9,7 @@ import org.qfield.gui
 Repeater {
   id: featureListSelectionHighlight
 
-  property FeatureListModelSelection selectionModel
+  property QfFeatureListModelSelection selectionModel
   /// type:QgsQuickMapSettings
   property MapSettings mapSettings
   property double translateX: 0.0
@@ -17,7 +17,7 @@ Repeater {
   property double rotationDegrees: 0.0
   property color color: "yellow"
   property color focusedColor: "red"
-  property color selectedColor: Theme.mainColor
+  property color selectedColor: QfTheme.mainColor
   property bool showSelectedOnly: false
   property double originX: 0.0
   property double originY: 0.0

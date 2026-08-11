@@ -13,8 +13,8 @@ QfDialog {
   property alias packagedLayersListViewModel: packagedLayersListView.model
 
   parent: mainWindow.contentItem
-  width: mainWindow.width - Theme.popupScreenEdgeVerticalMargin * 2
-  height: Math.min(300 + packagedLayersListView.contentHeight, mainWindow.height - Math.max(Theme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  width: mainWindow.width - QfTheme.popupScreenEdgeVerticalMargin * 2
+  height: Math.min(300 + packagedLayersListView.contentHeight, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
 
   ColumnLayout {
     id: layout
@@ -23,14 +23,14 @@ QfDialog {
     Label {
       Layout.fillWidth: true
       text: qsTr("Some layers have not been packaged correctly. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.")
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       wrapMode: Text.WordWrap
     }
 
     Label {
       Layout.fillWidth: true
       text: qsTr("Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.")
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       wrapMode: Text.WordWrap
     }
 
@@ -39,8 +39,8 @@ QfDialog {
       Layout.fillHeight: true
       Layout.topMargin: 10
       Layout.preferredHeight: packagedLayersListView.contentHeight
-      color: Theme.controlBackgroundColor
-      border.color: Theme.controlBorderColor
+      color: QfTheme.controlBackgroundColor
+      border.color: QfTheme.controlBorderColor
       border.width: 1
 
       ListView {
@@ -59,8 +59,8 @@ QfDialog {
             anchors.centerIn: parent
             width: parent.width - 20
             text: modelData
-            font: Theme.resultFont
-            color: Theme.secondaryTextColor
+            font: QfTheme.resultFont
+            color: QfTheme.secondaryTextColor
             wrapMode: Text.Wrap
           }
         }

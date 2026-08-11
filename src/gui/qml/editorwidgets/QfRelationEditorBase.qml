@@ -13,7 +13,7 @@ QfEditorWidgetBase {
   property alias footer: footer
   property alias headerEntry: headerEntry
 
-  property int itemHeight: Theme.toolButtonSize
+  property int itemHeight: QfTheme.toolButtonSize
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false
@@ -45,7 +45,7 @@ QfEditorWidgetBase {
     anchors.fill: parent
     anchors.bottomMargin: relationEditorBase.bottomMargin
     color: "transparent"
-    border.color: Theme.controlBorderColor
+    border.color: QfTheme.controlBorderColor
     border.width: 1
     radius: 5
     clip: true
@@ -54,7 +54,7 @@ QfEditorWidgetBase {
       id: headerEntry
       width: parent.width
       height: itemHeight
-      color: Theme.controlBorderColor
+      color: QfTheme.controlBorderColor
       focus: true
       topLeftRadius: parent.radius
       topRightRadius: parent.radius
@@ -69,9 +69,9 @@ QfEditorWidgetBase {
           right: addButtonRow.left
           verticalCenter: parent.verticalCenter
         }
-        font: Theme.strongTipFont
+        font: QfTheme.strongTipFont
         opacity: enabled ? 1 : 0.45
-        color: Theme.mainTextColor
+        color: QfTheme.mainTextColor
       }
 
       Row {
@@ -97,8 +97,8 @@ QfEditorWidgetBase {
           visible: enabled
 
           round: false
-          iconSource: Theme.getThemeVectorIcon('ic_add_white_24dp')
-          iconColor: enabled ? Theme.mainTextColor : 'grey'
+          iconSource: QfTheme.getThemeVectorIcon('ic_add_white_24dp')
+          iconColor: enabled ? QfTheme.mainTextColor : 'grey'
           onClicked: {
             addingIndicator.running = true;
             addingTimer.restart();
@@ -112,8 +112,8 @@ QfEditorWidgetBase {
           visible: itemCount > 0 && relationEditorBase.showSortButton
 
           round: false
-          iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')
-          iconColor: Theme.mainTextColor
+          iconSource: QfTheme.getThemeVectorIcon('ic_sort_white_24dp')
+          iconColor: QfTheme.mainTextColor
           onClicked: {
             toggleSortAction();
           }
@@ -176,7 +176,7 @@ QfEditorWidgetBase {
       anchors.right: parent.right
       height: visible ? itemHeight : 0
       visible: footerContentContainer.children.length > 0
-      color: Theme.controlBorderColor
+      color: QfTheme.controlBorderColor
       bottomLeftRadius: 5
       bottomRightRadius: 5
 
@@ -214,7 +214,7 @@ QfEditorWidgetBase {
       width: parent.width
       wrapMode: Text.WordWrap
       text: nmRelationId ? qsTr('Should the feature <b>%1 (%2)</b> of layer <b>%3</b> be unlinked?<br><i>(The connection will be deleted on layer <b>%4</b>)</i>').arg(deleteDialog.nmReferencedFeatureDisplayMessage).arg(deleteDialog.nmReferencedFeatureId).arg(deleteDialog.nmReferencedLayerName).arg(deleteDialog.referencingLayerName) : qsTr('Should the feature <b>%1 (%2)</b> on layer <b>%3</b> be deleted?').arg(deleteDialog.referencingFeatureDisplayMessage).arg(deleteDialog.referencingFeatureId).arg(deleteDialog.referencingLayerName)
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
     }
 
     onAccepted: {
@@ -281,11 +281,11 @@ QfEditorWidgetBase {
     MenuItem {
       id: openFormChildFeature
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
 
       text: qsTr("Open Form")
       onTriggered: {
@@ -296,11 +296,11 @@ QfEditorWidgetBase {
     MenuItem {
       id: copyChildFeatureAttributes
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: 48
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon("ic_copy_black_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
 
       text: qsTr("Copy Feature Attributes")
       onTriggered: {
@@ -310,14 +310,14 @@ QfEditorWidgetBase {
 
     MenuItem {
       id: printAtlasChildFeature
-      enabled: LayerUtils.isAtlasCoverageLayer(relationEditorModel.relation.referencingLayer)
+      enabled: QfLayerUtils.isAtlasCoverageLayer(relationEditorModel.relation.referencingLayer)
       visible: enabled
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon("ic_print_black_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon("ic_print_black_24dp")
 
       text: qsTr("Print Atlas Feature to PDF")
       onTriggered: {
@@ -331,11 +331,11 @@ QfEditorWidgetBase {
       enabled: true
       visible: isActionEnabled('DeleteChildFeature')
 
-      font: Theme.defaultFont
+      font: QfTheme.defaultFont
       width: parent.width
       height: visible ? 48 : 0
-      leftPadding: Theme.menuItemLeftPadding
-      icon.source: Theme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+      leftPadding: QfTheme.menuItemLeftPadding
+      icon.source: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
 
       text: qsTr("Delete Feature")
       onTriggered: {
@@ -371,9 +371,9 @@ QfEditorWidgetBase {
         MenuItem {
           text: qsTr('Select template below')
 
-          font: Theme.defaultFont
+          font: QfTheme.defaultFont
           height: 48
-          leftPadding: Theme.menuItemLeftPadding
+          leftPadding: QfTheme.menuItemLeftPadding
 
           enabled: false
         }
@@ -381,7 +381,7 @@ QfEditorWidgetBase {
         Instantiator {
           id: atlasListInstantiator
 
-          model: PrintLayoutListModel {
+          model: QfPrintLayoutListModel {
             project: qgisProject
             atlasCoverageLayer: relationEditorModel.relation.referencingLayer
           }
@@ -389,9 +389,9 @@ QfEditorWidgetBase {
           MenuItem {
             text: Title
 
-            font: Theme.defaultFont
+            font: QfTheme.defaultFont
             height: 48
-            leftPadding: Theme.menuItemLeftPadding
+            leftPadding: QfTheme.menuItemLeftPadding
 
             onTriggered: {
               displayToast(qsTr('Printing...'));
@@ -484,7 +484,7 @@ QfEditorWidgetBase {
 
   function prepareParent() {
     let saved = form.state === 'Add' ? !form.setupOnly && save() : true;
-    if (ProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
+    if (QfProjectUtils.transactionMode(qgisProject) !== Qgis.TransactionMode.Disabled) {
       // When a transaction mode is enabled, we must fallback to saving the parent feature to have provider-side issues
       if (!saved) {
         addingIndicator.running = false;

@@ -25,8 +25,8 @@ ColumnLayout {
   Rectangle {
     Layout.fillWidth: true
     Layout.fillHeight: true
-    color: Theme.mainBackgroundColor
-    border.color: Theme.controlBorderColor
+    color: QfTheme.mainBackgroundColor
+    border.color: QfTheme.controlBorderColor
     border.width: 1
 
     ListView {
@@ -39,7 +39,7 @@ ColumnLayout {
 
       ScrollBar.vertical: QfScrollBar {}
 
-      model: ExpressionVariableModel {
+      model: QfExpressionVariableModel {
         currentProject: qgisProject
       }
 
@@ -49,15 +49,15 @@ ColumnLayout {
         Rectangle {
           width: parent.width
           height: 30
-          color: Theme.controlBorderColor
+          color: QfTheme.controlBorderColor
 
           Text {
             anchors {
               horizontalCenter: parent.horizontalCenter
               verticalCenter: parent.verticalCenter
             }
-            font: Theme.strongResultFont
-            color: Theme.mainTextColor
+            font: QfTheme.strongResultFont
+            color: QfTheme.mainTextColor
             text: section == "GlobalScope" ? qsTr("Global variables") : qsTr("Project variables")
           }
         }
@@ -70,7 +70,7 @@ ColumnLayout {
         color: "transparent"
 
         property var itemRow: index
-        property bool canDelete: VariableEditable && VariableScope == ExpressionVariableModel.GlobalScope
+        property bool canDelete: VariableEditable && VariableScope == QfExpressionVariableModel.GlobalScope
 
         function forceFocusOnVariableName() {
           variableNameText.forceActiveFocus();
@@ -104,10 +104,10 @@ ColumnLayout {
               width: Math.max(table.width - line.anchors.leftMargin * 2, implicitWidth)
               height: variableNameTextAnimator.height
               text: VariableName
-              enabled: VariableScope == ExpressionVariableModel.GlobalScope && VariableEditable
+              enabled: VariableScope == QfExpressionVariableModel.GlobalScope && VariableEditable
               font.bold: true
-              font.pointSize: Theme.tinyFont.pointSize
-              color: Theme.mainTextColor
+              font.pointSize: QfTheme.tinyFont.pointSize
+              color: QfTheme.mainTextColor
               horizontalAlignment: TextInput.AlignLeft
               verticalAlignment: TextInput.AlignVCenter
 
@@ -147,15 +147,15 @@ ColumnLayout {
                 width: Math.max(table.width - line.anchors.leftMargin * 2 - (canDelete ? deleteVariableButton.width : 0), implicitWidth)
                 text: VariableValue
                 enabled: VariableEditable
-                font: Theme.defaultFont
+                font: QfTheme.defaultFont
                 horizontalAlignment: TextInput.AlignLeft
                 placeholderText: !variableValueText.activeFocus && displayText === '' ? qsTr("Enter value") : ''
-                color: Theme.mainTextColor
+                color: QfTheme.mainTextColor
 
                 onTextChanged: {
                   if (enabled && VariableValue != text) {
                     VariableValue = text;
-                    if (VariableScope == ExpressionVariableModel.ProjectScope) {
+                    if (VariableScope == QfExpressionVariableModel.ProjectScope) {
                       projectInfo.saveVariable(VariableName, text);
                     }
                   }
@@ -175,8 +175,8 @@ ColumnLayout {
               anchors.verticalCenter: parent.verticalCenter
               visible: canDelete
 
-              iconSource: Theme.getThemeVectorIcon('ic_delete_forever_white_24dp')
-              iconColor: Theme.mainTextColor
+              iconSource: QfTheme.getThemeVectorIcon('ic_delete_forever_white_24dp')
+              iconColor: QfTheme.mainTextColor
               bgcolor: "transparent"
 
               onClicked: {
@@ -195,7 +195,7 @@ ColumnLayout {
     text: qsTr("Add a new variable")
 
     onClicked: {
-      let insertionPosition = table.model.addVariable(ExpressionVariableModel.GlobalScope, "new_variable", "");
+      let insertionPosition = table.model.addVariable(QfExpressionVariableModel.GlobalScope, "new_variable", "");
       table.positionViewAtIndex(insertionPosition, ListView.Contain);
       table.itemAtIndex(insertionPosition).forceFocusOnVariableName();
     }

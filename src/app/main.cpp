@@ -16,10 +16,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "platformutilities.h"
 #include "qfield.h"
+#include "qfplatformutilities.h"
+#include "qftranslatormanager.h"
 #include "qgismobileapp.h"
-#include "translatormanager.h"
 #if WITH_SENTRY
 #include "sentry_wrapper.h"
 #endif
@@ -128,7 +128,7 @@ int main( int argc, char **argv )
       // it will terminate once all uploads are done
       QFieldCloudService service( argc, argv );
 
-      PlatformUtilities *platformUtils = PlatformUtilities::instance();
+      QfPlatformUtilities *platformUtils = QfPlatformUtilities::instance();
       platformUtils->initSystem();
 
       // Let's make sure we have a writable path for the QGIS profile on every platform
@@ -136,8 +136,8 @@ int main( int argc, char **argv )
       QDir().mkdir( profilePath );
 
 #ifdef RELATIVE_PREFIX_PATH
-      qputenv( "SSL_CERT_FILE", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ).toLocal8Bit() );
-      qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
+      qputenv( "SSL_CERT_FILE", QDir::toNativeSeparators( QfPlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ).toLocal8Bit() );
+      qputenv( "GDAL_DATA", QDir::toNativeSeparators( QfPlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
 #endif
 
       // Workaround QgsApplication::initQgis crashing adding app fonts
@@ -147,7 +147,7 @@ int main( int argc, char **argv )
       QgsApplication::init( profilePath );
       QgsApplication::initQgis();
 #ifdef RELATIVE_PREFIX_PATH
-      QgsApplication::setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+      QgsApplication::setPkgDataPath( QfPlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 #endif
       QgsApplication::createDatabase();
       initAuthManager( QgsApplication::authManager() );
@@ -173,7 +173,7 @@ int main( int argc, char **argv )
   const QSettings settings;
   const QString customLanguage = settings.value( "/customLanguage", QString() ).toString();
 
-  PlatformUtilities *platformUtils = PlatformUtilities::instance();
+  QfPlatformUtilities *platformUtils = QfPlatformUtilities::instance();
   platformUtils->initSystem();
 
   // Let's make sure we have a writable path for the QGIS profile on every platform
@@ -188,8 +188,8 @@ int main( int argc, char **argv )
   auto sentryClose = qScopeGuard( [] { sentry_wrapper::close(); } );
 #endif
 
-  QTranslator *qfieldTranslator = TranslatorManager::instance()->qfieldTranslator();
-  QTranslator *qtTranslator = TranslatorManager::instance()->qtTranslator();
+  QTranslator *qfieldTranslator = QfTranslatorManager::instance()->qfieldTranslator();
+  QTranslator *qtTranslator = QfTranslatorManager::instance()->qtTranslator();
   bool qfieldTranslatorLoaded = false;
   bool qtTranslatorLoaded = false;
   if ( !customLanguage.isEmpty() )
@@ -240,9 +240,9 @@ int main( int argc, char **argv )
 
   QStringList projSearchPaths = QgsProjUtils::searchPaths();
 #ifdef RELATIVE_PREFIX_PATH
-  qputenv( "SSL_CERT_FILE", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ).toLocal8Bit() );
-  qputenv( "GDAL_DATA", QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
-  projSearchPaths << QDir::toNativeSeparators( PlatformUtilities::instance()->systemSharedDataLocation() + "/proj" );
+  qputenv( "SSL_CERT_FILE", QDir::toNativeSeparators( QfPlatformUtilities::instance()->systemSharedDataLocation() + "/cacert.pem" ).toLocal8Bit() );
+  qputenv( "GDAL_DATA", QDir::toNativeSeparators( QfPlatformUtilities::instance()->systemSharedDataLocation() + "/gdal" ).toLocal8Bit() );
+  projSearchPaths << QDir::toNativeSeparators( QfPlatformUtilities::instance()->systemSharedDataLocation() + "/proj" );
   qInfo() << "Proj path: " << projSearchPaths.constLast();
 #else
   app.setPrefixPath( QGIS_PREFIX_PATH, true );
@@ -250,7 +250,7 @@ int main( int argc, char **argv )
 #endif
 
   // add extra proj search path to allow copying of transformation grid files
-  const QStringList dataDirs = PlatformUtilities::instance()->appDataDirs();
+  const QStringList dataDirs = QfPlatformUtilities::instance()->appDataDirs();
   for ( const QString &dataDir : dataDirs )
   {
     projSearchPaths << QStringLiteral( "%1/proj/" ).arg( dataDir );
@@ -335,7 +335,7 @@ int main( int argc, char **argv )
   app.initQgis();
   app.setThemeName( settings.value( "/Themes", "default" ).toString() );
 #ifdef RELATIVE_PREFIX_PATH
-  app.setPkgDataPath( PlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
+  app.setPkgDataPath( QfPlatformUtilities::instance()->systemSharedDataLocation() + QStringLiteral( "/qgis" ) );
 #endif
   app.createDatabase();
 

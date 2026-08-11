@@ -28,8 +28,8 @@ QfProcessingParameterWidgetBase {
       height: fontMetrics.height + 20
       width: parent.width - decreaseButton.width - increaseButton.width - (distanceConvertible ? unitTypesComboBox.width : unitTypeLabel.width) - parent.spacing * 3
 
-      font: Theme.defaultFont
-      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: value === undefined || !enabled ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
 
       text: currentValue !== undefined ? currentValue : ''
 
@@ -51,8 +51,8 @@ QfProcessingParameterWidgetBase {
       id: unitTypeLabel
       visible: !distanceConvertible
       width: distanceConvertible ? contentWidth : 0
-      font: Theme.defaultFont
-      color: Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
 
       text: distanceUnit === Qgis.DistanceUnit.Degrees ? qsTr('degrees') : qsTr('<unknown>')
     }
@@ -125,13 +125,13 @@ QfProcessingParameterWidgetBase {
 
     QfToolButton {
       id: decreaseButton
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
-      iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: enabled
 
@@ -157,13 +157,13 @@ QfProcessingParameterWidgetBase {
 
     QfToolButton {
       id: increaseButton
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
-      iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: enabled
 

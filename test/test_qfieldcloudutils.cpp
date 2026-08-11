@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "qfieldcloud/qfieldcloudconnection.h"
-#include "utils/qfieldcloudutils.h"
+#include "qfieldcloud/qfcloudconnection.h"
+#include "utils/qfcloudutils.h"
 
 #include <QJsonObject>
 
@@ -25,7 +25,7 @@ TEST_CASE( "CloudSubscriptionInformation" )
 {
   SECTION( "Default constructor" )
   {
-    CloudSubscriptionInformation info;
+    QfCloudSubscriptionInformation info;
     REQUIRE( info.plan.isEmpty() );
     REQUIRE( info.storageTotal == 0 );
     REQUIRE( info.storageUsed == 0 );
@@ -40,8 +40,8 @@ TEST_CASE( "CloudSubscriptionInformation" )
     obj[QStringLiteral( "storage_used_bytes" )] = 52428800.0;
     obj[QStringLiteral( "status" )] = QStringLiteral( "active" );
 
-    CloudSubscriptionInformation a( obj );
-    CloudSubscriptionInformation b( obj );
+    QfCloudSubscriptionInformation a( obj );
+    QfCloudSubscriptionInformation b( obj );
     REQUIRE( a == b );
 
     b.storageUsed = 0;
@@ -52,36 +52,36 @@ TEST_CASE( "CloudSubscriptionInformation" )
 
 TEST_CASE( "QFieldCloudUtils::subscriptionManagementUrl" )
 {
-  const QString defaultUrl = QFieldCloudConnection::defaultUrl();
+  const QString defaultUrl = QfCloudConnection::defaultUrl();
   const QString customUrl = QStringLiteral( "https://my-qfieldcloud.example.com" );
 
   SECTION( "Non-default server returns empty URL" )
   {
-    REQUIRE( QFieldCloudUtils::subscriptionManagementUrl( customUrl, QStringLiteral( "Pro" ), QString(), QStringLiteral( "alice" ) ).isEmpty() );
+    REQUIRE( QfCloudUtils::subscriptionManagementUrl( customUrl, QStringLiteral( "Pro" ), QString(), QStringLiteral( "alice" ) ).isEmpty() );
   }
 
   SECTION( "Community plan returns plans page" )
   {
-    REQUIRE( QFieldCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Community" ), QString(), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/plans" ) );
+    REQUIRE( QfCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Community" ), QString(), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/plans" ) );
   }
 
   SECTION( "Paid plan with own project returns billing URL" )
   {
-    REQUIRE( QFieldCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Pro" ), QStringLiteral( "alice" ), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/settings/alice/billing" ) );
+    REQUIRE( QfCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Pro" ), QStringLiteral( "alice" ), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/settings/alice/billing" ) );
   }
 
   SECTION( "Paid plan with empty owner returns billing URL" )
   {
-    REQUIRE( QFieldCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Pro" ), QString(), QStringLiteral( "bob" ) ) == QStringLiteral( "https://app.qfield.cloud/settings/bob/billing" ) );
+    REQUIRE( QfCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Pro" ), QString(), QStringLiteral( "bob" ) ) == QStringLiteral( "https://app.qfield.cloud/settings/bob/billing" ) );
   }
 
   SECTION( "Paid plan with different owner returns empty URL" )
   {
-    REQUIRE( QFieldCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Pro" ), QStringLiteral( "org_owner" ), QStringLiteral( "alice" ) ).isEmpty() );
+    REQUIRE( QfCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Pro" ), QStringLiteral( "org_owner" ), QStringLiteral( "alice" ) ).isEmpty() );
   }
 
   SECTION( "Community plan takes precedence over owner check" )
   {
-    REQUIRE( QFieldCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Community" ), QStringLiteral( "org_owner" ), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/plans" ) );
+    REQUIRE( QfCloudUtils::subscriptionManagementUrl( defaultUrl, QStringLiteral( "Community" ), QStringLiteral( "org_owner" ), QStringLiteral( "alice" ) ) == QStringLiteral( "https://app.qfield.cloud/plans" ) );
   }
 }

@@ -13,7 +13,7 @@ QfPopup {
 
   property alias locatorFiltersModel: locatorfiltersList.model
 
-  width: Math.min(400, mainWindow.width - Theme.popupScreenEdgeHorizontalMargin)
+  width: Math.min(400, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
   x: (parent.width - width) / 2
   y: (parent.height - height) / 2
   closePolicy: Popup.CloseOnEscape
@@ -69,16 +69,16 @@ QfPopup {
               Layout.fillWidth: true
               topPadding: 5
               text: Name
-              font: Theme.defaultFont
-              color: Theme.mainTextColor
+              font: QfTheme.defaultFont
+              color: QfTheme.mainTextColor
               wrapMode: Text.WordWrap
             }
             Text {
               Layout.fillWidth: true
               bottomPadding: 5
               text: Description
-              font: Theme.tipFont
-              color: Theme.secondaryTextColor
+              font: QfTheme.tipFont
+              color: QfTheme.secondaryTextColor
               wrapMode: Text.WordWrap
             }
             Text {
@@ -86,8 +86,8 @@ QfPopup {
               Layout.fillWidth: true
               bottomPadding: 5
               text: qsTr('When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.').arg('<b>' + Prefix + '</b>')
-              font: Theme.tipFont
-              color: Theme.secondaryTextColor
+              font: QfTheme.tipFont
+              color: QfTheme.secondaryTextColor
               wrapMode: Text.WordWrap
             }
             CheckBox {
@@ -95,7 +95,7 @@ QfPopup {
               topPadding: 5
               bottomPadding: 5
               text: qsTr('Enable %1 locator by default').arg('<b>' + Name + '</b>')
-              font: Theme.tipFont
+              font: QfTheme.tipFont
               indicator.height: 16
               indicator.width: 16
               indicator.implicitHeight: 24

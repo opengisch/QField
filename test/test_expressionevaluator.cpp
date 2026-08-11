@@ -15,18 +15,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "appexpressioncontextscopesgenerator.h"
 #include "catch2.h"
-#include "expressionevaluator.h"
-#include "positioningutils.h"
+#include "qfappexpressioncontextscopesgenerator.h"
+#include "qfexpressionevaluator.h"
+#include "qfpositioningutils.h"
 
 #include <QTemporaryFile>
 #include <qgsvectorlayer.h>
 
 TEST_CASE( "ExpressionEvaluator" )
 {
-  ExpressionEvaluator evaluator;
-  AppExpressionContextScopesGenerator appExpressionContextScopesGenerator;
+  QfExpressionEvaluator evaluator;
+  QfAppExpressionContextScopesGenerator appExpressionContextScopesGenerator;
   evaluator.setAppExpressionContextScopesGenerator( &appExpressionContextScopesGenerator );
 
   QgsProject project;
@@ -39,15 +39,15 @@ TEST_CASE( "ExpressionEvaluator" )
   evaluator.setLayer( &layer );
   evaluator.setFeature( feature );
 
-  GnssPositionInformation positionInformation = PositioningUtils::createGnssPositionInformation( 1.234, 1.234, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, QDateTime(), QStringLiteral( "test" ) );
+  QfGnssPositionInformation positionInformation = QfPositioningUtils::createGnssPositionInformation( 1.234, 1.234, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, QDateTime(), QStringLiteral( "test" ) );
   evaluator.appExpressionContextScopesGenerator()->setPositionInformation( positionInformation );
 
-  CloudUserInformation cloudUserInformation( QStringLiteral( "nyuki" ), QStringLiteral( "nyuki@opengis.ch" ) );
+  QfCloudUserInformation cloudUserInformation( QStringLiteral( "nyuki" ), QStringLiteral( "nyuki@opengis.ch" ) );
   evaluator.appExpressionContextScopesGenerator()->setCloudUserInformation( cloudUserInformation );
 
   SECTION( "Expression mode" )
   {
-    evaluator.setMode( ExpressionEvaluator::ExpressionMode );
+    evaluator.setMode( QfExpressionEvaluator::ExpressionMode );
     evaluator.setExpressionText( "10 + 10" );
     REQUIRE( evaluator.evaluate() == QStringLiteral( "20" ) );
 
@@ -66,7 +66,7 @@ TEST_CASE( "ExpressionEvaluator" )
 
   SECTION( "Expression template mode" )
   {
-    evaluator.setMode( ExpressionEvaluator::ExpressionTemplateMode );
+    evaluator.setMode( QfExpressionEvaluator::ExpressionTemplateMode );
     evaluator.setExpressionText( QStringLiteral( "Result: [%10 + 10%]" ) );
     REQUIRE( evaluator.evaluate() == QStringLiteral( "Result: 20" ) );
 

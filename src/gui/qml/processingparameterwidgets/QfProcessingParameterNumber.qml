@@ -25,8 +25,8 @@ QfProcessingParameterWidgetBase {
       height: fontMetrics.height + 20
       width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
 
-      font: Theme.defaultFont
-      color: value === undefined || !enabled ? Theme.mainTextDisabledColor : Theme.mainTextColor
+      font: QfTheme.defaultFont
+      color: value === undefined || !enabled ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
 
       text: value !== undefined ? value : ''
 
@@ -52,13 +52,13 @@ QfProcessingParameterWidgetBase {
 
     QfToolButton {
       id: decreaseButton
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
-      iconSource: Theme.getThemeVectorIcon("ic_remove_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: enabled
 
@@ -84,13 +84,13 @@ QfProcessingParameterWidgetBase {
 
     QfToolButton {
       id: increaseButton
-      width: enabled ? Theme.toolButtonSize : 0
-      height: Theme.toolButtonSize
+      width: enabled ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
 
       anchors.verticalCenter: textField.verticalCenter
 
-      iconSource: Theme.getThemeVectorIcon("ic_add_white_24dp")
-      iconColor: Theme.mainTextColor
+      iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+      iconColor: QfTheme.mainTextColor
       bgcolor: "transparent"
       visible: enabled
 

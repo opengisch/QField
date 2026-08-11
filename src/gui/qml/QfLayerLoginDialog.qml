@@ -45,7 +45,7 @@ Page {
         Layout.alignment: Qt.AlignHCenter
         Layout.topMargin: 30
         Layout.bottomMargin: 10
-        source: Theme.getThemeVectorIcon('ic_password_48dp')
+        source: QfTheme.getThemeVectorIcon('ic_password_48dp')
         sourceSize.width: Math.min(64, parent.width / 5)
         sourceSize.height: Math.min(64, parent.width / 5)
       }
@@ -56,8 +56,8 @@ Page {
         Layout.bottomMargin: 10
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
-        font: Theme.defaultFont
-        color: Theme.mainTextColor
+        font: QfTheme.defaultFont
+        color: QfTheme.mainTextColor
         padding: 16
       }
 
@@ -91,8 +91,8 @@ Page {
           property int originalEchoMode: TextInput.Normal
 
           visible: (!!linkedField.echoMode && linkedField.echoMode !== TextInput.Normal) || originalEchoMode !== TextInput.Normal
-          iconSource: linkedField.echoMode === TextInput.Normal ? Theme.getThemeVectorIcon('ic_hide_green_48dp') : Theme.getThemeVectorIcon('ic_show_green_48dp')
-          iconColor: Theme.mainColor
+          iconSource: linkedField.echoMode === TextInput.Normal ? QfTheme.getThemeVectorIcon('ic_hide_green_48dp') : QfTheme.getThemeVectorIcon('ic_show_green_48dp')
+          iconColor: QfTheme.mainColor
           anchors.right: linkedField.right
           anchors.verticalCenter: linkedField.verticalCenter
           opacity: linkedField.text.length > 0 ? 1 : 0.25

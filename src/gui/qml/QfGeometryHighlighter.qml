@@ -7,7 +7,7 @@ import org.qfield.core
 Item {
   id: geometryHighlighter
 
-  /// type:QgsGeometryWrapper
+  /// type:QfGeometryWrapper
   property alias geometryWrapper: geometryRenderer.geometryWrapper
   property int duration: 3000
 
