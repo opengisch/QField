@@ -196,7 +196,7 @@ namespace QFieldCore
     qmlRegisterType<QfCloudProjectsModel>( "org.qfield.core", 1, 0, "QFieldCloudProjectsModel" );
     qmlRegisterType<QfCloudStatus>( "org.qfield.core", 1, 0, "QFieldCloudStatus" );
     qmlRegisterType<QfLocatorFilter>( "org.qfield.core", 1, 0, "QFieldLocatorFilter" );
-    qmlRegisterType<QgsGeometryWrapper>( "org.qfield.core", 1, 0, "QgsGeometryWrapper" );
+    qmlRegisterType<QfGeometryWrapper>( "org.qfield.core", 1, 0, "QgsGeometryWrapper" );
     qmlRegisterType<QgsQuickCoordinateTransformer>( "org.qfield.core", 1, 0, "CoordinateTransformer" );
     qmlRegisterType<QfResourceSource>( "org.qfield.core", 1, 0, "ResourceSource" );
     qmlRegisterType<QfRubberbandModel>( "org.qfield.core", 1, 0, "RubberbandModel" );

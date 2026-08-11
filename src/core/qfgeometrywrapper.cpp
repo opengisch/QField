@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgeometrywrapper.cpp - QgsGeometryWrapper
+  qfgeometrywrapper.cpp - QfGeometryWrapper
 
  ---------------------
  begin                : 18.08.2018
@@ -16,7 +16,7 @@
 
 #include "qfgeometrywrapper.h"
 
-QVariantList QgsGeometryWrapper::pointList() const
+QVariantList QfGeometryWrapper::pointList() const
 {
   QVariantList pointList;
   if ( mQgsGeometry.type() != Qgis::GeometryType::Point )
@@ -32,18 +32,18 @@ QVariantList QgsGeometryWrapper::pointList() const
   return pointList;
 }
 
-void QgsGeometryWrapper::clear()
+void QfGeometryWrapper::clear()
 {
   setQgsGeometry( QgsGeometry() );
   setCrs( QgsCoordinateReferenceSystem() );
 }
 
-QgsGeometry QgsGeometryWrapper::qgsGeometry() const
+QgsGeometry QfGeometryWrapper::qgsGeometry() const
 {
   return mQgsGeometry;
 }
 
-void QgsGeometryWrapper::setQgsGeometry( const QgsGeometry &qgsGeometry )
+void QfGeometryWrapper::setQgsGeometry( const QgsGeometry &qgsGeometry )
 {
   if ( qgsGeometry.constGet() == mQgsGeometry.constGet() )
     return;
@@ -52,12 +52,12 @@ void QgsGeometryWrapper::setQgsGeometry( const QgsGeometry &qgsGeometry )
   emit qgsGeometryChanged();
 }
 
-QgsCoordinateReferenceSystem QgsGeometryWrapper::crs() const
+QgsCoordinateReferenceSystem QfGeometryWrapper::crs() const
 {
   return mCrs;
 }
 
-void QgsGeometryWrapper::setCrs( const QgsCoordinateReferenceSystem &crs )
+void QfGeometryWrapper::setCrs( const QgsCoordinateReferenceSystem &crs )
 {
   if ( mCrs == crs )
     return;

@@ -218,28 +218,28 @@ void QfLinePolygonShape::makeDirty()
   updateTransform();
 }
 
-QgsGeometryWrapper *QfLinePolygonShape::geometry() const
+QfGeometryWrapper *QfLinePolygonShape::geometry() const
 {
   return mGeometry;
 }
 
-void QfLinePolygonShape::setGeometry( QgsGeometryWrapper *geometry )
+void QfLinePolygonShape::setGeometry( QfGeometryWrapper *geometry )
 {
   if ( mGeometry == geometry )
     return;
 
   if ( mGeometry )
   {
-    disconnect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
-    disconnect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
+    disconnect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
+    disconnect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
   }
 
   mGeometry = geometry;
 
   if ( mGeometry )
   {
-    connect( mGeometry, &QgsGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
-    connect( mGeometry, &QgsGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
+    connect( mGeometry, &QfGeometryWrapper::qgsGeometryChanged, this, &QfLinePolygonShape::makeDirty );
+    connect( mGeometry, &QfGeometryWrapper::crsChanged, this, &QfLinePolygonShape::makeDirty );
   }
 
   mDirty = true;

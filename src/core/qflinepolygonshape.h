@@ -35,7 +35,7 @@ class QfLinePolygonShape : public QQuickItem
     Q_PROPERTY( QColor color READ color WRITE setColor NOTIFY colorChanged )
     Q_PROPERTY( float lineWidth READ lineWidth WRITE setLineWidth NOTIFY lineWidthChanged )
     Q_PROPERTY( QgsQuickMapSettings *mapSettings READ mapSettings WRITE setMapSettings NOTIFY mapSettingsChanged )
-    Q_PROPERTY( QgsGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
+    Q_PROPERTY( QfGeometryWrapper *geometry READ geometry WRITE setGeometry NOTIFY qgsGeometryChanged )
 
     //! List of polylines representing the geometry
     Q_PROPERTY( QList<QPolygonF> polylines READ polylines NOTIFY polylinesChanged )
@@ -45,8 +45,8 @@ class QfLinePolygonShape : public QQuickItem
   public:
     explicit QfLinePolygonShape( QQuickItem *parent = nullptr );
 
-    QgsGeometryWrapper *geometry() const;
-    void setGeometry( QgsGeometryWrapper *geometry );
+    QfGeometryWrapper *geometry() const;
+    void setGeometry( QfGeometryWrapper *geometry );
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
@@ -88,7 +88,7 @@ class QfLinePolygonShape : public QQuickItem
     float mWidth = 0;
     bool mDirty = false;
     QgsQuickMapSettings *mMapSettings = nullptr;
-    QgsGeometryWrapper *mGeometry = nullptr;
+    QfGeometryWrapper *mGeometry = nullptr;
     QgsPoint mGeometryCorner;
     double mGeometryMUPP = 0.0;
     QList<QPolygonF> mPolylines;

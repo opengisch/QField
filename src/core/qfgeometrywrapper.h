@@ -1,5 +1,5 @@
 /***************************************************************************
-  qfgeometrywrapper.h - QgsGeometryWrapper
+  qfgeometrywrapper.h - QfGeometryWrapper
 
  ---------------------
  begin                : 18.08.2018
@@ -23,22 +23,22 @@
 #include <qgsgeometry.h>
 
 /**
- * @brief The QgsGeometryWrapper class wraps QGIS geometry and CRS classes
+ * @brief The QfGeometryWrapper class wraps QGIS geometry and CRS classes
  * to have their contents available from QML.
  * \ingroup core
  */
-class QgsGeometryWrapper : public QObject
+class QfGeometryWrapper : public QObject
 {
     Q_OBJECT
     Q_PROPERTY( QgsGeometry qgsGeometry READ qgsGeometry WRITE setQgsGeometry NOTIFY qgsGeometryChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
 
   public:
-    explicit QgsGeometryWrapper( QObject *parent = nullptr )
+    explicit QfGeometryWrapper( QObject *parent = nullptr )
       : QObject( parent )
     {}
 
-    QgsGeometryWrapper( const QgsGeometry &geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
+    QfGeometryWrapper( const QgsGeometry &geometry, QgsCoordinateReferenceSystem crs, QObject *parent = nullptr )
       : QObject( parent )
       , mQgsGeometry( geometry )
       , mCrs( crs )
@@ -66,6 +66,6 @@ class QgsGeometryWrapper : public QObject
 };
 
 
-Q_DECLARE_METATYPE( QgsGeometryWrapper * )
+Q_DECLARE_METATYPE( QfGeometryWrapper * )
 
 #endif // QFGEOMETRYWRAPPER_H
