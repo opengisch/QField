@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfieldappqmlregistration.h
+    qfapp.h
     ---------------------
     begin                : July 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -13,13 +13,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFIELDAPPQMLREGISTRATION_H
-#define QFIELDAPPQMLREGISTRATION_H
+#ifndef QFAPP_H
+#define QFAPP_H
 
-namespace QFieldApp
+namespace QfApp
 {
   //! Registers the app's own QML types.
   void registerQmlTypes();
-} // namespace QFieldApp
+} // namespace QfApp
 
-#endif // QFIELDAPPQMLREGISTRATION_H
+#endif // QFAPP_H

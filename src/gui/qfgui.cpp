@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfieldguiqmlregistration.cpp
+    qfgui.cpp
     ---------------------
     begin                : July 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -19,7 +19,7 @@
 #include "qffeaturechecklistmodel.h"
 #include "qffocusstack.h"
 #include "qfgeometryeditorsmodel.h"
-#include "qfieldguiqmlregistration.h"
+#include "qfgui.h"
 #include "qflocalfilesmodel.h"
 #include "qfmessagelogmodel.h"
 #include "qforderedrelationmodel.h"
@@ -40,7 +40,7 @@
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )
 
-namespace QFieldGui
+namespace QfGui
 {
   void registerQmlTypes()
   {
@@ -100,6 +100,6 @@ namespace QFieldGui
     qmlRegisterSingletonType<QfTheme>( "org.qfield.gui", 1, 0, "Theme", themeInstance );
     qmlRegisterUncreatableType<QfMessageLogModel>( "org.qfield.gui", 1, 0, "MessageLogModel", "The MessageLogModel is available as context property `messageLogModel`." );
   }
-} // namespace QFieldGui
+} // namespace QfGui
 
 #undef REGISTER_SINGLETON

@@ -1,7 +1,7 @@
 /***************************************************************************
-    qfieldguiqmlregistration.h
+    qf3d.h
     ---------------------
-    begin                : July 2026
+    begin                : August 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
     email                : mohsen@opengis.ch
  ***************************************************************************
@@ -13,13 +13,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFIELDGUIQMLREGISTRATION_H
-#define QFIELDGUIQMLREGISTRATION_H
+#ifndef QF3D_H
+#define QF3D_H
 
-namespace QFieldGui
+namespace Qf3D
 {
-  //! Registers the gui library's QML types.
+  //! Registers the 3d library's QML types.
   void registerQmlTypes();
-} // namespace QFieldGui
+} // namespace Qf3D
 
-#endif // QFIELDGUIQMLREGISTRATION_H
+#endif // QF3D_H

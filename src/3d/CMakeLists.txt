@@ -1,6 +1,6 @@
 set(QFIELD_3D_SRCS
     qfmaptoview3d.cpp
-    qfield3dqmlregistration.cpp
+    qf3d.cpp
     qf3dgeometry.cpp
     qf3dgeometryconfiguration.cpp
     qf3dgeometryutils.cpp
@@ -11,7 +11,7 @@ set(QFIELD_3D_SRCS
 
 set(QFIELD_3D_HDRS
     qfmaptoview3d.h
-    qfield3dqmlregistration.h
+    qf3d.h
     qf3dgeometry.h
     qf3dgeometryconfiguration.h
     qf3dgeometryutils.h

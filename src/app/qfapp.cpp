@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfieldappqmlregistration.cpp
+    qfapp.cpp
     ---------------------
     begin                : July 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -17,11 +17,11 @@
 #include "changelogcontents.h"
 #include "pluginmanager.h"
 #include "pluginmodel.h"
-#include "qfieldappqmlregistration.h"
+#include "qfapp.h"
 
 #include <QtQml>
 
-namespace QFieldApp
+namespace QfApp
 {
   void registerQmlTypes()
   {
@@ -44,4 +44,4 @@ namespace QFieldApp
     qmlRegisterModule( "Theme", 1, 0 );
     qmlRegisterModuleImport( "Theme", QQmlModuleImportModuleAny, "org.qfield.gui", QQmlModuleImportLatest );
   }
-} // namespace QFieldApp
+} // namespace QfApp

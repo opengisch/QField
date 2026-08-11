@@ -97,7 +97,7 @@ set(QFIELD_CORE_SRCS
     qftranslatormanager.cpp
     qfprojectinfo.cpp
     qfprojectsource.cpp
-    qfieldcoreqmlregistration.cpp
+    qfcore.cpp
     qfxmlhttprequest.cpp
     qfgeometrywrapper.cpp
     qgsgpkgflusher.cpp
@@ -215,7 +215,7 @@ set(QFIELD_CORE_HDRS
     qftranslatormanager.h
     qfprojectinfo.h
     qfprojectsource.h
-    qfieldcoreqmlregistration.h
+    qfcore.h
     qfxmlhttprequest.h
     qfgeometrywrapper.h
     qgsgpkgflusher.h

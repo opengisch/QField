@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfield3dqmlregistration.cpp
+    qf3d.cpp
     ---------------------
     begin                : August 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -13,18 +13,18 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qf3d.h"
 #include "qf3dgeometry.h"
 #include "qf3dgeometryconfiguration.h"
 #include "qf3dmaptexturedata.h"
 #include "qf3drubberbandgeometry.h"
 #include "qf3dterraingeometry.h"
 #include "qf3dterrainprovider.h"
-#include "qfield3dqmlregistration.h"
 #include "qfmaptoview3d.h"
 
 #include <QtQml>
 
-namespace QField3D
+namespace Qf3D
 {
   void registerQmlTypes()
   {
@@ -45,4 +45,4 @@ namespace QField3D
     qmlRegisterType<Qf3DTerrainGeometry>( "org.qfield._3d", 1, 0, "Quick3DTerrainGeometry" );
     qmlRegisterType<Qf3DTerrainProvider>( "org.qfield._3d", 1, 0, "Quick3DTerrainProvider" );
   }
-} // namespace QField3D
+} // namespace Qf3D

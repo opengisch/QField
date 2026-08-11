@@ -1,7 +1,7 @@
 /***************************************************************************
-    qfield3dqmlregistration.h
+    qfcore.h
     ---------------------
-    begin                : August 2026
+    begin                : July 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
     email                : mohsen@opengis.ch
  ***************************************************************************
@@ -13,13 +13,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFIELD3DQMLREGISTRATION_H
-#define QFIELD3DQMLREGISTRATION_H
+#ifndef QFCORE_H
+#define QFCORE_H
 
-namespace QField3D
+namespace QfCore
 {
-  //! Registers the 3d library's QML types.
+  //! Registers the core library's QML types.
   void registerQmlTypes();
-} // namespace QField3D
+} // namespace QfCore
 
-#endif // QFIELD3DQMLREGISTRATION_H
+#endif // QFCORE_H

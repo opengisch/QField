@@ -34,7 +34,9 @@
 #ifdef WITH_SERIALPORT
 #endif
 #include "pluginmodel.h"
+#include "qf3d.h"
 #include "qf3dterrainprovider.h"
+#include "qfapp.h"
 #include "qfappinterface.h"
 #include "qfbarcodeimageprovider.h"
 #include "qfcloudconnection.h"
@@ -42,18 +44,16 @@
 #include "qfcloudprojectsmodel.h"
 #include "qfcloudutils.h"
 #include "qfcogoregistry.h"
+#include "qfcore.h"
 #include "qfdistancearea.h"
 #include "qffeaturehistory.h"
 #include "qffeaturelistmodel.h"
 #include "qffeatureutils.h"
 #include "qfgeometryutils.h"
 #include "qfgnsspositioninformation.h"
+#include "qfgui.h"
 #include "qfidentifytool.h"
 #include "qfield.h"
-#include "qfield3dqmlregistration.h"
-#include "qfieldappqmlregistration.h"
-#include "qfieldcoreqmlregistration.h"
-#include "qfieldguiqmlregistration.h"
 #include "qfieldurlhandler.h"
 #include "qflayerobserver.h"
 #include "qflayerresolver.h"
@@ -390,10 +390,10 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qRegisterMetaType<QfPositioningSource::ElevationCorrectionMode>( "QfPositioningSource::ElevationCorrectionMode" );
   qRegisterMetaType<QfPositioningSource::NtripState>( "QfPositioningSource::NtripState" );
 
-  QFieldCore::registerQmlTypes();
-  QField3D::registerQmlTypes();
-  QFieldGui::registerQmlTypes();
-  QFieldApp::registerQmlTypes();
+  QfCore::registerQmlTypes();
+  Qf3D::registerQmlTypes();
+  QfGui::registerQmlTypes();
+  QfApp::registerQmlTypes();
 
 
 #ifdef WITH_BLUETOOTH

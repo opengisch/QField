@@ -17,7 +17,7 @@ set(QFIELD_GUI_SRCS
     qfpermissions.cpp
     qfprintlayoutlistmodel.cpp
     qfprojectsimageprovider.cpp
-    qfieldguiqmlregistration.cpp
+    qfgui.cpp
     qfrecentprojectlistmodel.cpp
     qfreferencingfeaturelistmodel.cpp
     qfsensorlistmodel.cpp
@@ -44,7 +44,7 @@ set(QFIELD_GUI_HDRS
     qfpermissions.h
     qfprintlayoutlistmodel.h
     qfprojectsimageprovider.h
-    qfieldguiqmlregistration.h
+    qfgui.h
     qfrecentprojectlistmodel.h
     qfreferencingfeaturelistmodel.h
     qfsensorlistmodel.h

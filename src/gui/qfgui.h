@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfieldcoreqmlregistration.h
+    qfgui.h
     ---------------------
     begin                : July 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -13,13 +13,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFIELDCOREQMLREGISTRATION_H
-#define QFIELDCOREQMLREGISTRATION_H
+#ifndef QFGUI_H
+#define QFGUI_H
 
-namespace QFieldCore
+namespace QfGui
 {
-  //! Registers the core library's QML types.
+  //! Registers the gui library's QML types.
   void registerQmlTypes();
-} // namespace QFieldCore
+} // namespace QfGui
 
-#endif // QFIELDCOREQMLREGISTRATION_H
+#endif // QFGUI_H

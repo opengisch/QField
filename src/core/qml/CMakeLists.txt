@@ -7,7 +7,7 @@ set(QFIELD_CORE_QML_FILES
     QfRubberband.qml
     QfVertexRubberband.qml)
 
-# Type registration stays imperative, in QFieldCore::registerQmlTypes().
+# Type registration stays imperative, in QfCore::registerQmlTypes().
 qt_add_qml_module(
   qfield_core
   URI

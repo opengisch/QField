@@ -2,7 +2,7 @@ set(QFIELD_3D_QML_FILES
     QfFeatureListSelectionHighlight3D.qml QfMapCanvas3D.qml QfRubberband3D.qml
     QfTerrainMesh.qml QfTouchCameraController.qml)
 
-# Type registration stays imperative, in QField3D::registerQmlTypes().
+# Type registration stays imperative, in Qf3D::registerQmlTypes().
 qt_add_qml_module(
   qfield_3d
   URI

@@ -1,5 +1,5 @@
 /***************************************************************************
-    qfieldcoreqmlregistration.cpp
+    qfcore.cpp
     ---------------------
     begin                : July 2026
     copyright            : (C) 2026 by Mohsen Dehghanzadeh
@@ -37,6 +37,7 @@
 #include "qfbarcodedecoder.h"
 #include "qfbookmarkmodel.h"
 #include "qfcameraorientationnormalizer.h"
+#include "qfcore.h"
 #include "qfdigitizinglogger.h"
 #include "qfdistancearea.h"
 #include "qfdrawingcanvas.h"
@@ -56,7 +57,6 @@
 #include "qfieldcloud/qfdeltafilewrapper.h"
 #include "qfieldcloud/qfdeltalistmodel.h"
 #include "qfieldcloud/qflayerobserver.h"
-#include "qfieldcoreqmlregistration.h"
 #include "qflayerresolver.h"
 #include "qflayertreemodel.h"
 #include "qflinepolygonshape.h"
@@ -128,7 +128,7 @@
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )
 
-namespace QFieldCore
+namespace QfCore
 {
   void registerQmlTypes()
   {
@@ -357,6 +357,6 @@ namespace QFieldCore
     qmlRegisterType<QfSerialPortReceiver>( "org.qfield.core", 1, 0, "SerialPortReceiver" );
 #endif
   }
-} // namespace QFieldCore
+} // namespace QfCore
 
 #undef REGISTER_SINGLETON
