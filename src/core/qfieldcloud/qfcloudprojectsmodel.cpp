@@ -1283,7 +1283,9 @@ void QfCloudProjectsFilterModel::setProjectsModel( QfCloudProjectsModel *project
 
   if ( mSourceModel )
   {
-    connect( mSourceModel, &QfCloudProjectsModel::projectsAppended, this, &QfCloudProjectsFilterModel::projectsAppended );
+    connect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::templateCountChanged );
+    connect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::templateCountChanged );
+    connect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::templateCountChanged );
   }
 
   emit projectsModelChanged();
@@ -1351,6 +1353,22 @@ bool QfCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelI
   if ( !project )
   {
     return false;
+  }
+
+  const bool isTemplate = project->projectType() == QfCloudProject::ProjectType::Template;
+  if ( mShowTemplates )
+  {
+    if ( !isTemplate )
+    {
+      return false;
+    }
+  }
+  else
+  {
+    if ( isTemplate )
+    {
+      return false;
+    }
   }
 
   if ( mShowLocalOnly && project->localPath().isEmpty() )
@@ -1506,6 +1524,46 @@ void QfCloudProjectsFilterModel::setShowInValidProjects( bool showInValidProject
   endFilterChange( QSortFilterProxyModel::Direction::Rows );
 
   emit showInValidProjectsChanged();
+}
+
+void QfCloudProjectsFilterModel::setShowTemplates( bool showTemplates )
+{
+  if ( mShowTemplates == showTemplates )
+  {
+    return;
+  }
+
+  beginFilterChange();
+  mShowTemplates = showTemplates;
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit showTemplatesChanged();
+}
+
+bool QfCloudProjectsFilterModel::showTemplates() const
+{
+  return mShowTemplates;
+}
+
+int QfCloudProjectsFilterModel::templateCount() const
+{
+  if ( !mSourceModel )
+  {
+    return 0;
+  }
+
+  int count = 0;
+  const int rows = mSourceModel->rowCount( QModelIndex() );
+  for ( int i = 0; i < rows; ++i )
+  {
+    const QModelIndex idx = mSourceModel->index( i, 0 );
+    const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( idx, QfCloudProjectsModel::IdRole ).toString() );
+    if ( project && project->projectType() == QfCloudProject::ProjectType::Template )
+    {
+      ++count;
+    }
+  }
+  return count;
 }
 
 

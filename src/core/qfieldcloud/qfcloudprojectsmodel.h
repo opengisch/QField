@@ -274,6 +274,8 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
     Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
+    Q_PROPERTY( bool showTemplates READ showTemplates WRITE setShowTemplates NOTIFY showTemplatesChanged )
+    Q_PROPERTY( int templateCount READ templateCount NOTIFY templateCountChanged )
 
   public:
     explicit QfCloudProjectsFilterModel( QObject *parent = nullptr );
@@ -326,6 +328,24 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     bool showInValidProjects() const;
 
     /**
+     * Returns TRUE when the filtered list shows template projects only, hiding all
+     * non-template projects. When FALSE, template projects are excluded from the list.
+     */
+    bool showTemplates() const;
+
+    /**
+     * Sets whether the filtered list shows template projects only.
+     * \param showTemplates when TRUE, only template projects are shown; when FALSE, they are hidden
+     */
+    void setShowTemplates( bool showTemplates );
+
+    /**
+     * Returns the number of template projects available in the source model,
+     * regardless of the currently applied filters.
+     */
+    int templateCount() const;
+
+    /**
      * Sets whether featured projects will be shown on top of the list.
      */
     void setShowFeaturedOnTop( bool showFeaturedOnTop );
@@ -349,6 +369,8 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     void showInValidProjectsChanged();
     void showFeaturedOnTopChanged();
     void isSearchingChanged();
+    void showTemplatesChanged();
+    void templateCountChanged();
 
   private slots:
     void triggerProjectsAppending();
@@ -368,6 +390,7 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     QString mOwnerFilter;
     bool mIncludePublic = false;
     bool mIsSearching = false;
+    bool mShowTemplates = false;
 
     QTimer mProjectsAppendingTimer;
 };
