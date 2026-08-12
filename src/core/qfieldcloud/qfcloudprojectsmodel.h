@@ -91,7 +91,8 @@ class QfCloudProjectsModel : public QAbstractListModel
       LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
-      UserRoleOriginRole
+      UserRoleOriginRole,
+      ProjectTypeRole
     };
 
     //! Attributes controlling fetching of projects

@@ -665,6 +665,7 @@ QHash<int, QByteArray> QfCloudProjectsModel::roleNames() const
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
+  roles[ProjectTypeRole] = "ProjectType";
 
   return roles;
 }
@@ -696,7 +697,7 @@ void QfCloudProjectsModel::insertProjects( const QList<QfCloudProject *> &projec
           mProjects[i]->setCanRepackage( project->canRepackage() );
           mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );
           mProjects[i]->setSharedDatasetsProjectId( project->sharedDatasetsProjectId() );
-          mProjects[i]->setIsSharedDatasetsProject( project->isSharedDatasetsProject() );
+          mProjects[i]->setProjectType( project->projectType() );
           mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
           mProjects[i]->setRestrictedDataLastUpdatedAt( project->restrictedDataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
@@ -874,7 +875,7 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
     QVariantHash projectDetails = project.toObject().toVariantHash();
     QfCloudProject *cloudProject = QfCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
 
-    if ( cloudProject->isSharedDatasetsProject() )
+    if ( cloudProject->projectType() == QfCloudProject::ProjectType::SharedDatasets )
     {
       delete cloudProject;
     }
@@ -920,7 +921,7 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
 
         // If the cloud project is a special shared dataset project or if the cloud project
         // had a folder but was not downloaded properly, do not add to the model
-        if ( cloudProject->isSharedDatasetsProject() || cloudProject->localPath().isEmpty() )
+        if ( cloudProject->projectType() == QfCloudProject::ProjectType::SharedDatasets || cloudProject->localPath().isEmpty() )
         {
           delete cloudProject;
         }
@@ -1047,6 +1048,9 @@ QVariant QfCloudProjectsModel::data( const QModelIndex &index, int role ) const
 
     case UserRoleOriginRole:
       return project->userRoleOrigin();
+
+    case ProjectTypeRole:
+      return QVariant::fromValue( project->projectType() );
   }
 
   return QVariant();
