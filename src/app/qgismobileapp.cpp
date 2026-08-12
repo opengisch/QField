@@ -27,7 +27,6 @@
 #include "cpl_conv.h"
 #include "cpl_string.h"
 #include "cpl_vsi.h"
-#include "gdal_version.h"
 
 #ifdef WITH_BLUETOOTH
 #endif
@@ -63,7 +62,6 @@
 #include "qflocalfilesimageprovider.h"
 #include "qflocatormodelsuperbridge.h"
 #include "qfmessagelogmodel.h"
-#include "qfnearfieldreader.h"
 #include "qfntripsourcetablefetcher.h"
 #include "qfplatformutilities.h"
 #include "qfpluginmodel.h"
@@ -100,7 +98,6 @@
 #include <QResource>
 #include <QScreen>
 #include <QSslConfiguration>
-#include <QStyleHints>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlEngine>
@@ -393,16 +390,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   QfApp::registerQmlTypes();
 
 
-#ifdef WITH_BLUETOOTH
-  engine->rootContext()->setContextProperty( "withBluetooth", QVariant( true ) );
-#else
-  engine->rootContext()->setContextProperty( "withBluetooth", QVariant( false ) );
-#endif
-#ifdef WITH_SERIALPORT
-  engine->rootContext()->setContextProperty( "withSerialPort", QVariant( true ) );
-#else
-  engine->rootContext()->setContextProperty( "withSerialPort", QVariant( false ) );
-#endif
   qRegisterMetaType<QfNtripMountPoint>( "QfNtripMountPoint" );
 
 
@@ -412,17 +399,6 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   qRegisterMetaType<QfSnappingResult>( "QfSnappingResult" );
 
-  // Register some globally available variables
-  engine->rootContext()->setContextProperty( "qVersion", qVersion() );
-  engine->rootContext()->setContextProperty( "qgisVersion", Qgis::version() );
-  engine->rootContext()->setContextProperty( "gdalVersion", GDAL_RELEASE_NAME );
-  engine->rootContext()->setContextProperty( "withNfc", QVariant( QfNearFieldReader::isSupported() ) );
-  engine->rootContext()->setContextProperty( "systemFontPointSize", QfPlatformUtilities::instance()->systemFontPointSize() );
-  engine->rootContext()->setContextProperty( "mouseDoubleClickInterval", QApplication::styleHints()->mouseDoubleClickInterval() );
-  engine->rootContext()->setContextProperty( "appName", qfield::appName );
-  engine->rootContext()->setContextProperty( "appVersion", qfield::appVersion );
-  engine->rootContext()->setContextProperty( "appVersionStr", qfield::appVersionStr );
-  engine->rootContext()->setContextProperty( "gitRev", qfield::gitRev );
   engine->rootContext()->setContextProperty( "platformUtilities", QfPlatformUtilities::instance() );
 }
 
