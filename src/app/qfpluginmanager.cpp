@@ -14,9 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "pluginmanager.h"
 #include "qfplatformutilities.h"
-#include "qgsziputils.h"
+#include "qfpluginmanager.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -28,27 +27,28 @@
 #include <QSettings>
 #include <qgsmessagelog.h>
 #include <qgsnetworkaccessmanager.h>
+#include <qgsziputils.h>
 
-PluginManager::PluginManager( QQmlEngine *engine )
+QfPluginManager::QfPluginManager( QQmlEngine *engine )
   : QObject( engine )
   , mEngine( engine )
-  , mPluginModel( new PluginModel( this ) )
+  , mPluginModel( new QfPluginModel( this ) )
 {
-  connect( mEngine, &QQmlEngine::warnings, this, &PluginManager::handleWarnings );
+  connect( mEngine, &QQmlEngine::warnings, this, &QfPluginManager::handleWarnings );
 
   mPluginModel->refresh( false );
 
-  connect( mPluginModel, &QAbstractItemModel::dataChanged, this, &PluginManager::availableAppPluginsChanged );
-  connect( mPluginModel, &QAbstractItemModel::rowsInserted, this, &PluginManager::availableAppPluginsChanged );
-  connect( mPluginModel, &QAbstractItemModel::rowsRemoved, this, &PluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &QAbstractItemModel::dataChanged, this, &QfPluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &QAbstractItemModel::rowsInserted, this, &QfPluginManager::availableAppPluginsChanged );
+  connect( mPluginModel, &QAbstractItemModel::rowsRemoved, this, &QfPluginManager::availableAppPluginsChanged );
 }
 
-QList<PluginInformation> PluginManager::availableAppPlugins() const
+QList<QfPluginInformation> QfPluginManager::availableAppPlugins() const
 {
   return mPluginModel->availableAppPlugins();
 }
 
-void PluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck, bool isProjectPlugin )
+void QfPluginManager::loadPlugin( const QString &pluginPath, const QString &pluginName, bool skipPermissionCheck, bool isProjectPlugin )
 {
   QSettings settings;
   QString pluginKey = pluginPath;
@@ -123,7 +123,7 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   }
 }
 
-void PluginManager::unloadPlugin( const QString &pluginPath )
+void QfPluginManager::unloadPlugin( const QString &pluginPath )
 {
   if ( mLoadedPlugins.contains( pluginPath ) )
   {
@@ -156,7 +156,7 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
   }
 }
 
-void PluginManager::unloadPlugins()
+void QfPluginManager::unloadPlugins()
 {
   const QStringList loadedPluginPaths = mLoadedPlugins.keys();
   for ( const QString &loadedPluginPath : loadedPluginPaths )
@@ -165,7 +165,7 @@ void PluginManager::unloadPlugins()
   }
 }
 
-void PluginManager::handleWarnings( const QList<QQmlError> &warnings )
+void QfPluginManager::handleWarnings( const QList<QQmlError> &warnings )
 {
   for ( const QQmlError &warning : warnings )
   {
@@ -179,7 +179,7 @@ void PluginManager::handleWarnings( const QList<QQmlError> &warnings )
   }
 }
 
-void PluginManager::grantRequestedPluginPermission( bool permanent )
+void QfPluginManager::grantRequestedPluginPermission( bool permanent )
 {
   QSettings settings;
   QString pluginKey = mPermissionRequestPluginPath;
@@ -205,7 +205,7 @@ void PluginManager::grantRequestedPluginPermission( bool permanent )
   }
 }
 
-void PluginManager::denyRequestedPluginPermission( bool permanent )
+void QfPluginManager::denyRequestedPluginPermission( bool permanent )
 {
   QSettings settings;
   QString pluginKey = mPermissionRequestPluginPath;
@@ -226,7 +226,7 @@ void PluginManager::denyRequestedPluginPermission( bool permanent )
   mPermissionRequestPluginPath.clear();
 }
 
-void PluginManager::clearPluginPermissions()
+void QfPluginManager::clearPluginPermissions()
 {
   QSettings settings;
   settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
@@ -241,7 +241,7 @@ void PluginManager::clearPluginPermissions()
   settings.endGroup();
 }
 
-void PluginManager::restoreAppPlugins()
+void QfPluginManager::restoreAppPlugins()
 {
   QStringList checkedPluginUUids;
   QSettings settings;
@@ -251,7 +251,7 @@ void PluginManager::restoreAppPlugins()
   {
     const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
     checkedPluginUUids << uuid;
-    const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
+    const QfPluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
     if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       if ( mPluginModel->hasPluginInformation( uuid ) )
@@ -262,8 +262,8 @@ void PluginManager::restoreAppPlugins()
   }
   settings.endGroup();
 
-  const QList<PluginInformation> plugins = availableAppPlugins();
-  for ( const PluginInformation &plugin : plugins )
+  const QList<QfPluginInformation> plugins = availableAppPlugins();
+  for ( const QfPluginInformation &plugin : plugins )
   {
     if ( plugin.bundled && !checkedPluginUUids.contains( plugin.uuid ) )
     {
@@ -272,11 +272,11 @@ void PluginManager::restoreAppPlugins()
   }
 }
 
-void PluginManager::enableAppPlugin( const QString &uuid )
+void QfPluginManager::enableAppPlugin( const QString &uuid )
 {
   if ( mPluginModel->hasPluginInformation( uuid ) )
   {
-    const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
+    const QfPluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
     if ( !mLoadedPlugins.contains( pluginInformation.path ) )
     {
       QSettings settings;
@@ -300,7 +300,7 @@ void PluginManager::enableAppPlugin( const QString &uuid )
   }
 }
 
-void PluginManager::disableAppPlugin( const QString &uuid )
+void QfPluginManager::disableAppPlugin( const QString &uuid )
 {
   callPluginMethod( uuid, "appWideDisabled" );
   if ( mPluginModel->hasPluginInformation( uuid ) )
@@ -321,17 +321,17 @@ void PluginManager::disableAppPlugin( const QString &uuid )
   }
 }
 
-void PluginManager::configureAppPlugin( const QString &uuid )
+void QfPluginManager::configureAppPlugin( const QString &uuid )
 {
   callPluginMethod( uuid, QStringLiteral( "configure" ) );
 }
 
-bool PluginManager::isAppPluginEnabled( const QString &uuid ) const
+bool QfPluginManager::isAppPluginEnabled( const QString &uuid ) const
 {
   return mPluginModel->hasPluginInformation( uuid ) && mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path );
 }
 
-bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
+bool QfPluginManager::isAppPluginConfigurable( const QString &uuid ) const
 {
   if ( mPluginModel->hasPluginInformation( uuid ) && mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path ) )
   {
@@ -343,7 +343,7 @@ bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
   return false;
 }
 
-bool PluginManager::isProjectPluginEnabled( const QString &path ) const
+bool QfPluginManager::isProjectPluginEnabled( const QString &path ) const
 {
   const QString projectPluginPath = findProjectPlugin( path );
   if ( !projectPluginPath.isEmpty() )
@@ -353,7 +353,7 @@ bool PluginManager::isProjectPluginEnabled( const QString &path ) const
   return false;
 }
 
-void PluginManager::denyProjectPluginPermission( const QString &path )
+void QfPluginManager::denyProjectPluginPermission( const QString &path )
 {
   QString projectPluginPath = findProjectPlugin( path );
   if ( !projectPluginPath.isEmpty() )
@@ -369,11 +369,11 @@ void PluginManager::denyProjectPluginPermission( const QString &path )
   }
 }
 
-void PluginManager::installFromRepository( const QString &uuid )
+void QfPluginManager::installFromRepository( const QString &uuid )
 {
   if ( mPluginModel->hasPluginInformation( uuid ) )
   {
-    PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
+    QfPluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
     if ( pluginInformation.remotelyAvailable && !pluginInformation.downloadLink.isEmpty() )
     {
       installFromUrl( pluginInformation.downloadLink );
@@ -381,7 +381,7 @@ void PluginManager::installFromRepository( const QString &uuid )
   }
 }
 
-void PluginManager::installFromUrl( const QString &url )
+void QfPluginManager::installFromUrl( const QString &url )
 {
   QString sanitizedUrl = url.trimmed();
   if ( sanitizedUrl.isEmpty() )
@@ -458,7 +458,7 @@ void PluginManager::installFromUrl( const QString &url )
 
             if ( mPluginModel->hasPluginInformation( pluginDirectoryName ) )
             {
-              PluginInformation pluginInformation = mPluginModel->pluginInformation( pluginDirectoryName );
+              QfPluginInformation pluginInformation = mPluginModel->pluginInformation( pluginDirectoryName );
               if ( pluginInformation.remotelyAvailable && pluginInformation.downloadLink != url )
               {
                 error = tr( "The requested plugin URL is present in the available plugins list, please install via its download button" );
@@ -517,7 +517,7 @@ void PluginManager::installFromUrl( const QString &url )
   } );
 }
 
-void PluginManager::uninstall( const QString &uuid )
+void QfPluginManager::uninstall( const QString &uuid )
 {
   if ( mPluginModel->hasPluginInformation( uuid ) )
   {
@@ -530,7 +530,7 @@ void PluginManager::uninstall( const QString &uuid )
   }
 }
 
-QString PluginManager::findProjectPlugin( const QString &projectPath )
+QString QfPluginManager::findProjectPlugin( const QString &projectPath )
 {
   const QFileInfo fi( projectPath );
   const QString completeBaseName = fi.completeBaseName();
@@ -550,7 +550,7 @@ QString PluginManager::findProjectPlugin( const QString &projectPath )
   return QString();
 }
 
-void PluginManager::callPluginMethod( const QString &uuid, const QString &methodName ) const
+void QfPluginManager::callPluginMethod( const QString &uuid, const QString &methodName ) const
 {
   if ( !mPluginModel->hasPluginInformation( uuid ) )
   {
@@ -574,7 +574,7 @@ void PluginManager::callPluginMethod( const QString &uuid, const QString &method
   }
 }
 
-PluginModel *PluginManager::pluginModel() const
+QfPluginModel *QfPluginManager::pluginModel() const
 {
   return mPluginModel;
 }

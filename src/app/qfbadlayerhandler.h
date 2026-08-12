@@ -1,5 +1,5 @@
 /***************************************************************************
-  badlayerhandler.h - BadLayerHandler
+  qfbadlayerhandler.h - QfBadLayerHandler
 
  ---------------------
  begin                : 3.10.2016
@@ -13,8 +13,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef BADLAYERHANDLER_H
-#define BADLAYERHANDLER_H
+#ifndef QFBADLAYERHANDLER_H
+#define QFBADLAYERHANDLER_H
 
 #include <QStandardItemModel>
 #include <qgsproject.h>
@@ -23,7 +23,7 @@
 /**
  * \ingroup core
  */
-class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
+class QfBadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHandler
 {
     Q_OBJECT
 
@@ -36,7 +36,7 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
       LayerNameRole
     };
 
-    explicit BadLayerHandler( QObject *parent = nullptr );
+    explicit QfBadLayerHandler( QObject *parent = nullptr );
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -55,4 +55,4 @@ class BadLayerHandler : public QStandardItemModel, public QgsProjectBadLayerHand
     QgsProject *mProject = nullptr;
 };
 
-#endif // BADLAYERHANDLER_H
+#endif // QFBADLAYERHANDLER_H

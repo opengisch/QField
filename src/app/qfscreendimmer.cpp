@@ -1,5 +1,5 @@
 /***************************************************************************
-              screendimmer.h
+              qfscreendimmer.cpp
                ----------------------------------------------------
               date                 : 26.06.2021
               copyright            : (C) 2021 by Mathieu Pellerin
@@ -14,11 +14,11 @@
  ***************************************************************************/
 
 #include "qfplatformutilities.h"
-#include "screendimmer.h"
+#include "qfscreendimmer.h"
 
 #include <QEvent>
 
-ScreenDimmer::ScreenDimmer( QgsApplication *app )
+QfScreenDimmer::QfScreenDimmer( QgsApplication *app )
   : QObject( app )
 {
   app->installEventFilter( this );
@@ -26,10 +26,10 @@ ScreenDimmer::ScreenDimmer( QgsApplication *app )
 
   mTimer.setSingleShot( true );
   mTimer.setInterval( mTimeoutSeconds * 1000 );
-  connect( &mTimer, &QTimer::timeout, this, &ScreenDimmer::timeout );
+  connect( &mTimer, &QTimer::timeout, this, &QfScreenDimmer::timeout );
 }
 
-void ScreenDimmer::setTimeout( int timeoutSeconds )
+void QfScreenDimmer::setTimeout( int timeoutSeconds )
 {
   if ( mTimeoutSeconds == timeoutSeconds )
     return;
@@ -51,7 +51,7 @@ void ScreenDimmer::setTimeout( int timeoutSeconds )
   }
 }
 
-void ScreenDimmer::setSuspend( bool suspend )
+void QfScreenDimmer::setSuspend( bool suspend )
 {
   mSuspend = suspend;
   if ( mTimeoutSeconds > 0 )
@@ -72,7 +72,7 @@ void ScreenDimmer::setSuspend( bool suspend )
   }
 }
 
-bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
+bool QfScreenDimmer::eventFilter( QObject *obj, QEvent *event )
 {
   const QEvent::Type type = event->type();
   if ( type == QEvent::KeyPress || type == QEvent::MouseMove || type == QEvent::MouseButtonPress || type == QEvent::TabletMove || type == QEvent::TabletPress || type == QEvent::TouchBegin || type == QEvent::TouchUpdate || type == QEvent::InputMethod || type == QEvent::Wheel )
@@ -91,7 +91,7 @@ bool ScreenDimmer::eventFilter( QObject *obj, QEvent *event )
   return QObject::eventFilter( obj, event );
 }
 
-void ScreenDimmer::timeout()
+void QfScreenDimmer::timeout()
 {
   QfPlatformUtilities::instance()->dimBrightness();
   mDimmed = true;

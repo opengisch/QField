@@ -163,7 +163,7 @@ Page {
         contentHeight: qfieldCloudLogin.height
         clip: true
 
-        QFieldCloudLogin {
+        QfCloudLogin {
           id: qfieldCloudLogin
           isVisible: connectionSettings.visible
           width: connectionSettings.width
@@ -191,7 +191,7 @@ Page {
         id: projects
         spacing: 2
 
-        QFieldCloudStatusBanner {
+        QfCloudStatusBanner {
           cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
         }
 
@@ -213,7 +213,7 @@ Page {
           parameterKeys: ["owner", "include"]
           z: 10
 
-          QFieldCloudProjectFilter {
+          QfCloudProjectFilter {
             id: projectFilter
             width: parent.width
             height: Math.min(mainWindow.height - mainWindow.sceneTopMargin - mainWindow.sceneBottomMargin - 186, 400)
@@ -702,7 +702,7 @@ Page {
         }
       }
 
-      QFieldCloudProjectDetails {
+      QfCloudProjectDetails {
         id: projectDetails
 
         onSynchronize: {

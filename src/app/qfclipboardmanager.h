@@ -1,5 +1,5 @@
 /***************************************************************************
-  clipboardmanager.h - ClipboardManager
+  qfclipboardmanager.h - QfClipboardManager
 
  ---------------------
  begin                : 27.5.2024
@@ -15,8 +15,8 @@
  ***************************************************************************/
 
 
-#ifndef CLIPBOARDMANAGER_H
-#define CLIPBOARDMANAGER_H
+#ifndef QFCLIPBOARDMANAGER_H
+#define QFCLIPBOARDMANAGER_H
 
 #include <QClipboard>
 #include <QMimeData>
@@ -29,15 +29,15 @@ class QgsVectorLayer;
  * This class handles clipboard operations.
  * \ingroup core
  */
-class ClipboardManager : public QObject
+class QfClipboardManager : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY( bool holdsFeature READ holdsFeature NOTIFY holdsFeatureChanged )
 
   public:
-    explicit ClipboardManager( QObject *parent = nullptr );
-    ~ClipboardManager() {}
+    explicit QfClipboardManager( QObject *parent = nullptr );
+    ~QfClipboardManager() = default;
 
     bool holdsFeature() const { return mHoldsFeature; }
 
@@ -95,4 +95,4 @@ class ClipboardManager : public QObject
     QString mHtmlFeature;
 };
 
-#endif // QFPROJECTINFO_H
+#endif // QFCLIPBOARDMANAGER_H

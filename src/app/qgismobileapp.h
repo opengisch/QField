@@ -29,26 +29,24 @@
 #include <qgsunittypes.h>
 
 // QField includes
-#include "clipboardmanager.h"
-#include "pluginmanager.h"
+#include "qfappauthrequesthandler.h"
 #include "qfappcontroller.h"
 #include "qfappcoordinateoperationhandlers.h"
 #include "qfbookmarkmodel.h"
+#include "qfclipboardmanager.h"
 #include "qfcogoregistry.h"
 #include "qfdrawingtemplatemodel.h"
 #include "qffocusstack.h"
 #include "qfield_app_export.h"
-#include "qfieldappauthrequesthandler.h"
-#include "qfieldurlhandler.h"
+#include "qfpluginmanager.h"
+#include "qfscreendimmer.h"
 #include "qfsettings.h"
+#include "qfurlhandler.h"
 #include "qgsgpkgflusher.h"
-#include "screendimmer.h"
 
 class QfAppInterface;
 class QfAppMissingGridHandler;
 class QfBarcodeImageProvider;
-class QgsOfflineEditing;
-class QgsQuickMapCanvasMap;
 class QfLayerTreeMapCanvasBridge;
 class QfFlatLayerTreeModel;
 class LayerTreeModel;
@@ -58,10 +56,12 @@ class QfLocalFilesImageProvider;
 class QfProjectsImageProvider;
 class QfTrackingModel;
 class QfLocatorFiltersModel;
-class QgsProject;
 class QfLayerObserver;
 class QfFeatureHistory;
 class QfMessageLogModel;
+class QgsOfflineEditing;
+class QgsQuickMapCanvasMap;
+class QgsProject;
 class QgsPrintLayout;
 
 /**
@@ -227,15 +227,15 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
     std::unique_ptr<QgsGpkgFlusher> mGpkgFlusher;
     std::unique_ptr<QfLayerObserver> mLayerObserver;
     std::unique_ptr<QfFeatureHistory> mFeatureHistory;
-    std::unique_ptr<ClipboardManager> mClipboardManager;
+    std::unique_ptr<QfClipboardManager> mClipboardManager;
 
-    QFieldAppAuthRequestHandler *mAuthRequestHandler = nullptr;
+    QfAppAuthRequestHandler *mAuthRequestHandler = nullptr;
 
     QfBookmarkModel *mBookmarkModel = nullptr;
     QfDrawingTemplateModel *mDrawingTemplateModel = nullptr;
     QfMessageLogModel *mMessageLogModel = nullptr;
 
-    PluginManager *mPluginManager = nullptr;
+    QfPluginManager *mPluginManager = nullptr;
 
     std::unique_ptr<QfCogoRegistry> mCogoRegistry;
 
@@ -248,8 +248,8 @@ class QFIELD_APP_EXPORT QgisMobileapp : public QQmlApplicationEngine, public QfA
 
     QfAppMissingGridHandler *mAppMissingGridHandler = nullptr;
 
-    std::unique_ptr<ScreenDimmer> mScreenDimmer;
-    std::unique_ptr<QFieldUrlHandler> mUrlHandler;
+    std::unique_ptr<QfScreenDimmer> mScreenDimmer;
+    std::unique_ptr<QfUrlHandler> mUrlHandler;
 
     QgsApplication *mApp;
 };

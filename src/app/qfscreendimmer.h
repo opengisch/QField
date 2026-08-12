@@ -1,5 +1,5 @@
 /***************************************************************************
-              screendimmer.h
+              qfscreendimmer.h
                ----------------------------------------------------
               date                 : 26.06.2021
               copyright            : (C) 2021 by Mathieu Pellerin
@@ -13,22 +13,22 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef SCREENDIMMER_H
-#define SCREENDIMMER_H
+#ifndef QFSCREENDIMMER_H
+#define QFSCREENDIMMER_H
 
 #include <QTimer>
 #include <qgsapplication.h>
 
 /**
- * @brief The ScreenDimmer class handles dimming of screen brightness.
+ * @brief The QfScreenDimmer class handles dimming of screen brightness.
  * \ingroup core
  */
-class ScreenDimmer : public QObject
+class QfScreenDimmer : public QObject
 {
     Q_OBJECT
 
   public:
-    explicit ScreenDimmer( QgsApplication *app );
+    explicit QfScreenDimmer( QgsApplication *app );
 
     /**
      * Sets dim timeout as \a timeoutSeconds in seconds. Disables dim screen if 0.
@@ -53,4 +53,4 @@ class ScreenDimmer : public QObject
     bool mDimmed = false;
 };
 
-#endif // SCREENDIMMER_H
+#endif // QFSCREENDIMMER_H

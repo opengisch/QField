@@ -1,5 +1,5 @@
 /***************************************************************************
-  clipboardmanager.cpp - ClipboardManager
+  qfclipboardmanager.cpp - QfClipboardManager
 
  ---------------------
  begin                : 27.5.2024
@@ -15,7 +15,7 @@
  ***************************************************************************/
 
 
-#include "clipboardmanager.h"
+#include "qfclipboardmanager.h"
 #include "qffeatureutils.h"
 
 #include <QApplication>
@@ -24,14 +24,14 @@
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
-ClipboardManager::ClipboardManager( QObject *parent )
+QfClipboardManager::QfClipboardManager( QObject *parent )
   : QObject( parent )
   , mClipboard( QApplication::clipboard() )
 {
-  connect( QApplication::clipboard(), &QClipboard::dataChanged, this, &ClipboardManager::dataChanged );
+  connect( QApplication::clipboard(), &QClipboard::dataChanged, this, &QfClipboardManager::dataChanged );
 }
 
-void ClipboardManager::dataChanged()
+void QfClipboardManager::dataChanged()
 {
   if ( mSkipDataChanged )
   {
@@ -77,7 +77,7 @@ void ClipboardManager::dataChanged()
   }
 }
 
-void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry, bool isCutOperation )
+void QfClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeatureId fid, bool includeGeometry, bool isCutOperation )
 {
   if ( layer )
   {
@@ -88,7 +88,7 @@ void ClipboardManager::copyFeatureToClipboard( QgsVectorLayer *layer, QgsFeature
   }
 }
 
-void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry )
+void QfClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool includeGeometry )
 {
   QStringList textLines;
   QStringList htmlLines;
@@ -135,7 +135,7 @@ void ClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool i
   }
 }
 
-QgsFeature ClipboardManager::pasteFeatureFromClipboard()
+QgsFeature QfClipboardManager::pasteFeatureFromClipboard()
 {
   if ( mHasNativeFeature )
   {
@@ -186,7 +186,7 @@ QgsFeature ClipboardManager::pasteFeatureFromClipboard()
   return feature;
 }
 
-bool ClipboardManager::pasteFeatureFromClipboardIntoLayer( QgsVectorLayer *layer )
+bool QfClipboardManager::pasteFeatureFromClipboardIntoLayer( QgsVectorLayer *layer )
 {
   if ( !layer )
   {

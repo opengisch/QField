@@ -61,7 +61,6 @@ set(QFIELD_CORE_SRCS
     qfieldcloud/qfcloudproject.cpp
     qfieldcloud/qfcloudprojectsmodel.cpp
     qfieldcloud/qfcloudstatus.cpp
-    qfappcoordinateoperationhandlers.cpp
     qfappexpressioncontextscopesgenerator.cpp
     qfappinterface.cpp
     qfaudioanalyzer.cpp
@@ -178,7 +177,6 @@ set(QFIELD_CORE_HDRS
     qfieldcloud/qfcloudprojectsmodel.h
     qfieldcloud/qfcloudstatus.h
     qfappcontroller.h
-    qfappcoordinateoperationhandlers.h
     qfappexpressioncontextscopesgenerator.h
     qfappinterface.h
     qfaudioanalyzer.h

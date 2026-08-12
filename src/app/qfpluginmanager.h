@@ -1,5 +1,5 @@
 /***************************************************************************
- pluginmanager.h - PluginManager
+ qfpluginmanager.h - QfPluginManager
 
  ---------------------
  begin                : 14.05.2024
@@ -14,10 +14,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef PLUGINMANAGER_H
-#define PLUGINMANAGER_H
+#ifndef QFPLUGINMANAGER_H
+#define QFPLUGINMANAGER_H
 
-#include "pluginmodel.h"
+#include "qfpluginmodel.h"
 
 #include <QObject>
 #include <QQmlEngine>
@@ -26,7 +26,7 @@
 /**
  * \ingroup core
  */
-class PluginInformation
+class QfPluginInformation
 {
     Q_GADGET
 
@@ -40,7 +40,7 @@ class PluginInformation
     Q_PROPERTY( bool bundled MEMBER bundled )
 
   public:
-    PluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString() )
+    QfPluginInformation( const QString &uuid = QString(), const QString &name = QString(), const QString &description = QString(), const QString &author = QString(), const QString &homepage = QString(), const QString &icon = QString() )
       : uuid( uuid )
       , name( name )
       , description( description )
@@ -48,7 +48,7 @@ class PluginInformation
       , homepage( homepage )
       , icon( icon )
     {}
-    ~PluginInformation() = default;
+    ~QfPluginInformation() = default;
 
     QString uuid;
     QString name;
@@ -72,28 +72,28 @@ class PluginInformation
     bool configurable = false;
 };
 
-Q_DECLARE_METATYPE( PluginInformation )
+Q_DECLARE_METATYPE( QfPluginInformation )
 
 /**
  * \ingroup core
  */
-class PluginManager : public QObject
+class QfPluginManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY( PluginModel *pluginModel READ pluginModel NOTIFY pluginModelChanged )
-    Q_PROPERTY( QList<PluginInformation> availableAppPlugins READ availableAppPlugins NOTIFY availableAppPluginsChanged )
+    Q_PROPERTY( QfPluginModel *pluginModel READ pluginModel NOTIFY pluginModelChanged )
+    Q_PROPERTY( QList<QfPluginInformation> availableAppPlugins READ availableAppPlugins NOTIFY availableAppPluginsChanged )
 
   public:
     /**
      * Constructs a PluginManager with the given \a engine.
      */
-    explicit PluginManager( QQmlEngine *engine );
+    explicit QfPluginManager( QQmlEngine *engine );
 
     /**
      * Returns the list of available app plugins installed locally.
      */
-    QList<PluginInformation> availableAppPlugins() const;
+    QList<QfPluginInformation> availableAppPlugins() const;
 
     /**
      * Loads a plugin from \a pluginPath and registers it under \a pluginName.
@@ -192,7 +192,7 @@ class PluginManager : public QObject
     /**
      * Returns the plugin model used by this manager.
      */
-    PluginModel *pluginModel() const;
+    QfPluginModel *pluginModel() const;
 
 
   signals:
@@ -221,7 +221,7 @@ class PluginManager : public QObject
 
     QString mPermissionRequestPluginPath;
 
-    PluginModel *mPluginModel = nullptr;
+    QfPluginModel *mPluginModel = nullptr;
 };
 
-#endif // PLUGINMANAGER_H
+#endif // QFPLUGINMANAGER_H

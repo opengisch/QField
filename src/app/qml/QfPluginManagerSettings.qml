@@ -89,13 +89,13 @@ QfPopup {
           verticalPadding: 15
         }
 
-        model: PluginProxyModel {
+        model: QfPluginProxyModel {
           sourceModel: pluginManager.pluginModel
           searchTerm: filterBar.currentIndex === 1 ? searchBar.searchTerm : ""
-          filter: filterBar.currentIndex === 0 ? PluginProxyModel.LocalPlugin : PluginProxyModel.RemotePlugin
+          filter: filterBar.currentIndex === 0 ? QfPluginProxyModel.LocalPlugin : QfPluginProxyModel.RemotePlugin
         }
 
-        delegate: PluginItem {
+        delegate: QfPluginItem {
           width: parent ? parent.width : 10
           icon: Icon !== '' ? QfUrlUtils.fromString(Icon) : ''
           name: Name

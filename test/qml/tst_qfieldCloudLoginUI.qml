@@ -38,7 +38,7 @@ TestCase {
     width: 400
     height: 600
 
-    QFieldControls.QFieldCloudLogin {
+    QFieldControls.QfCloudLogin {
       id: qfieldCloudLogin
       isVisible: true
       width: parent.width

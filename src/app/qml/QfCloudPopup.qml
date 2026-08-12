@@ -162,7 +162,7 @@ Popup {
           columnSpacing: 2
           rowSpacing: 2
 
-          QFieldCloudStatusBanner {
+          QfCloudStatusBanner {
             cloudServiceStatus: popup.cloudServiceStatus
             Layout.margins: 10
             visible: cloudServiceStatus && cloudServiceStatus.hasProblem && !connectionSettings.visible
@@ -680,7 +680,7 @@ Popup {
               contentHeight: qfieldCloudLogin.childrenRect.height
               clip: true
 
-              QFieldCloudLogin {
+              QfCloudLogin {
                 id: qfieldCloudLogin
                 isVisible: connectionSettings.visible
                 width: parent.parent.width
@@ -696,7 +696,7 @@ Popup {
         }
       }
 
-      QFieldCloudDangerZone {
+      QfCloudDangerZone {
         onDiscardRequested: revertDialog.open()
         onResetRequested: resetDialog.open()
       }

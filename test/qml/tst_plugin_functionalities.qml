@@ -46,7 +46,7 @@ TestCase {
     objectName: "canvasMenuActionsToolbar"
   }
 
-  QFieldControls.DashBoard {
+  QFieldControls.QfDashBoard {
     id: dashBoardItem
     objectName: "dashBoard"
   }

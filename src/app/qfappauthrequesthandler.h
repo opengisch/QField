@@ -1,5 +1,5 @@
 /***************************************************************************
-              qfieldappauthrequesthandler.h
+              qfappauthrequesthandler.h
               -------------------
               begin                : August 2019
               copyright            : (C) 2019 by David Signer
@@ -15,8 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFIELDAPPAUTHREQUESTHANDLER_H
-#define QFIELDAPPAUTHREQUESTHANDLER_H
+#ifndef QFAPPAUTHREQUESTHANDLER_H
+#define QFAPPAUTHREQUESTHANDLER_H
 
 #include <qgsapplication.h>
 #include <qgsconfig.h>
@@ -34,7 +34,7 @@
  * in QgsCredentials and no dialog needs to pop up.
  * \ingroup core
  */
-class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, public QgsNetworkAuthenticationHandler
+class QfAppAuthRequestHandler : public QObject, public QgsCredentials, public QgsNetworkAuthenticationHandler
 {
     Q_OBJECT
 
@@ -42,7 +42,7 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     Q_PROPERTY( bool hasPendingAuthRequest READ hasPendingAuthRequest NOTIFY hasPendingAuthRequestChanged )
 
   public:
-    QFieldAppAuthRequestHandler();
+    QfAppAuthRequestHandler();
 
     //! handles the auth request - triggered by the authRequestOccurred signal
     void handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth ) override;
@@ -114,4 +114,4 @@ class QFieldAppAuthRequestHandler : public QObject, public QgsCredentials, publi
     bool mIsProjectLoading = false;
 };
 
-#endif // QFIELDAPPAUTHREQUESTHANDLER_H
+#endif // QFAPPAUTHREQUESTHANDLER_H
