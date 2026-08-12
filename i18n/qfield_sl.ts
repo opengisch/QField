@@ -38,15 +38,15 @@
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Povezovanje...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Uspešno vzpostavljena povezava</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Prekinjena povezava</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Socket state %1</source>
@@ -56,27 +56,15 @@
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
-        <source>Limit the search to the field &apos;%1&apos;</source>
+        <source>Open form</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open form</source>
-        <translation>Odpri obrazec</translation>
-    </message>
-    <message>
         <source>Set feature as destination</source>
-        <translation>Nastavi objekt kot cilj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Objekt nima geometrije</translation>
-    </message>
-    <message>
-        <source>Features from active layer</source>
-        <translation>Objekti v aktivnem sloju</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -84,14 +72,14 @@
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>Datoteka %1 ne obstaja</translation>
+        <translation type="vanished">Datoteka %1 ne obstaja</translation>
     </message>
 </context>
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>Med %1 in %2 ni na voljo nobene transformacije</translation>
+        <translation type="vanished">Med %1 in %2 ni na voljo nobene transformacije</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
@@ -103,7 +91,7 @@
     </message>
     <message>
         <source>projection</source>
-        <translation>projekcija</translation>
+        <translation type="vanished">projekcija</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
@@ -127,7 +115,7 @@
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation>Transformacija med &lt;i&gt;%1&lt;/i&gt; in &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;ni na voljo.</translation>
+        <translation type="vanished">Transformacija med &lt;i&gt;%1&lt;/i&gt; in &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;ni na voljo.</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
@@ -135,22 +123,22 @@
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>Uporabljena je približna transformacija iz %1 v %2</translation>
+        <translation type="vanished">Uporabljena je približna transformacija iz %1 v %2</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>Omejitev izraza</translation>
+        <translation type="vanished">Omejitev izraza</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Ni NULL</translation>
+        <translation type="vanished">Ni NULL</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>Enolično</translation>
+        <translation type="vanished">Enolično</translation>
     </message>
 </context>
 <context>
@@ -184,13 +172,6 @@
     </message>
 </context>
 <context>
-    <name>Binary</name>
-    <message>
-        <source>(Blob)</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -198,15 +179,15 @@
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>Iskanje sezanjenih naprav</translation>
+        <translation type="vanished">Iskanje sezanjenih naprav</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>Skeniranje ni uspelo: %1</translation>
+        <translation type="vanished">Skeniranje ni uspelo: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>Skeniranje končano</translation>
+        <translation type="vanished">Skeniranje končano</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
@@ -214,7 +195,7 @@
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>Skeniranje preklicano</translation>
+        <translation type="vanished">Skeniranje preklicano</translation>
     </message>
     <message>
         <source>Scan</source>
@@ -251,11 +232,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>Na spodnjem seznamu izberite napravo Bluetooth:</translation>
+        <translation type="vanished">Na spodnjem seznamu izberite napravo Bluetooth:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation>Ime naprave Bluetooth:</translation>
+        <translation type="vanished">Ime naprave Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -263,39 +244,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation>Naslov naprave Bluetooth:</translation>
+        <translation type="vanished">Naslov naprave Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation>Iskanje naprav v bližini</translation>
+        <translation type="vanished">Iskanje naprav v bližini</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="vanished">Bluetooth naprav ni zaznanih; izvedite iskanje, da se prikažejo naprave v bližini.</translation>
-    </message>
-    <message>
-        <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No Bluetooth devices detected.</source>
-        <translation>Bluetooth  naprav ni zaznanih.</translation>
-    </message>
-    <message>
-        <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Classic (BT)</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -303,22 +260,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Notranja naprava</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Bluetooth dovoljenje zavrnjeno</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation>Bluetooth dovoljenje je potrebno za iskanje Bluetooth naprav.</translation>
-    </message>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Dovoljenje za lokacijo je zavrnjeno</translation>
-    </message>
-    <message>
-        <source>Location permission is required to scan for bluetooth devices</source>
-        <translation>Dovoljenje za lokacijo je poterbno za iskanje Bluetooth naprav.</translation>
     </message>
 </context>
 <context>
@@ -371,99 +312,19 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>BookmarkList</name>
     <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Orange</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Red</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Blue</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Green</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Untitled bookmark</source>
-        <translation>Zaznamek brez naslova</translation>
-    </message>
-    <message>
-        <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Bookmark Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Podrobnosti zaznamka so kopirane v odložišče</translation>
-    </message>
-    <message>
-        <source>Delete Bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Odstrani zaznamek</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Odstranil boš zaznamek. Želiš nadaljevati?</translation>
-    </message>
-    <message>
-        <source>Project bookmarks</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -471,18 +332,14 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>Prostorski zaznamki</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prostorski zaznamki</translation>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>Lastnosti zaznamka</translation>
+        <translation type="vanished">Lastnosti zaznamka</translation>
     </message>
     <message>
         <source>Name</source>
@@ -514,41 +371,33 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Podrobnosti zaznamka so kopirane v odložišče</translation>
+        <translation type="vanished">Podrobnosti zaznamka so kopirane v odložišče</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Odstrani zaznamek</translation>
+        <translation type="vanished">Odstrani zaznamek</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Odstranil boš zaznamek. Želiš nadaljevati?</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Opis</translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation>Spremeni barvo</translation>
+        <translation type="vanished">Odstranil boš zaznamek. Želiš nadaljevati?</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>Zaznamek: %1</translation>
+        <translation type="vanished">Zaznamek: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>Zaznamkov projekta ni mogoče urejati</translation>
+        <translation type="vanished">Zaznamkov projekta ni mogoče urejati</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>Brskalnik</translation>
+        <translation type="vanished">Brskalnik</translation>
     </message>
 </context>
 <context>
@@ -604,19 +453,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>CheckBox</name>
     <message>
         <source>True</source>
-        <translation>Pravilno</translation>
+        <translation type="vanished">Pravilno</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>Napačno</translation>
+        <translation type="vanished">Napačno</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Prazno</translation>
+        <translation type="vanished">NULL</translation>
     </message>
 </context>
 <context>
@@ -676,19 +521,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>CodeReader</name>
     <message>
-        <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Code Reader</source>
-        <translation>Čitalec kode</translation>
-    </message>
-    <message>
-        <source>Center your device on a code</source>
-        <translation>Usmerite svojo napravo na kodo</translation>
-    </message>
-    <message>
-        <source>No readable code found in the selected image</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -735,11 +568,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>DateTime</name>
     <message>
         <source>(no date)</source>
-        <translation>(ni datuma)</translation>
+        <translation type="vanished">(ni datuma)</translation>
     </message>
     <message>
         <source>Date value set to today.</source>
-        <translation>Datum je nastavljen na današnji dan.</translation>
+        <translation type="vanished">Datum je nastavljen na današnji dan.</translation>
     </message>
     <message>
         <source>Hours</source>
@@ -774,7 +607,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>Neprepoznan status &quot;%1&quot; za $%2</translation>
+        <translation type="vanished">Neprepoznan status &quot;%1&quot; za $%2</translation>
     </message>
 </context>
 <context>
@@ -804,33 +637,26 @@ Cancel to make a minimal device scan instead.</source>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>Natančnost položaja ne izpolnjuje minimalne zahteve, oglišče ni dodano</translation>
+        <translation type="vanished">Natančnost položaja ne izpolnjuje minimalne zahteve, oglišče ni dodano</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
-        <translation>Prekliči digitalizacijo</translation>
+        <translation type="vanished">Prekliči digitalizacijo</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>Število zbranih položajev neizpolnjuje zahteve</translation>
+        <translation type="vanished">Število zbranih položajev neizpolnjuje zahteve</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>Ali naj se digitalizirana geometrija zavrže?</translation>
-    </message>
-</context>
-<context>
-    <name>DrawingTemplateModel</name>
-    <message>
-        <source>Blank</source>
-        <translation>Prazno</translation>
+        <translation type="vanished">Ali naj se digitalizirana geometrija zavrže?</translation>
     </message>
 </context>
 <context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation>Elementi menija</translation>
+        <translation type="vanished">Elementi menija</translation>
     </message>
 </context>
 <context>
@@ -844,24 +670,8 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid start byte</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to parse JSON</source>
-        <translation>Analiza JSON-a ni uspela</translation>
-    </message>
-    <message>
         <source>Could not find the remote host</source>
-        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -871,115 +681,37 @@ Cancel to make a minimal device scan instead.</source>
         <source>The connection was refused by the remote host</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>Zagon strežnika egeniouss ni uspel.</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>Zaustavitev strežnika egeniouss ni uspela.</translation>
-    </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation>Digitaliziraj pot za izris višinskega profila</translation>
+        <translation type="vanished">Digitaliziraj pot za izris višinskega profila</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation>Izrisovanje višinskega profila...</translation>
-    </message>
-</context>
-<context>
-    <name>Erase</name>
-    <message>
-        <source>The geometry could not be modified into multiple parts</source>
-        <translation>Geometrije ni bilo mogoče spremeniti v več delov</translation>
-    </message>
-    <message>
-        <source>The geometry could not be modified</source>
-        <translation>Geometrije ni bilo mogoče spremeniti</translation>
-    </message>
-</context>
-<context>
-    <name>ExpressionCalculatorLocatorFilter</name>
-    <message>
-        <source>Copy “%1” to clipboard</source>
-        <translation>Kopiraj “%1” v odložišče</translation>
-    </message>
-    <message>
-        <source>Calculator</source>
-        <translation>Kalkulator</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Izrisovanje višinskega profila...</translation>
     </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
-        <translation>Ni na voljo</translation>
+        <translation type="vanished">Ni na voljo</translation>
     </message>
 </context>
 <context>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>Brez vrednosti</translation>
+        <translation type="vanished">Brez vrednosti</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>Te vrste datoteke ne morem obdelati</translation>
-    </message>
-    <message>
-        <source>Take a photo</source>
-        <translation>Posnemi fotografijo</translation>
-    </message>
-    <message>
-        <source>Take a video</source>
-        <translation>Posnemi videoposnetek</translation>
-    </message>
-    <message>
-        <source>Record an audio clip</source>
-        <translation>Posnemi zvočni posnetek</translation>
-    </message>
-    <message>
-        <source>Attach a gallery item</source>
-        <translation>Priložite predmet iz galerije</translation>
-    </message>
-    <message>
-        <source>Attach a file</source>
-        <translation>Priložite datoteko</translation>
-    </message>
-    <message>
-        <source>Draw a sketch</source>
-        <translation>Nariši skico</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Preberi več</translation>
-    </message>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Prazno</translation>
+        <translation type="vanished">Te vrste datoteke ne morem obdelati</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -987,15 +719,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>Vrednost je bila uporabljena</translation>
+        <translation type="vanished">Vrednost je bila uporabljena</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>Vrednost ni bila uporabljena</translation>
+        <translation type="vanished">Vrednost ni bila uporabljena</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
-        <translation>(kliknite za preklop)</translation>
+        <translation type="vanished">(kliknite za preklop)</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1007,161 +739,46 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>Sprememb ni mogoče shraniti </translation>
+        <translation type="vanished">Sprememb ni mogoče shraniti </translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Dodaj objekt v %1</translation>
+        <translation type="vanished">Dodaj objekt v %1</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Uredi objekt v %1</translation>
+        <translation type="vanished">Uredi objekt v %1</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>Poglej objekt v %1</translation>
+        <translation type="vanished">Poglej objekt v %1</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Prekliči urejanje</translation>
+        <translation type="vanished">Prekliči urejanje</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Zavrgel boš nov objekt. Želiš nadaljevati?</translation>
+        <translation type="vanished">Zavrgel boš nov objekt. Želiš nadaljevati?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>Zapustil boš stanje urejanja, vse spremembe bodo izgubljene. Želiš nadaljevati?</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Soft constraints were not satisified</source>
-        <translation>Mehki pogoji niso bili izpolnjeni</translation>
-    </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>Strogi pogoji niso izpolnjeni</translation>
-    </message>
-    <message>
-        <source>Previous page</source>
-        <translation>Prejšnja stran</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Shrani</translation>
-    </message>
-    <message>
-        <source>Next page</source>
-        <translation>Naslednja stran</translation>
-    </message>
-</context>
-<context>
-    <name>FeatureHistory</name>
-    <message>
-        <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation>Razveljavitev ustvarjenih objektov v sloju »%1« ni uspela</translation>
-    </message>
-    <message>
-        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation>Razveljavitev izbrisanih objektov v sloju »%1« ni uspela</translation>
-    </message>
-    <message>
-        <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished">Zapustil boš stanje urejanja, vse spremembe bodo izgubljene. Želiš nadaljevati?</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Ustavi sledenje tega objekta, da urediš opisne podatke</translation>
+        <translation type="vanished">Ustavi sledenje tega objekta, da urediš opisne podatke</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Ustavi sledenje tega objekta, da urediš njegovo geometrijo</translation>
+        <translation type="vanished">Ustavi sledenje tega objekta, da urediš njegovo geometrijo</translation>
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>Spremembe so shranjene</translation>
+        <translation type="vanished">Spremembe so shranjene</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -1169,7 +786,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Objekt je bil uspešno podvojen</translation>
+        <translation type="vanished">Objekt je bil uspešno podvojen</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
@@ -1185,11 +802,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Na tej lokaciji ni objekta</translation>
+        <translation type="vanished">Na tej lokaciji ni objekta</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
-        <translation>Spoji objekt(e)</translation>
+        <translation type="vanished">Spoji objekt(e)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be merge?
@@ -1208,7 +825,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>Izbriši objekt(e)</translation>
+        <translation type="vanished">Izbriši objekt(e)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
@@ -1225,58 +842,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Spremembe so zavržene</translation>
-    </message>
-    <message>
-        <source>Transfer Feature Attributes</source>
-        <translation>Prenos atributov objekta</translation>
-    </message>
-    <message>
-        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature attributes transferred</source>
-        <translation>Atributi objekta prenešeni</translation>
-    </message>
-    <message>
-        <source>No feature attributes were transferred</source>
-        <translation>Atributi objekta niso bili prenešeni</translation>
+        <translation type="vanished">Spremembe so zavržene</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation>Objekti</translation>
-    </message>
-    <message>
-        <source>Processing Algorithms</source>
-        <translation>Algoritni obelave</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Vrednosti &quot;%1&quot; %4 ni mogoče pretvoriti v združljivo vrednost za polje %2(% 3).</translation>
+        <translation type="vanished">Vrednosti &quot;%1&quot; %4 ni mogoče pretvoriti v združljivo vrednost za polje %2(% 3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Ne morem posodobiti objekta</translation>
+        <translation type="vanished">Ne morem posodobiti objekta</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Objekt %1 ni dosegljiv po potrditvi</translation>
+        <translation type="vanished">Objekt %1 ni dosegljiv po potrditvi</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Izraz privzete vrednosti za %1:%2 vsebuje napako razčlenjevalnika: %3</translation>
+        <translation type="vanished">Izraz privzete vrednosti za %1:%2 vsebuje napako razčlenjevalnika: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>Izraz privzete vrednosti za %1:%2 vsebuje napako vrednotenja: %3</translation>
+        <translation type="vanished">Izraz privzete vrednosti za %1:%2 vsebuje napako vrednotenja: %3</translation>
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>Urejanja na sloju &quot;%1&quot;, da bi ustvaril objekt %2, ni mogoče začeti.</translation>
+        <translation type="vanished">Urejanja na sloju &quot;%1&quot;, da bi ustvaril objekt %2, ni mogoče začeti.</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
@@ -1289,26 +886,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>Objekta %2 ni bilo mogoče dodati v sloj &quot;%1&quot;</translation>
+        <translation type="vanished">Objekta %2 ni bilo mogoče dodati v sloj &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>Ne morem shraniti sprememb. Razveljavljam.</translation>
+        <translation type="vanished">Ne morem shraniti sprememb. Razveljavljam.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ne morem začeti z urejanjem</translation>
+        <translation type="vanished">Ne morem začeti z urejanjem</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Odpri obrazec</translation>
+        <translation type="vanished">Odpri obrazec</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Nastavi objekt kot cilj</translation>
+        <translation type="vanished">Nastavi objekt kot cilj</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -1316,37 +913,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Objekt nima geometrije</translation>
+        <translation type="vanished">Objekt nima geometrije</translation>
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>Objekti v vseh slojih</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FileDeviceChooser</name>
-    <message>
-        <source>File path</source>
-        <translation>Pot do datoteke</translation>
-    </message>
-    <message>
-        <source>Interval (in milliseconds)</source>
-        <translation>Interval (v milisekundah)</translation>
+        <translation type="vanished">Objekti v vseh slojih</translation>
     </message>
 </context>
 <context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>Obroč ni sklenjen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>Obroč ni pravilen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
@@ -1358,11 +940,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>Neznana napaka pri ustvarjanju obroča</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>Zapolni obroč</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
@@ -1404,30 +986,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Iskanje naslovov na Finskem</translation>
+        <translation type="vanished">Iskanje naslovov na Finskem</translation>
     </message>
 </context>
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>Orodje za urejanje oglišč</translation>
+        <translation type="vanished">Orodje za urejanje oglišč</translation>
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>Orodje za razdelitev</translation>
+        <translation type="vanished">Orodje za razdelitev</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>Orodje za preoblikovanje</translation>
+        <translation type="vanished">Orodje za preoblikovanje</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Erase Tool</source>
-        <translation>Orodje za brisanje</translation>
     </message>
 </context>
 <context>
@@ -1438,7 +1016,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation>Nastavi navigacijsko točko</translation>
+        <translation type="vanished">Nastavi navigacijsko točko</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -1446,59 +1024,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>Pojdi na koordinate</translation>
+        <translation type="vanished">Pojdi na koordinate</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation>Pojdi na %1%2 %3%4 (RKS karte, %5)</translation>
+        <translation type="vanished">Pojdi na %1%2 %3%4 (RKS karte, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation>Pojdi na %1°N %2°E (%3)</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>HelpLocatorFilter</name>
-    <message>
-        <source>QField Documentation</source>
-        <translation>QField dokumentacija</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pojdi na %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
-        <source>Navigation</source>
-        <translation>Navigacija</translation>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>Določanje položaja</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Senzorji</translation>
-    </message>
-    <message>
-        <source>Elevation profile</source>
-        <translation>Višinski profil</translation>
-    </message>
-    <message>
-        <source>NTRIP</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>InformationPopup</name>
-    <message>
-        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1510,19 +1050,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Username</source>
-        <translation>Uporabniško ime</translation>
+        <translation type="vanished">Uporabniško ime</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Geslo</translation>
-    </message>
-    <message>
-        <source>Credentials Details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Geslo</translation>
     </message>
 </context>
 <context>
@@ -1540,47 +1072,47 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>LayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>Razširi skupino</translation>
+        <translation type="vanished">Razširi skupino</translation>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>Razširi element legende</translation>
+        <translation type="vanished">Razširi element legende</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Ustavi sledenje</translation>
+        <translation type="vanished">Ustavi sledenje</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Nastavitev sledenja</translation>
+        <translation type="vanished">Nastavitev sledenja</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Ta sloj ni veljaven. To je lahko posledica težave z omrežjem, manjkajoče datoteke ali napačne konfiguracije projekta.</translation>
+        <translation type="vanished">Ta sloj ni veljaven. To je lahko posledica težave z omrežjem, manjkajoče datoteke ali napačne konfiguracije projekta.</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>Pokaži na karti</translation>
+        <translation type="vanished">Pokaži na karti</translation>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>Pokaži oznake</translation>
+        <translation type="vanished">Pokaži oznake</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Transparentnost</translation>
+        <translation type="vanished">Transparentnost</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation>Povečaj na skupino</translation>
+        <translation type="vanished">Povečaj na skupino</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation>Povečaj na nadrejeni sloj</translation>
+        <translation type="vanished">Povečaj na nadrejeni sloj</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>Povečaj na sloj</translation>
+        <translation type="vanished">Povečaj na sloj</translation>
     </message>
     <message>
         <source>Reload data</source>
@@ -1592,11 +1124,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Pokaži seznam objektov</translation>
+        <translation type="vanished">Pokaži seznam objektov</translation>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>Sloj nima objektov</translation>
+        <translation type="vanished">Sloj nima objektov</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1620,50 +1152,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Prikaži seznam vidnih slojev</translation>
+        <translation type="vanished">Prikaži seznam vidnih slojev</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>Pokaži meni objektov</translation>
-    </message>
-    <message>
-        <source>Read-only layer</source>
-        <translation>Sloj samo za branje</translation>
-    </message>
-    <message>
-        <source>feature addition</source>
-        <translation>dodajanje objekta</translation>
-    </message>
-    <message>
-        <source>attribute editing</source>
-        <translation>urejanje atributov</translation>
-    </message>
-    <message>
-        <source>geometry editing</source>
-        <translation>urejanje geometrije</translation>
-    </message>
-    <message>
-        <source>feature deletion</source>
-        <translation>brisanje objekta</translation>
-    </message>
-    <message>
-        <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>Sledenje na sloju %1 ustavljeno</translation>
+        <translation type="vanished">Pokaži meni objektov</translation>
     </message>
 </context>
 <context>
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>Ne morem začeti z urejanjem, ni sloja</translation>
+        <translation type="vanished">Ne morem začeti z urejanjem, ni sloja</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ne morem začeti z urejanjem</translation>
+        <translation type="vanished">Ne morem začeti z urejanjem</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
@@ -1677,20 +1181,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Cannot delete feature %1</source>
-        <translation>Ne morem izbrisati objekta %1</translation>
+        <translation type="vanished">Ne morem izbrisati objekta %1</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Ne morem razveljavit sprememb v sloju %1.</translation>
+        <translation type="vanished">Ne morem razveljavit sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>Kopiranje neveljavnega objekta ni mogoče</translation>
+        <translation type="vanished">Kopiranje neveljavnega objekta ni mogoče</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Ne morem dodati novega objekta v sloj&quot;%1&quot;. Vzrok je %2.</translation>
+        <translation type="vanished">Ne morem dodati novega objekta v sloj&quot;%1&quot;. Vzrok je %2.</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
@@ -1701,66 +1205,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>Legend</name>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Ta sloj ni veljaven. To je lahko posledica težave z omrežjem, manjkajoče datoteke ali napačne konfiguracije projekta.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Ta sloj je konfiguriran &quot;Samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Stop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Track on layer %1 stopped</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>Sledenje omogočeno na tem sloju.</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>Sledenje na sloju %1 ustavljeno</translation>
     </message>
 </context>
 <context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>QField direktorij datotek</translation>
+        <translation type="vanished">QField direktorij datotek</translation>
     </message>
     <message>
         <source>Imported projects</source>
-        <translation>Uvoženi projekti</translation>
+        <translation type="vanished">Uvoženi projekti</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation>Uvožene zbirke podatkov</translation>
+        <translation type="vanished">Uvožene zbirke podatkov</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>Direktorij dodatnih datotek</translation>
+        <translation type="vanished">Direktorij dodatnih datotek</translation>
     </message>
     <message>
         <source>Sample projects</source>
         <translation type="vanished">Vzorčni projekti</translation>
-    </message>
-    <message>
-        <source>Created projects</source>
-        <translation>Ustvarjeni projekti</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>Domov</translation>
     </message>
 </context>
 <context>
@@ -1783,7 +1263,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>Filtri za iskanje za lokacije so bili aktivirani, rezultate prilagodiš na plošči z nastavitvami.</translation>
+        <translation type="vanished">Filtri za iskanje za lokacije so bili aktivirani, rezultate prilagodiš na plošči z nastavitvami.</translation>
     </message>
 </context>
 <context>
@@ -1791,14 +1271,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search…</source>
         <translation type="vanished">Iskanje...</translation>
-    </message>
-    <message>
-        <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1811,86 +1283,54 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Trigger without its prefix</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>Dnevnik sporočil</translation>
+        <translation type="vanished">Dnevnik sporočil</translation>
     </message>
     <message>
         <source>Message text copied</source>
-        <translation>Besedilo sporočila je kopirano</translation>
+        <translation type="vanished">Besedilo sporočila je kopirano</translation>
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>Počistite dnevnik sporočil</translation>
+        <translation type="vanished">Počistite dnevnik sporočil</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>Dnevnik sporočil je počiščen</translation>
+        <translation type="vanished">Dnevnik sporočil je počiščen</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>Pošlji dnevnik aplikacije</translation>
+        <translation type="vanished">Pošlji dnevnik aplikacije</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
         <translation type="vanished">Dnevnik aplikacije je poslan</translation>
-    </message>
-    <message>
-        <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type optional details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include cloud user details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ne morem začeti z urejanjem</translation>
+        <translation type="vanished">Ne morem začeti z urejanjem</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Ne morem razveljavit sprememb v sloju %1.</translation>
+        <translation type="vanished">Ne morem razveljavit sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Geometrije objekta %1 v %2 ni mogoče spremeniti</translation>
+        <translation type="vanished">Geometrije objekta %1 v %2 ni mogoče spremeniti</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>Objekti</translation>
+        <translation type="vanished">Objekti</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
@@ -1906,19 +1346,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Spoji izbrane objekte</translation>
+        <translation type="vanished">Spoji izbrane objekte</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Premakni izbrani objekt(e)</translation>
+        <translation type="vanished">Premakni izbrani objekt(e)</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Podvoji izbrani objekt(e)</translation>
+        <translation type="vanished">Podvoji izbrani objekt(e)</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>Izbriši izbrani objekt(e)</translation>
+        <translation type="vanished">Izbriši izbrani objekt(e)</translation>
     </message>
     <message>
         <source>Feature Menu</source>
@@ -1930,11 +1370,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>Povečava na objekt</translation>
+        <translation type="vanished">Povečava na objekt</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>Samodejna povečava na objekt</translation>
+        <translation type="vanished">Samodejna povečava na objekt</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -1942,19 +1382,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Premik objekta</translation>
+        <translation type="vanished">Premik objekta</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Podvoji objekt</translation>
+        <translation type="vanished">Podvoji objekt</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Izbriši objekt</translation>
+        <translation type="vanished">Izbriši objekt</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Izberi predlogo spodaj</translation>
+        <translation type="vanished">Izberi predlogo spodaj</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
@@ -1974,50 +1414,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>Natisni objekt(e) iz Atlasa</translation>
+        <translation type="vanished">Natisni objekt(e) iz Atlasa</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Tiskam...</translation>
+        <translation type="vanished">Tiskam...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotate Feature</source>
-        <translation>Zavrti objekt</translation>
-    </message>
-    <message>
-        <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Process Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature cut into clipboard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2029,7 +1433,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
@@ -2041,23 +1445,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Dist.</source>
-        <translation>Razdal.</translation>
+        <translation type="vanished">Razdal.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/V</translation>
+        <translation type="vanished">N/V</translation>
     </message>
     <message>
         <source>Bearing</source>
@@ -2065,52 +1469,33 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>NtripSourceTableFetcher</name>
-    <message>
-        <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Ne morem začeti z urejanjem</translation>
+        <translation type="vanished">Ne morem začeti z urejanjem</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Ne morem razveljavit sprememb v sloju %1.</translation>
+        <translation type="vanished">Ne morem razveljavit sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Ne morem potrditi sprememb v sloju %1.</translation>
+        <translation type="vanished">Ne morem potrditi sprememb v sloju %1.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>Ne morem posodobiti vrstnega reda objektov</translation>
+        <translation type="vanished">Ne morem posodobiti vrstnega reda objektov</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>Spremembe shranjene</translation>
+        <translation type="vanished">Spremembe shranjene</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Spremembe so zavržene</translation>
+        <translation type="vanished">Spremembe so zavržene</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -2137,23 +1522,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Open File</source>
-        <translation>Odpri datoteko</translation>
+        <translation type="vanished">Odpri datoteko</translation>
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation>Vse podprte datoteke</translation>
+        <translation type="vanished">Vse podprte datoteke</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
-        <translation>QGIS projektne datoteke</translation>
+        <translation type="vanished">QGIS projektne datoteke</translation>
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>Vektorske zbirke podatkov</translation>
+        <translation type="vanished">Vektorske zbirke podatkov</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation>Rastrske zbirke podatkov</translation>
+        <translation type="vanished">Rastrske zbirke podatkov</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
@@ -2161,19 +1546,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select Image File</source>
-        <translation>Izberi sliko</translation>
+        <translation type="vanished">Izberi sliko</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation>Vse slike (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</translation>
+        <translation type="vanished">Vse slike (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation>Izberi video datoteko</translation>
+        <translation type="vanished">Izberi video datoteko</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation>Vsi videi (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
+        <translation type="vanished">Vsi videi (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
@@ -2185,31 +1570,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select File</source>
-        <translation>Izberi datoteko</translation>
-    </message>
-    <message>
-        <source>Removal Confirmation</source>
-        <translation>Potrditev izbrisa</translation>
-    </message>
-    <message>
-        <source>The dataset will be deleted, proceed with removal?</source>
-        <translation>Podatkovni niz bo izbrisan, naj nadaljujem z odstranitvijo?</translation>
-    </message>
-    <message>
-        <source>The project folder will be deleted, proceed with removal?</source>
-        <translation>Mapa projekta bo izbrisana. Želiš nadaljevati z brisanjem?</translation>
-    </message>
-    <message>
-        <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Izberi datoteko</translation>
     </message>
 </context>
 <context>
@@ -2392,14 +1753,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Notranja naprava</translation>
+        <translation type="vanished">Notranja naprava</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation>Nastavitev naprave za določanje položaja</translation>
+        <translation type="vanished">Nastavitev naprave za določanje položaja</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2423,42 +1784,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation>TCP (NMEA)</translation>
+        <translation type="vanished">TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation>UDP (NMEA)</translation>
+        <translation type="vanished">UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Egeniouss</source>
-        <translation>Egeniouss</translation>
-    </message>
-    <message>
-        <source>Connection type</source>
-        <translation>Vrsta povezave</translation>
-    </message>
-    <message>
         <source>Name</source>
-        <translation>Ime</translation>
-    </message>
-    <message>
-        <source> (leave empty to auto-fill)</source>
-        <translation>(usti prazno, da se samodejno izpolni)</translation>
-    </message>
-    <message>
-        <source>Connection details</source>
-        <translation>Podrobnosti povezave</translation>
-    </message>
-    <message>
-        <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth BT + BLE (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2466,54 +1803,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
-        <translation>Nadmorska višina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Hitrost</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>H natančnost</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>V natančnost</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
-        <translation>Ni na voljo</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ortho.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ant.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1/s</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2529,7 +1850,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/V</translation>
+        <translation type="vanished">N/V</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -2583,59 +1904,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningNtripSettings</name>
     <message>
-        <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Vrata</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Username</source>
-        <translation>Uporabniško ime</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Geslo</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Identifier:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Data format:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP SSL/TLS</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2643,241 +1916,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>Razdal.</translation>
+        <translation type="vanished">Razdal.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation>Natančnost določanja položaja je prenizka za to raven natančnosti</translation>
-    </message>
-    <message>
-        <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotate view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotation source</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Compass</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Movement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Natančnost določanja položaja je prenizka za to raven natančnosti</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>Notranja naprava</translation>
-    </message>
-</context>
-<context>
-    <name>ProcessingAlgorithmForm</name>
-    <message>
-        <source>General Parameters</source>
-        <translation>Splošni Parametri</translation>
-    </message>
-    <message>
-        <source>Advanced Parameters</source>
-        <translation>Napredni Parametri</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Pomoč</translation>
-    </message>
-    <message>
-        <source>There are no general parameters attached to this algorithm.</source>
-        <translation>Temu algoritmu niso dodeljeni splošni parametri.</translation>
-    </message>
-    <message>
-        <source>Algorithm description</source>
-        <translation>Opis algoritma</translation>
+        <translation type="vanished">Notranja naprava</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation>Priljubljeno</translation>
-    </message>
-    <message>
-        <source>All Algorithms</source>
-        <translation>Vsi algoritmi</translation>
-    </message>
-</context>
-<context>
-    <name>ProjectCreationScreen</name>
-    <message>
-        <source>Create a new project</source>
-        <translation>Ustvari nov projekt</translation>
-    </message>
-    <message>
-        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New project name</source>
-        <translation>Ime novega projekta</translation>
-    </message>
-    <message>
-        <source>Select your basemap</source>
-        <translation>Izberi svojo temeljno karto</translation>
-    </message>
-    <message>
-        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation>Izberi temeljno karto za svoj projekt. Izberi eno izmed razpoložljivih možnosti ali vnesi svoj URL-naslov.</translation>
-    </message>
-    <message>
-        <source>Colorful</source>
-        <translation>Večbarvno</translation>
-    </message>
-    <message>
-        <source>Darkgray</source>
-        <translation>Temnosivo</translation>
-    </message>
-    <message>
-        <source>Lightgray</source>
-        <translation>Svetlosivo</translation>
-    </message>
-    <message>
-        <source>Blank</source>
-        <translation>Prazno</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Po meri</translation>
-    </message>
-    <message>
-        <source>Custom basemap URL</source>
-        <translation>URL temeljne karte po meri</translation>
-    </message>
-    <message>
-        <source>Take notes?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Take image and video attachments</source>
-        <translation>Zajemi slikovene in video priloge</translation>
-    </message>
-    <message>
-        <source>Track your position?</source>
-        <translation>Sledim tvojemu položaju?</translation>
-    </message>
-    <message>
-        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud here</source>
-        <translation>Več o QFieldCloud-u si preberite tukaj</translation>
-    </message>
-    <message>
-        <source>Create Project</source>
-        <translation>Ustvari projekt</translation>
-    </message>
-    <message>
-        <source>My Project</source>
-        <translation>Moj projekt</translation>
-    </message>
-    <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ProjectUtils</name>
-    <message>
-        <source>Created Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation>Opombe</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Čas</translation>
-    </message>
-    <message>
-        <source>Marker color</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>Naslov</translation>
-    </message>
-    <message>
-        <source>Note</source>
-        <translation>Opomba</translation>
-    </message>
-    <message>
-        <source>Tracks</source>
-        <translation>Sledi</translation>
-    </message>
-    <message>
-        <source>Basemap</source>
-        <translation>Temeljna karta</translation>
-    </message>
-    <message>
-        <source>Media</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track color</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Note attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Opis</translation>
-    </message>
-    <message>
-        <source>Attachments</source>
-        <translation>Priloge</translation>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation>Točka</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Polygon</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2897,64 +1953,13 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAudioRecorder</name>
-    <message>
-        <source>Audio Recorder</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
-        <source>Geotagging enabled</source>
-        <translation>Geooznačevanje omogočeno</translation>
-    </message>
-    <message>
-        <source>Geotagging disabled</source>
-        <translation>Geooznačevanje onemogočeno</translation>
-    </message>
-    <message>
-        <source>Grid enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Grid disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>front</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>back</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latitude</source>
-        <translation>Zemljepisna širina</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Zemljepisna dolžina</translation>
-    </message>
-    <message>
         <source>Altitude</source>
-        <translation>Nadmorska višina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Hitrost</translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2970,15 +1975,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Server Error.</source>
-        <translation>Napaka strežnika.</translation>
+        <translation type="vanished">Napaka strežnika.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation>Napaka omrežja.</translation>
+        <translation type="vanished">Napaka omrežja.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>Strežnik ni bil najden, preveri URL strežnika</translation>
+        <translation type="vanished">Strežnik ni bil najden, preveri URL strežnika</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
@@ -2986,15 +1991,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation>Napačno uporabniško ime ali geslo</translation>
+        <translation type="vanished">Napačno uporabniško ime ali geslo</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation>Seja je potekla</translation>
+        <translation type="vanished">Seja je potekla</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>Prijava trenutno ni mogoča</translation>
+        <translation type="vanished">Prijava trenutno ni mogoča</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
@@ -3004,14 +2009,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password missing</source>
-        <translation>Manjka geslo</translation>
     </message>
 </context>
 <context>
@@ -3105,6 +2102,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3589,8 +2590,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Napaka pri odpiranju začasne datoteke za `%1`, vzrok:
-%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -3602,19 +2602,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Napaka omrežja. Prenos datoteke `%1` ni uspel.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Kopiranje nekaterih prenesenih datotek v napravo ni uspelo. Preveri pomnilnik naprave.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Projekt `%1`, datoteka `%2`: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System message: </source>
-        <translation>Sistemsko sporočilo:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
@@ -3642,46 +2642,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>aborted</source>
-        <translation>prekinjeno</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>Lokalna pot ne obstaja</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>One or more files could not be uploaded</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3850,7 +2810,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>Projekt je zaseden.</translation>
+        <translation type="vanished">Projekt je zaseden.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -3914,18 +2874,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">Kopiranje nekaterih prenesenih datotek v napravo ni uspelo. Preveri pomnilnik naprave.</translation>
-    </message>
-    <message>
-        <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4167,29 +3115,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudStatus</name>
-    <message>
-        <source>QFieldCloud server is not reachable</source>
-        <translation>QFieldCloud strežnik ni dosegljiv</translation>
-    </message>
-    <message>
-        <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is under maintenance</source>
-        <translation>QFieldCloud je v vzdrževanju</translation>
-    </message>
-    <message>
-        <source>QFieldCloud service is degraded</source>
-        <translation>QFieldCloud storitev deluje omejeno</translation>
-    </message>
-    <message>
-        <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
@@ -4197,14 +3122,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>Prišlo je do napake omrežaj, poskusi ponovno.</translation>
-    </message>
-    <message>
-        <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project owner&apos;s subscription plan is insufficient.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4388,6 +3305,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
         <translation>Izberi eno ali več datotek in jih pošlji v QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete file(s)</source>
@@ -5368,10 +4289,381 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Povezovanje...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Uspešno vzpostavljena povezava</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Prekinjena povezava</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfActionButton</name>
     <message>
         <source>close</source>
         <translation>zapri</translation>
+    </message>
+</context>
+<context>
+    <name>QfActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Odpri obrazec</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Nastavi objekt kot cilj</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Objekt nima geometrije</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation>Objekti v aktivnem sloju</translation>
+    </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfAndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>Datoteka %1 ne obstaja</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppMissingGridHandler</name>
+    <message>
+        <source>No transform available between %1 and %2</source>
+        <translation>Med %1 in %2 ni na voljo nobene transformacije</translation>
+    </message>
+    <message>
+        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>projection</source>
+        <translation>projekcija</translation>
+    </message>
+    <message>
+        <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
+        <translation>Transformacija med &lt;i&gt;%1&lt;/i&gt; in &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;ni na voljo.</translation>
+    </message>
+    <message>
+        <source>Cannot use project transform between %1 and %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Used a ballpark transform from %1 to %2</source>
+        <translation>Uporabljena je približna transformacija iz %1 v %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfAttributeFormModelBase</name>
+    <message>
+        <source>Expression constraint</source>
+        <translation>Omejitev izraza</translation>
+    </message>
+    <message>
+        <source>Not NULL</source>
+        <translation>Ni NULL</translation>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation>Enolično</translation>
+    </message>
+</context>
+<context>
+    <name>QfAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceChooser</name>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation>Iskanje naprav v bližini</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation>Na spodnjem seznamu izberite napravo Bluetooth:</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation>Bluetooth  naprav ni zaznanih.</translation>
+    </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scanning for paired devices</source>
+        <translation>Iskanje sezanjenih naprav</translation>
+    </message>
+    <message>
+        <source>Scanning failed: %1</source>
+        <translation>Skeniranje ni uspelo: %1</translation>
+    </message>
+    <message>
+        <source>Scanning done</source>
+        <translation>Skeniranje končano</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n device(s) found</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Scanning canceled</source>
+        <translation>Skeniranje preklicano</translation>
+    </message>
+    <message>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation>Ime naprave Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation>Naslov naprave Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceModel</name>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation>Bluetooth dovoljenje zavrnjeno</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation>Bluetooth dovoljenje je potrebno za iskanje Bluetooth naprav.</translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Dovoljenje za lokacijo je zavrnjeno</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation>Dovoljenje za lokacijo je poterbno za iskanje Bluetooth naprav.</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkList</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark List Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle Bookmark Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Podrobnosti zaznamka so kopirane v odložišče</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Odstrani zaznamek</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Odstranil boš zaznamek. Želiš nadaljevati?</translation>
+    </message>
+    <message>
+        <source>Delete bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n selected bookmark(s) really be deleted?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Deleted %n bookmark(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Zaznamek brez naslova</translation>
+    </message>
+    <message>
+        <source>No bookmarks yet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkLocatorFilter</name>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Spatial bookmarks</source>
+        <translation>Prostorski zaznamki</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkProperties</name>
+    <message>
+        <source>Bookmark Properties</source>
+        <translation>Lastnosti zaznamka</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Opis</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>Spremeni barvo</translation>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Podrobnosti zaznamka so kopirane v odložišče</translation>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Odstrani zaznamek</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Odstranil boš zaznamek. Želiš nadaljevati?</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkRenderer</name>
+    <message>
+        <source>Bookmark: %1</source>
+        <translation>Zaznamek: %1</translation>
+    </message>
+    <message>
+        <source>Project bookmarks cannot be edited</source>
+        <translation>Zaznamkov projekta ni mogoče urejati</translation>
+    </message>
+</context>
+<context>
+    <name>QfBrowserPanel</name>
+    <message>
+        <source>Browser</source>
+        <translation>Brskalnik</translation>
     </message>
 </context>
 <context>
@@ -5442,9 +4734,387 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCamera</name>
+    <message>
+        <source>Latitude</source>
+        <translation>Zemljepisna širina</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Zemljepisna dolžina</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Nadmorska višina</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Hitrost</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation>Geooznačevanje omogočeno</translation>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation>Geooznačevanje onemogočeno</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudConnection</name>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation>Manjka geslo</translation>
+    </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server not found, please check the server URL</source>
+        <translation>Strežnik ni bil najden, preveri URL strežnika</translation>
+    </message>
+    <message>
+        <source>Timeout error, please retry</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wrong username or password</source>
+        <translation>Napačno uporabniško ime ali geslo</translation>
+    </message>
+    <message>
+        <source>Session expired</source>
+        <translation>Seja je potekla</translation>
+    </message>
+    <message>
+        <source>Login temporary unavailable</source>
+        <translation>Prijava trenutno ni mogoča</translation>
+    </message>
+    <message>
+        <source>[timeout] The request took too long to finish, please retry.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[aborted] The request has been aborted.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server Error.</source>
+        <translation>Napaka strežnika.</translation>
+    </message>
+    <message>
+        <source>Network Error.</source>
+        <translation>Napaka omrežja.</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProject</name>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Napaka pri odpiranju začasne datoteke za `%1`, vzrok:
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Napaka omrežja. Prenos datoteke `%1` ni uspel.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Kopiranje nekaterih prenesenih datotek v napravo ni uspelo. Preveri pomnilnik naprave.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Projekt `%1`, datoteka `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Sistemsko sporočilo:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>prekinjeno</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation>Lokalna pot ne obstaja</translation>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectsModel</name>
+    <message>
+        <source>Project busy.</source>
+        <translation>Projekt je zaseden.</translation>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation>QFieldCloud strežnik ni dosegljiv</translation>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation>QFieldCloud je v vzdrževanju</translation>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation>QFieldCloud storitev deluje omejeno</translation>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Prišlo je do napake omrežaj, poskusi ponovno.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected the json document to be an array of delta status</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object, but the element at #%1 is not</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unrecognized status &quot;%1&quot; for $%2</source>
+        <translation>Neprepoznan status &quot;%1&quot; za $%2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) created</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) edited</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) deleted</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCodeReader</name>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Čitalec kode</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation>Usmerite svojo napravo na kodo</translation>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterAngle</name>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterPoint</name>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation>nadmorska višina</translation>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation>nadmorska višina [Z]</translation>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5472,6 +5142,1053 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfDigitizingLogger</name>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing logs layer feature addition failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing logs layer change commits failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing logs layer editing failed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingToolbar</name>
+    <message>
+        <source>The collected positions count does not meet the requirement</source>
+        <translation>Število zbranih položajev neizpolnjuje zahteve</translation>
+    </message>
+    <message>
+        <source>Cancel digitizing</source>
+        <translation>Prekliči digitalizacijo</translation>
+    </message>
+    <message>
+        <source>Should the digitized geometry be discarded?</source>
+        <translation>Ali naj se digitalizirana geometrija zavrže?</translation>
+    </message>
+    <message>
+        <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
+        <translation>Natančnost položaja ne izpolnjuje minimalne zahteve, oglišče ni dodano</translation>
+    </message>
+</context>
+<context>
+    <name>QfDrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation>Prazno</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBase</name>
+    <message>
+        <source>Item Menu</source>
+        <translation>Elementi menija</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBinary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetCheckBox</name>
+    <message>
+        <source>True</source>
+        <translation>Pravilno</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Napačno</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Prazno</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetDateTime</name>
+    <message>
+        <source>(no date)</source>
+        <translation>(ni datuma)</translation>
+    </message>
+    <message>
+        <source>Date value set to today.</source>
+        <translation>Datum je nastavljen na današnji dan.</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetExternalResource</name>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Preberi več</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Prazno</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>No Value</source>
+        <translation>Brez vrednosti</translation>
+    </message>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation>Te vrste datoteke ne morem obdelati</translation>
+    </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation>Posnemi fotografijo</translation>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation>Posnemi videoposnetek</translation>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation>Posnemi zvočni posnetek</translation>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation>Priložite predmet iz galerije</translation>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation>Priložite datoteko</translation>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation>Nariši skico</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetRange</name>
+    <message>
+        <source>Empty</source>
+        <translation>Prazno</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetTextEdit</name>
+    <message>
+        <source>Empty</source>
+        <translation>Prazno</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Copy Text</source>
+        <translation>Kopiraj besedilo</translation>
+    </message>
+    <message>
+        <source>Paste Text</source>
+        <translation>Prilepi besedilo</translation>
+    </message>
+    <message>
+        <source>Scan Code</source>
+        <translation>Skeniraj kodo</translation>
+    </message>
+</context>
+<context>
+    <name>QfEgenioussReceiver</name>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation>Zagon strežnika egeniouss ni uspel.</translation>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation>Zaustavitev strežnika egeniouss ni uspela.</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>Analiza JSON-a ni uspela</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfElevationProfile</name>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>Izrisovanje višinskega profila...</translation>
+    </message>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>Digitaliziraj pot za izris višinskega profila</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>Kopiraj “%1” v odložišče</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>Kalkulator</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfExpressionVariableModel</name>
+    <message>
+        <source>Not Available</source>
+        <translation>Ni na voljo</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureForm</name>
+    <message>
+        <source>Previous page</source>
+        <translation>Prejšnja stran</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Shrani</translation>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation>Naslednja stran</translation>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation>Strogi pogoji niso izpolnjeni</translation>
+    </message>
+    <message>
+        <source>The last entered value for this field will be remembered and reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Value applied</source>
+        <translation>Vrednost je bila uporabljena</translation>
+    </message>
+    <message>
+        <source>Value skipped</source>
+        <translation>Vrednost ni bila uporabljena</translation>
+    </message>
+    <message>
+        <source> (click to toggle)</source>
+        <translation>(kliknite za preklop)</translation>
+    </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation>Mehki pogoji niso bili izpolnjeni</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unable to save changes</source>
+        <translation>Sprememb ni mogoče shraniti </translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Dodaj objekt v %1</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Uredi objekt v %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Poglej objekt v %1</translation>
+    </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel editing</source>
+        <translation>Prekliči urejanje</translation>
+    </message>
+    <message>
+        <source>You are about to dismiss the new feature, proceed?</source>
+        <translation>Zavrgel boš nov objekt. Želiš nadaljevati?</translation>
+    </message>
+    <message>
+        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
+        <translation>Zapustil boš stanje urejanja, vse spremembe bodo izgubljene. Želiš nadaljevati?</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation>Razveljavitev ustvarjenih objektov v sloju »%1« ni uspela</translation>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation>Razveljavitev izbrisanih objektov v sloju »%1« ni uspela</translation>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureListForm</name>
+    <message>
+        <source>Features</source>
+        <translation>Objekti</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation>Algoritni obelave</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Spremembe so shranjene</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Spremembe so zavržene</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation>Ustavi sledenje tega objekta, da urediš opisne podatke</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation>Ustavi sledenje tega objekta, da urediš njegovo geometrijo</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Objekt je bil uspešno podvojen</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to delete those</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to merge those</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Successfully duplicated selected features, list updated to show newly-created features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Na tej lokaciji ni objekta</translation>
+    </message>
+    <message>
+        <source>Merge feature(s)</source>
+        <translation>Spoji objekt(e)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be merge?
+
+The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
+        <comment>0</comment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully merged %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to merge %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation>Prenos atributov objekta</translation>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation>Atributi objekta prenešeni</translation>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation>Atributi objekta niso bili prenešeni</translation>
+    </message>
+    <message>
+        <source>Delete feature(s)</source>
+        <translation>Izbriši objekt(e)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be deleted?</source>
+        <comment>0</comment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully deleted %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>Vrednosti &quot;%1&quot; %4 ni mogoče pretvoriti v združljivo vrednost za polje %2(% 3).</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>Izraz privzete vrednosti za %1:%2 vsebuje napako razčlenjevalnika: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>Izraz privzete vrednosti za %1:%2 vsebuje napako vrednotenja: %3</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Ne morem posodobiti objekta</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>Objekt %1 ni dosegljiv po potrditvi</translation>
+    </message>
+    <message>
+        <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
+        <translation>Urejanja na sloju &quot;%1&quot;, da bi ustvaril objekt %2, ni mogoče začeti.</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
+%3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
+        <translation>Objekta %2 ni bilo mogoče dodati v sloj &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Ne morem shraniti sprememb. Razveljavljam.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Ne morem začeti z urejanjem</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Odpri obrazec</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Nastavi objekt kot cilj</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Objekt nima geometrije</translation>
+    </message>
+    <message>
+        <source>Features in all layers</source>
+        <translation>Objekti v vseh slojih</translation>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfFileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation>Pot do datoteke</translation>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation>Interval (v milisekundah)</translation>
+    </message>
+</context>
+<context>
+    <name>QfFinlandLocatorFilter</name>
+    <message>
+        <source>Finnish address search</source>
+        <translation>Iskanje naslovov na Finskem</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorErase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation>Geometrije ni bilo mogoče spremeniti v več delov</translation>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation>Geometrije ni bilo mogoče spremeniti</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorFillRing</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation>Obroč ni sklenjen</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation>Obroč ni pravilen</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation>Neznana napaka pri ustvarjanju obroča</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation>Zapolni obroč</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorReshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation>Geometrije ni bilo mogoče preoblikovati</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorSplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation>Objekta mi mogoče razdeliti</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorVertexEditor</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation>Objekta ni mogoče shraniti!</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorsToolbar</name>
+    <message>
+        <source>Vertex Tool</source>
+        <translation>Orodje za urejanje oglišč</translation>
+    </message>
+    <message>
+        <source>Split Tool</source>
+        <translation>Orodje za razdelitev</translation>
+    </message>
+    <message>
+        <source>Reshape Tool</source>
+        <translation>Orodje za preoblikovanje</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation>Orodje za brisanje</translation>
+    </message>
+    <message>
+        <source>Fill Ring Tool</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfGotoLocatorFilter</name>
+    <message>
+        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
+        <translation>Pojdi na %1%2 %3%4 (RKS karte, %5)</translation>
+    </message>
+    <message>
+        <source>Set navigation point</source>
+        <translation>Nastavi navigacijsko točko</translation>
+    </message>
+    <message>
+        <source>Go to %1°N %2°E (%3)</source>
+        <translation>Pojdi na %1°N %2°E (%3)</translation>
+    </message>
+    <message>
+        <source>Go to coordinate</source>
+        <translation>Pojdi na koordinate</translation>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfHelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation>QField dokumentacija</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfInformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation>Navigacija</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Določanje položaja</translation>
+    </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Senzorji</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation>Višinski profil</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationPopup</name>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerLoginDialog</name>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Uporabniško ime</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Geslo</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerObserver</name>
+    <message>
+        <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerTreeItemProperties</name>
+    <message>
+        <source>Expand group</source>
+        <translation>Razširi skupino</translation>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation>Razširi element legende</translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation>Ustavi sledenje</translation>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation>Nastavitev sledenja</translation>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Ta sloj ni veljaven. To je lahko posledica težave z omrežjem, manjkajoče datoteke ali napačne konfiguracije projekta.</translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation>Pokaži na karti</translation>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation>Pokaži oznake</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Transparentnost</translation>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation>Povečaj na skupino</translation>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation>Povečaj na nadrejeni sloj</translation>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation>Povečaj na sloj</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Pokaži seznam objektov</translation>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation>Sloj nima objektov</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>Sledenje na sloju %1 ustavljeno</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Sloj samo za branje</translation>
+    </message>
+    <message>
+        <source>feature addition</source>
+        <translation>dodajanje objekta</translation>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation>urejanje atributov</translation>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation>urejanje geometrije</translation>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation>brisanje objekta</translation>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>Pokaži meni objektov</translation>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Prikaži seznam vidnih slojev</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>Ne morem začeti z urejanjem, ni sloja</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Ne morem začeti z urejanjem</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>Ne morem izbrisati objekta %1</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Ne morem razveljaviti sprememb v sloju %1.</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>Kopiranje neveljavnega objekta ni mogoče</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Ne morem dodati novega objekta v sloj&quot;%1&quot;. Vzrok je %2.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>Sledenje omogočeno na tem sloju.</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>Sledenje na sloju %1 ustavljeno</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Ta sloj ni veljaven. To je lahko posledica težave z omrežjem, manjkajoče datoteke ali napačne konfiguracije projekta.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Ta sloj je konfiguriran &quot;Samo za branje&quot;, kar onemogoča dodajanje, brisanje in urejanje objektov.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLocalFilesModel</name>
+    <message>
+        <source>Home</source>
+        <translation>Domov</translation>
+    </message>
+    <message>
+        <source>QField files directory</source>
+        <translation>QField direktorij datotek</translation>
+    </message>
+    <message>
+        <source>Created projects</source>
+        <translation>Ustvarjeni projekti</translation>
+    </message>
+    <message>
+        <source>Imported projects</source>
+        <translation>Uvoženi projekti</translation>
+    </message>
+    <message>
+        <source>Imported datasets</source>
+        <translation>Uvožene zbirke podatkov</translation>
+    </message>
+    <message>
+        <source>Additional files directory</source>
+        <translation>Direktorij dodatnih datotek</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorFiltersModel</name>
+    <message>
+        <source>Search filters for your locations have been activated, customize results in the settings panel</source>
+        <translation>Filtri za iskanje za lokacije so bili aktivirani, rezultate prilagodiš na plošči z nastavitvami.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorItem</name>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLocatorSettings</name>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfMessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation>Dnevnik sporočil</translation>
+    </message>
+    <message>
+        <source>Message text copied</source>
+        <translation>Besedilo sporočila je kopirano</translation>
+    </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear message log</source>
+        <translation>Počistite dnevnik sporočil</translation>
+    </message>
+    <message>
+        <source>Message log cleared</source>
+        <translation>Dnevnik sporočil je počiščen</translation>
+    </message>
+    <message>
+        <source>Send application log</source>
+        <translation>Pošlji dnevnik aplikacije</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
@@ -5487,6 +6204,201 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfMultiFeatureListModelBase</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Ne morem začeti z urejanjem</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Ne morem razveljaviti sprememb v sloju %1.</translation>
+    </message>
+    <message>
+        <source>Cannot change geometry of feature %1 in %2</source>
+        <translation>Geometrije objekta %1 v %2 ni mogoče spremeniti</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationBar</name>
+    <message>
+        <source>Features</source>
+        <translation>Objekti</translation>
+    </message>
+    <message>
+        <source>Feature List Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle Feature Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to PDF</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Merge Selected Features</source>
+        <translation>Spoji izbrane objekte</translation>
+    </message>
+    <message>
+        <source>Move Selected Feature(s)</source>
+        <translation>Premakni izbrani objekt(e)</translation>
+    </message>
+    <message>
+        <source>Duplicate Selected Feature(s)</source>
+        <translation>Podvoji izbrani objekt(e)</translation>
+    </message>
+    <message>
+        <source>Delete Selected Feature(s)</source>
+        <translation>Izbriši izbrani objekt(e)</translation>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to Feature</source>
+        <translation>Povečava na objekt</translation>
+    </message>
+    <message>
+        <source>Auto-Zoom to Feature</source>
+        <translation>Samodejna povečava na objekt</translation>
+    </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Move Feature</source>
+        <translation>Premik objekta</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Podvoji objekt</translation>
+    </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>Zavrti objekt</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Izbriši objekt</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Natisni objekt(e) iz Atlasa</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Izberi predlogo spodaj</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Tiskam...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfNavigationInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>Dist.</source>
+        <translation>Razdal.</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Ni na voljo</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfNtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfOrderedRelationModel</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Ne morem začeti z urejanjem</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Ne morem razveljaviti sprememb v sloju %1.</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation>Ne morem potrditi sprememb v sloju %1.</translation>
+    </message>
+    <message>
+        <source>Cannot update features ordering</source>
+        <translation>Ne morem posodobiti vrstnega reda objektov</translation>
+    </message>
+</context>
+<context>
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
@@ -5494,10 +6406,816 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfOverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Spremembe so shranjene</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Spremembe so zavržene</translation>
+    </message>
+</context>
+<context>
+    <name>QfPlatformUtilities</name>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Potrditev izbrisa</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation>Podatkovni niz bo izbrisan, naj nadaljujem z odstranitvijo?</translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation>Mapa projekta bo izbrisana. Želiš nadaljevati z brisanjem?</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation>Izberi sliko</translation>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation>Vse slike (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</translation>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation>Izberi video datoteko</translation>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation>Vsi videi (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation>Izberi datoteko</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation>Odpri datoteko</translation>
+    </message>
+    <message>
+        <source>All Supported Files</source>
+        <translation>Vse podprte datoteke</translation>
+    </message>
+    <message>
+        <source>QGIS Project Files</source>
+        <translation>QGIS projektne datoteke</translation>
+    </message>
+    <message>
+        <source>Vector Datasets</source>
+        <translation>Vektorske zbirke podatkov</translation>
+    </message>
+    <message>
+        <source>Raster Datasets</source>
+        <translation>Rastrske zbirke podatkov</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Notranja naprava</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceSettings</name>
+    <message>
+        <source>Egeniouss</source>
+        <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation>Nastavitev naprave za določanje položaja</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation>Vrsta povezave</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Ime</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation>(usti prazno, da se samodejno izpolni)</translation>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation>Podrobnosti povezave</translation>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation>TCP (NMEA)</translation>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
+        <translation>UDP (NMEA)</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationModel</name>
+    <message>
+        <source>Altitude</source>
+        <translation>Nadmorska višina</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Hitrost</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>H natančnost</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>V natančnost</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Ni na voljo</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>Ni na voljo</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Vrata</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Uporabniško ime</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Geslo</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningPreciseView</name>
+    <message>
+        <source>Dist.</source>
+        <translation>Razdal.</translation>
+    </message>
+    <message>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation>Natančnost določanja položaja je prenizka za to raven natančnosti</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningSettings</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Notranja naprava</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>Splošni Parametri</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>Napredni Parametri</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Pomoč</translation>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation>Temu algoritmu niso dodeljeni splošni parametri.</translation>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation>Opis algoritma</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Priljubljeno</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>Vsi algoritmi</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterArea</name>
+    <message>
+        <source>square degrees</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;unknown&gt;</translation>
+    </message>
+    <message>
+        <source>sqr. meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. kilometers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. feet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. yards</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>hectares</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>acres</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. nautical miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. centimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. millimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. inches</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterBoolean</name>
+    <message>
+        <source>True</source>
+        <translation>Pravilno</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Napačno</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterDistance</name>
+    <message>
+        <source>degrees</source>
+        <translation>stopinje</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;unknown&gt;</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>metri</translation>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation>kilometri</translation>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation>čevlji</translation>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation>jardi</translation>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation>milje</translation>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation>morske milje</translation>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation>centimetri</translation>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation>milimetri</translation>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation>inči</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation>Ustvari nov projekt</translation>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation>Ime novega projekta</translation>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation>Izberi svojo temeljno karto</translation>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation>Izberi temeljno karto za svoj projekt. Izberi eno izmed razpoložljivih možnosti ali vnesi svoj URL-naslov.</translation>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation>Večbarvno</translation>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation>Temnosivo</translation>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation>Svetlosivo</translation>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>Prazno</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Po meri</translation>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation>URL temeljne karte po meri</translation>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation>Zajemi slikovene in video priloge</translation>
+    </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation>Sledim tvojemu položaju?</translation>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation>Več o QFieldCloud-u si preberite tukaj</translation>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation>Ustvari projekt</translation>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation>Moj projekt</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation>Opombe</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Točka</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Opis</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Čas</translation>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Naslov</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Opomba</translation>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation>Sledi</translation>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation>Temeljna karta</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation>Priloge</translation>
+    </message>
+</context>
+<context>
+    <name>QfReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation>Ne morem izbisati objekta</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationCombobox</name>
+    <message>
+        <source>Empty</source>
+        <translation>Prazno</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Neveljavna relacija</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationEditorBase</name>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Izbriši objekt</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Ali naj bo objekt&lt;b&gt; %1 (%2) &lt;/b&gt;na sloju &lt;b&gt;%3&lt;/b&gt; nepovezan? &lt;br&gt;&lt;i&gt;(Na sloju &lt;b&gt;%4&lt;/b&gt; bo povezava izbrisana)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Ali izbrišem objekt &lt;b&gt;%1 (%2)&lt;/b&gt; na sloju &lt;b&gt;%3&lt;/b&gt;?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Brisanje referenčnega objekta ni uspelo</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation>Podmeni</translation>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation>Odpri obrazec</translation>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Kopiraj atribute objekta</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>Natisni objekt(e) iz Atlasa</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Izberi predlogo spodaj</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Tiskam...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfScaleBarMeasurement</name>
+    <message>
+        <source>Unknown</source>
+        <translation>Neznano</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
         <translation>Iskanje</translation>
+    </message>
+</context>
+<context>
+    <name>QfSensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>Ni na voljo</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>Izberite serijska vrata iz spodnjega seznama:</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>Osveži seznam</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>Prikazno ime serijskih vrat:</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>Naslov serijskih vrat:</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfTcpDeviceChooser</name>
+    <message>
+        <source>IP address</source>
+        <translation>IP naslov</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Vrata</translation>
+    </message>
+</context>
+<context>
+    <name>QfTcpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfTemporalProperties</name>
+    <message>
+        <source>Temporal Properties</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable temporal filter</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5513,6 +7231,260 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Seconds</source>
         <translation>Sekunde</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerFeatureForm</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>Sledenje na sloju % 1 se je začelo</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerSettings</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Sledenje</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation>Sloj</translation>
+    </message>
+    <message>
+        <source>Requirement Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance requirement</source>
+        <translation>Zahtevana razdalja</translation>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor data requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait for all active requirements</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation>Splošne nastavitve</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Potovalna hitrost</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horizontalna natančnost</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Vertikalna natančnost</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Začni sledenje</translation>
+    </message>
+    <message>
+        <source>Resume tracking</source>
+        <translation>Nadaljuj sledenje</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation>Sledenje na sloju %1 se je nadaljevalo</translation>
+    </message>
+</context>
+<context>
+    <name>QfUdpDeviceChooser</name>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Vrata</translation>
+    </message>
+</context>
+<context>
+    <name>QfUdpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation>Napaka sprejemnika UDP (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfVariableEditor</name>
+    <message>
+        <source>Global variables</source>
+        <translation>Globalne spremenljivke</translation>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation>Projektne spremenljivke</translation>
+    </message>
+    <message>
+        <source>Enter value</source>
+        <translation>Vpiši vrednost</translation>
+    </message>
+    <message>
+        <source>Add a new variable</source>
+        <translation>Dodaj novo spremenljivko</translation>
+    </message>
+</context>
+<context>
+    <name>QfWebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5555,6 +7527,679 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in browse mode</source>
+        <translation>Način za pregled opisnih podatkov</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode on layer %1</source>
+        <translation>Zdaj si v načinu digitalizacije na sloju %1</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation>Zdaj si v načinu digitalizacije</translation>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation>Sedaj uporabljaš orodje za merjenje</translation>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
+        <translation>Napaka naprave za določanje lokacije: %1</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activating positioning service</source>
+        <translation>Aktiviranje lociranja</translation>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation>Nalaganje 3D pogleda ni uspelo</translation>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor unlocked</source>
+        <translation>Kazalec koordinat je odklenjen</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation>Prikaz karta je odklenjen</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation>Prikaz karte je zaklenjen na lokacijo in smer kompasa</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation>Prikaz karte je zaklenjen na lokacijo in smer gibanja</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation>Prikaz karte je zaklenjen na lokacijo</translation>
+    </message>
+    <message>
+        <source>My location</source>
+        <translation>Moja lokacija</translation>
+    </message>
+    <message>
+        <source>Accuracy</source>
+        <translation>Natančnost</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>metri</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Ni na voljo</translation>
+    </message>
+    <message>
+        <source>Current location copied to clipboard</source>
+        <translation>Trenutna lokacija je kopirana v odložišče</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Preberi več</translation>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>Odsek</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Dolžina</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>Azimut</translation>
+    </message>
+    <message>
+        <source>Perimeter</source>
+        <translation>Obseg</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>Površina</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Zapri orodje za merjenje</translation>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation>Zapri 3D pogled</translation>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation>Zaustavi urejanje</translation>
+    </message>
+    <message>
+        <source>Cancel addition</source>
+        <translation>Prekliči dodajanje</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Topological editing turned on</source>
+        <translation>Topološko urejanje vklopljeno</translation>
+    </message>
+    <message>
+        <source>Topological editing turned off</source>
+        <translation>Topološko urejanje izklopljeno</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned on</source>
+        <translation>Prostoročno digitaliziranje vklopljeno</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned off</source>
+        <translation>Prostoročno digitaliziranje izklopljeno </translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation>Relativni kot</translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Veliko</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation>Čakam na lokacijo</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation>Prikaz karte sledi lokaciji in smeri kompasa</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation>Prikaz karte sledi lokaciji in smeri gibanja</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation>Prikaz karte sledi lokaciji</translation>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Tiskam...</translation>
+    </message>
+    <message>
+        <source>Main Menu</source>
+        <translation>Glavni meni</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Senzorji</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Nastavitve</translation>
+    </message>
+    <message>
+        <source>Message Log</source>
+        <translation>Dnevnik sporočil</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Zakleni zaslon</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>Spodaj izberite senzor</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>Napaka senzorja: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>Odklop senzorja &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>Povezovanje senzorja &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Tiskanje</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas Options</source>
+        <translation>Možnosti prikaza karte</translation>
+    </message>
+    <message>
+        <source>Coordinates copied to clipboard</source>
+        <translation>Koordinate so kopirane v odložišče</translation>
+    </message>
+    <message>
+        <source>Add Bookmark</source>
+        <translation>Dodaj zaznamek</translation>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Zaznamek brez naslova</translation>
+    </message>
+    <message>
+        <source>Set as Destination</source>
+        <translation>Nastavi kot cilj</translation>
+    </message>
+    <message>
+        <source>Enable Map Rotation</source>
+        <translation>Omogoči vrtenje karte</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Sloj:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Objekt:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation>Kopiraj objekt</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Podvoji objekt</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Objekt je bil uspešno podvojen</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation>Prilepi v sloj</translation>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation>Objekt je bil uspešno prilepljen</translation>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation>Objekta ni bilo mogoče prilepiti v sloj</translation>
+    </message>
+    <message>
+        <source>Navigation Options</source>
+        <translation>Možnosti navigacije</translation>
+    </message>
+    <message>
+        <source>Always Show Precise View</source>
+        <translation>Vedno pokaži natančen pogled</translation>
+    </message>
+    <message>
+        <source>Clear Destination</source>
+        <translation>Počisti cilj</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Nastavitve lokacije</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Omogočite lokacijo</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Settings</source>
+        <translation>Nastavitve lokacije</translation>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation>Pokaži informacije o lokaciji</translation>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation>Zakleni prikaz karte na lokacijo</translation>
+    </message>
+    <message>
+        <source>Add Bookmark at Location</source>
+        <translation>Dodaj zaznamek na lokaciji</translation>
+    </message>
+    <message>
+        <source>Copy Location Coordinates</source>
+        <translation>Kopiraj koordinate lokacije</translation>
+    </message>
+    <message>
+        <source>Current layer switched to the one holding the selected geometry.</source>
+        <translation>Preklop trenutnega sloja na tistega, ki vsebuje izbrano geometrijo.</translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation>Zaklep prikaza karte je začasno ustavljen</translation>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Uvažam %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>Uvoz URL ni uspel</translation>
+    </message>
+    <message>
+        <source>Loading %1</source>
+        <translation>Nalaganje %1</translation>
+    </message>
+    <message>
+        <source>Signed out</source>
+        <translation>Odjavljen</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Povezovanje...</translation>
+    </message>
+    <message>
+        <source>Signed in</source>
+        <translation>Prijavljen</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Povečaj pomnilnik</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 failed to download</source>
+        <translation>Projekta %1 ni bilo mogoče prenesti</translation>
+    </message>
+    <message>
+        <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
+        <translation>Projekt %1 je bil uspešno prenesen, zdaj ga je mogoče odpreti</translation>
+    </message>
+    <message>
+        <source>Changes failed to reach QFieldCloud: %1</source>
+        <translation>Spremembe se niso prenesle v QFieldCloud: %1</translation>
+    </message>
+    <message>
+        <source>Changes successfully pushed to QFieldCloud</source>
+        <translation>Spremembe so bile uspešno poslane v QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Press back again to close project and app</source>
+        <translation>Pritisni nazaj še enkrat, da zapreš projekt in aplikacijo.</translation>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source> Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation>Zapomni si mojo izbiro</translation>
+    </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Določanje položaja</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Iskanje</translation>
+    </message>
+    <message>
+        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing toggle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Legenda</translation>
+    </message>
+    <message>
+        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measurement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
+        <translation>Izvozi karto v PDF z uporabo nastavitev tiskanja projekta in nastavitev atlasa.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project folder</source>
+        <translation>Mapa projekta</translation>
+    </message>
+    <message>
+        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5622,12 +8267,8 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>Range</name>
     <message>
-        <source>Empty</source>
-        <translation>Prazno</translation>
-    </message>
-    <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5665,7 +8306,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>Ne morem izbisati objekta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -5684,58 +8325,34 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Invalid relation</source>
-        <translation>Neveljavna relacija</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Prazno</translation>
+        <translation type="vanished">Neveljavna relacija</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Adding child feature in layer %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlink Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Delete Feature</source>
-        <translation>Izbriši objekt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Ali naj bo objekt&lt;b&gt; %1 (%2) &lt;/b&gt;na sloju &lt;b&gt;%3&lt;/b&gt; nepovezan? &lt;br&gt;&lt;i&gt;(Na sloju &lt;b&gt;%4&lt;/b&gt; bo povezava izbrisana)&lt;/i&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Ali izbrišem objekt &lt;b&gt;%1 (%2)&lt;/b&gt; na sloju &lt;b&gt;%3&lt;/b&gt;?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>Brisanje referenčnega objekta ni uspelo</translation>
-    </message>
-    <message>
-        <source>Child Menu</source>
-        <translation>Podmeni</translation>
-    </message>
-    <message>
-        <source>Copy Feature Attributes</source>
-        <translation>Kopiraj atribute objekta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -5743,34 +8360,26 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>Natisni objekt(e) iz Atlasa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Izberi predlogo spodaj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Tiskam...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
         <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Open Form</source>
-        <translation>Odpri obrazec</translation>
     </message>
 </context>
 <context>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>Geometrije ni bilo mogoče preoblikovati</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5784,21 +8393,21 @@ Cancel to make a minimal device scan instead.</source>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation>Neznano</translation>
+        <translation type="vanished">Neznano</translation>
     </message>
 </context>
 <context>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>Ni na voljo</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation>Izberite serijska vrata iz spodnjega seznama:</translation>
+        <translation type="vanished">Izberite serijska vrata iz spodnjega seznama:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
@@ -5806,15 +8415,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation>Osveži seznam</translation>
+        <translation type="vanished">Osveži seznam</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation>Prikazno ime serijskih vrat:</translation>
+        <translation type="vanished">Prikazno ime serijskih vrat:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation>Naslov serijskih vrat:</translation>
+        <translation type="vanished">Naslov serijskih vrat:</translation>
     </message>
 </context>
 <context>
@@ -5840,7 +8449,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>Objekta mi mogoče razdeliti</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5867,14 +8476,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Port:</source>
         <translation type="vanished">Vrata:</translation>
     </message>
-    <message>
-        <source>IP address</source>
-        <translation>IP naslov</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Vrata</translation>
-    </message>
 </context>
 <context>
     <name>TcpReceiver</name>
@@ -5896,7 +8497,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+        <translation type="vanished">Oddaljenega gostitelja ni bilo mogoče najti </translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -5912,10 +8513,6 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5934,92 +8531,36 @@ Cancel to make a minimal device scan instead.</source>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation>Kopiraj besedilo</translation>
+        <translation type="vanished">Kopiraj besedilo</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation>Prilepi besedilo</translation>
+        <translation type="vanished">Prilepi besedilo</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation>Skeniraj kodo</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Prazno</translation>
+        <translation type="vanished">Skeniraj kodo</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Sledenje na sloju % 1 se je začelo</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerSettings</name>
     <message>
-        <source>Tracking</source>
-        <translation>Sledenje</translation>
-    </message>
-    <message>
-        <source>Requirement Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Minimum time [sec]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Distance requirement</source>
-        <translation>Zahtevana razdalja</translation>
-    </message>
-    <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>General Settings</source>
-        <translation>Splošne nastavitve</translation>
-    </message>
-    <message>
-        <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6036,7 +8577,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Potovalna hitrost</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
@@ -6044,23 +8585,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Horizontalna natančnost</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Vertikalna natančnost</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
@@ -6068,42 +8609,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>Začni sledenje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Resume tracking</source>
-        <translation>Nadaljuj sledenje</translation>
-    </message>
-    <message>
-        <source>Layer</source>
-        <translation>Sloj</translation>
-    </message>
-    <message>
-        <source>Track on layer %1 resumed</source>
-        <translation>Sledenje na sloju %1 se je nadaljevalo</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sec</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum distance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6283,14 +8792,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Port:</source>
         <translation type="vanished">Port:</translation>
     </message>
-    <message>
-        <source>Address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Vrata</translation>
-    </message>
 </context>
 <context>
     <name>UdpReceiver</name>
@@ -6312,7 +8813,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Oddaljenega gostitelja ni bilo mogoče najti </translation>
+        <translation type="vanished">Oddaljenega gostitelja ni bilo mogoče najti </translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
@@ -6324,7 +8825,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Napaka sprejemnika UDP (%1)</translation>
+        <translation type="vanished">Napaka sprejemnika UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -6346,26 +8847,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enter value</source>
-        <translation>Vpiši vrednost</translation>
+        <translation type="vanished">Vpiši vrednost</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation>Dodaj novo spremenljivko</translation>
-    </message>
-    <message>
-        <source>Global variables</source>
-        <translation>Globalne spremenljivke</translation>
-    </message>
-    <message>
-        <source>Project variables</source>
-        <translation>Projektne spremenljivke</translation>
+        <translation type="vanished">Dodaj novo spremenljivko</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Objekta ni mogoče shraniti!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6373,73 +8866,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Objekta ni mogoče shraniti!</translation>
-    </message>
-</context>
-<context>
-    <name>WebdavConnection</name>
-    <message>
-        <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload finished.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local paths provided.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No stored password available.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local changes detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload skipped.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6585,123 +9011,14 @@ project</source>
     </message>
 </context>
 <context>
-    <name>angle</name>
-    <message>
-        <source>deg</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>area</name>
-    <message>
-        <source>square degrees</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
-    </message>
-    <message>
-        <source>sqr. meters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. feet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. yards</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>hectares</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>acres</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. inches</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>boolean</name>
     <message>
         <source>True</source>
-        <translation>Pravilno</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>False</source>
-        <translation>Napačno</translation>
-    </message>
-</context>
-<context>
-    <name>distance</name>
-    <message>
-        <source>degrees</source>
-        <translation>stopinje</translation>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>metri</translation>
-    </message>
-    <message>
-        <source>kilometers</source>
-        <translation>kilometri</translation>
-    </message>
-    <message>
-        <source>feet</source>
-        <translation>čevlji</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>jardi</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>milje</translation>
-    </message>
-    <message>
-        <source>nautical miles</source>
-        <translation>morske milje</translation>
-    </message>
-    <message>
-        <source>centimeters</source>
-        <translation>centimetri</translation>
-    </message>
-    <message>
-        <source>millimeters</source>
-        <translation>milimetri</translation>
-    </message>
-    <message>
-        <source>inches</source>
-        <translation>inči</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6755,105 +9072,74 @@ project</source>
     </message>
 </context>
 <context>
-    <name>point</name>
-    <message>
-        <source>latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>elevation</source>
-        <translation>nadmorska višina</translation>
-    </message>
-    <message>
-        <source>easting [X]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>northing [Y]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>elevation [Z]</source>
-        <translation>nadmorska višina [Z]</translation>
-    </message>
-    <message>
-        <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Način za pregled opisnih podatkov</translation>
+        <translation type="vanished">Način za pregled opisnih podatkov</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Zdaj si v načinu digitalizacije na sloju %1</translation>
+        <translation type="vanished">Zdaj si v načinu digitalizacije na sloju %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Zdaj si v načinu digitalizacije</translation>
+        <translation type="vanished">Zdaj si v načinu digitalizacije</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Sedaj uporabljaš orodje za merjenje</translation>
+        <translation type="vanished">Sedaj uporabljaš orodje za merjenje</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Odsek</translation>
+        <translation type="vanished">Odsek</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Obseg</translation>
+        <translation type="vanished">Obseg</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Dolžina</translation>
+        <translation type="vanished">Dolžina</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Površina</translation>
+        <translation type="vanished">Površina</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Zapri orodje za merjenje</translation>
+        <translation type="vanished">Zapri orodje za merjenje</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Zaustavi urejanje</translation>
+        <translation type="vanished">Zaustavi urejanje</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Prekliči dodajanje</translation>
+        <translation type="vanished">Prekliči dodajanje</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topološko urejanje vklopljeno</translation>
+        <translation type="vanished">Topološko urejanje vklopljeno</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Topološko urejanje izklopljeno</translation>
+        <translation type="vanished">Topološko urejanje izklopljeno</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Prostoročno digitaliziranje vklopljeno</translation>
+        <translation type="vanished">Prostoročno digitaliziranje vklopljeno</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Prostoročno digitaliziranje izklopljeno </translation>
+        <translation type="vanished">Prostoročno digitaliziranje izklopljeno </translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -6861,7 +9147,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Kazalec koordinat je odklenjen</translation>
+        <translation type="vanished">Kazalec koordinat je odklenjen</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -6877,7 +9163,7 @@ project</source>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Čakam na lokacijo</translation>
+        <translation type="vanished">Čakam na lokacijo</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -6901,7 +9187,7 @@ project</source>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Glavni meni</translation>
+        <translation type="vanished">Glavni meni</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -6929,11 +9215,11 @@ project</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Nastavitve</translation>
+        <translation type="vanished">Nastavitve</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Dnevnik sporočil</translation>
+        <translation type="vanished">Dnevnik sporočil</translation>
     </message>
     <message>
         <source>About QField</source>
@@ -6945,7 +9231,7 @@ project</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Aktiviranje lociranja</translation>
+        <translation type="vanished">Aktiviranje lociranja</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -6953,15 +9239,15 @@ project</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Možnosti prikaza karte</translation>
+        <translation type="vanished">Možnosti prikaza karte</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Dodaj zaznamek</translation>
+        <translation type="vanished">Dodaj zaznamek</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Nastavi kot cilj</translation>
+        <translation type="vanished">Nastavi kot cilj</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -6969,7 +9255,7 @@ project</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Zaznamek brez naslova</translation>
+        <translation type="vanished">Zaznamek brez naslova</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -6989,7 +9275,7 @@ project</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Koordinate so kopirane v odložišče</translation>
+        <translation type="vanished">Koordinate so kopirane v odložišče</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -7021,7 +9307,7 @@ project</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Vedno pokaži natančen pogled</translation>
+        <translation type="vanished">Vedno pokaži natančen pogled</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -7029,19 +9315,19 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Dodaj zaznamek na lokaciji</translation>
+        <translation type="vanished">Dodaj zaznamek na lokaciji</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Kopiraj koordinate lokacije</translation>
+        <translation type="vanished">Kopiraj koordinate lokacije</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Odjavljen</translation>
+        <translation type="vanished">Odjavljen</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Prijavljen</translation>
+        <translation type="vanished">Prijavljen</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -7049,11 +9335,11 @@ project</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Možnosti navigacije</translation>
+        <translation type="vanished">Možnosti navigacije</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Počisti cilj</translation>
+        <translation type="vanished">Počisti cilj</translation>
     </message>
     <message>
         <source>%1 Precision</source>
@@ -7065,19 +9351,19 @@ project</source>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Nastavitve lokacije</translation>
+        <translation type="vanished">Nastavitve lokacije</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Omogočite lokacijo</translation>
+        <translation type="vanished">Omogočite lokacijo</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Pokaži informacije o lokaciji</translation>
+        <translation type="vanished">Pokaži informacije o lokaciji</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Nastavitve lokacije</translation>
+        <translation type="vanished">Nastavitve lokacije</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -7093,7 +9379,7 @@ project</source>
     </message>
     <message>
         <source>My location</source>
-        <translation>Moja lokacija</translation>
+        <translation type="vanished">Moja lokacija</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -7101,19 +9387,19 @@ project</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Natančnost</translation>
+        <translation type="vanished">Natančnost</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>Ni na voljo</translation>
+        <translation type="vanished">Ni na voljo</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Trenutna lokacija je kopirana v odložišče</translation>
+        <translation type="vanished">Trenutna lokacija je kopirana v odložišče</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Preklop trenutnega sloja na tistega, ki vsebuje izbrano geometrijo.</translation>
+        <translation type="vanished">Preklop trenutnega sloja na tistega, ki vsebuje izbrano geometrijo.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
@@ -7121,7 +9407,7 @@ project</source>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Nalaganje %1</translation>
+        <translation type="vanished">Nalaganje %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -7129,7 +9415,7 @@ project</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Povezovanje...</translation>
+        <translation type="vanished">Povezovanje...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -7137,23 +9423,23 @@ project</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Projekta %1 ni bilo mogoče prenesti</translation>
+        <translation type="vanished">Projekta %1 ni bilo mogoče prenesti</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Projekt %1 je bil uspešno prenesen, zdaj ga je mogoče odpreti</translation>
+        <translation type="vanished">Projekt %1 je bil uspešno prenesen, zdaj ga je mogoče odpreti</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Spremembe se niso prenesle v QFieldCloud: %1</translation>
+        <translation type="vanished">Spremembe se niso prenesle v QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Spremembe so bile uspešno poslane v QFieldCloud</translation>
+        <translation type="vanished">Spremembe so bile uspešno poslane v QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Pritisni nazaj še enkrat, da zapreš projekt in aplikacijo.</translation>
+        <translation type="vanished">Pritisni nazaj še enkrat, da zapreš projekt in aplikacijo.</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -7161,11 +9447,11 @@ project</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Azimut</translation>
+        <translation type="vanished">Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Zakleni zaslon</translation>
+        <translation type="vanished">Zakleni zaslon</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -7173,54 +9459,22 @@ project</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Tiskam...</translation>
+        <translation type="vanished">Tiskam...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Tiskanje</translation>
+        <translation type="vanished">Tiskanje</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Napaka naprave za določanje lokacije: %1</translation>
+        <translation type="vanished">Napaka naprave za določanje lokacije: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Podvoji objekt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Objekt je bil uspešno podvojen</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Relative angle</source>
-        <translation>Relativni kot</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Preberi več</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Senzorji</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7228,115 +9482,7 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Select sensor below</source>
-        <translation>Spodaj izberite senzor</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation>Napaka senzorja: %1</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>Odklop senzorja &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>Povezovanje senzorja &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>Sloj:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>Objekt:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>Uvažam %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>Uvoz URL ni uspel</translation>
-    </message>
-    <message>
-        <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remember my choice</source>
-        <translation>Zapomni si mojo izbiro</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable Map Rotation</source>
-        <translation>Omogoči vrtenje karte</translation>
-    </message>
-    <message>
-        <source>Dashboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>Določanje položaja</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Iskanje</translation>
-    </message>
-    <message>
-        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7344,300 +9490,7 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Undo</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping to every</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Veliko</translation>
-    </message>
-    <message>
-        <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Confirmation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Permission</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source> Project Plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to create feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to save feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Measurement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation>Izvozi karto v PDF z uporabo nastavitev tiskanja projekta in nastavitev atlasa.</translation>
-    </message>
-    <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project folder</source>
-        <translation>Mapa projekta</translation>
-    </message>
-    <message>
-        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Legenda</translation>
-    </message>
-    <message>
-        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Feature</source>
-        <translation>Kopiraj objekt</translation>
-    </message>
-    <message>
-        <source>Cut Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature pasted successfully</source>
-        <translation>Objekt je bil uspešno prilepljen</translation>
-    </message>
-    <message>
-        <source>Failed to paste feature into layer</source>
-        <translation>Objekta ni bilo mogoče prilepiti v sloj</translation>
-    </message>
-    <message>
-        <source>Paste Into Layer</source>
-        <translation>Prilepi v sloj</translation>
-    </message>
-    <message>
-        <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas unlocked</source>
-        <translation>Prikaz karta je odklenjen</translation>
-    </message>
-    <message>
-        <source>Map canvas locked to location</source>
-        <translation>Prikaz karte je zaklenjen na lokacijo</translation>
-    </message>
-    <message>
-        <source>Map canvas locked to location and compass orientation</source>
-        <translation>Prikaz karte je zaklenjen na lokacijo in smer kompasa</translation>
-    </message>
-    <message>
-        <source>Map canvas follows location and compass orientation</source>
-        <translation>Prikaz karte sledi lokaciji in smeri kompasa</translation>
-    </message>
-    <message>
-        <source>Map canvas follows location</source>
-        <translation>Prikaz karte sledi lokaciji</translation>
-    </message>
-    <message>
-        <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock Map Canvas to Location</source>
-        <translation>Zakleni prikaz karte na lokacijo</translation>
-    </message>
-    <message>
-        <source>Map canvas lock paused</source>
-        <translation>Zaklep prikaza karte je začasno ustavljen</translation>
-    </message>
-    <message>
-        <source>Tap on your location marker
-to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Stop all</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location and movement direction</source>
-        <translation>Prikaz karte je zaklenjen na lokacijo in smer gibanja</translation>
-    </message>
-    <message>
-        <source>Map canvas follows location and movement direction</source>
-        <translation>Prikaz karte sledi lokaciji in smeri gibanja</translation>
-    </message>
-    <message>
-        <source>Failed to load 3D view</source>
-        <translation>Nalaganje 3D pogleda ni uspelo</translation>
-    </message>
-    <message>
-        <source>Loading terrain...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Close 3D view</source>
-        <translation>Zapri 3D pogled</translation>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Povečaj pomnilnik</translation>
-    </message>
-    <message>
-        <source>Plugin Manager</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade plan</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>metri</translation>
-    </message>
-    <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

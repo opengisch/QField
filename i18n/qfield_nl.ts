@@ -38,119 +38,107 @@
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Succesvol verbonden</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Verbroken</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket status %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
-        <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation>Beperk de zoekopdracht tot het veld &apos;%1&apos;</translation>
-    </message>
-    <message>
         <source>Open form</source>
-        <translation>Open formulier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Object instellen als bestemming</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Object heeft geen geometrie</translation>
-    </message>
-    <message>
-        <source>Features from active layer</source>
-        <translation>Objecten van de actieve laag</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>Geeft een lijst van objecten van de actieve laag met overeenkomende eigenschappen. Het zoeken op een enkele eigenschap is mogelijk door de naam toe te voegen voorafgegaan door een &apos;@&apos;.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>Bestand %1 bestaat niet</translation>
+        <translation type="vanished">Bestand %1 bestaat niet</translation>
     </message>
 </context>
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>Geen transformatie beschikbaar tussen %1 en %2</translation>
+        <translation type="vanished">Geen transformatie beschikbaar tussen %1 en %2</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Dit raster is onderdeel van het “&lt;i&gt;%1&lt;/i&gt;” pakket, beschikbaar om te downloaden van &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation type="vanished">Dit raster is onderdeel van het “&lt;i&gt;%1&lt;/i&gt;” pakket, beschikbaar om te downloaden van &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>Dit raster is beschikbaar voor download van &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+        <translation type="vanished">Dit raster is beschikbaar voor download van &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>projectie</translation>
+        <translation type="vanished">projectie</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation>Deze transformatie vereist het rasterbestand &quot;%1&quot;, dat niet beschikbaar is voor gebruik op het systeem.</translation>
+        <translation type="vanished">Deze transformatie vereist het rasterbestand &quot;%1&quot;, dat niet beschikbaar is voor gebruik op het systeem.</translation>
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Dit raster is onderdeel van het &lt;i&gt;%1&lt;/i&gt; pakket, beschikbaar voor download van &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation type="vanished">Dit raster is onderdeel van het &lt;i&gt;%1&lt;/i&gt; pakket, beschikbaar voor download van &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Huidige transformatie &quot;&lt;i&gt;%1&lt;/i&gt;&quot; heeft een nauwkeurigheid van %2 meter, terwijl de voorkeurstransformatie &quot;&lt;i&gt;%3&lt;/i&gt;&quot; een nauwkeurigheid van %4 meter heeft.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Huidige transformatie &quot;&lt;i&gt;%1&lt;/i&gt;&quot; heeft een nauwkeurigheid van %2 meter, terwijl de voorkeurstransformatie &quot;&lt;i&gt;%3&lt;/i&gt;&quot; een nauwkeurigheid van %4 meter heeft.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Huidige transformatie &lt;i&gt;&quot;%1&quot;&lt;/i&gt; heeft een onbekende nauwkeurigheid, terwijl de voorkeurstransformatie &lt;i&gt;&quot;%2&quot;&lt;/i&gt; een nauwkeurigheid van %3 meter heeft.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Huidige transformatie &lt;i&gt;&quot;%1&quot;&lt;/i&gt; heeft een onbekende nauwkeurigheid, terwijl de voorkeurstransformatie &lt;i&gt;&quot;%2&quot;&lt;/i&gt; een nauwkeurigheid van %3 meter heeft.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;De voorkeurstransformatie tussen &lt;i&gt;%1&lt;/i&gt; en &lt;i&gt;%2&lt;/i&gt; is niet beschikbaar voor gebruik op het systeem.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;De voorkeurstransformatie tussen &lt;i&gt;%1&lt;/i&gt; en &lt;i&gt;%2&lt;/i&gt; is niet beschikbaar voor gebruik op het systeem.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation>Er is geen transformatie beschikbaar tussen &lt;i&gt;%1&lt;/i&gt; en &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
+        <translation type="vanished">Er is geen transformatie beschikbaar tussen &lt;i&gt;%1&lt;/i&gt; en &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>Kan geen projecttransformatie gebruiken tussen %1 en %2</translation>
+        <translation type="vanished">Kan geen projecttransformatie gebruiken tussen %1 en %2</translation>
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>Gebruikt een ruwe schatting-transformatie van %1 naar %2</translation>
+        <translation type="vanished">Gebruikt een ruwe schatting-transformatie van %1 naar %2</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>Expressiebeperking</translation>
+        <translation type="vanished">Expressiebeperking</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Niet NULL</translation>
+        <translation type="vanished">Niet NULL</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>Uniek</translation>
+        <translation type="vanished">Uniek</translation>
     </message>
 </context>
 <context>
@@ -184,13 +172,6 @@
     </message>
 </context>
 <context>
-    <name>Binary</name>
-    <message>
-        <source>(Blob)</source>
-        <translation>(Blob)</translation>
-    </message>
-</context>
-<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -198,23 +179,23 @@
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>Scannen naar gekoppelde apparaten</translation>
+        <translation type="vanished">Scannen naar gekoppelde apparaten</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>Scannen mislukt: %1</translation>
+        <translation type="vanished">Scannen mislukt: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>Scannen gereed</translation>
+        <translation type="vanished">Scannen gereed</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>%n apparaat gevonden</numerusform><numerusform>%n apparaten gevonden</numerusform></translation>
+        <translation type="vanished"><numerusform>%n apparaat gevonden</numerusform><numerusform>%n apparaten gevonden</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>Scannen geannuleerd</translation>
+        <translation type="vanished">Scannen geannuleerd</translation>
     </message>
     <message>
         <source>Scan</source>
@@ -252,11 +233,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>Kies het Bluetooth apparaat uit onderstaande lijst</translation>
+        <translation type="vanished">Kies het Bluetooth apparaat uit onderstaande lijst</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation>Naam Bluetooth apparaat</translation>
+        <translation type="vanished">Naam Bluetooth apparaat</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -264,39 +245,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation>Bluetooth-apparaatadres:</translation>
+        <translation type="vanished">Bluetooth-apparaatadres:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation>Apparaten in de buurt zoeken</translation>
+        <translation type="vanished">Apparaten in de buurt zoeken</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="vanished">Geen Bluetooth apparaten gevonden, scan om apparaten te vinden.</translation>
-    </message>
-    <message>
-        <source>Scanning error: %1</source>
-        <translation>Fout bij het scannen: %1</translation>
-    </message>
-    <message>
-        <source>No Bluetooth devices detected.</source>
-        <translation>Geen Bluetooth-apparaten gedetecteerd.</translation>
-    </message>
-    <message>
-        <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Classic (BT)</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -304,22 +261,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Internal device</source>
         <translation type="vanished">Intern apparaat</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>Gebruik van Bluetooth niet toegestaan </translation>
-    </message>
-    <message>
-        <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation>Bluetooth-toestemming is vereist om naar bluetooth-apparaten te scannen</translation>
-    </message>
-    <message>
-        <source>Location permission denied</source>
-        <translation>Gebruik van locatiegegevens is niet toegestaan</translation>
-    </message>
-    <message>
-        <source>Location permission is required to scan for bluetooth devices</source>
-        <translation>Locatietoestemming is vereist om naar bluetooth-apparaten te scannen</translation>
     </message>
 </context>
 <context>
@@ -372,99 +313,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>BookmarkList</name>
     <message>
-        <source>Bookmarks</source>
-        <translation>Favorieten</translation>
-    </message>
-    <message>
-        <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete Selected Bookmark(s)</source>
-        <translation>Verwijder geselecteerde favoriet(en)</translation>
-    </message>
-    <message>
-        <source>Delete bookmark(s)</source>
-        <translation>Verwijder favoriet(en)</translation>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Orange</source>
-        <translation>Oranje</translation>
-    </message>
-    <message>
-        <source>Red</source>
-        <translation>Rood</translation>
-    </message>
-    <message>
-        <source>Blue</source>
-        <translation>Blauw</translation>
-    </message>
-    <message>
-        <source>Green</source>
-        <translation>Groen</translation>
-    </message>
-    <message>
         <source>Untitled bookmark</source>
-        <translation>Naamloze bladwijzer</translation>
-    </message>
-    <message>
-        <source>No bookmarks yet</source>
-        <translation>Nog geen favorieten</translation>
-    </message>
-    <message>
-        <source>Export Selected Bookmark(s)</source>
-        <translation>Exporteer Geselecteerde Favoriet(en)</translation>
-    </message>
-    <message>
-        <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Bookmark Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Bladwijzergegevens gekopieerd naar klembord</translation>
-    </message>
-    <message>
-        <source>Delete Bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Verwijder bladwijzer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>U staat op het punt een bladwijzer te verwijderen, doorgaan?</translation>
-    </message>
-    <message>
-        <source>Project bookmarks</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -472,18 +333,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>Ruimtelijke bladwijzers</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>Geeft een lijst van favorieten in het project met overeenkomende namen.</translation>
+        <translation type="vanished">Ruimtelijke bladwijzers</translation>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>Bladwijzer eigenschappen</translation>
+        <translation type="vanished">Bladwijzer eigenschappen</translation>
     </message>
     <message>
         <source>Name</source>
@@ -515,41 +372,33 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Bladwijzergegevens gekopieerd naar klembord</translation>
+        <translation type="vanished">Bladwijzergegevens gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Verwijder bladwijzer</translation>
+        <translation type="vanished">Verwijder bladwijzer</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>U staat op het punt een bladwijzer te verwijderen, doorgaan?</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Beschrijving</translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation>Kleur veranderen</translation>
+        <translation type="vanished">U staat op het punt een bladwijzer te verwijderen, doorgaan?</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>Bladwijzer: %1</translation>
+        <translation type="vanished">Bladwijzer: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>Projectbladwijzers kunnen niet worden bewerkt</translation>
+        <translation type="vanished">Projectbladwijzers kunnen niet worden bewerkt</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>Zoekmachine</translation>
+        <translation type="vanished">Zoekmachine</translation>
     </message>
 </context>
 <context>
@@ -605,19 +454,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>CheckBox</name>
     <message>
         <source>True</source>
-        <translation>Waar</translation>
+        <translation type="vanished">Waar</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>Onwaar</translation>
+        <translation type="vanished">Onwaar</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Leeg</translation>
+        <translation type="vanished">NULL</translation>
     </message>
 </context>
 <context>
@@ -677,19 +522,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>CodeReader</name>
     <message>
-        <source>NFC text tag detected</source>
-        <translation>NFC-tekstlabel gedetecteerd</translation>
-    </message>
-    <message>
         <source>Code Reader</source>
-        <translation>Code Lezer</translation>
-    </message>
-    <message>
-        <source>Center your device on a code</source>
-        <translation>Centreer je apparaat op een code</translation>
-    </message>
-    <message>
-        <source>No readable code found in the selected image</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -736,11 +569,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>DateTime</name>
     <message>
         <source>(no date)</source>
-        <translation>(geen datum)</translation>
+        <translation type="vanished">(geen datum)</translation>
     </message>
     <message>
         <source>Date value set to today.</source>
-        <translation>Datum op vandaag.</translation>
+        <translation type="vanished">Datum op vandaag.</translation>
     </message>
     <message>
         <source>Hours</source>
@@ -767,15 +600,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>Verwachtte dat alle array-elementen een object zouden zijn, maar het element op #%1 is dat niet</translation>
+        <translation type="vanished">Verwachtte dat alle array-elementen een object zouden zijn, maar het element op #%1 is dat niet</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>Verwachtte dat alle array-elementen een object zouden zijn met de sleutel &quot;%1&quot;, maar het element op #%2 is dat niet</translation>
+        <translation type="vanished">Verwachtte dat alle array-elementen een object zouden zijn met de sleutel &quot;%1&quot;, maar het element op #%2 is dat niet</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>Onbekende status &quot;%1&quot; voor $%2</translation>
+        <translation type="vanished">Onbekende status &quot;%1&quot; voor $%2</translation>
     </message>
 </context>
 <context>
@@ -805,26 +638,19 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>Positienauwkeurigheid voldoet niet aan de minimale eisen, knooppunt niet toegevoegd</translation>
+        <translation type="vanished">Positienauwkeurigheid voldoet niet aan de minimale eisen, knooppunt niet toegevoegd</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
-        <translation>Stop digitaliseren</translation>
+        <translation type="vanished">Stop digitaliseren</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>De verzamelde posities voldoen niet aan het vereiste</translation>
+        <translation type="vanished">De verzamelde posities voldoen niet aan het vereiste</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>Moet de gedigitaliseerde geometrie worden verworpen?</translation>
-    </message>
-</context>
-<context>
-    <name>DrawingTemplateModel</name>
-    <message>
-        <source>Blank</source>
-        <translation>Leeg</translation>
+        <translation type="vanished">Moet de gedigitaliseerde geometrie worden verworpen?</translation>
     </message>
 </context>
 <context>
@@ -845,43 +671,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Received data is too short to process</source>
-        <translation>Ontvangen gegevens zijn te kort om te verwerken</translation>
-    </message>
-    <message>
-        <source>Invalid start byte</source>
-        <translation>Invalid start byte</translation>
-    </message>
-    <message>
-        <source>Received data is too short to contain the payload</source>
-        <translation>Received data is too short to contain the payload</translation>
-    </message>
-    <message>
-        <source>Failed to parse JSON</source>
-        <translation>Failed to parse JSON</translation>
-    </message>
-    <message>
         <source>Could not find the remote host</source>
-        <translation>Remote host niet gevonden</translation>
-    </message>
-    <message>
-        <source>Attempt to read or write from socket returned an error</source>
-        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
-    </message>
-    <message>
-        <source>The connection was refused by the remote host</source>
-        <translation>De verbinding is geweigerd door de remote host</translation>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation>TCP receiver error (%1)</translation>
-    </message>
-    <message>
-        <source>Failed to start egeniouss server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Failed to stop egeniouss server.</source>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -889,98 +687,32 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation>Digitaliseer een route om een hoogteprofiel te maken</translation>
+        <translation type="vanished">Digitaliseer een route om een hoogteprofiel te maken</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation>Hoogteprofiel wordt gemaakt...</translation>
-    </message>
-</context>
-<context>
-    <name>Erase</name>
-    <message>
-        <source>The geometry could not be modified into multiple parts</source>
-        <translation>De geometrie kon niet in meerdere onderdelen worden gewijzigd</translation>
-    </message>
-    <message>
-        <source>The geometry could not be modified</source>
-        <translation>De geometrie kon niet worden gewijzigd</translation>
-    </message>
-</context>
-<context>
-    <name>ExpressionCalculatorLocatorFilter</name>
-    <message>
-        <source>Copy “%1” to clipboard</source>
-        <translation>Kopieer “%1” naar klembord</translation>
-    </message>
-    <message>
-        <source>Calculator</source>
-        <translation>Rekenmachine</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>Geeft de waarde van een expressie die in de zoekbalk is getypt.</translation>
+        <translation type="vanished">Hoogteprofiel wordt gemaakt...</translation>
     </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
-        <translation>Niet Beschikbaar</translation>
+        <translation type="vanished">Niet Beschikbaar</translation>
     </message>
 </context>
 <context>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>Geen Waarde</translation>
+        <translation type="vanished">Geen Waarde</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>Bestandstype niet bruikbaar</translation>
-    </message>
-    <message>
-        <source>Take a photo</source>
-        <translation>Maak een foto</translation>
-    </message>
-    <message>
-        <source>Take a video</source>
-        <translation>Maak een video</translation>
-    </message>
-    <message>
-        <source>Record an audio clip</source>
-        <translation>Neem een ​​audioclip op</translation>
-    </message>
-    <message>
-        <source>Attach a gallery item</source>
-        <translation>Voeg een galerij-item toe</translation>
-    </message>
-    <message>
-        <source>Attach a file</source>
-        <translation>Bestand toevoegen</translation>
-    </message>
-    <message>
-        <source>Draw a sketch</source>
-        <translation>Schets iets</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Meer info</translation>
-    </message>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Leeg</translation>
+        <translation type="vanished">Bestandstype niet bruikbaar</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -988,15 +720,15 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>Waarde toegekend</translation>
+        <translation type="vanished">Waarde toegekend</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>Waarde overgeslagen</translation>
+        <translation type="vanished">Waarde overgeslagen</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
-        <translation>(klik om te toggelen)</translation>
+        <translation type="vanished">(klik om te toggelen)</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1008,161 +740,46 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>Kan wijzigingen niet opslaan</translation>
+        <translation type="vanished">Kan wijzigingen niet opslaan</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Object toevoegen op &lt;i&gt;%1&lt;/i&gt;</translation>
+        <translation type="vanished">Object toevoegen op &lt;i&gt;%1&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Object wijzigen op %1</translation>
+        <translation type="vanished">Object wijzigen op %1</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>Object bekijken op %1</translation>
+        <translation type="vanished">Object bekijken op %1</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Bewerken annuleren</translation>
+        <translation type="vanished">Bewerken annuleren</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>U staat op het punt het nieuwe object af te wijzen, doorgaan?</translation>
+        <translation type="vanished">U staat op het punt het nieuwe object af te wijzen, doorgaan?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>U staat op het punt de bewerkingsstatus te verlaten, alle wijzigingen gaan verloren. Doorgaan?</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation>De laatst ingevoerde waarde voor dit veld wordt onthouden en hergebruikt bij het maken van nieuwe objecten</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation>De laatst ingevoerde waarde voor dit veld wordt niet hergebruikt bij het maken van een nieuw objecten</translation>
-    </message>
-    <message>
-        <source>Feature addition disabled</source>
-        <translation>Object toevoegen uitgeschakeld</translation>
-    </message>
-    <message>
-        <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Previous page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next page</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FeatureHistory</name>
-    <message>
-        <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s).</source>
-        <translation><numerusform>Aanmaak van %n object(s) ongedaan maken.</numerusform><numerusform>Aanmaken van %n objecten ongedaan maken.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s).</source>
-        <translation><numerusform>Verwijdering van %n object(s) ongedaan maken.</numerusform><numerusform>Verwijderen van %n object(en) ongedaan maken.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished">U staat op het punt de bewerkingsstatus te verlaten, alle wijzigingen gaan verloren. Doorgaan?</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Stop het volgen van dit object om de attributen te wijzigen</translation>
+        <translation type="vanished">Stop het volgen van dit object om de attributen te wijzigen</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Stop het volgen van dit object om de geometrie te wijzigen</translation>
+        <translation type="vanished">Stop het volgen van dit object om de geometrie te wijzigen</translation>
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>Wijzigingen opgeslagen</translation>
+        <translation type="vanished">Wijzigingen opgeslagen</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -1170,34 +787,34 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Object succesvol gedupliceerd</translation>
+        <translation type="vanished">Object succesvol gedupliceerd</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>Een aantal objecten worden gevolgd, stop met volgen om deze te verwijderen</translation>
+        <translation type="vanished">Een aantal objecten worden gevolgd, stop met volgen om deze te verwijderen</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>Een aantal objecten worden gevolgd, stop met volgen om deze samen te voegen</translation>
+        <translation type="vanished">Een aantal objecten worden gevolgd, stop met volgen om deze samen te voegen</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Geselecteerde objecten gedupliceerd, lijst bijgewerkt om nieuw gemaakte objecten weer te geven</translation>
+        <translation type="vanished">Geselecteerde objecten gedupliceerd, lijst bijgewerkt om nieuw gemaakte objecten weer te geven</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Geen object op deze positie</translation>
+        <translation type="vanished">Geen object op deze positie</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
-        <translation>Samenvoegen object(en)</translation>
+        <translation type="vanished">Samenvoegen object(en)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation><numerusform>Moeten de geselecteerde %n-functie(s) echt worden samengevoegd?
+        <translation type="vanished"><numerusform>Moeten de geselecteerde %n-functie(s) echt worden samengevoegd?
 
 De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos;, dat zijn kenmerken behoudt.</numerusform><numerusform>Moeten de geselecteerde %n-objecten echt worden samengevoegd?
 
@@ -1205,75 +822,55 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>Succesvol %n object(en) samengevoegd</numerusform><numerusform>Succesvol %n object(en) samengevoegd</numerusform></translation>
+        <translation type="vanished"><numerusform>Succesvol %n object(en) samengevoegd</numerusform><numerusform>Succesvol %n object(en) samengevoegd</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform></translation>
+        <translation type="vanished"><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>Verwijder object(en)</translation>
+        <translation type="vanished">Verwijder object(en)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Moeten de geselecteerde %n object(en) echt worden verwijderd?</numerusform><numerusform>Moeten de %n geselecteerde object(en) echt worden verwijderd?</numerusform></translation>
+        <translation type="vanished"><numerusform>Moeten de geselecteerde %n object(en) echt worden verwijderd?</numerusform><numerusform>Moeten de %n geselecteerde object(en) echt worden verwijderd?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>Succesvol %n object(en) verwijderd</numerusform><numerusform>Succesvol %n object(en) verwijderd</numerusform></translation>
+        <translation type="vanished"><numerusform>Succesvol %n object(en) verwijderd</numerusform><numerusform>Succesvol %n object(en) verwijderd</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>Kan %n object(en) niet verwijderen</numerusform><numerusform>Kan %n object(en) niet verwijderen</numerusform></translation>
+        <translation type="vanished"><numerusform>Kan %n object(en) niet verwijderen</numerusform><numerusform>Kan %n object(en) niet verwijderen</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Wijzigingen genegeerd</translation>
-    </message>
-    <message>
-        <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature attributes transferred</source>
-        <translation>Attributen gekopieerd</translation>
-    </message>
-    <message>
-        <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wijzigingen genegeerd</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation>Objecten</translation>
-    </message>
-    <message>
-        <source>Processing Algorithms</source>
-        <translation>Verwerkingsalgoritmen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Waarde &quot;%1&quot; %4 kan niet worden geconverteerd naar een compatibele waarde voor veld %2(%3).</translation>
+        <translation type="vanished">Waarde &quot;%1&quot; %4 kan niet worden geconverteerd naar een compatibele waarde voor veld %2(%3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Kan object niet bijwerken</translation>
+        <translation type="vanished">Kan object niet bijwerken</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Object %1 kan niet worden opgehaald na commit</translation>
+        <translation type="vanished">Object %1 kan niet worden opgehaald na commit</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Standaardwaarde-expressie voor %1:%2 heeft parserfout: %3</translation>
+        <translation type="vanished">Standaardwaarde-expressie voor %1:%2 heeft parserfout: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
@@ -1281,40 +878,40 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>Kan niet beginnen met bewerken op laag &quot;%1&quot; om object %2 te maken</translation>
+        <translation type="vanished">Kan niet beginnen met bewerken op laag &quot;%1&quot; om object %2 te maken</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>Laag &quot;%1&quot; is vastgelegd, maar de nieuw gemaakte object %2 kan niet worden opgehaald</translation>
+        <translation type="vanished">Laag &quot;%1&quot; is vastgelegd, maar de nieuw gemaakte object %2 kan niet worden opgehaald</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>Laag &quot;%1&quot; kan niet worden vastgelegd met het nieuw gemaakte object %2. Reden:
+        <translation type="vanished">Laag &quot;%1&quot; kan niet worden vastgelegd met het nieuw gemaakte object %2. Reden:
 %3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>Object %2 kon niet worden toegevoegd aan laag &quot;%1&quot;</translation>
+        <translation type="vanished">Object %2 kon niet worden toegevoegd aan laag &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>Kan de wijzigingen niet opslaan. Roll back wordt uitgevoerd.</translation>
+        <translation type="vanished">Kan de wijzigingen niet opslaan. Roll back wordt uitgevoerd.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kan niet beginnen met bewerken</translation>
+        <translation type="vanished">Kan niet beginnen met bewerken</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Open formulier</translation>
+        <translation type="vanished">Open formulier</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Object instellen als bestemming</translation>
+        <translation type="vanished">Object instellen als bestemming</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -1322,57 +919,42 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Object heeft geen geometrie</translation>
+        <translation type="vanished">Object heeft geen geometrie</translation>
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>Objecten in alle lagen</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>Geeft een lijst van objecten in alle doorzoekbare lagen met overeenkomende weergavenaam.</translation>
-    </message>
-</context>
-<context>
-    <name>FileDeviceChooser</name>
-    <message>
-        <source>File path</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Interval (in milliseconds)</source>
-        <translation>Interval (jn milliseconden)</translation>
+        <translation type="vanished">Objecten in alle lagen</translation>
     </message>
 </context>
 <context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>De ring is niet gesloten</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>De ring is niet geldig</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>De ring kruist bestaande ringen (hij is niet disjunct)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>De ring heeft geen bestaande ring om in te passen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>Onbekende fout bij het maken van een ring</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>Vul de ring</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>Wil je de ring met een polygoon vullen?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1410,30 +992,26 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Fins adres zoeken</translation>
+        <translation type="vanished">Fins adres zoeken</translation>
     </message>
 </context>
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>Knooppunt-Gereedschap</translation>
+        <translation type="vanished">Knooppunt-Gereedschap</translation>
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>Splits-Gereedschap</translation>
+        <translation type="vanished">Splits-Gereedschap</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>Omvorm-Gereedschap</translation>
+        <translation type="vanished">Omvorm-Gereedschap</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>Vul Ring-Gereedschap </translation>
-    </message>
-    <message>
-        <source>Erase Tool</source>
-        <translation>Gum</translation>
+        <translation type="vanished">Vul Ring-Gereedschap </translation>
     </message>
 </context>
 <context>
@@ -1444,7 +1022,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation>Navigatiepunt instellen</translation>
+        <translation type="vanished">Navigatiepunt instellen</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -1452,59 +1030,21 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>Ga naar coördinaat</translation>
+        <translation type="vanished">Ga naar coördinaat</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation>Ga naar %1%2 %3%4 (Kaart CRS, %5)</translation>
+        <translation type="vanished">Ga naar %1%2 %3%4 (Kaart CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation>Ga naar %1°N %2°E (%3)</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>Geeft een locatie van X- en Y-coördinaten - of WGS84 breedtegraad en lengtegraad - die in de zoekbalk zijn ingevoerd.</translation>
-    </message>
-</context>
-<context>
-    <name>HelpLocatorFilter</name>
-    <message>
-        <source>QField Documentation</source>
-        <translation>QField documentatie</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>Geeft QField documentatiepagina&apos;s terug die overeenkomen.</translation>
+        <translation type="vanished">Ga naar %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
-        <source>Navigation</source>
-        <translation>Navigatie</translation>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>Positie</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Sensoren</translation>
-    </message>
-    <message>
-        <source>Elevation profile</source>
-        <translation>Hoogteprofiel</translation>
-    </message>
-    <message>
-        <source>NTRIP</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>InformationPopup</name>
-    <message>
-        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1516,77 +1056,69 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Username</source>
-        <translation>Gebruikersnaam</translation>
+        <translation type="vanished">Gebruikersnaam</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
-    </message>
-    <message>
-        <source>Credentials Details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Indienen</translation>
+        <translation type="vanished">Wachtwoord</translation>
     </message>
 </context>
 <context>
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation>Kan geen lokale primaire sleutelkolom vinden in laag &quot;%1&quot;</translation>
+        <translation type="vanished">Kan geen lokale primaire sleutelkolom vinden in laag &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation>Kan geen kolom met primaire bronsleutel vinden in laag &quot;%1&quot;</translation>
+        <translation type="vanished">Kan geen kolom met primaire bronsleutel vinden in laag &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>Uitklappen groep</translation>
+        <translation type="vanished">Uitklappen groep</translation>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>Legenda-item uitklappen</translation>
+        <translation type="vanished">Legenda-item uitklappen</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Stop met volgen</translation>
+        <translation type="vanished">Stop met volgen</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Tracking instellen</translation>
+        <translation type="vanished">Tracking instellen</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
+        <translation type="vanished">Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>Toon op kaart</translation>
+        <translation type="vanished">Toon op kaart</translation>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>Toon labels</translation>
+        <translation type="vanished">Toon labels</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Opaciteit</translation>
+        <translation type="vanished">Opaciteit</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation>Zoom naar groep</translation>
+        <translation type="vanished">Zoom naar groep</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation>Zoom naar bovenliggende laag</translation>
+        <translation type="vanished">Zoom naar bovenliggende laag</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>Zoom naar laag</translation>
+        <translation type="vanished">Zoom naar laag</translation>
     </message>
     <message>
         <source>Reload data</source>
@@ -1594,15 +1126,15 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation>Herladen van laag %1 geactiveerd</translation>
+        <translation type="vanished">Herladen van laag %1 geactiveerd</translation>
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Toon objectenlijst</translation>
+        <translation type="vanished">Toon objectenlijst</translation>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>De laag heeft geen objecten</translation>
+        <translation type="vanished">De laag heeft geen objecten</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1626,79 +1158,51 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Toon zichtbare objectenlijst</translation>
+        <translation type="vanished">Toon zichtbare objectenlijst</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>Toon Objecten Menu</translation>
-    </message>
-    <message>
-        <source>Read-only layer</source>
-        <translation>Alleen-lezen laag</translation>
-    </message>
-    <message>
-        <source>feature addition</source>
-        <translation>Object toevoegen</translation>
-    </message>
-    <message>
-        <source>attribute editing</source>
-        <translation>attribuut bewerken</translation>
-    </message>
-    <message>
-        <source>geometry editing</source>
-        <translation>geometrie bewerken</translation>
-    </message>
-    <message>
-        <source>feature deletion</source>
-        <translation>object verwijderen</translation>
-    </message>
-    <message>
-        <source>Disabled layer permissions: %1</source>
-        <translation>Uitgeschakelde laag bewerkingen: %1</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Toon Objecten Menu</translation>
     </message>
 </context>
 <context>
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>Kan niet beginnen met bewerken, geen laag</translation>
+        <translation type="vanished">Kan niet beginnen met bewerken, geen laag</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kan niet beginnen met bewerken</translation>
+        <translation type="vanished">Kan niet beginnen met bewerken</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Kan verwijdering van object %2 in laag &quot;%1&quot; niet vastleggen. Reden:
+        <translation type="vanished">Kan verwijdering van object %2 in laag &quot;%1&quot; niet vastleggen. Reden:
 %3</translation>
     </message>
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Kan verwijdering in laag &quot;%1&quot; niet uitvoeren. Reden:
+        <translation type="vanished">Kan verwijdering in laag &quot;%1&quot; niet uitvoeren. Reden:
 %3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
-        <translation>Kan object %1 niet verwijderen</translation>
+        <translation type="vanished">Kan object %1 niet verwijderen</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+        <translation type="vanished">Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>Kan ongeldig object niet kopiëren</translation>
+        <translation type="vanished">Kan ongeldig object niet kopiëren</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Kan geen nieuw object toevoegen in laag &quot;%1&quot;. Reden:
+        <translation type="vanished">Kan geen nieuw object toevoegen in laag &quot;%1&quot;. Reden:
 %2</translation>
     </message>
     <message>
@@ -1710,34 +1214,18 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>Legend</name>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>Stop</translation>
-    </message>
-    <message>
         <source>Track on layer %1 stopped</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>In de toestemmingsconfiguratie voor deze laag is object toevoegen uitgeschakeld.</translation>
-    </message>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1745,31 +1233,23 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>QField bestanden map</translation>
+        <translation type="vanished">QField bestanden map</translation>
     </message>
     <message>
         <source>Imported projects</source>
-        <translation>Geïmporteerde projecten</translation>
+        <translation type="vanished">Geïmporteerde projecten</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation>Geïmporteerde datasets</translation>
+        <translation type="vanished">Geïmporteerde datasets</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>Extra bestanden map</translation>
+        <translation type="vanished">Extra bestanden map</translation>
     </message>
     <message>
         <source>Sample projects</source>
         <translation type="vanished">Voorbeeldprojecten</translation>
-    </message>
-    <message>
-        <source>Created projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1792,7 +1272,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>Zoekfilters voor uw locaties zijn geactiveerd, pas de resultaten aan in het instellingenpaneel</translation>
+        <translation type="vanished">Zoekfilters voor uw locaties zijn geactiveerd, pas de resultaten aan in het instellingenpaneel</translation>
     </message>
 </context>
 <context>
@@ -1800,14 +1280,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Search…</source>
         <translation type="vanished">Zoek...</translation>
-    </message>
-    <message>
-        <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1820,118 +1292,86 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Trigger without its prefix</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Search Bar Settings</source>
-        <translation>Eigenschappen zoekbalk</translation>
-    </message>
-    <message>
-        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation>Indien uitgeschakeld kan deze locatie filter nog steeds worden gebruikt door het voorvoegsel %1 te gebruiken in de zoekbalk.</translation>
-    </message>
-    <message>
-        <source>Enable %1 locator by default</source>
-        <translation>Gebruik standaard de locatiefilter %1</translation>
-    </message>
 </context>
 <context>
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>Logboekmeldingen</translation>
+        <translation type="vanished">Logboekmeldingen</translation>
     </message>
     <message>
         <source>Message text copied</source>
-        <translation>Berichttekst gekopieerd</translation>
+        <translation type="vanished">Berichttekst gekopieerd</translation>
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>Wissen Logboekmeldingen</translation>
+        <translation type="vanished">Wissen Logboekmeldingen</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>Logboekmeldingen gewist</translation>
+        <translation type="vanished">Logboekmeldingen gewist</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>Applicatielog verzenden</translation>
+        <translation type="vanished">Applicatielog verzenden</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
         <translation type="vanished">Uw applicatielog wordt verzonden</translation>
-    </message>
-    <message>
-        <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type optional details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include cloud user details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your application log is being sent…</source>
-        <translation>Uw applicatielog wordt verzonden...</translation>
     </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kan niet beginnen met bewerken</translation>
+        <translation type="vanished">Kan niet beginnen met bewerken</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+        <translation type="vanished">Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Kan de geometrie van object %1 in %2 niet wijzigen</translation>
+        <translation type="vanished">Kan de geometrie van object %1 in %2 niet wijzigen</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>Objecten</translation>
+        <translation type="vanished">Objecten</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation>Objectlijstmenu</translation>
+        <translation type="vanished">Objectlijstmenu</translation>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
-        <translation>Objecten selecteren</translation>
+        <translation type="vanished">Objecten selecteren</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Atlas-object(en) naar PDF afdrukken</translation>
+        <translation type="vanished">Atlas-object(en) naar PDF afdrukken</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Voeg geselecteerde objecten samen</translation>
+        <translation type="vanished">Voeg geselecteerde objecten samen</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Verplaats geselecteerde object(en)</translation>
+        <translation type="vanished">Verplaats geselecteerde object(en)</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Dupliceer geselecteerde object(en)</translation>
+        <translation type="vanished">Dupliceer geselecteerde object(en)</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>Verwijder geselecteerde object(en)</translation>
+        <translation type="vanished">Verwijder geselecteerde object(en)</translation>
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation>Objectmenu</translation>
+        <translation type="vanished">Objectmenu</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -1939,11 +1379,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>Zoom naar object</translation>
+        <translation type="vanished">Zoom naar object</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>Auto-Zoomen naar Object</translation>
+        <translation type="vanished">Auto-Zoomen naar Object</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -1951,19 +1391,19 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Verplaats object</translation>
+        <translation type="vanished">Verplaats object</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Dupliceer object</translation>
+        <translation type="vanished">Dupliceer object</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Verwijder object</translation>
+        <translation type="vanished">Verwijder object</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Selecteer hieronder een sjabloon</translation>
+        <translation type="vanished">Selecteer hieronder een sjabloon</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
@@ -1987,46 +1427,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Printing...</translation>
+        <translation type="vanished">Printing...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature attributes updated from clipboard</source>
-        <translation>Object attributen gekopieerd vanaf klembord</translation>
-    </message>
-    <message>
-        <source>No feature attributes were updated from clipboard</source>
-        <translation>Er zijn object object attributen bijgewerkt vanaf het klembord</translation>
-    </message>
-    <message>
-        <source>Feature set as navigation destination</source>
-        <translation>Object ingesteld als bestemming</translation>
-    </message>
-    <message>
-        <source>Process Selected Feature(s)</source>
-        <translation>Verwerk geselecteerd(e) object(en)</translation>
-    </message>
-    <message>
-        <source>Rotate Feature</source>
-        <translation>Roteer object</translation>
-    </message>
-    <message>
-        <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Process Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature cut into clipboard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2038,7 +1442,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
@@ -2050,76 +1454,57 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Dist.</source>
-        <translation>Afst.</translation>
+        <translation type="vanished">Afst.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation type="vanished">N/B</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Koers</translation>
-    </message>
-</context>
-<context>
-    <name>NtripSourceTableFetcher</name>
-    <message>
-        <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Koers</translation>
     </message>
 </context>
 <context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Kan niet beginnen met bewerken</translation>
+        <translation type="vanished">Kan niet beginnen met bewerken</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+        <translation type="vanished">Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Kan geen laagwijzigingen vastleggen in laag %1.</translation>
+        <translation type="vanished">Kan geen laagwijzigingen vastleggen in laag %1.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>Kan volgorde van objecten niet bijwerken</translation>
+        <translation type="vanished">Kan volgorde van objecten niet bijwerken</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>Wijzigingen opgeslagen</translation>
+        <translation type="vanished">Wijzigingen opgeslagen</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Wijzigingen genegeerd</translation>
+        <translation type="vanished">Wijzigingen genegeerd</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -2146,31 +1531,31 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Open File</source>
-        <translation>Open Bestand</translation>
+        <translation type="vanished">Open Bestand</translation>
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation>Alle ondersteunde bestanden</translation>
+        <translation type="vanished">Alle ondersteunde bestanden</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
-        <translation>QGIS project bestanden</translation>
+        <translation type="vanished">QGIS project bestanden</translation>
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>Vectorgegevenssets</translation>
+        <translation type="vanished">Vectorgegevenssets</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation>Rastergegevenssets</translation>
+        <translation type="vanished">Rastergegevenssets</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation>Er is een fout opgetreden bij het opslaan van het bestand</translation>
+        <translation type="vanished">Er is een fout opgetreden bij het opslaan van het bestand</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation>Selecteer Afbeeldingsbestand</translation>
+        <translation type="vanished">Selecteer Afbeeldingsbestand</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
@@ -2178,11 +1563,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Select Video File</source>
-        <translation>Selecteer Video bestand</translation>
+        <translation type="vanished">Selecteer Video bestand</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
+        <translation type="vanished">All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
@@ -2194,31 +1579,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>Select File</source>
-        <translation>Selecteer Bestand</translation>
-    </message>
-    <message>
-        <source>Removal Confirmation</source>
-        <translation>Verwijderingsbevestiging</translation>
-    </message>
-    <message>
-        <source>The dataset will be deleted, proceed with removal?</source>
-        <translation>Het dataset wordt verwijderd, weet u het zeker?</translation>
-    </message>
-    <message>
-        <source>The project folder will be deleted, proceed with removal?</source>
-        <translation>De project map wordt verwijderd, wilt u doorgaan?</translation>
-    </message>
-    <message>
-        <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Selecteer Bestand</translation>
     </message>
 </context>
 <context>
@@ -2401,14 +1762,14 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Intern apparaat</translation>
+        <translation type="vanished">Intern apparaat</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation>Instellingen Plaatsbepalingsapparaat</translation>
+        <translation type="vanished">Instellingen Plaatsbepalingsapparaat</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2432,42 +1793,18 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation>TCP (NMEA)</translation>
+        <translation type="vanished">TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation>UDP (NMEA)</translation>
+        <translation type="vanished">UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation>Seriële poort (NMEA)</translation>
-    </message>
-    <message>
-        <source>Egeniouss</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connection type</source>
-        <translation>Verbindingstype</translation>
+        <translation type="vanished">Seriële poort (NMEA)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Naam</translation>
-    </message>
-    <message>
-        <source> (leave empty to auto-fill)</source>
-        <translation> (leeg laten om automatisch in te vullen)</translation>
-    </message>
-    <message>
-        <source>Connection details</source>
-        <translation>Verbindingsdetails</translation>
-    </message>
-    <message>
-        <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth BT + BLE (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2475,54 +1812,38 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
-        <translation>Hoogte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Snelheid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>H. Nauwkeurigheid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>V. Nauwkeurigheid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ortho.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ant.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1/s</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2538,7 +1859,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation type="vanished">N/B</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -2592,59 +1913,11 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
 <context>
     <name>PositioningNtripSettings</name>
     <message>
-        <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Poort</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Username</source>
-        <translation>Gebruikersnaam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Wachtwoord</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Identifier:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Data format:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP SSL/TLS</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2652,241 +1925,24 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>Afst.</translation>
+        <translation type="vanished">Afst.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation>De nauwkeurigheid van de plaatsbepaling is te laag voor dit precisie niveau</translation>
-    </message>
-    <message>
-        <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotate view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotation source</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Compass</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Movement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De nauwkeurigheid van de plaatsbepaling is te laag voor dit precisie niveau</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>Intern apparaat</translation>
-    </message>
-</context>
-<context>
-    <name>ProcessingAlgorithmForm</name>
-    <message>
-        <source>General Parameters</source>
-        <translation>Algemene parameters</translation>
-    </message>
-    <message>
-        <source>Advanced Parameters</source>
-        <translation>Geavanceerde parameters</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Help</translation>
-    </message>
-    <message>
-        <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Algorithm description</source>
-        <translation>Beschrijving algoritme</translation>
+        <translation type="vanished">Intern apparaat</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation>Favorieten</translation>
-    </message>
-    <message>
-        <source>All Algorithms</source>
-        <translation>Alle algortimes</translation>
-    </message>
-</context>
-<context>
-    <name>ProjectCreationScreen</name>
-    <message>
-        <source>Create a new project</source>
-        <translation>Maak een nieuw project</translation>
-    </message>
-    <message>
-        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New project name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your basemap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Colorful</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Darkgray</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lightgray</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Blank</source>
-        <translation>Leeg</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Take notes?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track your position?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Create Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ProjectUtils</name>
-    <message>
-        <source>Created Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Marker color</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Note</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Basemap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Media</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track color</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Note attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>Beschrijving</translation>
-    </message>
-    <message>
-        <source>Attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Polygon</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2906,64 +1962,13 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     </message>
 </context>
 <context>
-    <name>QFieldAudioRecorder</name>
-    <message>
-        <source>Audio Recorder</source>
-        <translation>Geluids recorder </translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
-        <source>Geotagging enabled</source>
-        <translation>Locatie aanduiding aan</translation>
-    </message>
-    <message>
-        <source>Geotagging disabled</source>
-        <translation>Locatie aanduiding uit</translation>
-    </message>
-    <message>
-        <source>Grid enabled</source>
-        <translation>Raster aan</translation>
-    </message>
-    <message>
-        <source>Grid disabled</source>
-        <translation>Raster uit</translation>
-    </message>
-    <message>
-        <source>front</source>
-        <translation>voor</translation>
-    </message>
-    <message>
-        <source>back</source>
-        <translation>achter</translation>
-    </message>
-    <message>
-        <source>Details stamping enabled</source>
+        <source>Altitude</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Latitude</source>
-        <translation>Latitude</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>Longitude</translation>
-    </message>
-    <message>
-        <source>Altitude</source>
-        <translation>Hoogte</translation>
-    </message>
-    <message>
         <source>Speed</source>
-        <translation>Snelheid</translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation>Orientatie</translation>
-    </message>
-    <message>
-        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2971,57 +1976,49 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[time-out] Het duurde te lang voordat het verzoek was voltooid. Probeer het opnieuw.</translation>
+        <translation type="vanished">[time-out] Het duurde te lang voordat het verzoek was voltooid. Probeer het opnieuw.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation>[afgebroken] Het verzoek is afgebroken.</translation>
+        <translation type="vanished">[afgebroken] Het verzoek is afgebroken.</translation>
     </message>
     <message>
         <source>Server Error.</source>
-        <translation>Server fout.</translation>
+        <translation type="vanished">Server fout.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation>Netwerk fout.</translation>
+        <translation type="vanished">Netwerk fout.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>Server niet gevonden, controleer de server-URL</translation>
+        <translation type="vanished">Server niet gevonden, controleer de server-URL</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation>Time-out, probeer a.u.b. opnieuw</translation>
+        <translation type="vanished">Time-out, probeer a.u.b. opnieuw</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation>Verkeerde gebruikersnaam of wachtwoord</translation>
+        <translation type="vanished">Verkeerde gebruikersnaam of wachtwoord</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation>Sessie verlopen</translation>
+        <translation type="vanished">Sessie verlopen</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>Inloggen tijdelijk niet mogelijk</translation>
+        <translation type="vanished">Inloggen tijdelijk niet mogelijk</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+        <translation type="vanished">Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
 %2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation>Het inloggen is mislukt door een onverwachte doorverwijzing. Probeer het later opnieuw.</translation>
-    </message>
-    <message>
-        <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Het inloggen is mislukt door een onverwachte doorverwijzing. Probeer het later opnieuw.</translation>
     </message>
 </context>
 <context>
@@ -3115,6 +2112,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3574,23 +2575,23 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Inpakstaak is mislukt voor `%1`. %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>Kan de laatste informatie voor `%1` niet vernieuwen: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>Kan de laatste package-gegevens niet ophalen.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>Fout in reactie op laatste package-gegevens.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>Fout in laatste package-gegevensstructuur.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
@@ -3599,8 +2600,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Kan tijdelijk bestand niet openen voor `%1`, reden:
-%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -3612,39 +2612,39 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Netwerk fout. Kan bestand `%1` niet downloaden.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Het is niet gelukt om enkele van de gedownloade bestanden naar uw apparaat te kopiëren. Controleer uw apparaatopslag.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Project `%1`, bestand `%2`: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System message: </source>
-        <translation>Systeem bericht:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation>(bekijk meer in het QField-foutlogboek)…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Het maken van de taak is voltooid, maar de serverreactie mist verplichte velden: id(string)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Taakstatus ophalen, maar nog geen `%2`-taak geactiveerd.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>job(%1) statusreactie bevat niet alle verwachte sleutels: status(string)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>Taak(%1) is voltooid met een mislukte status.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
@@ -3652,46 +2652,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>aborted</source>
-        <translation>afgebroken</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>One or more files could not be uploaded</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3861,7 +2821,7 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>Project bezig.</translation>
+        <translation type="vanished">Project bezig.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -3926,18 +2886,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">Het is niet gelukt om enkele van de gedownloade bestanden naar uw apparaat te kopiëren. Controleer uw apparaatopslag.</translation>
-    </message>
-    <message>
-        <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4179,44 +3127,13 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
 </context>
 <context>
-    <name>QFieldCloudStatus</name>
-    <message>
-        <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>Er is een serverfout opgetreden, probeer het opnieuw.</translation>
-    </message>
-    <message>
-        <source>A network error has occured, please try again.</source>
-        <translation>Er is een netwerkfout opgetreden, probeer het opnieuw.</translation>
-    </message>
-    <message>
-        <source>The project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <source>A network error has occured, please try again.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4399,6 +3316,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5381,10 +4302,381 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfAbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Verbinden...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Succesvol verbonden</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Verbroken</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Socket status %1</translation>
+    </message>
+</context>
+<context>
     <name>QfActionButton</name>
     <message>
         <source>close</source>
         <translation>sluiten</translation>
+    </message>
+</context>
+<context>
+    <name>QfActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation>Beperk de zoekopdracht tot het veld &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Open formulier</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Object instellen als bestemming</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Object heeft geen geometrie</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation>Objecten van de actieve laag</translation>
+    </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>Geeft een lijst van objecten van de actieve laag met overeenkomende eigenschappen. Het zoeken op een enkele eigenschap is mogelijk door de naam toe te voegen voorafgegaan door een &apos;@&apos;.</translation>
+    </message>
+</context>
+<context>
+    <name>QfAndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>Bestand %1 bestaat niet</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppMissingGridHandler</name>
+    <message>
+        <source>No transform available between %1 and %2</source>
+        <translation>Geen transformatie beschikbaar tussen %1 en %2</translation>
+    </message>
+    <message>
+        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>Dit raster is onderdeel van het “&lt;i&gt;%1&lt;/i&gt;” pakket, beschikbaar om te downloaden van &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
+        <translation>Dit raster is beschikbaar voor download van &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>projection</source>
+        <translation>projectie</translation>
+    </message>
+    <message>
+        <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
+        <translation>Deze transformatie vereist het rasterbestand &quot;%1&quot;, dat niet beschikbaar is voor gebruik op het systeem.</translation>
+    </message>
+    <message>
+        <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>Dit raster is onderdeel van het &lt;i&gt;%1&lt;/i&gt; pakket, beschikbaar voor download van &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Huidige transformatie &quot;&lt;i&gt;%1&lt;/i&gt;&quot; heeft een nauwkeurigheid van %2 meter, terwijl de voorkeurstransformatie &quot;&lt;i&gt;%3&lt;/i&gt;&quot; een nauwkeurigheid van %4 meter heeft.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Huidige transformatie &lt;i&gt;&quot;%1&quot;&lt;/i&gt; heeft een onbekende nauwkeurigheid, terwijl de voorkeurstransformatie &lt;i&gt;&quot;%2&quot;&lt;/i&gt; een nauwkeurigheid van %3 meter heeft.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;De voorkeurstransformatie tussen &lt;i&gt;%1&lt;/i&gt; en &lt;i&gt;%2&lt;/i&gt; is niet beschikbaar voor gebruik op het systeem.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
+        <translation>Er is geen transformatie beschikbaar tussen &lt;i&gt;%1&lt;/i&gt; en &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Cannot use project transform between %1 and %2</source>
+        <translation>Kan geen projecttransformatie gebruiken tussen %1 en %2</translation>
+    </message>
+    <message>
+        <source>Used a ballpark transform from %1 to %2</source>
+        <translation>Gebruikt een ruwe schatting-transformatie van %1 naar %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfAttributeFormModelBase</name>
+    <message>
+        <source>Expression constraint</source>
+        <translation>Expressiebeperking</translation>
+    </message>
+    <message>
+        <source>Not NULL</source>
+        <translation>Niet NULL</translation>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation>Uniek</translation>
+    </message>
+</context>
+<context>
+    <name>QfAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation>Geluids recorder </translation>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceChooser</name>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation>Apparaten in de buurt zoeken</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation>Kies het Bluetooth apparaat uit onderstaande lijst</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation>Geen Bluetooth-apparaten gedetecteerd.</translation>
+    </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation>Fout bij het scannen: %1</translation>
+    </message>
+    <message>
+        <source>Scanning for paired devices</source>
+        <translation>Scannen naar gekoppelde apparaten</translation>
+    </message>
+    <message>
+        <source>Scanning failed: %1</source>
+        <translation>Scannen mislukt: %1</translation>
+    </message>
+    <message>
+        <source>Scanning done</source>
+        <translation>Scannen gereed</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n device(s) found</source>
+        <translation><numerusform>%n apparaat gevonden</numerusform><numerusform>%n apparaten gevonden</numerusform></translation>
+    </message>
+    <message>
+        <source>Scanning canceled</source>
+        <translation>Scannen geannuleerd</translation>
+    </message>
+    <message>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation>Naam Bluetooth apparaat</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation>Bluetooth-apparaatadres:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceModel</name>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation>Gebruik van Bluetooth niet toegestaan </translation>
+    </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation>Bluetooth-toestemming is vereist om naar bluetooth-apparaten te scannen</translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>Gebruik van locatiegegevens is niet toegestaan</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation>Locatietoestemming is vereist om naar bluetooth-apparaten te scannen</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkList</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Favorieten</translation>
+    </message>
+    <message>
+        <source>Bookmark List Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle Bookmark Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation>Exporteer Geselecteerde Favoriet(en)</translation>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Selected Bookmark(s)</source>
+        <translation>Verwijder geselecteerde favoriet(en)</translation>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Bladwijzergegevens gekopieerd naar klembord</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Verwijder bladwijzer</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>U staat op het punt een bladwijzer te verwijderen, doorgaan?</translation>
+    </message>
+    <message>
+        <source>Delete bookmark(s)</source>
+        <translation>Verwijder favoriet(en)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n selected bookmark(s) really be deleted?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Deleted %n bookmark(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation>Oranje</translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation>Rood</translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation>Blauw</translation>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation>Groen</translation>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Naamloze bladwijzer</translation>
+    </message>
+    <message>
+        <source>No bookmarks yet</source>
+        <translation>Nog geen favorieten</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkLocatorFilter</name>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Spatial bookmarks</source>
+        <translation>Ruimtelijke bladwijzers</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>Geeft een lijst van favorieten in het project met overeenkomende namen.</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkProperties</name>
+    <message>
+        <source>Bookmark Properties</source>
+        <translation>Bladwijzer eigenschappen</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Beschrijving</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>Kleur veranderen</translation>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Bladwijzergegevens gekopieerd naar klembord</translation>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Verwijder bladwijzer</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>U staat op het punt een bladwijzer te verwijderen, doorgaan?</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkRenderer</name>
+    <message>
+        <source>Bookmark: %1</source>
+        <translation>Bladwijzer: %1</translation>
+    </message>
+    <message>
+        <source>Project bookmarks cannot be edited</source>
+        <translation>Projectbladwijzers kunnen niet worden bewerkt</translation>
+    </message>
+</context>
+<context>
+    <name>QfBrowserPanel</name>
+    <message>
+        <source>Browser</source>
+        <translation>Zoekmachine</translation>
     </message>
 </context>
 <context>
@@ -5455,9 +4747,388 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfCamera</name>
+    <message>
+        <source>Latitude</source>
+        <translation>Latitude</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>Longitude</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Hoogte</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Snelheid</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>Orientatie</translation>
+    </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation>Locatie aanduiding aan</translation>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation>Locatie aanduiding uit</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation>Raster aan</translation>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation>Raster uit</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation>voor</translation>
+    </message>
+    <message>
+        <source>back</source>
+        <translation>achter</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudConnection</name>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation>Het inloggen is mislukt door een onverwachte doorverwijzing. Probeer het later opnieuw.</translation>
+    </message>
+    <message>
+        <source>Server not found, please check the server URL</source>
+        <translation>Server niet gevonden, controleer de server-URL</translation>
+    </message>
+    <message>
+        <source>Timeout error, please retry</source>
+        <translation>Time-out, probeer a.u.b. opnieuw</translation>
+    </message>
+    <message>
+        <source>Wrong username or password</source>
+        <translation>Verkeerde gebruikersnaam of wachtwoord</translation>
+    </message>
+    <message>
+        <source>Session expired</source>
+        <translation>Sessie verlopen</translation>
+    </message>
+    <message>
+        <source>Login temporary unavailable</source>
+        <translation>Inloggen tijdelijk niet mogelijk</translation>
+    </message>
+    <message>
+        <source>[timeout] The request took too long to finish, please retry.</source>
+        <translation>[time-out] Het duurde te lang voordat het verzoek was voltooid. Probeer het opnieuw.</translation>
+    </message>
+    <message>
+        <source>[aborted] The request has been aborted.</source>
+        <translation>[afgebroken] Het verzoek is afgebroken.</translation>
+    </message>
+    <message>
+        <source>Server Error.</source>
+        <translation>Server fout.</translation>
+    </message>
+    <message>
+        <source>Network Error.</source>
+        <translation>Netwerk fout.</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Kan bijlage niet uploaden die is opgeslagen op &apos;%1&apos;, reden:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProject</name>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Kan tijdelijk bestand niet openen voor `%1`, reden:
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>Inpakstaak is mislukt voor `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>Kan de laatste informatie voor `%1` niet vernieuwen: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation>Kan de laatste package-gegevens niet ophalen.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation>Fout in reactie op laatste package-gegevens.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation>Fout in laatste package-gegevensstructuur.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Netwerk fout. Kan bestand `%1` niet downloaden.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Het is niet gelukt om enkele van de gedownloade bestanden naar uw apparaat te kopiëren. Controleer uw apparaatopslag.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Project `%1`, bestand `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Systeem bericht:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation>(bekijk meer in het QField-foutlogboek)…</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Het maken van de taak is voltooid, maar de serverreactie mist verplichte velden: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Taakstatus ophalen, maar nog geen `%2`-taak geactiveerd.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>job(%1) statusreactie bevat niet alle verwachte sleutels: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Taak(%1) is voltooid met een mislukte status.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>afgebroken</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectsModel</name>
+    <message>
+        <source>Project busy.</source>
+        <translation>Project bezig.</translation>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>Er is een serverfout opgetreden, probeer het opnieuw.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>Er is een netwerkfout opgetreden, probeer het opnieuw.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected the json document to be an array of delta status</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object, but the element at #%1 is not</source>
+        <translation>Verwachtte dat alle array-elementen een object zouden zijn, maar het element op #%1 is dat niet</translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
+        <translation>Verwachtte dat alle array-elementen een object zouden zijn met de sleutel &quot;%1&quot;, maar het element op #%2 is dat niet</translation>
+    </message>
+    <message>
+        <source>Unrecognized status &quot;%1&quot; for $%2</source>
+        <translation>Onbekende status &quot;%1&quot; voor $%2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) created</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) edited</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) deleted</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCodeReader</name>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation>NFC-tekstlabel gedetecteerd</translation>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Code Lezer</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation>Centreer je apparaat op een code</translation>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterAngle</name>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterPoint</name>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5485,6 +5156,1061 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfDigitizingLogger</name>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing logs layer feature addition failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing logs layer change commits failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing logs layer editing failed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingToolbar</name>
+    <message>
+        <source>The collected positions count does not meet the requirement</source>
+        <translation>De verzamelde posities voldoen niet aan het vereiste</translation>
+    </message>
+    <message>
+        <source>Cancel digitizing</source>
+        <translation>Stop digitaliseren</translation>
+    </message>
+    <message>
+        <source>Should the digitized geometry be discarded?</source>
+        <translation>Moet de gedigitaliseerde geometrie worden verworpen?</translation>
+    </message>
+    <message>
+        <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
+        <translation>Positienauwkeurigheid voldoet niet aan de minimale eisen, knooppunt niet toegevoegd</translation>
+    </message>
+</context>
+<context>
+    <name>QfDrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation>Leeg</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBase</name>
+    <message>
+        <source>Item Menu</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBinary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation>(Blob)</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetCheckBox</name>
+    <message>
+        <source>True</source>
+        <translation>Waar</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Onwaar</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Leeg</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetDateTime</name>
+    <message>
+        <source>(no date)</source>
+        <translation>(geen datum)</translation>
+    </message>
+    <message>
+        <source>Date value set to today.</source>
+        <translation>Datum op vandaag.</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetExternalResource</name>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Meer info</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Leeg</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>No Value</source>
+        <translation>Geen Waarde</translation>
+    </message>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation>Bestandstype niet bruikbaar</translation>
+    </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation>Maak een foto</translation>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation>Maak een video</translation>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation>Neem een ​​audioclip op</translation>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation>Voeg een galerij-item toe</translation>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation>Bestand toevoegen</translation>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation>Schets iets</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetRange</name>
+    <message>
+        <source>Empty</source>
+        <translation>Leeg</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetTextEdit</name>
+    <message>
+        <source>Empty</source>
+        <translation>Leeg</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Copy Text</source>
+        <translation>Kopieer Tekst</translation>
+    </message>
+    <message>
+        <source>Paste Text</source>
+        <translation>Plak Tekst</translation>
+    </message>
+    <message>
+        <source>Scan Code</source>
+        <translation>Scan code</translation>
+    </message>
+</context>
+<context>
+    <name>QfEgenioussReceiver</name>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation>Ontvangen gegevens zijn te kort om te verwerken</translation>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation>Invalid start byte</translation>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation>Received data is too short to contain the payload</translation>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>Failed to parse JSON</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Remote host niet gevonden</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>De verbinding is geweigerd door de remote host</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP receiver error (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfElevationProfile</name>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>Hoogteprofiel wordt gemaakt...</translation>
+    </message>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>Digitaliseer een route om een hoogteprofiel te maken</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>Kopieer “%1” naar klembord</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>Rekenmachine</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>Geeft de waarde van een expressie die in de zoekbalk is getypt.</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionVariableModel</name>
+    <message>
+        <source>Not Available</source>
+        <translation>Niet Beschikbaar</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureForm</name>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The last entered value for this field will be remembered and reused when creating new features</source>
+        <translation>De laatst ingevoerde waarde voor dit veld wordt onthouden en hergebruikt bij het maken van nieuwe objecten</translation>
+    </message>
+    <message>
+        <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation>De laatst ingevoerde waarde voor dit veld wordt niet hergebruikt bij het maken van een nieuw objecten</translation>
+    </message>
+    <message>
+        <source>Value applied</source>
+        <translation>Waarde toegekend</translation>
+    </message>
+    <message>
+        <source>Value skipped</source>
+        <translation>Waarde overgeslagen</translation>
+    </message>
+    <message>
+        <source> (click to toggle)</source>
+        <translation>(klik om te toggelen)</translation>
+    </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation>Object toevoegen uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Unable to save changes</source>
+        <translation>Kan wijzigingen niet opslaan</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Object toevoegen op &lt;i&gt;%1&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Object wijzigen op %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Object bekijken op %1</translation>
+    </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel editing</source>
+        <translation>Bewerken annuleren</translation>
+    </message>
+    <message>
+        <source>You are about to dismiss the new feature, proceed?</source>
+        <translation>U staat op het punt het nieuwe object af te wijzen, doorgaan?</translation>
+    </message>
+    <message>
+        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
+        <translation>U staat op het punt de bewerkingsstatus te verlaten, alle wijzigingen gaan verloren. Doorgaan?</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation><numerusform>Aanmaak van %n object(s) ongedaan maken.</numerusform><numerusform>Aanmaken van %n objecten ongedaan maken.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation><numerusform>Verwijdering van %n object(s) ongedaan maken.</numerusform><numerusform>Verwijderen van %n object(en) ongedaan maken.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureListForm</name>
+    <message>
+        <source>Features</source>
+        <translation>Objecten</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation>Verwerkingsalgoritmen</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Wijzigingen opgeslagen</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Wijzigingen genegeerd</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation>Stop het volgen van dit object om de attributen te wijzigen</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation>Stop het volgen van dit object om de geometrie te wijzigen</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Object succesvol gedupliceerd</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to delete those</source>
+        <translation>Een aantal objecten worden gevolgd, stop met volgen om deze te verwijderen</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to merge those</source>
+        <translation>Een aantal objecten worden gevolgd, stop met volgen om deze samen te voegen</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated selected features, list updated to show newly-created features</source>
+        <translation>Geselecteerde objecten gedupliceerd, lijst bijgewerkt om nieuw gemaakte objecten weer te geven</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Geen object op deze positie</translation>
+    </message>
+    <message>
+        <source>Merge feature(s)</source>
+        <translation>Samenvoegen object(en)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be merge?
+
+The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
+        <comment>0</comment>
+        <translation><numerusform>Moeten de geselecteerde %n-functie(s) echt worden samengevoegd?
+
+De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos;, dat zijn kenmerken behoudt.</numerusform><numerusform>Moeten de geselecteerde %n-objecten echt worden samengevoegd?
+
+De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos;, dat zijn kenmerken behoudt.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully merged %n feature(s)</source>
+        <translation><numerusform>Succesvol %n object(en) samengevoegd</numerusform><numerusform>Succesvol %n object(en) samengevoegd</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to merge %n feature(s)</source>
+        <translation><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform><numerusform>Kan %n objecten(en) niet samenvoegen</numerusform></translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation>Attributen gekopieerd</translation>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete feature(s)</source>
+        <translation>Verwijder object(en)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be deleted?</source>
+        <comment>0</comment>
+        <translation><numerusform>Moeten de geselecteerde %n object(en) echt worden verwijderd?</numerusform><numerusform>Moeten de %n geselecteerde object(en) echt worden verwijderd?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully deleted %n feature(s)</source>
+        <translation><numerusform>Succesvol %n object(en) verwijderd</numerusform><numerusform>Succesvol %n object(en) verwijderd</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n feature(s)</source>
+        <translation><numerusform>Kan %n object(en) niet verwijderen</numerusform><numerusform>Kan %n object(en) niet verwijderen</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>Waarde &quot;%1&quot; %4 kan niet worden geconverteerd naar een compatibele waarde voor veld %2(%3).</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>Standaardwaarde-expressie voor %1:%2 heeft parserfout: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Kan object niet bijwerken</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>Object %1 kan niet worden opgehaald na commit</translation>
+    </message>
+    <message>
+        <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
+        <translation>Kan niet beginnen met bewerken op laag &quot;%1&quot; om object %2 te maken</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
+        <translation>Laag &quot;%1&quot; is vastgelegd, maar de nieuw gemaakte object %2 kan niet worden opgehaald</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
+%3</source>
+        <translation>Laag &quot;%1&quot; kan niet worden vastgelegd met het nieuw gemaakte object %2. Reden:
+%3</translation>
+    </message>
+    <message>
+        <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
+        <translation>Object %2 kon niet worden toegevoegd aan laag &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Kan de wijzigingen niet opslaan. Roll back wordt uitgevoerd.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan niet beginnen met bewerken</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Open formulier</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Object instellen als bestemming</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Object heeft geen geometrie</translation>
+    </message>
+    <message>
+        <source>Features in all layers</source>
+        <translation>Objecten in alle lagen</translation>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>Geeft een lijst van objecten in alle doorzoekbare lagen met overeenkomende weergavenaam.</translation>
+    </message>
+</context>
+<context>
+    <name>QfFileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation>Interval (jn milliseconden)</translation>
+    </message>
+</context>
+<context>
+    <name>QfFinlandLocatorFilter</name>
+    <message>
+        <source>Finnish address search</source>
+        <translation>Fins adres zoeken</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorErase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation>De geometrie kon niet in meerdere onderdelen worden gewijzigd</translation>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation>De geometrie kon niet worden gewijzigd</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorFillRing</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation>De ring is niet gesloten</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation>De ring is niet geldig</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation>De ring kruist bestaande ringen (hij is niet disjunct)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation>De ring heeft geen bestaande ring om in te passen</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation>Onbekende fout bij het maken van een ring</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation>Vul de ring</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation>Wil je de ring met een polygoon vullen?</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorReshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation>De geometrie kan niet worden omgevormd</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorSplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation>Object kan niet worden gesplitst</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorVertexEditor</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation>Kan object niet opslaan!</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorsToolbar</name>
+    <message>
+        <source>Vertex Tool</source>
+        <translation>Knooppunt-Gereedschap</translation>
+    </message>
+    <message>
+        <source>Split Tool</source>
+        <translation>Splits-Gereedschap</translation>
+    </message>
+    <message>
+        <source>Reshape Tool</source>
+        <translation>Omvorm-Gereedschap</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation>Gum</translation>
+    </message>
+    <message>
+        <source>Fill Ring Tool</source>
+        <translation>Vul Ring-Gereedschap </translation>
+    </message>
+</context>
+<context>
+    <name>QfGotoLocatorFilter</name>
+    <message>
+        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
+        <translation>Ga naar %1%2 %3%4 (Kaart CRS, %5)</translation>
+    </message>
+    <message>
+        <source>Set navigation point</source>
+        <translation>Navigatiepunt instellen</translation>
+    </message>
+    <message>
+        <source>Go to %1°N %2°E (%3)</source>
+        <translation>Ga naar %1°N %2°E (%3)</translation>
+    </message>
+    <message>
+        <source>Go to coordinate</source>
+        <translation>Ga naar coördinaat</translation>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>Geeft een locatie van X- en Y-coördinaten - of WGS84 breedtegraad en lengtegraad - die in de zoekbalk zijn ingevoerd.</translation>
+    </message>
+</context>
+<context>
+    <name>QfHelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation>QField documentatie</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>Geeft QField documentatiepagina&apos;s terug die overeenkomen.</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation>Navigatie</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Positie</translation>
+    </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Sensoren</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation>Hoogteprofiel</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationPopup</name>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerLoginDialog</name>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Gebruikersnaam</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Wachtwoord</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation>Indienen</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerObserver</name>
+    <message>
+        <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
+        <translation>Kan geen lokale primaire sleutelkolom vinden in laag &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
+        <translation>Kan geen kolom met primaire bronsleutel vinden in laag &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerTreeItemProperties</name>
+    <message>
+        <source>Expand group</source>
+        <translation>Uitklappen groep</translation>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation>Legenda-item uitklappen</translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation>Stop met volgen</translation>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation>Tracking instellen</translation>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation>Herladen van laag %1 geactiveerd</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation>Toon op kaart</translation>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation>Toon labels</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opaciteit</translation>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation>Zoom naar groep</translation>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation>Zoom naar bovenliggende laag</translation>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation>Zoom naar laag</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Toon objectenlijst</translation>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation>De laag heeft geen objecten</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>Alleen-lezen laag</translation>
+    </message>
+    <message>
+        <source>feature addition</source>
+        <translation>Object toevoegen</translation>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation>attribuut bewerken</translation>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation>geometrie bewerken</translation>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation>object verwijderen</translation>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation>Uitgeschakelde laag bewerkingen: %1</translation>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>Toon Objecten Menu</translation>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Toon zichtbare objectenlijst</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>Kan niet beginnen met bewerken, geen laag</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan niet beginnen met bewerken</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Kan verwijdering van object %2 in laag &quot;%1&quot; niet vastleggen. Reden:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Kan verwijdering in laag &quot;%1&quot; niet uitvoeren. Reden:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>Kan object %1 niet verwijderen</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>Kan ongeldig object niet kopiëren</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Kan geen nieuw object toevoegen in laag &quot;%1&quot;. Reden:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Stop</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Deze laag is ongeldig. Dit kan te wijten zijn aan een netwerkprobleem, een ontbrekend bestand of een verkeerde configuratie van het project.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Deze laag is geconfigureerd als &quot;Alleen-lezen&quot;, wat het toevoegen, verwijderen en bewerken van objecten uitschakelt.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>In de toestemmingsconfiguratie voor deze laag is object toevoegen uitgeschakeld.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalFilesModel</name>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField files directory</source>
+        <translation>QField bestanden map</translation>
+    </message>
+    <message>
+        <source>Created projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported projects</source>
+        <translation>Geïmporteerde projecten</translation>
+    </message>
+    <message>
+        <source>Imported datasets</source>
+        <translation>Geïmporteerde datasets</translation>
+    </message>
+    <message>
+        <source>Additional files directory</source>
+        <translation>Extra bestanden map</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorFiltersModel</name>
+    <message>
+        <source>Search filters for your locations have been activated, customize results in the settings panel</source>
+        <translation>Zoekfilters voor uw locaties zijn geactiveerd, pas de resultaten aan in het instellingenpaneel</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorItem</name>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLocatorSettings</name>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation>Eigenschappen zoekbalk</translation>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation>Indien uitgeschakeld kan deze locatie filter nog steeds worden gebruikt door het voorvoegsel %1 te gebruiken in de zoekbalk.</translation>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation>Gebruik standaard de locatiefilter %1</translation>
+    </message>
+</context>
+<context>
+    <name>QfMessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation>Logboekmeldingen</translation>
+    </message>
+    <message>
+        <source>Message text copied</source>
+        <translation>Berichttekst gekopieerd</translation>
+    </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear message log</source>
+        <translation>Wissen Logboekmeldingen</translation>
+    </message>
+    <message>
+        <source>Message log cleared</source>
+        <translation>Logboekmeldingen gewist</translation>
+    </message>
+    <message>
+        <source>Send application log</source>
+        <translation>Applicatielog verzenden</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation>Uw applicatielog wordt verzonden...</translation>
+    </message>
+</context>
+<context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
@@ -5500,6 +6226,201 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfMultiFeatureListModelBase</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan niet beginnen met bewerken</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+    </message>
+    <message>
+        <source>Cannot change geometry of feature %1 in %2</source>
+        <translation>Kan de geometrie van object %1 in %2 niet wijzigen</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationBar</name>
+    <message>
+        <source>Features</source>
+        <translation>Objecten</translation>
+    </message>
+    <message>
+        <source>Feature List Menu</source>
+        <translation>Objectlijstmenu</translation>
+    </message>
+    <message>
+        <source>Toggle Feature Selection</source>
+        <translation>Objecten selecteren</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to PDF</source>
+        <translation>Atlas-object(en) naar PDF afdrukken</translation>
+    </message>
+    <message>
+        <source>Merge Selected Features</source>
+        <translation>Voeg geselecteerde objecten samen</translation>
+    </message>
+    <message>
+        <source>Move Selected Feature(s)</source>
+        <translation>Verplaats geselecteerde object(en)</translation>
+    </message>
+    <message>
+        <source>Duplicate Selected Feature(s)</source>
+        <translation>Dupliceer geselecteerde object(en)</translation>
+    </message>
+    <message>
+        <source>Delete Selected Feature(s)</source>
+        <translation>Verwijder geselecteerde object(en)</translation>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation>Verwerk geselecteerd(e) object(en)</translation>
+    </message>
+    <message>
+        <source>Feature Menu</source>
+        <translation>Objectmenu</translation>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation>Object attributen gekopieerd vanaf klembord</translation>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation>Er zijn object object attributen bijgewerkt vanaf het klembord</translation>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation>Object ingesteld als bestemming</translation>
+    </message>
+    <message>
+        <source>Zoom to Feature</source>
+        <translation>Zoom naar object</translation>
+    </message>
+    <message>
+        <source>Auto-Zoom to Feature</source>
+        <translation>Auto-Zoomen naar Object</translation>
+    </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Move Feature</source>
+        <translation>Verplaats object</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dupliceer object</translation>
+    </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>Roteer object</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Verwijder object</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Selecteer hieronder een sjabloon</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Printen...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfNavigationInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>Dist.</source>
+        <translation>Afst.</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Koers</translation>
+    </message>
+</context>
+<context>
+    <name>QfNtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfOrderedRelationModel</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Kan niet beginnen met bewerken</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Kan laagwijzigingen in laag %1 . niet terugdraaien</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation>Kan geen laagwijzigingen vastleggen in laag %1.</translation>
+    </message>
+    <message>
+        <source>Cannot update features ordering</source>
+        <translation>Kan volgorde van objecten niet bijwerken</translation>
+    </message>
+</context>
+<context>
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
@@ -5507,10 +6428,816 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
 </context>
 <context>
+    <name>QfOverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Wijzigingen opgeslagen</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Wijzigingen genegeerd</translation>
+    </message>
+</context>
+<context>
+    <name>QfPlatformUtilities</name>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Verwijderingsbevestiging</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation>Het dataset wordt verwijderd, weet u het zeker?</translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation>De project map wordt verwijderd, wilt u doorgaan?</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation>Er is een fout opgetreden bij het opslaan van het bestand</translation>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation>Selecteer Afbeeldingsbestand</translation>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation>Selecteer Video bestand</translation>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation>Selecteer Bestand</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation>Open Bestand</translation>
+    </message>
+    <message>
+        <source>All Supported Files</source>
+        <translation>Alle ondersteunde bestanden</translation>
+    </message>
+    <message>
+        <source>QGIS Project Files</source>
+        <translation>QGIS project bestanden</translation>
+    </message>
+    <message>
+        <source>Vector Datasets</source>
+        <translation>Vectorgegevenssets</translation>
+    </message>
+    <message>
+        <source>Raster Datasets</source>
+        <translation>Rastergegevenssets</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Intern apparaat</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceSettings</name>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation>Seriële poort (NMEA)</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation>Instellingen Plaatsbepalingsapparaat</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation>Verbindingstype</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Naam</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation> (leeg laten om automatisch in te vullen)</translation>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation>Verbindingsdetails</translation>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation>TCP (NMEA)</translation>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
+        <translation>UDP (NMEA)</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationModel</name>
+    <message>
+        <source>Altitude</source>
+        <translation>Hoogte</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Snelheid</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>H. Nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>V. Nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Poort</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Gebruikersnaam</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Wachtwoord</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningPreciseView</name>
+    <message>
+        <source>Dist.</source>
+        <translation>Afst.</translation>
+    </message>
+    <message>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation>De nauwkeurigheid van de plaatsbepaling is te laag voor dit precisie niveau</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningSettings</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Intern apparaat</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>Algemene parameters</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>Geavanceerde parameters</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Help</translation>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation>Beschrijving algoritme</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favorieten</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>Alle algortimes</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterArea</name>
+    <message>
+        <source>square degrees</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;unknown&gt;</translation>
+    </message>
+    <message>
+        <source>sqr. meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. kilometers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. feet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. yards</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>hectares</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>acres</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. nautical miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. centimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. millimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. inches</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterBoolean</name>
+    <message>
+        <source>True</source>
+        <translation>Waar</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Onwaar</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterDistance</name>
+    <message>
+        <source>degrees</source>
+        <translation>graden</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>&lt;unknown&gt;</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>meters</translation>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation>kilometers</translation>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation>voet</translation>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation>yard</translation>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation>mijl</translation>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation>zeemijl</translation>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation>centimeters</translation>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation>millimeters</translation>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation>inch</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation>Maak een nieuw project</translation>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>Leeg</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Beschrijving</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation>Ongeldige referentielaag</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation>Kan object niet verwijderen</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationCombobox</name>
+    <message>
+        <source>Empty</source>
+        <translation>Leeg</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Ongeldige relatie</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationEditorBase</name>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Onderliggend object toevoegen aan laag %1</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Verwijder object</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Kan verwijzingsobject niet verwijderen</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>Kopieer attributen</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Atlas object naar PDF printen</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Selecteer hieronder een sjabloon</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Printen...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
+    </message>
+</context>
+<context>
+    <name>QfScaleBarMeasurement</name>
+    <message>
+        <source>Unknown</source>
+        <translation>Onbekend</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
         <translation>Zoeken</translation>
+    </message>
+</context>
+<context>
+    <name>QfSensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>Selecteer de seriële poort uit onderstaande lijst:</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation>Geen seriële poort gevonden, ververs de lijst nadat een apparaat is aangesloten.</translation>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>Ververs lijst</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>Seriële poort weergavenaam:</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>Seriële poortadres:</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation>Seriële poort apparaat niet gevonden</translation>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation>Poging tot lezen via de seriële poort gaf een fout</translation>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation>De connectie werd geweigerd vanwege onjuiste rechten</translation>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation>Seriële poort ontvangerfout (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfTcpDeviceChooser</name>
+    <message>
+        <source>IP address</source>
+        <translation>IP addres</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Poort</translation>
+    </message>
+</context>
+<context>
+    <name>QfTcpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Remote host niet gevonden</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>De verbinding is geweigerd door de remote host</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>TCP receiver error (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfTemporalProperties</name>
+    <message>
+        <source>Temporal Properties</source>
+        <translation>Tijdelijke eigenschappen</translation>
+    </message>
+    <message>
+        <source>Enable temporal filter</source>
+        <translation>Tijdelijk filter inschakelen</translation>
     </message>
 </context>
 <context>
@@ -5526,6 +7253,260 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Seconds</source>
         <translation>Seconden</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerFeatureForm</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>Spoor op laag %1 gestart</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerSettings</name>
+    <message>
+        <source>Tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Requirement Settings</source>
+        <translation>Vereiste instellingen</translation>
+    </message>
+    <message>
+        <source>Time requirement</source>
+        <translation>Tijdsvereiste</translation>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
+        <translation>Indien ingeschakeld zullen vertices worden toegevoegd wanneer de tijd tussen de laatste en de nieuwe vertex voldoet aan een geconfigureerde minimale waarde.</translation>
+    </message>
+    <message>
+        <source>Distance requirement</source>
+        <translation>Afstandsvereiste</translation>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor data requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait for all active requirements</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation>Algemene instellingen</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation>Verstreken tijd (seconden sinds het begin van het volgen)</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Grondsnelheid</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Koers</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Horizontale nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Verticale nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resume tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfUdpDeviceChooser</name>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Poort</translation>
+    </message>
+</context>
+<context>
+    <name>QfUdpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Remote host niet gevonden</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>De verbinding is geweigerd door de remote host</translation>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation>UDP ontvangerfout (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfVariableEditor</name>
+    <message>
+        <source>Global variables</source>
+        <translation>Globale variabelen</translation>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation>Projectvariabelen</translation>
+    </message>
+    <message>
+        <source>Enter value</source>
+        <translation>Voer waarde in</translation>
+    </message>
+    <message>
+        <source>Add a new variable</source>
+        <translation>Een nieuwe variabele toevoegen</translation>
+    </message>
+</context>
+<context>
+    <name>QfWebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation>Downloaden van bestand %1 mislukt door netwerkfout (%2)</translation>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation>Kan bestand %1 niet uploaden vanwege netwerkfout (%2)</translation>
+    </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5568,6 +7549,679 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>De digitaliseringsfunctie beëindigen of afbreken voordat u overschakelt naar de bladermodus</translation>
+    </message>
+    <message>
+        <source>You are now in browse mode</source>
+        <translation>U bevindt zich nu in de bladermodus</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode on layer %1</source>
+        <translation>U bevindt zich nu in de digitaliseringsmodus op laag %1</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation>U bevindt zich nu in de digitaliseringsmodus</translation>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation>U bevindt zich nu in de meetmodus</translation>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
+        <translation>Plaatsbepalingsapparaat error: %1</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activating positioning service</source>
+        <translation>Positioneringsservice activeren</translation>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor unlocked</source>
+        <translation>Coördinaatcursor ontgrendeld</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My location</source>
+        <translation>Mijn locatie</translation>
+    </message>
+    <message>
+        <source>Accuracy</source>
+        <translation>Nauwkeurigheid</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>meters</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/B</translation>
+    </message>
+    <message>
+        <source>Current location copied to clipboard</source>
+        <translation>Huidige locatie gekopieerd naar klembord</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Meer info</translation>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation>Positie is overschreden in &apos;%1&apos;.</translation>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation>Positie buiten gebied na het verlaten van &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation>Positie bereikt op &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
+        <translation>Positie verlaten van &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>Segment</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Lengte</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Perimeter</source>
+        <translation>Omtrek</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>Oppervlak</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Sluit meetgereedschap</translation>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation>Stop met bewerken</translation>
+    </message>
+    <message>
+        <source>Cancel addition</source>
+        <translation>Toevoeging annuleren</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>Snapping ingeschakeld</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Snapping uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Topological editing turned on</source>
+        <translation>Topologische bewerking ingeschakeld</translation>
+    </message>
+    <message>
+        <source>Topological editing turned off</source>
+        <translation>Topologische bewerking uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned on</source>
+        <translation>Digitaliseren uit de vrije hand ingeschakeld</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned off</source>
+        <translation>Digitaliseren uit de vrije hand uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation>Vastzetten op %1° hoek is ingeschakeld</translation>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation>Vastzetten op hoeken is uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation>Relatieve hoek</translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation>Vastzetten op elke</translation>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation>%1°</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation>Snapping tolerantie</translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation>Smal</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normaal</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Groot</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation>Snapping tolerantie is ingesteld op %1</translation>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation>Wachten op locatie</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation>Object toevoegen mislukt omdat de functie object toevoegen is uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Printen...</translation>
+    </message>
+    <message>
+        <source>Main Menu</source>
+        <translation>Hoofdmenu</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>Ongedaan maken</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>Herhalen</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>Sensoren</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>Geen sensor beschikbaar</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Favorieten</translation>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Instellingen</translation>
+    </message>
+    <message>
+        <source>Message Log</source>
+        <translation>Logboekmeldingen</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Vergrendel Scherm</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>Selecteer sensor</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>Sensorfout: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>Sensor &apos;%1&apos; loskoppelen...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>Sensor &apos;%1&apos; verbinden...</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Printen</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>Selecteer layout</translation>
+    </message>
+    <message>
+        <source>Map Canvas Options</source>
+        <translation>Kaartcanvas opties</translation>
+    </message>
+    <message>
+        <source>Coordinates copied to clipboard</source>
+        <translation>Coördinaten gekopieerd naar klembord</translation>
+    </message>
+    <message>
+        <source>Add Bookmark</source>
+        <translation>Voeg bladwijzer toe</translation>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Naamloze bladwijzer</translation>
+    </message>
+    <message>
+        <source>Set as Destination</source>
+        <translation>Instellen als bestemming</translation>
+    </message>
+    <message>
+        <source>Enable Map Rotation</source>
+        <translation>Kaartrotatie inschakelen</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>Laag:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>Object:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>Open Objectformulier</translation>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation>Knip Object</translation>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation>Kopieer Object</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Dupliceer object</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Object succesvol gedupliceerd</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>Object duplicatie niet beschikbaar</translation>
+    </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation>Object succesvol geplakt</translation>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Navigation Options</source>
+        <translation>Navigatie-opties</translation>
+    </message>
+    <message>
+        <source>Always Show Precise View</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear Destination</source>
+        <translation>Bestemming wissen</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Positioneringsopties</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Schakel positionering in</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Settings</source>
+        <translation>Positionerings-instellingen</translation>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation>Toon Positie Informatie</translation>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Bookmark at Location</source>
+        <translation>Bladwijzer toevoegen aan locatie</translation>
+    </message>
+    <message>
+        <source>Copy Location Coordinates</source>
+        <translation>Coördinaten van locatie kopiëren</translation>
+    </message>
+    <message>
+        <source>Current layer switched to the one holding the selected geometry.</source>
+        <translation>De huidige laag is overgeschakeld naar de laag die de geselecteerde geometrie bevat.</translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>Importeren van %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>URL importeren mislukt</translation>
+    </message>
+    <message>
+        <source>Loading %1</source>
+        <translation>Laden %1</translation>
+    </message>
+    <message>
+        <source>Signed out</source>
+        <translation>Uitgelogd</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Verbinden...</translation>
+    </message>
+    <message>
+        <source>Signed in</source>
+        <translation>Ingelogd</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 failed to download</source>
+        <translation>Kan project %1 niet downloaden</translation>
+    </message>
+    <message>
+        <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
+        <translation>Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
+    </message>
+    <message>
+        <source>Changes failed to reach QFieldCloud: %1</source>
+        <translation>Wijzigingen bereikten QFieldCloud niet: %1</translation>
+    </message>
+    <message>
+        <source>Changes successfully pushed to QFieldCloud</source>
+        <translation>Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>Ontgrendel het scherm om project en app te sluiten</translation>
+    </message>
+    <message>
+        <source>Press back again to close project and app</source>
+        <translation>Druk nogmaals op terug om het project en app te sluiten</translation>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source> Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation>Geef je toestemming om `%1` te activeren?</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation>Onthoud mijn keuze</translation>
+    </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation>Dashboard</translation>
+    </message>
+    <message>
+        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
+        <translation>Met deze knop wordt het dashboard geopend. Met het dashboard kunt u communiceren met de legenda en het kaartthema, of beginnen met digitaliseren door de bewerkingsmodus te activeren. Door de knop lang in te drukken, krijgt u direct toegang tot het hoofdmenu.</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Positie</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>Met deze knop schakelt u tussen het positioneringssysteem. Indien ingeschakeld, verschijnt er een positiemarkering bovenaan de kaart. Als u lang op de knop drukt, wordt het positioneringsmenu geopend, waar u aanvullende functionaliteiten kunt verkennen.</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Zoeken</translation>
+    </message>
+    <message>
+        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
+        <translation>De zoekbalk biedt u een snelle manier om objecten binnen uw project te vinden, naar een getypt lengte- en breedtegraad te springen, en nog veel meer.</translation>
+    </message>
+    <message>
+        <source>Digitizing toggle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>Legenda</translation>
+    </message>
+    <message>
+        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation>De legenda toont kaartlagen en u kunt hier de zichtbaarheid en opaciteit van de lagen instellen door &lt;b&gt;lang te drukken op de laagnaam&lt;/b&gt;. De popup heeft verschillende extra functionaliteiten zoals Zoom naar laag en Toon objectenlijst.</translation>
+    </message>
+    <message>
+        <source>Measurement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
+        <translation>Schakel het meetgereedschap in om afstanden en oppervlakten op de kaart te meten.</translation>
+    </message>
+    <message>
+        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project folder</source>
+        <translation>Projectmap</translation>
+    </message>
+    <message>
+        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5635,12 +8289,8 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
 <context>
     <name>Range</name>
     <message>
-        <source>Empty</source>
-        <translation>Leeg</translation>
-    </message>
-    <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5670,7 +8320,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>Ongeldige referentielaag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -5678,7 +8328,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>Kan object niet verwijderen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -5697,62 +8347,38 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Invalid relation</source>
-        <translation>Ongeldige relatie</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Leeg</translation>
+        <translation type="vanished">Ongeldige relatie</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Onderliggend object toevoegen aan laag %1</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>Kan geen kindobject toevoegen: sleutel die ouder en kinderen koppelt is niet ingesteld</translation>
-    </message>
-    <message>
-        <source>Unlink Feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Verwijder object</translation>
-    </message>
-    <message>
-        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Moet object &lt;b&gt;%1 (%2)&lt;/b&gt; van laag &lt;b&gt;%3&lt;/b&gt; worden ontkoppeld?&lt;br&gt;&lt;i&gt;(De verbinding wordt verwijderd op laag &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
-    </message>
-    <message>
-        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Moet het object &lt;b&gt;%1 (%2)&lt;/b&gt; op laag &lt;b&gt;%3&lt;/b&gt; worden verwijderd?</translation>
-    </message>
-    <message>
-        <source>Failed to delete referencing feature</source>
-        <translation>Kan verwijzingsobject niet verwijderen</translation>
-    </message>
-    <message>
-        <source>Child Menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
-        <translation>Kopieer attributen</translation>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Atlas object naar PDF printen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -5760,22 +8386,14 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Selecteer hieronder een sjabloon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Printing...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Open Form</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5783,7 +8401,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>De geometrie kan niet worden omgevormd</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5797,63 +8415,63 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation>Onbekend</translation>
+        <translation type="vanished">Onbekend</translation>
     </message>
 </context>
 <context>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation>Selecteer de seriële poort uit onderstaande lijst:</translation>
+        <translation type="vanished">Selecteer de seriële poort uit onderstaande lijst:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation>Geen seriële poort gevonden, ververs de lijst nadat een apparaat is aangesloten.</translation>
+        <translation type="vanished">Geen seriële poort gevonden, ververs de lijst nadat een apparaat is aangesloten.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation>Ververs lijst</translation>
+        <translation type="vanished">Ververs lijst</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation>Seriële poort weergavenaam:</translation>
+        <translation type="vanished">Seriële poort weergavenaam:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation>Seriële poortadres:</translation>
+        <translation type="vanished">Seriële poortadres:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation>Seriële poort apparaat niet gevonden</translation>
+        <translation type="vanished">Seriële poort apparaat niet gevonden</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation>Poging tot lezen via de seriële poort gaf een fout</translation>
+        <translation type="vanished">Poging tot lezen via de seriële poort gaf een fout</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation>De connectie werd geweigerd vanwege onjuiste rechten</translation>
+        <translation type="vanished">De connectie werd geweigerd vanwege onjuiste rechten</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation>Seriële poort ontvangerfout (%1)</translation>
+        <translation type="vanished">Seriële poort ontvangerfout (%1)</translation>
     </message>
 </context>
 <context>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>Object kan niet worden gesplitst</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5880,14 +8498,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Port:</source>
         <translation type="vanished">Poort:</translation>
     </message>
-    <message>
-        <source>IP address</source>
-        <translation>IP addres</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Poort</translation>
-    </message>
 </context>
 <context>
     <name>TcpReceiver</name>
@@ -5909,11 +8519,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Remote host niet gevonden</translation>
+        <translation type="vanished">Remote host niet gevonden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
+        <translation type="vanished">Poging om te lezen of schrijven van socket leverde een fout op</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -5925,114 +8535,54 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>De verbinding is geweigerd door de remote host</translation>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation>TCP receiver error (%1)</translation>
+        <translation type="vanished">De verbinding is geweigerd door de remote host</translation>
     </message>
 </context>
 <context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation>Tijdelijke eigenschappen</translation>
+        <translation type="vanished">Tijdelijke eigenschappen</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation>Tijdelijk filter inschakelen</translation>
+        <translation type="vanished">Tijdelijk filter inschakelen</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation>Kopieer Tekst</translation>
+        <translation type="vanished">Kopieer Tekst</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation>Plak Tekst</translation>
+        <translation type="vanished">Plak Tekst</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation>Scan code</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Leeg</translation>
+        <translation type="vanished">Scan code</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Spoor op laag %1 gestart</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerSettings</name>
     <message>
-        <source>Tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Requirement Settings</source>
-        <translation>Vereiste instellingen</translation>
-    </message>
-    <message>
-        <source>Time requirement</source>
-        <translation>Tijdsvereiste</translation>
-    </message>
-    <message>
         <source>Minimum time [sec]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation>Indien ingeschakeld zullen vertices worden toegevoegd wanneer de tijd tussen de laatste en de nieuwe vertex voldoet aan een geconfigureerde minimale waarde.</translation>
-    </message>
-    <message>
-        <source>Distance requirement</source>
-        <translation>Afstandsvereiste</translation>
-    </message>
-    <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>General Settings</source>
-        <translation>Algemene instellingen</translation>
-    </message>
-    <message>
-        <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6041,7 +8591,7 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation>Verstreken tijd (seconden sinds het begin van tracking)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -6049,31 +8599,31 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Grondsnelheid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Koers</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Horizontale nauwkeurigheid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Verticale nauwkeurigheid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
@@ -6085,38 +8635,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Resume tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sec</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum distance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6296,14 +8814,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Port:</source>
         <translation type="vanished">Poort:</translation>
     </message>
-    <message>
-        <source>Address</source>
-        <translation>Adres</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Poort</translation>
-    </message>
 </context>
 <context>
     <name>UdpReceiver</name>
@@ -6325,11 +8835,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Remote host niet gevonden</translation>
+        <translation type="vanished">Remote host niet gevonden</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Poging om te lezen of schrijven van socket leverde een fout op</translation>
+        <translation type="vanished">Poging om te lezen of schrijven van socket leverde een fout op</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -6337,11 +8847,11 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>UDP ontvangerfout (%1)</translation>
+        <translation type="vanished">UDP ontvangerfout (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>De verbinding is geweigerd door de remote host</translation>
+        <translation type="vanished">De verbinding is geweigerd door de remote host</translation>
     </message>
 </context>
 <context>
@@ -6359,26 +8869,18 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Enter value</source>
-        <translation>Voer waarde in</translation>
+        <translation type="vanished">Voer waarde in</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation>Een nieuwe variabele toevoegen</translation>
-    </message>
-    <message>
-        <source>Global variables</source>
-        <translation>Globale variabelen</translation>
-    </message>
-    <message>
-        <source>Project variables</source>
-        <translation>Projectvariabelen</translation>
+        <translation type="vanished">Een nieuwe variabele toevoegen</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Kan object niet opslaan!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6386,73 +8888,6 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Kan object niet opslaan!</translation>
-    </message>
-</context>
-<context>
-    <name>WebdavConnection</name>
-    <message>
-        <source>Failed to download file %1 due to network error (%2)</source>
-        <translation>Downloaden van bestand %1 mislukt door netwerkfout (%2)</translation>
-    </message>
-    <message>
-        <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation>Kan bestand %1 niet uploaden vanwege netwerkfout (%2)</translation>
-    </message>
-    <message>
-        <source>Upload finished.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local paths provided.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No stored password available.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local changes detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload skipped.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6601,123 +9036,14 @@ project</translation>
     </message>
 </context>
 <context>
-    <name>angle</name>
-    <message>
-        <source>deg</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>area</name>
-    <message>
-        <source>square degrees</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
-    </message>
-    <message>
-        <source>sqr. meters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. feet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. yards</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>hectares</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>acres</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. inches</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>boolean</name>
     <message>
         <source>True</source>
-        <translation>Waar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>False</source>
-        <translation>Onwaar</translation>
-    </message>
-</context>
-<context>
-    <name>distance</name>
-    <message>
-        <source>degrees</source>
-        <translation>graden</translation>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>&lt;unknown&gt;</translation>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>meters</translation>
-    </message>
-    <message>
-        <source>kilometers</source>
-        <translation>kilometers</translation>
-    </message>
-    <message>
-        <source>feet</source>
-        <translation>voet</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>yard</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>mijl</translation>
-    </message>
-    <message>
-        <source>nautical miles</source>
-        <translation>zeemijl</translation>
-    </message>
-    <message>
-        <source>centimeters</source>
-        <translation>centimeters</translation>
-    </message>
-    <message>
-        <source>millimeters</source>
-        <translation>millimeters</translation>
-    </message>
-    <message>
-        <source>inches</source>
-        <translation>inch</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6771,105 +9097,74 @@ project</translation>
     </message>
 </context>
 <context>
-    <name>point</name>
-    <message>
-        <source>latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>elevation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>easting [X]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>northing [Y]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>elevation [Z]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>U bevindt zich nu in de bladermodus</translation>
+        <translation type="vanished">U bevindt zich nu in de bladermodus</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>U bevindt zich nu in de digitaliseringsmodus op laag %1</translation>
+        <translation type="vanished">U bevindt zich nu in de digitaliseringsmodus op laag %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>U bevindt zich nu in de digitaliseringsmodus</translation>
+        <translation type="vanished">U bevindt zich nu in de digitaliseringsmodus</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>U bevindt zich nu in de meetmodus</translation>
+        <translation type="vanished">U bevindt zich nu in de meetmodus</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segment</translation>
+        <translation type="vanished">Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Omtrek</translation>
+        <translation type="vanished">Omtrek</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Lengte</translation>
+        <translation type="vanished">Lengte</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Oppervlak</translation>
+        <translation type="vanished">Oppervlak</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Sluit meetgereedschap</translation>
+        <translation type="vanished">Sluit meetgereedschap</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Stop met bewerken</translation>
+        <translation type="vanished">Stop met bewerken</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Toevoeging annuleren</translation>
+        <translation type="vanished">Toevoeging annuleren</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topologische bewerking ingeschakeld</translation>
+        <translation type="vanished">Topologische bewerking ingeschakeld</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Topologische bewerking uitgeschakeld</translation>
+        <translation type="vanished">Topologische bewerking uitgeschakeld</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Digitaliseren uit de vrije hand ingeschakeld</translation>
+        <translation type="vanished">Digitaliseren uit de vrije hand ingeschakeld</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Digitaliseren uit de vrije hand uitgeschakeld</translation>
+        <translation type="vanished">Digitaliseren uit de vrije hand uitgeschakeld</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -6877,7 +9172,7 @@ project</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Coördinaatcursor ontgrendeld</translation>
+        <translation type="vanished">Coördinaatcursor ontgrendeld</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -6893,7 +9188,7 @@ project</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Wachten op locatie</translation>
+        <translation type="vanished">Wachten op locatie</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -6917,7 +9212,7 @@ project</translation>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Hoofdmenu</translation>
+        <translation type="vanished">Hoofdmenu</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -6945,11 +9240,11 @@ project</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Instellingen</translation>
+        <translation type="vanished">Instellingen</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Logboekmeldingen</translation>
+        <translation type="vanished">Logboekmeldingen</translation>
     </message>
     <message>
         <source>About QField</source>
@@ -6961,7 +9256,7 @@ project</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Positioneringsservice activeren</translation>
+        <translation type="vanished">Positioneringsservice activeren</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -6969,15 +9264,15 @@ project</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Kaartcanvas opties</translation>
+        <translation type="vanished">Kaartcanvas opties</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Voeg bladwijzer toe</translation>
+        <translation type="vanished">Voeg bladwijzer toe</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Instellen als bestemming</translation>
+        <translation type="vanished">Instellen als bestemming</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -6985,7 +9280,7 @@ project</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Naamloze bladwijzer</translation>
+        <translation type="vanished">Naamloze bladwijzer</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -7005,7 +9300,7 @@ project</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Coördinaten gekopieerd naar klembord</translation>
+        <translation type="vanished">Coördinaten gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -7045,19 +9340,19 @@ project</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Bladwijzer toevoegen aan locatie</translation>
+        <translation type="vanished">Bladwijzer toevoegen aan locatie</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Coördinaten van locatie kopiëren</translation>
+        <translation type="vanished">Coördinaten van locatie kopiëren</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Uitgelogd</translation>
+        <translation type="vanished">Uitgelogd</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Ingelogd</translation>
+        <translation type="vanished">Ingelogd</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -7065,11 +9360,11 @@ project</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Navigatie-opties</translation>
+        <translation type="vanished">Navigatie-opties</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Bestemming wissen</translation>
+        <translation type="vanished">Bestemming wissen</translation>
     </message>
     <message>
         <source>%1 Precision</source>
@@ -7081,19 +9376,19 @@ project</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Positioneringsopties</translation>
+        <translation type="vanished">Positioneringsopties</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Schakel positionering in</translation>
+        <translation type="vanished">Schakel positionering in</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Toon Positie Informatie</translation>
+        <translation type="vanished">Toon Positie Informatie</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Positionerings-instellingen</translation>
+        <translation type="vanished">Positionerings-instellingen</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -7109,7 +9404,7 @@ project</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation>Mijn locatie</translation>
+        <translation type="vanished">Mijn locatie</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -7117,19 +9412,19 @@ project</translation>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Nauwkeurigheid</translation>
+        <translation type="vanished">Nauwkeurigheid</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation type="vanished">N/B</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Huidige locatie gekopieerd naar klembord</translation>
+        <translation type="vanished">Huidige locatie gekopieerd naar klembord</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>De huidige laag is overgeschakeld naar de laag die de geselecteerde geometrie bevat.</translation>
+        <translation type="vanished">De huidige laag is overgeschakeld naar de laag die de geselecteerde geometrie bevat.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
@@ -7137,7 +9432,7 @@ project</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Laden %1</translation>
+        <translation type="vanished">Laden %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -7145,7 +9440,7 @@ project</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Verbinden...</translation>
+        <translation type="vanished">Verbinden...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -7153,23 +9448,23 @@ project</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Kan project %1 niet downloaden</translation>
+        <translation type="vanished">Kan project %1 niet downloaden</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
+        <translation type="vanished">Project %1 is gedownload, het is nu beschikbaar om te openen</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Wijzigingen bereikten QFieldCloud niet: %1</translation>
+        <translation type="vanished">Wijzigingen bereikten QFieldCloud niet: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
+        <translation type="vanished">Wijzigingen zijn met succes naar QFieldCloud gepusht</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Druk nogmaals op terug om het project en app te sluiten</translation>
+        <translation type="vanished">Druk nogmaals op terug om het project en app te sluiten</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -7181,7 +9476,7 @@ project</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Vergrendel Scherm</translation>
+        <translation type="vanished">Vergrendel Scherm</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -7189,471 +9484,38 @@ project</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Printen...</translation>
+        <translation type="vanished">Printen...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Printen</translation>
+        <translation type="vanished">Printen</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Plaatsbepalingsapparaat error: %1</translation>
+        <translation type="vanished">Plaatsbepalingsapparaat error: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Dupliceer object</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Object succesvol gedupliceerd</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation>Snapping ingeschakeld</translation>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation>Snapping uitgeschakeld</translation>
-    </message>
-    <message>
-        <source>Snap to %1° angle turned on</source>
-        <translation>Vastzetten op %1° hoek is ingeschakeld</translation>
-    </message>
-    <message>
-        <source>Snap to common angle turned off</source>
-        <translation>Vastzetten op hoeken is uitgeschakeld</translation>
-    </message>
-    <message>
-        <source>Relative angle</source>
-        <translation>Relatieve hoek</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Meer info</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>Sensoren</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>Geen sensor beschikbaar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Select sensor below</source>
-        <translation>Selecteer sensor</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation>Sensorfout: %1</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>Sensor &apos;%1&apos; loskoppelen...</translation>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>Sensor &apos;%1&apos; verbinden...</translation>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation>Selecteer layout</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>Laag:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>Object:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation>Open Objectformulier</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation>Object duplicatie niet beschikbaar</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>Importeren van %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>URL importeren mislukt</translation>
-    </message>
-    <message>
-        <source>Do you grant permission to activate `%1`?</source>
-        <translation>Geef je toestemming om `%1` te activeren?</translation>
-    </message>
-    <message>
-        <source>Remember my choice</source>
-        <translation>Onthoud mijn keuze</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>Positie is overschreden in &apos;%1&apos;.</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Positie buiten gebied na het verlaten van &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Positie bereikt op &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Positie verlaten van &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Enable Map Rotation</source>
-        <translation>Kaartrotatie inschakelen</translation>
-    </message>
-    <message>
-        <source>Dashboard</source>
-        <translation>Dashboard</translation>
-    </message>
-    <message>
-        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation>Met deze knop wordt het dashboard geopend. Met het dashboard kunt u communiceren met de legenda en het kaartthema, of beginnen met digitaliseren door de bewerkingsmodus te activeren. Door de knop lang in te drukken, krijgt u direct toegang tot het hoofdmenu.</translation>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>Positie</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Zoeken</translation>
-    </message>
-    <message>
-        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation>De zoekbalk biedt u een snelle manier om objecten binnen uw project te vinden, naar een getypt lengte- en breedtegraad te springen, en nog veel meer.</translation>
-    </message>
-    <message>
-        <source>Cancel algorithm operation</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to close project and app</source>
-        <translation>Ontgrendel het scherm om project en app te sluiten</translation>
-    </message>
-    <message>
-        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>De digitaliseringsfunctie beëindigen of afbreken voordat u overschakelt naar de bladermodus</translation>
     </message>
     <message>
         <source>Variables</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Undo</source>
-        <translation>Ongedaan maken</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation>Herhalen</translation>
-    </message>
-    <message>
-        <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping to every</source>
-        <translation>Vastzetten op elke</translation>
-    </message>
-    <message>
-        <source>%1°</source>
-        <translation>%1°</translation>
-    </message>
-    <message>
-        <source>Snapping tolerance</source>
-        <translation>Snapping tolerantie</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation>Smal</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normaal</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Groot</translation>
-    </message>
-    <message>
-        <source>Snapping tolerance set to %1</source>
-        <translation>Snapping tolerantie is ingesteld op %1</translation>
-    </message>
-    <message>
-        <source>Import Confirmation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Permission</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source> Project Plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to create feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>Object toevoegen mislukt omdat de functie object toevoegen is uitgeschakeld</translation>
-    </message>
-    <message>
-        <source>Failed to save feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Measurement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation>Schakel het meetgereedschap in om afstanden en oppervlakten op de kaart te meten.</translation>
-    </message>
-    <message>
-        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project folder</source>
-        <translation>Projectmap</translation>
-    </message>
-    <message>
-        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>Legenda</translation>
-    </message>
-    <message>
-        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation>De legenda toont kaartlagen en u kunt hier de zichtbaarheid en opaciteit van de lagen instellen door &lt;b&gt;lang te drukken op de laagnaam&lt;/b&gt;. De popup heeft verschillende extra functionaliteiten zoals Zoom naar laag en Toon objectenlijst.</translation>
-    </message>
-    <message>
-        <source>Copy Feature</source>
-        <translation>Kopieer Object</translation>
-    </message>
-    <message>
-        <source>Cut Feature</source>
-        <translation>Knip Object</translation>
-    </message>
-    <message>
-        <source>Feature pasted successfully</source>
-        <translation>Object succesvol geplakt</translation>
-    </message>
-    <message>
-        <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tap on your location marker
-to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>Met deze knop schakelt u tussen het positioneringssysteem. Indien ingeschakeld, verschijnt er een positiemarkering bovenaan de kaart. Als u lang op de knop drukt, wordt het positioneringsmenu geopend, waar u aanvullende functionaliteiten kunt verkennen.</translation>
-    </message>
-    <message numerus="yes">
-        <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Stop all</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Loading terrain...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Close 3D view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Manager</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade plan</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>meters</translation>
-    </message>
-    <message>
-        <source>Bookmarks</source>
-        <translation>Bladwijzers</translation>
-    </message>
-    <message>
-        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

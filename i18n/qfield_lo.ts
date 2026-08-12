@@ -38,119 +38,107 @@
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>ກໍາລັງເຊື່ອມຕໍ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>ການເຊື່ອມຕໍ່ສໍາເລັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>ຕັດການເຊື່ອມຕໍ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>ສະຖານະ socket %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
-        <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation>ຈໍາ​ກັດ​ການ​ຊອກ​ຫາ​ໃນ​ພາກ​ສະ​ຫນາມ &apos;%1&apos;</translation>
-    </message>
-    <message>
         <source>Open form</source>
-        <translation>ເປີດແບບຟອມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>ຕັ້ງຄຸນສົມບັດເປັນຈຸດໝາຍປາຍທາງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>ຄຸນສົມບັດບໍ່ມີເລຂາຄະນິດ</translation>
-    </message>
-    <message>
-        <source>Features from active layer</source>
-        <translation>ຄຸນ​ນະ​ສົມ​ບັດ​ຈາກ​ຊັ້ນແຜນທີ່ທີ່ນຳໃຊ້ໃນປັດຈຸບັນ</translation>
-    </message>
-    <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation>ສົ່ງຄືນລາຍຊື່ຄຸນສົມບັດຈາກຊັ້ນຂໍ້ມູນທີ່ມີຄຸນສົມບັດທີ່ກົງກັນ. ການຈຳກັດການຈັບຄູ່ກັບຄຸນລັກສະນະອັນດຽວແມ່ນເຮັດໄດ້ໂດຍການລະບຸຊື່ຂອງມັນທີ່ນຳໜ້າດ້ວຍ &apos;@&apos;.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>ໄຟລ໌ %1 ບໍ່ມີຢູ່ </translation>
+        <translation type="vanished">ໄຟລ໌ %1 ບໍ່ມີຢູ່ </translation>
     </message>
 </context>
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2</translation>
+        <translation type="vanished">ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>ກຣິດນີ້ແມ່ນສ່ວນໜຶ່ງຂອງແພັກເກັດ “%1”, ຊຶ່ງສາມາດດາວໂຫຼດໄດ້ຈາກ %2. </translation>
+        <translation type="vanished">ກຣິດນີ້ແມ່ນສ່ວນໜຶ່ງຂອງແພັກເກັດ “%1”, ຊຶ່ງສາມາດດາວໂຫຼດໄດ້ຈາກ %2. </translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>ກຣິດນີ້ສາມາດດາວໂຫຼດໄດ້ຈາກ %1.</translation>
+        <translation type="vanished">ກຣິດນີ້ສາມາດດາວໂຫຼດໄດ້ຈາກ %1.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>ການສາຍແຜນທີ່</translation>
+        <translation type="vanished">ການສາຍແຜນທີ່</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation>ການແປງຄ່ານີ້ຕ້ອງໃຊ້ໄຟລ໌ກຣິດ “%1”, ຊຶ່ງບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
+        <translation type="vanished">ການແປງຄ່ານີ້ຕ້ອງໃຊ້ໄຟລ໌ກຣິດ “%1”, ຊຶ່ງບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>ກຣິດນີ້ແມ່ນສ່ວນໜຶ່ງຂອງແພັກເກັດ %1, ຊຶ່ງສາມາດດາວໂຫຼດໄດ້ຈາກ %2. </translation>
+        <translation type="vanished">ກຣິດນີ້ແມ່ນສ່ວນໜຶ່ງຂອງແພັກເກັດ %1, ຊຶ່ງສາມາດດາວໂຫຼດໄດ້ຈາກ %2. </translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation>ການແປງຄ່າປັດຈຸບັນ “%1” ມີຄວາມຖືກຕ້ອງ %2 ແມັດ, ໃນຂະນະທີ່ການແປງຄ່າທີ່ຕ້ອງການ “%3” ມີຄວາມຖືກຕ້ອງ %4 ແມັດ.</translation>
+        <translation type="vanished">ການແປງຄ່າປັດຈຸບັນ “%1” ມີຄວາມຖືກຕ້ອງ %2 ແມັດ, ໃນຂະນະທີ່ການແປງຄ່າທີ່ຕ້ອງການ “%3” ມີຄວາມຖືກຕ້ອງ %4 ແມັດ.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation>ການແປງຄ່າປັດຈຸບັນ “%1” ມີຄວາມຖືກຕ້ອງທີ່ບໍ່ຮູ້, ໃນຂະນະທີ່ການແປງຄ່າທີ່ຕ້ອງການ “%2” ມີຄວາມຖືກຕ້ອງ %3 ແມັດ.</translation>
+        <translation type="vanished">ການແປງຄ່າປັດຈຸບັນ “%1” ມີຄວາມຖືກຕ້ອງທີ່ບໍ່ຮູ້, ໃນຂະນະທີ່ການແປງຄ່າທີ່ຕ້ອງການ “%2” ມີຄວາມຖືກຕ້ອງ %3 ແມັດ.</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation>ການປ່ຽນຮູບແບບທີ່ຕ້ອງການລະຫວ່າງ %1 ແລະ %2 ບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
+        <translation type="vanished">ການປ່ຽນຮູບແບບທີ່ຕ້ອງການລະຫວ່າງ %1 ແລະ %2 ບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation>ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2.%3</translation>
+        <translation type="vanished">ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2.%3</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>ບໍ່ສາມາດໃຊ້ການແປງຄ່າໂຄງການລະຫວ່າງ %1 ແລະ %2 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດໃຊ້ການແປງຄ່າໂຄງການລະຫວ່າງ %1 ແລະ %2 ໄດ້</translation>
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>ໄດ້ໃຊ້ການປ່ຽນຂໍ້ມູນແບບປະມານຈາກ %1 ໄປຫາ %2</translation>
+        <translation type="vanished">ໄດ້ໃຊ້ການປ່ຽນຂໍ້ມູນແບບປະມານຈາກ %1 ໄປຫາ %2</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>ຂໍ້ຈໍາກັດການສະແດງອອກ</translation>
+        <translation type="vanished">ຂໍ້ຈໍາກັດການສະແດງອອກ</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>ບໍ່ NULL</translation>
+        <translation type="vanished">ບໍ່ NULL</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>ອັນດຽວ</translation>
+        <translation type="vanished">ອັນດຽວ</translation>
     </message>
 </context>
 <context>
@@ -184,13 +172,6 @@
     </message>
 </context>
 <context>
-    <name>Binary</name>
-    <message>
-        <source>(Blob)</source>
-        <translation>(Blob)</translation>
-    </message>
-</context>
-<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -198,23 +179,23 @@
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>ຊອກຫາຈັບຄູ່ອຸປະກອນ</translation>
+        <translation type="vanished">ຊອກຫາຈັບຄູ່ອຸປະກອນ</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>ການສະແກນລົ້ມເຫລວ: %1</translation>
+        <translation type="vanished">ການສະແກນລົ້ມເຫລວ: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>ສະແກນແລ້ວໆ</translation>
+        <translation type="vanished">ສະແກນແລ້ວໆ</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>ພົບ %n ອຸປະກອນ</numerusform></translation>
+        <translation type="vanished"><numerusform>ພົບ %n ອຸປະກອນ</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>ຍົກເລີກການສະແກນແລ້ວ</translation>
+        <translation type="vanished">ຍົກເລີກການສະແກນແລ້ວ</translation>
     </message>
     <message>
         <source>Scan</source>
@@ -251,11 +232,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>ເລືອກອຸປະກອນ Bluetooth ຈາກລາຍການຂ້າງລຸ່ມນີ້:</translation>
+        <translation type="vanished">ເລືອກອຸປະກອນ Bluetooth ຈາກລາຍການຂ້າງລຸ່ມນີ້:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation>ຊື່ອຸປະກອນ Bluetooth:</translation>
+        <translation type="vanished">ຊື່ອຸປະກອນ Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -263,39 +244,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation>ທີ່ຢູ່ອຸປະກອນ Bluetooth:</translation>
+        <translation type="vanished">ທີ່ຢູ່ອຸປະກອນ Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation>ສະແກນຫາອຸປະກອນທີ່ຢູ່ໃກ້ຄຽງ</translation>
+        <translation type="vanished">ສະແກນຫາອຸປະກອນທີ່ຢູ່ໃກ້ຄຽງ</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="vanished">ບໍ່ພົບອຸປະກອນ Bluetooth, ສະແກນເພື່ອຕື່ມຂໍ້ມູນໃສ່ອຸປະກອນທີ່ຢູ່ໃກ້ຄຽງ.</translation>
-    </message>
-    <message>
-        <source>Scanning error: %1</source>
-        <translation>ການສະແກນຜິດພາດ: %1</translation>
-    </message>
-    <message>
-        <source>No Bluetooth devices detected.</source>
-        <translation>ບໍ່ພົບອຸປະກອນ Bluetooth</translation>
-    </message>
-    <message>
-        <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Classic (BT)</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -303,22 +260,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Internal device</source>
         <translation type="vanished">ອຸປະກອນພາຍໃນ</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation>ການອະນຸຍາດ Bluetooth ຖືກປະຕິເສດ</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation>ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງ Bluetooth ເພື່ອສະແກນຫາອຸປະກອນ Bluetooth</translation>
-    </message>
-    <message>
-        <source>Location permission denied</source>
-        <translation>ການອະນຸຍາດໃຊ້ຕຳແໜ່ງຖືກປະຕິເສດ</translation>
-    </message>
-    <message>
-        <source>Location permission is required to scan for bluetooth devices</source>
-        <translation>ກະລຸນາເປີດສິດອະນຸຍາດເຂົ້າເຖິງຕຳແໜ່ງ ເພື່ອສະແກນຫາອຸປະກອນ Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -371,99 +312,19 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>BookmarkList</name>
     <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Orange</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Red</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Blue</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Green</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Untitled bookmark</source>
-        <translation>ບຸກມາກບໍ່ມີຊື່</translation>
-    </message>
-    <message>
-        <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Bookmark Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>ສຳເນົາລາຍລະອຽດບຸກມາກໃສ່ຄລິບບອດແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Delete Bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>ລຶບບຸກມາກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>ທ່ານກຳລັງຈະລຶບບຸກມາກ, ດຳເນີນການຕໍ່ບໍ?</translation>
-    </message>
-    <message>
-        <source>Project bookmarks</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -471,18 +332,14 @@ Cancel to make a minimal device scan instead.</source>
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>ບຸກມາກໃນພື້ນທີ່</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation>ສົ່ງຄືນລາຍຊື່ຜູ້ໃຊ້ທີ່ປະຈຸບັນເປີດບຸກມາກໂຄງການທີ່ມີຊື່ທີ່ກົງກັນ</translation>
+        <translation type="vanished">ບຸກມາກໃນພື້ນທີ່</translation>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>ຄຸນສົມບັດບຸກມາກ</translation>
+        <translation type="vanished">ຄຸນສົມບັດບຸກມາກ</translation>
     </message>
     <message>
         <source>Name</source>
@@ -514,41 +371,33 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>ສຳເນົາລາຍລະອຽດບຸກມາກໃສ່ຄລິບບອດແລ້ວ</translation>
+        <translation type="vanished">ສຳເນົາລາຍລະອຽດບຸກມາກໃສ່ຄລິບບອດແລ້ວ</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>ລຶບບຸກມາກ</translation>
+        <translation type="vanished">ລຶບບຸກມາກ</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>ທ່ານກຳລັງຈະລຶບບຸກມາກ, ດຳເນີນການຕໍ່ບໍ?</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>ຄຳອະທິບາຍ</translation>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation>ປ່ຽນສີ</translation>
+        <translation type="vanished">ທ່ານກຳລັງຈະລຶບບຸກມາກ, ດຳເນີນການຕໍ່ບໍ?</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>ບຸກມາກ: %1</translation>
+        <translation type="vanished">ບຸກມາກ: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>ບຸກມາກຂອງໂຄງການບໍ່ສາມາດແກ້ໄຂໄດ້</translation>
+        <translation type="vanished">ບຸກມາກຂອງໂຄງການບໍ່ສາມາດແກ້ໄຂໄດ້</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>ບຣາວເຊີ</translation>
+        <translation type="vanished">ບຣາວເຊີ</translation>
     </message>
 </context>
 <context>
@@ -604,19 +453,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>CheckBox</name>
     <message>
         <source>True</source>
-        <translation>ຈິງ</translation>
+        <translation type="vanished">ຈິງ</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>ບໍ່ຈິງ</translation>
+        <translation type="vanished">ບໍ່ຈິງ</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
+        <translation type="vanished">NULL</translation>
     </message>
 </context>
 <context>
@@ -676,19 +521,7 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>CodeReader</name>
     <message>
-        <source>NFC text tag detected</source>
-        <translation>ກວດພົບແທັກຂໍ້ຄວາມ NFC</translation>
-    </message>
-    <message>
         <source>Code Reader</source>
-        <translation>ເຄື່ອງອ່ານລະຫັດ</translation>
-    </message>
-    <message>
-        <source>Center your device on a code</source>
-        <translation>ສຸມໃສ່ອຸປະກອນຂອງທ່ານໃສ່ລະຫັດ</translation>
-    </message>
-    <message>
-        <source>No readable code found in the selected image</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -735,11 +568,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>DateTime</name>
     <message>
         <source>(no date)</source>
-        <translation>(ບໍ່ມີວັນທີ)</translation>
+        <translation type="vanished">(ບໍ່ມີວັນທີ)</translation>
     </message>
     <message>
         <source>Date value set to today.</source>
-        <translation>ຄ່າວັນທີທີ່ຕັ້ງເປັນມື້ນີ້</translation>
+        <translation type="vanished">ຄ່າວັນທີທີ່ຕັ້ງເປັນມື້ນີ້</translation>
     </message>
     <message>
         <source>Hours</source>
@@ -762,75 +595,68 @@ Cancel to make a minimal device scan instead.</source>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>Expected the json document to be an array of delta status</translation>
+        <translation type="vanished">Expected the json document to be an array of delta status</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກ, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%1 ບໍ່ແມ່ນ. </translation>
+        <translation type="vanished">ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກ, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%1 ບໍ່ແມ່ນ. </translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກທີ່ມີຄີ “%1”, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%2 ບໍ່ແມ່ນ. </translation>
+        <translation type="vanished">ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກທີ່ມີຄີ “%1”, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%2 ບໍ່ແມ່ນ. </translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>ສະຖານະ “%1” ທີ່ບໍ່ຮູ້ຈັກສຳລັບ $%2</translation>
+        <translation type="vanished">ສະຖານະ “%1” ທີ່ບໍ່ຮູ້ຈັກສຳລັບ $%2</translation>
     </message>
 </context>
 <context>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຄວາມຜິດພາດການແຍກວິເຄາະ: %3</translation>
+        <translation type="vanished">ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຄວາມຜິດພາດການແຍກວິເຄາະ: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
+        <translation type="vanished">ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>ການເພີ່ມຟີເຈີໃນຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ການເພີ່ມຟີເຈີໃນຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation>ການຢືນຢັນການປ່ຽນແປງຂອງຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ການຢືນຢັນການປ່ຽນແປງຂອງຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation>ການແກ້ໄຂຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ການແກ້ໄຂຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
     </message>
 </context>
 <context>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>ຄວາມຖືກຕ້ອງຂອງຕໍາແໜ່ງບໍ່ກົງກັບຄວາມຕ້ອງການຕໍາສຸດທີ່, ບໍ່ໄດ້ເພີ່ມ vertex</translation>
+        <translation type="vanished">ຄວາມຖືກຕ້ອງຂອງຕໍາແໜ່ງບໍ່ກົງກັບຄວາມຕ້ອງການຕໍາສຸດທີ່, ບໍ່ໄດ້ເພີ່ມ vertex</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
-        <translation>ຍົກເລີກການສະແກນ</translation>
+        <translation type="vanished">ຍົກເລີກການສະແກນ</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>ຈໍານວນຈຸດທີ່ເກັບກໍາບໍ່ຕອບສະຫນອງຄວາມຕ້ອງການ</translation>
+        <translation type="vanished">ຈໍານວນຈຸດທີ່ເກັບກໍາບໍ່ຕອບສະຫນອງຄວາມຕ້ອງການ</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>ຄວນຍົກເລີກເລຂາຄະນິດທີ່ເປັນດິຈິຕອນບໍ?</translation>
-    </message>
-</context>
-<context>
-    <name>DrawingTemplateModel</name>
-    <message>
-        <source>Blank</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
+        <translation type="vanished">ຄວນຍົກເລີກເລຂາຄະນິດທີ່ເປັນດິຈິຕອນບໍ?</translation>
     </message>
 </context>
 <context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation>ເມ​ນູ​ລາຍ​ການ</translation>
+        <translation type="vanished">ເມ​ນູ​ລາຍ​ການ</translation>
     </message>
 </context>
 <context>
@@ -844,142 +670,48 @@ Cancel to make a minimal device scan instead.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Received data is too short to process</source>
-        <translation>ຂໍ້​ມູນ​ທີ່​ໄດ້​ຮັບ​ແມ່ນ​ສັ້ນ​ເກີນ​ໄປ​ທີ່​ຈະ​ດໍາ​ເນີນ​ການ</translation>
-    </message>
-    <message>
-        <source>Invalid start byte</source>
-        <translation>ໄບຕ໌ເລີ່ມຕົ້ນບໍ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>Received data is too short to contain the payload</source>
-        <translation>ຂໍ້ມູນທີ່ໄດ້ຮັບແມ່ນສັ້ນເກີນໄປທີ່ຈະບັນຈຸນ້ຳໜັກໄດ້.</translation>
-    </message>
-    <message>
-        <source>Failed to parse JSON</source>
-        <translation>ວິເຄາະ JSON ບໍ່ສຳເລັດ</translation>
-    </message>
-    <message>
         <source>Could not find the remote host</source>
-        <translation>ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation>ເຄື່ອງຮັບ TCP ຜິດພາດ (%1)</translation>
-    </message>
-    <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation>ການເລີ່ມຕົ້ນເຊີບເວີ egeniouss ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
-        <translation>ການຢຸດເຊີບເວີ egeniouss ລົ້ມເຫລວ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation>ສ້າງເສັ້ນທາງເພື່ອສະແດງໂປຣໄຟລຄວາມສູງ </translation>
+        <translation type="vanished">ສ້າງເສັ້ນທາງເພື່ອສະແດງໂປຣໄຟລຄວາມສູງ </translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation>ການສະແດງໂປຣໄຟລ໌ຄວາມສູງ...</translation>
-    </message>
-</context>
-<context>
-    <name>Erase</name>
-    <message>
-        <source>The geometry could not be modified into multiple parts</source>
-        <translation>ເລຂາຄະນິດບໍ່ສາມາດຖືກດັດແປງເປັນຫຼາຍພາກສ່ວນ</translation>
-    </message>
-    <message>
-        <source>The geometry could not be modified</source>
-        <translation>ເລຂາຄະນິດບໍ່ສາມາດດັດແປງໄດ້</translation>
-    </message>
-</context>
-<context>
-    <name>ExpressionCalculatorLocatorFilter</name>
-    <message>
-        <source>Copy “%1” to clipboard</source>
-        <translation>ສຳເນົາ “%1” ໄປໃສ່ຄລິບບອດ</translation>
-    </message>
-    <message>
-        <source>Calculator</source>
-        <translation>ເຄື່ອງຄິດເລກ</translation>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation>ສົ່ງຄ່າຂອງການສະແດງຜົນທີ່ພິມໃນແຖບຄົ້ນຫາ.</translation>
+        <translation type="vanished">ການສະແດງໂປຣໄຟລ໌ຄວາມສູງ...</translation>
     </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation type="vanished">ບໍ່ມີ</translation>
     </message>
 </context>
 <context>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>ບໍ່ມີຄ່າ</translation>
+        <translation type="vanished">ບໍ່ມີຄ່າ</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>ບໍ່ສາມາດຈັດການໄຟລ໌ປະເພດນີ້ໄດ້</translation>
-    </message>
-    <message>
-        <source>Take a photo</source>
-        <translation>ຖ່າຍຮູບ</translation>
-    </message>
-    <message>
-        <source>Take a video</source>
-        <translation>ຖ່າຍວິດີໂອ</translation>
-    </message>
-    <message>
-        <source>Record an audio clip</source>
-        <translation>ບັນທຶກຄລິບສຽງ</translation>
-    </message>
-    <message>
-        <source>Attach a gallery item</source>
-        <translation>ຕິດຄັດລາຍການຫ້ອງສະໝຸດ</translation>
-    </message>
-    <message>
-        <source>Attach a file</source>
-        <translation>ຕິດຄັດເອກະສານ</translation>
-    </message>
-    <message>
-        <source>Draw a sketch</source>
-        <translation>ແຕ້ມຮູບ</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>ຮຽນ​ຮູ້​ເພີ່ມ​ເຕີມ</translation>
-    </message>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation>ຂໍ້ຜິດພາດໃນການຕິດຄັດໄຟລ໌ແບບ On-demand ຂອງ QFieldCloud: </translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
+        <translation type="vanished">ບໍ່ສາມາດຈັດການໄຟລ໌ປະເພດນີ້ໄດ້</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -987,15 +719,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>ຄ່າທີ່ນຳໃຊ້</translation>
+        <translation type="vanished">ຄ່າທີ່ນຳໃຊ້</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>ຄ່າຂ້າມໄປ</translation>
+        <translation type="vanished">ຄ່າຂ້າມໄປ</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
-        <translation>(ກົດ​ເພື່ອ​ສະ​ຫຼັບ​)</translation>
+        <translation type="vanished">(ກົດ​ເພື່ອ​ສະ​ຫຼັບ​)</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1007,161 +739,46 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>ບໍ່ສາມາດບັນທຶກການປ່ຽນແປງໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດບັນທຶກການປ່ຽນແປງໄດ້</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>ເພີ່ມຄຸນສົມບັດໃນ %1</translation>
+        <translation type="vanished">ເພີ່ມຄຸນສົມບັດໃນ %1</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>ແກ້ໄຂຄຸນສົມບັດໃນ %1</translation>
+        <translation type="vanished">ແກ້ໄຂຄຸນສົມບັດໃນ %1</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>ເບິ່ງຄຸນສົມບັດໃນ %1</translation>
+        <translation type="vanished">ເບິ່ງຄຸນສົມບັດໃນ %1</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>ຍົກ​ເລີກ​ການ​ແກ້​ໄຂ​</translation>
+        <translation type="vanished">ຍົກ​ເລີກ​ການ​ແກ້​ໄຂ​</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>ທ່ານກຳລັງຈະປິດຄຸນສົມບັດໃໝ່, ດຳເນີນການຕໍ່ບໍ?</translation>
+        <translation type="vanished">ທ່ານກຳລັງຈະປິດຄຸນສົມບັດໃໝ່, ດຳເນີນການຕໍ່ບໍ?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>ທ່ານກຳລັງຈະອອກຈາກສະຖານະການແກ້ໄຂ, ການປ່ຽນແປງຕ່າງໆຈະສູນເສຍໄປ. ດໍາເນີນການຕໍ່ບໍ?</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation>ຄ່າທີ່ປ້ອນເຂົ້າຫຼ້າສຸດສຳລັບຊ່ອງຂໍ້ມູນນີ້ຈະຖືກຈົດຈຳ ແລະນຳໃຊ້ຄືນໃໝ່ເມື່ອສ້າງຄຸນສົມບັດໃໝ່</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation>ຄ່າທີ່ປ້ອນເຂົ້າຫຼ້າສຸດສຳລັບຊ່ອງຂໍ້ມູນນີ້ຈະບໍ່ຖືກນຳໃຊ້ຄືນໃໝ່ເມື່ອສ້າງຄຸນສົມບັດໃໝ່</translation>
-    </message>
-    <message>
-        <source>Feature addition disabled</source>
-        <translation>ການເພີ່ມຄຸນສົມບັດຖືກປິດໃຊ້ງານ</translation>
-    </message>
-    <message>
-        <source>Feature Form Menu</source>
-        <translation>ເມນູແບບຟອມຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Remember All Reusable Values</source>
-        <translation>ບັນທຶກຄ່າເຫຼົ່ານີ້ໄວ້ໃຊ້ຄືນໃໝ່</translation>
-    </message>
-    <message>
-        <source>Forget All Reusable Values</source>
-        <translation>ລຶບຄ່າທີ່ໃຊ້ຄືນ</translation>
-    </message>
-    <message>
-        <source>Soft constraints were not satisified</source>
-        <translation>ເງື່ອນໄຂແບບຢືດຢຸ່ນບໍ່ໄດ້ຮັບການຕອບສະໜອງ</translation>
-    </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation>ເງື່ອນໄຂທີ່ຈຳເປັນບໍ່ໄດ້ຮັບການຕອບສະໜອງ</translation>
-    </message>
-    <message>
-        <source>Previous page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next page</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FeatureHistory</name>
-    <message>
-        <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation>ການຍົກເລີກຄຸນສົມບັດທີ່ສ້າງຂຶ້ນໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
-        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation>ການຍົກເລີກຄຸນສົມບັດທີ່ຖືກລົບໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
-        <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation>ການຍົກເລີກອັບເດດຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
-        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation>ການຢືນຢັນການຍົກເລີກການແກ້ໄຂຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &apos;%1&apos; ລົ້ມເຫລວ</translation>
-    </message>
-    <message>
-        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation>ການມ້ວນຄືນການຍົກເລີກການແກ້ໄຂຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &apos;%1&apos; ລົ້ມເຫລວ</translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation><numerusform>ຍົກເລີກການສ້າງຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s).</source>
-        <translation><numerusform>ຍົກເລີກການສ້າງ %n ຄຸນສົມບັດ.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation><numerusform>ຍົກເລີກການລົບຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s).</source>
-        <translation><numerusform>ຍົກເລີກການລົບຄຸນສົມບັດ %n.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation><numerusform>ຍົກເລີກການດັດ​ແກ້​ຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s).</source>
-        <translation><numerusform>ຍົກເລີກການດັດ​ແກ້​ຄຸນສົມບັດ %n</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation><numerusform>​ເຮັດຄືນການສ້າງຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s)</source>
-        <translation><numerusform>​ສ້າງຄືນຄຸນສົມບັດ %n </numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation><numerusform>​ລົບຄືນຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s)</source>
-        <translation><numerusform>​ລົບຄືນຄຸນສົມບັດ %n</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation><numerusform>​ດັດ​ແກ້​ຄືນຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s)</source>
-        <translation><numerusform>​ດັດ​ແກ້​ຄືນຄຸນສົມບັດ %n</numerusform></translation>
+        <translation type="vanished">ທ່ານກຳລັງຈະອອກຈາກສະຖານະການແກ້ໄຂ, ການປ່ຽນແປງຕ່າງໆຈະສູນເສຍໄປ. ດໍາເນີນການຕໍ່ບໍ?</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>ຢຸດການຕິດຕາມຄຸນສົມບັດນີ້ເພື່ອແກ້ໄຂຄຸນສົມບັດ</translation>
+        <translation type="vanished">ຢຸດການຕິດຕາມຄຸນສົມບັດນີ້ເພື່ອແກ້ໄຂຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>ຢຸດການຕິດຕາມຄຸນສົມບັດນີ້ເພື່ອແກ້ໄຂເລຂາຄະນິດ</translation>
+        <translation type="vanished">ຢຸດການຕິດຕາມຄຸນສົມບັດນີ້ເພື່ອແກ້ໄຂເລຂາຄະນິດ</translation>
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>ບັນທຶກການປ່ຽນແປງແລ້ວ</translation>
+        <translation type="vanished">ບັນທຶກການປ່ຽນແປງແລ້ວ</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -1169,146 +786,126 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>ສຳເນົາຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
+        <translation type="vanished">ສຳເນົາຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>ຈໍານວນຂອງຄຸນນະສົມບັດແມ່ນໄດ້ຖືກຕິດຕາມ, ຢຸດການຕິດຕາມເພື່ອລຶບເຫຼົ່ານັ້ນ</translation>
+        <translation type="vanished">ຈໍານວນຂອງຄຸນນະສົມບັດແມ່ນໄດ້ຖືກຕິດຕາມ, ຢຸດການຕິດຕາມເພື່ອລຶບເຫຼົ່ານັ້ນ</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>ຈໍານວນຂອງຄຸນນະສົມບັດແມ່ນໄດ້ຖືກຕິດຕາມ, ຢຸດການຕິດຕາມທີ່ຈະລວມເອົາເຫຼົ່ານັ້ນ</translation>
+        <translation type="vanished">ຈໍານວນຂອງຄຸນນະສົມບັດແມ່ນໄດ້ຖືກຕິດຕາມ, ຢຸດການຕິດຕາມທີ່ຈະລວມເອົາເຫຼົ່ານັ້ນ</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>ສຳເລັດສຳເນົາຄຸນສົມບັດທີ່ທີ່​ໄດ້​​ຄັດ​ເລືອກ​, ບັນ​ຊີ​ລາຍ​ຊື່ອັບເດດເພື່ອສະແດງຄຸນສົມບັດທີ່ໄດ້​​ສ້າງຂຶ້ນໃໝ່</translation>
+        <translation type="vanished">ສຳເລັດສຳເນົາຄຸນສົມບັດທີ່ທີ່​ໄດ້​​ຄັດ​ເລືອກ​, ບັນ​ຊີ​ລາຍ​ຊື່ອັບເດດເພື່ອສະແດງຄຸນສົມບັດທີ່ໄດ້​​ສ້າງຂຶ້ນໃໝ່</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>ບໍ່ມີຄຸນສົມບັດຢູ່ໃນຈຸດນີ້</translation>
+        <translation type="vanished">ບໍ່ມີຄຸນສົມບັດຢູ່ໃນຈຸດນີ້</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
-        <translation>ລວມຄຸນສົມບັດ</translation>
+        <translation type="vanished">ລວມຄຸນສົມບັດ</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation><numerusform>ຄຸນສົມບັດ %n ທີ່ເລືອກແລ້ວຄວນຖືກລວມເຂົ້າກັນແທ້ບໍ? ເລຂາຄະນິດຂອງຄຸນສົມບັດຈະຖືກລວມເຂົ້າເປັນຄຸນສົມບັດ &quot;%1&quot;, ເຊິ່ງຈະຮັກສາຄຸນສົມບັດຂອງມັນໄວ້.</numerusform></translation>
+        <translation type="vanished"><numerusform>ຄຸນສົມບັດ %n ທີ່ເລືອກແລ້ວຄວນຖືກລວມເຂົ້າກັນແທ້ບໍ? ເລຂາຄະນິດຂອງຄຸນສົມບັດຈະຖືກລວມເຂົ້າເປັນຄຸນສົມບັດ &quot;%1&quot;, ເຊິ່ງຈະຮັກສາຄຸນສົມບັດຂອງມັນໄວ້.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>ລວມຄຸນສົມບັດ %n ສຳເລັດແລ້ວ</numerusform></translation>
+        <translation type="vanished"><numerusform>ລວມຄຸນສົມບັດ %n ສຳເລັດແລ້ວ</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>ການລວມຄຸນສົມບັດ %n ລົ້ມເຫລວ</numerusform></translation>
+        <translation type="vanished"><numerusform>ການລວມຄຸນສົມບັດ %n ລົ້ມເຫລວ</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>ລົບຄຸນສົມບັດ</translation>
+        <translation type="vanished">ລົບຄຸນສົມບັດ</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>ລົບຄຸນສົມບັດ %n ທີ່ໄດ້ເລືອກແທ້ບໍ?</numerusform></translation>
+        <translation type="vanished"><numerusform>ລົບຄຸນສົມບັດ %n ທີ່ໄດ້ເລືອກແທ້ບໍ?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>ລົບຄຸນສົມບັດ %n ສຳເລັດແລ້ວ</numerusform></translation>
+        <translation type="vanished"><numerusform>ລົບຄຸນສົມບັດ %n ສຳເລັດແລ້ວ</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>ລົບຄຸນສົມບັດ %n ບໍ່ສຳເລັດ</numerusform></translation>
+        <translation type="vanished"><numerusform>ລົບຄຸນສົມບັດ %n ບໍ່ສຳເລັດ</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>ຍົກເລີກການປ່ຽນແປງ</translation>
-    </message>
-    <message>
-        <source>Transfer Feature Attributes</source>
-        <translation>ໂອນຍ້າຍຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation>ເລືອກຄຸນສົມບັດຂ້າງລຸ່ມນີ້ໂດຍຂໍ້ມູນຈະຖືກໂອນໄປໃສ່ຄຸນສົມບັດທີ່ເປີດໃນປັດຈຸບັນ.</translation>
-    </message>
-    <message>
-        <source>Feature attributes transferred</source>
-        <translation>ຂໍ້ມູນຄຸນສົມບັດຖືກໂອນ</translation>
-    </message>
-    <message>
-        <source>No feature attributes were transferred</source>
-        <translation>ບໍ່ມີຂໍ້ມູນຄຸນສົມບັດຖືກໂອນ</translation>
+        <translation type="vanished">ຍົກເລີກການປ່ຽນແປງ</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation>ຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Processing Algorithms</source>
-        <translation>ຂັ້ນຕອນການປະມວນຜົນ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>ຄ່າ &quot;%1&quot; %4 ບໍ່ສາມາດປ່ຽນເປັນຄ່າທີ່ເຂົ້າກັນໄດ້ສຳລັບຊ່ອງຂໍ້ມູນ %2(%3).</translation>
+        <translation type="vanished">ຄ່າ &quot;%1&quot; %4 ບໍ່ສາມາດປ່ຽນເປັນຄ່າທີ່ເຂົ້າກັນໄດ້ສຳລັບຊ່ອງຂໍ້ມູນ %2(%3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>ບໍ່ສາມາດອັບເດດຄຸນສົມບັດໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດອັບເດດຄຸນສົມບັດໄດ້</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>ຄຸນ​ນະ​ສົມ​ບັດ %1 ບໍ່​ສາ​ມາດ​ໄດ້​ຮັບ​ການ​ກູ້​ຄືນ​ຫຼັງ​ຈາກ​ການ​ຢືນ​ຢັນ</translation>
+        <translation type="vanished">ຄຸນ​ນະ​ສົມ​ບັດ %1 ບໍ່​ສາ​ມາດ​ໄດ້​ຮັບ​ການ​ກູ້​ຄືນ​ຫຼັງ​ຈາກ​ການ​ຢືນ​ຢັນ</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບ %1:%2 ມີຂໍ້ຜິດພາດໃນການແຍກວິເຄາະ: %3</translation>
+        <translation type="vanished">ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບ %1:%2 ມີຂໍ້ຜິດພາດໃນການແຍກວິເຄາະ: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບ %1:%2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
+        <translation type="vanished">ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບ %1:%2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ເພື່ອສ້າງຄຸນສົມບັດ %2 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ເພື່ອສ້າງຄຸນສົມບັດ %2 ໄດ້</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>ຊັ້ນແຜນທີ່ &apos;%1&apos; ໄດ້ຖືກຢືນຢັນແລ້ວ, ແຕ່ຄຸນສົມບັດທີ່ສ້າງຂຶ້ນໃໝ່ %2 ບໍ່ສາມາດຮັບ​ການ​ກູ້​ຄືນ​ໄດ້.</translation>
+        <translation type="vanished">ຊັ້ນແຜນທີ່ &apos;%1&apos; ໄດ້ຖືກຢືນຢັນແລ້ວ, ແຕ່ຄຸນສົມບັດທີ່ສ້າງຂຶ້ນໃໝ່ %2 ບໍ່ສາມາດຮັບ​ການ​ກູ້​ຄືນ​ໄດ້.</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>ຊັ້ນແຜນທີ່ &quot;%1&quot; ບໍ່​ສາ​ມາດ​ຮັບ​ຮອງ​ເອົາ​ກັບ​ຄຸນ​ສົມ​ບັດ​ທີ່​ສ້າງ​ໃຫມ່ %2 ໄດ້. ເຫດຜົນ:%3</translation>
+        <translation type="vanished">ຊັ້ນແຜນທີ່ &quot;%1&quot; ບໍ່​ສາ​ມາດ​ຮັບ​ຮອງ​ເອົາ​ກັບ​ຄຸນ​ສົມ​ບັດ​ທີ່​ສ້າງ​ໃຫມ່ %2 ໄດ້. ເຫດຜົນ:%3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດ %2 ໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດ %2 ໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ໄດ້</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>ບໍ່ສາມາດບັນທຶກການປ່ຽນແປງໄດ້. ມ້ວນຄືນ.</translation>
+        <translation type="vanished">ບໍ່ສາມາດບັນທຶກການປ່ຽນແປງໄດ້. ມ້ວນຄືນ.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>ແບບຟອມເປີດ</translation>
+        <translation type="vanished">ແບບຟອມເປີດ</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>ຕັ້ງຄຸນສົມບັດເປັນຈຸດໝາຍປາຍທາງ</translation>
+        <translation type="vanished">ຕັ້ງຄຸນສົມບັດເປັນຈຸດໝາຍປາຍທາງ</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -1316,57 +913,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>ຄຸນສົມບັດບໍ່ມີເລຂາຄະນິດ</translation>
+        <translation type="vanished">ຄຸນສົມບັດບໍ່ມີເລຂາຄະນິດ</translation>
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>ຄຸນ​ນະ​ສົມ​ບັດ​ໃນ​ທຸກ​ຊັ້ນແຜນທີ່ </translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation>ສະ​ແດງ​ບັນ​ຊີ​ລາຍ​ການ​ຂອງ​ຄຸນ​ສົມ​ບັດ​ໃນ​ຊັ້ນ​ແຜນທີ່ເບິ່ງ​ໄດ້​ທັງ​ຫມົດ​ທີ່​ມີ​ຊື່​ສະ​ແດງ​ທີ່​ສອດ​ຄ້ອງ​ກັນ​.</translation>
-    </message>
-</context>
-<context>
-    <name>FileDeviceChooser</name>
-    <message>
-        <source>File path</source>
-        <translation>ເສັ້ນທາງໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Interval (in milliseconds)</source>
-        <translation>ໄລຍະຫ່າງ (ເປັນມິນລິວິນາທີ)</translation>
+        <translation type="vanished">ຄຸນ​ນະ​ສົມ​ບັດ​ໃນ​ທຸກ​ຊັ້ນແຜນທີ່ </translation>
     </message>
 </context>
 <context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>ວົງແຫວນບໍ່ໄດ້ປິດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>ວົງແຫວນບໍ່ຖືກຕ້ອງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>ວົງແຫວນຂ້າມວົງທີ່ມີຢູ່ແລ້ວ (ມັນບໍ່ຕິດກັນ)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>ວົງແຫວນບໍ່ມີແຫວນທີ່ມີຢູ່ທີ່ເຂົ້າກັນໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>ມີຄວາມຜິດພາດທີ່ບໍ່ຮູ້ໃນເວລາສ້າງວົງແຫວນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>ຕື່ມຂໍ້ມູນໃສ່ວົງແຫວນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>ທ່ານຕ້ອງການຕື່ມວົງແຫວນດ້ວຍ polygon ໃຫມ່ບໍ?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1404,30 +986,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>ຊອກຫາທີ່ຢູ່ Finnish</translation>
+        <translation type="vanished">ຊອກຫາທີ່ຢູ່ Finnish</translation>
     </message>
 </context>
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>ເຄື່ອງມື Vertex</translation>
+        <translation type="vanished">ເຄື່ອງມື Vertex</translation>
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>ເຄື່ອງມືແຍກ</translation>
+        <translation type="vanished">ເຄື່ອງມືແຍກ</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>ເຄື່ອງ​ມື​ປ່ຽນ​ຮູບ​ຮ່າງ​</translation>
+        <translation type="vanished">ເຄື່ອງ​ມື​ປ່ຽນ​ຮູບ​ຮ່າງ​</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>ຕື່ມ​ຂໍ້​ມູນ​ໃສ່​ເຄື່ອງ​ມືວົງ​ແຫວນ</translation>
-    </message>
-    <message>
-        <source>Erase Tool</source>
-        <translation>ເຄື່ອງ​ມື​ລົບ​</translation>
+        <translation type="vanished">ຕື່ມ​ຂໍ້​ມູນ​ໃສ່​ເຄື່ອງ​ມືວົງ​ແຫວນ</translation>
     </message>
 </context>
 <context>
@@ -1438,7 +1016,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation>ຕັ້ງຈຸດນໍາທາງ</translation>
+        <translation type="vanished">ຕັ້ງຈຸດນໍາທາງ</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -1446,59 +1024,21 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>ໄປ​ທີ່​ພິ​ກັດ</translation>
+        <translation type="vanished">ໄປ​ທີ່​ພິ​ກັດ</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation>ໄປທີ່ %1 %2 %3%4 (ແຜນທີ່ CRS, %5)</translation>
+        <translation type="vanished">ໄປທີ່ %1 %2 %3%4 (ແຜນທີ່ CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation>ໄປທີ່ %1°N %2°E (%3)</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation>ຕອບຈຸດຈາກຄູ່ຂອງພິກັດ X ແລະ Y - ຫຼື WGS84 ເສັ້ນຂະໜານ ແລະ​ ເສັ້ນ​ແວງ​ - ພິມໃນແຖບຄົ້ນຫາ.</translation>
-    </message>
-</context>
-<context>
-    <name>HelpLocatorFilter</name>
-    <message>
-        <source>QField Documentation</source>
-        <translation>ເອກະສານ QField</translation>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation>ສົ່ງຄືນໜ້າເອກະສານ QField ທີ່ກົງກັບເງື່ອນໄຂ.</translation>
+        <translation type="vanished">ໄປທີ່ %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
-        <source>Navigation</source>
-        <translation>ການນໍາທາງ</translation>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>ການຈັດຕໍາແໜ່ງ</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>ເຊັນເຊີ</translation>
-    </message>
-    <message>
-        <source>Elevation profile</source>
-        <translation>ໂປຣໄຟລ໌ຄວາມສູງ</translation>
-    </message>
-    <message>
-        <source>NTRIP</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>InformationPopup</name>
-    <message>
-        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1510,77 +1050,69 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Username</source>
-        <translation>ຊື່ຜູ້ໃຊ້</translation>
+        <translation type="vanished">ຊື່ຜູ້ໃຊ້</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>Credentials Details</source>
-        <translation>ລາຍລະອຽດຂໍ້ມູນປະຈໍາຕົວ</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>ສົ່ງ</translation>
+        <translation type="vanished">ລະຫັດຜ່ານ</translation>
     </message>
 </context>
 <context>
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation>ບໍ່ສາມາດຊອກຫາຖັນຫຼັກໃນຊັ້ນຂໍ້ມູນ &apos;%1&apos; ໄດ້.</translation>
+        <translation type="vanished">ບໍ່ສາມາດຊອກຫາຖັນຫຼັກໃນຊັ້ນຂໍ້ມູນ &apos;%1&apos; ໄດ້.</translation>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation>ບໍ່ສາມາດຊອກຫາແຫຼ່ງຫຼັກໃນຊັ້ນຂໍ້ມູນ &apos;%1&apos; ໄດ້.</translation>
+        <translation type="vanished">ບໍ່ສາມາດຊອກຫາແຫຼ່ງຫຼັກໃນຊັ້ນຂໍ້ມູນ &apos;%1&apos; ໄດ້.</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>ຂະຫຍາຍກຸ່ມ</translation>
+        <translation type="vanished">ຂະຫຍາຍກຸ່ມ</translation>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>ຂະຫຍາຍລາຍການນິທານ</translation>
+        <translation type="vanished">ຂະຫຍາຍລາຍການນິທານ</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>ຢຸດການຕິດຕາມ</translation>
+        <translation type="vanished">ຢຸດການຕິດຕາມ</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>ຕິດ​ຕັ້ງ​ການ​ຕິດ​ຕາມ​</translation>
+        <translation type="vanished">ຕິດ​ຕັ້ງ​ການ​ຕິດ​ຕາມ​</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>ຊັ້ນນີ້ບໍ່ຖືກຕ້ອງ. ອາດຈະເປັນຍ້ອນບັນຫາເຄືອຂ່າຍ, ໄຟລ໌ທີ່ຂາດຫາຍໄປ ຫຼືການກຳນົດຄ່າໂຄງການທີ່ບໍ່ຖືກຕ້ອງ.</translation>
+        <translation type="vanished">ຊັ້ນນີ້ບໍ່ຖືກຕ້ອງ. ອາດຈະເປັນຍ້ອນບັນຫາເຄືອຂ່າຍ, ໄຟລ໌ທີ່ຂາດຫາຍໄປ ຫຼືການກຳນົດຄ່າໂຄງການທີ່ບໍ່ຖືກຕ້ອງ.</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>ສະແດງຢູ່ໃນແຜນທີ່</translation>
+        <translation type="vanished">ສະແດງຢູ່ໃນແຜນທີ່</translation>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>ສະແດງປ້າຍຊື່</translation>
+        <translation type="vanished">ສະແດງປ້າຍຊື່</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>ຄວາມມືດ</translation>
+        <translation type="vanished">ຄວາມມືດ</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation>ຊູມໃສ່ກຸ່ມ</translation>
+        <translation type="vanished">ຊູມໃສ່ກຸ່ມ</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation>ຊູມໄປຫາຊັ້ນແມ່</translation>
+        <translation type="vanished">ຊູມໄປຫາຊັ້ນແມ່</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>ຊູມໃສ່ຊັ້ນ</translation>
+        <translation type="vanished">ຊູມໃສ່ຊັ້ນ</translation>
     </message>
     <message>
         <source>Reload data</source>
@@ -1588,15 +1120,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation>ໂຫຼດຊັ້ນຂໍ້ມູນ %1 ຄືນໃໝ່</translation>
+        <translation type="vanished">ໂຫຼດຊັ້ນຂໍ້ມູນ %1 ຄືນໃໝ່</translation>
     </message>
     <message>
         <source>Show features list</source>
-        <translation>ສະແດງລາຍຊື່ຄຸນສົມບັດ</translation>
+        <translation type="vanished">ສະແດງລາຍຊື່ຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>ຊັ້ນຂໍ້ມູນບໍ່ມີຄຸນສົມບັດ</translation>
+        <translation type="vanished">ຊັ້ນຂໍ້ມູນບໍ່ມີຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1620,77 +1152,49 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>ສະແດງລາຍຊື່ຄຸນສົມບັດທີ່ເຫັນໄດ້</translation>
+        <translation type="vanished">ສະແດງລາຍຊື່ຄຸນສົມບັດທີ່ເຫັນໄດ້</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>ສະແດງເມນູຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Read-only layer</source>
-        <translation>ຊັ້ນອ່ານເທົ່ານັ້ນ</translation>
-    </message>
-    <message>
-        <source>feature addition</source>
-        <translation>ເພີ່ມເຕີມຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>attribute editing</source>
-        <translation>ການແກ້ໄຂຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>geometry editing</source>
-        <translation>ການແກ້ໄຂເລຂາຄະນິດ</translation>
-    </message>
-    <message>
-        <source>feature deletion</source>
-        <translation>ການ​ລົບ​ຄຸນ​ນະ​ສົມ​ບັດ​</translation>
-    </message>
-    <message>
-        <source>Disabled layer permissions: %1</source>
-        <translation>ປິດການອະນຸຍາດຊັ້ນຂໍ້ມູນ: %1</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>ຢຸດການຕິດຕາມໃນເລເຢີ້ %1</translation>
+        <translation type="vanished">ສະແດງເມນູຄຸນສົມບັດ</translation>
     </message>
 </context>
 <context>
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້, ບໍ່ມີຊັ້ນຂໍ້ມູນ</translation>
+        <translation type="vanished">ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້, ບໍ່ມີຊັ້ນຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດ %2 ໃນຊັ້ນ &quot;%1&quot;. ເຫດຜົນ:%3</translation>
+        <translation type="vanished">ບໍ່ສາມາດລົບຄຸນສົມບັດ %2 ໃນຊັ້ນ &quot;%1&quot;. ເຫດຜົນ:%3</translation>
     </message>
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດໃນຊັ້ນ &quot;%1&quot;. ເຫດຜົນ:%3</translation>
+        <translation type="vanished">ບໍ່ສາມາດລົບຄຸນສົມບັດໃນຊັ້ນ &quot;%1&quot;. ເຫດຜົນ:%3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
-        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດ %1 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດລົບຄຸນສົມບັດ %1 ໄດ້</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>ບໍ່ສາມາດສຳເນົາຄຸນສົມບັດທີ່ບໍ່ຖືກຕ້ອງໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດສຳເນົາຄຸນສົມບັດທີ່ບໍ່ຖືກຕ້ອງໄດ້</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດໃໝ່ໃນຊັ້ນຂໍ້ມູນ &quot;%1&quot;. ເຫດຜົນ:%2</translation>
+        <translation type="vanished">ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດໃໝ່ໃນຊັ້ນຂໍ້ມູນ &quot;%1&quot;. ເຫດຜົນ:%2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
@@ -1701,66 +1205,42 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>Legend</name>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>ຊັ້ນນີ້ບໍ່ຖືກຕ້ອງ. ອາດຈະເປັນຍ້ອນບັນຫາເຄືອຂ່າຍ, ໄຟລ໌ທີ່ຂາດຫາຍໄປ ຫຼືການກຳນົດຄ່າໂຄງການທີ່ບໍ່ຖືກຕ້ອງ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>ຊັ້ນນີ້ຖືກຕັ້ງຄ່າເປັນ &quot;ອ່ານເທົ່ານັ້ນ&quot; ເຊິ່ງປິດການໃຊ້ງານການເພີ່ມ, ລົບ ແລະ ແກ້ໄຂຄຸນສົມບັດ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>ຢຸດ</translation>
-    </message>
-    <message>
         <source>Track on layer %1 stopped</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation>ການຕັ້ງຄ່າການອະນຸຍາດໃນຊັ້ນນີ້ປິດການເພີ່ມຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation>ກຳລັງຕິດຕາມໃນເລເຢີ້ນີ້</translation>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation>ຢຸດການຕິດຕາມໃນເລເຢີ້ %1</translation>
     </message>
 </context>
 <context>
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>ລາຍຊື່ໄຟລ໌ QField</translation>
+        <translation type="vanished">ລາຍຊື່ໄຟລ໌ QField</translation>
     </message>
     <message>
         <source>Imported projects</source>
-        <translation>ໂຄງການນໍາເຂົ້າ</translation>
+        <translation type="vanished">ໂຄງການນໍາເຂົ້າ</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation>ຊຸດຂໍ້ມູນທີ່ນໍາເຂົ້າ</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນທີ່ນໍາເຂົ້າ</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>ລາຍຊື່ໄຟລ໌ເພີ່ມເຕີມ</translation>
+        <translation type="vanished">ລາຍຊື່ໄຟລ໌ເພີ່ມເຕີມ</translation>
     </message>
     <message>
         <source>Sample projects</source>
         <translation type="vanished">ຕົວຢ່າງໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Created projects</source>
-        <translation>ໂຄງ​ການ​ທີ່​ສ້າງ​ຕັ້ງ​ຂື້ນ</translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation>ໜ້າຫຼັກ</translation>
     </message>
 </context>
 <context>
@@ -1783,7 +1263,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>ການກັ່ນຕອງຄົ້ນຫາສໍາລັບສະຖານທີ່ຂອງທ່ານໄດ້ຖືກເປີດໃຊ້, ປັບແຕ່ງຜົນໃນແຖບການຕັ້ງຄ່າ</translation>
+        <translation type="vanished">ການກັ່ນຕອງຄົ້ນຫາສໍາລັບສະຖານທີ່ຂອງທ່ານໄດ້ຖືກເປີດໃຊ້, ປັບແຕ່ງຜົນໃນແຖບການຕັ້ງຄ່າ</translation>
     </message>
 </context>
 <context>
@@ -1791,14 +1271,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Search…</source>
         <translation type="vanished">ຄົ້ນ​ຫາ</translation>
-    </message>
-    <message>
-        <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation>ເພື່ອຊອກຫາລັກສະນະພາຍໃນຊັ້ນທີ່ເຮັດວຽກ, ເລືອກຊັ້ນ vector ຜ່ານນິຍາມ.</translation>
-    </message>
-    <message>
-        <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation>ເປີດໃຊ້ຊັ້ນ vector ໃນນິຍາມກ່ອນເພື່ອໃຊ້ຟັງຊັນນີ້</translation>
     </message>
 </context>
 <context>
@@ -1811,118 +1283,86 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Trigger without its prefix</source>
         <translation type="vanished">ກະຕຸ້ນໂດຍບໍ່ມີຄໍານໍາຫນ້າ</translation>
     </message>
-    <message>
-        <source>Search Bar Settings</source>
-        <translation>ຄົ້ນຫາແຖບການຕັ້ງຄ່າ</translation>
-    </message>
-    <message>
-        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation>ເມື່ອປິດໃຊ້ງານແລ້ວ, ຕົວກອງສະຖານທີ່ນີ້ຍັງສາມາດຖືກນໍາໃຊ້ໂດຍການພິມຄໍານໍາຫນ້າ %1 ໃນແຖບຄົ້ນຫາ.</translation>
-    </message>
-    <message>
-        <source>Enable %1 locator by default</source>
-        <translation>ເປີດໃຊ້ %1 ສະຖານທີ່ຕາມຄ່າເລີ່ມຕົ້ນ</translation>
-    </message>
 </context>
 <context>
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>ບັນທຶກຂໍ້ຄວາມ</translation>
+        <translation type="vanished">ບັນທຶກຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>Message text copied</source>
-        <translation>ສຳເນົາຂໍ້ຄວາມແລ້ວ</translation>
+        <translation type="vanished">ສຳເນົາຂໍ້ຄວາມແລ້ວ</translation>
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>ລົບບັນທຶກຂໍ້ຄວາມ</translation>
+        <translation type="vanished">ລົບບັນທຶກຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>ລົບບັນທຶກຂໍ້ຄວາມແລ້ວ</translation>
+        <translation type="vanished">ລົບບັນທຶກຂໍ້ຄວາມແລ້ວ</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>ສົ່ງບັນທຶກຄໍາຮ້ອງສະຫມັກ</translation>
+        <translation type="vanished">ສົ່ງບັນທຶກຄໍາຮ້ອງສະຫມັກ</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
         <translation type="vanished">ບັນທຶກການສະໝັກຂອງທ່ານກຳລັງຖືກສົ່ງໄປ</translation>
-    </message>
-    <message>
-        <source>Log runtime profiler</source>
-        <translation>ບັນທຶກໂປຣໄຟລ runtime</translation>
-    </message>
-    <message>
-        <source>Type optional details</source>
-        <translation>ພິມລາຍລະອຽດທາງເລືອກ</translation>
-    </message>
-    <message>
-        <source>Include cloud user details</source>
-        <translation>ລວມເອົາລາຍລະອຽດຜູ້ໃຊ້ຄລາວ</translation>
-    </message>
-    <message>
-        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation>ນີ້ຈະສົ່ງບັນທຶກຂອງການເຊື່ອມຕໍ່ປັດຈຸບັນຂອງທ່ານໄປຫາທີມງານພັດທະນາ. ທ່ານພຽງແຕ່ຕ້ອງການເຮັດສິ່ງນີ້ເມື່ອທ່ານຖືກຮ້ອງຂໍ.</translation>
-    </message>
-    <message>
-        <source>Your application log is being sent…</source>
-        <translation>ບັນທຶກການສະໝັກຂອງທ່ານກຳລັງຖືກສົ່ງ...</translation>
     </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>ບໍ່ສາມາດປ່ຽນເລຂາຄະນິດຂອງຄຸນສົມບັດ %1 ໃນ %2 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດປ່ຽນເລຂາຄະນິດຂອງຄຸນສົມບັດ %1 ໃນ %2 ໄດ້</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>ຄຸນສົມບັດ</translation>
+        <translation type="vanished">ຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation>ເມນູລາຍການຄຸນສົມບັດ</translation>
+        <translation type="vanished">ເມນູລາຍການຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
-        <translation>ສະຫຼັບການເລືອກຄຸນສົມບັດ</translation>
+        <translation type="vanished">ສະຫຼັບການເລືອກຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>ພິມຄຸນສົມບັດ Atlas ເປັນ PDF</translation>
+        <translation type="vanished">ພິມຄຸນສົມບັດ Atlas ເປັນ PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>ລວມຄຸນສົມບັດທີ່ເລືອກ</translation>
+        <translation type="vanished">ລວມຄຸນສົມບັດທີ່ເລືອກ</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>ຍ້າຍຄຸນສົມບັດທີ່ເລືອກ</translation>
+        <translation type="vanished">ຍ້າຍຄຸນສົມບັດທີ່ເລືອກ</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>ສຳເນົາຄຸນສົມບັດທີ່ເລືອກ</translation>
+        <translation type="vanished">ສຳເນົາຄຸນສົມບັດທີ່ເລືອກ</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>ລົບຄຸນສົມບັດທີ່ເລືອກ</translation>
+        <translation type="vanished">ລົບຄຸນສົມບັດທີ່ເລືອກ</translation>
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation>ເມນູຄຸນສົມບັດ</translation>
+        <translation type="vanished">ເມນູຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -1930,11 +1370,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>ຊູມໄປທີ່ຄຸນສົມບັດ</translation>
+        <translation type="vanished">ຊູມໄປທີ່ຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>ຊູມອັດຕະໂນມັດໄປຫາຄຸນສົມບັດ</translation>
+        <translation type="vanished">ຊູມອັດຕະໂນມັດໄປຫາຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -1942,19 +1382,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>ຍ້າຍຄຸນສົມບັດ</translation>
+        <translation type="vanished">ຍ້າຍຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>ສຳເນົາຄຸນສົມບັດ</translation>
+        <translation type="vanished">ສຳເນົາຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>ລົບຄຸນສົມບັດ</translation>
+        <translation type="vanished">ລົບຄຸນສົມບັດ</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>ເລືອກແມ່ແບບຂ້າງລຸ່ມນີ້</translation>
+        <translation type="vanished">ເລືອກແມ່ແບບຂ້າງລຸ່ມນີ້</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
@@ -1974,51 +1414,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>ພິມຄຸນສົມບັດ Atlas</translation>
+        <translation type="vanished">ພິມຄຸນສົມບັດ Atlas</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>ພິມ</translation>
+        <translation type="vanished">ພິມ</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>ພິມຄຸນ​ນະ​ສົມ​ບັດ Atlas​ສໍາ​ເລັດ​ ແລະ​ ຈັດ​ໃສ່​ໃນ​ໂຟນ​ເດີ​ໂຄງ​ການ​ຂອງ​ທ່ານ​</translation>
-    </message>
-    <message>
-        <source>Feature attributes updated from clipboard</source>
-        <translation>ຄຸນ​ລັກ​ສະ​ນະ​ການ​ປັບ​ປຸງ​ຈາກຄລິບບອດ​</translation>
-    </message>
-    <message>
-        <source>No feature attributes were updated from clipboard</source>
-        <translation>ບໍ່ມີການອັບເດດຄຸນສົມບັດຈາກຄລິບບອດ</translation>
-    </message>
-    <message>
-        <source>Feature set as navigation destination</source>
-        <translation>ຄຸນສົມບັດຖືກຕັ້ງເປັນປາຍທາງ</translation>
-    </message>
-    <message>
-        <source>Process Selected Feature(s)</source>
-        <translation>ປະມວນຜົນຄຸນສົມບັດທີ່ເລືອກ</translation>
-    </message>
-    <message>
-        <source>Rotate Feature</source>
-        <translation>ຟັງຊັນການຫມຸນ</translation>
-    </message>
-    <message>
-        <source>Update Attributes from Feature</source>
-        <translation>ອັບເດດຄຸນລັກສະນະຈາກຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Process Feature</source>
-        <translation>ປະມວນຜົນຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Feature copied to clipboard</source>
-        <translation>ສຳເນົາຄຸນສົມບັດໃສ່ຄລິບບອດແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Feature cut into clipboard</source>
-        <translation>ຄຸນສົມບັດຖືກຕັດເຂົ້າໄປໃນຄລິບບອດ</translation>
+        <translation type="vanished">ພິມຄຸນ​ນະ​ສົມ​ບັດ Atlas​ສໍາ​ເລັດ​ ແລະ​ ຈັດ​ໃສ່​ໃນ​ໂຟນ​ເດີ​ໂຄງ​ການ​ຂອງ​ທ່ານ​</translation>
     </message>
 </context>
 <context>
@@ -2029,7 +1433,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
@@ -2041,76 +1445,57 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon</source>
-        <translation>ເສັ້ນແວງ</translation>
+        <translation type="vanished">ເສັ້ນແວງ</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>ເສັ້ນຂະໜານ</translation>
+        <translation type="vanished">ເສັ້ນຂະໜານ</translation>
     </message>
     <message>
         <source>Dist.</source>
-        <translation>ໄລ​ຍະ​ຫ່າງ</translation>
+        <translation type="vanished">ໄລ​ຍະ​ຫ່າງ</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation type="vanished">ບໍ່ມີ</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>ຕໍາ​ແຫນ່ງ</translation>
-    </message>
-</context>
-<context>
-    <name>NtripSourceTableFetcher</name>
-    <message>
-        <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ຕໍາ​ແຫນ່ງ</translation>
     </message>
 </context>
 <context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>ບໍ່ສາມາດເຮັດການປ່ຽນຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້.</translation>
+        <translation type="vanished">ບໍ່ສາມາດເຮັດການປ່ຽນຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>ບໍ່ສາມາດອັບເດດລຳດັບຄຸນສົມບັດໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດອັບເດດລຳດັບຄຸນສົມບັດໄດ້</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>ບັນທຶກການປ່ຽນແປງແລ້ວ</translation>
+        <translation type="vanished">ບັນທຶກການປ່ຽນແປງແລ້ວ</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>ຍົກເລີກການປ່ຽນແປງ</translation>
+        <translation type="vanished">ຍົກເລີກການປ່ຽນແປງ</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -2137,43 +1522,43 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Open File</source>
-        <translation>ເປີດໄຟລ໌</translation>
+        <translation type="vanished">ເປີດໄຟລ໌</translation>
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation>ໄຟລ໌ທີ່ຮອງຮັບທັງໝົດ</translation>
+        <translation type="vanished">ໄຟລ໌ທີ່ຮອງຮັບທັງໝົດ</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
-        <translation>ໄຟລ໌ໂຄງການ QGIS</translation>
+        <translation type="vanished">ໄຟລ໌ໂຄງການ QGIS</translation>
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>ຊຸດຂໍ້ມູນ Vector</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ Vector</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation>ຊຸດຂໍ້ມູນ Raster</translation>
+        <translation type="vanished">ຊຸດຂໍ້ມູນ Raster</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation>ບັນທຶກຊັບພະຍາກອນໄຟລ໌ບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ບັນທຶກຊັບພະຍາກອນໄຟລ໌ບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation>ເລືອກໄຟລ໌ຮູບພາບ</translation>
+        <translation type="vanished">ເລືອກໄຟລ໌ຮູບພາບ</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation>ຮູບພາບທັງໝົດ (*.jpg *.jpeg *.png *.bmp);;ຮູບພາບ JPEG (*.jpg *.jpeg);;ຮູບພາບ PNG (*.jpg *.jpeg);;ຮູບພາບ BMP (*.bmp)</translation>
+        <translation type="vanished">ຮູບພາບທັງໝົດ (*.jpg *.jpeg *.png *.bmp);;ຮູບພາບ JPEG (*.jpg *.jpeg);;ຮູບພາບ PNG (*.jpg *.jpeg);;ຮູບພາບ BMP (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation>ເລືອກ​ໄຟລ​໌​ວິ​ດີ​ໂອ​</translation>
+        <translation type="vanished">ເລືອກ​ໄຟລ​໌​ວິ​ດີ​ໂອ​</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation>ວິດີໂອທັງໝົດ (*.mp4 *.mkv *.mov);;ວິດີໂອ MP4 (*.mp4);;ວິດີໂອ MKV(*.mkv);;MOV ວິດີໂອ (*.mov)</translation>
+        <translation type="vanished">ວິດີໂອທັງໝົດ (*.mp4 *.mkv *.mov);;ວິດີໂອ MP4 (*.mp4);;ວິດີໂອ MKV(*.mkv);;MOV ວິດີໂອ (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
@@ -2185,31 +1570,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Select File</source>
-        <translation>ເລືອກໄຟລ໌</translation>
-    </message>
-    <message>
-        <source>Removal Confirmation</source>
-        <translation>ການຢືນຢັນການໂຍກຍ້າຍ</translation>
-    </message>
-    <message>
-        <source>The dataset will be deleted, proceed with removal?</source>
-        <translation>ຊຸດຂໍ້ມູນຈະຖືກລົບ, ສືບຕໍ່ການໂຍກຍ້າຍອອກບໍ?</translation>
-    </message>
-    <message>
-        <source>The project folder will be deleted, proceed with removal?</source>
-        <translation>ໂຟນເດີໂຄງການຈະຖືກລົບອອກ, ດໍາເນີນການກັບການໂຍກຍ້າຍອອກບໍ?</translation>
-    </message>
-    <message>
-        <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ເລືອກໄຟລ໌</translation>
     </message>
 </context>
 <context>
@@ -2392,14 +1753,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>ອຸປະກອນພາຍໃນ</translation>
+        <translation type="vanished">ອຸປະກອນພາຍໃນ</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation>ການ​ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຈັດຕໍາແຫນ່ງ</translation>
+        <translation type="vanished">ການ​ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຈັດຕໍາແຫນ່ງ</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2423,42 +1784,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation>TCP (NMEA)</translation>
+        <translation type="vanished">TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation>UDP (NMEA)</translation>
+        <translation type="vanished">UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation>Serial port (NMEA)</translation>
-    </message>
-    <message>
-        <source>Egeniouss</source>
-        <translation>Egeniouss</translation>
-    </message>
-    <message>
-        <source>Connection type</source>
-        <translation>ປະເພດການເຊື່ອມຕໍ່</translation>
+        <translation type="vanished">Serial port (NMEA)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>ຊື່</translation>
-    </message>
-    <message>
-        <source> (leave empty to auto-fill)</source>
-        <translation>(ປ່ອຍຫວ່າງໄວ້ເພື່ອຕື່ມຂໍ້ມູນອັດຕະໂນມັດ)</translation>
-    </message>
-    <message>
-        <source>Connection details</source>
-        <translation>ລາຍລະອຽດການເຊື່ອມຕໍ່</translation>
-    </message>
-    <message>
-        <source>Logs file (NMEA)</source>
-        <translation>ໄຟລ໌ບັນທຶກ (NMEA)</translation>
-    </message>
-    <message>
-        <source>Bluetooth BT + BLE (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2466,54 +1803,38 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
-        <translation>ລະດັບຄວາມສູງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>ຄວາມໄວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>ຄວາມແມ່ນຍໍາສູງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation>ເສັ້ນແວງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat</source>
-        <translation>ເສັ້ນຂະໜານ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
-        <translation>ບໍ່ມີ</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation>ຕາໜ່າງ</translation>
-    </message>
-    <message>
-        <source>ortho.</source>
-        <translation>ຄວາມສູງຂອງ Orthometric</translation>
-    </message>
-    <message>
-        <source>ant.</source>
-        <translation>ຄວາມສູງເສົາອາກາດ</translation>
-    </message>
-    <message>
-        <source>%1/s</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2529,7 +1850,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>N/A</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation type="vanished">ບໍ່ມີ</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -2583,59 +1904,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
 <context>
     <name>PositioningNtripSettings</name>
     <message>
-        <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>ພອດ:</translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Username</source>
-        <translation>ຊື່ຜູ້ໃຊ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>ລະຫັດຜ່ານ</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Identifier:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Data format:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP SSL/TLS</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2643,241 +1916,24 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>ໄລ​ຍະ​ຫ່າງ</translation>
+        <translation type="vanished">ໄລ​ຍະ​ຫ່າງ</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation>ການຈັດຕຳແໜ່ງຄວາມຖືກຕ້ອງຕໍ່າເກີນໄປສຳລັບລະດັບຄວາມຊັດເຈນນີ້</translation>
-    </message>
-    <message>
-        <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotate view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotation source</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Compass</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Movement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ການຈັດຕຳແໜ່ງຄວາມຖືກຕ້ອງຕໍ່າເກີນໄປສຳລັບລະດັບຄວາມຊັດເຈນນີ້</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>ອຸປະກອນພາຍໃນ</translation>
-    </message>
-</context>
-<context>
-    <name>ProcessingAlgorithmForm</name>
-    <message>
-        <source>General Parameters</source>
-        <translation>ພາລາມິເຕີທົ່ວໄປ</translation>
-    </message>
-    <message>
-        <source>Advanced Parameters</source>
-        <translation>ພາລາມິເຕີຂັ້ນສູງ</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>ຊ່ວຍ</translation>
-    </message>
-    <message>
-        <source>There are no general parameters attached to this algorithm.</source>
-        <translation>ບໍ່ມີພາລາມິເຕີທົ່ວໄປທີ່ຕິດກັບ algorithm ນີ້.</translation>
-    </message>
-    <message>
-        <source>Algorithm description</source>
-        <translation>ຄຳອະທິບາຍ algorithm</translation>
+        <translation type="vanished">ອຸປະກອນພາຍໃນ</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation>ລາຍການທີ່ມັກ</translation>
-    </message>
-    <message>
-        <source>All Algorithms</source>
-        <translation>Algorithms ທັງໝົດ</translation>
-    </message>
-</context>
-<context>
-    <name>ProjectCreationScreen</name>
-    <message>
-        <source>Create a new project</source>
-        <translation>ສ້າງໂຄງການໃຫມ່</translation>
-    </message>
-    <message>
-        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation>ຫນ້ານີ້ຈະແນະນໍາທ່ານໂດຍຜ່ານການສ້າງໂຄງການງ່າຍໂດຍຜ່ານການຕັ້ງຄ່າງ່າຍ. ສໍາລັບຄວາມຕ້ອງການກ້າວຫນ້າ, ແນະນໍາໃຫ້ທ່ານສ້າງໂຄງການໃນ QGIS ໂດຍໃຊ້ QFieldSync.</translation>
-    </message>
-    <message>
-        <source>New project name</source>
-        <translation>ຊື່ໂຄງການໃຫມ່</translation>
-    </message>
-    <message>
-        <source>Select your basemap</source>
-        <translation>ເລືອກແຜນທີ່ພື້ນຖານຂອງທ່ານ</translation>
-    </message>
-    <message>
-        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation>ເລືອກແຜນທີ່ພື້ນຖານສໍາລັບໂຄງການຂອງທ່ານ. ເລືອກຈາກຕົວເລືອກທີ່ມີຢູ່ ຫຼືກຳນົດ URL ຂອງທ່ານເອງ.</translation>
-    </message>
-    <message>
-        <source>Colorful</source>
-        <translation>ສີສັນ</translation>
-    </message>
-    <message>
-        <source>Darkgray</source>
-        <translation>ສີຂີ້ເຖົ່າເຂັ້ມ</translation>
-    </message>
-    <message>
-        <source>Lightgray</source>
-        <translation>ສີເທົາອ່ອນ</translation>
-    </message>
-    <message>
-        <source>Blank</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>ກຳນົດເອງ</translation>
-    </message>
-    <message>
-        <source>Custom basemap URL</source>
-        <translation>ແຜນຜັງພື້ນຖານ URL ແບບກຳນົດເອງ</translation>
-    </message>
-    <message>
-        <source>Take notes?</source>
-        <translation>ບັນທຶກ?</translation>
-    </message>
-    <message>
-        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation>ບັນທຶກຢ່າງວ່ອງໄວດ້ວຍວັນທີ, ເວລາ ແລະຄຳເຫັນ. ທາງເລືອກອື່ນ, ແນບລາຍການມັນຕິມີເດຍເຊັ່ນ: ຮູບພາບ ແລະວິດີໂອເພື່ອເສີມສ້າງບັນທຶກຂອງທ່ານ.</translation>
-    </message>
-    <message>
-        <source>Take image and video attachments</source>
-        <translation>ເອົາໄຟລ໌ແນບຮູບພາບແລະວິດີໂອ</translation>
-    </message>
-    <message>
-        <source>Track your position?</source>
-        <translation>ຕິດ​ຕາມ​ຕໍາ​ແຫນ່ງ​ຂອງ​ທ່ານ​?</translation>
-    </message>
-    <message>
-        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation>ບັນທຶກສະຖານທີ່ຂອງທ່ານທຸກໆວິນາທີ, ພ້ອມກັບວັນທີ ແລະ ເວລາ, ເພື່ອຮັກສາຕິດຕາມການເຄື່ອນໄຫວຂອງທ່ານຢ່າງແນ່ນອນ.</translation>
-    </message>
-    <message>
-        <source>Begin tracking automatically</source>
-        <translation>ເລີ່ມຕົ້ນການຕິດຕາມອັດຕະໂນມັດ</translation>
-    </message>
-    <message>
-        <source>Backup &amp; collaborate?</source>
-        <translation>ສຳຮອງ ແລະຮ່ວມມືບໍ?</translation>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud here</source>
-        <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud ທີ່ນີ້</translation>
-    </message>
-    <message>
-        <source>Create Project</source>
-        <translation>ສ້າງໂຄງການ</translation>
-    </message>
-    <message>
-        <source>My Project</source>
-        <translation>ໂຄງ​ການ​ຂອງ​ຂ້າ​ພະ​ເຈົ້າ​</translation>
-    </message>
-    <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ProjectUtils</name>
-    <message>
-        <source>Created Project</source>
-        <translation>ໂຄງການສ້າງແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation>ຫມາຍເຫດ</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>ເວລາ</translation>
-    </message>
-    <message>
-        <source>Marker color</source>
-        <translation>ເຄື່ອງຫມາຍສີ</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>ຫົວຂໍ້</translation>
-    </message>
-    <message>
-        <source>Note</source>
-        <translation>ຫມາຍເຫດ</translation>
-    </message>
-    <message>
-        <source>Tracks</source>
-        <translation>ຕິດຕາມ</translation>
-    </message>
-    <message>
-        <source>Basemap</source>
-        <translation>ແຜນທີ່ພື້ນຖານ</translation>
-    </message>
-    <message>
-        <source>Media</source>
-        <translation>ສື່</translation>
-    </message>
-    <message>
-        <source>Track color</source>
-        <translation>ສີເສັ້ນທາງ</translation>
-    </message>
-    <message>
-        <source>Note attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation>ຄຳອະທິບາຍ</translation>
-    </message>
-    <message>
-        <source>Attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation>ຈຸດ</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Polygon</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2897,121 +1953,62 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
 </context>
 <context>
-    <name>QFieldAudioRecorder</name>
-    <message>
-        <source>Audio Recorder</source>
-        <translation>ເຄື່ອງບັນທຶກສຽງ</translation>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
-        <source>Geotagging enabled</source>
-        <translation>ເປີດໃຊ້ການຕິດແທັກສະຖານທີ່ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Geotagging disabled</source>
-        <translation>ປີດໃຊ້ການຕິດແທັກສະຖານທີ່ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Grid enabled</source>
-        <translation>ເປີດຕາໜ່າງແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Grid disabled</source>
-        <translation>ປີດຕາໜ່າງແລ້ວ</translation>
-    </message>
-    <message>
-        <source>front</source>
-        <translation>ດ້ານໜ້າ</translation>
-    </message>
-    <message>
-        <source>back</source>
-        <translation>ດ້ານຫລັງ</translation>
-    </message>
-    <message>
-        <source>Details stamping enabled</source>
-        <translation>ເປີດໃຊ້ການສະແຕມລາຍລະອຽດແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Latitude</source>
-        <translation>ເສັ້ນຂະໜານ</translation>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation>ເສັ້ນແວງ</translation>
-    </message>
-    <message>
         <source>Altitude</source>
-        <translation>ລະດັບຄວາມສູງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>ຄວາມໄວ</translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation>ທິດ​ທາງ</translation>
-    </message>
-    <message>
-        <source>Details stamping disabled</source>
-        <translation>ປີດໃຊ້ການສະແຕມລາຍລະອຽດແລ້ວ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[ໝົດເວລາ] ການຮ້ອງຂໍໃຊ້ເວລາດົນເກີນໄປທີ່ຈະສໍາເລັດ, ກະລຸນາລອງໃໝ່.</translation>
+        <translation type="vanished">[ໝົດເວລາ] ການຮ້ອງຂໍໃຊ້ເວລາດົນເກີນໄປທີ່ຈະສໍາເລັດ, ກະລຸນາລອງໃໝ່.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation>[ຍົກເລີກ] ການຮ້ອງຂໍໄດ້ຖືກຍົກເລີກ.</translation>
+        <translation type="vanished">[ຍົກເລີກ] ການຮ້ອງຂໍໄດ້ຖືກຍົກເລີກ.</translation>
     </message>
     <message>
         <source>Server Error.</source>
-        <translation>ເຊີບເວີຜິດພາດ.</translation>
+        <translation type="vanished">ເຊີບເວີຜິດພາດ.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation>ເຄືອຂ່າຍຜິດພາດ.</translation>
+        <translation type="vanished">ເຄືອຂ່າຍຜິດພາດ.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>ບໍ່ພົບເຊີບເວີ, ກະລຸນາກວດເບິ່ງ URL ເຊີບເວີ</translation>
+        <translation type="vanished">ບໍ່ພົບເຊີບເວີ, ກະລຸນາກວດເບິ່ງ URL ເຊີບເວີ</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation>ຄວາມຜິດພາດໝົດເວລາ, ກະລຸນາລອງໃໝ່</translation>
+        <translation type="vanished">ຄວາມຜິດພາດໝົດເວລາ, ກະລຸນາລອງໃໝ່</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation>ຊື່ຜູ້ໃຊ້ ຫຼືລະຫັດຜ່ານຜິດ</translation>
+        <translation type="vanished">ຊື່ຜູ້ໃຊ້ ຫຼືລະຫັດຜ່ານຜິດ</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation>ເຊດຊັນໝົດອາຍຸແລ້ວ</translation>
+        <translation type="vanished">ເຊດຊັນໝົດອາຍຸແລ້ວ</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>ການເຊື່ອມຕໍ່ບໍ່ສາມາດໃຊ້ໄດ້ຊົ່ວຄາວ</translation>
+        <translation type="vanished">ການເຊື່ອມຕໍ່ບໍ່ສາມາດໃຊ້ໄດ້ຊົ່ວຄາວ</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>ການອັບໂຫລດໄຟລ໌ແນບທີ່ເກັບໄວ້ໃນ `%1`, ເຫດຜົນ:%2 ລົ້ມເຫລວ</translation>
+        <translation type="vanished">ການອັບໂຫລດໄຟລ໌ແນບທີ່ເກັບໄວ້ໃນ `%1`, ເຫດຜົນ:%2 ລົ້ມເຫລວ</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation>ການເຂົ້າສູ່ລະບົບຜິດພາດເນື່ອງຈາກການປ່ຽນເສັ້ນທາງທີ່ບໍ່ຄາດຄິດ, ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ</translation>
-    </message>
-    <message>
-        <source>Authentication provider missing</source>
-        <translation>ການພິສູດຢືນຢັນຜູ້ໃຫ້ບໍລິການຂາດຫາຍໄປ</translation>
-    </message>
-    <message>
-        <source>Password missing</source>
-        <translation>ບໍ່ມີລະຫັດຜ່ານ</translation>
+        <translation type="vanished">ການເຂົ້າສູ່ລະບົບຜິດພາດເນື່ອງຈາກການປ່ຽນເສັ້ນທາງທີ່ບໍ່ຄາດຄິດ, ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ</translation>
     </message>
 </context>
 <context>
@@ -3103,6 +2100,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3559,32 +2560,32 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>ວຽກການຫຸ້ມຫໍ່ບໍ່ສຳເລັດສຳລັບ `%1`. %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>ການໂຫຼດຂໍ້ມູນຫຼ້າສຸດຂອງ `%1`: %2 ລົ້ມເຫລວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>ການຮັບເອົາຂໍ້ມູນແພັກເກດຫຼ້າສຸດລົ້ມເຫລວ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>ການຕອບຂໍ້ມູນແພັກເກັດຫຼ້າສຸດຜິດພາດ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>ໂຄງສ້າງຂໍ້ມູນແພັກເກັດຫຼ້າສຸດຜິດພາດ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>ໂຄງການ %1: ຊັ້ນບັນຈຸ `%2` ບໍ່ຖືກຕ້ອງ. ລະຫັດຂໍ້ຜິດພາດ %3, ຂໍ້ຄວາມຜິດພາດ: %4</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>ເປີດໄຟລ໌ຊົ່ວຄາວສຳລັບ `%1` ບໍ່ສຳເລັດ, ເຫດຜົນ:%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -3596,87 +2597,47 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>ເຄືອຂ່າຍຜິດພາດ. ການດາວໂຫຼດໄຟລ໌ `%1` ລົ້ມເຫລວ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>ສຳເນົາບາງໄຟລ໌ທີ່ດາວໂຫລດມາໄວ້ໃນອຸປະກອນຂອງທ່ານບໍ່ສຳເລັດ. ກວດສອບການເກັບຮັກສາອຸປະກອນຂອງທ່ານ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>ໂຄງການ `%1`, ໄຟລ໌ `%2`: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System message: </source>
-        <translation>ຂໍ້ຄວາມລະບົບ:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation>(ເບິ່ງເພີ່ມເຕີມໃນບັນທຶກຄວາມຜິດພາດ QField)…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>ການສ້າງວຽກສຳເລັດແລ້ວ, ແຕ່ການຕອບສະໜອງຂອງເຊີບເວີແມ່ນຂາດຊ່ອງຂໍ້ມູນທີ່ຕ້ອງການ: id(string)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>ກຳລັງໄດ້ຮັບສະຖານະວຽກ, ແຕ່ບໍ່ມີວຽກ `%2` ຖືກກະຕຸ້ນເທື່ອ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>ວຽກ(%1) ການຕອບຮັບສະຖານະບໍ່ມີກະແຈທີ່ຄາດໄວ້ທັງໝົດ: ສະຖານະ(ສະຕຣິງ)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>ວຽກ(%1) ສຳເລັດດ້ວຍສະຖານະລົ້ມເຫລວ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>ໂຄງການ (%1) ທີ່ກະຕຸ້ນການໂຫຼດຂໍ້ມູນຕອບກັບຄືນມາ ບໍ່ມີຄ່າທີ່ຄາດຫວັງຄົບຖ້ວນ: ຊື່ (string), ຜູ້ເປັນເຈົ້າຂອງ (string), ລາຍລະອຽດ (string), ບົດບາດຂອງຜູ້ໃຊ້ (string), ເປັນສາທາລະນະ (bool), ສາມາດຫຸ້ມຫໍ່ຄືນໃໝ່ໄດ້ (bool), ຕ້ອງຫຸ້ມຫໍ່ຄືນໃໝ່ (bool)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>aborted</source>
-        <translation>ລະບົບຖືກຢຸດ</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ຂຽນໄຟລ໌ແນບໃສ່ສະຖານທີ່ຊົ່ວຄາວ `%1` ບໍ່ສຳເລັດ.</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ເປີດໄຟລ໌ແນບເພື່ອຂຽນໃສ່ `%1` ຊົ່ວຄາວບໍ່ສຳເລັດ.</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to download attachment `%1`.</source>
-        <translation>ເຄືອຂ່າຍຜິດພາດ. ດາວໂຫລດໄຟລ໌ແນບ `%1` ບໍ່ສຳເລັດ.</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ຂຽນໃສ່ໄຟລ໌ບາງສ່ວນ `%1` ບໍ່ສຳເລັດ.</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to open partial file `%1`.</source>
-        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ເປີດໃຫ້ໄຟລ໌ບາງສ່ວນ `%1` ບໍ່ສຳເລັດ.</translation>
-    </message>
-    <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation>ບໍ່ມີເສັ້ນທາງທ້ອງຖິ່ນ</translation>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation>ບໍ່ສາມາດໃຊ້ເສັ້ນທາງທ້ອງຖິ່ນເພື່ອອັບໂຫລດໄດ້ເນື່ອງຈາກມັນມີໄຟລ໌ໂຄງການຫຼາຍອັນ</translation>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation>ເສັ້ນທາງທ້ອງຖິ່ນທີ່ຈະອັບໂຫລດບໍ່ມີໄຟລ໌ໂຄງການທີ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>Network error. Failed to upload file `%1`.</source>
-        <translation>ເຄືອຂ່າຍຜິດພາດ. ອັບໂຫລດໄຟລ໌ `%1` ບໍ່ສຳເລັດ.</translation>
-    </message>
-    <message>
-        <source>One or more files could not be uploaded</source>
-        <translation>ນຶ່ງ ຫຼືຫຼາຍໄຟລ໌ບໍ່ສາມາດອັບໂຫລດໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3843,7 +2804,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>ໂຄງການບໍ່ຫວ່າງ.</translation>
+        <translation type="vanished">ໂຄງການບໍ່ຫວ່າງ.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -3906,18 +2867,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">ສຳເນົາບາງໄຟລ໌ທີ່ດາວໂຫລດມາໄວ້ໃນອຸປະກອນຂອງທ່ານບໍ່ສຳເລັດ. ກວດສອບການເກັບຮັກສາອຸປະກອນຂອງທ່ານ.</translation>
-    </message>
-    <message>
-        <source>Project creation requires a name</source>
-        <translation>ການສ້າງໂຄງການຕ້ອງການຊື່</translation>
-    </message>
-    <message>
-        <source>Cloud project could not be created.</source>
-        <translation>ບໍ່ສາມາດສ້າງໂຄງການຄລາວໄດ້.</translation>
-    </message>
-    <message>
-        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation>ເຄືອຂ່າຍບໍ່ໄດ້ເປີດໃຊ້ງານໃນເວລານີ້. ລະບົບຈະອັບເດດຂໍ້ມູນໃຫ້ອັດຕະໂນມັດ ເມື່ອເຊື່ອມຕໍ່ເນັດໄດ້ຄືນ</translation>
     </message>
 </context>
 <context>
@@ -4159,44 +3108,13 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudStatus</name>
-    <message>
-        <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>ເຊີບເວີເກີດຄວາມຜິດພາດຂຶ້ນ, ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</translation>
-    </message>
-    <message>
-        <source>A network error has occured, please try again.</source>
-        <translation>ເຄືອຂ່າຍຜິດພາດເກີດຂຶ້ນ, ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</translation>
-    </message>
-    <message>
-        <source>The project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <source>A network error has occured, please try again.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4380,6 +3298,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
         <translation>ກະລຸນາເລືອກໜຶ່ງ ຫຼືຫຼາຍໄຟລ໌ເພື່ອຍູ້ໄປທີ່ QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete file(s)</source>
@@ -5361,10 +4283,381 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfAbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>ກໍາລັງເຊື່ອມຕໍ່</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>ການເຊື່ອມຕໍ່ສໍາເລັດ</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>ຕັດການເຊື່ອມຕໍ່</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>ສະຖານະ socket %1</translation>
+    </message>
+</context>
+<context>
     <name>QfActionButton</name>
     <message>
         <source>close</source>
         <translation>ປິດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation>ຈໍາ​ກັດ​ການ​ຊອກ​ຫາ​ໃນ​ພາກ​ສະ​ຫນາມ &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>ເປີດແບບຟອມ</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>ຕັ້ງຄຸນສົມບັດເປັນຈຸດໝາຍປາຍທາງ</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>ຄຸນສົມບັດບໍ່ມີເລຂາຄະນິດ</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation>ຄຸນ​ນະ​ສົມ​ບັດ​ຈາກ​ຊັ້ນແຜນທີ່ທີ່ນຳໃຊ້ໃນປັດຈຸບັນ</translation>
+    </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation>ສົ່ງຄືນລາຍຊື່ຄຸນສົມບັດຈາກຊັ້ນຂໍ້ມູນທີ່ມີຄຸນສົມບັດທີ່ກົງກັນ. ການຈຳກັດການຈັບຄູ່ກັບຄຸນລັກສະນະອັນດຽວແມ່ນເຮັດໄດ້ໂດຍການລະບຸຊື່ຂອງມັນທີ່ນຳໜ້າດ້ວຍ &apos;@&apos;.</translation>
+    </message>
+</context>
+<context>
+    <name>QfAndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>ໄຟລ໌ %1 ບໍ່ມີຢູ່ </translation>
+    </message>
+</context>
+<context>
+    <name>QfAppMissingGridHandler</name>
+    <message>
+        <source>No transform available between %1 and %2</source>
+        <translation>ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2</translation>
+    </message>
+    <message>
+        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>ກຣິດນີ້ແມ່ນສ່ວນໜຶ່ງຂອງແພັກເກັດ “%1”, ຊຶ່ງສາມາດດາວໂຫຼດໄດ້ຈາກ %2. </translation>
+    </message>
+    <message>
+        <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
+        <translation>ກຣິດນີ້ສາມາດດາວໂຫຼດໄດ້ຈາກ %1.</translation>
+    </message>
+    <message>
+        <source>projection</source>
+        <translation>ການສາຍແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
+        <translation>ການແປງຄ່ານີ້ຕ້ອງໃຊ້ໄຟລ໌ກຣິດ “%1”, ຊຶ່ງບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
+    </message>
+    <message>
+        <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>ກຣິດນີ້ແມ່ນສ່ວນໜຶ່ງຂອງແພັກເກັດ %1, ຊຶ່ງສາມາດດາວໂຫຼດໄດ້ຈາກ %2. </translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
+        <translation>ການແປງຄ່າປັດຈຸບັນ “%1” ມີຄວາມຖືກຕ້ອງ %2 ແມັດ, ໃນຂະນະທີ່ການແປງຄ່າທີ່ຕ້ອງການ “%3” ມີຄວາມຖືກຕ້ອງ %4 ແມັດ.</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
+        <translation>ການແປງຄ່າປັດຈຸບັນ “%1” ມີຄວາມຖືກຕ້ອງທີ່ບໍ່ຮູ້, ໃນຂະນະທີ່ການແປງຄ່າທີ່ຕ້ອງການ “%2” ມີຄວາມຖືກຕ້ອງ %3 ແມັດ.</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
+        <translation>ການປ່ຽນຮູບແບບທີ່ຕ້ອງການລະຫວ່າງ %1 ແລະ %2 ບໍ່ມີໃຫ້ໃຊ້ໃນລະບົບ.</translation>
+    </message>
+    <message>
+        <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
+        <translation>ບໍ່ມີການແປງຄ່າໃດໆ ໃຫ້ໃຊ້ລະຫວ່າງ %1 ແລະ %2.%3</translation>
+    </message>
+    <message>
+        <source>Cannot use project transform between %1 and %2</source>
+        <translation>ບໍ່ສາມາດໃຊ້ການແປງຄ່າໂຄງການລະຫວ່າງ %1 ແລະ %2 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Used a ballpark transform from %1 to %2</source>
+        <translation>ໄດ້ໃຊ້ການປ່ຽນຂໍ້ມູນແບບປະມານຈາກ %1 ໄປຫາ %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfAttributeFormModelBase</name>
+    <message>
+        <source>Expression constraint</source>
+        <translation>ຂໍ້ຈໍາກັດການສະແດງອອກ</translation>
+    </message>
+    <message>
+        <source>Not NULL</source>
+        <translation>ບໍ່ NULL</translation>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation>ອັນດຽວ</translation>
+    </message>
+</context>
+<context>
+    <name>QfAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation>ເຄື່ອງບັນທຶກສຽງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceChooser</name>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation>ສະແກນຫາອຸປະກອນທີ່ຢູ່ໃກ້ຄຽງ</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation>ເລືອກອຸປະກອນ Bluetooth ຈາກລາຍການຂ້າງລຸ່ມນີ້:</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation>ບໍ່ພົບອຸປະກອນ Bluetooth</translation>
+    </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation>ການສະແກນຜິດພາດ: %1</translation>
+    </message>
+    <message>
+        <source>Scanning for paired devices</source>
+        <translation>ຊອກຫາຈັບຄູ່ອຸປະກອນ</translation>
+    </message>
+    <message>
+        <source>Scanning failed: %1</source>
+        <translation>ການສະແກນລົ້ມເຫລວ: %1</translation>
+    </message>
+    <message>
+        <source>Scanning done</source>
+        <translation>ສະແກນແລ້ວໆ</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n device(s) found</source>
+        <translation><numerusform>ພົບ %n ອຸປະກອນ</numerusform></translation>
+    </message>
+    <message>
+        <source>Scanning canceled</source>
+        <translation>ຍົກເລີກການສະແກນແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation>ຊື່ອຸປະກອນ Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation>ທີ່ຢູ່ອຸປະກອນ Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceModel</name>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation>ການອະນຸຍາດ Bluetooth ຖືກປະຕິເສດ</translation>
+    </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation>ກະລຸນາອະນຸຍາດໃຫ້ເຂົ້າເຖິງ Bluetooth ເພື່ອສະແກນຫາອຸປະກອນ Bluetooth</translation>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation>ການອະນຸຍາດໃຊ້ຕຳແໜ່ງຖືກປະຕິເສດ</translation>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation>ກະລຸນາເປີດສິດອະນຸຍາດເຂົ້າເຖິງຕຳແໜ່ງ ເພື່ອສະແກນຫາອຸປະກອນ Bluetooth</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkList</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark List Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle Bookmark Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>ສຳເນົາລາຍລະອຽດບຸກມາກໃສ່ຄລິບບອດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>ລຶບບຸກມາກ</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>ທ່ານກຳລັງຈະລຶບບຸກມາກ, ດຳເນີນການຕໍ່ບໍ?</translation>
+    </message>
+    <message>
+        <source>Delete bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n selected bookmark(s) really be deleted?</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Deleted %n bookmark(s)</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>ບຸກມາກບໍ່ມີຊື່</translation>
+    </message>
+    <message>
+        <source>No bookmarks yet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkLocatorFilter</name>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Spatial bookmarks</source>
+        <translation>ບຸກມາກໃນພື້ນທີ່</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation>ສົ່ງຄືນລາຍຊື່ຜູ້ໃຊ້ທີ່ປະຈຸບັນເປີດບຸກມາກໂຄງການທີ່ມີຊື່ທີ່ກົງກັນ</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkProperties</name>
+    <message>
+        <source>Bookmark Properties</source>
+        <translation>ຄຸນສົມບັດບຸກມາກ</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>ຄຳອະທິບາຍ</translation>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation>ປ່ຽນສີ</translation>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>ສຳເນົາລາຍລະອຽດບຸກມາກໃສ່ຄລິບບອດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>ລຶບບຸກມາກ</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>ທ່ານກຳລັງຈະລຶບບຸກມາກ, ດຳເນີນການຕໍ່ບໍ?</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkRenderer</name>
+    <message>
+        <source>Bookmark: %1</source>
+        <translation>ບຸກມາກ: %1</translation>
+    </message>
+    <message>
+        <source>Project bookmarks cannot be edited</source>
+        <translation>ບຸກມາກຂອງໂຄງການບໍ່ສາມາດແກ້ໄຂໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfBrowserPanel</name>
+    <message>
+        <source>Browser</source>
+        <translation>ບຣາວເຊີ</translation>
     </message>
 </context>
 <context>
@@ -5435,10 +4728,387 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCamera</name>
+    <message>
+        <source>Latitude</source>
+        <translation>ເສັ້ນຂະໜານ</translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation>ເສັ້ນແວງ</translation>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>ລະດັບຄວາມສູງ</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>ຄວາມໄວ</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation>ທິດ​ທາງ</translation>
+    </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation>ເປີດໃຊ້ການສະແຕມລາຍລະອຽດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation>ປີດໃຊ້ການສະແຕມລາຍລະອຽດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation>ເປີດໃຊ້ການຕິດແທັກສະຖານທີ່ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation>ປີດໃຊ້ການຕິດແທັກສະຖານທີ່ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation>ເປີດຕາໜ່າງແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation>ປີດຕາໜ່າງແລ້ວ</translation>
+    </message>
+    <message>
+        <source>front</source>
+        <translation>ດ້ານໜ້າ</translation>
+    </message>
+    <message>
+        <source>back</source>
+        <translation>ດ້ານຫລັງ</translation>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudConnection</name>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation>ການພິສູດຢືນຢັນຜູ້ໃຫ້ບໍລິການຂາດຫາຍໄປ</translation>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation>ບໍ່ມີລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation>ການເຂົ້າສູ່ລະບົບຜິດພາດເນື່ອງຈາກການປ່ຽນເສັ້ນທາງທີ່ບໍ່ຄາດຄິດ, ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ</translation>
+    </message>
+    <message>
+        <source>Server not found, please check the server URL</source>
+        <translation>ບໍ່ພົບເຊີບເວີ, ກະລຸນາກວດເບິ່ງ URL ເຊີບເວີ</translation>
+    </message>
+    <message>
+        <source>Timeout error, please retry</source>
+        <translation>ຄວາມຜິດພາດໝົດເວລາ, ກະລຸນາລອງໃໝ່</translation>
+    </message>
+    <message>
+        <source>Wrong username or password</source>
+        <translation>ຊື່ຜູ້ໃຊ້ ຫຼືລະຫັດຜ່ານຜິດ</translation>
+    </message>
+    <message>
+        <source>Session expired</source>
+        <translation>ເຊດຊັນໝົດອາຍຸແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Login temporary unavailable</source>
+        <translation>ການເຊື່ອມຕໍ່ບໍ່ສາມາດໃຊ້ໄດ້ຊົ່ວຄາວ</translation>
+    </message>
+    <message>
+        <source>[timeout] The request took too long to finish, please retry.</source>
+        <translation>[ໝົດເວລາ] ການຮ້ອງຂໍໃຊ້ເວລາດົນເກີນໄປທີ່ຈະສໍາເລັດ, ກະລຸນາລອງໃໝ່.</translation>
+    </message>
+    <message>
+        <source>[aborted] The request has been aborted.</source>
+        <translation>[ຍົກເລີກ] ການຮ້ອງຂໍໄດ້ຖືກຍົກເລີກ.</translation>
+    </message>
+    <message>
+        <source>Server Error.</source>
+        <translation>ເຊີບເວີຜິດພາດ.</translation>
+    </message>
+    <message>
+        <source>Network Error.</source>
+        <translation>ເຄືອຂ່າຍຜິດພາດ.</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>ການອັບໂຫລດໄຟລ໌ແນບທີ່ເກັບໄວ້ໃນ `%1`, ເຫດຜົນ:%2 ລົ້ມເຫລວ</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProject</name>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>ເປີດໄຟລ໌ຊົ່ວຄາວສຳລັບ `%1` ບໍ່ສຳເລັດ, ເຫດຜົນ:%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ຂຽນໄຟລ໌ແນບໃສ່ສະຖານທີ່ຊົ່ວຄາວ `%1` ບໍ່ສຳເລັດ.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ເປີດໄຟລ໌ແນບເພື່ອຂຽນໃສ່ `%1` ຊົ່ວຄາວບໍ່ສຳເລັດ.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation>ເຄືອຂ່າຍຜິດພາດ. ດາວໂຫລດໄຟລ໌ແນບ `%1` ບໍ່ສຳເລັດ.</translation>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>ວຽກການຫຸ້ມຫໍ່ບໍ່ສຳເລັດສຳລັບ `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>ການໂຫຼດຂໍ້ມູນຫຼ້າສຸດຂອງ `%1`: %2 ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation>ການຮັບເອົາຂໍ້ມູນແພັກເກດຫຼ້າສຸດລົ້ມເຫລວ.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation>ການຕອບຂໍ້ມູນແພັກເກັດຫຼ້າສຸດຜິດພາດ.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation>ໂຄງສ້າງຂໍ້ມູນແພັກເກັດຫຼ້າສຸດຜິດພາດ.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation>ໂຄງການ %1: ຊັ້ນບັນຈຸ `%2` ບໍ່ຖືກຕ້ອງ. ລະຫັດຂໍ້ຜິດພາດ %3, ຂໍ້ຄວາມຜິດພາດ: %4</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ຂຽນໃສ່ໄຟລ໌ບາງສ່ວນ `%1` ບໍ່ສຳເລັດ.</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation>ລະບົບໄຟລ໌ຜິດພາດ. ເປີດໃຫ້ໄຟລ໌ບາງສ່ວນ `%1` ບໍ່ສຳເລັດ.</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>ເຄືອຂ່າຍຜິດພາດ. ການດາວໂຫຼດໄຟລ໌ `%1` ລົ້ມເຫລວ.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>ສຳເນົາບາງໄຟລ໌ທີ່ດາວໂຫລດມາໄວ້ໃນອຸປະກອນຂອງທ່ານບໍ່ສຳເລັດ. ກວດສອບການເກັບຮັກສາອຸປະກອນຂອງທ່ານ.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>ໂຄງການ `%1`, ໄຟລ໌ `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>ຂໍ້ຄວາມລະບົບ:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation>(ເບິ່ງເພີ່ມເຕີມໃນບັນທຶກຄວາມຜິດພາດ QField)…</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>ການສ້າງວຽກສຳເລັດແລ້ວ, ແຕ່ການຕອບສະໜອງຂອງເຊີບເວີແມ່ນຂາດຊ່ອງຂໍ້ມູນທີ່ຕ້ອງການ: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>ກຳລັງໄດ້ຮັບສະຖານະວຽກ, ແຕ່ບໍ່ມີວຽກ `%2` ຖືກກະຕຸ້ນເທື່ອ.</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>ວຽກ(%1) ການຕອບຮັບສະຖານະບໍ່ມີກະແຈທີ່ຄາດໄວ້ທັງໝົດ: ສະຖານະ(ສະຕຣິງ)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>ວຽກ(%1) ສຳເລັດດ້ວຍສະຖານະລົ້ມເຫລວ.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>ໂຄງການ (%1) ທີ່ກະຕຸ້ນການໂຫຼດຂໍ້ມູນຕອບກັບຄືນມາ ບໍ່ມີຄ່າທີ່ຄາດຫວັງຄົບຖ້ວນ: ຊື່ (string), ຜູ້ເປັນເຈົ້າຂອງ (string), ລາຍລະອຽດ (string), ບົດບາດຂອງຜູ້ໃຊ້ (string), ເປັນສາທາລະນະ (bool), ສາມາດຫຸ້ມຫໍ່ຄືນໃໝ່ໄດ້ (bool), ຕ້ອງຫຸ້ມຫໍ່ຄືນໃໝ່ (bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>ລະບົບຖືກຢຸດ</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation>ບໍ່ມີເສັ້ນທາງທ້ອງຖິ່ນ</translation>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation>ບໍ່ສາມາດໃຊ້ເສັ້ນທາງທ້ອງຖິ່ນເພື່ອອັບໂຫລດໄດ້ເນື່ອງຈາກມັນມີໄຟລ໌ໂຄງການຫຼາຍອັນ</translation>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation>ເສັ້ນທາງທ້ອງຖິ່ນທີ່ຈະອັບໂຫລດບໍ່ມີໄຟລ໌ໂຄງການທີ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation>ເຄືອຂ່າຍຜິດພາດ. ອັບໂຫລດໄຟລ໌ `%1` ບໍ່ສຳເລັດ.</translation>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation>ນຶ່ງ ຫຼືຫຼາຍໄຟລ໌ບໍ່ສາມາດອັບໂຫລດໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectsModel</name>
+    <message>
+        <source>Project busy.</source>
+        <translation>ໂຄງການບໍ່ຫວ່າງ.</translation>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation>ເຄືອຂ່າຍບໍ່ໄດ້ເປີດໃຊ້ງານໃນເວລານີ້. ລະບົບຈະອັບເດດຂໍ້ມູນໃຫ້ອັດຕະໂນມັດ ເມື່ອເຊື່ອມຕໍ່ເນັດໄດ້ຄືນ</translation>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation>ການສ້າງໂຄງການຕ້ອງການຊື່</translation>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation>ບໍ່ສາມາດສ້າງໂຄງການຄລາວໄດ້.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>ເຊີບເວີເກີດຄວາມຜິດພາດຂຶ້ນ, ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>ເຄືອຂ່າຍຜິດພາດເກີດຂຶ້ນ, ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected the json document to be an array of delta status</source>
+        <translation>Expected the json document to be an array of delta status</translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object, but the element at #%1 is not</source>
+        <translation>ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກ, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%1 ບໍ່ແມ່ນ. </translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
+        <translation>ຄາດວ່າອົງປະກອບທັງໝົດຂອງອາເຣຈະເປັນອັອບເຈັກທີ່ມີຄີ “%1”, ແຕ່ອົງປະກອບຢູ່ຕຳແໜ່ງ #%2 ບໍ່ແມ່ນ. </translation>
+    </message>
+    <message>
+        <source>Unrecognized status &quot;%1&quot; for $%2</source>
+        <translation>ສະຖານະ “%1” ທີ່ບໍ່ຮູ້ຈັກສຳລັບ $%2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) created</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) edited</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) deleted</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCodeReader</name>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation>ກວດພົບແທັກຂໍ້ຄວາມ NFC</translation>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>ເຄື່ອງອ່ານລະຫັດ</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation>ສຸມໃສ່ອຸປະກອນຂອງທ່ານໃສ່ລະຫັດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterAngle</name>
+    <message>
+        <source>deg</source>
+        <translation>ອົງສາ</translation>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterPoint</name>
+    <message>
+        <source>latitude</source>
+        <translation>ເສັ້ນຂະໜານ</translation>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation>ເສັ້ນແວງ</translation>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation>ລະດັບຄວາມສູງ</translation>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation>ຄ່າພິກັດຕາເວັນອອກ</translation>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation>ຄ່າພິກັດເໜືອ</translation>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation>ລະດັບຄວາມສູງ [Z]</translation>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
+        <translation>ເລືອກວັດຖຸຈຸດ</translation>
     </message>
 </context>
 <context>
@@ -5465,6 +5135,1053 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfDigitizingLogger</name>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
+        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຄວາມຜິດພາດການແຍກວິເຄາະ: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
+        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບຊ່ອງບັນທຶກການສະແກນ %2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer feature addition failed</source>
+        <translation>ການເພີ່ມຟີເຈີໃນຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer change commits failed</source>
+        <translation>ການຢືນຢັນການປ່ຽນແປງຂອງຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer editing failed</source>
+        <translation>ການແກ້ໄຂຊັ້ນຂໍ້ມູນບັນທຶກແບບດິຈິຕອລບໍ່ສຳເລັດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingToolbar</name>
+    <message>
+        <source>The collected positions count does not meet the requirement</source>
+        <translation>ຈໍານວນຈຸດທີ່ເກັບກໍາບໍ່ຕອບສະຫນອງຄວາມຕ້ອງການ</translation>
+    </message>
+    <message>
+        <source>Cancel digitizing</source>
+        <translation>ຍົກເລີກການສະແກນ</translation>
+    </message>
+    <message>
+        <source>Should the digitized geometry be discarded?</source>
+        <translation>ຄວນຍົກເລີກເລຂາຄະນິດທີ່ເປັນດິຈິຕອນບໍ?</translation>
+    </message>
+    <message>
+        <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
+        <translation>ຄວາມຖືກຕ້ອງຂອງຕໍາແໜ່ງບໍ່ກົງກັບຄວາມຕ້ອງການຕໍາສຸດທີ່, ບໍ່ໄດ້ເພີ່ມ vertex</translation>
+    </message>
+</context>
+<context>
+    <name>QfDrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBase</name>
+    <message>
+        <source>Item Menu</source>
+        <translation>ເມ​ນູ​ລາຍ​ການ</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBinary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation>(Blob)</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetCheckBox</name>
+    <message>
+        <source>True</source>
+        <translation>ຈິງ</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>ບໍ່ຈິງ</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetDateTime</name>
+    <message>
+        <source>(no date)</source>
+        <translation>(ບໍ່ມີວັນທີ)</translation>
+    </message>
+    <message>
+        <source>Date value set to today.</source>
+        <translation>ຄ່າວັນທີທີ່ຕັ້ງເປັນມື້ນີ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetExternalResource</name>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>ຮຽນ​ຮູ້​ເພີ່ມ​ເຕີມ</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>No Value</source>
+        <translation>ບໍ່ມີຄ່າ</translation>
+    </message>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation>ບໍ່ສາມາດຈັດການໄຟລ໌ປະເພດນີ້ໄດ້</translation>
+    </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>ຂໍ້ຜິດພາດໃນການຕິດຄັດໄຟລ໌ແບບ On-demand ຂອງ QFieldCloud: </translation>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation>ຖ່າຍຮູບ</translation>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation>ຖ່າຍວິດີໂອ</translation>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation>ບັນທຶກຄລິບສຽງ</translation>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation>ຕິດຄັດລາຍການຫ້ອງສະໝຸດ</translation>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation>ຕິດຄັດເອກະສານ</translation>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation>ແຕ້ມຮູບ</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetRange</name>
+    <message>
+        <source>Empty</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetTextEdit</name>
+    <message>
+        <source>Empty</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Copy Text</source>
+        <translation>ສຳເນົາຂໍ້ຄວາມ</translation>
+    </message>
+    <message>
+        <source>Paste Text</source>
+        <translation>ວາງຂໍ້ຄວາມ</translation>
+    </message>
+    <message>
+        <source>Scan Code</source>
+        <translation>ສະແກນລະຫັດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfEgenioussReceiver</name>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation>ການເລີ່ມຕົ້ນເຊີບເວີ egeniouss ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation>ການຢຸດເຊີບເວີ egeniouss ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation>ຂໍ້​ມູນ​ທີ່​ໄດ້​ຮັບ​ແມ່ນ​ສັ້ນ​ເກີນ​ໄປ​ທີ່​ຈະ​ດໍາ​ເນີນ​ການ</translation>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation>ໄບຕ໌ເລີ່ມຕົ້ນບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation>ຂໍ້ມູນທີ່ໄດ້ຮັບແມ່ນສັ້ນເກີນໄປທີ່ຈະບັນຈຸນ້ຳໜັກໄດ້.</translation>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation>ວິເຄາະ JSON ບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>ເຄື່ອງຮັບ TCP ຜິດພາດ (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfElevationProfile</name>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>ການສະແດງໂປຣໄຟລ໌ຄວາມສູງ...</translation>
+    </message>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>ສ້າງເສັ້ນທາງເພື່ອສະແດງໂປຣໄຟລຄວາມສູງ </translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation>ສຳເນົາ “%1” ໄປໃສ່ຄລິບບອດ</translation>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation>ເຄື່ອງຄິດເລກ</translation>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation>ສົ່ງຄ່າຂອງການສະແດງຜົນທີ່ພິມໃນແຖບຄົ້ນຫາ.</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionVariableModel</name>
+    <message>
+        <source>Not Available</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureForm</name>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation>ເງື່ອນໄຂທີ່ຈຳເປັນບໍ່ໄດ້ຮັບການຕອບສະໜອງ</translation>
+    </message>
+    <message>
+        <source>The last entered value for this field will be remembered and reused when creating new features</source>
+        <translation>ຄ່າທີ່ປ້ອນເຂົ້າຫຼ້າສຸດສຳລັບຊ່ອງຂໍ້ມູນນີ້ຈະຖືກຈົດຈຳ ແລະນຳໃຊ້ຄືນໃໝ່ເມື່ອສ້າງຄຸນສົມບັດໃໝ່</translation>
+    </message>
+    <message>
+        <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation>ຄ່າທີ່ປ້ອນເຂົ້າຫຼ້າສຸດສຳລັບຊ່ອງຂໍ້ມູນນີ້ຈະບໍ່ຖືກນຳໃຊ້ຄືນໃໝ່ເມື່ອສ້າງຄຸນສົມບັດໃໝ່</translation>
+    </message>
+    <message>
+        <source>Value applied</source>
+        <translation>ຄ່າທີ່ນຳໃຊ້</translation>
+    </message>
+    <message>
+        <source>Value skipped</source>
+        <translation>ຄ່າຂ້າມໄປ</translation>
+    </message>
+    <message>
+        <source> (click to toggle)</source>
+        <translation>(ກົດ​ເພື່ອ​ສະ​ຫຼັບ​)</translation>
+    </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation>ເງື່ອນໄຂແບບຢືດຢຸ່ນບໍ່ໄດ້ຮັບການຕອບສະໜອງ</translation>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation>ການເພີ່ມຄຸນສົມບັດຖືກປິດໃຊ້ງານ</translation>
+    </message>
+    <message>
+        <source>Unable to save changes</source>
+        <translation>ບໍ່ສາມາດບັນທຶກການປ່ຽນແປງໄດ້</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>ເພີ່ມຄຸນສົມບັດໃນ %1</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>ແກ້ໄຂຄຸນສົມບັດໃນ %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>ເບິ່ງຄຸນສົມບັດໃນ %1</translation>
+    </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation>ເມນູແບບຟອມຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation>ບັນທຶກຄ່າເຫຼົ່ານີ້ໄວ້ໃຊ້ຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation>ລຶບຄ່າທີ່ໃຊ້ຄືນ</translation>
+    </message>
+    <message>
+        <source>Cancel editing</source>
+        <translation>ຍົກ​ເລີກ​ການ​ແກ້​ໄຂ​</translation>
+    </message>
+    <message>
+        <source>You are about to dismiss the new feature, proceed?</source>
+        <translation>ທ່ານກຳລັງຈະປິດຄຸນສົມບັດໃໝ່, ດຳເນີນການຕໍ່ບໍ?</translation>
+    </message>
+    <message>
+        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
+        <translation>ທ່ານກຳລັງຈະອອກຈາກສະຖານະການແກ້ໄຂ, ການປ່ຽນແປງຕ່າງໆຈະສູນເສຍໄປ. ດໍາເນີນການຕໍ່ບໍ?</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation>ການຍົກເລີກຄຸນສົມບັດທີ່ສ້າງຂຶ້ນໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation>ການຍົກເລີກຄຸນສົມບັດທີ່ຖືກລົບໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation>ການຍົກເລີກອັບເດດຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation>ການຢືນຢັນການຍົກເລີກການແກ້ໄຂຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &apos;%1&apos; ລົ້ມເຫລວ</translation>
+    </message>
+    <message>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation>ການມ້ວນຄືນການຍົກເລີກການແກ້ໄຂຄຸນສົມບັດໃນຊັ້ນແຜນທີ່ &apos;%1&apos; ລົ້ມເຫລວ</translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation><numerusform>ຍົກເລີກການສ້າງຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation><numerusform>ຍົກເລີກການສ້າງ %n ຄຸນສົມບັດ.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation><numerusform>ຍົກເລີກການລົບຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation><numerusform>ຍົກເລີກການລົບຄຸນສົມບັດ %n.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation><numerusform>ຍົກເລີກການດັດ​ແກ້​ຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation><numerusform>ຍົກເລີກການດັດ​ແກ້​ຄຸນສົມບັດ %n</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation><numerusform>​ເຮັດຄືນການສ້າງຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation><numerusform>​ສ້າງຄືນຄຸນສົມບັດ %n </numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation><numerusform>​ລົບຄືນຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation><numerusform>​ລົບຄືນຄຸນສົມບັດ %n</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation><numerusform>​ດັດ​ແກ້​ຄືນຄຸນສົມບັດ %n ໃນຊັ້ນແຜນທີ່ %1</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation><numerusform>​ດັດ​ແກ້​ຄືນຄຸນສົມບັດ %n</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureListForm</name>
+    <message>
+        <source>Features</source>
+        <translation>ຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation>ຂັ້ນຕອນການປະມວນຜົນ</translation>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>ບັນທຶກການປ່ຽນແປງແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>ຍົກເລີກການປ່ຽນແປງ</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation>ຢຸດການຕິດຕາມຄຸນສົມບັດນີ້ເພື່ອແກ້ໄຂຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation>ຢຸດການຕິດຕາມຄຸນສົມບັດນີ້ເພື່ອແກ້ໄຂເລຂາຄະນິດ</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>ສຳເນົາຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to delete those</source>
+        <translation>ຈໍານວນຂອງຄຸນນະສົມບັດແມ່ນໄດ້ຖືກຕິດຕາມ, ຢຸດການຕິດຕາມເພື່ອລຶບເຫຼົ່ານັ້ນ</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to merge those</source>
+        <translation>ຈໍານວນຂອງຄຸນນະສົມບັດແມ່ນໄດ້ຖືກຕິດຕາມ, ຢຸດການຕິດຕາມທີ່ຈະລວມເອົາເຫຼົ່ານັ້ນ</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated selected features, list updated to show newly-created features</source>
+        <translation>ສຳເລັດສຳເນົາຄຸນສົມບັດທີ່ທີ່​ໄດ້​​ຄັດ​ເລືອກ​, ບັນ​ຊີ​ລາຍ​ຊື່ອັບເດດເພື່ອສະແດງຄຸນສົມບັດທີ່ໄດ້​​ສ້າງຂຶ້ນໃໝ່</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>ບໍ່ມີຄຸນສົມບັດຢູ່ໃນຈຸດນີ້</translation>
+    </message>
+    <message>
+        <source>Merge feature(s)</source>
+        <translation>ລວມຄຸນສົມບັດ</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be merge?
+
+The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
+        <comment>0</comment>
+        <translation><numerusform>ຄຸນສົມບັດ %n ທີ່ເລືອກແລ້ວຄວນຖືກລວມເຂົ້າກັນແທ້ບໍ? ເລຂາຄະນິດຂອງຄຸນສົມບັດຈະຖືກລວມເຂົ້າເປັນຄຸນສົມບັດ &quot;%1&quot;, ເຊິ່ງຈະຮັກສາຄຸນສົມບັດຂອງມັນໄວ້.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully merged %n feature(s)</source>
+        <translation><numerusform>ລວມຄຸນສົມບັດ %n ສຳເລັດແລ້ວ</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to merge %n feature(s)</source>
+        <translation><numerusform>ການລວມຄຸນສົມບັດ %n ລົ້ມເຫລວ</numerusform></translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation>ໂອນຍ້າຍຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation>ເລືອກຄຸນສົມບັດຂ້າງລຸ່ມນີ້ໂດຍຂໍ້ມູນຈະຖືກໂອນໄປໃສ່ຄຸນສົມບັດທີ່ເປີດໃນປັດຈຸບັນ.</translation>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation>ຂໍ້ມູນຄຸນສົມບັດຖືກໂອນ</translation>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation>ບໍ່ມີຂໍ້ມູນຄຸນສົມບັດຖືກໂອນ</translation>
+    </message>
+    <message>
+        <source>Delete feature(s)</source>
+        <translation>ລົບຄຸນສົມບັດ</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be deleted?</source>
+        <comment>0</comment>
+        <translation><numerusform>ລົບຄຸນສົມບັດ %n ທີ່ໄດ້ເລືອກແທ້ບໍ?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully deleted %n feature(s)</source>
+        <translation><numerusform>ລົບຄຸນສົມບັດ %n ສຳເລັດແລ້ວ</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n feature(s)</source>
+        <translation><numerusform>ລົບຄຸນສົມບັດ %n ບໍ່ສຳເລັດ</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>ຄ່າ &quot;%1&quot; %4 ບໍ່ສາມາດປ່ຽນເປັນຄ່າທີ່ເຂົ້າກັນໄດ້ສຳລັບຊ່ອງຂໍ້ມູນ %2(%3).</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບ %1:%2 ມີຂໍ້ຜິດພາດໃນການແຍກວິເຄາະ: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>ການສະແດງອອກຄ່າເລີ່ມຕົ້ນສຳລັບ %1:%2 ມີຂໍ້ຜິດພາດໃນການປະເມີນ: %3</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>ບໍ່ສາມາດອັບເດດຄຸນສົມບັດໄດ້</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>ຄຸນ​ນະ​ສົມ​ບັດ %1 ບໍ່​ສາ​ມາດ​ໄດ້​ຮັບ​ການ​ກູ້​ຄືນ​ຫຼັງ​ຈາກ​ການ​ຢືນ​ຢັນ</translation>
+    </message>
+    <message>
+        <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
+        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ເພື່ອສ້າງຄຸນສົມບັດ %2 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
+        <translation>ຊັ້ນແຜນທີ່ &apos;%1&apos; ໄດ້ຖືກຢືນຢັນແລ້ວ, ແຕ່ຄຸນສົມບັດທີ່ສ້າງຂຶ້ນໃໝ່ %2 ບໍ່ສາມາດຮັບ​ການ​ກູ້​ຄືນ​ໄດ້.</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
+%3</source>
+        <translation>ຊັ້ນແຜນທີ່ &quot;%1&quot; ບໍ່​ສາ​ມາດ​ຮັບ​ຮອງ​ເອົາ​ກັບ​ຄຸນ​ສົມ​ບັດ​ທີ່​ສ້າງ​ໃຫມ່ %2 ໄດ້. ເຫດຜົນ:%3</translation>
+    </message>
+    <message>
+        <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
+        <translation>ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດ %2 ໃນຊັ້ນແຜນທີ່ &quot;%1&quot; ໄດ້</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>ບໍ່ສາມາດບັນທຶກການປ່ຽນແປງໄດ້. ມ້ວນຄືນ.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>ເປີດແບບຟອມ</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>ຕັ້ງຄຸນສົມບັດເປັນຈຸດໝາຍປາຍທາງ</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>ຄຸນສົມບັດບໍ່ມີເລຂາຄະນິດ</translation>
+    </message>
+    <message>
+        <source>Features in all layers</source>
+        <translation>ຄຸນ​ນະ​ສົມ​ບັດ​ໃນ​ທຸກ​ຊັ້ນແຜນທີ່ </translation>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation>ສະ​ແດງ​ບັນ​ຊີ​ລາຍ​ການ​ຂອງ​ຄຸນ​ສົມ​ບັດ​ໃນ​ຊັ້ນ​ແຜນທີ່ເບິ່ງ​ໄດ້​ທັງ​ຫມົດ​ທີ່​ມີ​ຊື່​ສະ​ແດງ​ທີ່​ສອດ​ຄ້ອງ​ກັນ​.</translation>
+    </message>
+</context>
+<context>
+    <name>QfFileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation>ເສັ້ນທາງໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation>ໄລຍະຫ່າງ (ເປັນມິນລິວິນາທີ)</translation>
+    </message>
+</context>
+<context>
+    <name>QfFinlandLocatorFilter</name>
+    <message>
+        <source>Finnish address search</source>
+        <translation>ຊອກຫາທີ່ຢູ່ Finnish</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorErase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation>ເລຂາຄະນິດບໍ່ສາມາດຖືກດັດແປງເປັນຫຼາຍພາກສ່ວນ</translation>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation>ເລຂາຄະນິດບໍ່ສາມາດດັດແປງໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorFillRing</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation>ວົງແຫວນບໍ່ໄດ້ປິດ</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation>ວົງແຫວນບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation>ວົງແຫວນຂ້າມວົງທີ່ມີຢູ່ແລ້ວ (ມັນບໍ່ຕິດກັນ)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation>ວົງແຫວນບໍ່ມີແຫວນທີ່ມີຢູ່ທີ່ເຂົ້າກັນໄດ້</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation>ມີຄວາມຜິດພາດທີ່ບໍ່ຮູ້ໃນເວລາສ້າງວົງແຫວນ</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation>ຕື່ມຂໍ້ມູນໃສ່ວົງແຫວນ</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation>ທ່ານຕ້ອງການຕື່ມວົງແຫວນດ້ວຍ polygon ໃຫມ່ບໍ?</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorReshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation>ເລຂາຄະນິດບໍ່ສາມາດປ່ຽນຮູບໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorSplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation>ບໍ່ສາມາດແບ່ງປັນຄຸນສົມບັດໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorVertexEditor</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation>ບັນທຶກຟີເຈີບໍ່ສຳເລັດ!</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorsToolbar</name>
+    <message>
+        <source>Vertex Tool</source>
+        <translation>ເຄື່ອງມື Vertex</translation>
+    </message>
+    <message>
+        <source>Split Tool</source>
+        <translation>ເຄື່ອງມືແຍກ</translation>
+    </message>
+    <message>
+        <source>Reshape Tool</source>
+        <translation>ເຄື່ອງ​ມື​ປ່ຽນ​ຮູບ​ຮ່າງ​</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation>ເຄື່ອງ​ມື​ລົບ​</translation>
+    </message>
+    <message>
+        <source>Fill Ring Tool</source>
+        <translation>ຕື່ມ​ຂໍ້​ມູນ​ໃສ່​ເຄື່ອງ​ມືວົງ​ແຫວນ</translation>
+    </message>
+</context>
+<context>
+    <name>QfGotoLocatorFilter</name>
+    <message>
+        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
+        <translation>ໄປທີ່ %1 %2 %3%4 (ແຜນທີ່ CRS, %5)</translation>
+    </message>
+    <message>
+        <source>Set navigation point</source>
+        <translation>ຕັ້ງຈຸດນໍາທາງ</translation>
+    </message>
+    <message>
+        <source>Go to %1°N %2°E (%3)</source>
+        <translation>ໄປທີ່ %1°N %2°E (%3)</translation>
+    </message>
+    <message>
+        <source>Go to coordinate</source>
+        <translation>ໄປ​ທີ່​ພິ​ກັດ</translation>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation>ຕອບຈຸດຈາກຄູ່ຂອງພິກັດ X ແລະ Y - ຫຼື WGS84 ເສັ້ນຂະໜານ ແລະ​ ເສັ້ນ​ແວງ​ - ພິມໃນແຖບຄົ້ນຫາ.</translation>
+    </message>
+</context>
+<context>
+    <name>QfHelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation>ເອກະສານ QField</translation>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation>ສົ່ງຄືນໜ້າເອກະສານ QField ທີ່ກົງກັບເງື່ອນໄຂ.</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation>ການນໍາທາງ</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>ການຈັດຕໍາແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>ເຊັນເຊີ</translation>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation>ໂປຣໄຟລ໌ຄວາມສູງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfInformationPopup</name>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerLoginDialog</name>
+    <message>
+        <source>Credentials Details</source>
+        <translation>ລາຍລະອຽດຂໍ້ມູນປະຈໍາຕົວ</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>ຊື່ຜູ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation>ສົ່ງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerObserver</name>
+    <message>
+        <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
+        <translation>ບໍ່ສາມາດຊອກຫາຖັນຫຼັກໃນຊັ້ນຂໍ້ມູນ &apos;%1&apos; ໄດ້.</translation>
+    </message>
+    <message>
+        <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
+        <translation>ບໍ່ສາມາດຊອກຫາແຫຼ່ງຫຼັກໃນຊັ້ນຂໍ້ມູນ &apos;%1&apos; ໄດ້.</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerTreeItemProperties</name>
+    <message>
+        <source>Expand group</source>
+        <translation>ຂະຫຍາຍກຸ່ມ</translation>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation>ຂະຫຍາຍລາຍການນິທານ</translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation>ຢຸດການຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation>ຕິດ​ຕັ້ງ​ການ​ຕິດ​ຕາມ​</translation>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation>ໂຫຼດຊັ້ນຂໍ້ມູນ %1 ຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>ຊັ້ນນີ້ບໍ່ຖືກຕ້ອງ. ອາດຈະເປັນຍ້ອນບັນຫາເຄືອຂ່າຍ, ໄຟລ໌ທີ່ຂາດຫາຍໄປ ຫຼືການກຳນົດຄ່າໂຄງການທີ່ບໍ່ຖືກຕ້ອງ.</translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation>ສະແດງຢູ່ໃນແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation>ສະແດງປ້າຍຊື່</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>ຄວາມມືດ</translation>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation>ຊູມໃສ່ກຸ່ມ</translation>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation>ຊູມໄປຫາຊັ້ນແມ່</translation>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation>ຊູມໃສ່ຊັ້ນ</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>ສະແດງລາຍຊື່ຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation>ຊັ້ນຂໍ້ມູນບໍ່ມີຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>ຢຸດການຕິດຕາມໃນເລເຢີ້ %1</translation>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation>ຊັ້ນອ່ານເທົ່ານັ້ນ</translation>
+    </message>
+    <message>
+        <source>feature addition</source>
+        <translation>ເພີ່ມເຕີມຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation>ການແກ້ໄຂຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation>ການແກ້ໄຂເລຂາຄະນິດ</translation>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation>ການ​ລົບ​ຄຸນ​ນະ​ສົມ​ບັດ​</translation>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation>ປິດການອະນຸຍາດຊັ້ນຂໍ້ມູນ: %1</translation>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>ສະແດງເມນູຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>ສະແດງລາຍຊື່ຄຸນສົມບັດທີ່ເຫັນໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້, ບໍ່ມີຊັ້ນຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດ %2 ໃນຊັ້ນ &quot;%1&quot;. ເຫດຜົນ:%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດໃນຊັ້ນ &quot;%1&quot;. ເຫດຜົນ:%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>ບໍ່ສາມາດສຳເນົາຄຸນສົມບັດທີ່ບໍ່ຖືກຕ້ອງໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດໃໝ່ໃນຊັ້ນຂໍ້ມູນ &quot;%1&quot;. ເຫດຜົນ:%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation>ກຳລັງຕິດຕາມໃນເລເຢີ້ນີ້</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>ຢຸດ</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation>ຢຸດການຕິດຕາມໃນເລເຢີ້ %1</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>ຊັ້ນນີ້ບໍ່ຖືກຕ້ອງ. ອາດຈະເປັນຍ້ອນບັນຫາເຄືອຂ່າຍ, ໄຟລ໌ທີ່ຂາດຫາຍໄປ ຫຼືການກຳນົດຄ່າໂຄງການທີ່ບໍ່ຖືກຕ້ອງ.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>ຊັ້ນນີ້ຖືກຕັ້ງຄ່າເປັນ &quot;ອ່ານເທົ່ານັ້ນ&quot; ເຊິ່ງປິດການໃຊ້ງານການເພີ່ມ, ລົບ ແລະ ແກ້ໄຂຄຸນສົມບັດ.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation>ການຕັ້ງຄ່າການອະນຸຍາດໃນຊັ້ນນີ້ປິດການເພີ່ມຄຸນສົມບັດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocalFilesModel</name>
+    <message>
+        <source>Home</source>
+        <translation>ໜ້າຫຼັກ</translation>
+    </message>
+    <message>
+        <source>QField files directory</source>
+        <translation>ລາຍຊື່ໄຟລ໌ QField</translation>
+    </message>
+    <message>
+        <source>Created projects</source>
+        <translation>ໂຄງ​ການ​ທີ່​ສ້າງ​ຕັ້ງ​ຂື້ນ</translation>
+    </message>
+    <message>
+        <source>Imported projects</source>
+        <translation>ໂຄງການນໍາເຂົ້າ</translation>
+    </message>
+    <message>
+        <source>Imported datasets</source>
+        <translation>ຊຸດຂໍ້ມູນທີ່ນໍາເຂົ້າ</translation>
+    </message>
+    <message>
+        <source>Additional files directory</source>
+        <translation>ລາຍຊື່ໄຟລ໌ເພີ່ມເຕີມ</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorFiltersModel</name>
+    <message>
+        <source>Search filters for your locations have been activated, customize results in the settings panel</source>
+        <translation>ການກັ່ນຕອງຄົ້ນຫາສໍາລັບສະຖານທີ່ຂອງທ່ານໄດ້ຖືກເປີດໃຊ້, ປັບແຕ່ງຜົນໃນແຖບການຕັ້ງຄ່າ</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorItem</name>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation>ເພື່ອຊອກຫາລັກສະນະພາຍໃນຊັ້ນທີ່ເຮັດວຽກ, ເລືອກຊັ້ນ vector ຜ່ານນິຍາມ.</translation>
+    </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation>ເປີດໃຊ້ຊັ້ນ vector ໃນນິຍາມກ່ອນເພື່ອໃຊ້ຟັງຊັນນີ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorSettings</name>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation>ຄົ້ນຫາແຖບການຕັ້ງຄ່າ</translation>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation>ເມື່ອປິດໃຊ້ງານແລ້ວ, ຕົວກອງສະຖານທີ່ນີ້ຍັງສາມາດຖືກນໍາໃຊ້ໂດຍການພິມຄໍານໍາຫນ້າ %1 ໃນແຖບຄົ້ນຫາ.</translation>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation>ເປີດໃຊ້ %1 ສະຖານທີ່ຕາມຄ່າເລີ່ມຕົ້ນ</translation>
+    </message>
+</context>
+<context>
+    <name>QfMessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation>ບັນທຶກຂໍ້ຄວາມ</translation>
+    </message>
+    <message>
+        <source>Message text copied</source>
+        <translation>ສຳເນົາຂໍ້ຄວາມແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation>ບັນທຶກໂປຣໄຟລ runtime</translation>
+    </message>
+    <message>
+        <source>Clear message log</source>
+        <translation>ລົບບັນທຶກຂໍ້ຄວາມ</translation>
+    </message>
+    <message>
+        <source>Message log cleared</source>
+        <translation>ລົບບັນທຶກຂໍ້ຄວາມແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Send application log</source>
+        <translation>ສົ່ງບັນທຶກຄໍາຮ້ອງສະຫມັກ</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation>ນີ້ຈະສົ່ງບັນທຶກຂອງການເຊື່ອມຕໍ່ປັດຈຸບັນຂອງທ່ານໄປຫາທີມງານພັດທະນາ. ທ່ານພຽງແຕ່ຕ້ອງການເຮັດສິ່ງນີ້ເມື່ອທ່ານຖືກຮ້ອງຂໍ.</translation>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation>ພິມລາຍລະອຽດທາງເລືອກ</translation>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation>ລວມເອົາລາຍລະອຽດຜູ້ໃຊ້ຄລາວ</translation>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation>ບັນທຶກການສະໝັກຂອງທ່ານກຳລັງຖືກສົ່ງ...</translation>
+    </message>
+</context>
+<context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
@@ -5480,6 +6197,201 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfMultiFeatureListModelBase</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot change geometry of feature %1 in %2</source>
+        <translation>ບໍ່ສາມາດປ່ຽນເລຂາຄະນິດຂອງຄຸນສົມບັດ %1 ໃນ %2 ໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationBar</name>
+    <message>
+        <source>Features</source>
+        <translation>ຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Feature List Menu</source>
+        <translation>ເມນູລາຍການຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Toggle Feature Selection</source>
+        <translation>ສະຫຼັບການເລືອກຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to PDF</source>
+        <translation>ພິມຄຸນສົມບັດ Atlas ເປັນ PDF</translation>
+    </message>
+    <message>
+        <source>Merge Selected Features</source>
+        <translation>ລວມຄຸນສົມບັດທີ່ເລືອກ</translation>
+    </message>
+    <message>
+        <source>Move Selected Feature(s)</source>
+        <translation>ຍ້າຍຄຸນສົມບັດທີ່ເລືອກ</translation>
+    </message>
+    <message>
+        <source>Duplicate Selected Feature(s)</source>
+        <translation>ສຳເນົາຄຸນສົມບັດທີ່ເລືອກ</translation>
+    </message>
+    <message>
+        <source>Delete Selected Feature(s)</source>
+        <translation>ລົບຄຸນສົມບັດທີ່ເລືອກ</translation>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation>ປະມວນຜົນຄຸນສົມບັດທີ່ເລືອກ</translation>
+    </message>
+    <message>
+        <source>Feature Menu</source>
+        <translation>ເມນູຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation>ຄຸນສົມບັດຖືກຕັດເຂົ້າໄປໃນຄລິບບອດ</translation>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation>ສຳເນົາຄຸນສົມບັດໃສ່ຄລິບບອດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation>ຄຸນ​ລັກ​ສະ​ນະ​ການ​ປັບ​ປຸງ​ຈາກຄລິບບອດ​</translation>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation>ບໍ່ມີການອັບເດດຄຸນສົມບັດຈາກຄລິບບອດ</translation>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation>ຄຸນສົມບັດຖືກຕັ້ງເປັນປາຍທາງ</translation>
+    </message>
+    <message>
+        <source>Zoom to Feature</source>
+        <translation>ຊູມໄປທີ່ຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Auto-Zoom to Feature</source>
+        <translation>ຊູມອັດຕະໂນມັດໄປຫາຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Process Feature</source>
+        <translation>ປະມວນຜົນຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Move Feature</source>
+        <translation>ຍ້າຍຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>ສຳເນົາຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation>ຟັງຊັນການຫມຸນ</translation>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation>ອັບເດດຄຸນລັກສະນະຈາກຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>ລົບຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>ພິມຄຸນສົມບັດ Atlas</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>ເລືອກແມ່ແບບຂ້າງລຸ່ມນີ້</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>ພິມ</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>ພິມຄຸນ​ນະ​ສົມ​ບັດ Atlas​ສໍາ​ເລັດ​ ແລະ​ ຈັດ​ໃສ່​ໃນ​ໂຟນ​ເດີ​ໂຄງ​ການ​ຂອງ​ທ່ານ​</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation>ເສັ້ນແວງ</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>ເສັ້ນຂະໜານ</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>Dist.</source>
+        <translation>ໄລ​ຍະ​ຫ່າງ</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>ຕໍາ​ແຫນ່ງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfNtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfOrderedRelationModel</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>ບໍ່ສາມາດເລີ່ມການແກ້ໄຂໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>ບໍ່ສາມາດກັບຄືນການປ່ຽນແປງຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation>ບໍ່ສາມາດເຮັດການປ່ຽນຊັ້ນໃນຊັ້ນຂໍ້ມູນ %1 ໄດ້.</translation>
+    </message>
+    <message>
+        <source>Cannot update features ordering</source>
+        <translation>ບໍ່ສາມາດອັບເດດລຳດັບຄຸນສົມບັດໄດ້</translation>
+    </message>
+</context>
+<context>
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
@@ -5487,10 +6399,816 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfOverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>ບັນທຶກການປ່ຽນແປງແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>ຍົກເລີກການປ່ຽນແປງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfPlatformUtilities</name>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>ການຢືນຢັນການໂຍກຍ້າຍ</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation>ຊຸດຂໍ້ມູນຈະຖືກລົບ, ສືບຕໍ່ການໂຍກຍ້າຍອອກບໍ?</translation>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation>ໂຟນເດີໂຄງການຈະຖືກລົບອອກ, ດໍາເນີນການກັບການໂຍກຍ້າຍອອກບໍ?</translation>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation>ບັນທຶກຊັບພະຍາກອນໄຟລ໌ບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation>ເລືອກໄຟລ໌ຮູບພາບ</translation>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation>ຮູບພາບທັງໝົດ (*.jpg *.jpeg *.png *.bmp);;ຮູບພາບ JPEG (*.jpg *.jpeg);;ຮູບພາບ PNG (*.jpg *.jpeg);;ຮູບພາບ BMP (*.bmp)</translation>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation>ເລືອກ​ໄຟລ​໌​ວິ​ດີ​ໂອ​</translation>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation>ວິດີໂອທັງໝົດ (*.mp4 *.mkv *.mov);;ວິດີໂອ MP4 (*.mp4);;ວິດີໂອ MKV(*.mkv);;MOV ວິດີໂອ (*.mov)</translation>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation>ເລືອກໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation>ເປີດໄຟລ໌</translation>
+    </message>
+    <message>
+        <source>All Supported Files</source>
+        <translation>ໄຟລ໌ທີ່ຮອງຮັບທັງໝົດ</translation>
+    </message>
+    <message>
+        <source>QGIS Project Files</source>
+        <translation>ໄຟລ໌ໂຄງການ QGIS</translation>
+    </message>
+    <message>
+        <source>Vector Datasets</source>
+        <translation>ຊຸດຂໍ້ມູນ Vector</translation>
+    </message>
+    <message>
+        <source>Raster Datasets</source>
+        <translation>ຊຸດຂໍ້ມູນ Raster</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>ອຸປະກອນພາຍໃນ</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceSettings</name>
+    <message>
+        <source>Egeniouss</source>
+        <translation>Egeniouss</translation>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation>Serial port (NMEA)</translation>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation>ໄຟລ໌ບັນທຶກ (NMEA)</translation>
+    </message>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation>ການ​ຕັ້ງ​ຄ່າ​ອຸ​ປະ​ກອນ​ຈັດຕໍາແຫນ່ງ</translation>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation>ປະເພດການເຊື່ອມຕໍ່</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>ຊື່</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation>(ປ່ອຍຫວ່າງໄວ້ເພື່ອຕື່ມຂໍ້ມູນອັດຕະໂນມັດ)</translation>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation>ລາຍລະອຽດການເຊື່ອມຕໍ່</translation>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation>TCP (NMEA)</translation>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
+        <translation>UDP (NMEA)</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationModel</name>
+    <message>
+        <source>Altitude</source>
+        <translation>ລະດັບຄວາມສູງ</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>ຄວາມໄວ</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຕາມແນວຕັ້ງ</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>ເສັ້ນແວງ</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>ເສັ້ນຂະໜານ</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation>ຕາໜ່າງ</translation>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation>ຄວາມສູງຂອງ Orthometric</translation>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation>ຄວາມສູງເສົາອາກາດ</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>ພອດ:</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>ຊື່ຜູ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>ລະຫັດຜ່ານ</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningPreciseView</name>
+    <message>
+        <source>Dist.</source>
+        <translation>ໄລ​ຍະ​ຫ່າງ</translation>
+    </message>
+    <message>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation>ການຈັດຕຳແໜ່ງຄວາມຖືກຕ້ອງຕໍ່າເກີນໄປສຳລັບລະດັບຄວາມຊັດເຈນນີ້</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningSettings</name>
+    <message>
+        <source>Internal device</source>
+        <translation>ອຸປະກອນພາຍໃນ</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation>ພາລາມິເຕີທົ່ວໄປ</translation>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation>ພາລາມິເຕີຂັ້ນສູງ</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>ຊ່ວຍ</translation>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation>ບໍ່ມີພາລາມິເຕີທົ່ວໄປທີ່ຕິດກັບ algorithm ນີ້.</translation>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation>ຄຳອະທິບາຍ algorithm</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>ລາຍການທີ່ມັກ</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation>Algorithms ທັງໝົດ</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterArea</name>
+    <message>
+        <source>square degrees</source>
+        <translation>ອົງສາຕາລາງ</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>1</translation>
+    </message>
+    <message>
+        <source>sqr. meters</source>
+        <translation>ຕາລາງແມັດ</translation>
+    </message>
+    <message>
+        <source>sqr. kilometers</source>
+        <translation>ຕາລາງກິໂລແມັດ</translation>
+    </message>
+    <message>
+        <source>sqr. feet</source>
+        <translation>ຕາແມັດຟຸດ</translation>
+    </message>
+    <message>
+        <source>sqr. yards</source>
+        <translation>ຕາລາງຫຼາ</translation>
+    </message>
+    <message>
+        <source>sqr. miles</source>
+        <translation>sqr. ໄມລ໌</translation>
+    </message>
+    <message>
+        <source>hectares</source>
+        <translation>ເຮັກຕາ</translation>
+    </message>
+    <message>
+        <source>acres</source>
+        <translation>acres</translation>
+    </message>
+    <message>
+        <source>sqr. nautical miles</source>
+        <translation>sqr. ໄມທະເລ</translation>
+    </message>
+    <message>
+        <source>sqr. centimeters</source>
+        <translation>sqr. ຊັງຕີແມັດ</translation>
+    </message>
+    <message>
+        <source>sqr. millimeters</source>
+        <translation>sqr. ມີລີແມັດ</translation>
+    </message>
+    <message>
+        <source>sqr. inches</source>
+        <translation>sqr. ນິ້ວ</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterBoolean</name>
+    <message>
+        <source>True</source>
+        <translation>ຈິງ</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>ບໍ່ຈິງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterDistance</name>
+    <message>
+        <source>degrees</source>
+        <translation>ອົງສາ</translation>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation>1</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>ແມັດ</translation>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation>ກິໂລແມັດ</translation>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation>ຟຸດ</translation>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation>ຫຼາ</translation>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation>ໄມ</translation>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation>ໄມທະເລ</translation>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation>ຊັງຕີແມັດ</translation>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation>ມິນລີແມັດ</translation>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation>ນິ້ວ</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation>ສ້າງໂຄງການໃຫມ່</translation>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation>ຫນ້ານີ້ຈະແນະນໍາທ່ານໂດຍຜ່ານການສ້າງໂຄງການງ່າຍໂດຍຜ່ານການຕັ້ງຄ່າງ່າຍ. ສໍາລັບຄວາມຕ້ອງການກ້າວຫນ້າ, ແນະນໍາໃຫ້ທ່ານສ້າງໂຄງການໃນ QGIS ໂດຍໃຊ້ QFieldSync.</translation>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation>ຊື່ໂຄງການໃຫມ່</translation>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation>ເລືອກແຜນທີ່ພື້ນຖານຂອງທ່ານ</translation>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation>ເລືອກແຜນທີ່ພື້ນຖານສໍາລັບໂຄງການຂອງທ່ານ. ເລືອກຈາກຕົວເລືອກທີ່ມີຢູ່ ຫຼືກຳນົດ URL ຂອງທ່ານເອງ.</translation>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation>ສີສັນ</translation>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation>ສີຂີ້ເຖົ່າເຂັ້ມ</translation>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation>ສີເທົາອ່ອນ</translation>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>ກຳນົດເອງ</translation>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation>ແຜນຜັງພື້ນຖານ URL ແບບກຳນົດເອງ</translation>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation>ບັນທຶກ?</translation>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation>ບັນທຶກຢ່າງວ່ອງໄວດ້ວຍວັນທີ, ເວລາ ແລະຄຳເຫັນ. ທາງເລືອກອື່ນ, ແນບລາຍການມັນຕິມີເດຍເຊັ່ນ: ຮູບພາບ ແລະວິດີໂອເພື່ອເສີມສ້າງບັນທຶກຂອງທ່ານ.</translation>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation>ເອົາໄຟລ໌ແນບຮູບພາບແລະວິດີໂອ</translation>
+    </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation>ຕິດ​ຕາມ​ຕໍາ​ແຫນ່ງ​ຂອງ​ທ່ານ​?</translation>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation>ບັນທຶກສະຖານທີ່ຂອງທ່ານທຸກໆວິນາທີ, ພ້ອມກັບວັນທີ ແລະ ເວລາ, ເພື່ອຮັກສາຕິດຕາມການເຄື່ອນໄຫວຂອງທ່ານຢ່າງແນ່ນອນ.</translation>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation>ເລີ່ມຕົ້ນການຕິດຕາມອັດຕະໂນມັດ</translation>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation>ສຳຮອງ ແລະຮ່ວມມືບໍ?</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation>ສຶກສາເພີ່ມເຕີມກ່ຽວກັບ QFieldCloud ທີ່ນີ້</translation>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation>ສ້າງໂຄງການ</translation>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation>ໂຄງ​ການ​ຂອງ​ຂ້າ​ພະ​ເຈົ້າ​</translation>
+    </message>
+</context>
+<context>
+    <name>QfProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation>ໂຄງການສ້າງແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation>ຫມາຍເຫດ</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>ຈຸດ</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation>ສື່</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>ຄຳອະທິບາຍ</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>ເວລາ</translation>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation>ເຄື່ອງຫມາຍສີ</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>ຫົວຂໍ້</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>ຫມາຍເຫດ</translation>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation>ຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation>ສີເສັ້ນທາງ</translation>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation>ແຜນທີ່ພື້ນຖານ</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation>ຊັ້ນການອ້າງອີງບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດໄດ້</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationCombobox</name>
+    <message>
+        <source>Empty</source>
+        <translation>ຫວ່າງເປົ່າ</translation>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Invalid relation</source>
+        <translation>ຄວາມສຳພັນບໍ່ຖືກຕ້ອງ</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationEditorBase</name>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation><numerusform>%n ຄຸນສົມບັດ</numerusform></translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>ກຳລັງເພີ່ມຄຸນສົມບັດເດັກນ້ອຍໃນຊັ້ນຂໍ້ມູນ %1</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation>ຍົກເລີກການເຊື່ອມໂຍງຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>ລົບຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>ຄຸນສົມບັດ %1 (%2) ຂອງຊັ້ນຂໍ້ມູນ %3 ຄວນຖືກຍົກເລີກບໍ?(ການເຊື່ອມຕໍ່ຈະຖືກລຶບໃນຊັ້ນຂໍ້ມູນ %4)</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>ຄຸນສົມບັດ %1 (%2) ໃນຊັ້ນຂໍ້ມູນ %3 ຄວນຖືກລຶບບໍ?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>ລົບຄຸນສົມບັດການອ້າງອີງບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation>ເມນູເດັກ</translation>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation>ສຳເນົາຄຸນລັກສະນະຂອງຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>ພິມຄຸນສົມບັດ Atlas ເປັນ PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation>ພິມຄຸນສົມບັດ Atlas</translation>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>ເລືອກແມ່ແບບຂ້າງລຸ່ມນີ້</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>ພິມ</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation>ພິມຄຸນ​ນະ​ສົມ​ບັດ Atlas​ສໍາ​ເລັດ​ ແລະ​ ຈັດ​ໃສ່​ໃນ​ໂຟນ​ເດີ​ໂຄງ​ການ​ຂອງ​ທ່ານ​</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation>ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດຂອງລູກໄດ້: ກວດເບິ່ງວ່າຄຸນສົມບັດຂອງພໍ່ແມ່ຕອບສະໜອງໄດ້ທຸກຂໍ້ຈຳກັດ ແລະ ສາມາດລົງທະບຽນໄດ້</translation>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation>ບໍ່​ສາ​ມາດ​ເພີ່ມ​ຄຸນ​ສົມ​ບັດ​ຂອງ​ເດັກ​ນ້ອຍ​: ຄຸນ​ຄ່າ​ຄຸນ​ສົມ​ບັດ​ການ​ເຊື່ອມ​ຕໍ່​ພໍ່​ແມ່​ ແລະ​ ເດັກ​ບໍ່​ໄດ້​ກໍາ​ນົດ​</translation>
+    </message>
+</context>
+<context>
+    <name>QfScaleBarMeasurement</name>
+    <message>
+        <source>Unknown</source>
+        <translation>ບໍ່ຮູ້</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
         <translation>ຄົ້ນ​ຫາ</translation>
+    </message>
+</context>
+<context>
+    <name>QfSensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation>ເລືອກພອດ serial ຈາກລາຍການຂ້າງລຸ່ມນີ້:</translation>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation>ບໍ່ພົບພອດ serial, ໂຫຼດລາຍການຄືນໃໝ່ເມື່ອເຊື່ອມຕໍ່ອຸປະກອນ.</translation>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation>ໂຫຼດລາຍການຄືນໃໝ່</translation>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation>ຊື່ສະແດງຜອດ Serial:</translation>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation>ທີ່ຢູ່ພອດ Serial:</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation>ບໍ່ສາມາດຊອກເຫັນອຸປະກອນພອດ serial ໄດ້</translation>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation>ພະຍາຍາມອ່ານຈາກພອດ serial ສົ່ງຄືນຂໍ້ຜິດພາດ</translation>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດເນື່ອງຈາກບໍ່ມີການອະນຸຍາດພຽງພໍ</translation>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation>ເຄື່ອງຮັບພອດ Serial ຜິດພາດ (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfTcpDeviceChooser</name>
+    <message>
+        <source>IP address</source>
+        <translation>ທີ່ຢູ່ IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>ພອດ:</translation>
+    </message>
+</context>
+<context>
+    <name>QfTcpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation>ເຄື່ອງຮັບ TCP ຜິດພາດ (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfTemporalProperties</name>
+    <message>
+        <source>Temporal Properties</source>
+        <translation>ຄຸນສົມບັດຊົ່ວຄາວ</translation>
+    </message>
+    <message>
+        <source>Enable temporal filter</source>
+        <translation>ເປີດນຳໃຊ້ຕົວກອງຕາມຊ່ວງເວລາ</translation>
     </message>
 </context>
 <context>
@@ -5506,6 +7224,260 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Seconds</source>
         <translation>ວິນາທີ</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerFeatureForm</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ເລີ່ມແລ້ວ</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerSettings</name>
+    <message>
+        <source>Tracking</source>
+        <translation>ການຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation>ຊັ້ນຂໍ້ມູນ</translation>
+    </message>
+    <message>
+        <source>Requirement Settings</source>
+        <translation>ຕົວກໍານົດການຄວາມຕ້ອງການ</translation>
+    </message>
+    <message>
+        <source>Time requirement</source>
+        <translation>ຄວາມຕ້ອງການເວລາ</translation>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ການເພີ່ມ vertex ຈະເກີດຂຶ້ນເມື່ອເວລາລະຫວ່າງ vertex ສຸດທ້າຍ ແລະ ໃໝ່ກົງກັບຄ່າຕ່ຳສຸດທີ່ກຳນົດໄວ້.</translation>
+    </message>
+    <message>
+        <source>Distance requirement</source>
+        <translation>ຄວາມຕ້ອງການໄລຍະທາງ</translation>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ການເພີ່ມ vertex ຈະເກີດຂຶ້ນເມື່ອເວລາລະຫວ່າງ vertex ສຸດທ້າຍ ແລະ ໃໝ່ກົງກັບຄ່າຕ່ຳສຸດທີ່ກຳນົດໄວ້.</translation>
+    </message>
+    <message>
+        <source>Sensor data requirement</source>
+        <translation>ຄວາມຕ້ອງການຂໍ້ມູນເຊັນເຊີ</translation>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານ, ການເພີ່ມ vertex ຈະເກີດຂຶ້ນເມື່ອເຊັນເຊີໄດ້ບັນທຶກຂໍ້ມູນໃຫມ່.</translation>
+    </message>
+    <message>
+        <source>Wait for all active requirements</source>
+        <translation>ລໍຖ້າຄວາມຕ້ອງການທີ່ມີການເຄື່ອນໄຫວທັງຫມົດ</translation>
+    </message>
+    <message>
+        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
+        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ຈຸດຕັ້ງຈະຖືກບັນທຶກເມື່ອເງື່ອນໄຂທັງໝົດຖືກປະຕິບັດຄົບຖ້ວນ. ເມື່ອປິດນຳໃຊ້, ການບັນລຸເງື່ອນໄຂໃດໜຶ່ງຈະກະຕຸ້ນການເພີ່ມຈຸດຕໍ່.</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation>ການຕັ້ງຄ່າທົ່ວໄປ</translation>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation>ການປ້ອງກັນໄລຍະທາງຜິດພາດ</translation>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
+        <translation>ເມື່ອເປີດນຳໃຊ້, ຈະບໍ່ມີການເພີ່ມຈຸດຕໍ່ເມື່ອໄລຍະຫ່າງລະຫວ່າງຈຸດຕໍ່ລ່າສຸດ ແລະ ຈຸດຕໍ່ໃໝ່ ມີຄ່າເກີນກວ່າຄ່າສູງສຸດທີ່ກຳນົດໄວ້.</translation>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation>ເວລາຜ່ານໄປ (ວິນາທີນັບຕັ້ງແຕ່ເລີ່ມຕິດຕາມ)</translation>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>ຄວາມໄວຫນ້າດິນ</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>ຕໍາ​ແຫນ່ງ</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation>ເພື່ອເປີດນຳໃຊ້ຟັງຊັນການວັດແທກ, ໃຫ້ກວດສອບວ່າປະເພດເລຂາຄະນິດຂອງຊັ້ນຂໍ້ມູນເວັກເຕີທີ່ໃຊ້ສຳລັບການຕິດຕາມນັ້ນ ມີຄ່າ M (M dimension) ນຳ.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>ເລີ່ມຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Resume tracking</source>
+        <translation>ສືບຕໍ່ຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation>ເລີ່ມການຕິດຕາມໃນຊັ້ນ %1 ຄືນໃໝ່</translation>
+    </message>
+</context>
+<context>
+    <name>QfUdpDeviceChooser</name>
+    <message>
+        <source>Address</source>
+        <translation>ທີ່ຢູ່</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>ພອດ:</translation>
+    </message>
+</context>
+<context>
+    <name>QfUdpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation>ຕົວຮັບ UDP ຜິດພາດ (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfVariableEditor</name>
+    <message>
+        <source>Global variables</source>
+        <translation>ຕົວປ່ຽນທົ່ວໂລກ</translation>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation>ຕົວປ່ຽນຂອງໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Enter value</source>
+        <translation>ປ້ອນຄ່າ</translation>
+    </message>
+    <message>
+        <source>Add a new variable</source>
+        <translation>ເພີ່ມໂຕປ່ຽນໃໝ່ </translation>
+    </message>
+</context>
+<context>
+    <name>QfWebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation>ດາວໂຫຼດໄຟລ໌ %1 ບໍ່ສຳເລັດເນື່ອງຈາກເຄືອຂ່າຍຜິດພາດ (%2)</translation>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation>ອັບໂຫຼດໄຟລ໌ %1 ບໍ່ສຳເລັດເນື່ອງຈາກເຄືອຂ່າຍຜິດພາດ (%2)</translation>
+    </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5549,6 +7521,679 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Could not load resource font: %1</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation>ເປີດໃຊ້ໂໝດບໍ່ມີຂອບ, ໃຊ້ມຸມຊ້າຍເທິງ ແລະ ລຸ່ມຂວາເພື່ອຍ້າຍ ແລະ ປັບຂະໜາດໜ້າຈໍ</translation>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation>ສຳເລັດ ຫຼືປິດຄຸນສົມບັດການສະແກນກ່ອນສະຫຼັບເພື່ອເປີດໂໝດເວັບ</translation>
+    </message>
+    <message>
+        <source>You are now in browse mode</source>
+        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເບິ່ງຂໍ້ມູນແລ້ວ</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode on layer %1</source>
+        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລໃນຊັ້ນຂໍ້ມູນ %1 </translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລ</translation>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດວັດແທກແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
+        <translation>ຂໍ້ຜິດພາດຂອງອຸປະກອນກຳນົດຕຳແໜ່ງ: %1</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation>ການຫຼິ້ນຄືນຕໍາ​ແຫນ່ງ​ການ​ເກັບ​ກໍາ, ກະລຸນາລໍຖ້າ</translation>
+    </message>
+    <message>
+        <source>Activating positioning service</source>
+        <translation>ກຳລັງເປີດນຳໃຊ້ບໍລິການກຳນົດຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation>ແຕະໃສ່ຈຸດຕຳແໜ່ງຂອງທ່ານ ເພື່ອເບິ່ງເມນູຄຳສັ່ງ</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor unlocked</source>
+        <translation>ຈຸດຊີ້ພິກັດໄດ້ຖືກປົດລັອກແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation>ລັອກພິກັດໄວ້ກັບຕຳແໜ່ງແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation>ປົດລັອກແຜນທີ່ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation>ລັອກແຜນທີ່ຕາມຕຳແໜ່ງ ແລະ ທິດເຂັມທິດ</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation>ລັອກແຜນທີ່ຕາມຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>My location</source>
+        <translation>ຕຳແໜ່ງຂອງຂ້ອຍ</translation>
+    </message>
+    <message>
+        <source>Accuracy</source>
+        <translation>ຄວາມຖືກຕ້ອງ</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation>ແມັດ</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>ບໍ່ມີ</translation>
+    </message>
+    <message>
+        <source>Current location copied to clipboard</source>
+        <translation>ສຳເນົາຕຳແໜ່ງປັດຈຸບັນໃສ່ຄລິບບອດແລ້ວ</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation><numerusform>ເປີດການຕິດຕາມໃນ %n ຊັ້ນຂໍ້ມູນ</numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation>ຢຸດທັງໝົດ</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation><numerusform>ຢຸດການຕິດຕາມໃນ %n ຊັ້ນຂໍ້ມູນແລ້ວ</numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation>ບໍ່ມີຊັ້ນຂໍ້ມູນທີ່ຮອງຮັບການຕິດຕາມ</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>ຮຽນ​ຮູ້​ເພີ່ມ​ເຕີມ</translation>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation>ຕຳແໜ່ງໄດ້ລ່ວງລະເມີດ &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation>ວາງຕຳແໜ່ງຢູ່ນອກພື້ນທີ່ຫຼັງຈາກອອກຈາກ &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation>ຕຳແໜ່ງທີ່ໃສ່ໃນ &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
+        <translation>ຕຳແໜ່ງທີ່ເຫຼືອຈາກ &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>ເສັ້ນແວງ</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>ເສັ້ນຂະໜານ</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>ສ່ວນ</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>ລວງຍາວ</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>Azimuth</translation>
+    </message>
+    <message>
+        <source>Perimeter</source>
+        <translation>ເສັ້ນຮອບວົງ</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>ພື້ນທີ່</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>ປິດເຄື່ອງມືວັດແທກ</translation>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation>ຢຸດການແກ້ໄຂ</translation>
+    </message>
+    <message>
+        <source>Cancel addition</source>
+        <translation>ຍົກເລີກການເພີ່ມ</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation>ເປີດລະບົບການສ້າງຂໍ້ມູນດ້ວຍການປ້ອນຄ່າວັດແທກ (COGO) ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation>ປິດລະບົບການສ້າງຂໍ້ມູນດ້ວຍການປ້ອນຄ່າວັດແທກ (COGO) ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation>ການຈັບຕິດໄດ້ຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation>Snapping ປິດ</translation>
+    </message>
+    <message>
+        <source>Topological editing turned on</source>
+        <translation>ການແກ້ໄຂແບບໂທໂປໂລຢີຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Topological editing turned off</source>
+        <translation>ການແກ້ໄຂແບບໂທໂປໂລຢີຖືກປິດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned on</source>
+        <translation>ການເກັບຂໍ້ມູນແບບອິດສະຫຼະຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned off</source>
+        <translation>ການປ້ອນຂໍ້ມູນແບບອິດສະຫຼະໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation>ການຈັບຕິດມຸມ %1° ໄດ້ຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation>ການຈັບຕິດມຸມທົ່ວໄປໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation>ມຸມທຽບເທົ່າ</translation>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation>Snapping ກັບທຸກໆ</translation>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation>%1°</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation>ຄ່າທົນທານຂອງການຈັບຕິດ</translation>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation>ແຄບ</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>​ປົກ​ກະ​ຕິ​</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>ຂະ​ຫນາດ​ໃຫຍ່​</translation>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation>ໄດ້ກຳນົດຄ່າຄວາມທົນທານຂອງການເຂົ້າໃກ້ ເປັນ %1 ແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation>ກຳລັງລໍຖ້າຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation>ແຜນທີ່ເຄື່ອນຕາມຕຳແໜ່ງ ແລະ ທິດເຂັມທິດ</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation>ແຜນທີ່ເຄື່ອນຕາມຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation>ສ້າງຄຸນສົມບັດບໍ່ສໍາເລັດ</translation>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation>ການສ້າງຄຸນສົມບັດບໍ່ສຳເລັດເນື່ອງຈາກການອະນຸຍາດການເພີ່ມຄຸນສົມບັດຖືກປິດໄວ້</translation>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation>ບັນທຶກຄຸນສົມບັດບໍ່ສໍາເລັດ</translation>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation>ເປີດບໍລິການລະບຸຕຳແໜ່ງ ເພື່ອບັນທຶກຈຸດຕາມພິກັດຂອງທ່ານ</translation>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
+        <translation>ຍັງບໍ່ທັນໄດ້ຮັບຂໍ້ມູນຕຳແໜ່ງທີ່ຊັດເຈນ</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>ພິມ</translation>
+    </message>
+    <message>
+        <source>Main Menu</source>
+        <translation>ເມນູຫຼັກ</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation>ຍົກເລີກ</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation>ເຮັດຄືນ</translation>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation>ເຊັນເຊີ</translation>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation>ບໍ່ມີເຊັນເຊີໃຫ້ໃຊ້</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>ການຕັ້ງຄ່າ</translation>
+    </message>
+    <message>
+        <source>Message Log</source>
+        <translation>ບັນທຶກຂໍ້ຄວາມ</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>ໜ້າຈໍລັອກ</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation>ເລືອກເຊັນເຊີຂ້າງລຸ່ມນີ້</translation>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation>ເຊັນເຊີຜິດພາດ: %1</translation>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation>ກຳລັງຕັດການເຊື່ອມຕໍ່ເຊັນເຊີ &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation>ກຳລັງເຊື່ອມຕໍ່ເຊັນເຊີ &apos;%1&apos;...</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>ພິມ</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation>ເລືອກໂຄງຮ່າງຂ້າງລຸ່ມນີ້</translation>
+    </message>
+    <message>
+        <source>Map Canvas Options</source>
+        <translation>ຕົວເລືອກແຜນທີ່ Canvas</translation>
+    </message>
+    <message>
+        <source>Coordinates copied to clipboard</source>
+        <translation>ສຳເນົາພິກັດໃສ່ຄລິບບອດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Add Bookmark</source>
+        <translation>ເພີ່ມບຸກມາກ</translation>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>ບຸກມາກບໍ່ມີຊື່</translation>
+    </message>
+    <message>
+        <source>Set as Destination</source>
+        <translation>ກຳນົດເປັນຈຸດໝາຍປາຍທາງ</translation>
+    </message>
+    <message>
+        <source>Enable Map Rotation</source>
+        <translation>ເປີດໃຊ້ການຫມຸນແຜນທີ່</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation>ຊັ້ນ:</translation>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation>ຄຸນສົມບັດ:</translation>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation>ເປີດແບບຟອມຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation>ຕັດຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation>ສຳເນົາຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>ສຳເນົາຄຸນສົມບັດ</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>ສຳເນົາຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation>ບໍ່ມີຄຸນສົມບັດຊໍ້າກັນ</translation>
+    </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation>ວາງເຂົ້າໄປໃນຊັ້ນ</translation>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation>ວາງຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation>ວາງຄຸນສົມບັດເຂົ້າໄປໃນຊັ້ນບໍ່ສໍາເລັດ</translation>
+    </message>
+    <message>
+        <source>Navigation Options</source>
+        <translation>ຕົວເລືອກການນໍາທາງ</translation>
+    </message>
+    <message>
+        <source>Always Show Precise View</source>
+        <translation>ສະແດງມຸມມອງລະອຽດຕະຫຼອດເວລາ</translation>
+    </message>
+    <message>
+        <source>Clear Destination</source>
+        <translation>ລຶບປາຍທາງ</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>ທາງເລືອກການກຳນົດຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>ເປີດນຳໃຊ້ການກຳນົດຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Settings</source>
+        <translation>ການຕັ້ງຄ່າການກຳນົດຕຳແໜ່ງ </translation>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation>ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation>ລັອກພິກັດໄວ້ກັບຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation>ລັອກແຜນທີ່ໄວ້ກັບຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Add Bookmark at Location</source>
+        <translation>ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Copy Location Coordinates</source>
+        <translation>ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>Current layer switched to the one holding the selected geometry.</source>
+        <translation>ຊັ້ນຂໍ້ມູນປັດຈຸບັນຖືກປ່ຽນໄປເປັນຊັ້ນຂໍ້ມູນທີ່ບັນຈຸຮູບຊົງເລຂາຄະນິດທີ່ຖືກເລືອກແລ້ວ. </translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation>ການແກ້ໄຂຮູບຊົງເລຂາຄະນິດແບບຫຼາຍພາກສ່ວນແມ່ນຍັງບໍ່ຮອງຮັບເທື່ອ.</translation>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation>ຢຸດການລັອກແຜນທີ່ຊົ່ວຄາວ</translation>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation>ປົດລັອກ</translation>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation>ກຳລັງນຳເຂົ້າ %1</translation>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation>ການນຳເຂົ້າ URL ບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Loading %1</source>
+        <translation>ກຳລັງໂຫລດ %1</translation>
+    </message>
+    <message>
+        <source>Signed out</source>
+        <translation>ອອກຈາກລະບົບແລ້ວ </translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>ກຳລັງເຊື່ອມຕໍ່...</translation>
+    </message>
+    <message>
+        <source>Signed in</source>
+        <translation>ເຂົ້າສູ່ລະບົບແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 failed to download</source>
+        <translation>ດາວໂຫຼດໂຄງການ %1 ບໍ່ສຳເລັດ</translation>
+    </message>
+    <message>
+        <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
+        <translation>ດາວໂຫຼດໂຄງການ %1 ສຳເລັດແລ້ວ, ຕອນນີ້ສາມາດເປີດໄດ້.</translation>
+    </message>
+    <message>
+        <source>Changes failed to reach QFieldCloud: %1</source>
+        <translation>ການປ່ຽນແປງບໍ່ສາມາດສົ່ງໄປເຖິງ QFieldCloud ໄດ້: %1</translation>
+    </message>
+    <message>
+        <source>Changes successfully pushed to QFieldCloud</source>
+        <translation>ການປ່ຽນແປງໄດ້ຖືກສົ່ງໄປຫາ QFieldCloud ສຳເລັດແລ້ວ</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation>ປົດລັອກໜ້າຈໍເພື່ອປິດໂຄງການ ແລະ ແອັບ</translation>
+    </message>
+    <message>
+        <source>Press back again to close project and app</source>
+        <translation>ກົດກັບຄືນອີກຄັ້ງເພື່ອປິດໂຄງການ ແລະ ແອັບ</translation>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation>ການຢືນຢັນການນໍາເຂົ້າ</translation>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source> Project Plugin</source>
+        <translation>ໂຄງການ Plugin</translation>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
+        <translation>ການ​ອະ​ນຸ​ຍາດ Plugin​</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate the plugin?</source>
+        <translation>ທ່ານອະນຸຍາດໃຫ້ເປີດໃຊ້ plugin ບໍ?</translation>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation>ທ່ານອະນຸຍາດໃຫ້ເປີດໃຊ້ `%1` ບໍ?</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation>ຈື່ຈໍາທາງເລືອກຂອງຂ້ອຍ</translation>
+    </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation>ຍົກເລີກການດໍາເນີນການ algorithm</translation>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation>ທ່ານກຳລັງຈະປິດການດຳເນີນການ algorithm ຢ່າງຕໍ່ເນື່ອງ, ດຳເນີນການຕໍ່ບໍ?</translation>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation>ກະດານຄວບຄຸມ</translation>
+    </message>
+    <message>
+        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
+        <translation>ປຸ່ມນີ້ເປີດກະດານຄວບຄຸມ. ດ້ວຍກະດານຄວບຄຸມ, ທ່ານສາມາດໂຕ້ຕອບກັບລາຍການອະທິບາຍສັນຍາລັກ ແລະຮູບແບບແຜນທີ່, ຫຼືເລີ່ມການເຮັດເປັນລະບົບດິຈິຕອລ ໂດຍການເປີດນຳໃຊ້ໂໝດແກ້ໄຂ. ການກົດປຸ່ມຄ້າງໄວ້ຈະເຮັດໃຫ້ທ່ານເຂົ້າເຖິງເມນູຫຼັກໄດ້ທັນທີ.</translation>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>ການຈັດຕໍາແໜ່ງ</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation>ປຸ່ມນີ້ໃຊ້ເປີດ/ປິດລະບົບກຳນົດຕຳແໜ່ງ. ເມື່ອເປີດນຳໃຊ້ແລ້ວ, ເຄື່ອງໝາຍຕຳແໜ່ງຈະສະແດງຢູ່ເທິງສຸດຂອງແຜນທີ່. ການກົດປຸ່ມຄ້າງໄວ້ຈະເປີດເມນູການກຳນົດຕຳແໜ່ງ ຊຶ່ງທ່ານສາມາດສຳຫຼວດເບິ່ງໜ້າທີ່ເພີ່ມເຕີມໄດ້. </translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>ຄົ້ນ​ຫາ</translation>
+    </message>
+    <message>
+        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
+        <translation>ແຖບຄົ້ນຫາຊ່ວຍໃຫ້ທ່ານສາມາດຊອກຫາຟີເຈີພາຍໃນໂຄງການຂອງທ່ານໄດ້ຢ່າງວ່ອງໄວ, ເລື່ອນໄປຫາຈຸດພິກັດລະຕິຈູດ ແລະ ລອງຈິຈູດທີ່ພິມເຂົ້າ, ແລະອີກຫຼາຍຢ່າງ.</translation>
+    </message>
+    <message>
+        <source>Digitizing toggle</source>
+        <translation>ສະຫຼັບການປ່ຽນເປັນດິຈິຕອນ</translation>
+    </message>
+    <message>
+        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
+        <translation>ສະຫຼັບລະຫວ່າງໂໝດການທ່ອງເວັບ ແລະ ດິຈິຕອນ. ໂໝດການທ່ອງເວັບເນັ້ນໃສ່ການສະໜອງປະສົບການທີ່ດີທີ່ສຸດໃນການເບິ່ງແຜນທີ່ ແລະ ຄຸນສົມບັດຂອງມັນ, ໃນຂະນະທີ່ໂໝດດິຈິຕອລຊ່ວຍໃຫ້ທ່ານສ້າງຄຸນສົມບັດ ແລະ ແກ້ໄຂເລຂາຄະນິດໄດ້.</translation>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation>ນິທານ</translation>
+    </message>
+    <message>
+        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation>ລາຍການອະທິບາຍສັນຍາລັກສະແດງຊັ້ນຂໍ້ມູນແຜນທີ່ ແລະ ອະນຸຍາດໃຫ້ທ່ານສາມາດປ່ຽນຄ່າການເບິ່ງເຫັນ ແລະ ຄວາມໂປ່ງໃສ ໂດຍການກົດຊັ້ນຂໍ້ມູນຄ້າງໄວ້ ເພື່ອເປີດປັອບອັບຄຸນສົມບັດ. ປັອບອັບນີ້ມີໜ້າທີ່ເພີ່ມເຕີມເຊັ່ນ: ການຊູມໄປທີ່ຂອບເຂດຂອງຊັ້ນຂໍ້ມູນ ແລະ ການສະແດງຟີເຈີທີ່ມີຢູ່ໃນຊັ້ນຂໍ້ມູນເວັກເຕີ.</translation>
+    </message>
+    <message>
+        <source>Measurement</source>
+        <translation>ການວັດແທກ</translation>
+    </message>
+    <message>
+        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
+        <translation>ເປີດ/ປິດເຄື່ອງມືວັດແທກ ເພື່ອຄິດໄລ່ໄລຍະທາງ ແລະ ພື້ນທີ່ໃນແຜນທີ່.</translation>
+    </message>
+    <message>
+        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
+        <translation>ສົ່ງອອກຜືນແຜນທີ່ເປັນ PDF ໂດຍໃຊ້ຮູບແບບການພິມໂຄງການ ແລະ ແຜນຜັງແຜນທີ່ຄູ່ມືທີ່ໄດ້ຕັ້ງຄ່າໄວ້.</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project folder</source>
+        <translation>ໂຟນເດີໂຄງການ</translation>
+    </message>
+    <message>
+        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
+        <translation>ເປີດໂຟນເດີໂຄງການ ເພື່ອເຂົ້າເຖິງໄຟລ໌ໂຄງການ, ແຫຼ່ງຂໍ້ມູນ, ແລະ ເອກະສານທີ່ກ່ຽວຂ້ອງ. ເປັນປະໂຫຍດສຳລັບການຈັດການຊັບພະຍາກອນໂຄງການ, ການອັບໂຫຼດຂໍ້ມູນດ້ວຍຕົນເອງໄປໃສ່ QFieldCloud, ແລະ ການແບ່ງປັນຊຸດຂໍ້ມູນ, ໄຟລ໌ຄັດຕິດ, ແລະ ຮູບແບບຕ່າງໆ.</translation>
     </message>
 </context>
 <context>
@@ -5615,12 +8260,8 @@ Cancel to make a minimal device scan instead.</source>
 <context>
     <name>Range</name>
     <message>
-        <source>Empty</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
-    </message>
-    <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5650,7 +8291,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>ຊັ້ນການອ້າງອີງບໍ່ຖືກຕ້ອງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -5658,7 +8299,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>ບໍ່ສາມາດລົບຄຸນສົມບັດໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -5677,85 +8318,53 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Invalid relation</source>
-        <translation>ຄວາມສຳພັນບໍ່ຖືກຕ້ອງ</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
+        <translation type="vanished">ຄວາມສຳພັນບໍ່ຖືກຕ້ອງ</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation>ບໍ່ສາມາດເພີ່ມຄຸນສົມບັດຂອງລູກໄດ້: ກວດເບິ່ງວ່າຄຸນສົມບັດຂອງພໍ່ແມ່ຕອບສະໜອງໄດ້ທຸກຂໍ້ຈຳກັດ ແລະ ສາມາດລົງທະບຽນໄດ້</translation>
-    </message>
-    <message>
         <source>Adding child feature in layer %1</source>
-        <translation>ກຳລັງເພີ່ມຄຸນສົມບັດເດັກນ້ອຍໃນຊັ້ນຂໍ້ມູນ %1</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation>ບໍ່​ສາ​ມາດ​ເພີ່ມ​ຄຸນ​ສົມ​ບັດ​ຂອງ​ເດັກ​ນ້ອຍ​: ຄຸນ​ຄ່າ​ຄຸນ​ສົມ​ບັດ​ການ​ເຊື່ອມ​ຕໍ່​ພໍ່​ແມ່​ ແລະ​ ເດັກ​ບໍ່​ໄດ້​ກໍາ​ນົດ​</translation>
-    </message>
-    <message>
-        <source>Unlink Feature</source>
-        <translation>ຍົກເລີກການເຊື່ອມໂຍງຄຸນສົມບັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>ລົບຄຸນສົມບັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>ຄຸນສົມບັດ %1 (%2) ຂອງຊັ້ນຂໍ້ມູນ %3 ຄວນຖືກຍົກເລີກບໍ?(ການເຊື່ອມຕໍ່ຈະຖືກລຶບໃນຊັ້ນຂໍ້ມູນ %4)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>ຄຸນສົມບັດ %1 (%2) ໃນຊັ້ນຂໍ້ມູນ %3 ຄວນຖືກລຶບບໍ?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>ລົບຄຸນສົມບັດການອ້າງອີງບໍ່ສຳເລັດ</translation>
-    </message>
-    <message>
-        <source>Child Menu</source>
-        <translation>ເມນູເດັກ</translation>
-    </message>
-    <message>
-        <source>Copy Feature Attributes</source>
-        <translation>ສຳເນົາຄຸນລັກສະນະຂອງຄຸນສົມບັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>ພິມຄຸນສົມບັດ Atlas ເປັນ PDF</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>ພິມຄຸນສົມບັດ Atlas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>ເລືອກແມ່ແບບຂ້າງລຸ່ມນີ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>ພິມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation>ພິມຄຸນ​ນະ​ສົມ​ບັດ Atlas​ສໍາ​ເລັດ​ ແລະ​ ຈັດ​ໃສ່​ໃນ​ໂຟນ​ເດີ​ໂຄງ​ການ​ຂອງ​ທ່ານ​</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s)</source>
-        <translation><numerusform>%n ຄຸນສົມບັດ</numerusform></translation>
-    </message>
-    <message>
-        <source>Open Form</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5763,7 +8372,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>ເລຂາຄະນິດບໍ່ສາມາດປ່ຽນຮູບໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5777,63 +8386,63 @@ Cancel to make a minimal device scan instead.</source>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation>ບໍ່ຮູ້</translation>
+        <translation type="vanished">ບໍ່ຮູ້</translation>
     </message>
 </context>
 <context>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation>ເລືອກພອດ serial ຈາກລາຍການຂ້າງລຸ່ມນີ້:</translation>
+        <translation type="vanished">ເລືອກພອດ serial ຈາກລາຍການຂ້າງລຸ່ມນີ້:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation>ບໍ່ພົບພອດ serial, ໂຫຼດລາຍການຄືນໃໝ່ເມື່ອເຊື່ອມຕໍ່ອຸປະກອນ.</translation>
+        <translation type="vanished">ບໍ່ພົບພອດ serial, ໂຫຼດລາຍການຄືນໃໝ່ເມື່ອເຊື່ອມຕໍ່ອຸປະກອນ.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation>ໂຫຼດລາຍການຄືນໃໝ່</translation>
+        <translation type="vanished">ໂຫຼດລາຍການຄືນໃໝ່</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation>ຊື່ສະແດງຜອດ Serial:</translation>
+        <translation type="vanished">ຊື່ສະແດງຜອດ Serial:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation>ທີ່ຢູ່ພອດ Serial:</translation>
+        <translation type="vanished">ທີ່ຢູ່ພອດ Serial:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation>ບໍ່ສາມາດຊອກເຫັນອຸປະກອນພອດ serial ໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດຊອກເຫັນອຸປະກອນພອດ serial ໄດ້</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation>ພະຍາຍາມອ່ານຈາກພອດ serial ສົ່ງຄືນຂໍ້ຜິດພາດ</translation>
+        <translation type="vanished">ພະຍາຍາມອ່ານຈາກພອດ serial ສົ່ງຄືນຂໍ້ຜິດພາດ</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດເນື່ອງຈາກບໍ່ມີການອະນຸຍາດພຽງພໍ</translation>
+        <translation type="vanished">ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດເນື່ອງຈາກບໍ່ມີການອະນຸຍາດພຽງພໍ</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation>ເຄື່ອງຮັບພອດ Serial ຜິດພາດ (%1)</translation>
+        <translation type="vanished">ເຄື່ອງຮັບພອດ Serial ຜິດພາດ (%1)</translation>
     </message>
 </context>
 <context>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>ບໍ່ສາມາດແບ່ງປັນຄຸນສົມບັດໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5860,14 +8469,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Port:</source>
         <translation type="vanished">ພອດ:</translation>
     </message>
-    <message>
-        <source>IP address</source>
-        <translation>ທີ່ຢູ່ IP</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>ພອດ:</translation>
-    </message>
 </context>
 <context>
     <name>TcpReceiver</name>
@@ -5890,11 +8491,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
+        <translation type="vanished">ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -5906,123 +8507,63 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation>ເຄື່ອງຮັບ TCP ຜິດພາດ (%1)</translation>
+        <translation type="vanished">ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
     </message>
 </context>
 <context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation>ຄຸນສົມບັດຊົ່ວຄາວ</translation>
+        <translation type="vanished">ຄຸນສົມບັດຊົ່ວຄາວ</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation>ເປີດນຳໃຊ້ຕົວກອງຕາມຊ່ວງເວລາ</translation>
+        <translation type="vanished">ເປີດນຳໃຊ້ຕົວກອງຕາມຊ່ວງເວລາ</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation>ສຳເນົາຂໍ້ຄວາມ</translation>
+        <translation type="vanished">ສຳເນົາຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation>ວາງຂໍ້ຄວາມ</translation>
+        <translation type="vanished">ວາງຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation>ສະແກນລະຫັດ</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>ຫວ່າງເປົ່າ</translation>
+        <translation type="vanished">ສະແກນລະຫັດ</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>ຕິດຕາມໃນຊັ້ນຂໍ້ມູນ %1 ເລີ່ມແລ້ວ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerSettings</name>
     <message>
-        <source>Tracking</source>
-        <translation>ການຕິດຕາມ</translation>
-    </message>
-    <message>
-        <source>Requirement Settings</source>
-        <translation>ຕົວກໍານົດການຄວາມຕ້ອງການ</translation>
-    </message>
-    <message>
-        <source>Time requirement</source>
-        <translation>ຄວາມຕ້ອງການເວລາ</translation>
-    </message>
-    <message>
         <source>Minimum time [sec]</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ການເພີ່ມ vertex ຈະເກີດຂຶ້ນເມື່ອເວລາລະຫວ່າງ vertex ສຸດທ້າຍ ແລະ ໃໝ່ກົງກັບຄ່າຕ່ຳສຸດທີ່ກຳນົດໄວ້.</translation>
-    </message>
-    <message>
-        <source>Distance requirement</source>
-        <translation>ຄວາມຕ້ອງການໄລຍະທາງ</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ການເພີ່ມ vertex ຈະເກີດຂຶ້ນເມື່ອເວລາລະຫວ່າງ vertex ສຸດທ້າຍ ແລະ ໃໝ່ກົງກັບຄ່າຕ່ຳສຸດທີ່ກຳນົດໄວ້.</translation>
-    </message>
-    <message>
-        <source>Sensor data requirement</source>
-        <translation>ຄວາມຕ້ອງການຂໍ້ມູນເຊັນເຊີ</translation>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານ, ການເພີ່ມ vertex ຈະເກີດຂຶ້ນເມື່ອເຊັນເຊີໄດ້ບັນທຶກຂໍ້ມູນໃຫມ່.</translation>
-    </message>
-    <message>
-        <source>Wait for all active requirements</source>
-        <translation>ລໍຖ້າຄວາມຕ້ອງການທີ່ມີການເຄື່ອນໄຫວທັງຫມົດ</translation>
-    </message>
-    <message>
-        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation>ເມື່ອເປີດໃຊ້ງານແລ້ວ, ຈຸດຕັ້ງຈະຖືກບັນທຶກເມື່ອເງື່ອນໄຂທັງໝົດຖືກປະຕິບັດຄົບຖ້ວນ. ເມື່ອປິດນຳໃຊ້, ການບັນລຸເງື່ອນໄຂໃດໜຶ່ງຈະກະຕຸ້ນການເພີ່ມຈຸດຕໍ່.</translation>
-    </message>
-    <message>
-        <source>General Settings</source>
-        <translation>ການຕັ້ງຄ່າທົ່ວໄປ</translation>
-    </message>
-    <message>
-        <source>Erroneous distance safeguard</source>
-        <translation>ການປ້ອງກັນໄລຍະທາງຜິດພາດ</translation>
-    </message>
-    <message>
-        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation>ເມື່ອເປີດນຳໃຊ້, ຈະບໍ່ມີການເພີ່ມຈຸດຕໍ່ເມື່ອໄລຍະຫ່າງລະຫວ່າງຈຸດຕໍ່ລ່າສຸດ ແລະ ຈຸດຕໍ່ໃໝ່ ມີຄ່າເກີນກວ່າຄ່າສູງສຸດທີ່ກຳນົດໄວ້.</translation>
-    </message>
-    <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>ຄ່າວັດແທກ (M) ທີ່ຕິດຢູ່ກັບຈຸດຕັ້ງ:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation>ເວລາຜ່ານໄປ (ວິນາທີນັບຕັ້ງແຕ່ເລີ່ມຕິດຕາມ)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
@@ -6030,74 +8571,42 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>ຄວາມໄວຫນ້າດິນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>ຕໍາ​ແຫນ່ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຕາມລວງນອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງຂອງແນວຕັ້ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>ເພື່ອເປີດນຳໃຊ້ຟັງຊັນການວັດແທກ, ໃຫ້ກວດສອບວ່າປະເພດເລຂາຄະນິດຂອງຊັ້ນຂໍ້ມູນເວັກເຕີທີ່ໃຊ້ສຳລັບການຕິດຕາມນັ້ນ ມີຄ່າ M (M dimension) ນຳ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>ເລີ່ມຕິດຕາມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Resume tracking</source>
-        <translation>ສືບຕໍ່ຕິດຕາມ</translation>
-    </message>
-    <message>
-        <source>Layer</source>
-        <translation>ຊັ້ນຂໍ້ມູນ</translation>
-    </message>
-    <message>
-        <source>Track on layer %1 resumed</source>
-        <translation>ເລີ່ມການຕິດຕາມໃນຊັ້ນ %1 ຄືນໃໝ່</translation>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sec</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum distance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6277,14 +8786,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>Port:</source>
         <translation type="vanished">ພອດ</translation>
     </message>
-    <message>
-        <source>Address</source>
-        <translation>ທີ່ຢູ່</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>ພອດ:</translation>
-    </message>
 </context>
 <context>
     <name>UdpReceiver</name>
@@ -6307,11 +8808,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
+        <translation type="vanished">ບໍ່ສາມາດຊອກຫາແມ່ຂ່າຍທາງໄກໄດ້</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
+        <translation type="vanished">ການພະຍາຍາມອ່ານຫຼືຂຽນຈາກ socket ມີຄວາມຜິດພາດ</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -6319,11 +8820,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>ຕົວຮັບ UDP ຜິດພາດ (%1)</translation>
+        <translation type="vanished">ຕົວຮັບ UDP ຜິດພາດ (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation>ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
+        <translation type="vanished">ການເຊື່ອມຕໍ່ໄດ້ຖືກປະຕິເສດໂດຍແມ່ຂ່າຍທາງໄກ</translation>
     </message>
 </context>
 <context>
@@ -6341,26 +8842,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enter value</source>
-        <translation>ປ້ອນຄ່າ</translation>
+        <translation type="vanished">ປ້ອນຄ່າ</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation>ເພີ່ມໂຕປ່ຽນໃໝ່ </translation>
-    </message>
-    <message>
-        <source>Global variables</source>
-        <translation>ຕົວປ່ຽນທົ່ວໂລກ</translation>
-    </message>
-    <message>
-        <source>Project variables</source>
-        <translation>ຕົວປ່ຽນຂອງໂຄງການ</translation>
+        <translation type="vanished">ເພີ່ມໂຕປ່ຽນໃໝ່ </translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>ບັນທຶກຟີເຈີບໍ່ສຳເລັດ!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6368,73 +8861,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">ບັນທຶກຟີເຈີບໍ່ສຳເລັດ!</translation>
-    </message>
-</context>
-<context>
-    <name>WebdavConnection</name>
-    <message>
-        <source>Failed to download file %1 due to network error (%2)</source>
-        <translation>ດາວໂຫຼດໄຟລ໌ %1 ບໍ່ສຳເລັດເນື່ອງຈາກເຄືອຂ່າຍຜິດພາດ (%2)</translation>
-    </message>
-    <message>
-        <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation>ອັບໂຫຼດໄຟລ໌ %1 ບໍ່ສຳເລັດເນື່ອງຈາກເຄືອຂ່າຍຜິດພາດ (%2)</translation>
-    </message>
-    <message>
-        <source>Upload finished.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local paths provided.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No stored password available.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local changes detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload skipped.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6580,123 +9006,14 @@ project</source>
     </message>
 </context>
 <context>
-    <name>angle</name>
-    <message>
-        <source>deg</source>
-        <translation>ອົງສາ</translation>
-    </message>
-</context>
-<context>
-    <name>area</name>
-    <message>
-        <source>square degrees</source>
-        <translation>ອົງສາຕາລາງ</translation>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>1</translation>
-    </message>
-    <message>
-        <source>sqr. meters</source>
-        <translation>ຕາລາງແມັດ</translation>
-    </message>
-    <message>
-        <source>sqr. kilometers</source>
-        <translation>ຕາລາງກິໂລແມັດ</translation>
-    </message>
-    <message>
-        <source>sqr. feet</source>
-        <translation>ຕາແມັດຟຸດ</translation>
-    </message>
-    <message>
-        <source>sqr. yards</source>
-        <translation>ຕາລາງຫຼາ</translation>
-    </message>
-    <message>
-        <source>sqr. miles</source>
-        <translation>sqr. ໄມລ໌</translation>
-    </message>
-    <message>
-        <source>hectares</source>
-        <translation>ເຮັກຕາ</translation>
-    </message>
-    <message>
-        <source>acres</source>
-        <translation>acres</translation>
-    </message>
-    <message>
-        <source>sqr. nautical miles</source>
-        <translation>sqr. ໄມທະເລ</translation>
-    </message>
-    <message>
-        <source>sqr. centimeters</source>
-        <translation>sqr. ຊັງຕີແມັດ</translation>
-    </message>
-    <message>
-        <source>sqr. millimeters</source>
-        <translation>sqr. ມີລີແມັດ</translation>
-    </message>
-    <message>
-        <source>sqr. inches</source>
-        <translation>sqr. ນິ້ວ</translation>
-    </message>
-</context>
-<context>
     <name>boolean</name>
     <message>
         <source>True</source>
-        <translation>ຈິງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>False</source>
-        <translation>ບໍ່ຈິງ</translation>
-    </message>
-</context>
-<context>
-    <name>distance</name>
-    <message>
-        <source>degrees</source>
-        <translation>ອົງສາ</translation>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation>1</translation>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>ແມັດ</translation>
-    </message>
-    <message>
-        <source>kilometers</source>
-        <translation>ກິໂລແມັດ</translation>
-    </message>
-    <message>
-        <source>feet</source>
-        <translation>ຟຸດ</translation>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation>ຫຼາ</translation>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation>ໄມ</translation>
-    </message>
-    <message>
-        <source>nautical miles</source>
-        <translation>ໄມທະເລ</translation>
-    </message>
-    <message>
-        <source>centimeters</source>
-        <translation>ຊັງຕີແມັດ</translation>
-    </message>
-    <message>
-        <source>millimeters</source>
-        <translation>ມິນລີແມັດ</translation>
-    </message>
-    <message>
-        <source>inches</source>
-        <translation>ນິ້ວ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6750,105 +9067,74 @@ project</source>
     </message>
 </context>
 <context>
-    <name>point</name>
-    <message>
-        <source>latitude</source>
-        <translation>ເສັ້ນຂະໜານ</translation>
-    </message>
-    <message>
-        <source>longitude</source>
-        <translation>ເສັ້ນແວງ</translation>
-    </message>
-    <message>
-        <source>elevation</source>
-        <translation>ລະດັບຄວາມສູງ</translation>
-    </message>
-    <message>
-        <source>easting [X]</source>
-        <translation>ຄ່າພິກັດຕາເວັນອອກ</translation>
-    </message>
-    <message>
-        <source>northing [Y]</source>
-        <translation>ຄ່າພິກັດເໜືອ</translation>
-    </message>
-    <message>
-        <source>elevation [Z]</source>
-        <translation>ລະດັບຄວາມສູງ [Z]</translation>
-    </message>
-    <message>
-        <source>Point Feature Picker</source>
-        <translation>ເລືອກວັດຖຸຈຸດ</translation>
-    </message>
-</context>
-<context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເບິ່ງຂໍ້ມູນແລ້ວ</translation>
+        <translation type="vanished">ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເບິ່ງຂໍ້ມູນແລ້ວ</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລໃນຊັ້ນຂໍ້ມູນ %1 </translation>
+        <translation type="vanished">ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລໃນຊັ້ນຂໍ້ມູນ %1 </translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລ</translation>
+        <translation type="vanished">ຕອນນີ້ທ່ານຢູ່ໃນໂໝດເຮັດເປັນດິຈິຕອລ</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>ຕອນນີ້ທ່ານຢູ່ໃນໂໝດວັດແທກແລ້ວ</translation>
+        <translation type="vanished">ຕອນນີ້ທ່ານຢູ່ໃນໂໝດວັດແທກແລ້ວ</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>ເສັ້ນແວງ</translation>
+        <translation type="vanished">ເສັ້ນແວງ</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>ເສັ້ນຂະໜານ</translation>
+        <translation type="vanished">ເສັ້ນຂະໜານ</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>ສ່ວນ</translation>
+        <translation type="vanished">ສ່ວນ</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>ເສັ້ນຮອບວົງ</translation>
+        <translation type="vanished">ເສັ້ນຮອບວົງ</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>ລວງຍາວ</translation>
+        <translation type="vanished">ລວງຍາວ</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>ພື້ນທີ່</translation>
+        <translation type="vanished">ພື້ນທີ່</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>ປິດເຄື່ອງມືວັດແທກ</translation>
+        <translation type="vanished">ປິດເຄື່ອງມືວັດແທກ</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>ຢຸດການແກ້ໄຂ</translation>
+        <translation type="vanished">ຢຸດການແກ້ໄຂ</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>ຍົກເລີກການເພີ່ມ</translation>
+        <translation type="vanished">ຍົກເລີກການເພີ່ມ</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>ການແກ້ໄຂແບບໂທໂປໂລຢີຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
+        <translation type="vanished">ການແກ້ໄຂແບບໂທໂປໂລຢີຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>ການແກ້ໄຂແບບໂທໂປໂລຢີຖືກປິດແລ້ວ</translation>
+        <translation type="vanished">ການແກ້ໄຂແບບໂທໂປໂລຢີຖືກປິດແລ້ວ</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>ການເກັບຂໍ້ມູນແບບອິດສະຫຼະຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
+        <translation type="vanished">ການເກັບຂໍ້ມູນແບບອິດສະຫຼະຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>ການປ້ອນຂໍ້ມູນແບບອິດສະຫຼະໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
+        <translation type="vanished">ການປ້ອນຂໍ້ມູນແບບອິດສະຫຼະໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -6856,7 +9142,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>ຈຸດຊີ້ພິກັດໄດ້ຖືກປົດລັອກແລ້ວ</translation>
+        <translation type="vanished">ຈຸດຊີ້ພິກັດໄດ້ຖືກປົດລັອກແລ້ວ</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -6872,7 +9158,7 @@ project</source>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>ກຳລັງລໍຖ້າຕຳແໜ່ງ</translation>
+        <translation type="vanished">ກຳລັງລໍຖ້າຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -6896,7 +9182,7 @@ project</source>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>ເມນູຫຼັກ</translation>
+        <translation type="vanished">ເມນູຫຼັກ</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -6924,11 +9210,11 @@ project</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>ການຕັ້ງຄ່າ</translation>
+        <translation type="vanished">ການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>ບັນທຶກຂໍ້ຄວາມ</translation>
+        <translation type="vanished">ບັນທຶກຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>About QField</source>
@@ -6940,7 +9226,7 @@ project</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>ກຳລັງເປີດນຳໃຊ້ບໍລິການກຳນົດຕຳແໜ່ງ</translation>
+        <translation type="vanished">ກຳລັງເປີດນຳໃຊ້ບໍລິການກຳນົດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -6948,15 +9234,15 @@ project</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>ຕົວເລືອກແຜນທີ່ Canvas</translation>
+        <translation type="vanished">ຕົວເລືອກແຜນທີ່ Canvas</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>ເພີ່ມບຸກມາກ</translation>
+        <translation type="vanished">ເພີ່ມບຸກມາກ</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>ກຳນົດເປັນຈຸດໝາຍປາຍທາງ</translation>
+        <translation type="vanished">ກຳນົດເປັນຈຸດໝາຍປາຍທາງ</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -6964,7 +9250,7 @@ project</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>ບຸກມາກບໍ່ມີຊື່</translation>
+        <translation type="vanished">ບຸກມາກບໍ່ມີຊື່</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -6984,7 +9270,7 @@ project</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>ສຳເນົາພິກັດໃສ່ຄລິບບອດແລ້ວ</translation>
+        <translation type="vanished">ສຳເນົາພິກັດໃສ່ຄລິບບອດແລ້ວ</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -7016,7 +9302,7 @@ project</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>ສະແດງມຸມມອງລະອຽດຕະຫຼອດເວລາ</translation>
+        <translation type="vanished">ສະແດງມຸມມອງລະອຽດຕະຫຼອດເວລາ</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -7024,19 +9310,19 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
+        <translation type="vanished">ເພີ່ມບຸກມາກຢູ່ຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
+        <translation type="vanished">ສຳເນົາພິກັດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>ອອກຈາກລະບົບແລ້ວ </translation>
+        <translation type="vanished">ອອກຈາກລະບົບແລ້ວ </translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>ເຂົ້າສູ່ລະບົບແລ້ວ</translation>
+        <translation type="vanished">ເຂົ້າສູ່ລະບົບແລ້ວ</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -7044,11 +9330,11 @@ project</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>ຕົວເລືອກການນໍາທາງ</translation>
+        <translation type="vanished">ຕົວເລືອກການນໍາທາງ</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>ລຶບປາຍທາງ</translation>
+        <translation type="vanished">ລຶບປາຍທາງ</translation>
     </message>
     <message>
         <source>%1 Precision</source>
@@ -7060,19 +9346,19 @@ project</source>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>ທາງເລືອກການກຳນົດຕຳແໜ່ງ</translation>
+        <translation type="vanished">ທາງເລືອກການກຳນົດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>ເປີດນຳໃຊ້ການກຳນົດຕຳແໜ່ງ</translation>
+        <translation type="vanished">ເປີດນຳໃຊ້ການກຳນົດຕຳແໜ່ງ</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
+        <translation type="vanished">ສະແດງຂໍ້ມູນຕຳແໜ່ງ </translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>ການຕັ້ງຄ່າການກຳນົດຕຳແໜ່ງ </translation>
+        <translation type="vanished">ການຕັ້ງຄ່າການກຳນົດຕຳແໜ່ງ </translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -7088,7 +9374,7 @@ project</source>
     </message>
     <message>
         <source>My location</source>
-        <translation>ຕຳແໜ່ງຂອງຂ້ອຍ</translation>
+        <translation type="vanished">ຕຳແໜ່ງຂອງຂ້ອຍ</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -7096,19 +9382,19 @@ project</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>ຄວາມຖືກຕ້ອງ</translation>
+        <translation type="vanished">ຄວາມຖືກຕ້ອງ</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation type="vanished">ບໍ່ມີ</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>ສຳເນົາຕຳແໜ່ງປັດຈຸບັນໃສ່ຄລິບບອດແລ້ວ</translation>
+        <translation type="vanished">ສຳເນົາຕຳແໜ່ງປັດຈຸບັນໃສ່ຄລິບບອດແລ້ວ</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>ຊັ້ນຂໍ້ມູນປັດຈຸບັນຖືກປ່ຽນໄປເປັນຊັ້ນຂໍ້ມູນທີ່ບັນຈຸຮູບຊົງເລຂາຄະນິດທີ່ຖືກເລືອກແລ້ວ. </translation>
+        <translation type="vanished">ຊັ້ນຂໍ້ມູນປັດຈຸບັນຖືກປ່ຽນໄປເປັນຊັ້ນຂໍ້ມູນທີ່ບັນຈຸຮູບຊົງເລຂາຄະນິດທີ່ຖືກເລືອກແລ້ວ. </translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
@@ -7116,7 +9402,7 @@ project</source>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>ກຳລັງໂຫລດ %1</translation>
+        <translation type="vanished">ກຳລັງໂຫລດ %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -7124,7 +9410,7 @@ project</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>ກຳລັງເຊື່ອມຕໍ່...</translation>
+        <translation type="vanished">ກຳລັງເຊື່ອມຕໍ່...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -7132,23 +9418,23 @@ project</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>ດາວໂຫຼດໂຄງການ %1 ບໍ່ສຳເລັດ</translation>
+        <translation type="vanished">ດາວໂຫຼດໂຄງການ %1 ບໍ່ສຳເລັດ</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>ດາວໂຫຼດໂຄງການ %1 ສຳເລັດແລ້ວ, ຕອນນີ້ສາມາດເປີດໄດ້.</translation>
+        <translation type="vanished">ດາວໂຫຼດໂຄງການ %1 ສຳເລັດແລ້ວ, ຕອນນີ້ສາມາດເປີດໄດ້.</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>ການປ່ຽນແປງບໍ່ສາມາດສົ່ງໄປເຖິງ QFieldCloud ໄດ້: %1</translation>
+        <translation type="vanished">ການປ່ຽນແປງບໍ່ສາມາດສົ່ງໄປເຖິງ QFieldCloud ໄດ້: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>ການປ່ຽນແປງໄດ້ຖືກສົ່ງໄປຫາ QFieldCloud ສຳເລັດແລ້ວ</translation>
+        <translation type="vanished">ການປ່ຽນແປງໄດ້ຖືກສົ່ງໄປຫາ QFieldCloud ສຳເລັດແລ້ວ</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>ກົດກັບຄືນອີກຄັ້ງເພື່ອປິດໂຄງການ ແລະ ແອັບ</translation>
+        <translation type="vanished">ກົດກັບຄືນອີກຄັ້ງເພື່ອປິດໂຄງການ ແລະ ແອັບ</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -7156,11 +9442,11 @@ project</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Azimuth</translation>
+        <translation type="vanished">Azimuth</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>ໜ້າຈໍລັອກ</translation>
+        <translation type="vanished">ໜ້າຈໍລັອກ</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -7168,471 +9454,38 @@ project</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>ພິມ</translation>
+        <translation type="vanished">ພິມ</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>ພິມ</translation>
+        <translation type="vanished">ພິມ</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>ຂໍ້ຜິດພາດຂອງອຸປະກອນກຳນົດຕຳແໜ່ງ: %1</translation>
+        <translation type="vanished">ຂໍ້ຜິດພາດຂອງອຸປະກອນກຳນົດຕຳແໜ່ງ: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>ສຳເນົາຄຸນສົມບັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>ສຳເນົາຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation>ການຈັບຕິດໄດ້ຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation>Snapping ປິດ</translation>
-    </message>
-    <message>
-        <source>Snap to %1° angle turned on</source>
-        <translation>ການຈັບຕິດມຸມ %1° ໄດ້ຖືກເປີດນຳໃຊ້ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Snap to common angle turned off</source>
-        <translation>ການຈັບຕິດມຸມທົ່ວໄປໄດ້ຖືກປິດນຳໃຊ້ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Relative angle</source>
-        <translation>ມຸມທຽບເທົ່າ</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>ຮຽນ​ຮູ້​ເພີ່ມ​ເຕີມ</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation>ເຊັນເຊີ</translation>
-    </message>
-    <message>
-        <source>No sensor available</source>
-        <translation>ບໍ່ມີເຊັນເຊີໃຫ້ໃຊ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project Folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Select sensor below</source>
-        <translation>ເລືອກເຊັນເຊີຂ້າງລຸ່ມນີ້</translation>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation>ເຊັນເຊີຜິດພາດ: %1</translation>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation>ກຳລັງຕັດການເຊື່ອມຕໍ່ເຊັນເຊີ &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation>ກຳລັງເຊື່ອມຕໍ່ເຊັນເຊີ &apos;%1&apos;...</translation>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation>ເລືອກໂຄງຮ່າງຂ້າງລຸ່ມນີ້</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation>ຊັ້ນ:</translation>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation>ຄຸນສົມບັດ:</translation>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation>ເປີດແບບຟອມຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation>ບໍ່ມີຄຸນສົມບັດຊໍ້າກັນ</translation>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation>ກຳລັງນຳເຂົ້າ %1</translation>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation>ການນຳເຂົ້າ URL ບໍ່ສຳເລັດ</translation>
-    </message>
-    <message>
-        <source>Do you grant permission to activate `%1`?</source>
-        <translation>ທ່ານອະນຸຍາດໃຫ້ເປີດໃຊ້ `%1` ບໍ?</translation>
-    </message>
-    <message>
-        <source>Remember my choice</source>
-        <translation>ຈື່ຈໍາທາງເລືອກຂອງຂ້ອຍ</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>ຕຳແໜ່ງໄດ້ລ່ວງລະເມີດ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>ວາງຕຳແໜ່ງຢູ່ນອກພື້ນທີ່ຫຼັງຈາກອອກຈາກ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>ຕຳແໜ່ງທີ່ໃສ່ໃນ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>ຕຳແໜ່ງທີ່ເຫຼືອຈາກ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Enable Map Rotation</source>
-        <translation>ເປີດໃຊ້ການຫມຸນແຜນທີ່</translation>
-    </message>
-    <message>
-        <source>Dashboard</source>
-        <translation>ກະດານຄວບຄຸມ</translation>
-    </message>
-    <message>
-        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation>ປຸ່ມນີ້ເປີດກະດານຄວບຄຸມ. ດ້ວຍກະດານຄວບຄຸມ, ທ່ານສາມາດໂຕ້ຕອບກັບລາຍການອະທິບາຍສັນຍາລັກ ແລະຮູບແບບແຜນທີ່, ຫຼືເລີ່ມການເຮັດເປັນລະບົບດິຈິຕອລ ໂດຍການເປີດນຳໃຊ້ໂໝດແກ້ໄຂ. ການກົດປຸ່ມຄ້າງໄວ້ຈະເຮັດໃຫ້ທ່ານເຂົ້າເຖິງເມນູຫຼັກໄດ້ທັນທີ.</translation>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>ການຈັດຕໍາແໜ່ງ</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>ຄົ້ນ​ຫາ</translation>
-    </message>
-    <message>
-        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation>ແຖບຄົ້ນຫາຊ່ວຍໃຫ້ທ່ານສາມາດຊອກຫາຟີເຈີພາຍໃນໂຄງການຂອງທ່ານໄດ້ຢ່າງວ່ອງໄວ, ເລື່ອນໄປຫາຈຸດພິກັດລະຕິຈູດ ແລະ ລອງຈິຈູດທີ່ພິມເຂົ້າ, ແລະອີກຫຼາຍຢ່າງ.</translation>
-    </message>
-    <message>
-        <source>Cancel algorithm operation</source>
-        <translation>ຍົກເລີກການດໍາເນີນການ algorithm</translation>
-    </message>
-    <message>
-        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation>ທ່ານກຳລັງຈະປິດການດຳເນີນການ algorithm ຢ່າງຕໍ່ເນື່ອງ, ດຳເນີນການຕໍ່ບໍ?</translation>
-    </message>
-    <message>
-        <source>Unlock the screen to close project and app</source>
-        <translation>ປົດລັອກໜ້າຈໍເພື່ອປິດໂຄງການ ແລະ ແອັບ</translation>
-    </message>
-    <message>
-        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation>ເປີດໃຊ້ໂໝດບໍ່ມີຂອບ, ໃຊ້ມຸມຊ້າຍເທິງ ແລະ ລຸ່ມຂວາເພື່ອຍ້າຍ ແລະ ປັບຂະໜາດໜ້າຈໍ</translation>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation>ສຳເລັດ ຫຼືປິດຄຸນສົມບັດການສະແກນກ່ອນສະຫຼັບເພື່ອເປີດໂໝດເວັບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Variables</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Undo</source>
-        <translation>ຍົກເລີກ</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation>ເຮັດຄືນ</translation>
-    </message>
-    <message>
-        <source>Replaying collected positions, hold on</source>
-        <translation>ການຫຼິ້ນຄືນຕໍາ​ແຫນ່ງ​ການ​ເກັບ​ກໍາ, ກະລຸນາລໍຖ້າ</translation>
-    </message>
-    <message>
-        <source>Snapping to every</source>
-        <translation>Snapping ກັບທຸກໆ</translation>
-    </message>
-    <message>
-        <source>%1°</source>
-        <translation>%1°</translation>
-    </message>
-    <message>
-        <source>Snapping tolerance</source>
-        <translation>ຄ່າທົນທານຂອງການຈັບຕິດ</translation>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation>ແຄບ</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>​ປົກ​ກະ​ຕິ​</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>ຂະ​ຫນາດ​ໃຫຍ່​</translation>
-    </message>
-    <message>
-        <source>Snapping tolerance set to %1</source>
-        <translation>ໄດ້ກຳນົດຄ່າຄວາມທົນທານຂອງການເຂົ້າໃກ້ ເປັນ %1 ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Import Confirmation</source>
-        <translation>ການຢືນຢັນການນໍາເຂົ້າ</translation>
-    </message>
-    <message>
-        <source>Plugin Permission</source>
-        <translation>ການ​ອະ​ນຸ​ຍາດ Plugin​</translation>
-    </message>
-    <message>
-        <source>Unlock</source>
-        <translation>ປົດລັອກ</translation>
-    </message>
-    <message>
-        <source> Project Plugin</source>
-        <translation>ໂຄງການ Plugin</translation>
-    </message>
-    <message>
-        <source>Do you grant permission to activate the plugin?</source>
-        <translation>ທ່ານອະນຸຍາດໃຫ້ເປີດໃຊ້ plugin ບໍ?</translation>
-    </message>
-    <message>
-        <source>Failed to create feature</source>
-        <translation>ສ້າງຄຸນສົມບັດບໍ່ສໍາເລັດ</translation>
-    </message>
-    <message>
-        <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation>ການສ້າງຄຸນສົມບັດບໍ່ສຳເລັດເນື່ອງຈາກການອະນຸຍາດການເພີ່ມຄຸນສົມບັດຖືກປິດໄວ້</translation>
-    </message>
-    <message>
-        <source>Failed to save feature</source>
-        <translation>ບັນທຶກຄຸນສົມບັດບໍ່ສໍາເລັດ</translation>
-    </message>
-    <message>
-        <source>Digitizing toggle</source>
-        <translation>ສະຫຼັບການປ່ຽນເປັນດິຈິຕອນ</translation>
-    </message>
-    <message>
-        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation>ສະຫຼັບລະຫວ່າງໂໝດການທ່ອງເວັບ ແລະ ດິຈິຕອນ. ໂໝດການທ່ອງເວັບເນັ້ນໃສ່ການສະໜອງປະສົບການທີ່ດີທີ່ສຸດໃນການເບິ່ງແຜນທີ່ ແລະ ຄຸນສົມບັດຂອງມັນ, ໃນຂະນະທີ່ໂໝດດິຈິຕອລຊ່ວຍໃຫ້ທ່ານສ້າງຄຸນສົມບັດ ແລະ ແກ້ໄຂເລຂາຄະນິດໄດ້.</translation>
-    </message>
-    <message>
-        <source>Measurement</source>
-        <translation>ການວັດແທກ</translation>
-    </message>
-    <message>
-        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation>ເປີດ/ປິດເຄື່ອງມືວັດແທກ ເພື່ອຄິດໄລ່ໄລຍະທາງ ແລະ ພື້ນທີ່ໃນແຜນທີ່.</translation>
-    </message>
-    <message>
-        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation>ສົ່ງອອກຜືນແຜນທີ່ເປັນ PDF ໂດຍໃຊ້ຮູບແບບການພິມໂຄງການ ແລະ ແຜນຜັງແຜນທີ່ຄູ່ມືທີ່ໄດ້ຕັ້ງຄ່າໄວ້.</translation>
-    </message>
-    <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project folder</source>
-        <translation>ໂຟນເດີໂຄງການ</translation>
-    </message>
-    <message>
-        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation>ເປີດໂຟນເດີໂຄງການ ເພື່ອເຂົ້າເຖິງໄຟລ໌ໂຄງການ, ແຫຼ່ງຂໍ້ມູນ, ແລະ ເອກະສານທີ່ກ່ຽວຂ້ອງ. ເປັນປະໂຫຍດສຳລັບການຈັດການຊັບພະຍາກອນໂຄງການ, ການອັບໂຫຼດຂໍ້ມູນດ້ວຍຕົນເອງໄປໃສ່ QFieldCloud, ແລະ ການແບ່ງປັນຊຸດຂໍ້ມູນ, ໄຟລ໌ຄັດຕິດ, ແລະ ຮູບແບບຕ່າງໆ.</translation>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation>ນິທານ</translation>
-    </message>
-    <message>
-        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation>ລາຍການອະທິບາຍສັນຍາລັກສະແດງຊັ້ນຂໍ້ມູນແຜນທີ່ ແລະ ອະນຸຍາດໃຫ້ທ່ານສາມາດປ່ຽນຄ່າການເບິ່ງເຫັນ ແລະ ຄວາມໂປ່ງໃສ ໂດຍການກົດຊັ້ນຂໍ້ມູນຄ້າງໄວ້ ເພື່ອເປີດປັອບອັບຄຸນສົມບັດ. ປັອບອັບນີ້ມີໜ້າທີ່ເພີ່ມເຕີມເຊັ່ນ: ການຊູມໄປທີ່ຂອບເຂດຂອງຊັ້ນຂໍ້ມູນ ແລະ ການສະແດງຟີເຈີທີ່ມີຢູ່ໃນຊັ້ນຂໍ້ມູນເວັກເຕີ.</translation>
-    </message>
-    <message>
-        <source>Copy Feature</source>
-        <translation>ສຳເນົາຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Cut Feature</source>
-        <translation>ຕັດຄຸນສົມບັດ</translation>
-    </message>
-    <message>
-        <source>Feature pasted successfully</source>
-        <translation>ວາງຄຸນສົມບັດສຳເລັດແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Failed to paste feature into layer</source>
-        <translation>ວາງຄຸນສົມບັດເຂົ້າໄປໃນຊັ້ນບໍ່ສໍາເລັດ</translation>
-    </message>
-    <message>
-        <source>Paste Into Layer</source>
-        <translation>ວາງເຂົ້າໄປໃນຊັ້ນ</translation>
-    </message>
-    <message>
-        <source>Editing of multipart geometry is not supported yet.</source>
-        <translation>ການແກ້ໄຂຮູບຊົງເລຂາຄະນິດແບບຫຼາຍພາກສ່ວນແມ່ນຍັງບໍ່ຮອງຮັບເທື່ອ.</translation>
-    </message>
-    <message>
-        <source>Coordinate cursor locked to location</source>
-        <translation>ລັອກພິກັດໄວ້ກັບຕຳແໜ່ງແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Map canvas unlocked</source>
-        <translation>ປົດລັອກແຜນທີ່ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Map canvas locked to location</source>
-        <translation>ລັອກແຜນທີ່ຕາມຕຳແໜ່ງ</translation>
-    </message>
-    <message>
-        <source>Map canvas locked to location and compass orientation</source>
-        <translation>ລັອກແຜນທີ່ຕາມຕຳແໜ່ງ ແລະ ທິດເຂັມທິດ</translation>
-    </message>
-    <message>
-        <source>Map canvas follows location and compass orientation</source>
-        <translation>ແຜນທີ່ເຄື່ອນຕາມຕຳແໜ່ງ ແລະ ທິດເຂັມທິດ</translation>
-    </message>
-    <message>
-        <source>Map canvas follows location</source>
-        <translation>ແຜນທີ່ເຄື່ອນຕາມຕຳແໜ່ງ</translation>
-    </message>
-    <message>
-        <source>Lock Coordinate Cursor to Location</source>
-        <translation>ລັອກພິກັດໄວ້ກັບຕຳແໜ່ງ</translation>
-    </message>
-    <message>
-        <source>Lock Map Canvas to Location</source>
-        <translation>ລັອກແຜນທີ່ໄວ້ກັບຕຳແໜ່ງ</translation>
-    </message>
-    <message>
-        <source>Map canvas lock paused</source>
-        <translation>ຢຸດການລັອກແຜນທີ່ຊົ່ວຄາວ</translation>
-    </message>
-    <message>
-        <source>Tap on your location marker
-to show actions</source>
-        <translation>ແຕະໃສ່ຈຸດຕຳແໜ່ງຂອງທ່ານ ເພື່ອເບິ່ງເມນູຄຳສັ່ງ</translation>
-    </message>
-    <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation>ປຸ່ມນີ້ໃຊ້ເປີດ/ປິດລະບົບກຳນົດຕຳແໜ່ງ. ເມື່ອເປີດນຳໃຊ້ແລ້ວ, ເຄື່ອງໝາຍຕຳແໜ່ງຈະສະແດງຢູ່ເທິງສຸດຂອງແຜນທີ່. ການກົດປຸ່ມຄ້າງໄວ້ຈະເປີດເມນູການກຳນົດຕຳແໜ່ງ ຊຶ່ງທ່ານສາມາດສຳຫຼວດເບິ່ງໜ້າທີ່ເພີ່ມເຕີມໄດ້. </translation>
-    </message>
-    <message numerus="yes">
-        <source>Tracking active on %n layer(s)</source>
-        <translation><numerusform>ເປີດການຕິດຕາມໃນ %n ຊັ້ນຂໍ້ມູນ</numerusform></translation>
-    </message>
-    <message>
-        <source>Stop all</source>
-        <translation>ຢຸດທັງໝົດ</translation>
-    </message>
-    <message numerus="yes">
-        <source>Tracking on %n layer(s) stopped</source>
-        <translation><numerusform>ຢຸດການຕິດຕາມໃນ %n ຊັ້ນຂໍ້ມູນແລ້ວ</numerusform></translation>
-    </message>
-    <message>
-        <source>No compatible layers available to launch tracking</source>
-        <translation>ບໍ່ມີຊັ້ນຂໍ້ມູນທີ່ຮອງຮັບການຕິດຕາມ</translation>
-    </message>
-    <message>
-        <source>COGO digitizing turned on</source>
-        <translation>ເປີດລະບົບການສ້າງຂໍ້ມູນດ້ວຍການປ້ອນຄ່າວັດແທກ (COGO) ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>COGO digitizing turned off</source>
-        <translation>ປິດລະບົບການສ້າງຂໍ້ມູນດ້ວຍການປ້ອນຄ່າວັດແທກ (COGO) ແລ້ວ</translation>
-    </message>
-    <message>
-        <source>Enable positioning service to get points at your location</source>
-        <translation>ເປີດບໍລິການລະບຸຕຳແໜ່ງ ເພື່ອບັນທຶກຈຸດຕາມພິກັດຂອງທ່ານ</translation>
-    </message>
-    <message>
-        <source>Positioning service has not yet received a valid location</source>
-        <translation>ຍັງບໍ່ທັນໄດ້ຮັບຂໍ້ມູນຕຳແໜ່ງທີ່ຊັດເຈນ</translation>
-    </message>
-    <message>
-        <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Loading terrain...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Close 3D view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Manager</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade plan</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation>ແມັດ</translation>
-    </message>
-    <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>

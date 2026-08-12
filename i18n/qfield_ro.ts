@@ -38,45 +38,33 @@
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Se contectează...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Conectat cu succes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Deconectat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Stare socket %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
-        <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Open form</source>
-        <translation>Deschidere formular</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Setați elementul ca destinațiea</translation>
-    </message>
-    <message>
-        <source>Feature has no geometry</source>
-        <translation>Entitatea nu are nicio geometrie</translation>
-    </message>
-    <message>
-        <source>Features from active layer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <source>Feature has no geometry</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -84,73 +72,73 @@
     <name>AndroidProjectSource</name>
     <message>
         <source>File %1 does not exist</source>
-        <translation>Fișierul %1 nu există</translation>
+        <translation type="vanished">Fișierul %1 nu există</translation>
     </message>
 </context>
 <context>
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>Nici o traducere disponibilă între %1 și %2</translation>
+        <translation type="vanished">Nici o traducere disponibilă între %1 și %2</translation>
     </message>
     <message>
         <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Aceast grid face parte din “&lt;i&gt;%1&lt;/i&gt;” pachet, disponibil pentru descărcare de la &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation type="vanished">Aceast grid face parte din “&lt;i&gt;%1&lt;/i&gt;” pachet, disponibil pentru descărcare de la &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>Această grilă este disponibilă pentru descărcare de la &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+        <translation type="vanished">Această grilă este disponibilă pentru descărcare de la &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>proiecție</translation>
+        <translation type="vanished">proiecție</translation>
     </message>
     <message>
         <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation>Această transformare necesită fișierul grid “%1”, care nu este disponibil pentru utilizare pe sistem.</translation>
+        <translation type="vanished">Această transformare necesită fișierul grid “%1”, care nu este disponibil pentru utilizare pe sistem.</translation>
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>Acest grid face parte din &lt;i&gt;%1&lt;/i&gt; pachet, disponibil pentru descărcare de la &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation type="vanished">Acest grid face parte din &lt;i&gt;%1&lt;/i&gt; pachet, disponibil pentru descărcare de la &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Transformarea curentă“&lt;i&gt;%1&lt;/i&gt;” are o precizie de %2 metri, în timp ce transformarea preferată “&lt;i&gt;%3&lt;/i&gt;” are o precizie de %4 metri.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Transformarea curentă“&lt;i&gt;%1&lt;/i&gt;” are o precizie de %2 metri, în timp ce transformarea preferată “&lt;i&gt;%3&lt;/i&gt;” are o precizie de %4 metri.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Transformarea curentă“&lt;i&gt;%1&lt;/i&gt;” are o precizie necunoscută, în timp ce transformarea preferată “&lt;i&gt;%2&lt;/i&gt;” are o precizie de%3 metri.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Transformarea curentă“&lt;i&gt;%1&lt;/i&gt;” are o precizie necunoscută, în timp ce transformarea preferată “&lt;i&gt;%2&lt;/i&gt;” are o precizie de%3 metri.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Transformarea favorită între&lt;i&gt;%1&lt;/i&gt; și&lt;i&gt;%2&lt;/i&gt; nu este disponibil pentru utilizare în sistem.&lt;/p&gt;</translation>
+        <translation type="vanished">&lt;p&gt;Transformarea favorită între&lt;i&gt;%1&lt;/i&gt; și&lt;i&gt;%2&lt;/i&gt; nu este disponibil pentru utilizare în sistem.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation>Nu este disponibilă nicio transformare între &lt;i&gt;%1&lt;/i&gt; și &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
+        <translation type="vanished">Nu este disponibilă nicio transformare între &lt;i&gt;%1&lt;/i&gt; și &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>Nu se poate folosi transformarea proiectului între %1 și %2</translation>
+        <translation type="vanished">Nu se poate folosi transformarea proiectului între %1 și %2</translation>
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>A fost folosită transformarea &quot;ballpark&quot; de la %1 la %2</translation>
+        <translation type="vanished">A fost folosită transformarea &quot;ballpark&quot; de la %1 la %2</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>Constrângere la nivelul expresiei</translation>
+        <translation type="vanished">Constrângere la nivelul expresiei</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Nu este NULL</translation>
+        <translation type="vanished">Nu este NULL</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>Valoare unică</translation>
+        <translation type="vanished">Valoare unică</translation>
     </message>
 </context>
 <context>
@@ -185,13 +173,6 @@ Vă rugăm să le examinați și să reconfigurați proiectul QGIS.</translation
     </message>
 </context>
 <context>
-    <name>Binary</name>
-    <message>
-        <source>(Blob)</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>BluetoothDeviceChooser</name>
     <message>
         <source>Positioning device in use:</source>
@@ -199,23 +180,23 @@ Vă rugăm să le examinați și să reconfigurați proiectul QGIS.</translation
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>Scanare pentru dispozitive asociate</translation>
+        <translation type="vanished">Scanare pentru dispozitive asociate</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>Scanarea a eșuat: %1</translation>
+        <translation type="vanished">Scanarea a eșuat: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>Scanare cu succes</translation>
+        <translation type="vanished">Scanare cu succes</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform></translation>
+        <translation type="vanished"><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>Scanare anulată</translation>
+        <translation type="vanished">Scanare anulată</translation>
     </message>
     <message>
         <source>Scan</source>
@@ -253,11 +234,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Select the Bluetooth device from the list below:</source>
-        <translation>Selectați dispozitivul Bluetooth din lista de mai jos:</translation>
+        <translation type="vanished">Selectați dispozitivul Bluetooth din lista de mai jos:</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
-        <translation>Numele dispozitivului Bluetooth:</translation>
+        <translation type="vanished">Numele dispozitivului Bluetooth:</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -265,39 +246,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Bluetooth device address:</source>
-        <translation>Adresa dispozitivului Bluetooth:</translation>
+        <translation type="vanished">Adresa dispozitivului Bluetooth:</translation>
     </message>
     <message>
         <source>Scan for nearby devices</source>
-        <translation>Scanare dispozitive din apropiere</translation>
+        <translation type="vanished">Scanare dispozitive din apropiere</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected, scan to populate nearby devices.</source>
         <translation type="vanished">Nu au fost detectate dispozitive Bluetooth, scanați pentru a popula cu dispozitivele din apropiere.</translation>
-    </message>
-    <message>
-        <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth device configuration:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Classic (BT)</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -305,22 +262,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Internal device</source>
         <translation type="vanished">Dispozitiv intern</translation>
-    </message>
-    <message>
-        <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Location permission denied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -373,99 +314,19 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
 <context>
     <name>BookmarkList</name>
     <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark List Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle Bookmark Selection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Delete bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Should the %n selected bookmark(s) really be deleted?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Deleted %n bookmark(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Orange</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Red</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Blue</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Green</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Untitled bookmark</source>
-        <translation>Semn de carte nedenumit</translation>
-    </message>
-    <message>
-        <source>No bookmarks yet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export Selected Bookmark(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export All User Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmarks exported</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmark Actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Edit Bookmark</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Bookmark Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Detalii marcaj copiate în clipboard</translation>
-    </message>
-    <message>
-        <source>Delete Bookmark</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Elimină marcaj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Sunteți pe cale să eliminați un marcaj, continuați?</translation>
-    </message>
-    <message>
-        <source>Project bookmarks</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -473,18 +334,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>Marcaj spațial</translation>
-    </message>
-    <message>
-        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Marcaj spațial</translation>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation>Proprietăți Marcaje</translation>
+        <translation type="vanished">Proprietăți Marcaje</translation>
     </message>
     <message>
         <source>Name</source>
@@ -516,41 +373,33 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation>Detalii marcaj copiate în clipboard</translation>
+        <translation type="vanished">Detalii marcaj copiate în clipboard</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation>Elimină marcaj</translation>
+        <translation type="vanished">Elimină marcaj</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation>Sunteți pe cale să eliminați un marcaj, continuați?</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sunteți pe cale să eliminați un marcaj, continuați?</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>Marcaj: %1</translation>
+        <translation type="vanished">Marcaj: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation>Marcajele proiectului nu pot fi editate</translation>
+        <translation type="vanished">Marcajele proiectului nu pot fi editate</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>Navigator</translation>
+        <translation type="vanished">Navigator</translation>
     </message>
 </context>
 <context>
@@ -606,19 +455,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>CheckBox</name>
     <message>
         <source>True</source>
-        <translation>Adevărat</translation>
+        <translation type="vanished">Adevărat</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>Fals</translation>
+        <translation type="vanished">Fals</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">NULL</translation>
     </message>
 </context>
 <context>
@@ -678,19 +523,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
 <context>
     <name>CodeReader</name>
     <message>
-        <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Code Reader</source>
-        <translation>Cititor de Cod</translation>
-    </message>
-    <message>
-        <source>Center your device on a code</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No readable code found in the selected image</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -737,11 +570,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>DateTime</name>
     <message>
         <source>(no date)</source>
-        <translation>(fără dată)</translation>
+        <translation type="vanished">(fără dată)</translation>
     </message>
     <message>
         <source>Date value set to today.</source>
-        <translation>Valoarea datei este cea de astăzi.</translation>
+        <translation type="vanished">Valoarea datei este cea de astăzi.</translation>
     </message>
     <message>
         <source>Hours</source>
@@ -764,75 +597,68 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>Se aștepta ca documentul json să fie o matrice de stare delta</translation>
+        <translation type="vanished">Se aștepta ca documentul json să fie o matrice de stare delta</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>Se așteaptă ca toate elementele matricei să fie un obiect, dar elementul de la #%1 nu este</translation>
+        <translation type="vanished">Se așteaptă ca toate elementele matricei să fie un obiect, dar elementul de la #%1 nu este</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>Se așteaptă ca toate elementele matricei să fie un obiect care conține o cheie „% 1 ”, dar elementul de la #% 2 nu este</translation>
+        <translation type="vanished">Se așteaptă ca toate elementele matricei să fie un obiect care conține o cheie „% 1 ”, dar elementul de la #% 2 nu este</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>Stare necunoscută &quot;%1&quot; pentru $%2</translation>
+        <translation type="vanished">Stare necunoscută &quot;%1&quot; pentru $%2</translation>
     </message>
 </context>
 <context>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation>Expresia valorii implicite pentru câmpul %2 al înregistratorului de digitizare are o eroare de parser: %3</translation>
+        <translation type="vanished">Expresia valorii implicite pentru câmpul %2 al înregistratorului de digitizare are o eroare de parser: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation>Expresia valorii implicite pentru câmpul %2 al înregistratorului de digitizare are o eroare de evaluare: %3</translation>
+        <translation type="vanished">Expresia valorii implicite pentru câmpul %2 al înregistratorului de digitizare are o eroare de evaluare: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Adăugarea elementului de digitizare a jurnalelor cu modificări pe straturi, a eșuat</translation>
+        <translation type="vanished">Adăugarea elementului de digitizare a jurnalelor cu modificări pe straturi, a eșuat</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation>Digitizarea jurnalelor cu modificări ale stratului, a eșuat</translation>
+        <translation type="vanished">Digitizarea jurnalelor cu modificări ale stratului, a eșuat</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation>Editarea straturilor de jurnale digitale a eșuat</translation>
+        <translation type="vanished">Editarea straturilor de jurnale digitale a eșuat</translation>
     </message>
 </context>
 <context>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>Precizia poziției nu îndeplinește cerința minimă, vertexul nu este adăugat</translation>
+        <translation type="vanished">Precizia poziției nu îndeplinește cerința minimă, vertexul nu este adăugat</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
-        <translation>Anulați digitizarea</translation>
+        <translation type="vanished">Anulați digitizarea</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation>Numărul de poziții colectate nu îndeplinește cerința</translation>
+        <translation type="vanished">Numărul de poziții colectate nu îndeplinește cerința</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>Ar trebui să se renunțe la geometria digitalizată?</translation>
-    </message>
-</context>
-<context>
-    <name>DrawingTemplateModel</name>
-    <message>
-        <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ar trebui să se renunțe la geometria digitalizată?</translation>
     </message>
 </context>
 <context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation>Meniu Elemente</translation>
+        <translation type="vanished">Meniu Elemente</translation>
     </message>
 </context>
 <context>
@@ -846,43 +672,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid start byte</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Could not find the remote host</source>
-        <translation>Nu s-a putut găsi gazda la distanță</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to stop egeniouss server.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -890,98 +688,32 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation>Digitizați o cale pentru a reda profilul elevației</translation>
+        <translation type="vanished">Digitizați o cale pentru a reda profilul elevației</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation>Se generează profilul elevației...</translation>
-    </message>
-</context>
-<context>
-    <name>Erase</name>
-    <message>
-        <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ExpressionCalculatorLocatorFilter</name>
-    <message>
-        <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Calculator</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Se generează profilul elevației...</translation>
     </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
-        <translation>Indisponibil</translation>
+        <translation type="vanished">Indisponibil</translation>
     </message>
 </context>
 <context>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>Fără Valoare</translation>
+        <translation type="vanished">Fără Valoare</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>Nu poate folosi acest tip de fișier</translation>
-    </message>
-    <message>
-        <source>Take a photo</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Take a video</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record an audio clip</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Attach a file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Draw a sketch</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nu poate folosi acest tip de fișier</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
-    </message>
-    <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -989,15 +721,15 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>Valoare aplicată</translation>
+        <translation type="vanished">Valoare aplicată</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>Valoare omisă</translation>
+        <translation type="vanished">Valoare omisă</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
-        <translation> (clic pentru inversare)</translation>
+        <translation type="vanished"> (clic pentru inversare)</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -1009,161 +741,46 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>Nu se pot salva modificările</translation>
+        <translation type="vanished">Nu se pot salva modificările</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Adăugare entitate în %1</translation>
+        <translation type="vanished">Adăugare entitate în %1</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Editare entitate din %1</translation>
+        <translation type="vanished">Editare entitate din %1</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>Vizualizare entitate din %1</translation>
+        <translation type="vanished">Vizualizare entitate din %1</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Anulează editarea</translation>
+        <translation type="vanished">Anulează editarea</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>Sunteți pe cale să pierdeți noul element adăugat, continuați?</translation>
+        <translation type="vanished">Sunteți pe cale să pierdeți noul element adăugat, continuați?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>Sunteți pe cale să închideți modul editare, orice modificări vor fi pierdute. Continuați?</translation>
-    </message>
-    <message>
-        <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Previous page</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next page</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FeatureHistory</name>
-    <message>
-        <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="vanished">Sunteți pe cale să închideți modul editare, orice modificări vor fi pierdute. Continuați?</translation>
     </message>
 </context>
 <context>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Opriți urmărirea acestui element pentru a edita atribute</translation>
+        <translation type="vanished">Opriți urmărirea acestui element pentru a edita atribute</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Opriți urmărirea acestui element pentru a edita geometria</translation>
+        <translation type="vanished">Opriți urmărirea acestui element pentru a edita geometria</translation>
     </message>
     <message>
         <source>Changes saved</source>
-        <translation>Modificări salvate</translation>
+        <translation type="vanished">Modificări salvate</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -1171,34 +788,34 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Element duplicat cu succes</translation>
+        <translation type="vanished">Element duplicat cu succes</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>O serie de elemente sunt urmărite, opriți urmărirea pentru a le șterge</translation>
+        <translation type="vanished">O serie de elemente sunt urmărite, opriți urmărirea pentru a le șterge</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>O serie de elemente sunt urmărite, opriți urmărirea pentru a le putea îmbina</translation>
+        <translation type="vanished">O serie de elemente sunt urmărite, opriți urmărirea pentru a le putea îmbina</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Elementele selectate au fost duplicate cu succes, lista a fost actualizată pentru a afișa elementele nou create</translation>
+        <translation type="vanished">Elementele selectate au fost duplicate cu succes, lista a fost actualizată pentru a afișa elementele nou create</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>Nici o entitate în această poziție</translation>
+        <translation type="vanished">Nici o entitate în această poziție</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
-        <translation>Îmbină element(ele)</translation>
+        <translation type="vanished">Îmbină element(ele)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation><numerusform>Sigur doriți îmbinarea elemente(lor) %n ?
+        <translation type="vanished"><numerusform>Sigur doriți îmbinarea elemente(lor) %n ?
 
 Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, care își va păstra atributele.</numerusform><numerusform>Sigur doriți îmbinarea elemente(lor) %n ?
 
@@ -1208,55 +825,35 @@ Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, car
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform></translation>
+        <translation type="vanished"><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform></translation>
+        <translation type="vanished"><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>Ștergere entit(ăți)</translation>
+        <translation type="vanished">Ștergere entit(ăți)</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform></translation>
+        <translation type="vanished"><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>Ștergerea element(elor) %n cu succes</numerusform><numerusform>Ștergerea element(elor) %n cu succes</numerusform><numerusform>Ștergerea element(elor) %n cu succes</numerusform></translation>
+        <translation type="vanished"><numerusform>Ștergerea element(elor) %n cu succes</numerusform><numerusform>Ștergerea element(elor) %n cu succes</numerusform><numerusform>Ștergerea element(elor) %n cu succes</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>Ștergerea element(elor) %n a eșuat</numerusform><numerusform>Ștergerea element(elor) %n a eșuat</numerusform><numerusform>Ștergerea element(elor) %n a eșuat</numerusform></translation>
+        <translation type="vanished"><numerusform>Ștergerea element(elor) %n a eșuat</numerusform><numerusform>Ștergerea element(elor) %n a eșuat</numerusform><numerusform>Ștergerea element(elor) %n a eșuat</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Modificări nesalvate</translation>
-    </message>
-    <message>
-        <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Modificări nesalvate</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation>Entități</translation>
-    </message>
-    <message>
-        <source>Processing Algorithms</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1264,61 +861,61 @@ Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, car
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Valoarea &quot;%1&quot; %4 nu a putut fi convertită la o valoare permisă de câmpul %2(%3).</translation>
+        <translation type="vanished">Valoarea &quot;%1&quot; %4 nu a putut fi convertită la o valoare permisă de câmpul %2(%3).</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Nu se poate actualiza entitatea</translation>
+        <translation type="vanished">Nu se poate actualiza entitatea</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Entitatea %1 nu a putut fi preluată după commit</translation>
+        <translation type="vanished">Entitatea %1 nu a putut fi preluată după commit</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Expresia valorii implicite pentru %1:%2 are eroarea de parcurgere: %3</translation>
+        <translation type="vanished">Expresia valorii implicite pentru %1:%2 are eroarea de parcurgere: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>Expresia valorii implicite pentru %1:%2 are eroarea de evaluare: %3</translation>
+        <translation type="vanished">Expresia valorii implicite pentru %1:%2 are eroarea de evaluare: %3</translation>
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>Nu se poate starta editarea stratului &quot;%1&quot; pentru a crea entitatea %2</translation>
+        <translation type="vanished">Nu se poate starta editarea stratului &quot;%1&quot; pentru a crea entitatea %2</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>Stratul &quot;%1&quot; a fost salvat, dar noul element %2 creat nu poate fi preluat</translation>
+        <translation type="vanished">Stratul &quot;%1&quot; a fost salvat, dar noul element %2 creat nu poate fi preluat</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>Stratul &quot;%1&quot; nu poate fi acceptat cu noul element %2 creat.
+        <translation type="vanished">Stratul &quot;%1&quot; nu poate fi acceptat cu noul element %2 creat.
 Motiv:
 %3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>Entitatea %2 nu a putut fi adăugată în stratul &quot;%1&quot;</translation>
+        <translation type="vanished">Entitatea %2 nu a putut fi adăugată în stratul &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>Nu s-au putut salva modificările. Revenire.</translation>
+        <translation type="vanished">Nu s-au putut salva modificările. Revenire.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nu se poate începe editarea</translation>
+        <translation type="vanished">Nu se poate începe editarea</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Deschidere formular</translation>
+        <translation type="vanished">Deschidere formular</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation>Setați elementul ca destinațiea</translation>
+        <translation type="vanished">Setați elementul ca destinațiea</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -1326,57 +923,42 @@ Motiv:
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Entitatea nu are nicio geometrie</translation>
+        <translation type="vanished">Entitatea nu are nicio geometrie</translation>
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>Elementele din toate straturile</translation>
-    </message>
-    <message>
-        <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>FileDeviceChooser</name>
-    <message>
-        <source>File path</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Elementele din toate straturile</translation>
     </message>
 </context>
 <context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>Cercul nu este închis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>Cercul nu este valid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>Cercul se intersectează cu alte cercuri existente (dacă nu este disjoint)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>Cercul nu are nici un cerc existent pentru a se potrivi în interior</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>Eroare necunoscută la crearea cercului</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>Umpleți cercul</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>Vreți să umpleți cercul cu un poligon nou?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1414,30 +996,26 @@ Motiv:
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Căutarea adresei Finlandeze</translation>
+        <translation type="vanished">Căutarea adresei Finlandeze</translation>
     </message>
 </context>
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>Instrument Vertex</translation>
+        <translation type="vanished">Instrument Vertex</translation>
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>Instrument Divizare</translation>
+        <translation type="vanished">Instrument Divizare</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>Instrument Remodelare</translation>
+        <translation type="vanished">Instrument Remodelare</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>Instrument Umplere Cerc</translation>
-    </message>
-    <message>
-        <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Instrument Umplere Cerc</translation>
     </message>
 </context>
 <context>
@@ -1448,7 +1026,7 @@ Motiv:
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation>Seteză punct de navigare</translation>
+        <translation type="vanished">Seteză punct de navigare</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -1456,59 +1034,21 @@ Motiv:
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>Mergi la coordonate</translation>
+        <translation type="vanished">Mergi la coordonate</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation>Mergi la %1%2 %3%4 (Hartă CRS, %5)</translation>
+        <translation type="vanished">Mergi la %1%2 %3%4 (Hartă CRS, %5)</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation>Mergi la %1°N %2°E (%3)</translation>
-    </message>
-    <message>
-        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>HelpLocatorFilter</name>
-    <message>
-        <source>QField Documentation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Mergi la %1°N %2°E (%3)</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
-        <source>Navigation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>Poziționare</translation>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Elevation profile</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>InformationPopup</name>
-    <message>
-        <source>Author</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1520,77 +1060,69 @@ Motiv:
     </message>
     <message>
         <source>Username</source>
-        <translation>Nume utilizator</translation>
+        <translation type="vanished">Nume utilizator</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <source>Credentials Details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Parola</translation>
     </message>
 </context>
 <context>
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation>Nu s-a putut găsi o coloană principală locală în stratul &quot;%1&quot;</translation>
+        <translation type="vanished">Nu s-a putut găsi o coloană principală locală în stratul &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation>Nu s-a putut găsi o coloană principală sursă în stratul &quot;%1&quot;</translation>
+        <translation type="vanished">Nu s-a putut găsi o coloană principală sursă în stratul &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>Extindeți grup</translation>
+        <translation type="vanished">Extindeți grup</translation>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>Extindeți legenda elementelor</translation>
+        <translation type="vanished">Extindeți legenda elementelor</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Încetare urmărire</translation>
+        <translation type="vanished">Încetare urmărire</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Setează urmărirea</translation>
+        <translation type="vanished">Setează urmărirea</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
+        <translation type="vanished">Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>Arată pe hartă</translation>
+        <translation type="vanished">Arată pe hartă</translation>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>Arată etichetele</translation>
+        <translation type="vanished">Arată etichetele</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation>Opacitate</translation>
+        <translation type="vanished">Opacitate</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation>Zoom pe grup</translation>
+        <translation type="vanished">Zoom pe grup</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation>Zoom pe stratul principal</translation>
+        <translation type="vanished">Zoom pe stratul principal</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>Zoom pe strat</translation>
+        <translation type="vanished">Zoom pe strat</translation>
     </message>
     <message>
         <source>Reload data</source>
@@ -1598,15 +1130,15 @@ Motiv:
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation>Reîncărcarea stratului %1 declanșată</translation>
+        <translation type="vanished">Reîncărcarea stratului %1 declanșată</translation>
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Arată lista elementelor</translation>
+        <translation type="vanished">Arată lista elementelor</translation>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>Stratul nu are elemente</translation>
+        <translation type="vanished">Stratul nu are elemente</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
@@ -1630,79 +1162,51 @@ Motiv:
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation>Arată lista entităților vizibile</translation>
+        <translation type="vanished">Arată lista entităților vizibile</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation>Arată meniul entităților</translation>
-    </message>
-    <message>
-        <source>Read-only layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>feature addition</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>attribute editing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>geometry editing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>feature deletion</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Arată meniul entităților</translation>
     </message>
 </context>
 <context>
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>Fără straturi nu se poate începe editarea</translation>
+        <translation type="vanished">Fără straturi nu se poate începe editarea</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nu se poate începe editarea</translation>
+        <translation type="vanished">Nu se poate începe editarea</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Nu se poate efectua ștergerea elementelor %2 din stratul &quot;%1&quot;. Motiv:
+        <translation type="vanished">Nu se poate efectua ștergerea elementelor %2 din stratul &quot;%1&quot;. Motiv:
 %3</translation>
     </message>
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Nu se poate efectua ștergerea elementelor din stratul &quot;%1&quot;. Motiv:
+        <translation type="vanished">Nu se poate efectua ștergerea elementelor din stratul &quot;%1&quot;. Motiv:
 %3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
-        <translation>Nu se poate șterge entitatea %1</translation>
+        <translation type="vanished">Nu se poate șterge entitatea %1</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Nu se pot anula modificările din stratul %1</translation>
+        <translation type="vanished">Nu se pot anula modificările din stratul %1</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>Nu se poate copia elementul invalid</translation>
+        <translation type="vanished">Nu se poate copia elementul invalid</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Nu se poate adăuga un element nou în strat &quot;%1&quot;. Motiv:
+        <translation type="vanished">Nu se poate adăuga un element nou în strat &quot;%1&quot;. Motiv:
 %2</translation>
     </message>
     <message>
@@ -1714,34 +1218,18 @@ Motiv:
     <name>Legend</name>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>Acest strat este configurat ca &quot;Read-Only&quot; ceea ce dezactivează adăugarea, ștergerea și editarea elementelor.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Stop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Track on layer %1 stopped</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracking on layer %1 stopped</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1749,31 +1237,23 @@ Motiv:
     <name>LocalFilesModel</name>
     <message>
         <source>QField files directory</source>
-        <translation>Fișierele Directorului QField</translation>
+        <translation type="vanished">Fișierele Directorului QField</translation>
     </message>
     <message>
         <source>Imported projects</source>
-        <translation>Proiecte Importate</translation>
+        <translation type="vanished">Proiecte Importate</translation>
     </message>
     <message>
         <source>Imported datasets</source>
-        <translation>Baze de date Importate</translation>
+        <translation type="vanished">Baze de date Importate</translation>
     </message>
     <message>
         <source>Additional files directory</source>
-        <translation>Directorul cu fișiere suplimentare</translation>
+        <translation type="vanished">Directorul cu fișiere suplimentare</translation>
     </message>
     <message>
         <source>Sample projects</source>
         <translation type="vanished">Exemple de proiecte</translation>
-    </message>
-    <message>
-        <source>Created projects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1796,7 +1276,7 @@ Motiv:
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>Filtrele de căutare pentru locațiile dvs. au fost activate. Personalizați rezultatele în panoul de setări</translation>
+        <translation type="vanished">Filtrele de căutare pentru locațiile dvs. au fost activate. Personalizați rezultatele în panoul de setări</translation>
     </message>
 </context>
 <context>
@@ -1804,14 +1284,6 @@ Motiv:
     <message>
         <source>Search…</source>
         <translation type="vanished">Căutare</translation>
-    </message>
-    <message>
-        <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1824,118 +1296,86 @@ Motiv:
         <source>Trigger without its prefix</source>
         <translation type="vanished">Declanșator fără prefix</translation>
     </message>
-    <message>
-        <source>Search Bar Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>Jurnalele Mesajelor</translation>
+        <translation type="vanished">Jurnalele Mesajelor</translation>
     </message>
     <message>
         <source>Message text copied</source>
-        <translation>Textul mesajului a fost copiat</translation>
+        <translation type="vanished">Textul mesajului a fost copiat</translation>
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>Curăță jurnalul cu modificări</translation>
+        <translation type="vanished">Curăță jurnalul cu modificări</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>Jurnalul cu modificări a fost curățat</translation>
+        <translation type="vanished">Jurnalul cu modificări a fost curățat</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>Trimiteți jurnalul cu modificări al aplicației</translation>
+        <translation type="vanished">Trimiteți jurnalul cu modificări al aplicației</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
         <translation type="vanished">Jurnalul cu modificări a fost trimis</translation>
-    </message>
-    <message>
-        <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type optional details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Include cloud user details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nu se poate începe editarea</translation>
+        <translation type="vanished">Nu se poate începe editarea</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Nu se pot anula modificările din stratul %1</translation>
+        <translation type="vanished">Nu se pot anula modificările din stratul %1</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Nu se poate modifica geometria elementului %1 din %2</translation>
+        <translation type="vanished">Nu se poate modifica geometria elementului %1 din %2</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>Entități</translation>
+        <translation type="vanished">Entități</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation>Lista Meniului Elementelor</translation>
+        <translation type="vanished">Lista Meniului Elementelor</translation>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
-        <translation>Pornește Selecția Elementelor</translation>
+        <translation type="vanished">Pornește Selecția Elementelor</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Printează Element(ele) Atlas ca PDF</translation>
+        <translation type="vanished">Printează Element(ele) Atlas ca PDF</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Îmbină Elementele Selectate</translation>
+        <translation type="vanished">Îmbină Elementele Selectate</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Mută Element(ele) Selectate</translation>
+        <translation type="vanished">Mută Element(ele) Selectate</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Duplică Element(ele) Selectate</translation>
+        <translation type="vanished">Duplică Element(ele) Selectate</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>Șterge Element(ele) Selectate</translation>
+        <translation type="vanished">Șterge Element(ele) Selectate</translation>
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation>Meniu Elemente</translation>
+        <translation type="vanished">Meniu Elemente</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
@@ -1943,11 +1383,11 @@ Motiv:
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>Zoom pe Element</translation>
+        <translation type="vanished">Zoom pe Element</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>Auto-Zoom pe Element</translation>
+        <translation type="vanished">Auto-Zoom pe Element</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
@@ -1955,19 +1395,19 @@ Motiv:
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Mută Element</translation>
+        <translation type="vanished">Mută Element</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Duplică Element</translation>
+        <translation type="vanished">Duplică Element</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Șterge Element</translation>
+        <translation type="vanished">Șterge Element</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Seletează șablonul de mai jos</translation>
+        <translation type="vanished">Seletează șablonul de mai jos</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
@@ -1991,46 +1431,10 @@ Motiv:
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Imprimare...</translation>
+        <translation type="vanished">Imprimare...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotate Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Process Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature cut into clipboard</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2042,7 +1446,7 @@ Motiv:
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="vanished">X</translation>
     </message>
     <message>
         <source>Lon.</source>
@@ -2054,76 +1458,57 @@ Motiv:
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="vanished">Y</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Dist.</source>
-        <translation>Dist.</translation>
+        <translation type="vanished">Dist.</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Direcție</translation>
-    </message>
-</context>
-<context>
-    <name>NtripSourceTableFetcher</name>
-    <message>
-        <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Direcție</translation>
     </message>
 </context>
 <context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Nu se poate începe editarea</translation>
+        <translation type="vanished">Nu se poate începe editarea</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Nu se pot anula modificările din stratul %1</translation>
+        <translation type="vanished">Nu se pot anula modificările din stratul %1</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Nu se pot efectua modificări în stratul %1.</translation>
+        <translation type="vanished">Nu se pot efectua modificări în stratul %1.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>Nu se pot actualiza elementele de ordonare</translation>
+        <translation type="vanished">Nu se pot actualiza elementele de ordonare</translation>
     </message>
 </context>
 <context>
     <name>OverlayFeatureFormDrawer</name>
     <message>
         <source>Changes saved</source>
-        <translation>Modificări salvate</translation>
+        <translation type="vanished">Modificări salvate</translation>
     </message>
     <message>
         <source>Changes discarded</source>
-        <translation>Modificări nesalvate</translation>
+        <translation type="vanished">Modificări nesalvate</translation>
     </message>
     <message>
         <source>Last changes discarded</source>
@@ -2150,23 +1535,23 @@ Motiv:
     </message>
     <message>
         <source>Open File</source>
-        <translation>Deschideți fișier</translation>
+        <translation type="vanished">Deschideți fișier</translation>
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation>Toate Fișierele Acceptate</translation>
+        <translation type="vanished">Toate Fișierele Acceptate</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
-        <translation>Fișierele Proiectului QGIS</translation>
+        <translation type="vanished">Fișierele Proiectului QGIS</translation>
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>Baza de date Vectorială</translation>
+        <translation type="vanished">Baza de date Vectorială</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation>Baza de date Rastere</translation>
+        <translation type="vanished">Baza de date Rastere</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
@@ -2198,30 +1583,6 @@ Motiv:
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Removal Confirmation</source>
-        <translation>Confirmați Eliminarea</translation>
-    </message>
-    <message>
-        <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select Destination Folder</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2405,7 +1766,7 @@ Motiv:
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Dispozitiv intern</translation>
+        <translation type="vanished">Dispozitiv intern</translation>
     </message>
 </context>
 <context>
@@ -2436,42 +1797,18 @@ Motiv:
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation>TCP (NMEA)</translation>
+        <translation type="vanished">TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation>UDP (NMEA)</translation>
+        <translation type="vanished">UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Egeniouss</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connection type</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Name</source>
-        <translation>Nume</translation>
-    </message>
-    <message>
-        <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connection details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bluetooth BT + BLE (NMEA)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2479,54 +1816,38 @@ Motiv:
     <name>PositioningInformationModel</name>
     <message>
         <source>Altitude</source>
-        <translation>Altitudine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Viteză</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>Acurateţea H.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>Acurateţea V.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ortho.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>ant.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1/s</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2542,7 +1863,7 @@ Motiv:
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Lat</source>
@@ -2596,59 +1917,11 @@ Motiv:
 <context>
     <name>PositioningNtripSettings</name>
     <message>
-        <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Username</source>
-        <translation>Nume utilizator</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Parola</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Identifier:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Data format:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP SSL/TLS</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2656,241 +1929,24 @@ Motiv:
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>Dist.</translation>
+        <translation type="vanished">Dist.</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation>Precizia de poziționare este prea scăzută pentru acest nivel de precizie</translation>
-    </message>
-    <message>
-        <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotate view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotation source</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Compass</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Movement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Precizia de poziționare este prea scăzută pentru acest nivel de precizie</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>Dispozitiv intern</translation>
-    </message>
-</context>
-<context>
-    <name>ProcessingAlgorithmForm</name>
-    <message>
-        <source>General Parameters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Dispozitiv intern</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation>Favorite</translation>
-    </message>
-    <message>
-        <source>All Algorithms</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ProjectCreationScreen</name>
-    <message>
-        <source>Create a new project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New project name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your basemap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Colorful</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Darkgray</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lightgray</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Blank</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Take notes?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track your position?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Create Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatically upload changes on a regular interval</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ProjectUtils</name>
-    <message>
-        <source>Created Project</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Marker color</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Note</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tracks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Basemap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Media</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track color</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Note attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Attachments</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Polygon</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2910,64 +1966,13 @@ Motiv:
     </message>
 </context>
 <context>
-    <name>QFieldAudioRecorder</name>
-    <message>
-        <source>Audio Recorder</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCamera</name>
     <message>
-        <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Grid enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Grid disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>front</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>back</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Altitude</source>
-        <translation>Altitudine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Viteză</translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Details stamping disabled</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2975,56 +1980,48 @@ Motiv:
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[timeout] Solicitarea a durat prea mult pentru a fi finaliza, vă rugăm să reîcercați.</translation>
+        <translation type="vanished">[timeout] Solicitarea a durat prea mult pentru a fi finaliza, vă rugăm să reîcercați.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation>[abandonat] Cererea a fost abandonată.</translation>
+        <translation type="vanished">[abandonat] Cererea a fost abandonată.</translation>
     </message>
     <message>
         <source>Server Error.</source>
-        <translation>Eroare de Server.</translation>
+        <translation type="vanished">Eroare de Server.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation>Eroare de Rețea.</translation>
+        <translation type="vanished">Eroare de Rețea.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>Serverul nu a fost găsit, verificați adresa URL a serverului</translation>
+        <translation type="vanished">Serverul nu a fost găsit, verificați adresa URL a serverului</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation>Eroare timeout, încercați din nou</translation>
+        <translation type="vanished">Eroare timeout, încercați din nou</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation>Nume de utilizator sau parolă greșită</translation>
+        <translation type="vanished">Nume de utilizator sau parolă greșită</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation>Sesiunea a expirat</translation>
+        <translation type="vanished">Sesiunea a expirat</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>Autentificarea momentat indisponibilă</translation>
+        <translation type="vanished">Autentificarea momentat indisponibilă</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
+        <translation type="vanished">Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
 % 2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password missing</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3119,6 +2116,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>No changes have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded by %1 on %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3578,33 +2579,32 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Procesul de împachetare a fost finalizat, dar a eșuat pentru `%1`. %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>Nu s-au putut reîmprospăta cele mai recente informații pentru `%1`: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>Nu s-au putut obține cele mai recente date despre pachete.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>Cea mai recentă eroare de răspuns a datelor pachetului.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>Ultima eroare de structură a datelor pachetului.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>Proiectul %1: Stratul ambalat `%2` nu este valid. Cod de eroare %3, mesaj de eroare: %4</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Nu s-a putut deschide fișierul temporar pentru`%1`, motiv
-%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
@@ -3616,86 +2616,46 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Eroare de rețea. Nu s-a putut descărca fișierul `%1`.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Nu s-a putut copia unele dintre fișierele descărcate de pe dispozitiv. Verificați stocarea dispozitivului.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Proiect `%1`, fișier `%2`: %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System message: </source>
-        <translation>Mesaj sistem:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation> (vezi mai multe informații în jurnalul de modificări QField)…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Crearea punctului de lucru a fost finalizată, dar din răspunsul serverului lipsește câmpul: id(string)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Obținem stărea punctului de lucru, dar nu a fost declanșată încă nicio operație `%2` .</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>(%1) Răspunsul la starea punctului de lucru nu conține toate tastele așteptate: status(string)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>Job-ul(%1) încheiat, dar a eșuat.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>reîmprospătarea declanșatorului project(%1) nu conține toate tastele așteptate: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>aborted</source>
-        <translation>anulat</translation>
-    </message>
-    <message>
-        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>One or more files could not be uploaded</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3865,7 +2825,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>Proiect ocupat.</translation>
+        <translation type="vanished">Proiect ocupat.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
@@ -3930,18 +2890,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
         <translation type="vanished">Nu s-a putut copia unele dintre fișierele descărcate de pe dispozitiv. Verificați stocarea dispozitivului.</translation>
-    </message>
-    <message>
-        <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4183,44 +3131,13 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
 </context>
 <context>
-    <name>QFieldCloudStatus</name>
-    <message>
-        <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>A apărut o eroare de server, încercați din nou.</translation>
-    </message>
-    <message>
-        <source>A network error has occured, please try again.</source>
-        <translation>A apărut o eroare de rețea, încercați din nou.</translation>
-    </message>
-    <message>
-        <source>The project owner&apos;s available storage is full.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <source>A network error has occured, please try again.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4403,6 +3320,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Please select one or more files to push to QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send compressed file(s) to...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5385,10 +4306,381 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfAbstractGnssReceiver</name>
+    <message>
+        <source>Connecting…</source>
+        <translation>Se contectează...</translation>
+    </message>
+    <message>
+        <source>Successfully connected</source>
+        <translation>Conectat cu succes</translation>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation>Deconectat</translation>
+    </message>
+    <message>
+        <source>Socket state %1</source>
+        <translation>Stare socket %1</translation>
+    </message>
+</context>
+<context>
     <name>QfActionButton</name>
     <message>
         <source>close</source>
         <translation>închidere</translation>
+    </message>
+</context>
+<context>
+    <name>QfActiveLayerFeaturesLocatorFilter</name>
+    <message>
+        <source>Limit the search to the field &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open form</source>
+        <translation>Deschidere formular</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Setați elementul ca destinațiea</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Entitatea nu are nicio geometrie</translation>
+    </message>
+    <message>
+        <source>Features from active layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfAndroidProjectSource</name>
+    <message>
+        <source>File %1 does not exist</source>
+        <translation>Fișierul %1 nu există</translation>
+    </message>
+</context>
+<context>
+    <name>QfAppMissingGridHandler</name>
+    <message>
+        <source>No transform available between %1 and %2</source>
+        <translation>Nici o traducere disponibilă între %1 și %2</translation>
+    </message>
+    <message>
+        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>Aceast grid face parte din “&lt;i&gt;%1&lt;/i&gt;” pachet, disponibil pentru descărcare de la &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
+        <translation>Această grilă este disponibilă pentru descărcare de la &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>projection</source>
+        <translation>proiecție</translation>
+    </message>
+    <message>
+        <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
+        <translation>Această transformare necesită fișierul grid “%1”, care nu este disponibil pentru utilizare pe sistem.</translation>
+    </message>
+    <message>
+        <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>Acest grid face parte din &lt;i&gt;%1&lt;/i&gt; pachet, disponibil pentru descărcare de la &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Transformarea curentă“&lt;i&gt;%1&lt;/i&gt;” are o precizie de %2 metri, în timp ce transformarea preferată “&lt;i&gt;%3&lt;/i&gt;” are o precizie de %4 metri.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Transformarea curentă“&lt;i&gt;%1&lt;/i&gt;” are o precizie necunoscută, în timp ce transformarea preferată “&lt;i&gt;%2&lt;/i&gt;” are o precizie de%3 metri.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Transformarea favorită între&lt;i&gt;%1&lt;/i&gt; și&lt;i&gt;%2&lt;/i&gt; nu este disponibil pentru utilizare în sistem.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
+        <translation>Nu este disponibilă nicio transformare între &lt;i&gt;%1&lt;/i&gt; și &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>Cannot use project transform between %1 and %2</source>
+        <translation>Nu se poate folosi transformarea proiectului între %1 și %2</translation>
+    </message>
+    <message>
+        <source>Used a ballpark transform from %1 to %2</source>
+        <translation>A fost folosită transformarea &quot;ballpark&quot; de la %1 la %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfAttributeFormModelBase</name>
+    <message>
+        <source>Expression constraint</source>
+        <translation>Constrângere la nivelul expresiei</translation>
+    </message>
+    <message>
+        <source>Not NULL</source>
+        <translation>Nu este NULL</translation>
+    </message>
+    <message>
+        <source>Unique</source>
+        <translation>Valoare unică</translation>
+    </message>
+</context>
+<context>
+    <name>QfAudioRecorder</name>
+    <message>
+        <source>Audio Recorder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceChooser</name>
+    <message>
+        <source>Scan for nearby devices</source>
+        <translation>Scanare dispozitive din apropiere</translation>
+    </message>
+    <message>
+        <source>Select the Bluetooth device from the list below:</source>
+        <translation>Selectați dispozitivul Bluetooth din lista de mai jos:</translation>
+    </message>
+    <message>
+        <source>No Bluetooth devices detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scanning error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scanning for paired devices</source>
+        <translation>Scanare pentru dispozitive asociate</translation>
+    </message>
+    <message>
+        <source>Scanning failed: %1</source>
+        <translation>Scanarea a eșuat: %1</translation>
+    </message>
+    <message>
+        <source>Scanning done</source>
+        <translation>Scanare cu succes</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n device(s) found</source>
+        <translation><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform><numerusform>%n dispozitiv(e) găsite</numerusform></translation>
+    </message>
+    <message>
+        <source>Scanning canceled</source>
+        <translation>Scanare anulată</translation>
+    </message>
+    <message>
+        <source>Use Bluetooth Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth device name:</source>
+        <translation>Numele dispozitivului Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device address:</source>
+        <translation>Adresa dispozitivului Bluetooth:</translation>
+    </message>
+    <message>
+        <source>Bluetooth device configuration:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Low Energy (BLE)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic (BT)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBluetoothDeviceModel</name>
+    <message>
+        <source>Bluetooth permission denied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission denied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location permission is required to scan for bluetooth devices</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkList</name>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark List Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle Bookmark Selection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export All User Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks exported</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Selected Bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark Actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Bookmark Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Detalii marcaj copiate în clipboard</translation>
+    </message>
+    <message>
+        <source>Delete Bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Elimină marcaj</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Sunteți pe cale să eliminați un marcaj, continuați?</translation>
+    </message>
+    <message>
+        <source>Delete bookmark(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n selected bookmark(s) really be deleted?</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Deleted %n bookmark(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Orange</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Semn de carte nedenumit</translation>
+    </message>
+    <message>
+        <source>No bookmarks yet</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkLocatorFilter</name>
+    <message>
+        <source>Navigate to bookmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Spatial bookmarks</source>
+        <translation>Marcaj spațial</translation>
+    </message>
+    <message>
+        <source>Returns a list of user and currently open project bookmarks with matching names.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkProperties</name>
+    <message>
+        <source>Bookmark Properties</source>
+        <translation>Proprietăți Marcaje</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmark details copied to clipboard</source>
+        <translation>Detalii marcaj copiate în clipboard</translation>
+    </message>
+    <message>
+        <source>Remove bookmark</source>
+        <translation>Elimină marcaj</translation>
+    </message>
+    <message>
+        <source>You are about to remove a bookmark, proceed?</source>
+        <translation>Sunteți pe cale să eliminați un marcaj, continuați?</translation>
+    </message>
+</context>
+<context>
+    <name>QfBookmarkRenderer</name>
+    <message>
+        <source>Bookmark: %1</source>
+        <translation>Marcaj: %1</translation>
+    </message>
+    <message>
+        <source>Project bookmarks cannot be edited</source>
+        <translation>Marcajele proiectului nu pot fi editate</translation>
+    </message>
+</context>
+<context>
+    <name>QfBrowserPanel</name>
+    <message>
+        <source>Browser</source>
+        <translation>Navigator</translation>
     </message>
 </context>
 <context>
@@ -5459,9 +4751,388 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfCamera</name>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Altitude</source>
+        <translation>Altitudine</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Viteză</translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Details stamping disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geotagging enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Geotagging disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid enabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Grid disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>front</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudConnection</name>
+    <message>
+        <source>Authentication provider missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password missing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Login error due to unexpected redirect, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server not found, please check the server URL</source>
+        <translation>Serverul nu a fost găsit, verificați adresa URL a serverului</translation>
+    </message>
+    <message>
+        <source>Timeout error, please retry</source>
+        <translation>Eroare timeout, încercați din nou</translation>
+    </message>
+    <message>
+        <source>Wrong username or password</source>
+        <translation>Nume de utilizator sau parolă greșită</translation>
+    </message>
+    <message>
+        <source>Session expired</source>
+        <translation>Sesiunea a expirat</translation>
+    </message>
+    <message>
+        <source>Login temporary unavailable</source>
+        <translation>Autentificarea momentat indisponibilă</translation>
+    </message>
+    <message>
+        <source>[timeout] The request took too long to finish, please retry.</source>
+        <translation>[timeout] Solicitarea a durat prea mult pentru a fi finaliza, vă rugăm să reîcercați.</translation>
+    </message>
+    <message>
+        <source>[aborted] The request has been aborted.</source>
+        <translation>[abandonat] Cererea a fost abandonată.</translation>
+    </message>
+    <message>
+        <source>Server Error.</source>
+        <translation>Eroare de Server.</translation>
+    </message>
+    <message>
+        <source>Network Error.</source>
+        <translation>Eroare de Rețea.</translation>
+    </message>
+    <message>
+        <source>Failed to upload attachment stored at `%1`, reason:
+%2</source>
+        <translation>Nu s-a putut încărca atașamentul stocat la `%1`, motiv:
+% 2</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudProject</name>
+    <message>
+        <source>Failed to open temporary file for `%1`, reason:
+%2</source>
+        <translation>Nu s-a putut deschide fișierul temporar pentru`%1`, motiv
+%2</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write attachment to temporary location `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download attachment `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Packaging job finished unsuccessfully for `%1`. %2</source>
+        <translation>Procesul de împachetare a fost finalizat, dar a eșuat pentru `%1`. %2</translation>
+    </message>
+    <message>
+        <source>Failed to refresh the latest info for `%1`: %2</source>
+        <translation>Nu s-au putut reîmprospăta cele mai recente informații pentru `%1`: %2</translation>
+    </message>
+    <message>
+        <source>Failed to get latest package data.</source>
+        <translation>Nu s-au putut obține cele mai recente date despre pachete.</translation>
+    </message>
+    <message>
+        <source>Latest package data response error.</source>
+        <translation>Cea mai recentă eroare de răspuns a datelor pachetului.</translation>
+    </message>
+    <message>
+        <source>Latest package data structure error.</source>
+        <translation>Ultima eroare de structură a datelor pachetului.</translation>
+    </message>
+    <message>
+        <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
+        <translation>Proiectul %1: Stratul ambalat `%2` nu este valid. Cod de eroare %3, mesaj de eroare: %4</translation>
+    </message>
+    <message>
+        <source>File system error. Failed to write to partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system error. Failed to open partial file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to download file `%1`.</source>
+        <translation>Eroare de rețea. Nu s-a putut descărca fișierul `%1`.</translation>
+    </message>
+    <message>
+        <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
+        <translation>Nu s-a putut copia unele dintre fișierele descărcate de pe dispozitiv. Verificați stocarea dispozitivului.</translation>
+    </message>
+    <message>
+        <source>Project `%1`, file `%2`: %3</source>
+        <translation>Proiect `%1`, fișier `%2`: %3</translation>
+    </message>
+    <message>
+        <source>System message: </source>
+        <translation>Mesaj sistem:</translation>
+    </message>
+    <message>
+        <source> (see more in the QField error log)…</source>
+        <translation> (vezi mai multe informații în jurnalul de modificări QField)…</translation>
+    </message>
+    <message>
+        <source>Job creation finished, but the server response is missing required fields: id(string)</source>
+        <translation>Crearea punctului de lucru a fost finalizată, dar din răspunsul serverului lipsește câmpul: id(string)</translation>
+    </message>
+    <message>
+        <source>Getting job status, but no `%2` job triggered yet.</source>
+        <translation>Obținem stărea punctului de lucru, dar nu a fost declanșată încă nicio operație `%2` .</translation>
+    </message>
+    <message>
+        <source>job(%1) status response does not contain all the expected keys: status(string)</source>
+        <translation>(%1) Răspunsul la starea punctului de lucru nu conține toate tastele așteptate: status(string)</translation>
+    </message>
+    <message>
+        <source>Job(%1) finished with a failed status.</source>
+        <translation>Job-ul(%1) încheiat, dar a eșuat.</translation>
+    </message>
+    <message>
+        <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
+        <translation>reîmprospătarea declanșatorului project(%1) nu conține toate tastele așteptate: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+    </message>
+    <message>
+        <source>aborted</source>
+        <translation>anulat</translation>
+    </message>
+    <message>
+        <source>Local path doesn&apos;t exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload cannot be used as it has multiple project files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local path to upload is missing a valid project file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error. Failed to upload file `%1`.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One or more files could not be uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudProjectsModel</name>
+    <message>
+        <source>Project busy.</source>
+        <translation>Proiect ocupat.</translation>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation requires a name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud project could not be created.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudUtils</name>
+    <message>
+        <source>A server error has occured, please try again.</source>
+        <translation>A apărut o eroare de server, încercați din nou.</translation>
+    </message>
+    <message>
+        <source>A network error has occured, please try again.</source>
+        <translation>A apărut o eroare de rețea, încercați din nou.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expected the json document to be an array of delta status</source>
+        <translation>Se aștepta ca documentul json să fie o matrice de stare delta</translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object, but the element at #%1 is not</source>
+        <translation>Se așteaptă ca toate elementele matricei să fie un obiect, dar elementul de la #%1 nu este</translation>
+    </message>
+    <message>
+        <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
+        <translation>Se așteaptă ca toate elementele matricei să fie un obiect care conține o cheie „% 1 ”, dar elementul de la #% 2 nu este</translation>
+    </message>
+    <message>
+        <source>Unrecognized status &quot;%1&quot; for $%2</source>
+        <translation>Stare necunoscută &quot;%1&quot; pentru $%2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) created</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) edited</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n feature(s) deleted</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>%1 in layer %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCodeReader</name>
+    <message>
+        <source>No readable code found in the selected image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NFC text tag detected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code Reader</source>
+        <translation>Cititor de Cod</translation>
+    </message>
+    <message>
+        <source>Center your device on a code</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterAngle</name>
+    <message>
+        <source>deg</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCogoParameterPoint</name>
+    <message>
+        <source>latitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>longitude</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>easting [X]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>northing [Y]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>elevation [Z]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5489,6 +5160,1064 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfDigitizingLogger</name>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
+        <translation>Expresia valorii implicite pentru câmpul %2 al înregistratorului de digitizare are o eroare de parser: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
+        <translation>Expresia valorii implicite pentru câmpul %2 al înregistratorului de digitizare are o eroare de evaluare: %3</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer feature addition failed</source>
+        <translation>Adăugarea elementului de digitizare a jurnalelor cu modificări pe straturi, a eșuat</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer change commits failed</source>
+        <translation>Digitizarea jurnalelor cu modificări ale stratului, a eșuat</translation>
+    </message>
+    <message>
+        <source>Digitizing logs layer editing failed</source>
+        <translation>Editarea straturilor de jurnale digitale a eșuat</translation>
+    </message>
+</context>
+<context>
+    <name>QfDigitizingToolbar</name>
+    <message>
+        <source>The collected positions count does not meet the requirement</source>
+        <translation>Numărul de poziții colectate nu îndeplinește cerința</translation>
+    </message>
+    <message>
+        <source>Cancel digitizing</source>
+        <translation>Anulați digitizarea</translation>
+    </message>
+    <message>
+        <source>Should the digitized geometry be discarded?</source>
+        <translation>Ar trebui să se renunțe la geometria digitalizată?</translation>
+    </message>
+    <message>
+        <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
+        <translation>Precizia poziției nu îndeplinește cerința minimă, vertexul nu este adăugat</translation>
+    </message>
+</context>
+<context>
+    <name>QfDrawingTemplateModel</name>
+    <message>
+        <source>Blank</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBase</name>
+    <message>
+        <source>Item Menu</source>
+        <translation>Meniu Elemente</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetBinary</name>
+    <message>
+        <source>(Blob)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetCheckBox</name>
+    <message>
+        <source>True</source>
+        <translation>Adevărat</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Fals</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetDateTime</name>
+    <message>
+        <source>(no date)</source>
+        <translation>(fără dată)</translation>
+    </message>
+    <message>
+        <source>Date value set to today.</source>
+        <translation>Valoarea datei este cea de astăzi.</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetExternalResource</name>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>No Value</source>
+        <translation>Fără Valoare</translation>
+    </message>
+    <message>
+        <source>Cannot handle this file type</source>
+        <translation>Nu poate folosi acest tip de fișier</translation>
+    </message>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take a photo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take a video</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record an audio clip</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attach a gallery item</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attach a file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Draw a sketch</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetRange</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+</context>
+<context>
+    <name>QfEditorWidgetTextEdit</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Copy Text</source>
+        <translation>Copiați Textul</translation>
+    </message>
+    <message>
+        <source>Paste Text</source>
+        <translation>Inserați Textul</translation>
+    </message>
+    <message>
+        <source>Scan Code</source>
+        <translation>Scanați Codul</translation>
+    </message>
+</context>
+<context>
+    <name>QfEgenioussReceiver</name>
+    <message>
+        <source>Failed to start egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to stop egeniouss server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to process</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid start byte</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Received data is too short to contain the payload</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to parse JSON</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nu s-a putut găsi gazda la distanță</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfElevationProfile</name>
+    <message>
+        <source>Rendering elevation profile…</source>
+        <translation>Se generează profilul elevației...</translation>
+    </message>
+    <message>
+        <source>Digitize a path to render the elevation profile</source>
+        <translation>Digitizați o cale pentru a reda profilul elevației</translation>
+    </message>
+</context>
+<context>
+    <name>QfExpressionCalculatorLocatorFilter</name>
+    <message>
+        <source>Copy “%1” to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Calculator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns the value of an expression typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfExpressionVariableModel</name>
+    <message>
+        <source>Not Available</source>
+        <translation>Indisponibil</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureForm</name>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The last entered value for this field will be remembered and reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The last entered value for this field will not be reused when creating new features</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Value applied</source>
+        <translation>Valoare aplicată</translation>
+    </message>
+    <message>
+        <source>Value skipped</source>
+        <translation>Valoare omisă</translation>
+    </message>
+    <message>
+        <source> (click to toggle)</source>
+        <translation> (clic pentru inversare)</translation>
+    </message>
+    <message>
+        <source>Soft constraints were not satisified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature addition disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unable to save changes</source>
+        <translation>Nu se pot salva modificările</translation>
+    </message>
+    <message>
+        <source>Add feature on %1</source>
+        <translation>Adăugare entitate în %1</translation>
+    </message>
+    <message>
+        <source>Edit feature on %1</source>
+        <translation>Editare entitate din %1</translation>
+    </message>
+    <message>
+        <source>View feature on %1</source>
+        <translation>Vizualizare entitate din %1</translation>
+    </message>
+    <message>
+        <source>Feature Form Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forget All Reusable Values</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel editing</source>
+        <translation>Anulează editarea</translation>
+    </message>
+    <message>
+        <source>You are about to dismiss the new feature, proceed?</source>
+        <translation>Sunteți pe cale să pierdeți noul element adăugat, continuați?</translation>
+    </message>
+    <message>
+        <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
+        <translation>Sunteți pe cale să închideți modul editare, orice modificări vor fi pierdute. Continuați?</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureHistory</name>
+    <message>
+        <source>Failed to undo created features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to undo update features in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo creation of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo deletion of %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s) on layer %1.</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Undo modifications on %n feature(s).</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo creation of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo deletion of %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s) on layer %1</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Redo modifications on %n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureListForm</name>
+    <message>
+        <source>Features</source>
+        <translation>Entități</translation>
+    </message>
+    <message>
+        <source>Processing Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Changes saved</source>
+        <translation>Modificări salvate</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Modificări nesalvate</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit attributes</source>
+        <translation>Opriți urmărirea acestui element pentru a edita atribute</translation>
+    </message>
+    <message>
+        <source>Stop tracking this feature to edit geometry</source>
+        <translation>Opriți urmărirea acestui element pentru a edita geometria</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Element duplicat cu succes</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to delete those</source>
+        <translation>O serie de elemente sunt urmărite, opriți urmărirea pentru a le șterge</translation>
+    </message>
+    <message>
+        <source>A number of features are being tracked, stop tracking to merge those</source>
+        <translation>O serie de elemente sunt urmărite, opriți urmărirea pentru a le putea îmbina</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated selected features, list updated to show newly-created features</source>
+        <translation>Elementele selectate au fost duplicate cu succes, lista a fost actualizată pentru a afișa elementele nou create</translation>
+    </message>
+    <message>
+        <source>No feature at this position</source>
+        <translation>Nici o entitate în această poziție</translation>
+    </message>
+    <message>
+        <source>Merge feature(s)</source>
+        <translation>Îmbină element(ele)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be merge?
+
+The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
+        <comment>0</comment>
+        <translation><numerusform>Sigur doriți îmbinarea elemente(lor) %n ?
+
+Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, care își va păstra atributele.</numerusform><numerusform>Sigur doriți îmbinarea elemente(lor) %n ?
+
+Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, care își va păstra atributele.</numerusform><numerusform>Sigur doriți îmbinarea elemente(lor) %n ?
+
+Caracteristicile geometriilor vor fi combinate în elementul &apos;%1&apos;, care își va păstra atributele.</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully merged %n feature(s)</source>
+        <translation><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform><numerusform>Caracteristicile %n îmbinată(e) cu succes</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to merge %n feature(s)</source>
+        <translation><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform><numerusform>Îmbinarea elemente(lor) %n a eșuat</numerusform></translation>
+    </message>
+    <message>
+        <source>Transfer Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were transferred</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete feature(s)</source>
+        <translation>Ștergere entit(ăți)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Should the %n feature(s) selected really be deleted?</source>
+        <comment>0</comment>
+        <translation><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform><numerusform>Funcția %n selectată (selectate) trebuie ștearsă cu adevărat?</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Successfully deleted %n feature(s)</source>
+        <translation><numerusform>Ștergerea element(elor) %n cu succes</numerusform><numerusform>Ștergerea element(elor) %n cu succes</numerusform><numerusform>Ștergerea element(elor) %n cu succes</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>Failed to delete %n feature(s)</source>
+        <translation><numerusform>Ștergerea element(elor) %n a eșuat</numerusform><numerusform>Ștergerea element(elor) %n a eșuat</numerusform><numerusform>Ștergerea element(elor) %n a eșuat</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QfFeatureModel</name>
+    <message>
+        <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
+        <translation>Valoarea &quot;%1&quot; %4 nu a putut fi convertită la o valoare permisă de câmpul %2(%3).</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has parser error: %3</source>
+        <translation>Expresia valorii implicite pentru %1:%2 are eroarea de parcurgere: %3</translation>
+    </message>
+    <message>
+        <source>Default value expression for %1:%2 has evaluation error: %3</source>
+        <translation>Expresia valorii implicite pentru %1:%2 are eroarea de evaluare: %3</translation>
+    </message>
+    <message>
+        <source>Cannot update feature</source>
+        <translation>Nu se poate actualiza entitatea</translation>
+    </message>
+    <message>
+        <source>Feature %1 could not be fetched after commit</source>
+        <translation>Entitatea %1 nu a putut fi preluată după commit</translation>
+    </message>
+    <message>
+        <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
+        <translation>Nu se poate starta editarea stratului &quot;%1&quot; pentru a crea entitatea %2</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
+        <translation>Stratul &quot;%1&quot; a fost salvat, dar noul element %2 creat nu poate fi preluat</translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
+%3</source>
+        <translation>Stratul &quot;%1&quot; nu poate fi acceptat cu noul element %2 creat.
+Motiv:
+%3</translation>
+    </message>
+    <message>
+        <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
+        <translation>Entitatea %2 nu a putut fi adăugată în stratul &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Could not save changes. Rolling back.</source>
+        <translation>Nu s-au putut salva modificările. Revenire.</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Nu se poate începe editarea</translation>
+    </message>
+</context>
+<context>
+    <name>QfFeaturesLocatorFilter</name>
+    <message>
+        <source>Open form</source>
+        <translation>Deschidere formular</translation>
+    </message>
+    <message>
+        <source>Set feature as destination</source>
+        <translation>Setați elementul ca destinațiea</translation>
+    </message>
+    <message>
+        <source>Feature has no geometry</source>
+        <translation>Entitatea nu are nicio geometrie</translation>
+    </message>
+    <message>
+        <source>Features in all layers</source>
+        <translation>Elementele din toate straturile</translation>
+    </message>
+    <message>
+        <source>Returns a list of features accross all searchable layers with matching display name.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfFileDeviceChooser</name>
+    <message>
+        <source>File path</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interval (in milliseconds)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfFinlandLocatorFilter</name>
+    <message>
+        <source>Finnish address search</source>
+        <translation>Căutarea adresei Finlandeze</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorErase</name>
+    <message>
+        <source>The geometry could not be modified into multiple parts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The geometry could not be modified</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorFillRing</name>
+    <message>
+        <source>The ring is not closed</source>
+        <translation>Cercul nu este închis</translation>
+    </message>
+    <message>
+        <source>The ring is not valid</source>
+        <translation>Cercul nu este valid</translation>
+    </message>
+    <message>
+        <source>The ring crosses existing rings (it is not disjoint)</source>
+        <translation>Cercul se intersectează cu alte cercuri existente (dacă nu este disjoint)</translation>
+    </message>
+    <message>
+        <source>The ring doesn&apos;t have any existing ring to fit into</source>
+        <translation>Cercul nu are nici un cerc existent pentru a se potrivi în interior</translation>
+    </message>
+    <message>
+        <source>Unknown error when creating the ring</source>
+        <translation>Eroare necunoscută la crearea cercului</translation>
+    </message>
+    <message>
+        <source>Fill ring</source>
+        <translation>Umpleți cercul</translation>
+    </message>
+    <message>
+        <source>Would you like to fill the ring with a new polygon?</source>
+        <translation>Vreți să umpleți cercul cu un poligon nou?</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorReshape</name>
+    <message>
+        <source>The geometry could not be reshaped</source>
+        <translation>Geometria nu poate fi remodelată</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorSplitFeature</name>
+    <message>
+        <source>Feature could not be split</source>
+        <translation>Elementul nu a putut fi divizat</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorVertexEditor</name>
+    <message>
+        <source>Failed to save feature!</source>
+        <translation>Salvarea elementului a eșuat!</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeometryEditorsToolbar</name>
+    <message>
+        <source>Vertex Tool</source>
+        <translation>Instrument Vertex</translation>
+    </message>
+    <message>
+        <source>Split Tool</source>
+        <translation>Instrument Divizare</translation>
+    </message>
+    <message>
+        <source>Reshape Tool</source>
+        <translation>Instrument Remodelare</translation>
+    </message>
+    <message>
+        <source>Erase Tool</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fill Ring Tool</source>
+        <translation>Instrument Umplere Cerc</translation>
+    </message>
+</context>
+<context>
+    <name>QfGotoLocatorFilter</name>
+    <message>
+        <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
+        <translation>Mergi la %1%2 %3%4 (Hartă CRS, %5)</translation>
+    </message>
+    <message>
+        <source>Set navigation point</source>
+        <translation>Seteză punct de navigare</translation>
+    </message>
+    <message>
+        <source>Go to %1°N %2°E (%3)</source>
+        <translation>Mergi la %1°N %2°E (%3)</translation>
+    </message>
+    <message>
+        <source>Go to coordinate</source>
+        <translation>Mergi la coordonate</translation>
+    </message>
+    <message>
+        <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfHelpLocatorFilter</name>
+    <message>
+        <source>QField Documentation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Returns QField documentation pages matching terms.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfInformationDrawer</name>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Poziționare</translation>
+    </message>
+    <message>
+        <source>NTRIP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Elevation profile</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfInformationPopup</name>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerLoginDialog</name>
+    <message>
+        <source>Credentials Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nume utilizator</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLayerObserver</name>
+    <message>
+        <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
+        <translation>Nu s-a putut găsi o coloană principală locală în stratul &quot;%1&quot;</translation>
+    </message>
+    <message>
+        <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
+        <translation>Nu s-a putut găsi o coloană principală sursă în stratul &quot;%1&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerTreeItemProperties</name>
+    <message>
+        <source>Expand group</source>
+        <translation>Extindeți grup</translation>
+    </message>
+    <message>
+        <source>Expand legend item</source>
+        <translation>Extindeți legenda elementelor</translation>
+    </message>
+    <message>
+        <source>Stop tracking</source>
+        <translation>Încetare urmărire</translation>
+    </message>
+    <message>
+        <source>Setup tracking</source>
+        <translation>Setează urmărirea</translation>
+    </message>
+    <message>
+        <source>Reload of layer %1 triggered</source>
+        <translation>Reîncărcarea stratului %1 declanșată</translation>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
+    </message>
+    <message>
+        <source>Show on map</source>
+        <translation>Arată pe hartă</translation>
+    </message>
+    <message>
+        <source>Show labels</source>
+        <translation>Arată etichetele</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacitate</translation>
+    </message>
+    <message>
+        <source>Zoom to group</source>
+        <translation>Zoom pe grup</translation>
+    </message>
+    <message>
+        <source>Zoom to parent layer</source>
+        <translation>Zoom pe stratul principal</translation>
+    </message>
+    <message>
+        <source>Zoom to layer</source>
+        <translation>Zoom pe strat</translation>
+    </message>
+    <message>
+        <source>Show features list</source>
+        <translation>Arată lista elementelor</translation>
+    </message>
+    <message>
+        <source>The layer has no features</source>
+        <translation>Stratul nu are elemente</translation>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read-only layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature addition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>attribute editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>geometry editing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feature deletion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled layer permissions: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Features Menu</source>
+        <translation>Arată meniul entităților</translation>
+    </message>
+    <message>
+        <source>Show visible features list</source>
+        <translation>Arată lista entităților vizibile</translation>
+    </message>
+</context>
+<context>
+    <name>QfLayerUtils</name>
+    <message>
+        <source>Cannot start editing, no layer</source>
+        <translation>Fără straturi nu se poate începe editarea</translation>
+    </message>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Nu se poate începe editarea</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Nu se poate efectua ștergerea elementelor %2 din stratul &quot;%1&quot;. Motiv:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+%3</source>
+        <translation>Nu se poate efectua ștergerea elementelor din stratul &quot;%1&quot;. Motiv:
+%3</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature %1</source>
+        <translation>Nu se poate șterge entitatea %1</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Nu se pot anula modificările din stratul %1</translation>
+    </message>
+    <message>
+        <source>Cannot copy invalid feature</source>
+        <translation>Nu se poate copia elementul invalid</translation>
+    </message>
+    <message>
+        <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
+%2</source>
+        <translation>Nu se poate adăuga un element nou în strat &quot;%1&quot;. Motiv:
+%2</translation>
+    </message>
+</context>
+<context>
+    <name>QfLegend</name>
+    <message>
+        <source>Tracking active on this layer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracking on layer %1 stopped</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
+        <translation>Acest strat este invalid. Acest lucru se poate datora unei probleme de rețea, a unui fișier lipsă sau a configurării greșite a proiectului.</translation>
+    </message>
+    <message>
+        <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
+        <translation>Acest strat este configurat ca &quot;Read-Only&quot; ceea ce dezactivează adăugarea, ștergerea și editarea elementelor.</translation>
+    </message>
+    <message>
+        <source>The permissions configuration of this layer disables feature addition.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLocalFilesModel</name>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QField files directory</source>
+        <translation>Fișierele Directorului QField</translation>
+    </message>
+    <message>
+        <source>Created projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Imported projects</source>
+        <translation>Proiecte Importate</translation>
+    </message>
+    <message>
+        <source>Imported datasets</source>
+        <translation>Baze de date Importate</translation>
+    </message>
+    <message>
+        <source>Additional files directory</source>
+        <translation>Directorul cu fișiere suplimentare</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorFiltersModel</name>
+    <message>
+        <source>Search filters for your locations have been activated, customize results in the settings panel</source>
+        <translation>Filtrele de căutare pentru locațiile dvs. au fost activate. Personalizați rezultatele în panoul de setări</translation>
+    </message>
+</context>
+<context>
+    <name>QfLocatorItem</name>
+    <message>
+        <source>To search features within the active layer, select a vector layer through the legend.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activate a vector layer in the legend first to use this functionality</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfLocatorSettings</name>
+    <message>
+        <source>Search Bar Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable %1 locator by default</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfMessageLog</name>
+    <message>
+        <source>Message Logs</source>
+        <translation>Jurnalele Mesajelor</translation>
+    </message>
+    <message>
+        <source>Message text copied</source>
+        <translation>Textul mesajului a fost copiat</translation>
+    </message>
+    <message>
+        <source>Log runtime profiler</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Clear message log</source>
+        <translation>Curăță jurnalul cu modificări</translation>
+    </message>
+    <message>
+        <source>Message log cleared</source>
+        <translation>Jurnalul cu modificări a fost curățat</translation>
+    </message>
+    <message>
+        <source>Send application log</source>
+        <translation>Trimiteți jurnalul cu modificări al aplicației</translation>
+    </message>
+    <message>
+        <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type optional details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Include cloud user details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your application log is being sent…</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
@@ -5504,6 +6233,201 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfMultiFeatureListModelBase</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Nu se poate începe editarea</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Nu se pot anula modificările din stratul %1</translation>
+    </message>
+    <message>
+        <source>Cannot change geometry of feature %1 in %2</source>
+        <translation>Nu se poate modifica geometria elementului %1 din %2</translation>
+    </message>
+</context>
+<context>
+    <name>QfNavigationBar</name>
+    <message>
+        <source>Features</source>
+        <translation>Entități</translation>
+    </message>
+    <message>
+        <source>Feature List Menu</source>
+        <translation>Lista Meniului Elementelor</translation>
+    </message>
+    <message>
+        <source>Toggle Feature Selection</source>
+        <translation>Pornește Selecția Elementelor</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s) to PDF</source>
+        <translation>Printează Element(ele) Atlas ca PDF</translation>
+    </message>
+    <message>
+        <source>Merge Selected Features</source>
+        <translation>Îmbină Elementele Selectate</translation>
+    </message>
+    <message>
+        <source>Move Selected Feature(s)</source>
+        <translation>Mută Element(ele) Selectate</translation>
+    </message>
+    <message>
+        <source>Duplicate Selected Feature(s)</source>
+        <translation>Duplică Element(ele) Selectate</translation>
+    </message>
+    <message>
+        <source>Delete Selected Feature(s)</source>
+        <translation>Șterge Element(ele) Selectate</translation>
+    </message>
+    <message>
+        <source>Process Selected Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature Menu</source>
+        <translation>Meniu Elemente</translation>
+    </message>
+    <message>
+        <source>Feature cut into clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature copied to clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature attributes updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No feature attributes were updated from clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature set as navigation destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Zoom to Feature</source>
+        <translation>Zoom pe Element</translation>
+    </message>
+    <message>
+        <source>Auto-Zoom to Feature</source>
+        <translation>Auto-Zoom pe Element</translation>
+    </message>
+    <message>
+        <source>Process Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Move Feature</source>
+        <translation>Mută Element</translation>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplică Element</translation>
+    </message>
+    <message>
+        <source>Rotate Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update Attributes from Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Șterge Element</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Seletează șablonul de mai jos</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Imprimare...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfNavigationInformationView</name>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>Dist.</source>
+        <translation>Dist.</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Direcție</translation>
+    </message>
+</context>
+<context>
+    <name>QfNtripSourceTableFetcher</name>
+    <message>
+        <source>Unexpected response from NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected before receiving source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No mountpoints found in NTRIP source table</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP source table fetch error: </source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfOrderedRelationModel</name>
+    <message>
+        <source>Cannot start editing</source>
+        <translation>Nu se poate începe editarea</translation>
+    </message>
+    <message>
+        <source>Cannot rollback layer changes in layer %1</source>
+        <translation>Nu se pot anula modificările din stratul %1</translation>
+    </message>
+    <message>
+        <source>Cannot commit layer changes in layer %1.</source>
+        <translation>Nu se pot efectua modificări în stratul %1.</translation>
+    </message>
+    <message>
+        <source>Cannot update features ordering</source>
+        <translation>Nu se pot actualiza elementele de ordonare</translation>
+    </message>
+</context>
+<context>
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
@@ -5511,10 +6435,816 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
 </context>
 <context>
+    <name>QfOverlayFeatureFormDrawer</name>
+    <message>
+        <source>Changes saved</source>
+        <translation>Modificări salvate</translation>
+    </message>
+    <message>
+        <source>Changes discarded</source>
+        <translation>Modificări nesalvate</translation>
+    </message>
+</context>
+<context>
+    <name>QfPlatformUtilities</name>
+    <message>
+        <source>Select ZIP Archive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ZIP Archives (*.zip)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Destination Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Removal Confirmation</source>
+        <translation>Confirmați Eliminarea</translation>
+    </message>
+    <message>
+        <source>The dataset will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project folder will be deleted, proceed with removal?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save file resource</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Image File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open File</source>
+        <translation>Deschideți fișier</translation>
+    </message>
+    <message>
+        <source>All Supported Files</source>
+        <translation>Toate Fișierele Acceptate</translation>
+    </message>
+    <message>
+        <source>QGIS Project Files</source>
+        <translation>Fișierele Proiectului QGIS</translation>
+    </message>
+    <message>
+        <source>Vector Datasets</source>
+        <translation>Baza de date Vectorială</translation>
+    </message>
+    <message>
+        <source>Raster Datasets</source>
+        <translation>Baza de date Rastere</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceModel</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Dispozitiv intern</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningDeviceSettings</name>
+    <message>
+        <source>Egeniouss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth BT + BLE (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Logs file (NMEA)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Device Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nume</translation>
+    </message>
+    <message>
+        <source> (leave empty to auto-fill)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connection details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP (NMEA)</source>
+        <translation>TCP (NMEA)</translation>
+    </message>
+    <message>
+        <source>UDP (NMEA)</source>
+        <translation>UDP (NMEA)</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationModel</name>
+    <message>
+        <source>Altitude</source>
+        <translation>Altitudine</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Viteză</translation>
+    </message>
+    <message>
+        <source>H. Accuracy</source>
+        <translation>Acurateţea H.</translation>
+    </message>
+    <message>
+        <source>V. Accuracy</source>
+        <translation>Acurateţea V.</translation>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ortho.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ant.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+</context>
+<context>
+    <name>QfPositioningNtripSettings</name>
+    <message>
+        <source>NTRIP Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP Revision 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NTRIP SSL/TLS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nume utilizator</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifier:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data format:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward position to NTRIP caster</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningPreciseView</name>
+    <message>
+        <source>Dist.</source>
+        <translation>Dist.</translation>
+    </message>
+    <message>
+        <source>Positioning accuracy too low for this precision level</source>
+        <translation>Precizia de poziționare este prea scăzută pentru acest nivel de precizie</translation>
+    </message>
+    <message>
+        <source>Audio proximity feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotate view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation source</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Compass</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Precision</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfPositioningSettings</name>
+    <message>
+        <source>Internal device</source>
+        <translation>Dispozitiv intern</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmForm</name>
+    <message>
+        <source>General Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced Parameters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There are no general parameters attached to this algorithm.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Algorithm description</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProcessingAlgorithmsList</name>
+    <message>
+        <source>Favorites</source>
+        <translation>Favorite</translation>
+    </message>
+    <message>
+        <source>All Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterArea</name>
+    <message>
+        <source>square degrees</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. kilometers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. feet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. yards</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>hectares</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>acres</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. nautical miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. centimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. millimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sqr. inches</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterBoolean</name>
+    <message>
+        <source>True</source>
+        <translation>Adevărat</translation>
+    </message>
+    <message>
+        <source>False</source>
+        <translation>Fals</translation>
+    </message>
+</context>
+<context>
+    <name>QfProcessingParameterDistance</name>
+    <message>
+        <source>degrees</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;unknown&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>kilometers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>feet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>yards</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>nautical miles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>centimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>millimeters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>inches</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProjectCreationScreen</name>
+    <message>
+        <source>Create a new project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New project name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Colorful</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Darkgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lightgray</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Blank</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom basemap URL</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take notes?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Take image and video attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow notes on lines and polygons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track your position?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Begin tracking automatically</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Backup &amp; collaborate?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more about QFieldCloud here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatically upload changes on a regular interval</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfProjectUtils</name>
+    <message>
+        <source>Created Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Media</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Marker color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tracks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Basemap</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfReferencingFeatureListModelBase</name>
+    <message>
+        <source>Invalid referencing layer</source>
+        <translation>Referința stratului invalidă</translation>
+    </message>
+    <message>
+        <source>Cannot delete feature</source>
+        <translation>Nu puteți șterge elementul</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationCombobox</name>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NULL</source>
+        <translation>NULL</translation>
+    </message>
+    <message>
+        <source>Invalid relation</source>
+        <translation>Relație nevalidă</translation>
+    </message>
+</context>
+<context>
+    <name>QfRelationEditorBase</name>
+    <message numerus="yes">
+        <source>%n feature(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Adding child feature in layer %1</source>
+        <translation>Adăugarea caracteristicii secundare pe stratul% 1</translation>
+    </message>
+    <message>
+        <source>Unlink Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete Feature</source>
+        <translation>Șterge Element</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation>Ar trebui ca elementul &lt;b&gt;%1 (%2)&lt;/b&gt; al stratului &lt;b&gt;%3&lt;/b&gt; să fie deconectat?&lt;br&gt;&lt;i&gt;(Conexiunea va fi eliminată de pe strat &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation>Ar trebui ca elementul &lt;b&gt;%1 (%2)&lt;/b&gt; de pe stratul&lt;b&gt;%3&lt;/b&gt; să fie eliminat?</translation>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
+        <translation>Nu s-a putut șterge elementul de referențiere</translation>
+    </message>
+    <message>
+        <source>Child Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature Attributes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print Atlas Feature to PDF</source>
+        <translation>Printează Elementul Atlas ca PDF</translation>
+    </message>
+    <message>
+        <source>Print Atlas Feature(s)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select template below</source>
+        <translation>Seletează șablonul de mai jos</translation>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Imprimare...</translation>
+    </message>
+    <message>
+        <source>Atlas feature(s) successfully printed and placed in your project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfScaleBarMeasurement</name>
+    <message>
+        <source>Unknown</source>
+        <translation>Necunoscut</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfSensorInformationView</name>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortDeviceChooser</name>
+    <message>
+        <source>Select the serial port from the list below:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No serial ports detected, refresh the list once a device is connected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port display name:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port address:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfSerialPortReceiver</name>
+    <message>
+        <source>Could not find the serial port device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attempt to read from the serial port returned an error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The connection was refused due to not having enough permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Serial port receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfTcpDeviceChooser</name>
+    <message>
+        <source>IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfTcpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nu s-a putut găsi gazda la distanță</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TCP receiver error (%1)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfTemporalProperties</name>
+    <message>
+        <source>Temporal Properties</source>
+        <translation>Proprietăți Temporare</translation>
+    </message>
+    <message>
+        <source>Enable temporal filter</source>
+        <translation>Permite filtre temporare</translation>
     </message>
 </context>
 <context>
@@ -5530,6 +7260,260 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Seconds</source>
         <translation>Secunde</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerFeatureForm</name>
+    <message>
+        <source>Track on layer %1 started</source>
+        <translation>Urmărirea pe stratul %1 a început</translation>
+    </message>
+</context>
+<context>
+    <name>QfTrackerSettings</name>
+    <message>
+        <source>Tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Requirement Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>sec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Distance requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Minimum distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor data requirement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wait for all active requirements</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Erroneous distance safeguard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Maximum tolerated distance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measure (M) value attached to vertices:</source>
+        <translation>Valoarea măsurii (M) atașată vertexului:</translation>
+    </message>
+    <message>
+        <source>Elapsed time (seconds since start of tracking)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timestamp (seconds since epoch)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ground speed</source>
+        <translation>Viteza la sol</translation>
+    </message>
+    <message>
+        <source>Bearing</source>
+        <translation>Direcție</translation>
+    </message>
+    <message>
+        <source>Horizontal accuracy</source>
+        <translation>Acuratețe pe orizontală</translation>
+    </message>
+    <message>
+        <source>Vertical accuracy</source>
+        <translation>Acuratețe pe verticală</translation>
+    </message>
+    <message>
+        <source>PDOP</source>
+        <translation>PDOP</translation>
+    </message>
+    <message>
+        <source>HDOP</source>
+        <translation>HDOP</translation>
+    </message>
+    <message>
+        <source>VDOP</source>
+        <translation>VDOP</translation>
+    </message>
+    <message>
+        <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
+        <translation>Pentru a activa funcționalitatea de măsurare, asigurați-vă că tipul de geometrie al stratului vectorial utilizat pentru sesiunea de urmărire are o dimensiune M.</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Start urmărire</translation>
+    </message>
+    <message>
+        <source>Resume tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Track on layer %1 resumed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfUdpDeviceChooser</name>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfUdpReceiver</name>
+    <message>
+        <source>Could not find the remote host</source>
+        <translation>Nu s-a putut găsi gazda la distanță</translation>
+    </message>
+    <message>
+        <source>Attempt to read or write from socket returned an error</source>
+        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+    </message>
+    <message>
+        <source>The connection was refused by the remote host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP receiver error (%1)</source>
+        <translation>Eroare la receptorul UDP (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>QfVariableEditor</name>
+    <message>
+        <source>Global variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project variables</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter value</source>
+        <translation>Introduceți valoarea</translation>
+    </message>
+    <message>
+        <source>Add a new variable</source>
+        <translation>Adăugați o nouă variabilă</translation>
+    </message>
+</context>
+<context>
+    <name>QfWebdavConnection</name>
+    <message>
+        <source>Failed to download file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to upload file %1 due to network error (%2)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5572,6 +7556,679 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are now in browse mode</source>
+        <translation>Acum sunteți in modul de navigare</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode on layer %1</source>
+        <translation>Acum sunteți în modul digitizare pe stratul %1</translation>
+    </message>
+    <message>
+        <source>You are now in digitize mode</source>
+        <translation>Acum sunteți in modul de digitizare</translation>
+    </message>
+    <message>
+        <source>You are now in measure mode</source>
+        <translation>Acum sunteți in modul de măsurare</translation>
+    </message>
+    <message>
+        <source>Positioning device error: %1</source>
+        <translation>Eroare de poziționare a dispozitivului: %1</translation>
+    </message>
+    <message>
+        <source>Replaying collected positions, hold on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Activating positioning service</source>
+        <translation>Se activează serviciul de poziționare</translation>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap on your location marker
+to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Coordinate cursor unlocked</source>
+        <translation>Cursorul cu coordonate este deblocat</translation>
+    </message>
+    <message>
+        <source>Coordinate cursor locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas unlocked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My location</source>
+        <translation>Locația mea</translation>
+    </message>
+    <message>
+        <source>Accuracy</source>
+        <translation>Acurateţe</translation>
+    </message>
+    <message>
+        <source>meters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Current location copied to clipboard</source>
+        <translation>Locația Curentă a fost copiată în clipboard</translation>
+    </message>
+    <message numerus="yes">
+        <source>Tracking active on %n layer(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Stop all</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Tracking on %n layer(s) stopped</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>No compatible layers available to launch tracking</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on the destination marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position has trespassed into ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from ‘%1’</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lon</source>
+        <translation>Lon</translation>
+    </message>
+    <message>
+        <source>Lat</source>
+        <translation>Lat</translation>
+    </message>
+    <message>
+        <source>Segment</source>
+        <translation>Segment</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Lungime</translation>
+    </message>
+    <message>
+        <source>Azimuth</source>
+        <translation>Azimut</translation>
+    </message>
+    <message>
+        <source>Perimeter</source>
+        <translation>Perimetru</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>Arie</translation>
+    </message>
+    <message>
+        <source>Close measure tool</source>
+        <translation>Închide instrumentul pentru măsurare</translation>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stop editing</source>
+        <translation>Opriți editarea</translation>
+    </message>
+    <message>
+        <source>Cancel addition</source>
+        <translation>Anulați adăugarea</translation>
+    </message>
+    <message>
+        <source>COGO digitizing turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>COGO digitizing turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Topological editing turned on</source>
+        <translation>Editarea topologică a pornit</translation>
+    </message>
+    <message>
+        <source>Topological editing turned off</source>
+        <translation>Editarea topologică a fost dezactivată</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned on</source>
+        <translation>Digitizarea cu mâna libera este pornită</translation>
+    </message>
+    <message>
+        <source>Freehand digitizing turned off</source>
+        <translation>Digitizarea cu mâna libera este oprită</translation>
+    </message>
+    <message>
+        <source>Snap to %1° angle turned on</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snap to common angle turned off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Relative angle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping to every</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Narrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Snapping tolerance set to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting for location</source>
+        <translation>Așteptăm după locație</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to create feature due to feature addition permission disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable positioning service to get points at your location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning service has not yet received a valid location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Printing...</source>
+        <translation>Imprimare...</translation>
+    </message>
+    <message>
+        <source>Main Menu</source>
+        <translation>Meniul Principal</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No sensor available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Setări</translation>
+    </message>
+    <message>
+        <source>Message Log</source>
+        <translation>Mesaj Jurnal Modificări</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Blocare Ecran</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select sensor below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sensor error: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting sensor &apos;%1&apos;...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Imprimare</translation>
+    </message>
+    <message>
+        <source>Select layout below</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map Canvas Options</source>
+        <translation>Opțiuni ale Canvasului Hărții</translation>
+    </message>
+    <message>
+        <source>Coordinates copied to clipboard</source>
+        <translation>Coordonate copiate în clipboard</translation>
+    </message>
+    <message>
+        <source>Add Bookmark</source>
+        <translation>Adaugați Semn de Carte</translation>
+    </message>
+    <message>
+        <source>Untitled bookmark</source>
+        <translation>Semn de carte nedenumit</translation>
+    </message>
+    <message>
+        <source>Set as Destination</source>
+        <translation>Setați ca Destinație</translation>
+    </message>
+    <message>
+        <source>Enable Map Rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Feature Form</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy Feature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate Feature</source>
+        <translation>Duplică Element</translation>
+    </message>
+    <message>
+        <source>Successfully duplicated feature</source>
+        <translation>Element duplicat cu succes</translation>
+    </message>
+    <message>
+        <source>Feature duplication not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste Into Layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Feature pasted successfully</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to paste feature into layer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Navigation Options</source>
+        <translation>Opțiuni Navigație</translation>
+    </message>
+    <message>
+        <source>Always Show Precise View</source>
+        <translation>Arată întotdeauna Vizualizarea Precisă</translation>
+    </message>
+    <message>
+        <source>Clear Destination</source>
+        <translation>Curăță Destinația</translation>
+    </message>
+    <message>
+        <source>Positioning Options</source>
+        <translation>Opțiuni de Poziționare</translation>
+    </message>
+    <message>
+        <source>Enable Positioning</source>
+        <translation>Activare Poziționare</translation>
+    </message>
+    <message>
+        <source>Enable NTRIP Corrections</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning Settings</source>
+        <translation>Setări de Poziționare</translation>
+    </message>
+    <message>
+        <source>Show Position Information</source>
+        <translation>Arată Informațiile Poziției</translation>
+    </message>
+    <message>
+        <source>Lock Coordinate Cursor to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Map Canvas to Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Bookmark at Location</source>
+        <translation>Adăugați un Semn de Carte la Locație</translation>
+    </message>
+    <message>
+        <source>Copy Location Coordinates</source>
+        <translation>Copiază Coordonatele Locației</translation>
+    </message>
+    <message>
+        <source>Current layer switched to the one holding the selected geometry.</source>
+        <translation>Stratul curent a trecut la cel care conține geometria selectată.</translation>
+    </message>
+    <message>
+        <source>Editing of multipart geometry is not supported yet.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas lock paused</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unlock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Importing %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import URL failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading %1</source>
+        <translation>Încărcare %1</translation>
+    </message>
+    <message>
+        <source>Signed out</source>
+        <translation>Deconectat</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Se contectează...</translation>
+    </message>
+    <message>
+        <source>Signed in</source>
+        <translation>Conectat</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade plan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 failed to download</source>
+        <translation>Proiectul %1 nu a reușit descărcarea</translation>
+    </message>
+    <message>
+        <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
+        <translation>Proiectul %1 descărcat cu succes, acum disponibil pentru deschidere</translation>
+    </message>
+    <message>
+        <source>Changes failed to reach QFieldCloud: %1</source>
+        <translation>Modificările nu au reușit să ajungă la QFieldCloud: %1</translation>
+    </message>
+    <message>
+        <source>Changes successfully pushed to QFieldCloud</source>
+        <translation>Modificările au reușit să ajungă la QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Unlock the screen to close project and app</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Press back again to close project and app</source>
+        <translation>Apăsați pe Back pentru a închide proiectul și aplicația</translation>
+    </message>
+    <message>
+        <source>Import Confirmation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source> Project Plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Permission</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate the plugin?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you grant permission to activate `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel algorithm operation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Positioning</source>
+        <translation>Poziționare</translation>
+    </message>
+    <message>
+        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Digitizing toggle</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Legend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Measurement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5639,12 +8296,8 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
 <context>
     <name>Range</name>
     <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5674,7 +8327,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>ReferencingFeatureListModelBase</name>
     <message>
         <source>Invalid referencing layer</source>
-        <translation>Referința stratului invalidă</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot start editing</source>
@@ -5682,7 +8335,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>Nu puteți șterge elementul</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
@@ -5701,62 +8354,38 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Invalid relation</source>
-        <translation>Relație nevalidă</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Relație nevalidă</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>RelationEditorBase</name>
     <message>
-        <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Adăugarea caracteristicii secundare pe stratul% 1</translation>
-    </message>
-    <message>
-        <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlink Feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Șterge Element</translation>
-    </message>
-    <message>
-        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Ar trebui ca elementul &lt;b&gt;%1 (%2)&lt;/b&gt; al stratului &lt;b&gt;%3&lt;/b&gt; să fie deconectat?&lt;br&gt;&lt;i&gt;(Conexiunea va fi eliminată de pe strat &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
-    </message>
-    <message>
-        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Ar trebui ca elementul &lt;b&gt;%1 (%2)&lt;/b&gt; de pe stratul&lt;b&gt;%3&lt;/b&gt; să fie eliminat?</translation>
-    </message>
-    <message>
-        <source>Failed to delete referencing feature</source>
-        <translation>Nu s-a putut șterge elementul de referențiere</translation>
-    </message>
-    <message>
-        <source>Child Menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Copy Feature Attributes</source>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete referencing feature</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Printează Elementul Atlas ca PDF</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
@@ -5764,22 +8393,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Seletează șablonul de mai jos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Imprimare...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Open Form</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5787,7 +8408,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>Geometria nu poate fi remodelată</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5801,14 +8422,14 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation>Necunoscut</translation>
+        <translation type="vanished">Necunoscut</translation>
     </message>
 </context>
 <context>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5857,7 +8478,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>Elementul nu a putut fi divizat</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5884,14 +8505,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Port:</source>
         <translation type="vanished">Port:</translation>
     </message>
-    <message>
-        <source>IP address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>TcpReceiver</name>
@@ -5913,11 +8526,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Nu s-a putut găsi gazda la distanță</translation>
+        <translation type="vanished">Nu s-a putut găsi gazda la distanță</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+        <translation type="vanished">Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -5931,76 +8544,48 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>The connection was refused by the remote host</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation>Proprietăți Temporare</translation>
+        <translation type="vanished">Proprietăți Temporare</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation>Permite filtre temporare</translation>
+        <translation type="vanished">Permite filtre temporare</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation>Copiați Textul</translation>
+        <translation type="vanished">Copiați Textul</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation>Inserați Textul</translation>
+        <translation type="vanished">Inserați Textul</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation>Scanați Codul</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Scanați Codul</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation>NULL</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Urmărirea pe stratul %1 a început</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TrackerSettings</name>
     <message>
-        <source>Tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Requirement Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Minimum time [sec]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Distance requirement</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6008,40 +8593,8 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>General Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation>Valoarea măsurii (M) atașată vertexului:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
@@ -6053,74 +8606,42 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation>Viteza la sol</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Direcție</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation>Acuratețe pe orizontală</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation>Acuratețe pe verticală</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PDOP</source>
-        <translation>PDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>HDOP</source>
-        <translation>HDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>VDOP</source>
-        <translation>VDOP</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation>Pentru a activa funcționalitatea de măsurare, asigurați-vă că tipul de geometrie al stratului vectorial utilizat pentru sesiunea de urmărire are o dimensiune M.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>Start urmărire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Resume tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Timestamp (seconds since epoch)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sec</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Minimum distance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum tolerated distance</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6300,14 +8821,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Port:</source>
         <translation type="vanished">Port:</translation>
     </message>
-    <message>
-        <source>Address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>UdpReceiver</name>
@@ -6329,11 +8842,11 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation>Nu s-a putut găsi gazda la distanță</translation>
+        <translation type="vanished">Nu s-a putut găsi gazda la distanță</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation>Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
+        <translation type="vanished">Încercarea de a citi sau scrie din socket a returnat o eroare</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
@@ -6341,7 +8854,7 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation>Eroare la receptorul UDP (%1)</translation>
+        <translation type="vanished">Eroare la receptorul UDP (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
@@ -6363,26 +8876,18 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Enter value</source>
-        <translation>Introduceți valoarea</translation>
+        <translation type="vanished">Introduceți valoarea</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation>Adăugați o nouă variabilă</translation>
-    </message>
-    <message>
-        <source>Global variables</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Adăugați o nouă variabilă</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>Salvarea elementului a eșuat!</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6390,73 +8895,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     <message>
         <source>Failed to save feature!</source>
         <translation type="vanished">Salvarea elementului a eșuat!</translation>
-    </message>
-</context>
-<context>
-    <name>WebdavConnection</name>
-    <message>
-        <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload finished.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local paths provided.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No stored password available.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No local changes detected.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload skipped.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6602,122 +9040,13 @@ project</source>
     </message>
 </context>
 <context>
-    <name>angle</name>
-    <message>
-        <source>deg</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>area</name>
-    <message>
-        <source>square degrees</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. meters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. feet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. yards</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>hectares</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>acres</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>sqr. inches</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>boolean</name>
     <message>
         <source>True</source>
-        <translation>Adevărat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>False</source>
-        <translation>Fals</translation>
-    </message>
-</context>
-<context>
-    <name>distance</name>
-    <message>
-        <source>degrees</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>kilometers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>feet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>yards</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>nautical miles</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>centimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>millimeters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>inches</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6772,105 +9101,74 @@ project</source>
     </message>
 </context>
 <context>
-    <name>point</name>
-    <message>
-        <source>latitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>longitude</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>elevation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>easting [X]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>northing [Y]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>elevation [Z]</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>Acum sunteți in modul de navigare</translation>
+        <translation type="vanished">Acum sunteți in modul de navigare</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>Acum sunteți în modul digitizare pe stratul %1</translation>
+        <translation type="vanished">Acum sunteți în modul digitizare pe stratul %1</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>Acum sunteți in modul de digitizare</translation>
+        <translation type="vanished">Acum sunteți in modul de digitizare</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>Acum sunteți in modul de măsurare</translation>
+        <translation type="vanished">Acum sunteți in modul de măsurare</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation type="vanished">Lon</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation type="vanished">Lat</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segment</translation>
+        <translation type="vanished">Segment</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation>Perimetru</translation>
+        <translation type="vanished">Perimetru</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Lungime</translation>
+        <translation type="vanished">Lungime</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Arie</translation>
+        <translation type="vanished">Arie</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Închide instrumentul pentru măsurare</translation>
+        <translation type="vanished">Închide instrumentul pentru măsurare</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Opriți editarea</translation>
+        <translation type="vanished">Opriți editarea</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Anulați adăugarea</translation>
+        <translation type="vanished">Anulați adăugarea</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Editarea topologică a pornit</translation>
+        <translation type="vanished">Editarea topologică a pornit</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Editarea topologică a fost dezactivată</translation>
+        <translation type="vanished">Editarea topologică a fost dezactivată</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Digitizarea cu mâna libera este pornită</translation>
+        <translation type="vanished">Digitizarea cu mâna libera este pornită</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Digitizarea cu mâna libera este oprită</translation>
+        <translation type="vanished">Digitizarea cu mâna libera este oprită</translation>
     </message>
     <message>
         <source>Coordinate cursor now locked to position</source>
@@ -6878,7 +9176,7 @@ project</source>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Cursorul cu coordonate este deblocat</translation>
+        <translation type="vanished">Cursorul cu coordonate este deblocat</translation>
     </message>
     <message>
         <source>Received position</source>
@@ -6894,7 +9192,7 @@ project</source>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Așteptăm după locație</translation>
+        <translation type="vanished">Așteptăm după locație</translation>
     </message>
     <message>
         <source>Positioning activated</source>
@@ -6918,7 +9216,7 @@ project</source>
     </message>
     <message>
         <source>Main Menu</source>
-        <translation>Meniul Principal</translation>
+        <translation type="vanished">Meniul Principal</translation>
     </message>
     <message>
         <source>Measure Tool</source>
@@ -6946,11 +9244,11 @@ project</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Setări</translation>
+        <translation type="vanished">Setări</translation>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Mesaj Jurnal Modificări</translation>
+        <translation type="vanished">Mesaj Jurnal Modificări</translation>
     </message>
     <message>
         <source>About QField</source>
@@ -6962,7 +9260,7 @@ project</source>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Se activează serviciul de poziționare</translation>
+        <translation type="vanished">Se activează serviciul de poziționare</translation>
     </message>
     <message>
         <source>QField has no permissions to use positioning.</source>
@@ -6970,15 +9268,15 @@ project</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Opțiuni ale Canvasului Hărții</translation>
+        <translation type="vanished">Opțiuni ale Canvasului Hărții</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation>Adaugați Semn de Carte</translation>
+        <translation type="vanished">Adaugați Semn de Carte</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation>Setați ca Destinație</translation>
+        <translation type="vanished">Setați ca Destinație</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
@@ -6986,7 +9284,7 @@ project</source>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation>Semn de carte nedenumit</translation>
+        <translation type="vanished">Semn de carte nedenumit</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
@@ -7006,7 +9304,7 @@ project</source>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation>Coordonate copiate în clipboard</translation>
+        <translation type="vanished">Coordonate copiate în clipboard</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
@@ -7038,7 +9336,7 @@ project</source>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation>Arată întotdeauna Vizualizarea Precisă</translation>
+        <translation type="vanished">Arată întotdeauna Vizualizarea Precisă</translation>
     </message>
     <message>
         <source>Center to Location</source>
@@ -7046,19 +9344,19 @@ project</source>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation>Adăugați un Semn de Carte la Locație</translation>
+        <translation type="vanished">Adăugați un Semn de Carte la Locație</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation>Copiază Coordonatele Locației</translation>
+        <translation type="vanished">Copiază Coordonatele Locației</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation>Deconectat</translation>
+        <translation type="vanished">Deconectat</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation>Conectat</translation>
+        <translation type="vanished">Conectat</translation>
     </message>
     <message>
         <source>Set As Destination</source>
@@ -7066,11 +9364,11 @@ project</source>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Opțiuni Navigație</translation>
+        <translation type="vanished">Opțiuni Navigație</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Curăță Destinația</translation>
+        <translation type="vanished">Curăță Destinația</translation>
     </message>
     <message>
         <source>%1 Precision</source>
@@ -7082,19 +9380,19 @@ project</source>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Opțiuni de Poziționare</translation>
+        <translation type="vanished">Opțiuni de Poziționare</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Activare Poziționare</translation>
+        <translation type="vanished">Activare Poziționare</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Arată Informațiile Poziției</translation>
+        <translation type="vanished">Arată Informațiile Poziției</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Setări de Poziționare</translation>
+        <translation type="vanished">Setări de Poziționare</translation>
     </message>
     <message>
         <source>Center to Current Location</source>
@@ -7110,7 +9408,7 @@ project</source>
     </message>
     <message>
         <source>My location</source>
-        <translation>Locația mea</translation>
+        <translation type="vanished">Locația mea</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
@@ -7118,19 +9416,19 @@ project</source>
     </message>
     <message>
         <source>Accuracy</source>
-        <translation>Acurateţe</translation>
+        <translation type="vanished">Acurateţe</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation type="vanished">N/A</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation>Locația Curentă a fost copiată în clipboard</translation>
+        <translation type="vanished">Locația Curentă a fost copiată în clipboard</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Stratul curent a trecut la cel care conține geometria selectată.</translation>
+        <translation type="vanished">Stratul curent a trecut la cel care conține geometria selectată.</translation>
     </message>
     <message>
         <source>Editing of multi geometry layer is not supported yet.</source>
@@ -7138,7 +9436,7 @@ project</source>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Încărcare %1</translation>
+        <translation type="vanished">Încărcare %1</translation>
     </message>
     <message>
         <source>Logged out</source>
@@ -7146,7 +9444,7 @@ project</source>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Se contectează...</translation>
+        <translation type="vanished">Se contectează...</translation>
     </message>
     <message>
         <source>Logged in</source>
@@ -7154,23 +9452,23 @@ project</source>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Proiectul %1 nu a reușit descărcarea</translation>
+        <translation type="vanished">Proiectul %1 nu a reușit descărcarea</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Proiectul %1 descărcat cu succes, acum disponibil pentru deschidere</translation>
+        <translation type="vanished">Proiectul %1 descărcat cu succes, acum disponibil pentru deschidere</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Modificările nu au reușit să ajungă la QFieldCloud: %1</translation>
+        <translation type="vanished">Modificările nu au reușit să ajungă la QFieldCloud: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Modificările au reușit să ajungă la QFieldCloud</translation>
+        <translation type="vanished">Modificările au reușit să ajungă la QFieldCloud</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>Apăsați pe Back pentru a închide proiectul și aplicația</translation>
+        <translation type="vanished">Apăsați pe Back pentru a închide proiectul și aplicația</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
@@ -7178,11 +9476,11 @@ project</source>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation>Azimut</translation>
+        <translation type="vanished">Azimut</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Blocare Ecran</translation>
+        <translation type="vanished">Blocare Ecran</translation>
     </message>
     <message>
         <source>Print to Image</source>
@@ -7190,54 +9488,22 @@ project</source>
     </message>
     <message>
         <source>Printing...</source>
-        <translation>Imprimare...</translation>
+        <translation type="vanished">Imprimare...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Imprimare</translation>
+        <translation type="vanished">Imprimare</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation>Eroare de poziționare a dispozitivului: %1</translation>
+        <translation type="vanished">Eroare de poziționare a dispozitivului: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Duplică Element</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Element duplicat cu succes</translation>
-    </message>
-    <message>
-        <source>Snapping turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Relative angle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensors</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No sensor available</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7245,115 +9511,7 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Select sensor below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select layout below</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Feature Form</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature duplication not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Importing %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import URL failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remember my choice</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Dashboard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Positioning</source>
-        <translation>Poziționare</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -7361,300 +9519,7 @@ project</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Undo</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping to every</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Narrow</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Import Confirmation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Permission</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unlock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source> Project Plugin</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to create feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to save feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Measurement</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Legend</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cut Feature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Tap on your location marker
-to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>Stop all</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Positioning service has not yet received a valid location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Loading terrain...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Close 3D view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Manager</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project plugin loaded</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be packaged as the project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as your subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade plan</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>meters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bookmarks</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upload local changes, synchronize or discard changes to and from QFieldCloud when a cloud project is opened.</source>
         <translation type="unfinished"/>
     </message>
 </context>
