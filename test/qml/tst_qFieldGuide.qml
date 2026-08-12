@@ -41,7 +41,7 @@ TestCase {
       anchors.bottom: parent.bottom
     }
 
-    QFieldControls.QFieldGuide {
+    QFieldControls.QfGuide {
       id: testTour
       baseRoot: dummyParent
       steps: [

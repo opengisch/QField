@@ -62,7 +62,7 @@ TestCase {
     // no-op for test environment
     }
 
-    QFieldControls.QFieldCloudScreen {
+    QFieldControls.QfCloudScreen {
       id: qfieldCloudScreen
       width: mainWindow.width
       height: mainWindow.height
