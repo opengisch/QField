@@ -172,7 +172,7 @@ QfEditorWidgetBase {
       text: qsTr('Scan Code')
 
       font: QfTheme.defaultFont
-      icon.source: withNfc ? QfTheme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
+      icon.source: QfApplicationInformation.hasNearFieldReader ? QfTheme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
       height: 48
       leftPadding: QfTheme.menuItemLeftPadding
 

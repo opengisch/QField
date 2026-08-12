@@ -522,7 +522,7 @@ QfRelationEditorBase {
       const authConfigId = referencingFeatureListModel.attachmentStorageAuthConfigId;
       if (authConfigId !== "" && !QfAuthUtils.isAuthenticationConfigurationAvailable(authConfigId)) {
         failedDownloads.push(path);
-        mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(appName), "error", qsTr("Learn more"), function () {
+        mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(QfApplicationInformation.name), "error", qsTr("Learn more"), function () {
           Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
         });
       } else {

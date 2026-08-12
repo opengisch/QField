@@ -24,10 +24,10 @@
 #include <QString>
 
 /**
- * \brief Build-time facts about the running application, exposed to QML as a singleton.
+ * \brief Describes the running application: how it was built, and what it was built against.
  *
- * Every value here is decided when the application starts and never changes, which is
- * why the properties are CONSTANT. Reach them from QML through `import org.qfield.core`.
+ * Everything here is settled by the time the application is up and never changes
+ * afterwards, hence the CONSTANT properties. QML reaches it through `import org.qfield.core`.
  *
  * \ingroup core
  */
@@ -35,34 +35,34 @@ class QFIELD_CORE_EXPORT QfApplicationInformation : public QObject
 {
     Q_OBJECT
 
-    //! Application name, e.g. `QField`
+    //! Name the build ships under
     Q_PROPERTY( QString name READ name CONSTANT )
 
-    //! Machine readable application version, e.g. `3.6.0`
+    //! Release tag the build came from
     Q_PROPERTY( QString version READ version CONSTANT )
 
-    //! Human readable application version, e.g. `QField 3.6 Congo`
+    //! Version as shown to users
     Q_PROPERTY( QString versionString READ versionString CONSTANT )
 
-    //! Git revision the application was built from
+    //! Full SHA of the commit the build came from
     Q_PROPERTY( QString gitRevision READ gitRevision CONSTANT )
 
-    //! Version of the Qt library the application runs against
+    //! Qt version the application runs against
     Q_PROPERTY( QString qtVersion READ qtVersion CONSTANT )
 
-    //! Version of the QGIS library the application runs against, e.g. `3.44.0-Solothurn`
+    //! QGIS version the application runs against
     Q_PROPERTY( QString qgisVersion READ qgisVersion CONSTANT )
 
-    //! Version of the GDAL library the application runs against
+    //! GDAL version the application runs against
     Q_PROPERTY( QString gdalVersion READ gdalVersion CONSTANT )
 
-    //! Returns TRUE when the application was built with NFC support and the device provides a reader
+    //! TRUE when the build supports NFC and the device actually carries a reader
     Q_PROPERTY( bool hasNearFieldReader READ hasNearFieldReader CONSTANT )
 
-    //! Returns TRUE when the application was built with Bluetooth support
+    //! TRUE when the build supports Bluetooth
     Q_PROPERTY( bool hasBluetooth READ hasBluetooth CONSTANT )
 
-    //! Returns TRUE when the application was built with serial port support
+    //! TRUE when the build supports serial ports
     Q_PROPERTY( bool hasSerialPort READ hasSerialPort CONSTANT )
 
   public:

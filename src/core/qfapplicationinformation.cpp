@@ -19,8 +19,9 @@
 #include "qfield.h"
 #include "qfnearfieldreader.h"
 
-#include <gdal_version.h>
 #include <qgis.h>
+
+#include <gdal_version.h>
 
 QfApplicationInformation::QfApplicationInformation( QObject *parent )
   : QObject( parent )

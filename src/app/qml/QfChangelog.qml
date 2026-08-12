@@ -122,7 +122,7 @@ QfPopup {
   }
 
   onClosed: {
-    settings.setValue("/QField/ChangelogVersion", appVersion);
+    settings.setValue("/QField/ChangelogVersion", QfApplicationInformation.version);
     changelogFlickable.contentY = 0;
   }
 

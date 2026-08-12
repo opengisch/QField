@@ -3929,12 +3929,12 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("About %1").arg(appName)
+      text: qsTr("About %1").arg(QfApplicationInformation.name)
 
       font: QfTheme.defaultFont
-      icon.source: appName === "QField" ? QfTheme.getThemeVectorIcon("ic_qfield_black_24dp") : ""
+      icon.source: QfApplicationInformation.name === "QField" ? QfTheme.getThemeVectorIcon("ic_qfield_black_24dp") : ""
       height: 48
-      leftPadding: appName === "QField" ? QfTheme.menuItemLeftPadding : QfTheme.menuItemIconlessLeftPadding
+      leftPadding: QfApplicationInformation.name === "QField" ? QfTheme.menuItemLeftPadding : QfTheme.menuItemIconlessLeftPadding
 
       onTriggered: {
         dashBoard.close();
@@ -5484,11 +5484,11 @@ ApplicationWindow {
     parent: Overlay.overlay
 
     Component.onCompleted: {
-      if (appName === "QField") {
+      if (QfApplicationInformation.name === "QField") {
         const changelogVersion = settings.value("/QField/ChangelogVersion", "");
         if (changelogVersion === "") {
-          settings.setValue("/QField/ChangelogVersion", appVersion);
-        } else if (changelogVersion !== appVersion) {
+          settings.setValue("/QField/ChangelogVersion", QfApplicationInformation.version);
+        } else if (changelogVersion !== QfApplicationInformation.version) {
           open();
         }
       }
@@ -5665,7 +5665,7 @@ ApplicationWindow {
       Label {
         width: parent.width
         wrapMode: Text.WordWrap
-        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into %3?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName).arg(appName)
+        text: qsTr("Do you want to import <b>%1</b> from <b>%2</b> into %3?").arg(importPermissionDialog.fileName).arg(importPermissionDialog.serverName).arg(QfApplicationInformation.name)
       }
     }
 

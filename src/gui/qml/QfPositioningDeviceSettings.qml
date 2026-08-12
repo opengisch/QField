@@ -62,13 +62,13 @@ QfPopup {
   }
 
   Component.onCompleted: {
-    if (withBluetooth) {
+    if (QfApplicationInformation.hasBluetooth) {
       positioningDeviceTypeModel.insert(0, {
         "name": qsTr('Bluetooth BT + BLE (NMEA)'),
         "value": QfPositioningDeviceModel.BluetoothDevice
       });
     }
-    if (withSerialPort) {
+    if (QfApplicationInformation.hasSerialPort) {
       positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {
         "name": qsTr('Serial port (NMEA)'),
         "value": QfPositioningDeviceModel.SerialPortDevice
