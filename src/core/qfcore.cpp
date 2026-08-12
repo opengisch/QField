@@ -32,6 +32,7 @@
 #include "processing/qfprocessingalgorithmsmodel.h"
 #include "qfappexpressioncontextscopesgenerator.h"
 #include "qfappinterface.h"
+#include "qfapplicationinformation.h"
 #include "qfaudioanalyzer.h"
 #include "qfaudiorecorder.h"
 #include "qfbarcodedecoder.h"
@@ -209,6 +210,7 @@ namespace QfCore
     qmlRegisterType<QfViewStatus>( "org.qfield.core", 1, 0, "QfViewStatus" );
     qmlRegisterType<QfWebdavConnection>( "org.qfield.core", 1, 0, "QfWebdavConnection" );
 
+    REGISTER_SINGLETON( "org.qfield.core", QfApplicationInformation, "QfApplicationInformation" );
     REGISTER_SINGLETON( "org.qfield.core", QfAuthUtils, "QfAuthUtils" );
     REGISTER_SINGLETON( "org.qfield.core", QfCoordinateReferenceSystemUtils, "QfCoordinateReferenceSystemUtils" );
     REGISTER_SINGLETON( "org.qfield.core", QfExpressionContextUtils, "QfExpressionContextUtils" );

@@ -63,6 +63,7 @@ set(QFIELD_CORE_SRCS
     qfieldcloud/qfcloudstatus.cpp
     qfappexpressioncontextscopesgenerator.cpp
     qfappinterface.cpp
+    qfapplicationinformation.cpp
     qfaudioanalyzer.cpp
     qfaudiorecorder.cpp
     qfbarcodedecoder.cpp
@@ -179,6 +180,7 @@ set(QFIELD_CORE_HDRS
     qfappcontroller.h
     qfappexpressioncontextscopesgenerator.h
     qfappinterface.h
+    qfapplicationinformation.h
     qfaudioanalyzer.h
     qfaudiorecorder.h
     qfbarcodedecoder.h
