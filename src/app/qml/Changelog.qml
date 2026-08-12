@@ -66,7 +66,7 @@ QfPopup {
             Layout.fillHeight: true
             Layout.minimumHeight: contentHeight
             Layout.maximumHeight: contentHeight
-            visible: changelogContents.status != ChangelogContents.LoadingStatus
+            visible: changelogContents.status != QfChangelogContents.LoadingStatus
 
             color: QfTheme.mainTextColor
             font: QfTheme.tipFont
@@ -77,12 +77,12 @@ QfPopup {
 
             text: {
               switch (changelogContents.status) {
-              case ChangelogContents.IdleStatus:
-              case ChangelogContents.LoadingStatus:
+              case QfChangelogContents.IdleStatus:
+              case QfChangelogContents.LoadingStatus:
                 return '';
-              case ChangelogContents.SuccessStatus:
+              case QfChangelogContents.SuccessStatus:
                 return changelogContents.markdown;
-              case ChangelogContents.ErrorStatus:
+              case QfChangelogContents.ErrorStatus:
                 return qsTr('Error while fetching changelog, try again later.');
               }
             }
@@ -94,7 +94,7 @@ QfPopup {
 
           BusyIndicator {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            running: changelogContents.status === ChangelogContents.LoadingStatus
+            running: changelogContents.status === QfChangelogContents.LoadingStatus
             visible: running
           }
         }
@@ -111,7 +111,7 @@ QfPopup {
     }
   }
 
-  ChangelogContents {
+  QfChangelogContents {
     id: changelogContents
     onMarkdownChanged: {
       if (changelogContents.markdown) {
@@ -136,8 +136,9 @@ QfPopup {
       changelogBody.text = qsTr("Check the latest QField changes on ") + ' <a href="https://github.com/opengisch/qfield/releases">' + qsTr('QField releases page') + '</a>.';
       return;
     }
-    if (changelogContents.status === ChangelogContents.SuccessStatus || changelogContents.status === ChangelogContents.LoadingStatus)
+    if (changelogContents.status === QfChangelogContents.SuccessStatus || changelogContents.status === QfChangelogContents.LoadingStatus) {
       return;
+    }
     settings.remove("/QField/isLoadingChangelog");
     settings.setValue("/QField/isLoadingChangelog", true);
     settings.sync();

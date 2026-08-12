@@ -33,7 +33,6 @@
 #endif
 #ifdef WITH_SERIALPORT
 #endif
-#include "pluginmodel.h"
 #include "qf3d.h"
 #include "qf3dterrainprovider.h"
 #include "qfapp.h"
@@ -54,7 +53,6 @@
 #include "qfgui.h"
 #include "qfidentifytool.h"
 #include "qfield.h"
-#include "qfieldurlhandler.h"
 #include "qflayerobserver.h"
 #include "qflayerresolver.h"
 #include "qflayertreemapcanvasbridge.h"
@@ -68,6 +66,7 @@
 #include "qfnearfieldreader.h"
 #include "qfntripsourcetablefetcher.h"
 #include "qfplatformutilities.h"
+#include "qfpluginmodel.h"
 #include "qfpositioningsource.h"
 #include "qfprintlayoutlistmodel.h"
 #include "qfprocessingalgorithm.h"
@@ -83,6 +82,7 @@
 #include "qfsnappingresult.h"
 #include "qfsnappingutils.h"
 #include "qftrackingmodel.h"
+#include "qfurlhandler.h"
 #include "qfvertexmodel.h"
 #include "qgismobileapp.h"
 #include "qgsproviderregistry.h"
@@ -163,7 +163,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   // Increase maximum concurrent connections allowed
   QgsApplication::settingsConnectionPoolMaximumConcurrentConnections->setValue( 10 );
 
-  mUrlHandler.reset( new QFieldUrlHandler( mIface, this ) );
+  mUrlHandler.reset( new QfUrlHandler( mIface, this ) );
   QDesktopServices::setUrlHandler( QStringLiteral( "qfield" ), mUrlHandler.get(), "handleUrl" );
 
   mMessageLogModel = new QfMessageLogModel( this );
@@ -174,7 +174,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   QSettings settings;
   if ( QfPlatformUtilities::instance()->capabilities() & QfPlatformUtilities::AdjustBrightness )
   {
-    mScreenDimmer = std::make_unique<ScreenDimmer>( app );
+    mScreenDimmer = std::make_unique<QfScreenDimmer>( app );
     mScreenDimmer->setTimeout( settings.value( QStringLiteral( "dimTimeoutSeconds" ), 40 ).toInt() );
   }
 
@@ -188,7 +188,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
 
   //set the authHandler to qfield-handler
   std::unique_ptr<QgsNetworkAuthenticationHandler> handler;
-  mAuthRequestHandler = new QFieldAppAuthRequestHandler();
+  mAuthRequestHandler = new QfAppAuthRequestHandler();
   handler.reset( mAuthRequestHandler );
   QgsNetworkAccessManager::instance()->setAuthHandler( std::move( handler ) );
 
@@ -244,7 +244,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   connect( mProject, &QgsProject::aboutToBeCleared, this, [this] {
     if ( !mProjectFilePath.isEmpty() )
     {
-      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+      mPluginManager->unloadPlugin( QfPluginManager::findProjectPlugin( mProjectFilePath ) );
     }
   } );
 
@@ -253,7 +253,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mGpkgFlusher = std::make_unique<QgsGpkgFlusher>( mProject );
   mLayerObserver = std::make_unique<QfLayerObserver>( mProject );
   mFeatureHistory = std::make_unique<QfFeatureHistory>( mProject, mTrackingModel );
-  mClipboardManager = std::make_unique<ClipboardManager>( this );
+  mClipboardManager = std::make_unique<QfClipboardManager>( this );
   mFlatLayerTree = new QfFlatLayerTreeModel( mProject->layerTreeRoot(), mProject, this );
   mLegendImageProvider = new QfLegendImageProvider( mFlatLayerTree->layerTreeModel() );
   mAsyncLegendImageProvider = new QfAsyncLegendImageProvider( mFlatLayerTree->layerTreeModel() );
@@ -264,7 +264,7 @@ QgisMobileapp::QgisMobileapp( QgsApplication *app, QObject *parent )
   mBookmarkModel = new QfBookmarkModel( QgsApplication::bookmarkManager(), mProject->bookmarkManager(), this );
   mDrawingTemplateModel = new QfDrawingTemplateModel( this );
 
-  mPluginManager = new PluginManager( this );
+  mPluginManager = new QfPluginManager( this );
 
   // cppcheck-suppress leakReturnValNotUsed
   initDeclarative( this );
@@ -408,7 +408,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
 
   qRegisterMetaType<QfGnssPositionDetails>( "QfGnssPositionDetails" );
 
-  qRegisterMetaType<PluginInformation>( "PluginInformation" );
+  qRegisterMetaType<QfPluginInformation>( "QfPluginInformation" );
 
   qRegisterMetaType<QfSnappingResult>( "QfSnappingResult" );
 
@@ -540,7 +540,7 @@ bool QgisMobileapp::loadProjectFile( const QString &path, const QString &name )
 
     if ( !mProjectFilePath.isEmpty() )
     {
-      mPluginManager->unloadPlugin( PluginManager::findProjectPlugin( mProjectFilePath ) );
+      mPluginManager->unloadPlugin( QfPluginManager::findProjectPlugin( mProjectFilePath ) );
     }
     mAuthRequestHandler->clearStoredRealms();
 
@@ -992,7 +992,7 @@ void QgisMobileapp::readProjectFile()
 
   connect( mMapCanvas, &QgsQuickMapCanvasMap::mapCanvasRefreshed, this, &QgisMobileapp::onMapCanvasRefreshed );
 
-  const QString projectPluginPath = PluginManager::findProjectPlugin( mProjectFilePath );
+  const QString projectPluginPath = QfPluginManager::findProjectPlugin( mProjectFilePath );
   if ( !projectPluginPath.isEmpty() )
   {
     bool skipPermission = false;

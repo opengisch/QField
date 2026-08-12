@@ -1,5 +1,5 @@
 /***************************************************************************
-              qfieldurlhandler.h
+              qfurlhandler.h
               -------------------
               begin                : April 2025
               copyright            : (C) 2025 by Mathieu Pellerin
@@ -15,19 +15,19 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFIELDURLHANDLER_H
-#define QFIELDURLHANDLER_H
+#ifndef QFURLHANDLER_H
+#define QFURLHANDLER_H
 
 #include <QObject>
 
 class QfAppInterface;
 
-class QFieldUrlHandler : public QObject
+class QfUrlHandler : public QObject
 {
     Q_OBJECT
 
   public:
-    QFieldUrlHandler( QfAppInterface *iface = nullptr, QObject *parent = nullptr );
+    QfUrlHandler( QfAppInterface *iface = nullptr, QObject *parent = nullptr );
 
   public slots:
     void handleUrl( const QUrl &url );
@@ -36,4 +36,4 @@ class QFieldUrlHandler : public QObject
     QfAppInterface *mIface = nullptr;
 };
 
-#endif // QFIELDURLHANDLER_H
+#endif // QFURLHANDLER_H

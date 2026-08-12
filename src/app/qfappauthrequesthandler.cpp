@@ -1,5 +1,5 @@
 /***************************************************************************
-              qfieldappauthrequesthandler.cpp
+              qfappauthrequesthandler.cpp
               -------------------
               begin                : August 2019
               copyright            : (C) 2019 by David Signer
@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfieldappauthrequesthandler.h"
+#include "qfappauthrequesthandler.h"
 
 #include <QAuthenticator>
 #include <QThread>
@@ -23,28 +23,28 @@
 #include <qgsdatasourceuri.h>
 #include <qgsmessagelog.h>
 
-QFieldAppAuthRequestHandler::QFieldAppAuthRequestHandler()
+QfAppAuthRequestHandler::QfAppAuthRequestHandler()
 {
   QgsCredentials::setInstance( this );
 }
 
-bool QFieldAppAuthRequestHandler::request( const QString &realm, QString &username, QString &password, const QString &message )
+bool QfAppAuthRequestHandler::request( const QString &realm, QString &username, QString &password, const QString &message )
 {
   authNeeded( realm );
   return false;
 }
 
-void QFieldAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
+void QfAppAuthRequestHandler::enterCredentials( const QString &realm, const QString &username, const QString &password )
 {
   QgsCredentials::instance()->put( realm, username, password );
 }
 
-bool QFieldAppAuthRequestHandler::isProjectLoading() const
+bool QfAppAuthRequestHandler::isProjectLoading() const
 {
   return mIsProjectLoading;
 }
 
-void QFieldAppAuthRequestHandler::setIsProjectLoading( bool loading )
+void QfAppAuthRequestHandler::setIsProjectLoading( bool loading )
 {
   if ( mIsProjectLoading == loading )
     return;
@@ -53,7 +53,7 @@ void QFieldAppAuthRequestHandler::setIsProjectLoading( bool loading )
   emit isProjectLoadingChanged();
 }
 
-bool QFieldAppAuthRequestHandler::hasPendingAuthRequest() const
+bool QfAppAuthRequestHandler::hasPendingAuthRequest() const
 {
   if ( mBrowserAuthenticationOngoing )
   {
@@ -72,18 +72,18 @@ bool QFieldAppAuthRequestHandler::hasPendingAuthRequest() const
   return pendingCount > 0;
 }
 
-QString QFieldAppAuthRequestHandler::getFirstUnhandledRealm() const
+QString QfAppAuthRequestHandler::getFirstUnhandledRealm() const
 {
   auto entry = std::find_if( mRealms.begin(), mRealms.end(), []( const RealmEntry &entry ) { return !entry.canceled; } );
   return entry != mRealms.end() ? entry->realm : QString();
 }
 
-bool QFieldAppAuthRequestHandler::handleLayerLogins()
+bool QfAppAuthRequestHandler::handleLayerLogins()
 {
   if ( !getFirstUnhandledRealm().isEmpty() )
   {
     showLogin();
-    connect( this, &QFieldAppAuthRequestHandler::loginDialogClosed, [this]( const QString &realm, bool canceled ) {
+    connect( this, &QfAppAuthRequestHandler::loginDialogClosed, [this]( const QString &realm, bool canceled ) {
       if ( canceled )
       {
         //realm not successful handled - but canceled
@@ -129,19 +129,19 @@ bool QFieldAppAuthRequestHandler::handleLayerLogins()
   return true;
 }
 
-void QFieldAppAuthRequestHandler::clearStoredRealms()
+void QfAppAuthRequestHandler::clearStoredRealms()
 {
   mRealms.clear();
 }
 
-void QFieldAppAuthRequestHandler::showLogin()
+void QfAppAuthRequestHandler::showLogin()
 {
   QString realm = getFirstUnhandledRealm();
   QString title = getCredentialTitle( realm );
   emit showLoginDialog( realm, title );
 }
 
-void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
+void QfAppAuthRequestHandler::authNeeded( const QString &realm )
 {
   if ( std::any_of( mRealms.begin(), mRealms.end(), [&realm]( const RealmEntry &entry ) { return entry.realm == realm; } ) )
   {
@@ -154,7 +154,7 @@ void QFieldAppAuthRequestHandler::authNeeded( const QString &realm )
   emit hasPendingAuthRequestChanged();
 }
 
-void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth )
+void QfAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuthenticator *auth )
 {
   Q_ASSERT( qApp->thread() == QThread::currentThread() );
 
@@ -210,28 +210,28 @@ void QFieldAppAuthRequestHandler::handleAuthRequest( QNetworkReply *reply, QAuth
   auth->setPassword( password );
 }
 
-void QFieldAppAuthRequestHandler::handleAuthRequestOpenBrowser( const QUrl &url )
+void QfAppAuthRequestHandler::handleAuthRequestOpenBrowser( const QUrl &url )
 {
   mBrowserAuthenticationOngoing = true;
   emit hasPendingAuthRequestChanged();
   emit showLoginBrowser( url.toString() );
 }
 
-void QFieldAppAuthRequestHandler::handleAuthRequestCloseBrowser()
+void QfAppAuthRequestHandler::handleAuthRequestCloseBrowser()
 {
   emit hideLoginBrowser();
   mBrowserAuthenticationOngoing = false;
   emit hasPendingAuthRequestChanged();
 }
 
-void QFieldAppAuthRequestHandler::abortAuthBrowser()
+void QfAppAuthRequestHandler::abortAuthBrowser()
 {
   QgsNetworkAccessManager::instance()->abortAuthBrowser();
   mBrowserAuthenticationOngoing = false;
   emit hasPendingAuthRequestChanged();
 }
 
-QString QFieldAppAuthRequestHandler::getCredentialTitle( const QString &realm )
+QString QfAppAuthRequestHandler::getCredentialTitle( const QString &realm )
 {
   QgsDataSourceUri uri = QgsDataSourceUri( realm );
 

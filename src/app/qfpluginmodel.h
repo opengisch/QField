@@ -1,5 +1,5 @@
 /***************************************************************************
- pluginmodel.h - PluginModel
+ qfpluginmodel.h - QfPluginModel
 
  ---------------------
  begin                : June 2025
@@ -14,18 +14,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef PLUGINMODEL_H
-#define PLUGINMODEL_H
+#ifndef QFPLUGINMODEL_H
+#define QFPLUGINMODEL_H
 
 
 #include <QAbstractListModel>
 #include <QFileInfo>
 #include <QSortFilterProxyModel>
 
-class PluginManager;
-class PluginInformation;
+class QfPluginManager;
+class QfPluginInformation;
 
-class PluginModel : public QAbstractListModel
+class QfPluginModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY( bool isRefreshing READ isRefreshing NOTIFY isRefreshingChanged )
@@ -53,7 +53,7 @@ class PluginModel : public QAbstractListModel
     /**
      * Constructs a PluginModel.
      */
-    explicit PluginModel( PluginManager *manager, QObject *parent = nullptr );
+    explicit QfPluginModel( QfPluginManager *manager, QObject *parent = nullptr );
 
     /**
      * Returns the number of plugins in the model.
@@ -78,7 +78,7 @@ class PluginModel : public QAbstractListModel
     /**
      * Returns the list of available app plugins installed locally.
      */
-    QList<PluginInformation> availableAppPlugins() const;
+    QList<QfPluginInformation> availableAppPlugins() const;
 
     /**
      * Returns true if the model contains a plugin with the given \a uuid.
@@ -88,7 +88,7 @@ class PluginModel : public QAbstractListModel
     /**
      * Returns the pluginInformation information for the pluginInformation identified by \a uuid.
      */
-    PluginInformation pluginInformation( const QString &uuid ) const;
+    QfPluginInformation pluginInformation( const QString &uuid ) const;
 
     /**
      * Updates the enabled and configurable state of the plugin with \a uuid.
@@ -122,19 +122,19 @@ class PluginModel : public QAbstractListModel
      * @param pluginDir The QFileInfo representing the plugin directory.
      * @return The filled PluginInformation structure.
      */
-    PluginInformation readPluginMetadata( const QFileInfo &pluginDir );
+    QfPluginInformation readPluginMetadata( const QFileInfo &pluginDir );
 
-    void insertPluginsInformation( QMap<QString, PluginInformation> &pluginsInformation, bool isLocal );
+    void insertPluginsInformation( QMap<QString, QfPluginInformation> &pluginsInformation, bool isLocal );
 
-    QList<PluginInformation> mPlugins;
-    PluginManager *mManager = nullptr;
+    QList<QfPluginInformation> mPlugins;
+    QfPluginManager *mManager = nullptr;
     bool mIsRefreshing = false;
 };
 
 /**
  * \ingroup core
  */
-class PluginProxyModel : public QSortFilterProxyModel
+class QfPluginProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY( QString searchTerm READ searchTerm WRITE setSearchTerm NOTIFY searchTermChanged )
@@ -148,7 +148,7 @@ class PluginProxyModel : public QSortFilterProxyModel
     };
     Q_ENUM( PluginFilter )
 
-    explicit PluginProxyModel( QObject *parent = nullptr );
+    explicit QfPluginProxyModel( QObject *parent = nullptr );
 
     /**
      * Returns the current search term used to filter items.
@@ -183,7 +183,7 @@ class PluginProxyModel : public QSortFilterProxyModel
     PluginFilter mFilter = LocalPlugin;
 };
 
-Q_DECLARE_METATYPE( PluginProxyModel::PluginFilter )
+Q_DECLARE_METATYPE( QfPluginProxyModel::PluginFilter )
 
 
-#endif // PLUGINMODEL_H
+#endif // QFPLUGINMODEL_H

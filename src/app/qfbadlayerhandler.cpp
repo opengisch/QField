@@ -1,5 +1,5 @@
 /***************************************************************************
-  badlayerhandler.cpp - BadLayerHandler
+  qfbadlayerhandler.cpp - QfBadLayerHandler
 
  ---------------------
  begin                : 3.10.2016
@@ -13,16 +13,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "badlayerhandler.h"
+
+#include "qfbadlayerhandler.h"
 
 #include <qgsproject.h>
 
-BadLayerHandler::BadLayerHandler( QObject *parent )
+QfBadLayerHandler::QfBadLayerHandler( QObject *parent )
   : QStandardItemModel( parent )
 {
 }
 
-QHash<int, QByteArray> BadLayerHandler::roleNames() const
+QHash<int, QByteArray> QfBadLayerHandler::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QStandardItemModel::roleNames();
 
@@ -32,12 +33,12 @@ QHash<int, QByteArray> BadLayerHandler::roleNames() const
   return roleNames;
 }
 
-QgsProject *BadLayerHandler::project() const
+QgsProject *QfBadLayerHandler::project() const
 {
   return mProject;
 }
 
-void BadLayerHandler::setProject( QgsProject *project )
+void QfBadLayerHandler::setProject( QgsProject *project )
 {
   if ( mProject == project )
     return;
@@ -48,7 +49,7 @@ void BadLayerHandler::setProject( QgsProject *project )
   emit projectChanged();
 }
 
-void BadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
+void QfBadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
 {
   clear();
 
@@ -63,7 +64,7 @@ void BadLayerHandler::handleBadLayers( const QList<QDomNode> &layers )
   emit badLayersFound();
 }
 
-QString BadLayerHandler::layerName( const QDomNode &layerNode ) const
+QString QfBadLayerHandler::layerName( const QDomNode &layerNode ) const
 {
   return layerNode.namedItem( "layername" ).toElement().text();
 }

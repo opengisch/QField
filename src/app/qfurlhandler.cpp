@@ -1,5 +1,5 @@
 /***************************************************************************
-              qfieldurlhandler.cpp
+              qfurlhandler.cpp
               -------------------
               begin                : April 2025
               copyright            : (C) 2025 by Mathieu Pellerin
@@ -16,14 +16,14 @@
  ***************************************************************************/
 
 #include "qfappinterface.h"
-#include "qfieldurlhandler.h"
+#include "qfurlhandler.h"
 
-QFieldUrlHandler::QFieldUrlHandler( QfAppInterface *iface, QObject *parent )
+QfUrlHandler::QfUrlHandler( QfAppInterface *iface, QObject *parent )
   : QObject( parent ), mIface( iface )
 {
 }
 
-void QFieldUrlHandler::handleUrl( const QUrl &url )
+void QfUrlHandler::handleUrl( const QUrl &url )
 {
   if ( mIface )
   {

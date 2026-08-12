@@ -1,5 +1,5 @@
 /***************************************************************************
-  changelogcontents.h - Changelog
+  qfchangelogcontents.h - QfChangelogContents
 
  ---------------------
  begin                : Nov 2020
@@ -13,8 +13,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef CHANGELOGCONTENTS_H
-#define CHANGELOGCONTENTS_H
+#ifndef QFCHANGELOGCONTENTS_H
+#define QFCHANGELOGCONTENTS_H
 
 #include <QObject>
 
@@ -22,7 +22,7 @@
  * Obtain the QField changelog contents from the GitHub releases API.
  * \ingroup core
  */
-class ChangelogContents : public QObject
+class QfChangelogContents : public QObject
 {
     Q_OBJECT
 
@@ -34,7 +34,7 @@ class ChangelogContents : public QObject
 
   public:
     //! Constructor
-    explicit ChangelogContents( QObject *parent = nullptr );
+    explicit QfChangelogContents( QObject *parent = nullptr );
 
     //! Changelog contents status.
     enum Status
@@ -83,4 +83,4 @@ class ChangelogContents : public QObject
     Status mStatus = Status::IdleStatus;
 };
 
-#endif // CHANGELOGCONTENTS_H
+#endif // QFCHANGELOGCONTENTS_H

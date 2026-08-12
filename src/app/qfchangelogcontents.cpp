@@ -1,5 +1,5 @@
 /***************************************************************************
-  changelogcontents.h - Changelog
+  qfchangelogcontents.h - QfChangelogContents
 
  ---------------------
  begin                : Nov 2020
@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "changelogcontents.h"
+#include "qfchangelogcontents.h"
 #include "qfield.h"
 
 #include <QJsonArray>
@@ -25,13 +25,13 @@
 #include <qgsnetworkaccessmanager.h>
 
 
-ChangelogContents::ChangelogContents( QObject *parent )
+QfChangelogContents::QfChangelogContents( QObject *parent )
   : QObject( parent )
 {
 }
 
 
-void ChangelogContents::request()
+void QfChangelogContents::request()
 {
   QgsNetworkAccessManager *manager = QgsNetworkAccessManager::instance();
 
@@ -138,17 +138,17 @@ void ChangelogContents::request()
   } );
 }
 
-QString ChangelogContents::markdown()
+QString QfChangelogContents::markdown()
 {
   return mMarkdown;
 }
 
-ChangelogContents::Status ChangelogContents::status()
+QfChangelogContents::Status QfChangelogContents::status()
 {
   return mStatus;
 }
 
-QList<int> ChangelogContents::parseVersion( const QString &version )
+QList<int> QfChangelogContents::parseVersion( const QString &version )
 {
   QRegularExpression regexp( "^[a-z]*" );
   QString cleanVersion = QString( version ).replace( regexp, "" );

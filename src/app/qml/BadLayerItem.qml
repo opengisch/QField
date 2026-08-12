@@ -62,7 +62,7 @@ Page {
         spacing: 2
         anchors.fill: parent
 
-        model: BadLayerHandler {
+        model: QfBadLayerHandler {
           project: qgisProject
 
           onBadLayersFound: {

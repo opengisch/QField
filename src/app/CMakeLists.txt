@@ -58,28 +58,28 @@ configure_file(${CMAKE_SOURCE_DIR}/images/logo.qrc.in
                ${CMAKE_BINARY_DIR}/images/logo.qrc @ONLY)
 
 set(QFIELD_APP_SRCS
-    badlayerhandler.cpp
-    changelogcontents.cpp
-    clipboardmanager.cpp
-    pluginmanager.cpp
-    pluginmodel.cpp
-    qfieldappauthrequesthandler.cpp
-    qfieldurlhandler.cpp
     qfapp.cpp
-    qgismobileapp.cpp
-    screendimmer.cpp)
+    qfbadlayerhandler.cpp
+    qfchangelogcontents.cpp
+    qfclipboardmanager.cpp
+    qfpluginmanager.cpp
+    qfpluginmodel.cpp
+    qfappauthrequesthandler.cpp
+    qfurlhandler.cpp
+    qfscreendimmer.cpp
+    qgismobileapp.cpp)
 
 set(QFIELD_APP_HDRS
-    badlayerhandler.h
-    changelogcontents.h
-    clipboardmanager.h
-    pluginmanager.h
-    pluginmodel.h
-    qfieldappauthrequesthandler.h
-    qfieldurlhandler.h
     qfapp.h
-    qgismobileapp.h
-    screendimmer.h)
+    qfbadlayerhandler.h
+    qfchangelogcontents.h
+    qfclipboardmanager.h
+    qfpluginmanager.h
+    qfpluginmodel.h
+    qfappauthrequesthandler.h
+    qfurlhandler.h
+    qfscreendimmer.h
+    qgismobileapp.h)
 
 add_library(qfield_app STATIC ${QFIELD_APP_SRCS} ${QFIELD_APP_HDRS})
 

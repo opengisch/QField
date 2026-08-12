@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 #include "catch2.h"
-#include "pluginmanager.h"
+#include "qfpluginmanager.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -58,7 +58,7 @@ namespace
   }
 
   /**
-   * Converts plugin path to settings key using PluginManager's format.
+   * Converts plugin path to settings key using QfPluginManager's format.
    * Normalizes path separators and replaces '/' with '_'.
    */
   QString pluginPathToKey( const QString &pluginPath )
@@ -211,7 +211,7 @@ TEST_CASE( "PluginManager construction" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
   REQUIRE( manager.pluginModel() != nullptr );
   manager.availableAppPlugins();
@@ -227,12 +227,12 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
   SECTION( "skipPermissionCheck=true does not request permission" )
   {
     const QString pluginPath = createValidPlugin( tempDir, "skip_perm" );
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
 
     manager.loadPlugin( pluginPath, "SkipPerm", true );
 
@@ -242,7 +242,7 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
   SECTION( "no previous decision requests permission" )
   {
     const QString pluginPath = createValidPlugin( tempDir, "needs_perm" );
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
 
     manager.loadPlugin( pluginPath, "NeedsPerm", false, false );
 
@@ -255,7 +255,7 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
   SECTION( "project plugin requests permission with isProjectPlugin=true" )
   {
     const QString pluginPath = createValidPlugin( tempDir, "project_perm" );
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
 
     manager.loadPlugin( pluginPath, "ProjectPlugin", false, true );
 
@@ -270,7 +270,7 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
     const QString pluginPath = createValidPlugin( tempDir, "saved_allow" );
     setPermissionGranted( pluginPath, true );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
     manager.loadPlugin( pluginPath, "SavedAllow", false );
 
     REQUIRE( permissionSpy.count() == 0 );
@@ -281,8 +281,8 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
     const QString pluginPath = createValidPlugin( tempDir, "saved_deny" );
     setPermissionGranted( pluginPath, false );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
-    QSignalSpy enabledSpy( &manager, &PluginManager::appPluginEnabled );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
+    QSignalSpy enabledSpy( &manager, &QfPluginManager::appPluginEnabled );
 
     manager.loadPlugin( pluginPath, "SavedDeny", false );
 
@@ -293,7 +293,7 @@ TEST_CASE( "PluginManager loadPlugin permission request" )
   manager.unloadPlugins();
 }
 
-TEST_CASE( "PluginManager enabled/disabled signals" )
+TEST_CASE( "QfPluginManager enabled/disabled signals" )
 {
   ensureCoreApplication();
 
@@ -302,7 +302,7 @@ TEST_CASE( "PluginManager enabled/disabled signals" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
   SECTION( "grant permanent persists settings without emitting appPluginEnabled" )
   {
@@ -310,8 +310,8 @@ TEST_CASE( "PluginManager enabled/disabled signals" )
     const QString uuid = QStringLiteral( "uuid-enable" );
     setPluginUuid( pluginPath, uuid );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
-    QSignalSpy enabledSpy( &manager, &PluginManager::appPluginEnabled );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
+    QSignalSpy enabledSpy( &manager, &QfPluginManager::appPluginEnabled );
 
     manager.loadPlugin( pluginPath, "EnableSignal", false );
     waitForSpyCount( permissionSpy, 1, 2000 );
@@ -337,8 +337,8 @@ TEST_CASE( "PluginManager enabled/disabled signals" )
     const QString uuid = QStringLiteral( "uuid-disable" );
     setPluginUuid( pluginPath, uuid );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
-    QSignalSpy disabledSpy( &manager, &PluginManager::appPluginDisabled );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
+    QSignalSpy disabledSpy( &manager, &QfPluginManager::appPluginDisabled );
 
     manager.loadPlugin( pluginPath, "DisableSignal", false );
     waitForSpyCount( permissionSpy, 1, 2000 );
@@ -355,7 +355,7 @@ TEST_CASE( "PluginManager enabled/disabled signals" )
   manager.unloadPlugins();
 }
 
-TEST_CASE( "PluginManager grant/deny permission" )
+TEST_CASE( "QfPluginManager grant/deny permission" )
 {
   ensureCoreApplication();
 
@@ -364,14 +364,14 @@ TEST_CASE( "PluginManager grant/deny permission" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
   SECTION( "grant permanent with UUID sets permissionGranted and userEnabled" )
   {
     const QString pluginPath = createValidPlugin( tempDir, "grant_uuid" );
     setPluginUuid( pluginPath, QStringLiteral( "grant-uuid" ) );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
     manager.loadPlugin( pluginPath, "GrantUuid", false );
     waitForSpyCount( permissionSpy, 1 );
 
@@ -385,7 +385,7 @@ TEST_CASE( "PluginManager grant/deny permission" )
   {
     const QString pluginPath = createValidPlugin( tempDir, "grant_nouuid" );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
     manager.loadPlugin( pluginPath, "GrantNoUuid", false );
     waitForSpyCount( permissionSpy, 1 );
 
@@ -401,8 +401,8 @@ TEST_CASE( "PluginManager grant/deny permission" )
     const QString uuid = QStringLiteral( "deny-uuid" );
     setPluginUuid( pluginPath, uuid );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
-    QSignalSpy disabledSpy( &manager, &PluginManager::appPluginDisabled );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
+    QSignalSpy disabledSpy( &manager, &QfPluginManager::appPluginDisabled );
 
     manager.loadPlugin( pluginPath, "DenyPerm", false );
     waitForSpyCount( permissionSpy, 1 );
@@ -420,7 +420,7 @@ TEST_CASE( "PluginManager grant/deny permission" )
     const QString plugin1 = createValidPlugin( tempDir, "first" );
     const QString plugin2 = createValidPlugin( tempDir, "second" );
 
-    QSignalSpy permissionSpy( &manager, &PluginManager::pluginPermissionRequested );
+    QSignalSpy permissionSpy( &manager, &QfPluginManager::pluginPermissionRequested );
 
     manager.loadPlugin( plugin1, "First", false );
     manager.loadPlugin( plugin2, "Second", false );
@@ -437,7 +437,7 @@ TEST_CASE( "PluginManager grant/deny permission" )
   manager.unloadPlugins();
 }
 
-TEST_CASE( "PluginManager clearPluginPermissions" )
+TEST_CASE( "QfPluginManager clearPluginPermissions" )
 {
   ensureCoreApplication();
 
@@ -446,7 +446,7 @@ TEST_CASE( "PluginManager clearPluginPermissions" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
   const QString userPlugin = createValidPlugin( tempDir, "user_enabled" );
   const QString autoPlugin = createValidPlugin( tempDir, "auto_enabled" );
@@ -471,7 +471,7 @@ TEST_CASE( "PluginManager clearPluginPermissions" )
   manager.unloadPlugins();
 }
 
-TEST_CASE( "PluginManager installFromUrl validation" )
+TEST_CASE( "QfPluginManager installFromUrl validation" )
 {
   ensureCoreApplication();
 
@@ -480,9 +480,9 @@ TEST_CASE( "PluginManager installFromUrl validation" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
-  QSignalSpy triggeredSpy( &manager, &PluginManager::installTriggered );
+  QSignalSpy triggeredSpy( &manager, &QfPluginManager::installTriggered );
 
   manager.installFromUrl( "" );
   REQUIRE( triggeredSpy.count() == 0 );
@@ -493,7 +493,7 @@ TEST_CASE( "PluginManager installFromUrl validation" )
   manager.unloadPlugins();
 }
 
-TEST_CASE( "PluginManager findProjectPlugin" )
+TEST_CASE( "QfPluginManager findProjectPlugin" )
 {
   QTemporaryDir tempDir;
   REQUIRE( tempDir.isValid() );
@@ -506,7 +506,7 @@ TEST_CASE( "PluginManager findProjectPlugin" )
     const QString pluginPath = tempDir.filePath( "test_project.qml" );
     REQUIRE( QFile( pluginPath ).open( QIODevice::WriteOnly ) );
 
-    REQUIRE( PluginManager::findProjectPlugin( projectPath ) == pluginPath );
+    REQUIRE( QfPluginManager::findProjectPlugin( projectPath ) == pluginPath );
   }
 
   SECTION( "_qfield suffix variant" )
@@ -517,7 +517,7 @@ TEST_CASE( "PluginManager findProjectPlugin" )
     const QString pluginPath = tempDir.filePath( "cloud_project.qml" );
     REQUIRE( QFile( pluginPath ).open( QIODevice::WriteOnly ) );
 
-    REQUIRE( PluginManager::findProjectPlugin( projectPath ) == pluginPath );
+    REQUIRE( QfPluginManager::findProjectPlugin( projectPath ) == pluginPath );
   }
 
   SECTION( "prefer exact match over suffix variant" )
@@ -531,7 +531,7 @@ TEST_CASE( "PluginManager findProjectPlugin" )
     const QString variantPlugin = tempDir.filePath( "project.qml" );
     REQUIRE( QFile( variantPlugin ).open( QIODevice::WriteOnly ) );
 
-    REQUIRE( PluginManager::findProjectPlugin( projectPath ) == exactPlugin );
+    REQUIRE( QfPluginManager::findProjectPlugin( projectPath ) == exactPlugin );
   }
 
   SECTION( "no plugin found" )
@@ -539,11 +539,11 @@ TEST_CASE( "PluginManager findProjectPlugin" )
     const QString projectPath = tempDir.filePath( "no_plugin.qgs" );
     REQUIRE( QFile( projectPath ).open( QIODevice::WriteOnly ) );
 
-    REQUIRE( PluginManager::findProjectPlugin( projectPath ).isEmpty() );
+    REQUIRE( QfPluginManager::findProjectPlugin( projectPath ).isEmpty() );
   }
 }
 
-TEST_CASE( "PluginManager edge cases" )
+TEST_CASE( "QfPluginManager edge cases" )
 {
   ensureCoreApplication();
 
@@ -552,7 +552,7 @@ TEST_CASE( "PluginManager edge cases" )
   const ScopedIniSettings scopedSettings( tempDir.path() );
 
   QQmlEngine engine;
-  PluginManager manager( &engine );
+  QfPluginManager manager( &engine );
 
   // verify no crashes on invalid operations
   manager.unloadPlugin( "/non/existent/path.qml" );

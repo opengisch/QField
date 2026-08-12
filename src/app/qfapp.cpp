@@ -13,11 +13,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "badlayerhandler.h"
-#include "changelogcontents.h"
-#include "pluginmanager.h"
-#include "pluginmodel.h"
 #include "qfapp.h"
+#include "qfbadlayerhandler.h"
+#include "qfchangelogcontents.h"
+#include "qfpluginmanager.h"
+#include "qfpluginmodel.h"
 
 #include <QtQml>
 
@@ -25,12 +25,12 @@ namespace QfApp
 {
   void registerQmlTypes()
   {
-    qmlRegisterType<BadLayerHandler>( "org.qfield.app", 1, 0, "BadLayerHandler" );
-    qmlRegisterType<ChangelogContents>( "org.qfield.app", 1, 0, "ChangelogContents" );
-    qmlRegisterType<PluginModel>( "org.qfield.app", 1, 0, "PluginModel" );
-    qmlRegisterType<PluginProxyModel>( "org.qfield.app", 1, 0, "PluginProxyModel" );
+    qmlRegisterType<QfBadLayerHandler>( "org.qfield.app", 1, 0, "QfBadLayerHandler" );
+    qmlRegisterType<QfChangelogContents>( "org.qfield.app", 1, 0, "QfChangelogContents" );
+    qmlRegisterType<QfPluginModel>( "org.qfield.app", 1, 0, "QfPluginModel" );
+    qmlRegisterType<QfPluginProxyModel>( "org.qfield.app", 1, 0, "QfPluginProxyModel" );
 
-    qmlRegisterUncreatableType<PluginManager>( "org.qfield.app", 1, 0, "PluginManager", "" );
+    qmlRegisterUncreatableType<QfPluginManager>( "org.qfield.app", 1, 0, "PluginManager", "" );
 
     // Existing plugins import the flat org.qfield module. Alias it rather than
     // registering everything twice, which would duplicate the singletons.
