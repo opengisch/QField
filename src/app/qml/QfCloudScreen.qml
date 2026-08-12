@@ -360,6 +360,7 @@ Page {
               property int status: Status
               property int localDeltasCount: LocalDeltasCount
               property bool projectOutdated: ProjectOutdated
+              property int projectType: ProjectType
 
               width: parent ? parent.width : undefined
               height: line.height
@@ -529,7 +530,7 @@ Page {
                   QfToolButton {
                     id: downloadActionButton
 
-                    visible: LocalPath === ''
+                    visible: LocalPath === '' && projectDelegate.projectType !== QfCloudProject.ProjectType.Template
                     iconSource: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_download_white_24dp")
                     iconColor: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.mainTextColor : QfTheme.mainColor
                     opacity: Status === QfCloudProject.ProjectStatus.Downloading ? 0.5 : 1
@@ -549,7 +550,7 @@ Page {
                     opacity: 0.5
                     width: QfTheme.toolButtonSize
                     height: QfTheme.toolButtonSize
-                    visible: LocalPath !== ''
+                    visible: LocalPath !== '' || projectDelegate.projectType === QfCloudProject.ProjectType.Template
 
                     bgcolor: "transparent"
                     iconSource: QfTheme.getThemeVectorIcon("ic_dot_menu_black_24dp")
@@ -562,9 +563,7 @@ Page {
                       projectActions.projectLocalPath = LocalPath;
                       projectActions.localDeltasCount = projectDelegate.localDeltasCount;
                       projectActions.projectOutdated = projectDelegate.projectOutdated;
-                      openProject.visible = LocalPath !== '';
-                      viewProjectFolder.visible = LocalPath !== '';
-                      removeProject.visible = LocalPath !== '';
+                      projectActions.projectType = projectDelegate.projectType;
                       const gc = mapToItem(qfieldCloudScreen, 0, 0);
                       projectActions.popup(gc.x + width - projectActions.width, gc.y - height);
                     }
@@ -594,7 +593,7 @@ Page {
               onClicked: mouse => {
                 var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
                 if (item) {
-                  if (item.projectLocalPath !== '') {
+                  if (item.projectLocalPath !== '' && item.projectType !== QfCloudProject.ProjectType.Template) {
                     qfieldCloudScreen.visible = false;
                     iface.loadFile(item.projectLocalPath, item.projectName);
                   } else {
@@ -625,15 +624,14 @@ Page {
 
               onPressAndHold: mouse => {
                 const item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
-                if (item && item.projectLocalPath !== "") {
+                if (item && (item.projectLocalPath !== "" || item.projectType === QfCloudProject.ProjectType.Template)) {
                   projectActions.projectId = item.projectId;
                   projectActions.projectOwner = item.projectOwner;
                   projectActions.projectName = item.projectName;
                   projectActions.projectLocalPath = item.projectLocalPath;
                   projectActions.localDeltasCount = item.localDeltasCount;
                   projectActions.projectOutdated = item.projectOutdated;
-                  openProject.visible = item.projectLocalPath !== '';
-                  removeProject.visible = item.projectLocalPath !== '';
+                  projectActions.projectType = item.projectType;
                   projectActions.popup(mouse.x, mouse.y);
                 }
               }
@@ -800,6 +798,7 @@ Page {
     property string projectLocalPath: ''
     property int localDeltasCount: 0
     property bool projectOutdated: false
+    property int projectType: QfCloudProject.ProjectType.Regular
 
     title: qsTr('Project Actions')
 
@@ -813,6 +812,7 @@ Page {
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectLocalPath !== '' && projectActions.projectType !== QfCloudProject.ProjectType.Template
 
       text: qsTr("Open Project")
       onTriggered: {
@@ -825,6 +825,8 @@ Page {
 
     MenuSeparator {
       width: parent.width
+      height: visible ? implicitHeight : 0
+      visible: projectActions.projectLocalPath !== '' && projectActions.projectType !== QfCloudProject.ProjectType.Template
     }
 
     MenuItem {
@@ -834,6 +836,7 @@ Page {
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectType !== QfCloudProject.ProjectType.Template
 
       text: qsTr("Synchronize")
       onTriggered: {
@@ -858,6 +861,7 @@ Page {
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectType !== QfCloudProject.ProjectType.Template
       enabled: projectActions.localDeltasCount > 0
 
       text: qsTr("Upload local changes")
@@ -886,8 +890,26 @@ Page {
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectType !== QfCloudProject.ProjectType.Template
 
       text: qsTr("Clone Project")
+      onTriggered: {
+        cloneProjectDialog.sourceProjectId = projectActions.projectId;
+        cloneProjectName.text = projectActions.projectName;
+        cloneProjectDialog.open();
+      }
+    }
+
+    MenuItem {
+      id: createFromTemplate
+
+      font: QfTheme.defaultFont
+      width: parent.width
+      height: visible ? 48 : 0
+      leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectType === QfCloudProject.ProjectType.Template
+
+      text: qsTr("Create project from template")
       onTriggered: {
         cloneProjectDialog.sourceProjectId = projectActions.projectId;
         cloneProjectName.text = projectActions.projectName;
@@ -902,6 +924,7 @@ Page {
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectLocalPath !== '' && projectActions.projectType !== QfCloudProject.ProjectType.Template
 
       text: qsTr("Remove Stored Project")
       onTriggered: {
@@ -911,6 +934,8 @@ Page {
 
     MenuSeparator {
       width: parent.width
+      height: visible ? implicitHeight : 0
+      visible: projectActions.projectType !== QfCloudProject.ProjectType.Template
     }
 
     MenuItem {
@@ -921,7 +946,7 @@ Page {
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
-      text: qsTr("View Project Details")
+      text: projectActions.projectType === QfCloudProject.ProjectType.Template ? qsTr("View template details") : qsTr("View Project Details")
       onTriggered: {
         projectDetails.cloudProject = cloudProjectsModel.findProject(projectActions.projectId);
         projectsSwipeView.currentIndex = 1;
@@ -934,6 +959,7 @@ Page {
       width: parent.width
       height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
+      visible: projectActions.projectLocalPath !== '' && projectActions.projectType !== QfCloudProject.ProjectType.Template
 
       text: qsTr("View Project Folder")
       onTriggered: {
