@@ -65,6 +65,7 @@ set(QFIELD_APP_SRCS
     qfpluginmanager.cpp
     qfpluginmodel.cpp
     qfappauthrequesthandler.cpp
+    qfappcoordinateoperationhandlers.cpp
     qfurlhandler.cpp
     qfscreendimmer.cpp
     qgismobileapp.cpp)
@@ -77,6 +78,7 @@ set(QFIELD_APP_HDRS
     qfpluginmanager.h
     qfpluginmodel.h
     qfappauthrequesthandler.h
+    qfappcoordinateoperationhandlers.h
     qfurlhandler.h
     qfscreendimmer.h
     qgismobileapp.h)
