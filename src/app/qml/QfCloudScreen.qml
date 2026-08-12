@@ -199,8 +199,22 @@ Page {
           id: filterBar
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
-          visible: false
-          model: [qsTr("Projects")]
+          visible: filterModel.templateCount > 0
+          model: [qsTr("Projects"), qsTr("Templates")]
+
+          onCurrentIndexChanged: {
+            filterModel.showTemplates = currentIndex === 1;
+          }
+        }
+
+        Connections {
+          target: filterModel
+
+          function onTemplateCountChanged() {
+            if (filterModel.templateCount === 0 && filterBar.currentIndex !== 0) {
+              filterBar.currentIndex = 0;
+            }
+          }
         }
 
         QfSearchBar {
@@ -289,6 +303,7 @@ Page {
               projectsModel: cloudProjectsModel
               showLocalOnly: cloudConnection.status !== QfCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
+              showTemplates: false
             }
 
             ScrollBar.vertical: QfScrollBar {
