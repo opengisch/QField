@@ -2254,7 +2254,20 @@ QfCloudProject *QfCloudProject::fromLocalSettings( const QString &id, QfCloudCon
   const QDateTime updatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const qint64 remoteSizeBytes = QfCloudUtils::projectSetting( id, QStringLiteral( "remoteSizeBytes" ) ).toLongLong();
   const QString sharedDatasetsProjectId = QfCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
-  const QfCloudProject::ProjectType projectType = static_cast<QfCloudProject::ProjectType>( QfCloudUtils::projectSetting( id, QStringLiteral( "projectType" ) ).toInt() );
+  const int storedProjectType = QfCloudUtils::projectSetting( id, QStringLiteral( "projectType" ), -1 ).toInt();
+  QfCloudProject::ProjectType projectType;
+  if ( storedProjectType >= 0 )
+  {
+    projectType = static_cast<QfCloudProject::ProjectType>( storedProjectType );
+  }
+  else if ( QfCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool() )
+  {
+    projectType = QfCloudProject::ProjectType::SharedDatasets;
+  }
+  else
+  {
+    projectType = QfCloudProject::ProjectType::Regular;
+  }
   const bool isAttachmentDownloadOnDemand = QfCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
   const QDateTime dataLastUpdatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "dataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QDateTime restrictedDataLastUpdatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "restrictedDataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
