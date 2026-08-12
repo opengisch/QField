@@ -30,7 +30,7 @@ namespace QfApp
     qmlRegisterType<QfPluginModel>( "org.qfield.app", 1, 0, "QfPluginModel" );
     qmlRegisterType<QfPluginProxyModel>( "org.qfield.app", 1, 0, "QfPluginProxyModel" );
 
-    qmlRegisterUncreatableType<QfPluginManager>( "org.qfield.app", 1, 0, "PluginManager", "" );
+    qmlRegisterUncreatableType<QfPluginManager>( "org.qfield.app", 1, 0, "QfPluginManager", "" );
 
     // Existing plugins import the flat org.qfield module. Alias it rather than
     // registering everything twice, which would duplicate the singletons.
@@ -43,5 +43,11 @@ namespace QfApp
     // Same for QfTheme, which used to hold the Qf components now living in gui.
     qmlRegisterModule( "Theme", 1, 0 );
     qmlRegisterModuleImport( "Theme", QQmlModuleImportModuleAny, "org.qfield.gui", QQmlModuleImportLatest );
+
+    // Pre-Qf names, reached through org.qfield or the legacy Theme module.
+    //qmlRegisterType<QfAppExpressionContextScopesGenerator>( "org.qfield.core", 1, 0, "AppExpressionContextScopesGenerator" );
+    //qmlRegisterType<QfAudioAnalyzer>( "org.qfield.core", 1, 0, "AudioAnalyzer" );
+    //qmlRegisterType<QfAudioRecorder>( "org.qfield.core", 1, 0, "AudioRecorder" );
+    //qmlRegisterType<QfBarcodeDecoder>( "org.qfield.core", 1, 0, "BarcodeDecoder" );
   }
 } // namespace QfApp

@@ -217,7 +217,7 @@ Item {
       }
     }
 
-    QFieldCloudStatusBanner {
+    QfCloudStatusBanner {
       cloudServiceStatus: qfieldCloudLogin.cloudServiceStatus
     }
 

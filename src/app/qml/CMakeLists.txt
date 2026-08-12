@@ -1,33 +1,33 @@
 set(QFIELD_APP_QML_FILES
-    About.qml
-    BadLayerItem.qml
-    Changelog.qml
-    DashBoard.qml
-    Dummy.qml
-    Nyuki.qml
-    PluginItem.qml
-    PluginManagerSettings.qml
-    QFieldCloudDangerZone.qml
-    QFieldCloudDeltaHistory.qml
-    QFieldCloudLogin.qml
-    QFieldCloudPackageLayersFeedback.qml
-    QFieldCloudPopup.qml
-    QFieldCloudProjectDetails.qml
-    QFieldCloudProjectFilter.qml
-    QFieldCloudScreen.qml
-    QFieldCloudStatusBanner.qml
-    QFieldGuide.qml
-    QFieldLocalDataPickerScreen.qml
-    QFieldSettings.qml
-    QFieldSketcher.qml
+    QfAbout.qml
+    QfBadLayerItem.qml
+    QfChangelog.qml
     QfCoordinateLocator.qml
+    QfCloudDangerZone.qml
+    QfCloudDeltaHistory.qml
+    QfCloudLogin.qml
+    QfCloudPackageLayersFeedback.qml
+    QfCloudPopup.qml
+    QfCloudProjectDetails.qml
+    QfCloudProjectFilter.qml
+    QfCloudScreen.qml
+    QfCloudStatusBanner.qml
+    QfDashBoard.qml
+    QfDummy.qml
     QfFeatureListSelectionHighlight.qml
+    QfGuide.qml
+    QfLocalDataPickerScreen.qml
     QfMeasuringTool.qml
+    QfNyuki.qml
+    QfPluginItem.qml
+    QfPluginManagerSettings.qml
     QfPositioningSettings.qml
+    QfScreenLocker.qml
+    QfSettings.qml
+    QfSketcher.qml
     QfTrackerSettings.qml
-    QgisMobileapp.qml
-    ScreenLocker.qml
-    WelcomeScreen.qml)
+    QfWelcomeScreen.qml
+    QgisMobileapp.qml)
 
 # Type registration stays imperative, in QfApp::registerQmlTypes().
 qt_add_qml_module(

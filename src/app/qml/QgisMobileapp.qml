@@ -3565,13 +3565,13 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  PluginManagerSettings {
+  QfPluginManagerSettings {
     id: pluginManagerSettings
 
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  DashBoard {
+  QfDashBoard {
     id: dashBoard
     objectName: "dashBoard"
 
@@ -5130,7 +5130,7 @@ ApplicationWindow {
     }
   }
 
-  BadLayerItem {
+  QfBadLayerItem {
     id: badLayersView
     visible: false
   }
@@ -5326,7 +5326,7 @@ ApplicationWindow {
     }
   }
 
-  QFieldCloudDeltaHistory {
+  QfCloudDeltaHistory {
     id: qfieldCloudDeltaHistory
     objectName: "qfieldCloudDeltaHistory"
 
@@ -5341,7 +5341,7 @@ ApplicationWindow {
     url: cloudConnection.url
   }
 
-  WelcomeScreen {
+  QfWelcomeScreen {
     id: welcomeScreen
     objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
@@ -5406,7 +5406,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  QFieldCloudScreen {
+  QfCloudScreen {
     id: qfieldCloudScreen
     objectName: "qfieldCloudScreen"
 
@@ -5429,7 +5429,7 @@ ApplicationWindow {
     }
   }
 
-  QFieldCloudPopup {
+  QfCloudPopup {
     id: qfieldCloudPopup
     objectName: "qfieldCloudPopup"
 
@@ -5445,12 +5445,12 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  QFieldCloudPackageLayersFeedback {
+  QfCloudPackageLayersFeedback {
     id: cloudPackageLayersFeedback
     visible: false
   }
 
-  QFieldLocalDataPickerScreen {
+  QfLocalDataPickerScreen {
     id: qfieldLocalDataPickerScreen
     objectName: "qfieldLocalDataPickerScreen"
 
@@ -5465,7 +5465,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  QFieldSettings {
+  QfSettings {
     id: qfieldSettings
     objectName: "qfieldSettings"
 
@@ -5478,7 +5478,7 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
-  Changelog {
+  QfChangelog {
     id: changelogPopup
     objectName: 'changelogPopup'
     parent: Overlay.overlay
@@ -5495,7 +5495,7 @@ ApplicationWindow {
     }
   }
 
-  About {
+  QfAbout {
     id: aboutDialog
     anchors.fill: parent
 
@@ -5525,7 +5525,7 @@ ApplicationWindow {
     visible: false
   }
 
-  QFieldSketcher {
+  QfSketcher {
     id: sketcher
     objectName: 'sketcher'
     visible: false
@@ -5559,7 +5559,7 @@ ApplicationWindow {
     }
   }
 
-  Nyuki {
+  QfNyuki {
     id: nyuki
     anchors.bottom: parent.bottom
     anchors.bottomMargin: -200
@@ -5632,7 +5632,7 @@ ApplicationWindow {
     isHovering: mapCanvasMap.hovered
   }
 
-  ScreenLocker {
+  QfScreenLocker {
     id: screenLocker
     objectName: "screenLocker"
     enabled: false
@@ -5757,7 +5757,7 @@ ApplicationWindow {
     }
   }
 
-  QFieldGuide {
+  QfGuide {
     id: mapCanvasTour
     baseRoot: mainWindow
     objectName: 'mapCanvasTour'
@@ -5792,7 +5792,7 @@ ApplicationWindow {
     }
   }
 
-  QFieldGuide {
+  QfGuide {
     id: dashboardTour
     baseRoot: mainWindow
     objectName: 'dashboardTour'

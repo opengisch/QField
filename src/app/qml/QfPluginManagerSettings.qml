@@ -95,7 +95,7 @@ QfPopup {
           filter: filterBar.currentIndex === 0 ? QfPluginProxyModel.LocalPlugin : QfPluginProxyModel.RemotePlugin
         }
 
-        delegate: PluginItem {
+        delegate: QfPluginItem {
           width: parent ? parent.width : 10
           icon: Icon !== '' ? QfUrlUtils.fromString(Icon) : ''
           name: Name
