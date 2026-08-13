@@ -344,10 +344,13 @@ ColumnLayout {
     Layout.fillWidth: true
     dropdown: !projectDetails.isTemplate && !showProgress
     progressValue: !projectDetails.isTemplate && cloudProject ? cloudProject.downloadProgress : 0
-    showProgress: !projectDetails.isTemplate && cloudProject != undefined && cloudProject.status === QfCloudProject.ProjectStatus.Downloading
+    showProgress: (projectDetails.isTemplate && cloudProjectsModel.isCreating) || (!projectDetails.isTemplate && cloudProject != undefined && cloudProject.status === QfCloudProject.ProjectStatus.Downloading)
     text: {
       if (projectDetails.isTemplate) {
-        return qsTr("Create project from this template");
+        if (cloudProjectsModel.isCreating) {
+          return qsTr("Creating project");
+        }
+        return qsTr("Create project from template");
       }
       if (showProgress) {
         if (cloudProject.packagingStatus === QfCloudProject.PackagingBusyStatus) {
@@ -363,7 +366,7 @@ ColumnLayout {
       return qsTr("Download project");
     }
     visible: cloudProject != undefined && cloudProject.localPath === ""
-    enabled: cloudProject != undefined && (projectDetails.isTemplate || cloudProject.status !== QfCloudProject.ProjectStatus.Downloading)
+    enabled: cloudProject != undefined && (projectDetails.isTemplate ? !cloudProjectsModel.isCreating : cloudProject.status !== QfCloudProject.ProjectStatus.Downloading)
 
     onClicked: {
       if (cloudProject == undefined) {
@@ -389,7 +392,7 @@ ColumnLayout {
     Layout.fillWidth: true
     dropdown: true
     text: qsTr("Open project")
-    visible: !projectDetails.isTemplate && cloudProject != undefined && cloudProject.localPath !== ""
+    visible: cloudProject != undefined && cloudProject.localPath !== ""
     enabled: cloudProject != undefined && cloudProject.localPath !== "" && cloudProject.status === QfCloudProject.Idle
 
     onClicked: {
