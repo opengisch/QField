@@ -2276,7 +2276,7 @@ Page {
   }
 
   header: QfPageHeader {
-    title: qsTr("%1 Settings").arg(QfApplicationInformation.name)
+    title: qsTr("%1 Settings").arg(Qfield.name)
 
     showBackButton: true
     showApplyButton: false

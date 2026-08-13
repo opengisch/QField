@@ -130,7 +130,7 @@ Page {
           font.pointSize: welcomeScreenLogo.imageSize * 0.5
           font.bold: true
           color: QfTheme.mainTextColor
-          text: QfApplicationInformation.name
+          text: Qfield.name
           wrapMode: Text.WordWrap
         }
 
@@ -245,7 +245,7 @@ Page {
               Layout.margins: 6
               Layout.topMargin: 12
               Layout.maximumWidth: feedbackView.width - 12
-              text: qsTr("Hey there, how do you like your experience with %1 so far?").arg(QfApplicationInformation.name)
+              text: qsTr("Hey there, how do you like your experience with %1 so far?").arg(Qfield.name)
               font: QfTheme.defaultFont
               color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
@@ -431,7 +431,7 @@ Page {
               Layout.margins: 6
               Layout.topMargin: 12
               Layout.maximumWidth: collectionView.width - 12
-              text: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(QfApplicationInformation.name)
+              text: qsTr("To improve stability for everyone, %1 collects and sends anonymized metrics.").arg(Qfield.name)
               font: QfTheme.defaultFont
               color: QfTheme.mainTextColor
               horizontalAlignment: Text.AlignHCenter
@@ -1004,7 +1004,7 @@ Page {
         var daysToPrompt = 30;
         var runsToPrompt = 5;
         if (runCount >= runsToPrompt && (now - dt) >= (daysToPrompt * 24 * 60 * 60 * 1000)) {
-          if (QfApplicationInformation.name === "QField") {
+          if (Qfield.name === "QField") {
             feedbackView.visible = true;
           }
           settings.setValue("/QField/FeedbackFormShown", true);

@@ -1,6 +1,6 @@
 /***************************************************************************
-                        qfapplicationinformation.cpp
-                        ----------------------------
+                        qfield.cpp
+                        ----------
   begin                : August 2026
   copyright            : (C) 2026 by Mohsen Dehghanzadeh
   email                : mohsen@opengis.ch
@@ -15,7 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfapplicationinformation.h"
 #include "qfield.h"
 #include "qfnearfieldreader.h"
 
@@ -23,52 +22,32 @@
 
 #include <gdal_version.h>
 
-QfApplicationInformation::QfApplicationInformation( QObject *parent )
+QfApplication::QfApplication( QObject *parent )
   : QObject( parent )
 {
 }
 
-QString QfApplicationInformation::name() const
-{
-  return qfield::appName;
-}
-
-QString QfApplicationInformation::version() const
-{
-  return qfield::appVersion;
-}
-
-QString QfApplicationInformation::versionString() const
-{
-  return qfield::appVersionStr;
-}
-
-QString QfApplicationInformation::gitRevision() const
-{
-  return qfield::gitRev;
-}
-
-QString QfApplicationInformation::qtVersion() const
+QString QfApplication::qtVersion() const
 {
   return QString::fromLatin1( qVersion() );
 }
 
-QString QfApplicationInformation::qgisVersion() const
+QString QfApplication::qgisVersion() const
 {
   return Qgis::version();
 }
 
-QString QfApplicationInformation::gdalVersion() const
+QString QfApplication::gdalVersion() const
 {
   return QStringLiteral( GDAL_RELEASE_NAME );
 }
 
-bool QfApplicationInformation::hasNearFieldReader() const
+bool QfApplication::hasNearFieldReader() const
 {
   return QfNearFieldReader::isSupported();
 }
 
-bool QfApplicationInformation::hasBluetooth() const
+bool QfApplication::hasBluetooth() const
 {
 #ifdef WITH_BLUETOOTH
   return true;
@@ -77,7 +56,7 @@ bool QfApplicationInformation::hasBluetooth() const
 #endif
 }
 
-bool QfApplicationInformation::hasSerialPort() const
+bool QfApplication::hasSerialPort() const
 {
 #ifdef WITH_SERIALPORT
   return true;

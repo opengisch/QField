@@ -36,7 +36,7 @@ QfPopup {
   onAboutToShow: {
     openedOnce = true;
     // when NFC is not accessible, make sure the only option, QR, is active
-    if (!QfApplicationInformation.hasNearFieldReader && !settings.cameraActive) {
+    if (!Qfield.hasNearFieldReader && !settings.cameraActive) {
       settings.cameraActive = true;
     }
     decodedString = '';
@@ -99,7 +99,7 @@ QfPopup {
 
   Loader {
     id: nearfieldLoader
-    active: QfApplicationInformation.hasNearFieldReader && codeReader.visible && settings.nearfieldActive
+    active: Qfield.hasNearFieldReader && codeReader.visible && settings.nearfieldActive
 
     sourceComponent: Component {
       QfNearFieldReader {
@@ -465,7 +465,7 @@ QfPopup {
             iconColor: QfTheme.toolButtonColor
             bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
-            visible: QfApplicationInformation.hasNearFieldReader
+            visible: Qfield.hasNearFieldReader
             state: settings.cameraActive ? "On" : "Off"
             states: [
               State {
@@ -509,7 +509,7 @@ QfPopup {
             iconColor: QfTheme.toolButtonColor
             bgcolor: QfTheme.toolButtonBackgroundSemiOpaqueColor
 
-            visible: QfApplicationInformation.hasNearFieldReader
+            visible: Qfield.hasNearFieldReader
             state: settings.nearfieldActive ? "On" : "Off"
             states: [
               State {
