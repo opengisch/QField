@@ -396,7 +396,7 @@ void QfPositioningSource::lastGnssPositionInformationChanged( const QfGnssPositi
                                                        lastGnssPositionInformation.imuPitch(),
                                                        lastGnssPositionInformation.imuHeading(),
                                                        lastGnssPositionInformation.imuSteering(),
-                                                       lastGnssPositionInformation.imuHeadingValid() ? lastGnssPositionInformation.imuHeading() : mOrientation );
+                                                       mOrientation );
   mPositionInformation = positionInformation;
 
   if ( !mBackgroundMode )
