@@ -81,11 +81,10 @@ class QfCloudConnection : public QObject
     Q_PROPERTY( bool hasToken READ hasToken NOTIFY tokenChanged )
     Q_PROPERTY( bool hasProviderConfiguration READ hasProviderConfiguration NOTIFY providerConfigurationChanged )
 
-    Q_PROPERTY( QfCloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
-
     Q_PROPERTY( QList<QfAuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
 
+    Q_PROPERTY( QfCloudUserInformation userInformation READ userInformation NOTIFY userInformationChanged )
     Q_PROPERTY( QfCloudServerInformation serverInformation READ serverInformation NOTIFY serverInformationChanged )
 
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )

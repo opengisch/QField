@@ -525,7 +525,7 @@ void QfCloudConnection::login( const QString &password )
 
     mAvatarUrl = resp.value( QStringLiteral( "avatar_url" ) ).toString();
     emit avatarUrlChanged();
-    mUserInformation = QfCloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString() );
+    mUserInformation = QfCloudUserInformation( mUsername, resp.value( QStringLiteral( "email" ) ).toString(), resp.value( QStringLiteral( "first_name" ) ).toString(), resp.value( QStringLiteral( "last_name" ) ).toString(), resp.value( QStringLiteral( "full_name" ) ).toString() );
     emit userInformationChanged();
 
     QStringList savedUrls = settings.value( QStringLiteral( "/QFieldCloud/urls" ), QStringList() << defaultUrl() ).toStringList();
