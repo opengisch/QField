@@ -22,11 +22,6 @@
 
 #include <gdal_version.h>
 
-QfApplication::QfApplication( QObject *parent )
-  : QObject( parent )
-{
-}
-
 QString QfApplication::qtVersion() const
 {
   return QString::fromLatin1( qVersion() );

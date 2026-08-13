@@ -69,9 +69,9 @@ namespace qfield
  *
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT QfApplication : public QObject
+class QFIELD_CORE_EXPORT QfApplication
 {
-    Q_OBJECT
+    Q_GADGET
 
     //! Name the build ships under
     Q_PROPERTY( QString name READ name CONSTANT )
@@ -104,8 +104,6 @@ class QFIELD_CORE_EXPORT QfApplication : public QObject
     Q_PROPERTY( bool hasSerialPort READ hasSerialPort CONSTANT )
 
   public:
-    explicit QfApplication( QObject *parent = nullptr );
-
     QString name() const { return qfield::appName; }
     QString version() const { return qfield::appVersion; }
     QString versionString() const { return qfield::appVersionStr; }

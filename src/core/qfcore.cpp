@@ -210,7 +210,9 @@ namespace QfCore
     qmlRegisterType<QfViewStatus>( "org.qfield.core", 1, 0, "QfViewStatus" );
     qmlRegisterType<QfWebdavConnection>( "org.qfield.core", 1, 0, "QfWebdavConnection" );
 
-    REGISTER_SINGLETON( "org.qfield.core", QfApplication, "Qfield" );
+    qmlRegisterSingletonType( "org.qfield.core", 1, 0, "Qfield", []( QQmlEngine *, QJSEngine *scriptEngine ) -> QJSValue {
+      return scriptEngine->toScriptValue( QfApplication() );
+    } );
     REGISTER_SINGLETON( "org.qfield.core", QfAuthUtils, "QfAuthUtils" );
     REGISTER_SINGLETON( "org.qfield.core", QfCoordinateReferenceSystemUtils, "QfCoordinateReferenceSystemUtils" );
     REGISTER_SINGLETON( "org.qfield.core", QfExpressionContextUtils, "QfExpressionContextUtils" );
