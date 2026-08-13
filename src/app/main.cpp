@@ -117,7 +117,7 @@ int main( int argc, char **argv )
 
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( qfield::appName );
+  QCoreApplication::setApplicationName( Qfield::appName );
 
 #if defined( Q_OS_ANDROID )
   if ( argc > 1 )
@@ -356,7 +356,7 @@ int main( int argc, char **argv )
   // Set up the QSettings environment must be done after qapp is created
   QCoreApplication::setOrganizationName( "OPENGIS.ch" );
   QCoreApplication::setOrganizationDomain( "opengis.ch" );
-  QCoreApplication::setApplicationName( qfield::appName );
+  QCoreApplication::setApplicationName( Qfield::appName );
 
   app.installTranslator( qtTranslator );
   app.installTranslator( qfieldTranslator );

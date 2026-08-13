@@ -58,7 +58,7 @@ void QfChangelogContents::request()
     bool shouldReverseOrder = false;
     QString changelog;
     QString versionNumbersOnly;
-    QList<int> qfieldVersion = parseVersion( qfield::appVersion );
+    QList<int> qfieldVersion = parseVersion( Qfield::appVersion );
     QList<int> oldVersion = parseVersion( QSettings().value( QStringLiteral( "/QField/ChangelogVersion" ) ).toString() );
     const QJsonArray releases = json.array();
 

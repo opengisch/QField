@@ -1302,7 +1302,7 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, bool shouldAp
   // 3) commit the changes, if fails, revert the rest of the layers
   if ( isSuccess )
   {
-    for ( auto [layerId, vl] : qfield::asKeyValueRange( vectorLayers ) )
+    for ( auto [layerId, vl] : vectorLayers.asKeyValueRange() )
     {
       // despite the error, try to rollback all the changes so far
       if ( vl->commitChanges() )
@@ -1319,7 +1319,7 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, bool shouldAp
   // 4) revert the changes that didn't manage to be applied
   if ( !isSuccess )
   {
-    for ( auto [layerId, vl] : qfield::asKeyValueRange( vectorLayers ) )
+    for ( auto [layerId, vl] : vectorLayers.asKeyValueRange() )
     {
       // the layer has already been committed
       if ( !vl )
@@ -1406,7 +1406,7 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
       if ( !geomWkt.isEmpty() )
         geom = QgsGeometry::fromWkt( geomWkt );
 
-      for ( auto [attrName, attrValue] : qfield::asKeyValueRange( attributes ) )
+      for ( auto [attrName, attrValue] : attributes.asKeyValueRange() )
         qgsAttributeMap.insert( fields.indexFromName( attrName ), attrValue );
 
       QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( vectorLayers[layerId], geom, qgsAttributeMap );
@@ -1440,7 +1440,7 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
         vectorLayers[layerId]->changeGeometry( f.id(), geom );
       }
 
-      for ( auto [attrName, attrValue] : qfield::asKeyValueRange( attributes ) )
+      for ( auto [attrName, attrValue] : attributes.asKeyValueRange() )
       {
         if ( !vectorLayers[layerId]->changeAttributeValue( f.id(), fields.indexOf( attrName ), attrValue ) )
           return false;

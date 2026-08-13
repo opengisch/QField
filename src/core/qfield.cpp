@@ -22,27 +22,27 @@
 
 #include <gdal_version.h>
 
-QString QfApplication::qtVersion() const
+QString Qfield::qtVersion() const
 {
   return QString::fromLatin1( qVersion() );
 }
 
-QString QfApplication::qgisVersion() const
+QString Qfield::qgisVersion() const
 {
   return Qgis::version();
 }
 
-QString QfApplication::gdalVersion() const
+QString Qfield::gdalVersion() const
 {
   return QStringLiteral( GDAL_RELEASE_NAME );
 }
 
-bool QfApplication::hasNearFieldReader() const
+bool Qfield::hasNearFieldReader() const
 {
   return QfNearFieldReader::isSupported();
 }
 
-bool QfApplication::hasBluetooth() const
+bool Qfield::hasBluetooth() const
 {
 #ifdef WITH_BLUETOOTH
   return true;
@@ -51,7 +51,7 @@ bool QfApplication::hasBluetooth() const
 #endif
 }
 
-bool QfApplication::hasSerialPort() const
+bool Qfield::hasSerialPort() const
 {
 #ifdef WITH_SERIALPORT
   return true;

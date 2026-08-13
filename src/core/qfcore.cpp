@@ -211,7 +211,7 @@ namespace QfCore
     qmlRegisterType<QfWebdavConnection>( "org.qfield.core", 1, 0, "QfWebdavConnection" );
 
     qmlRegisterSingletonType( "org.qfield.core", 1, 0, "Qfield", []( QQmlEngine *, QJSEngine *scriptEngine ) -> QJSValue {
-      return scriptEngine->toScriptValue( QfApplication() );
+      return scriptEngine->toScriptValue( Qfield() );
     } );
     REGISTER_SINGLETON( "org.qfield.core", QfAuthUtils, "QfAuthUtils" );
     REGISTER_SINGLETON( "org.qfield.core", QfCoordinateReferenceSystemUtils, "QfCoordinateReferenceSystemUtils" );

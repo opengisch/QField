@@ -24,44 +24,6 @@
 #include <QString>
 
 /**
- * Contains "polyfills" for backporting c++ features from standards > c++17 and Qt global methods
- * added later than our minimum version, as well nice some sugar.
- */
-namespace qfield
-{
-  /**
-   * Can be used to iterate over `QMap`s in a convenient way.
-   *
-   * \code{.cpp}
-   * for (auto [key, value]: asKeyValueRange(map))
-   * {
-   *   // do something with `key` and `value`
-   * }
-   * \endcode
-   */
-  template<typename T> class asKeyValueRange
-  {
-    public:
-      explicit asKeyValueRange( T &data )
-        : mData { data }
-      {
-      }
-
-      auto begin() { return mData.keyValueBegin(); }
-
-      auto end() { return mData.keyValueEnd(); }
-
-    private:
-      T &mData;
-  };
-
-  static inline const QString gitRev{ QStringLiteral( "@GIT_REV@" ) };
-  static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
-  static inline const QString appVersionStr{ QStringLiteral( "@APP_VERSION_STR@" ) };
-  static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
-}; // namespace qfield
-
-/**
  * \brief Describes the running application: how it was built, and what it was built against.
  *
  * Everything here is settled by the time the application is up and never changes
@@ -69,7 +31,7 @@ namespace qfield
  *
  * \ingroup core
  */
-class QFIELD_CORE_EXPORT QfApplication
+class QFIELD_CORE_EXPORT Qfield
 {
     Q_GADGET
 
@@ -104,10 +66,15 @@ class QFIELD_CORE_EXPORT QfApplication
     Q_PROPERTY( bool hasSerialPort READ hasSerialPort CONSTANT )
 
   public:
-    QString name() const { return qfield::appName; }
-    QString version() const { return qfield::appVersion; }
-    QString versionString() const { return qfield::appVersionStr; }
-    QString gitRevision() const { return qfield::gitRev; }
+    static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
+    static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
+    static inline const QString appVersionStr{ QStringLiteral( "@APP_VERSION_STR@" ) };
+    static inline const QString gitRev{ QStringLiteral( "@GIT_REV@" ) };
+
+    QString name() const { return appName; }
+    QString version() const { return appVersion; }
+    QString versionString() const { return appVersionStr; }
+    QString gitRevision() const { return gitRev; }
     QString qtVersion() const;
     QString qgisVersion() const;
     QString gdalVersion() const;

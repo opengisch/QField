@@ -86,7 +86,7 @@ void QfPlatformUtilities::initSystem()
     localGitRev = gitRevFile.readAll();
   }
   gitRevFile.close();
-  QByteArray appGitRev = qfield::gitRev.toUtf8();
+  QByteArray appGitRev = Qfield::gitRev.toUtf8();
   if ( localGitRev != appGitRev )
   {
     afterUpdate();
