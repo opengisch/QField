@@ -61,9 +61,9 @@ If you found it useful, we will be even happier if you could give something back
 
 The world loves to hear about the usage of QField, follow us or share your story on your favorite channel
 
-[![share on linkedin](images/icons/linkedin.svg)](https://www.linkedin.com/products/opengisch-qfield/)
-[![share on bluesky](images/icons/bluesky.svg)](https://bsky.app/profile/qfield.bsky.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
-[![share on mastodon](images/icons/mastodon.svg)](https://mastodon.social/share?text=Looking%20for%20a%20good%20tool%20for%20field%20work%20in%20GIS?%20Check%20out%20%23QField!)
+[![share on linkedin](images/icons/linkedin.svg)](https://www.linkedin.com/company/qfield)
+[![share on bluesky](images/icons/bluesky.svg)](https://bsky.app/profile/qfield.org)
+[![share on mastodon](images/icons/mastodon.svg)](https://fosstodon.org/@qfield)
 
 ## Development
 
