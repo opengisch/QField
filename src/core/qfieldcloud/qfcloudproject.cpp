@@ -63,12 +63,18 @@ QfCloudProject::ProjectType QfCloudProject::typeFromString( const QString &type 
 {
   const QString typeLower = type.toLower();
   if ( typeLower == QStringLiteral( "shared_datasets" ) )
+  {
     return ProjectType::SharedDatasets;
+  }
   else if ( typeLower == QStringLiteral( "template" ) )
+  {
     return ProjectType::Template;
+  }
   else
+  {
     // "regular", empty, or any unknown value is treated as a regular project
     return ProjectType::Regular;
+  }
 }
 
 void QfCloudProject::setIsPublic( bool isPublic )

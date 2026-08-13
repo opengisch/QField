@@ -223,5 +223,7 @@
         <file>themes/qfield/nodpi/ic_radar_grey_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_rotate_grey_24dp.svg</file>
         <file>themes/qfield/nodpi/ic_reflect_grey_24dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_template_48dp.svg</file>
+        <file>themes/qfield/nodpi/ic_cloud_project_template_param_48dp.svg</file>
     </qresource>
 </RCC>
