@@ -199,7 +199,7 @@ Page {
           id: filterBar
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
-          visible: filterModel.templateCount > 0
+          visible: filterModel.hasTemplates
           model: [qsTr("Projects"), qsTr("Templates")]
 
           onCurrentIndexChanged: {
@@ -209,9 +209,8 @@ Page {
 
         Connections {
           target: filterModel
-
-          function onTemplateCountChanged() {
-            if (filterModel.templateCount === 0 && filterBar.currentIndex !== 0) {
+          function onHasTemplatesChanged() {
+            if (!filterModel.hasTemplates && filterBar.currentIndex !== 0) {
               filterBar.currentIndex = 0;
             }
           }

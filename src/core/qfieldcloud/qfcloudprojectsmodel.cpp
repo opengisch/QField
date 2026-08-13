@@ -1283,9 +1283,10 @@ void QfCloudProjectsFilterModel::setProjectsModel( QfCloudProjectsModel *project
 
   if ( mSourceModel )
   {
-    connect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::templateCountChanged );
-    connect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::templateCountChanged );
-    connect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::templateCountChanged );
+    connect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    connect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    connect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    updateHasTemplates();
   }
 
   emit projectsModelChanged();
@@ -1545,27 +1546,35 @@ bool QfCloudProjectsFilterModel::showTemplates() const
   return mShowTemplates;
 }
 
-int QfCloudProjectsFilterModel::templateCount() const
+bool QfCloudProjectsFilterModel::hasTemplates() const
 {
-  if ( !mSourceModel )
-  {
-    return 0;
-  }
-
-  int count = 0;
-  const int rows = mSourceModel->rowCount( QModelIndex() );
-  for ( int i = 0; i < rows; ++i )
-  {
-    const QModelIndex idx = mSourceModel->index( i, 0 );
-    const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( idx, QfCloudProjectsModel::IdRole ).toString() );
-    if ( project && project->type() == QfCloudProject::ProjectType::Template )
-    {
-      ++count;
-    }
-  }
-  return count;
+  return mHasTemplates;
 }
 
+void QfCloudProjectsFilterModel::updateHasTemplates()
+{
+  bool hasTemplates = false;
+  if ( mSourceModel )
+  {
+    const int rows = mSourceModel->rowCount( QModelIndex() );
+    for ( int i = 0; i < rows; ++i )
+    {
+      const QModelIndex idx = mSourceModel->index( i, 0 );
+      const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( idx, QfCloudProjectsModel::IdRole ).toString() );
+      if ( project && project->type() == QfCloudProject::ProjectType::Template )
+      {
+        hasTemplates = true;
+        break;
+      }
+    }
+  }
+
+  if ( mHasTemplates != hasTemplates )
+  {
+    mHasTemplates = hasTemplates;
+    emit hasTemplatesChanged();
+  }
+}
 
 bool QfCloudProjectsFilterModel::showInValidProjects() const
 {
