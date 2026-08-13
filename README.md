@@ -20,7 +20,7 @@ You can find the open-source QFieldCloud backend on GitHub here: [github.com/ope
 
 QField is officially recognized as a [Digital Public Good](https://digitalpublicgoods.net/r/qfield) for its contributions to open, inclusive, and sustainable digital development.
 
-Explore the full documentation at [docs.qfield.org](https://docs.qfield.org/)
+Explore the full [QField documentation](https://docs.qfield.org/) and connect with other users part of our [growing community](https://community.qfield.org/).
 
 ## 📲 Get QField
 <p align="center">
