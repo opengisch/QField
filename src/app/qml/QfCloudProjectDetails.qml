@@ -14,7 +14,7 @@ ColumnLayout {
   property var cloudProject: undefined
   property string lastSubscriptionUser: ""
 
-  readonly property bool isTemplate: cloudProject != undefined && cloudProject.projectType === QfCloudProject.ProjectType.Template
+  readonly property bool isTemplate: cloudProject != undefined && cloudProject.type === QfCloudProject.ProjectType.Template
 
   onCloudProjectChanged: {
     if (cloudProject != undefined) {

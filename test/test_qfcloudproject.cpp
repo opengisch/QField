@@ -38,56 +38,56 @@ TEST_CASE( "QfCloudProject project type" )
   SECTION( "Regular type" )
   {
     QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p1" ), QStringLiteral( "regular" ) ), nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Regular );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Regular );
     delete project;
   }
   SECTION( "Shared datasets type" )
   {
     QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p2" ), QStringLiteral( "shared_datasets" ) ), nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::SharedDatasets );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::SharedDatasets );
     delete project;
   }
   SECTION( "Template type" )
   {
     QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p3" ), QStringLiteral( "template" ) ), nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Template );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Template );
     delete project;
   }
   SECTION( "Missing project_type falls back to Regular" )
   {
     QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p4" ), QString() ), nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Regular );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Regular );
     delete project;
   }
   SECTION( "Unknown project_type falls back to Regular" )
   {
     QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p5" ), QStringLiteral( "something_new" ) ), nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Regular );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Regular );
     delete project;
   }
   SECTION( "Case-insensitive parsing" )
   {
     QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p6" ), QStringLiteral( "TEMPLATE" ) ), nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Template );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Template );
     delete project;
   }
 }
-TEST_CASE( "QfCloudProject projectTypeFromString" )
+TEST_CASE( "QfCloudProject typeFromString" )
 {
-  REQUIRE( QfCloudProject::projectTypeFromString( QStringLiteral( "regular" ) ) == QfCloudProject::ProjectType::Regular );
-  REQUIRE( QfCloudProject::projectTypeFromString( QStringLiteral( "shared_datasets" ) ) == QfCloudProject::ProjectType::SharedDatasets );
-  REQUIRE( QfCloudProject::projectTypeFromString( QStringLiteral( "template" ) ) == QfCloudProject::ProjectType::Template );
-  REQUIRE( QfCloudProject::projectTypeFromString( QString() ) == QfCloudProject::ProjectType::Regular );
-  REQUIRE( QfCloudProject::projectTypeFromString( QStringLiteral( "garbage" ) ) == QfCloudProject::ProjectType::Regular );
+  REQUIRE( QfCloudProject::typeFromString( QStringLiteral( "regular" ) ) == QfCloudProject::ProjectType::Regular );
+  REQUIRE( QfCloudProject::typeFromString( QStringLiteral( "shared_datasets" ) ) == QfCloudProject::ProjectType::SharedDatasets );
+  REQUIRE( QfCloudProject::typeFromString( QStringLiteral( "template" ) ) == QfCloudProject::ProjectType::Template );
+  REQUIRE( QfCloudProject::typeFromString( QString() ) == QfCloudProject::ProjectType::Regular );
+  REQUIRE( QfCloudProject::typeFromString( QStringLiteral( "garbage" ) ) == QfCloudProject::ProjectType::Regular );
 }
-TEST_CASE( "QfCloudProject setProjectType updates the type" )
+TEST_CASE( "QfCloudProject setType updates the type" )
 {
   QfCloudProject *project = QfCloudProject::fromDetails( makeDetails( QStringLiteral( "p7" ), QStringLiteral( "regular" ) ), nullptr );
-  REQUIRE( project->projectType() == QfCloudProject::ProjectType::Regular );
-  project->setProjectType( QfCloudProject::ProjectType::SharedDatasets );
-  REQUIRE( project->projectType() == QfCloudProject::ProjectType::SharedDatasets );
-  project->setProjectType( QfCloudProject::ProjectType::Template );
-  REQUIRE( project->projectType() == QfCloudProject::ProjectType::Template );
+  REQUIRE( project->type() == QfCloudProject::ProjectType::Regular );
+  project->setType( QfCloudProject::ProjectType::SharedDatasets );
+  REQUIRE( project->type() == QfCloudProject::ProjectType::SharedDatasets );
+  project->setType( QfCloudProject::ProjectType::Template );
+  REQUIRE( project->type() == QfCloudProject::ProjectType::Template );
   delete project;
 }
 
@@ -101,7 +101,7 @@ TEST_CASE( "QfCloudProject fromLocalSettings project type migration" )
 
     QfCloudProject *project = QfCloudProject::fromLocalSettings( id, nullptr );
     REQUIRE( project != nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Template );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Template );
     delete project;
   }
 
@@ -114,7 +114,7 @@ TEST_CASE( "QfCloudProject fromLocalSettings project type migration" )
 
     QfCloudProject *project = QfCloudProject::fromLocalSettings( id, nullptr );
     REQUIRE( project != nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::SharedDatasets );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::SharedDatasets );
     delete project;
   }
 
@@ -126,7 +126,7 @@ TEST_CASE( "QfCloudProject fromLocalSettings project type migration" )
 
     QfCloudProject *project = QfCloudProject::fromLocalSettings( id, nullptr );
     REQUIRE( project != nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Regular );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Regular );
     delete project;
   }
 
@@ -137,7 +137,7 @@ TEST_CASE( "QfCloudProject fromLocalSettings project type migration" )
 
     QfCloudProject *project = QfCloudProject::fromLocalSettings( id, nullptr );
     REQUIRE( project != nullptr );
-    REQUIRE( project->projectType() == QfCloudProject::ProjectType::Regular );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::Regular );
     delete project;
   }
 }

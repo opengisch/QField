@@ -697,7 +697,7 @@ void QfCloudProjectsModel::insertProjects( const QList<QfCloudProject *> &projec
           mProjects[i]->setCanRepackage( project->canRepackage() );
           mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );
           mProjects[i]->setSharedDatasetsProjectId( project->sharedDatasetsProjectId() );
-          mProjects[i]->setProjectType( project->projectType() );
+          mProjects[i]->setType( project->type() );
           mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
           mProjects[i]->setRestrictedDataLastUpdatedAt( project->restrictedDataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
@@ -875,7 +875,7 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
     QVariantHash projectDetails = project.toObject().toVariantHash();
     QfCloudProject *cloudProject = QfCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
 
-    if ( cloudProject->projectType() == QfCloudProject::ProjectType::SharedDatasets )
+    if ( cloudProject->type() == QfCloudProject::ProjectType::SharedDatasets )
     {
       delete cloudProject;
     }
@@ -921,7 +921,7 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
 
         // If the cloud project is a special shared dataset project or if the cloud project
         // had a folder but was not downloaded properly, do not add to the model
-        if ( cloudProject->projectType() == QfCloudProject::ProjectType::SharedDatasets || cloudProject->localPath().isEmpty() )
+        if ( cloudProject->type() == QfCloudProject::ProjectType::SharedDatasets || cloudProject->localPath().isEmpty() )
         {
           delete cloudProject;
         }
@@ -1050,7 +1050,7 @@ QVariant QfCloudProjectsModel::data( const QModelIndex &index, int role ) const
       return project->userRoleOrigin();
 
     case ProjectTypeRole:
-      return QVariant::fromValue( project->projectType() );
+      return QVariant::fromValue( project->type() );
   }
 
   return QVariant();
@@ -1355,7 +1355,7 @@ bool QfCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelI
     return false;
   }
 
-  const bool isTemplate = project->projectType() == QfCloudProject::ProjectType::Template;
+  const bool isTemplate = project->type() == QfCloudProject::ProjectType::Template;
   if ( mShowTemplates )
   {
     if ( !isTemplate )
@@ -1558,7 +1558,7 @@ int QfCloudProjectsFilterModel::templateCount() const
   {
     const QModelIndex idx = mSourceModel->index( i, 0 );
     const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( idx, QfCloudProjectsModel::IdRole ).toString() );
-    if ( project && project->projectType() == QfCloudProject::ProjectType::Template )
+    if ( project && project->type() == QfCloudProject::ProjectType::Template )
     {
       ++count;
     }

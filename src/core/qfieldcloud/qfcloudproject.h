@@ -75,7 +75,7 @@ class QfCloudProject : public QObject
     Q_PROPERTY( QDateTime lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
     Q_PROPERTY( QDateTime lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
 
-    Q_PROPERTY( ProjectType projectType READ projectType NOTIFY projectTypeChanged )
+    Q_PROPERTY( ProjectType type READ type NOTIFY typeChanged )
     Q_PROPERTY( bool isPublic READ isPublic NOTIFY isPublicChanged )
     Q_PROPERTY( bool isFeatured READ isFeatured NOTIFY isFeaturedChanged )
     Q_PROPERTY( bool isOutdated READ isOutdated NOTIFY isOutdatedChanged )
@@ -231,11 +231,11 @@ class QfCloudProject : public QObject
     QString sharedDatasetsProjectId() const { return mSharedDatasetsProjectId; }
     void setSharedDatasetsProjectId( const QString &id );
 
-    ProjectType projectType() const { return mProjectType; }
-    void setProjectType( ProjectType projectType );
+    ProjectType type() const { return mType; }
+    void setType( ProjectType projectType );
 
     //! Returns the ProjectType matching the given \a type string; unknown or empty values return ProjectType::Regular.
-    static QfCloudProject::ProjectType projectTypeFromString( const QString &type );
+    static QfCloudProject::ProjectType typeFromString( const QString &type );
 
     bool isPublic() const { return mIsPublic; }
     void setIsPublic( bool isPublic );
@@ -400,7 +400,7 @@ class QfCloudProject : public QObject
     void idChanged();
 
     void sharedDatasetsProjectIdChanged();
-    void projectTypeChanged();
+    void typeChanged();
 
     void isPublicChanged();
     void isFeaturedChanged();
@@ -527,7 +527,7 @@ class QfCloudProject : public QObject
 
     QString mId;
     QString mSharedDatasetsProjectId;
-    ProjectType mProjectType = ProjectType::Regular;
+    ProjectType mType = ProjectType::Regular;
 
     bool mIsPublic = false;
     bool mIsFeatured = false;

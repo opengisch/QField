@@ -50,16 +50,16 @@ void QfCloudProject::setSharedDatasetsProjectId( const QString &id )
   emit sharedDatasetsProjectIdChanged();
 }
 
-void QfCloudProject::setProjectType( ProjectType projectType )
+void QfCloudProject::setType( ProjectType projectType )
 {
-  if ( mProjectType == projectType )
+  if ( mType == projectType )
     return;
 
-  mProjectType = projectType;
-  emit projectTypeChanged();
+  mType = projectType;
+  emit typeChanged();
 }
 
-QfCloudProject::ProjectType QfCloudProject::projectTypeFromString( const QString &type )
+QfCloudProject::ProjectType QfCloudProject::typeFromString( const QString &type )
 {
   const QString typeLower = type.toLower();
   if ( typeLower == QStringLiteral( "shared_datasets" ) )
@@ -2197,7 +2197,7 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
-  project->mProjectType = QfCloudProject::projectTypeFromString( details.value( "project_type" ).toString() );
+  project->mType = QfCloudProject::typeFromString( details.value( "project_type" ).toString() );
   project->mAttachmentsOnDemandEnabled = details.value( "is_attachment_download_on_demand" ).toBool();
 
   QString username = connection ? connection->username() : QString();
@@ -2221,7 +2221,7 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "projectType" ), static_cast<int>( project->projectType() ) );
+      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "projectType" ), static_cast<int>( project->type() ) );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->attachmentsOnDemandEnabled() );
@@ -2290,7 +2290,7 @@ QfCloudProject *QfCloudProject::fromLocalSettings( const QString &id, QfCloudCon
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
-  project->mProjectType = projectType;
+  project->mType = projectType;
   project->mAttachmentsOnDemandEnabled = isAttachmentDownloadOnDemand;
 
   QString username = connection ? connection->username() : QString();
