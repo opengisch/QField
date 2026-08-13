@@ -71,6 +71,18 @@ TEST_CASE( "QfCloudProject project type" )
     REQUIRE( project->type() == QfCloudProject::ProjectType::Template );
     delete project;
   }
+  SECTION( "Legacy server without project_type falls back to is_shared_datasets_project" )
+  {
+    QVariantHash details;
+    details.insert( QStringLiteral( "id" ), QStringLiteral( "p8" ) );
+    details.insert( QStringLiteral( "name" ), QStringLiteral( "test-project" ) );
+    details.insert( QStringLiteral( "owner" ), QStringLiteral( "tester" ) );
+    details.insert( QStringLiteral( "is_shared_datasets_project" ), true );
+    // No project_type key: simulating it
+    QfCloudProject *project = QfCloudProject::fromDetails( details, nullptr );
+    REQUIRE( project->type() == QfCloudProject::ProjectType::SharedDatasets );
+    delete project;
+  }
 }
 TEST_CASE( "QfCloudProject typeFromString" )
 {

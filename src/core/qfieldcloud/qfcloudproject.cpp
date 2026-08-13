@@ -2197,7 +2197,20 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
-  project->mType = QfCloudProject::typeFromString( details.value( "project_type" ).toString() );
+
+  // QFieldCloud servers predating the `project_type` field still report the
+  // deprecated `is_shared_datasets_project` boolean. Prefer `project_type` when
+  // present, and fall back to the boolean otherwise.
+  // TODO: remove the is_shared_datasets_project fallback once it is dropped from the QFieldCloud API.
+  if ( details.contains( "project_type" ) )
+  {
+    project->mType = QfCloudProject::typeFromString( details.value( "project_type" ).toString() );
+  }
+  else
+  {
+    project->mType = details.value( "is_shared_datasets_project" ).toBool() ? ProjectType::SharedDatasets : ProjectType::Regular;
+  }
+
   project->mAttachmentsOnDemandEnabled = details.value( "is_attachment_download_on_demand" ).toBool();
 
   QString username = connection ? connection->username() : QString();
