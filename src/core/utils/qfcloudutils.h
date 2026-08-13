@@ -35,23 +35,32 @@ struct QfCloudUserInformation
 
     Q_PROPERTY( QString username MEMBER username )
     Q_PROPERTY( QString email MEMBER email )
+    Q_PROPERTY( QString firstName MEMBER firstName )
+    Q_PROPERTY( QString lastName MEMBER lastName )
+    Q_PROPERTY( QString fullName MEMBER fullName )
 
   public:
     QfCloudUserInformation() = default;
 
-    QfCloudUserInformation( const QString &username, const QString &email )
+    QfCloudUserInformation( const QString &username, const QString &email, const QString &firstName = QString(), const QString &lastName = QString(), const QString &fullName = QString() )
       : username( username )
       , email( email )
+      , firstName( firstName )
+      , lastName( lastName )
+      , fullName( fullName )
     {}
 
     explicit QfCloudUserInformation( const QJsonObject cloudUserInformation )
       : username( cloudUserInformation.value( QStringLiteral( "username" ) ).toString() )
       , email( cloudUserInformation.value( QStringLiteral( "email" ) ).toString() )
+      , firstName( cloudUserInformation.value( QStringLiteral( "first_name" ) ).toString() )
+      , lastName( cloudUserInformation.value( QStringLiteral( "last_name" ) ).toString() )
+      , fullName( cloudUserInformation.value( QStringLiteral( "full_name" ) ).toString() )
     {}
 
     bool operator==( const QfCloudUserInformation &other ) const
     {
-      return username == other.username && email == other.email;
+      return username == other.username && email == other.email && firstName == other.firstName && lastName == other.lastName && fullName == other.fullName;
     }
 
     QJsonObject toJson() const
@@ -60,17 +69,24 @@ struct QfCloudUserInformation
 
       cloudUserInformation.insert( "username", username );
       cloudUserInformation.insert( "email", email );
+      cloudUserInformation.insert( "first_name", firstName );
+      cloudUserInformation.insert( "last_name", lastName );
+      cloudUserInformation.insert( "full_name", fullName );
 
       return cloudUserInformation;
     }
 
     bool isEmpty() const
     {
+      // Allow for empty first, last, and full name
       return username.isEmpty() && email.isEmpty();
     }
 
     QString username;
     QString email;
+    QString firstName;
+    QString lastName;
+    QString fullName;
 };
 
 
