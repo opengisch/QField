@@ -37,7 +37,7 @@ QString Qfield::gdalVersion() const
   return QStringLiteral( GDAL_RELEASE_NAME );
 }
 
-bool Qfield::hasNearFieldReader() const
+bool Qfield::hasNfc() const
 {
   return QfNearFieldReader::isSupported();
 }

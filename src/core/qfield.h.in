@@ -56,8 +56,8 @@ class QFIELD_CORE_EXPORT Qfield
     //! GDAL version the application runs against
     Q_PROPERTY( QString gdalVersion READ gdalVersion CONSTANT )
 
-    //! TRUE when the build supports NFC and the device actually carries a reader
-    Q_PROPERTY( bool hasNearFieldReader READ hasNearFieldReader CONSTANT )
+    //! TRUE when the build supports NFC and the device provides it
+    Q_PROPERTY( bool hasNfc READ hasNfc CONSTANT )
 
     //! TRUE when the build supports Bluetooth
     Q_PROPERTY( bool hasBluetooth READ hasBluetooth CONSTANT )
@@ -78,7 +78,7 @@ class QFIELD_CORE_EXPORT Qfield
     QString qtVersion() const;
     QString qgisVersion() const;
     QString gdalVersion() const;
-    bool hasNearFieldReader() const;
+    bool hasNfc() const;
     bool hasBluetooth() const;
     bool hasSerialPort() const;
 };

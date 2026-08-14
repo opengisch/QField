@@ -289,7 +289,7 @@ Item {
     anchors.verticalCenter: searchFieldRect.verticalCenter
     visible: false
 
-    iconSource: Qfield.hasNearFieldReader ? QfTheme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
+    iconSource: Qfield.hasNfc ? QfTheme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : QfTheme.getThemeVectorIcon("ic_qr_code_black_24dp")
     iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
