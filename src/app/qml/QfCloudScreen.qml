@@ -532,31 +532,28 @@ Page {
                   QfToolButton {
                     id: downloadActionButton
 
-                    visible: LocalPath === '' && projectDelegate.projectType !== QfCloudProject.ProjectType.Template
-                    iconSource: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_download_white_24dp")
+                    readonly property bool isTemplate: projectDelegate.projectType === QfCloudProject.ProjectType.Template
+
+                    visible: LocalPath === ''
+                    iconSource: {
+                      if (isTemplate) {
+                        return QfTheme.getThemeVectorIcon("ic_add_white_24dp");
+                      }
+                      return Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_download_white_24dp");
+                    }
                     iconColor: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.mainTextColor : QfTheme.mainColor
                     opacity: Status === QfCloudProject.ProjectStatus.Downloading ? 0.5 : 1
 
                     onClicked: {
-                      if (Status === QfCloudProject.ProjectStatus.Downloading) {
+                      if (isTemplate) {
+                        cloneProjectDialog.sourceProjectId = Id;
+                        cloneProjectName.text = Name;
+                        cloneProjectDialog.open();
+                      } else if (Status === QfCloudProject.ProjectStatus.Downloading) {
                         cloudProjectsModel.projectCancelDownload(Id);
                       } else {
                         cloudProjectsModel.projectPackageAndDownload(Id);
                       }
-                    }
-                  }
-
-                  QfToolButton {
-                    id: createFromTemplateButton
-
-                    visible: projectDelegate.projectType === QfCloudProject.ProjectType.Template
-                    iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
-                    iconColor: QfTheme.mainColor
-
-                    onClicked: {
-                      cloneProjectDialog.sourceProjectId = Id;
-                      cloneProjectName.text = Name;
-                      cloneProjectDialog.open();
                     }
                   }
 

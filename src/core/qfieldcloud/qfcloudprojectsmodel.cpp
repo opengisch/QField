@@ -1359,17 +1359,11 @@ bool QfCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelI
   const bool isTemplate = project->type() == QfCloudProject::ProjectType::Template;
   if ( mShowTemplates )
   {
-    if ( !isTemplate )
-    {
-      return false;
-    }
+    return isTemplate;
   }
-  else
+  else if ( isTemplate )
   {
-    if ( isTemplate )
-    {
-      return false;
-    }
+    return false;
   }
 
   if ( mShowLocalOnly && project->localPath().isEmpty() )
