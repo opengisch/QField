@@ -71,12 +71,12 @@ Page {
         Layout.leftMargin: 68
         visible: !connectionSettings.visible
         boundsBehavior: Flickable.StopAtBounds
-        model: filterModel.hasTemplates && !filterModel.showLocalOnly ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
+        model: cloudProjectsModel.hasTemplates && !filterModel.showLocalOnly ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
 
-        Material.accent: filterModel.hasTemplates ? QfTheme.mainColor : QfTheme.mainTextColor
+        Material.accent: cloudProjectsModel.hasTemplates ? QfTheme.mainColor : QfTheme.mainTextColor
         highlight: Item {
           Rectangle {
-            height: filterModel.hasTemplates ? 2 : 0
+            height: cloudProjectsModel.hasTemplates ? 2 : 0
             color: QfTheme.mainColor
             radius: 4
             width: parent.width
