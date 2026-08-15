@@ -1276,6 +1276,11 @@ void QfCloudProjectsFilterModel::setProjectsModel( QfCloudProjectsModel *project
   if ( mSourceModel )
   {
     disconnect( mSourceModel, &QfCloudProjectsModel::projectsAppended, this, &QfCloudProjectsFilterModel::projectsAppended );
+
+    disconnect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    disconnect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    disconnect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    updateHasTemplates();
   }
 
   mSourceModel = projectsModel;
@@ -1283,6 +1288,8 @@ void QfCloudProjectsFilterModel::setProjectsModel( QfCloudProjectsModel *project
 
   if ( mSourceModel )
   {
+    connect( mSourceModel, &QfCloudProjectsModel::projectsAppended, this, &QfCloudProjectsFilterModel::projectsAppended );
+
     connect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::updateHasTemplates );
     connect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::updateHasTemplates );
     connect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::updateHasTemplates );
@@ -1421,7 +1428,7 @@ void QfCloudProjectsFilterModel::projectsAppended( const QString &owner, const Q
     return;
   }
 
-  if ( mOwnerFilter == owner && mKeywordFilter == search.split( QLatin1Char( ' ' ) ) )
+  if ( mOwnerFilter == owner && mKeywordFilter == search.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts ) )
   {
     mIsSearching = false;
     emit isSearchingChanged();
