@@ -11,6 +11,8 @@ Pane {
   signal applyFilter
 
   property string currentUsername: ""
+  property bool isTemplateSearch: false
+
   property var organizations: []
   property bool organizationsFetched: false
   property string activePreset: ""
@@ -18,14 +20,14 @@ Pane {
     const list = [
       {
         id: "mine",
-        label: qsTr("My own projects"),
+        label: qsTr("My own"),
         query: "owner:" + filterPanel.currentUsername
       }
     ];
     for (const org of filterPanel.organizations) {
       list.push({
         id: "org_" + org,
-        label: qsTr("%1's projects").arg(org),
+        label: qsTr("Owned by %1").arg(org),
         query: "owner:" + org
       });
     }
@@ -237,7 +239,7 @@ Pane {
 
           Label {
             Layout.fillWidth: true
-            text: qsTr("Include public projects")
+            text: filterPanel.isTemplateSearch ? qsTr("Include public templates") : qsTr("Include public projects")
             font: QfTheme.tipFont
             color: QfTheme.mainTextColor
           }
