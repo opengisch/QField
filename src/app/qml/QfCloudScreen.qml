@@ -223,6 +223,7 @@ Page {
             visible: false
 
             currentUsername: cloudConnection.username
+            isTemplateSearch: filterBar.currentIndex === 1
 
             onQueryStringChanged: {
               if (visible) {
@@ -647,21 +648,23 @@ Page {
           Label {
             anchors.fill: parent
             anchors.margins: 20
-            visible: cloudConnection.status === QfCloudConnection.LoggedIn && filterBar.currentIndex === 0 && table.count === 0
+            visible: cloudConnection.status === QfCloudConnection.LoggedIn && table.count === 0
             text: {
+              const isTemplate = filterBar.currentIndex === 1;
               let labelText = "";
               if (cloudProjectsModel.isRefreshing) {
-                labelText = qsTr("Refreshing projects list...");
+                labelText = isTemplate ? qsTr("Refreshing templates list...") : qsTr("Refreshing projects list...");
               } else if (table.model.isSearching) {
-                labelText = qsTr("Searching for projects...");
+                labelText = isTemplate ? qsTr("Searching for templates...") : qsTr("Searching for projects...");
               } else if (searchBar.searchTerm.trim() !== "") {
-                labelText = qsTr("No cloud projects found.");
+                labelText = isTemplate ? qsTr("No templates found.") : qsTr("No cloud projects found.");
                 const parameters = projectFilter.getQueryParametersFromString(searchBar.searchTerm);
                 if (parameters["includePublic"] === false) {
+                  labelText += "\n\n";
                   if (cloudConnection.url == cloudConnection.defaultUrl) {
-                    labelText += "\n\n" + qsTr("Try to %1include public projects%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
+                    labelText += isTemplate ? qsTr("Try to %1include public templates%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>") : qsTr("Try to %1include public projects%2 and see what the community has to offer.").arg("<a href=\"#includePublic\">").arg("</a>");
                   } else {
-                    labelText += "\n\n" + qsTr("Try to %1include public projects%2.").arg("<a href=\"#includePublic\">").arg("</a>");
+                    labelText += isTemplate ? qsTr("Try to %1include public templates%2.").arg("<a href=\"#includePublic\">").arg("</a>") : qsTr("Try to %1include public projects%2.").arg("<a href=\"#includePublic\">").arg("</a>");
                   }
                 }
               } else {
