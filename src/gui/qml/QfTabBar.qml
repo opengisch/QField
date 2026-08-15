@@ -13,6 +13,7 @@ ListView {
 
   orientation: Qt.Horizontal
   highlightFollowsCurrentItem: true
+  highlightResizeDuration: 0
   currentIndex: 0
 
   highlight: Item {

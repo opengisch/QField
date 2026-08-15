@@ -68,8 +68,21 @@ Page {
         id: filterBar
         Layout.fillWidth: true
         Layout.preferredHeight: defaultHeight
+        Layout.leftMargin: 68
         visible: !connectionSettings.visible
+        boundsBehavior: Flickable.StopAtBounds
         model: filterModel.hasTemplates ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
+
+        Material.accent: filterModel.hasTemplates ? QfTheme.mainColor : QfTheme.mainTextColor
+        highlight: Item {
+          Rectangle {
+            height: filterModel.hasTemplates ? 2 : 0
+            color: QfTheme.mainColor
+            radius: 4
+            width: parent.width
+            anchors.bottom: parent.bottom
+          }
+        }
 
         onCurrentIndexChanged: {
           filterModel.showTemplates = currentIndex == 1;
