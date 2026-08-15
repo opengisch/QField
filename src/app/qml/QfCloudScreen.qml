@@ -199,8 +199,21 @@ Page {
           id: filterBar
           Layout.fillWidth: true
           Layout.preferredHeight: defaultHeight
-          visible: false
-          model: [qsTr("Projects")]
+          visible: filterModel.hasTemplates
+          model: [qsTr("Projects"), qsTr("Templates")]
+
+          onCurrentIndexChanged: {
+            filterModel.showTemplates = currentIndex === 1;
+          }
+        }
+
+        Connections {
+          target: filterModel
+          function onHasTemplatesChanged() {
+            if (!filterModel.hasTemplates && filterBar.currentIndex !== 0) {
+              filterBar.currentIndex = 0;
+            }
+          }
         }
 
         QfSearchBar {
@@ -289,6 +302,7 @@ Page {
               projectsModel: cloudProjectsModel
               showLocalOnly: cloudConnection.status !== QfCloudConnection.LoggedIn
               showInValidProjects: settings ? settings.valueBool("/QField/showInvalidProjects", false) : false
+              showTemplates: false
             }
 
             ScrollBar.vertical: QfScrollBar {
@@ -345,6 +359,7 @@ Page {
               property int status: Status
               property int localDeltasCount: LocalDeltasCount
               property bool projectOutdated: ProjectOutdated
+              property int projectType: ProjectType
 
               width: parent ? parent.width : undefined
               height: line.height
@@ -386,6 +401,9 @@ Page {
                     if (cloudConnection.status !== QfCloudConnection.LoggedIn) {
                       return QfTheme.getThemeVectorIcon('ic_cloud_project_localonly_param_48dp');
                     } else {
+                      if (projectDelegate.projectType === QfCloudProject.ProjectType.Template) {
+                        return QfTheme.getThemeVectorIcon('ic_cloud_project_template_param_48dp');
+                      }
                       var status = '';
                       switch (Status) {
                       case QfCloudProject.ProjectStatus.Downloading:
@@ -514,13 +532,24 @@ Page {
                   QfToolButton {
                     id: downloadActionButton
 
+                    readonly property bool isTemplate: projectDelegate.projectType === QfCloudProject.ProjectType.Template
+
                     visible: LocalPath === ''
-                    iconSource: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_download_white_24dp")
+                    iconSource: {
+                      if (isTemplate) {
+                        return QfTheme.getThemeVectorIcon("ic_add_white_24dp");
+                      }
+                      return Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.getThemeVectorIcon("ic_clear_white_24dp") : QfTheme.getThemeVectorIcon("ic_download_white_24dp");
+                    }
                     iconColor: Status === QfCloudProject.ProjectStatus.Downloading ? QfTheme.mainTextColor : QfTheme.mainColor
                     opacity: Status === QfCloudProject.ProjectStatus.Downloading ? 0.5 : 1
 
                     onClicked: {
-                      if (Status === QfCloudProject.ProjectStatus.Downloading) {
+                      if (isTemplate) {
+                        cloneProjectDialog.sourceProjectId = Id;
+                        cloneProjectName.text = Name;
+                        cloneProjectDialog.open();
+                      } else if (Status === QfCloudProject.ProjectStatus.Downloading) {
                         cloudProjectsModel.projectCancelDownload(Id);
                       } else {
                         cloudProjectsModel.projectPackageAndDownload(Id);
@@ -579,7 +608,7 @@ Page {
               onClicked: mouse => {
                 var item = table.itemAt(table.contentX + mouse.x, table.contentY + mouse.y);
                 if (item) {
-                  if (item.projectLocalPath !== '') {
+                  if (item.projectLocalPath !== '' && item.projectType !== QfCloudProject.ProjectType.Template) {
                     qfieldCloudScreen.visible = false;
                     iface.loadFile(item.projectLocalPath, item.projectName);
                   } else {
@@ -953,7 +982,7 @@ Page {
   QfDialog {
     id: cloneProjectDialog
     parent: mainWindow.contentItem
-    title: qsTr("Project Cloning")
+    title: qsTr("Project Creation")
     width: mainWindow.width - 40
     property string sourceProjectId: ""
 
@@ -964,12 +993,20 @@ Page {
       Label {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        text: qsTr("What name do you want to give to your cloned project?")
+        text: qsTr("Enter your project name")
       }
 
       QfTextField {
         id: cloneProjectName
         Layout.fillWidth: true
+      }
+
+      Label {
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        text: qsTr("Allowed characters: 0-9A-Za-z_-")
+        font: QfTheme.tipFont
+        color: QfTheme.secondaryTextColor
       }
     }
 

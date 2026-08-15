@@ -50,13 +50,31 @@ void QfCloudProject::setSharedDatasetsProjectId( const QString &id )
   emit sharedDatasetsProjectIdChanged();
 }
 
-void QfCloudProject::setIsSharedDatasetsProject( bool isSharedDatasetsProject )
+void QfCloudProject::setType( ProjectType projectType )
 {
-  if ( mIsSharedDatasetsProject == isSharedDatasetsProject )
+  if ( mType == projectType )
     return;
 
-  mIsSharedDatasetsProject = isSharedDatasetsProject;
-  emit isSharedDatasetsProjectChanged();
+  mType = projectType;
+  emit typeChanged();
+}
+
+QfCloudProject::ProjectType QfCloudProject::typeFromString( const QString &type )
+{
+  const QString typeLower = type.toLower();
+  if ( typeLower == QStringLiteral( "shared_datasets" ) )
+  {
+    return ProjectType::SharedDatasets;
+  }
+  else if ( typeLower == QStringLiteral( "template" ) )
+  {
+    return ProjectType::Template;
+  }
+  else
+  {
+    // "regular", empty, or any unknown value is treated as a regular project
+    return ProjectType::Regular;
+  }
 }
 
 void QfCloudProject::setIsPublic( bool isPublic )
@@ -2185,7 +2203,20 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
   project->mCanRepackage = details.value( "can_repackage" ).toBool();
   project->mNeedsRepackaging = details.value( "needs_repackaging" ).toBool();
   project->mSharedDatasetsProjectId = details.value( "shared_datasets_project_id" ).toString();
-  project->mIsSharedDatasetsProject = details.value( "is_shared_datasets_project" ).toBool();
+
+  // QFieldCloud servers predating the `project_type` field still report the
+  // deprecated `is_shared_datasets_project` boolean. Prefer `project_type` when
+  // present, and fall back to the boolean otherwise.
+  // TODO: remove the is_shared_datasets_project fallback once it is dropped from the QFieldCloud API.
+  if ( details.contains( "project_type" ) )
+  {
+    project->mType = QfCloudProject::typeFromString( details.value( "project_type" ).toString() );
+  }
+  else
+  {
+    project->mType = details.value( "is_shared_datasets_project" ).toBool() ? ProjectType::SharedDatasets : ProjectType::Regular;
+  }
+
   project->mAttachmentsOnDemandEnabled = details.value( "is_attachment_download_on_demand" ).toBool();
 
   QString username = connection ? connection->username() : QString();
@@ -2209,7 +2240,7 @@ QfCloudProject *QfCloudProject::fromDetails( const QVariantHash &details, QfClou
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "canRepackage" ), project->canRepackage() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "needsRepackaging" ), project->needsRepackaging() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "sharedDatasetsProjectId" ), project->sharedDatasetsProjectId() );
-      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isSharedDatasetsProject" ), project->isSharedDatasetsProject() );
+      QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "projectType" ), static_cast<int>( project->type() ) );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isPublic" ), project->isPublic() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isFeatured" ), project->isFeatured() );
       QfCloudUtils::setProjectSetting( project->id(), QStringLiteral( "isAttachmentDownloadOnDemand" ), project->attachmentsOnDemandEnabled() );
@@ -2242,7 +2273,20 @@ QfCloudProject *QfCloudProject::fromLocalSettings( const QString &id, QfCloudCon
   const QDateTime updatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "updatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const qint64 remoteSizeBytes = QfCloudUtils::projectSetting( id, QStringLiteral( "remoteSizeBytes" ) ).toLongLong();
   const QString sharedDatasetsProjectId = QfCloudUtils::projectSetting( id, QStringLiteral( "sharedDatasetsProjectId" ) ).toString();
-  const bool isSharedDatasetsProject = QfCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool();
+  const int storedProjectType = QfCloudUtils::projectSetting( id, QStringLiteral( "projectType" ), -1 ).toInt();
+  QfCloudProject::ProjectType projectType;
+  if ( storedProjectType >= 0 )
+  {
+    projectType = static_cast<QfCloudProject::ProjectType>( storedProjectType );
+  }
+  else if ( QfCloudUtils::projectSetting( id, QStringLiteral( "isSharedDatasetsProject" ) ).toBool() )
+  {
+    projectType = QfCloudProject::ProjectType::SharedDatasets;
+  }
+  else
+  {
+    projectType = QfCloudProject::ProjectType::Regular;
+  }
   const bool isAttachmentDownloadOnDemand = QfCloudUtils::projectSetting( id, QStringLiteral( "isAttachmentDownloadOnDemand" ) ).toBool();
   const QDateTime dataLastUpdatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "dataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
   const QDateTime restrictedDataLastUpdatedAt = QDateTime::fromString( QfCloudUtils::projectSetting( id, QStringLiteral( "restrictedDataLastUpdatedAt" ) ).toString(), Qt::DateFormat::ISODate );
@@ -2265,7 +2309,7 @@ QfCloudProject *QfCloudProject::fromLocalSettings( const QString &id, QfCloudCon
   project->mCanRepackage = false;
   project->mNeedsRepackaging = false;
   project->mSharedDatasetsProjectId = sharedDatasetsProjectId;
-  project->mIsSharedDatasetsProject = isSharedDatasetsProject;
+  project->mType = projectType;
   project->mAttachmentsOnDemandEnabled = isAttachmentDownloadOnDemand;
 
   QString username = connection ? connection->username() : QString();

@@ -665,6 +665,7 @@ QHash<int, QByteArray> QfCloudProjectsModel::roleNames() const
   roles[LastLocalPushDeltasRole] = "LastLocalPushDeltas";
   roles[UserRoleRole] = "UserRole";
   roles[UserRoleOriginRole] = "UserRoleOrigin";
+  roles[ProjectTypeRole] = "ProjectType";
 
   return roles;
 }
@@ -696,7 +697,7 @@ void QfCloudProjectsModel::insertProjects( const QList<QfCloudProject *> &projec
           mProjects[i]->setCanRepackage( project->canRepackage() );
           mProjects[i]->setNeedsRepackaging( project->needsRepackaging() );
           mProjects[i]->setSharedDatasetsProjectId( project->sharedDatasetsProjectId() );
-          mProjects[i]->setIsSharedDatasetsProject( project->isSharedDatasetsProject() );
+          mProjects[i]->setType( project->type() );
           mProjects[i]->setDataLastUpdatedAt( project->dataLastUpdatedAt() );
           mProjects[i]->setRestrictedDataLastUpdatedAt( project->restrictedDataLastUpdatedAt() );
           emit dataChanged( index( i, 0 ), index( i, 0 ) );
@@ -874,7 +875,7 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
     QVariantHash projectDetails = project.toObject().toVariantHash();
     QfCloudProject *cloudProject = QfCloudProject::fromDetails( projectDetails, mCloudConnection, mGpkgFlusher );
 
-    if ( cloudProject->isSharedDatasetsProject() )
+    if ( cloudProject->type() == QfCloudProject::ProjectType::SharedDatasets )
     {
       delete cloudProject;
     }
@@ -920,7 +921,7 @@ void QfCloudProjectsModel::loadProjects( const QJsonArray &remoteProjects, bool 
 
         // If the cloud project is a special shared dataset project or if the cloud project
         // had a folder but was not downloaded properly, do not add to the model
-        if ( cloudProject->isSharedDatasetsProject() || cloudProject->localPath().isEmpty() )
+        if ( cloudProject->type() == QfCloudProject::ProjectType::SharedDatasets || cloudProject->localPath().isEmpty() )
         {
           delete cloudProject;
         }
@@ -1047,6 +1048,9 @@ QVariant QfCloudProjectsModel::data( const QModelIndex &index, int role ) const
 
     case UserRoleOriginRole:
       return project->userRoleOrigin();
+
+    case ProjectTypeRole:
+      return QVariant::fromValue( project->type() );
   }
 
   return QVariant();
@@ -1279,7 +1283,10 @@ void QfCloudProjectsFilterModel::setProjectsModel( QfCloudProjectsModel *project
 
   if ( mSourceModel )
   {
-    connect( mSourceModel, &QfCloudProjectsModel::projectsAppended, this, &QfCloudProjectsFilterModel::projectsAppended );
+    connect( mSourceModel, &QAbstractItemModel::rowsInserted, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    connect( mSourceModel, &QAbstractItemModel::rowsRemoved, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    connect( mSourceModel, &QAbstractItemModel::modelReset, this, &QfCloudProjectsFilterModel::updateHasTemplates );
+    updateHasTemplates();
   }
 
   emit projectsModelChanged();
@@ -1345,6 +1352,16 @@ bool QfCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelI
   const QModelIndex currentRowIndex = mSourceModel->index( source_row, 0, source_parent );
   const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( currentRowIndex, QfCloudProjectsModel::IdRole ).toString() );
   if ( !project )
+  {
+    return false;
+  }
+
+  const bool isTemplate = project->type() == QfCloudProject::ProjectType::Template;
+  if ( mShowTemplates )
+  {
+    return isTemplate;
+  }
+  else if ( isTemplate )
   {
     return false;
   }
@@ -1504,6 +1521,54 @@ void QfCloudProjectsFilterModel::setShowInValidProjects( bool showInValidProject
   emit showInValidProjectsChanged();
 }
 
+void QfCloudProjectsFilterModel::setShowTemplates( bool showTemplates )
+{
+  if ( mShowTemplates == showTemplates )
+  {
+    return;
+  }
+
+  beginFilterChange();
+  mShowTemplates = showTemplates;
+  endFilterChange( QSortFilterProxyModel::Direction::Rows );
+
+  emit showTemplatesChanged();
+}
+
+bool QfCloudProjectsFilterModel::showTemplates() const
+{
+  return mShowTemplates;
+}
+
+bool QfCloudProjectsFilterModel::hasTemplates() const
+{
+  return mHasTemplates;
+}
+
+void QfCloudProjectsFilterModel::updateHasTemplates()
+{
+  bool hasTemplates = false;
+  if ( mSourceModel )
+  {
+    const int rows = mSourceModel->rowCount( QModelIndex() );
+    for ( int i = 0; i < rows; ++i )
+    {
+      const QModelIndex idx = mSourceModel->index( i, 0 );
+      const QfCloudProject *project = mSourceModel->findProject( mSourceModel->data( idx, QfCloudProjectsModel::IdRole ).toString() );
+      if ( project && project->type() == QfCloudProject::ProjectType::Template )
+      {
+        hasTemplates = true;
+        break;
+      }
+    }
+  }
+
+  if ( mHasTemplates != hasTemplates )
+  {
+    mHasTemplates = hasTemplates;
+    emit hasTemplatesChanged();
+  }
+}
 
 bool QfCloudProjectsFilterModel::showInValidProjects() const
 {

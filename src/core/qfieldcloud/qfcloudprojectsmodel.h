@@ -91,7 +91,8 @@ class QfCloudProjectsModel : public QAbstractListModel
       LastLocalExportedAtRole,
       LastLocalPushDeltasRole,
       UserRoleRole,
-      UserRoleOriginRole
+      UserRoleOriginRole,
+      ProjectTypeRole
     };
 
     //! Attributes controlling fetching of projects
@@ -273,6 +274,8 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     Q_PROPERTY( bool showInValidProjects READ showInValidProjects WRITE setShowInValidProjects NOTIFY showInValidProjectsChanged )
     Q_PROPERTY( bool showFeaturedOnTop READ showFeaturedOnTop WRITE setShowFeaturedOnTop NOTIFY showFeaturedOnTopChanged )
     Q_PROPERTY( bool isSearching READ isSearching NOTIFY isSearchingChanged )
+    Q_PROPERTY( bool showTemplates READ showTemplates WRITE setShowTemplates NOTIFY showTemplatesChanged )
+    Q_PROPERTY( bool hasTemplates READ hasTemplates NOTIFY hasTemplatesChanged )
 
   public:
     explicit QfCloudProjectsFilterModel( QObject *parent = nullptr );
@@ -325,6 +328,24 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     bool showInValidProjects() const;
 
     /**
+     * Returns TRUE when the filtered list shows template projects only, hiding all
+     * non-template projects. When FALSE, template projects are excluded from the list.
+     */
+    bool showTemplates() const;
+
+    /**
+     * Sets whether the filtered list shows template projects only.
+     * \param showTemplates when TRUE, only template projects are shown; when FALSE, they are hidden
+     */
+    void setShowTemplates( bool showTemplates );
+
+    /**
+     * Returns TRUE if the source model contains at least one template project,
+     * regardless of the currently applied filters.
+     */
+    bool hasTemplates() const;
+
+    /**
      * Sets whether featured projects will be shown on top of the list.
      */
     void setShowFeaturedOnTop( bool showFeaturedOnTop );
@@ -348,9 +369,12 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     void showInValidProjectsChanged();
     void showFeaturedOnTopChanged();
     void isSearchingChanged();
+    void showTemplatesChanged();
+    void hasTemplatesChanged();
 
   private slots:
     void triggerProjectsAppending();
+    void updateHasTemplates();
     void projectsAppended( const QString &owner, const QString &search, const bool hasError = false, const QString &errorString = QString() );
 
   protected:
@@ -367,6 +391,8 @@ class QfCloudProjectsFilterModel : public QSortFilterProxyModel
     QString mOwnerFilter;
     bool mIncludePublic = false;
     bool mIsSearching = false;
+    bool mShowTemplates = false;
+    bool mHasTemplates = false;
 
     QTimer mProjectsAppendingTimer;
 };

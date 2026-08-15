@@ -14,6 +14,8 @@ ColumnLayout {
   property var cloudProject: undefined
   property string lastSubscriptionUser: ""
 
+  readonly property bool isTemplate: cloudProject != undefined && cloudProject.type === QfCloudProject.ProjectType.Template
+
   onCloudProjectChanged: {
     if (cloudProject != undefined) {
       cloudProject.downloadThumbnail();
@@ -298,7 +300,7 @@ ColumnLayout {
 
   RowLayout {
     Layout.fillWidth: true
-    visible: cloudProject != undefined && cloudProject.localPath !== "" && (((Date.now() - cloudProject.lastLocalExportedAt) / 1000 > 60) || (cloudProject.deltaFileWrapper === undefined || cloudProject.deltasCount > 0))
+    visible: !projectDetails.isTemplate && cloudProject != undefined && cloudProject.localPath !== "" && (((Date.now() - cloudProject.lastLocalExportedAt) / 1000 > 60) || (cloudProject.deltaFileWrapper === undefined || cloudProject.deltasCount > 0))
 
     QfButton {
       id: syncButton
@@ -340,10 +342,16 @@ ColumnLayout {
   QfButton {
     id: downloadProjectInDetailsLayout
     Layout.fillWidth: true
-    dropdown: !showProgress
-    progressValue: cloudProject ? cloudProject.downloadProgress : 0
-    showProgress: cloudProject != undefined && cloudProject.status === QfCloudProject.ProjectStatus.Downloading
+    dropdown: !projectDetails.isTemplate && !showProgress
+    progressValue: !projectDetails.isTemplate && cloudProject ? cloudProject.downloadProgress : 0
+    showProgress: (projectDetails.isTemplate && cloudProjectsModel.isCreating) || (cloudProject != undefined && cloudProject.status === QfCloudProject.ProjectStatus.Downloading)
     text: {
+      if (projectDetails.isTemplate) {
+        if (cloudProjectsModel.isCreating) {
+          return qsTr("Creating project");
+        }
+        return qsTr("Create project from template");
+      }
       if (showProgress) {
         if (cloudProject.packagingStatus === QfCloudProject.PackagingBusyStatus) {
           return qsTr("QFieldCloud is packaging project, hold tight");
@@ -358,10 +366,17 @@ ColumnLayout {
       return qsTr("Download project");
     }
     visible: cloudProject != undefined && cloudProject.localPath === ""
-    enabled: cloudProject != undefined && cloudProject.status !== QfCloudProject.ProjectStatus.Downloading
+    enabled: (projectDetails.isTemplate && !cloudProjectsModel.isCreating) || (cloudProject != undefined && cloudProject.status !== QfCloudProject.ProjectStatus.Downloading)
 
     onClicked: {
-      if (cloudProject != undefined) {
+      if (cloudProject == undefined) {
+        return;
+      }
+      if (projectDetails.isTemplate) {
+        cloneProjectDialog.sourceProjectId = cloudProject.id;
+        cloneProjectName.text = cloudProject.name;
+        cloneProjectDialog.open();
+      } else {
         displayToast(qsTr("Downloading project %1").arg(cloudProject.name));
         cloudProjectsModel.projectPackageAndDownload(cloudProject.id);
       }

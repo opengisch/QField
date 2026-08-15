@@ -75,6 +75,7 @@ class QfCloudProject : public QObject
     Q_PROPERTY( QDateTime lastLocalPushDeltas READ lastLocalPushDeltas NOTIFY lastLocalPushDeltasChanged )
     Q_PROPERTY( QDateTime lastLocalExportedAt READ lastLocalExportedAt NOTIFY lastLocalExportedAtChanged )
 
+    Q_PROPERTY( ProjectType type READ type NOTIFY typeChanged )
     Q_PROPERTY( bool isPublic READ isPublic NOTIFY isPublicChanged )
     Q_PROPERTY( bool isFeatured READ isFeatured NOTIFY isFeaturedChanged )
     Q_PROPERTY( bool isOutdated READ isOutdated NOTIFY isOutdatedChanged )
@@ -120,6 +121,16 @@ class QfCloudProject : public QObject
     };
 
     Q_ENUM( ProjectStatus )
+
+    //! The type of the cloud project, as reported by the REST endpoint.
+    enum class ProjectType
+    {
+      Regular,
+      SharedDatasets,
+      Template,
+    };
+
+    Q_ENUM( ProjectType )
 
     //! Whether the project has experienced an error.
     enum ProjectErrorStatus
@@ -220,8 +231,11 @@ class QfCloudProject : public QObject
     QString sharedDatasetsProjectId() const { return mSharedDatasetsProjectId; }
     void setSharedDatasetsProjectId( const QString &id );
 
-    bool isSharedDatasetsProject() const { return mIsSharedDatasetsProject; }
-    void setIsSharedDatasetsProject( bool isSharedDatasetsProject );
+    ProjectType type() const { return mType; }
+    void setType( ProjectType projectType );
+
+    //! Returns the ProjectType matching the given \a type string; unknown or empty values return ProjectType::Regular.
+    static QfCloudProject::ProjectType typeFromString( const QString &type );
 
     bool isPublic() const { return mIsPublic; }
     void setIsPublic( bool isPublic );
@@ -386,7 +400,7 @@ class QfCloudProject : public QObject
     void idChanged();
 
     void sharedDatasetsProjectIdChanged();
-    void isSharedDatasetsProjectChanged();
+    void typeChanged();
 
     void isPublicChanged();
     void isFeaturedChanged();
@@ -513,7 +527,7 @@ class QfCloudProject : public QObject
 
     QString mId;
     QString mSharedDatasetsProjectId;
-    bool mIsSharedDatasetsProject;
+    ProjectType mType = ProjectType::Regular;
 
     bool mIsPublic = false;
     bool mIsFeatured = false;
@@ -599,6 +613,7 @@ class QfCloudProject : public QObject
     static const int sDelayBeforeStatusRetry = 1000;
 };
 
+Q_DECLARE_METATYPE( QfCloudProject::ProjectType )
 Q_DECLARE_METATYPE( QfCloudProject::ProjectStatus )
 Q_DECLARE_METATYPE( QfCloudProject::ProjectCheckout )
 Q_DECLARE_METATYPE( QfCloudProject::ProjectCheckouts )
