@@ -698,7 +698,7 @@ Page {
           QfButton {
             id: refreshProjectsListBtn
             Layout.fillWidth: true
-            text: qsTr("Refresh projects list")
+            text: filterBar.currentIndex === 1 ? qsTr("Refresh templates list") : qsTr("Refresh projects list")
             enabled: cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.state === QfCloudConnection.Idle && cloudProjectsModel.busyProjectIds.length === 0
             showProgress: cloudProjectsModel.isRefreshing || table.model.isSearching
             progressValue: 0
