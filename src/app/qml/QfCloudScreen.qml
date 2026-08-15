@@ -71,7 +71,7 @@ Page {
         Layout.leftMargin: 68
         visible: !connectionSettings.visible
         boundsBehavior: Flickable.StopAtBounds
-        model: filterModel.hasTemplates ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
+        model: filterModel.hasTemplates && !filterModel.showLocalOnly ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
 
         Material.accent: filterModel.hasTemplates ? QfTheme.mainColor : QfTheme.mainTextColor
         highlight: Item {

@@ -1356,17 +1356,17 @@ bool QfCloudProjectsFilterModel::filterAcceptsRow( int source_row, const QModelI
     return false;
   }
 
+  if ( mShowLocalOnly && project->localPath().isEmpty() )
+  {
+    return false;
+  }
+
   const bool isTemplate = project->type() == QfCloudProject::ProjectType::Template;
   if ( mShowTemplates )
   {
     return isTemplate;
   }
   else if ( isTemplate )
-  {
-    return false;
-  }
-
-  if ( mShowLocalOnly && project->localPath().isEmpty() )
   {
     return false;
   }
