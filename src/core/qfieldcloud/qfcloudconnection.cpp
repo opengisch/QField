@@ -15,7 +15,6 @@
 
 #include "qfcloudconnection.h"
 #include "qfcloudutils.h"
-#include "qfield.h"
 
 #include <QDirIterator>
 #include <QFile>
@@ -756,7 +755,7 @@ QfNetworkReply *QfCloudConnection::get( QNetworkRequest &request, const QUrl &ur
 {
   QUrlQuery urlQuery = QUrlQuery( url.query() );
 
-  for ( auto [key, value] : qfield::asKeyValueRange( params ) )
+  for ( auto [key, value] : params.asKeyValueRange() )
   {
     urlQuery.addQueryItem( key, value.toString() );
   }

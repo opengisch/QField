@@ -143,7 +143,7 @@ class Setup : public QObject
 
       QCoreApplication::setOrganizationName( "OPENGIS.ch" );
       QCoreApplication::setOrganizationDomain( "opengis.ch" );
-      QCoreApplication::setApplicationName( qfield::appName );
+      QCoreApplication::setApplicationName( Qfield::appName );
 
       QgsApplication::setPrefixPath( QGIS_PREFIX_PATH, true );
 

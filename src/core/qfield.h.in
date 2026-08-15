@@ -18,45 +18,70 @@
 #ifndef QFIELD_H
 #define QFIELD_H
 
+#include "qfield_core_export.h"
+
+#include <QObject>
 #include <QString>
 
 /**
- * Contains "polyfills" for backporting c++ features from standards > c++17 and Qt global methods
- * added later than our minimum version, as well nice some sugar.
+ * \brief Describes the running application: how it was built, and what it was built against.
+ *
+ * Everything here is settled by the time the application is up and never changes
+ * afterwards, hence the CONSTANT properties. QML reaches it as `Qfield` through `import org.qfield.core`.
+ *
+ * \ingroup core
  */
-namespace qfield
+class QFIELD_CORE_EXPORT Qfield
 {
-  /**
-   * Can be used to iterate over `QMap`s in a convenient way.
-   *
-   * \code{.cpp}
-   * for (auto [key, value]: asKeyValueRange(map))
-   * {
-   *   // do something with `key` and `value`
-   * }
-   * \endcode
-   */
-  template<typename T> class asKeyValueRange
-  {
-    public:
-      explicit asKeyValueRange( T &data )
-        : mData { data }
-      {
-      }
+    Q_GADGET
 
-      auto begin() { return mData.keyValueBegin(); }
+    //! Name the build ships under
+    Q_PROPERTY( QString name READ name CONSTANT )
 
-      auto end() { return mData.keyValueEnd(); }
+    //! Release tag the build came from
+    Q_PROPERTY( QString version READ version CONSTANT )
 
-    private:
-      T &mData;
-  };
+    //! Version as shown to users
+    Q_PROPERTY( QString versionString READ versionString CONSTANT )
 
-  static inline const QString gitRev{ QStringLiteral( "@GIT_REV@" ) };
-  static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
-  static inline const QString appVersionStr{ QStringLiteral( "@APP_VERSION_STR@" ) };
-  static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
-}; // namespace qfield
+    //! Full SHA of the commit the build came from
+    Q_PROPERTY( QString gitRevision READ gitRevision CONSTANT )
+
+    //! Qt version the application runs against
+    Q_PROPERTY( QString qtVersion READ qtVersion CONSTANT )
+
+    //! QGIS version the application runs against, formatted `<major>.<minor>.<patch>-<release name>`
+    Q_PROPERTY( QString qgisVersion READ qgisVersion CONSTANT )
+
+    //! GDAL version the application runs against
+    Q_PROPERTY( QString gdalVersion READ gdalVersion CONSTANT )
+
+    //! TRUE when the build supports NFC and the device provides it
+    Q_PROPERTY( bool hasNfc READ hasNfc CONSTANT )
+
+    //! TRUE when the build supports Bluetooth
+    Q_PROPERTY( bool hasBluetooth READ hasBluetooth CONSTANT )
+
+    //! TRUE when the build supports serial ports
+    Q_PROPERTY( bool hasSerialPort READ hasSerialPort CONSTANT )
+
+  public:
+    static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
+    static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
+    static inline const QString appVersionStr{ QStringLiteral( "@APP_VERSION_STR@" ) };
+    static inline const QString gitRev{ QStringLiteral( "@GIT_REV@" ) };
+
+    QString name() const { return appName; }
+    QString version() const { return appVersion; }
+    QString versionString() const { return appVersionStr; }
+    QString gitRevision() const { return gitRev; }
+    QString qtVersion() const;
+    QString qgisVersion() const;
+    QString gdalVersion() const;
+    bool hasNfc() const;
+    bool hasBluetooth() const;
+    bool hasSerialPort() const;
+};
 
 #cmakedefine QFIELDDEBUG
 

@@ -79,6 +79,7 @@ set(QFIELD_CORE_SRCS
     qfgeometry.cpp
     qfgridmodel.cpp
     qfidentifytool.cpp
+    qfield.cpp
     qffeaturehistory.cpp
     qflayerresolver.cpp
     qflayertreemapcanvasbridge.cpp

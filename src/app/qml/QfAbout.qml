@@ -79,20 +79,20 @@ Item {
             wrapMode: Text.WordWrap
 
             text: {
-              let links = '<a href="https://github.com/opengisch/QField/commit/' + gitRev + '">' + gitRev.substr(0, 7) + '</a>';
-              if (appVersion && appVersion !== '1.0.0' && appVersion !== '0') {
-                links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + appVersion + '">' + appVersion + '</a>';
+              let links = '<a href="https://github.com/opengisch/QField/commit/' + Qfield.gitRevision + '">' + Qfield.gitRevision.substr(0, 7) + '</a>';
+              if (Qfield.version && Qfield.version !== '1.0.0' && Qfield.version !== '0') {
+                links += ' <a href="https://github.com/opengisch/QField/releases/tag/' + Qfield.version + '">' + Qfield.version + '</a>';
               }
 
-              let title = appName;
-              if (appName === "QField") {
-                title += "<br>" + appVersionStr + " (" + links + ")";
+              let title = Qfield.name;
+              if (Qfield.name === "QField") {
+                title += "<br>" + Qfield.versionString + " (" + links + ")";
               } else {
                 title += "<br>" + qsTr("Powered by QField") + " (" + links + ")";
               }
 
-              // the `qgisVersion` has the format `<int>.<int>.<int>-<any text>`, so we get everything before the first `-`
-              const dependencies = [["QGIS", qgisVersion.split("-", 1)[0]], ["GDAL/OGR", gdalVersion], ["Qt", qVersion]];
+              // the QGIS version has the format `<int>.<int>.<int>-<any text>`, so we get everything before the first `-`
+              const dependencies = [["QGIS", Qfield.qgisVersion.split("-", 1)[0]], ["GDAL/OGR", Qfield.gdalVersion], ["Qt", Qfield.qtVersion]];
               return title + "<br>" + dependencies.map(pair => pair.join(" ")).join(" | ");
             }
 
@@ -152,7 +152,7 @@ Item {
         let isDesktopPlatform = Qt.platform.os !== "ios" && Qt.platform.os !== "android";
         let dataDirs = platformUtilities.appDataDirs();
         if (dataDirs.length > 0) {
-          label = dataDirs.length > 1 ? qsTr('%1 app directories').arg(appName) : qsTr('%1 app directory').arg(appName);
+          label = dataDirs.length > 1 ? qsTr('%1 app directories').arg(Qfield.name) : qsTr('%1 app directory').arg(Qfield.name);
           for (let dataDir of dataDirs) {
             if (isDesktopPlatform) {
               label += '<br><a href="' + QfUrlUtils.fromString(dataDir) + '">' + dataDir + '</a>';
@@ -171,7 +171,7 @@ Item {
       id: sponsorshipButton
       Layout.fillWidth: true
       icon.source: QfTheme.getThemeVectorIcon('ic_sponsor_white_24dp')
-      enabled: appName === "QField"
+      enabled: Qfield.name === "QField"
       visible: enabled
 
       text: qsTr('Support QField')
@@ -180,7 +180,7 @@ Item {
 
     QfButton {
       id: linksButton
-      dropdown: appName === "QField"
+      dropdown: Qfield.name === "QField"
       Layout.fillWidth: true
       icon.source: QfTheme.getThemeVectorIcon('ic_book_white_24dp')
 
