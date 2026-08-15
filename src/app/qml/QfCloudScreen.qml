@@ -199,7 +199,7 @@ Page {
           Layout.preferredHeight: searchHeight
           enableFilterButton: true
           filterActive: projectFilter.visible
-          placeHolderText: qsTr("Search for projects")
+          placeHolderText: filterModel.showTemplates ? qsTr("Search for templates") : qsTr("Search for projects")
           parameterKeys: ["owner", "include"]
           z: 10
 
