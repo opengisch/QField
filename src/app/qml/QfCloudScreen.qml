@@ -22,7 +22,7 @@ Page {
   rightPadding: mainWindow.sceneRightMargin
 
   header: QfPageHeader {
-    title: qsTr("QFieldCloud Projects")
+    title: qsTr("QFieldCloud")
 
     showBackButton: true
     showApplyButton: false
@@ -62,34 +62,32 @@ Page {
       id: connectionInformation
       spacing: 2
       Layout.fillWidth: true
-      visible: (cloudConnection.status === QfCloudConnection.LoggedIn || table.count > 0) && projectsSwipeView.currentIndex !== 1
+      visible: projectsSwipeView.currentIndex !== 1
 
-      Label {
+      QfTabBar {
+        id: filterBar
         Layout.fillWidth: true
-        padding: 10
-        opacity: projectsSwipeView.visible ? 1 : 0
-        text: switch (cloudConnection.status) {
-        case 0:
-          qsTr('Disconnected from the cloud.');
-          break;
-        case 1:
-          qsTr('Connecting to the cloud.');
-          break;
-        case 2:
-          qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
-          break;
+        Layout.preferredHeight: defaultHeight
+        visible: !connectionSettings.visible
+        model: filterModel.hasTemplates ? [qsTr("Projects"), qsTr("Templates")] : [qsTr("Projects")]
+
+        onCurrentIndexChanged: {
+          filterModel.showTemplates = currentIndex == 1;
         }
-        wrapMode: Text.WordWrap
-        font: QfTheme.tipFont
-        color: QfTheme.mainTextColor
+      }
+
+      Item {
+        id: topSpacer
+        Layout.fillWidth: true
+        visible: !filterBar.visible
       }
 
       Rectangle {
         id: cloudAvatarRect
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.margins: 10
-        width: 48
-        height: 48
+        Layout.preferredWidth: 48
+        Layout.preferredHeight: 48
         radius: width / 2
         color: QfTheme.controlBackgroundAlternateColor
         layer.enabled: true
@@ -193,27 +191,6 @@ Page {
 
         QfCloudStatusBanner {
           cloudServiceStatus: qfieldCloudScreen.cloudServiceStatus
-        }
-
-        QfTabBar {
-          id: filterBar
-          Layout.fillWidth: true
-          Layout.preferredHeight: defaultHeight
-          visible: filterModel.hasTemplates
-          model: [qsTr("Projects"), qsTr("Templates")]
-
-          onCurrentIndexChanged: {
-            filterModel.showTemplates = currentIndex === 1;
-          }
-        }
-
-        Connections {
-          target: filterModel
-          function onHasTemplatesChanged() {
-            if (!filterModel.hasTemplates && filterBar.currentIndex !== 0) {
-              filterBar.currentIndex = 0;
-            }
-          }
         }
 
         QfSearchBar {
