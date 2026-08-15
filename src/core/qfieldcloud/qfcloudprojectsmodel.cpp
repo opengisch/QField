@@ -1162,7 +1162,7 @@ void QfCloudProjectsModel::createProject( const QString &name, const QString &fr
   mIsCreating = true;
   emit isCreatingChanged();
 
-  QString sanitizedName = name;
+  QString sanitizedName = name.normalized( QString::NormalizationForm_KD );
   sanitizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
   QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( mUsername );
